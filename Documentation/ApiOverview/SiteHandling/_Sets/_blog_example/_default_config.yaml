@@ -1,0 +1,4 @@
+name: t3docs/blog-example-styles
+label: Blog example default styles
+dependencies:
+  - t3docs/blog-example

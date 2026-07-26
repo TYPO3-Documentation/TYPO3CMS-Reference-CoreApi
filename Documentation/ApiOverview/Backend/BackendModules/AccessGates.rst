@@ -112,7 +112,8 @@ Possible results are:
 Example: Custom editor gate
 ---------------------------
 
-..  include:: _AccessGate/_ExampleGate.rst.txt
+.. literalinclude:: /ApiOverview/Backend/BackendModules/_AccessGate/_ExampleGate.php
+   :caption: EXT:examples/Classes/Module/AccessGate/ExampleGate.php
 
 The example above defines a custom access type called :php:`exampleUser`.
 

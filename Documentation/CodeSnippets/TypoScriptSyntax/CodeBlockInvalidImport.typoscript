@@ -1,0 +1,5 @@
+myIdentifier = TEXT
+myIdentifier {
+   @import 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
+   value = foo
+}

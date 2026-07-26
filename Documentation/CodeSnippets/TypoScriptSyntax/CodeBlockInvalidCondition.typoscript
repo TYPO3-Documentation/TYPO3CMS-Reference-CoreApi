@@ -1,0 +1,7 @@
+myIdentifier = TEXT
+myIdentifier {
+   value = foo
+   [frontend.user.isLoggedIn]
+      value = bar
+   [end]
+}

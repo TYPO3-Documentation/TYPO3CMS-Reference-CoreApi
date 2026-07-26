@@ -1,0 +1,3 @@
+myIdentifier = TEXT
+myIdentifier {
+   value = bar }

@@ -4,8 +4,6 @@
 // ddev exec .Build/vendor/bin/typo3 codesnippet:create Documentation/CodeSnippets/
 
 return array_merge(
-    include ('DataProcessing.php'),
-    include ('FlexForms.php'),
     include ('LoginProvider.php'),
     include ('ManualCore.php'),
 );

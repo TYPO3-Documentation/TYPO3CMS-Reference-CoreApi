@@ -29,7 +29,8 @@ The data processor can be configured through a TypoScript setup configuration. A
 custom data processor can be used in the definition of a "new custom content
 element" as follows:
 
-..  include:: /CodeSnippets/DataProcessing/CustomCategoryProcessorTypoScript.rst.txt
+.. literalinclude:: /CodeSnippets/DataProcessing/CustomCategoryProcessorTypoScript.typoscript
+   :caption: EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript
 
 In the extension *examples* you can find the code in
 :file:`EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript`.
@@ -113,7 +114,8 @@ The main method :php:`process()` gets called with the following parameters:
 
 This is an example implementation of a custom data processor:
 
-..  include:: /CodeSnippets/DataProcessing/CustomCategoryProcessor.rst.txt
+.. literalinclude:: /CodeSnippets/DataProcessing/CustomCategoryProcessor.php
+   :caption: EXT:examples/Classes/DataProcessing/CustomCategoryProcessor.php
 
 In the extension *examples* you can find the code in
 :file:`EXT:/examples/Classes/DataProcessing/CustomCategoryProcessor.php`.

@@ -1,0 +1,32 @@
+<?php
+
+use TYPO3\CMS\Extbase\Attribute as Extbase;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
+
+class Tea extends AbstractEntity
+{
+    /**
+     * @var FileReference|null
+     * @phpstan-var FileReference|LazyLoadingProxy|null
+     * @Extbase\ORM\Lazy
+     */
+    protected $image;
+
+    public function getImage(): ?FileReference
+    {
+        if ($this->image instanceof LazyLoadingProxy) {
+            /** @var FileReference $image */
+            $image = $this->image->_loadRealInstance();
+            $this->image = $image;
+        }
+
+        return $this->image;
+    }
+
+    public function setImage(FileReference $image): void
+    {
+        $this->image = $image;
+    }
+}

@@ -1,0 +1,22 @@
+<?php
+
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
+
+/**
+ * This middleware can be used to retrieve a list of seasons with their according translation.
+ * To get the correct translation the URL must be within a base path defined in site
+ * handling. Some examples:
+ * "/en/haiku-season-list.json" for English translation (if /en is the configured base path)
+ * "/de/haiku-season-list.json" for German translation (if /de is the configured base path)
+ * If the base path is not available in the according site the default language will be used.
+ */
+final readonly class HaikuSeasonList implements MiddlewareInterface
+{
+    public function __construct(
+        private LanguageServiceFactory $languageServiceFactory,
+        private ResponseFactoryInterface $responseFactory,
+        private StreamFactoryInterface $streamFactory,
+    ) {}
+}
