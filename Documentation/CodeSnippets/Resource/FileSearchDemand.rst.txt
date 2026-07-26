@@ -6,10 +6,10 @@
     Immutable value object that represents a search demand for files.
 
     ..  php:method:: create()
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
     ..  php:method:: createForSearchTerm(string $searchTerm)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         :param $searchTerm: the searchTerm
 
@@ -38,17 +38,17 @@
         :returns: `bool`
 
     ..  php:method:: withSearchTerm(string $searchTerm)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         :param $searchTerm: the searchTerm
 
     ..  php:method:: withFolder(\TYPO3\CMS\Core\Resource\Folder $folder)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         :param $folder: the folder
 
     ..  php:method:: withStartResult(int $firstResult)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         Requests the position of the first result to retrieve (the "offset").
 
@@ -57,22 +57,22 @@
         :param $firstResult: the firstResult
 
     ..  php:method:: withMaxResults(int $maxResults)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         :param $maxResults: the maxResults
 
     ..  php:method:: addSearchField(string $tableName, string $field)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         :param $tableName: the tableName
         :param $field: the field
 
     ..  php:method:: addOrdering(string $tableName, string $fieldName, string $direction = 'ASC')
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`
 
         :param $tableName: the tableName
         :param $fieldName: the fieldName
         :param $direction: the direction, default: 'ASC'
 
     ..  php:method:: withRecursive()
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Resource\Search\FileSearchDemand`

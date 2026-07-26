@@ -21,7 +21,7 @@
     - Although this is not optimal, I don't see any other way to do so in the current code.
 
     ..  php:method:: addJavaScript(string $identifier, string $source, array $attributes = [], array $options = [])
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
         :param $source: URI to JavaScript file (allows EXT: syntax)
@@ -29,12 +29,12 @@
         :param $options: ['priority' => true] means rendering before other tags, default: []
 
     ..  php:method:: addJavaScriptModule(string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: Bare module identifier like @my/package/Filename.js
 
     ..  php:method:: addInlineJavaScript(string $identifier, string $source, array $attributes = [], array $options = [])
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
         :param $source: JavaScript code
@@ -42,7 +42,7 @@
         :param $options: ['priority' => true] means rendering before other tags, default: []
 
     ..  php:method:: addStyleSheet(string $identifier, string $source, array $attributes = [], array $options = [])
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
         :param $source: URI to stylesheet file (allows EXT: syntax)
@@ -50,7 +50,7 @@
         :param $options: ['priority' => true] means rendering before other tags, default: []
 
     ..  php:method:: addInlineStyleSheet(string $identifier, string $source, array $attributes = [], array $options = [])
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
         :param $source: stylesheet code
@@ -58,33 +58,33 @@
         :param $options: ['priority' => true] means rendering before other tags, default: []
 
     ..  php:method:: addMedia(string $fileName, array $additionalInformation)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $fileName: the fileName
         :param $additionalInformation: One dimensional hash map (array with non-numerical keys) with scalar values
 
     ..  php:method:: removeJavaScript(string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
 
     ..  php:method:: removeInlineJavaScript(string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
 
     ..  php:method:: removeStyleSheet(string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
 
     ..  php:method:: removeInlineStyleSheet(string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
 
     ..  php:method:: removeMedia(string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
         :param $identifier: the identifier
 

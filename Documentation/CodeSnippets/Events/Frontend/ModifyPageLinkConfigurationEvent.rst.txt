@@ -41,3 +41,6 @@
 
     ..  php:method:: pageWasModified()
         :returns: `bool`
+
+    ..  php:method:: getRequest()
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
