@@ -8,7 +8,7 @@
     The architecture is highly inspired by the Symfony Routing Component.
 
     ..  php:method:: fromSymfonyRoute(\Symfony\Component\Routing\Route $source, string $identifier)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Backend\Routing\Route`
 
         :param $source: the source
         :param $identifier: the identifier
@@ -42,7 +42,7 @@
         :Return description: The methods
 
     ..  php:method:: setMethods(array $methods)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Backend\Routing\Route`
 
         Sets the HTTP methods (e.g. ['POST']) this route is restricted to.
 
