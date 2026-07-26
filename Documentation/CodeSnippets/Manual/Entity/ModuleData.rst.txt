@@ -11,7 +11,7 @@
     the route target (usually a backend controller).
 
     ..  php:method:: createFromModule(\TYPO3\CMS\Backend\Module\ModuleInterface $module, array $data)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Backend\Module\ModuleData`
 
         :param $module: the module
         :param $data: the data
