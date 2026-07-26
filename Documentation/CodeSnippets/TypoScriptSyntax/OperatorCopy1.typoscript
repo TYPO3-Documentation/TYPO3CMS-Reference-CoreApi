@@ -1,0 +1,9 @@
+myIdentifier = TEXT
+myIdentifier.value = Hello world
+myOtherIdentifier = TEXT
+myOtherIdentifier.value = Hello world
+
+# The above is identical to this:
+myIdentifier = TEXT
+myIdentifier.value = Hello world
+myOtherIdentifier < myIdentifier

@@ -209,7 +209,8 @@ the configuration.
 The configuration is provided within
 :file:`Configuration/RequestMiddlewares.php` of an extension:
 
-..  include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
+.. literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
 TYPO3 has multiple stacks where one middleware might only be necessary in one
 of them. Therefore the configuration defines the context on its first level to define the

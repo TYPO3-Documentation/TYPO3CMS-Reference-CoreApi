@@ -1,0 +1,13 @@
+<?php
+
+[
+    'types' => [
+        1 => [
+            'showitem' => '--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+                    title, description, image, owner,
+                 --div--;LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea.tabs.access,
+                    --palette--;;hidden,
+                    --palette--;;access,',
+        ],
+    ],
+];

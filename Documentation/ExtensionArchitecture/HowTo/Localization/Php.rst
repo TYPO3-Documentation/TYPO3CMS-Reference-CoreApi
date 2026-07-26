@@ -150,14 +150,16 @@ Beside other factories needed by our response, we inject the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
 :ref:`constructor dependency injection <Constructor-injection>`.
 
-..  include:: _php/_LanguageServiceFactoryDI.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_LanguageServiceFactoryDI.php
+   :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList
 
 The main method :php:`process()` is called with a
 :php-short:`Psr\Http\Message\ServerRequestInterface` argument that can be used to detect the
 current language and is passed on to the private method :php:`getSeasons()`
 to do the actual translation:
 
-..  include:: _php/_ProcessMiddleware.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_ProcessMiddleware.php
+   :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList
 
 Now we can let the :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
 create an object of type
@@ -167,4 +169,5 @@ in the request, falling back to the default language of the site.
 The :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` object can
 then be queried for the localized strings:
 
-..  include:: _php/_LanguageServiceSl.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_LanguageServiceSl.php
+   :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList

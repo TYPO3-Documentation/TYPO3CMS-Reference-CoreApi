@@ -15,7 +15,8 @@ For an extension to be installable in TYPO3 it needs a file called
 A minimal :file:`composer.json <extension-composer-json>` to get the extension up and running
 could look like this:
 
-..  include:: /CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.json
+   :caption: EXT:tea/composer.json
 
 With just the :file:`composer.json <extension-composer-json>` present,
 you would be able to install the extension but it would not do anything.

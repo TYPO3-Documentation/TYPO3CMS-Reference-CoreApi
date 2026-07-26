@@ -8,7 +8,8 @@ Link handler configuration
 
 Link browser tabs are registered in :ref:`page TSconfig <t3tsref:pagetsconfig>` like this:
 
-..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.typoscript
+   :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
 
 See the complete example: :ref:`Tutorial: Custom record link
 browser <TableRecordLinkBrowserTutorials>`.

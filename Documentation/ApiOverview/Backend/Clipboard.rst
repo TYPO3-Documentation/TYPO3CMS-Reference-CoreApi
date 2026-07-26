@@ -16,7 +16,8 @@ Clipboard
 You can easily access the internal clipboard in TYPO3 from your
 backend modules:
 
-.. include:: /CodeSnippets/Examples/Clipboard/DebugClipboard.rst.txt
+.. literalinclude:: /CodeSnippets/Examples/Clipboard/DebugClipboard.php
+   :caption: Extension examples, file Classes/Controller/ModuleController.php
 
 
 In this simple piece of code we instantiate a clipboard object and make it
@@ -37,7 +38,8 @@ which indeed contains two files.
 Clipboard content should not be accessed directly, but using the
 :code:`elFromTable()` method of the clipboard object:
 
-.. include:: /CodeSnippets/Examples/Clipboard/GetCurrentClipboard.rst.txt
+.. literalinclude:: /CodeSnippets/Examples/Clipboard/GetCurrentClipboard.php
+   :caption: Extension examples, file Classes/Controller/ModuleController.php
 
 Here we first try to get all files and then all page records on the
 current pad (which is pad 2). Then we change to the "Normal" pad, call

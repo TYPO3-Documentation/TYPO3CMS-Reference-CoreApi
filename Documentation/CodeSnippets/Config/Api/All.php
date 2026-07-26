@@ -15,5 +15,4 @@ return array_merge(
     include ('Registry.php'),
     include ('SessionManagement.php'),
     include ('Resource.php'),
-    include ('Sites.php'),
 );
