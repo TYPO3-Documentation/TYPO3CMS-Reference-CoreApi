@@ -1,4 +1,5 @@
 <?php
+
 return [
     'example_dosomething' => [
         'path' => '/example/do-something',

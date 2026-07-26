@@ -21,4 +21,4 @@
         'languageField' => 'sys_language_uid',
         'translationSource' => 'l10n_source',
     ],
-]
+];

@@ -1,8 +1,5 @@
 <?php
 
-use T3docs\BlogExample\Controller\BackendController;
-use T3docs\Examples\Controller\AdminModuleController;
-use T3docs\Examples\Controller\ModuleController;
 use TYPO3\CMS\Backend\Template\Components\DocHeaderComponent;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;

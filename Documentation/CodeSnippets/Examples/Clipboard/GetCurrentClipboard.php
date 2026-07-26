@@ -5,7 +5,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ModuleController extends ActionController implements LoggerAwareInterface
 {
-    protected function getCurrentClipboard():array
+    protected function getCurrentClipboard(): array
     {
         /** @var $clipboard Clipboard */
         $clipboard = GeneralUtility::makeInstance(Clipboard::class);
