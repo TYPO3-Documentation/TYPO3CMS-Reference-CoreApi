@@ -1,0 +1,64 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of the TYPO3 CMS project. [...]
+ */
+
+namespace T3docs\Examples\Http;
+
+use TYPO3\CMS\Core\Http\RequestFactory;
+
+final readonly class MeowInformationRequester
+{
+    private const API_URL = 'https://catfact.ninja/fact';
+
+    // We need the RequestFactory for creating and sending a request,
+    // so we inject it into the class using constructor injection.
+    public function __construct(
+        private RequestFactory $requestFactory,
+    ) {}
+
+    /**
+     * @throws \JsonException
+     * @throws \RuntimeException
+     */
+    public function request(): string
+    {
+        // Additional headers for this specific request
+        // See: https://docs.guzzlephp.org/en/stable/request-options.html
+        $additionalOptions = [
+            'headers' => ['Cache-Control' => 'no-cache'],
+            'allow_redirects' => false,
+        ];
+
+        // Get a PSR-7-compliant response object
+        $response = $this->requestFactory->request(
+            self::API_URL,
+            'GET',
+            $additionalOptions,
+        );
+
+        if ($response->getStatusCode() !== 200) {
+            throw new \RuntimeException(
+                'Returned status code is ' . $response->getStatusCode(),
+                4696129526,
+            );
+        }
+
+        if ($response->getHeaderLine('Content-Type') !== 'application/json') {
+            throw new \RuntimeException(
+                'The request did not return JSON data',
+                2722965511,
+            );
+        }
+        // Get the content as a string on a successful request
+        $content = $response->getBody()->getContents();
+        $result = json_decode($content, true, flags: JSON_THROW_ON_ERROR);
+        if (!is_array($result) || !isset($result['fact']) || !is_scalar($result['fact'])) {
+            throw new \RuntimeException('The service returned an unexpected format.', 1666413230);
+        }
+        return (string)$result['fact'];
+    }
+}

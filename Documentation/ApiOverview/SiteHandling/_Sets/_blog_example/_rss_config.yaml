@@ -1,0 +1,4 @@
+name: t3docs/blog-example-rss
+label: Blog example RSS feed
+dependencies:
+  - t3docs/blog-example

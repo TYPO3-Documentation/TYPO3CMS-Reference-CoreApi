@@ -53,7 +53,9 @@ keys on the first level:
 TCA :php:`ctrl` - Settings for the complete table
 -------------------------------------------------
 
-..  include:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaCtrl.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaCtrl.php
+   :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
+   :linenos:
 
 ..  _extbase_tutorial_tea_model_ctrl_title:
 
@@ -113,7 +115,9 @@ model have to be listed here. Otherwise they will not be recognized by TYPO3.
 
 The :sql:`title` field is defined like this:
 
-..  include:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnTitle.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnTitle.php
+   :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
+   :linenos:
 
 The title of the field is displayed above the input field. The type is a (string)
 input field. The other configuration values influence display (size of the input
@@ -141,7 +145,9 @@ See also :ref:`TCA type 'file', property 'allowed' <t3tca:confval-file-allowed>`
 TCA :php:`types` - Configure the input form
 -------------------------------------------
 
-..  include:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaTypes.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaTypes.php
+   :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
+   :linenos:
 
 The key :php:`showitem` lists all fields that should be displayed in the
 backend input form, in the order they should be displayed.
@@ -196,7 +202,8 @@ Extbase models extend the
 The parent classes of this class already offer methods needed for persistence
 to database, the identifier :php:`uid` etc.
 
-.. include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaProperties.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaProperties.php
+   :caption: Class TTN\\Tea\\Domain\\Model\\Tea
 
 ..  attention::
     All properties of the model have to have the visibility keyword :php:`protected` or
@@ -214,11 +221,13 @@ need a setter.
 
 Example for the property :php:`title`:
 
-..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaTitle.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaTitle.php
+   :caption: Class TTN\\Tea\\Domain\\Model\\Tea
 
 The getter for the image also has to resolve the :ref:`lazy loading <extbase-appendix-attributes-lazy>`:
 
-..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaImage.php
+   :caption: Class TTN\\Tea\\Domain\\Model\\Tea
 
 See the complete
 `class on Github: Tea <https://github.com/TYPO3BestPractices/tea/blob/main/Classes/Domain/Model/Tea.php>`_.

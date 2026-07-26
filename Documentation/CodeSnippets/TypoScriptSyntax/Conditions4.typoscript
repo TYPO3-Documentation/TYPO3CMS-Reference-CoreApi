@@ -1,0 +1,14 @@
+page = PAGE
+page.10 = TEXT
+page.10.value = You are logged in
+
+# This is hard to read
+[frontend.user.isLoggedIn]
+[ELSE]
+   page.10.value = You are *not* logged in
+[END]
+
+# This is faster to read
+[!frontend.user.isLoggedIn]
+   page.10.value = You are *not* logged in
+[END]

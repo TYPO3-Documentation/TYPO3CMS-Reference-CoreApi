@@ -22,7 +22,8 @@ You can find the following example in
 Two backend modules are being registered. The first module is based on
 :ref:`Extbase <extbase-extension-framework>` while the second uses a plain controller.
 
-..  include:: _ModuleConfiguration/_Modules.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_Modules.php
+   :caption: EXT:examples/Configuration/Backend/Modules.php
 
 
 .. _backend-modules-configuration-example-debug:
