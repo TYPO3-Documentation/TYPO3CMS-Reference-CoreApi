@@ -4,7 +4,7 @@
     "license": "OPL-1.0",
     "type": "typo3-cms-documentation",
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.5",
         "typo3/cms-core": "dev-main as 14.3"
     },
     "require-dev": {
@@ -12,9 +12,7 @@
         "friendsofphp/php-cs-fixer": "^3.46",
         "garvinhicking/clinspector-gadget": "^0.1.1",
         "symfony/yaml": "^7.0",
-        "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
-        "t3docs/examples": "dev-main",
         "typo3/cms-adminpanel": "dev-main as 14.3",
         "typo3/cms-backend": "dev-main as 14.3",
         "typo3/cms-belog": "dev-main as 14.3",
