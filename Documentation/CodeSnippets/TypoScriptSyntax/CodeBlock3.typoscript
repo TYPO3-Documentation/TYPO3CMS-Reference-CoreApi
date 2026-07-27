@@ -1,0 +1,9 @@
+myIdentifier = TEXT
+myIdentifier {
+   stdWrap {
+      field = title
+      ifEmpty {
+         data = leveltitle:0
+      }
+   }
+}

@@ -8,7 +8,8 @@ Link handler configuration
 
 Link browser tabs are registered in :ref:`page TSconfig <t3tsref:pagetsconfig>` like this:
 
-..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.typoscript
+   :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
 
 See the complete example: :ref:`Tutorial: Custom record link
 browser <TableRecordLinkBrowserTutorials>`.
@@ -87,11 +88,10 @@ or by configuring the link button in your ckeditor configuration
          enabled: true
 
 .. note::
-   
+
    Additionally, you have to allow the pageIdSelector as a link option in your RTE configuration, e.g.
 
 .. code-block:: yaml
    :caption: EXT:some_extension/Configuration/RTE/Default.yaml
 
    allowedOptions: 'target,title,class,pageIdSelector'
-

@@ -19,11 +19,13 @@ could look like this:
 
     ..  group-tab:: Composer
 
-        ..  include:: /CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.rst.txt
+        .. literalinclude:: /CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.json
+           :caption: EXT:tea/composer.json
 
     ..  group-tab:: Classic mode installation (no Composer)
 
-        ..  include:: /CodeSnippets/Tutorials/Tea/ExtEmconf.rst.txt
+        .. literalinclude:: /CodeSnippets/Tutorials/Tea/ExtEmconf.php
+           :caption: EXT:tea/ext_emconf.php
 
 
 ..  hint::

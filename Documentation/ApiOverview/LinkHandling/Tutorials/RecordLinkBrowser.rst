@@ -23,7 +23,8 @@ Backend: Configure the link browser with page TSconfig
 The following configuration displays an additional tab in the link browser
 window in the backend.
 
-..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.typoscript
+   :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
 
 For a complete list of available option see :ref:`link-handler-configuration`.
 
@@ -54,6 +55,7 @@ For the frontend output of a haiku record link we have to configure the
 page on which the plugin handling the detail view is displayed and the
 parameters this plugin expects:
 
-..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkTypoScript.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkTypoScript.typoscript
+   :caption: EXT:examples/Configuration/TypoScript/RecordLinks/Haiku.typoscript
 
 You can find the available options here: :ref:`linkhandler-typoscript_options`.

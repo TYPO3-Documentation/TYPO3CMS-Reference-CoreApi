@@ -19,7 +19,9 @@ which contains the result of the view. The view, property :php:`$view` of type
 In the most common case it is sufficient to just set some variables on the
 :php:`$view` and return :php:`$this->htmlResponse()`:
 
-..  include:: /CodeSnippets/Extbase/View/HtmlResponse.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/View/HtmlResponse.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BlogController
+   :emphasize-lines: 18
 
 Read more in the section :ref:`extbase_responses`.
 
@@ -30,7 +32,8 @@ View configuration
 
 The view can be configured with TypoScript:
 
-..  include:: /CodeSnippets/Extbase/View/TypoScript.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/View/TypoScript.typoscript
+   :caption: EXT:blog_example/Configuration/TypoScript/setup.typoscript
 
 ..  _extbase-responses:
 
@@ -46,12 +49,16 @@ In the most common case it is sufficient to just set some variables on the
 :php:`$view` and return :php:`$this->htmlResponse()`. The Fluid templates
 will then configure the rendering:
 
-..  include:: /CodeSnippets/Extbase/View/HtmlResponse.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/View/HtmlResponse.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BlogController
+   :emphasize-lines: 18
 
 It is also possible to directly pass a HTML string to the function
 :php:`htmlResponse()`. This way other templating engines but Fluid can be used:
 
-..  include:: /CodeSnippets/Extbase/View/HtmlResponseCustom.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/View/HtmlResponseCustom.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BlogController
+   :emphasize-lines: 10
 
 ..  attention::
     **Never** directly pass user input to the response without proper escaping.
@@ -70,7 +77,9 @@ Rendering JSON by Fluid is in most cases not a good option. Fluid uses special
 signs that are needed in JSON etc. So in most cases the :php:`jsonResponse()`
 is used to directly output a json string:
 
-..  include:: /CodeSnippets/Extbase/View/JsonResponseCustom.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/View/JsonResponseCustom.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BlogController
+   :emphasize-lines: 9
 
 It is also possible to use the JSON response together with a special view class
 the :php:`JsonView` (:php:`TYPO3\CMS\Extbase\Mvc\View\JsonView`).
@@ -84,4 +93,6 @@ If you need any output format but HTML or JSON, build the response object
 using :php:`$responseFactory` implementing the
 :php:`ResponseFactoryInterface`:
 
-..  include:: /CodeSnippets/Extbase/View/CustomResponse.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/View/CustomResponse.php
+   :caption: Class T3docs\\BlogExample\\Controller\\PostController
+   :emphasize-lines: 17,18,19

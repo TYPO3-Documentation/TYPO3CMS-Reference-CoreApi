@@ -1,0 +1,42 @@
+<?php
+
+/*
+ * This file is part of the TYPO3 CMS project. [...]
+ */
+
+use TYPO3\CMS\Core\Schema\Struct\SelectItem;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+/*
+ * This file is part of the TYPO3 CMS project. [...]
+ */
+
+defined('TYPO3') or die();
+
+$pluginSignature = 'examples_haiku_list';
+
+ExtensionManagementUtility::addPlugin(
+    new SelectItem(
+        'select',
+        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title',
+        $pluginSignature,
+        'tx_examples-haiku',
+        'plugins',
+        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
+    ),
+    'CType',
+    'examples',
+);
+
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;Configuration,pi_flexform,',
+    $pluginSignature,
+    'after:subheader',
+);
+
+ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
+    $pluginSignature,
+);

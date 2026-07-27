@@ -1,0 +1,34 @@
+<?php
+
+use T3docs\BlogExample\Domain\Model\Blog;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+
+class PostRepository extends Repository
+{
+    public function findByTagAndBlog(
+        string $tag,
+        Blog $blog,
+    ): QueryResultInterface {
+        $query = $this->createQuery();
+        return $query
+            ->matching(
+                $query->logicalAnd(
+                    $query->equals('blog', $blog),
+                    $query->equals('tags.name', $tag),
+                ),
+            )
+            ->execute();
+    }
+
+    public function findAllSortedByCategory(array $uids): QueryResultInterface
+    {
+        $q = $this->createQuery();
+        $q->matching($q->in('uid', $uids));
+        $q->setOrderings([
+            'categories.title' => QueryInterface::ORDER_ASCENDING,
+            'uid' => QueryInterface::ORDER_ASCENDING,
+        ]);
+        return $q->execute();
+    }
+}

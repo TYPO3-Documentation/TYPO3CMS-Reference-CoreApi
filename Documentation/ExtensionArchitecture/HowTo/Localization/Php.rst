@@ -103,7 +103,9 @@ Example
 In this example the content of the flash message to be displayed in the backend
 gets translated:
 
-..  include:: /CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Controllers/PhpLocalization.php
+   :caption: Class T3docs\\Examples\\Controller\\ModuleController
+   :emphasize-lines: 14,15,16,17,18
 
 The string in the translation file is defined like this:
 
@@ -139,14 +141,16 @@ Beside other factories needed by our response, we inject the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
 :ref:`constructor dependency injection <Constructor-injection>`.
 
-..  include:: _php/_LanguageServiceFactoryDI.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_LanguageServiceFactoryDI.php
+   :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList
 
 The main method :php:`process()` is called with a
 :php:`Psr\Http\Message\ServerRequestInterface` as argument that can be used to detect the
 current language and is therefore passed on to the private method :php:`getSeasons()` doing the
 actual translation:
 
-..  include:: _php/_ProcessMiddleware.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_ProcessMiddleware.php
+   :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList
 
 Now we can let the :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` to
 create a :php:`\TYPO3\CMS\Core\Localization\LanguageService` from the request's
@@ -154,4 +158,5 @@ language, falling back to the default language of the site.
 
 The :php:`LanguageService` can then be queried for the localized strings:
 
-..  include:: _php/_LanguageServiceSl.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_LanguageServiceSl.php
+   :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList

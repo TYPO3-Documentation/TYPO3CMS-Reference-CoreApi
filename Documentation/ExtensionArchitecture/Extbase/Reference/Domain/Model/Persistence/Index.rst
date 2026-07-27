@@ -57,7 +57,8 @@ The SQL table for the model can be defined like this:
 
 The according TCA definition could look like that:
 
-..  include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Persistence/TCA.php
+   :caption: EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php
 
 ..  _extbase_manual_mapping:
 
@@ -74,7 +75,8 @@ extension `frontend` is used as persistence table for the model
 :php:`Administrator`. Additionally the table :sql:`fe_groups` is used to persist
 the model :php:`FrontendUserGroup`.
 
-..  include:: /CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.php
+   :caption: EXT:blog_example/Configuration/Extbase/Persistence/Classes.php
 
 The key :php:`recordType` makes sure that the defined model is only used if the
 :ref:`type of the record <t3tca:types>` is set to

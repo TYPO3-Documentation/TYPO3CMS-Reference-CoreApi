@@ -31,7 +31,8 @@ Each set must be in its own directory and consist of at least a
 
 Example:
 
-..  include:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.yaml
+   :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
 
 .. _extension-configuration-sets-settings-yaml:
 

@@ -21,7 +21,8 @@ In the TYPO3 backend models are displayed as :ref:`database-records`.
 
 **Example:**
 
-..  include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/AbstractEntity.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Model\\Comment
 
 ..  warning::
     Extbase does not call the constructor when thawing objects. Therefore you
@@ -73,11 +74,13 @@ Properties of an Extbase model
 The properties of a model can be defined either as public
 class properties:
 
-..  include:: /CodeSnippets/Extbase/Domain/ModelWithPublicProperty.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/ModelWithPublicProperty.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Model\\Tag
 
 Or public getters:
 
-..  include:: /CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/ModelWithPublicGetters.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Model\\Info
 
 A public getter takes precedence over a public property. Getters have the
 advantage that you can make the properties themselves protected and decide
@@ -92,7 +95,8 @@ which ones should be mutable.
 It is also possible to have getters for
 properties that are not persisted and get created on the fly:
 
-..  include:: /CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Model\\Info
 
 One disadvantage of using additional getters is that properties that are only
 defined as getters do not get displayed in the debug output in Fluid, they do

@@ -13,11 +13,4 @@ return [
         'targetFileName' => 'CodeSnippets/Manual/Core/SiteFinder.rst.txt',
         'withCode' => false,
     ],
-    [
-        'action' => 'createCodeSnippet',
-        'caption' => 'EXT:examples/Classes/Http/MeowInformationRequester.php',
-        'sourceFile' => 'EXT:examples/Classes/Http/MeowInformationRequester.php',
-        'replaceFirstMultilineComment' => true,
-        'targetFileName' => 'CodeSnippets/Examples/Http/MeowInformationRequester.rst.txt',
-    ],
 ];

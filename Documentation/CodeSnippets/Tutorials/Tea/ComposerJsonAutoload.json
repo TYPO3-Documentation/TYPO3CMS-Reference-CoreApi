@@ -1,0 +1,8 @@
+{
+    "name": "ttn/tea",
+    "autoload": {
+        "psr-4": {
+            "TTN\\Tea\\": "Classes/"
+        }
+    }
+}

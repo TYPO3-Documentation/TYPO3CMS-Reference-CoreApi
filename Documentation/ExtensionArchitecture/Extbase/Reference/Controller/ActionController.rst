@@ -34,14 +34,16 @@ Controller actions **must** return an instance of the
 Many of these actions have parameters. You should use strong types for the
 parameters as this is necessary for the validation.
 
-..  include:: /CodeSnippets/Extbase/Controllers/BlogControllerNew.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Controllers/BlogControllerNew.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BlogController
 
 If the action should render the view you can return :php:`$this->htmlResponse()`
 as a shortcut for taking care of creating the response yourself.
 
 In order to redirect to another action, return :php:`$this->redirect('another')`:
 
-..  include:: /CodeSnippets/Extbase/Controllers/BlogControllerUpdate.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Controllers/BlogControllerUpdate.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BlogController
 
 If an exception is thrown while an action is executed you will receive the
 "Oops an error occurred" screen on a production system or a stack trace on a
@@ -85,7 +87,8 @@ In the backend controller of the blog example the method
 :php:`initializeAction()` is used to discover the page that is currently
 activated in the page tree and save it in a variable:
 
-..  include:: /CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Controllers/BackendControllerInitialize.php
+   :caption: Class T3docs\\BlogExample\\Controller\\BackendController
 
 ..  _extbase_class_hierarchy-catching_validation_errors_with_error_action:
 
@@ -121,7 +124,9 @@ In the following example, if the current blog is not found in the
 index action of the :php:`PostController`, we follow to the list of blogs
 displayed by the :php:`indexAction` of the :php:`BlogController`.
 
-..  include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Controllers/ForwardAction.php
+   :caption: Class T3docs\\BlogExample\\Controller\\PostController
+   :emphasize-lines: 18,19,20,21
 
 Forwards only work when the target controller and action is properly registered
 as an allowed pair. This can be done via an extension's :file:`ext_localconf.php` file
@@ -133,7 +138,8 @@ and container instantiation will fail.
 
 The corresponding example is:
 
-..  include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.php
+   :caption: EXT:blog_example/ext_localconf.php
 
 Here, the plugin `BlogExample` would allow jumping between the controllers
 :php:`PostController` and :php:`CommentController`. To also allow

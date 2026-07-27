@@ -1,0 +1,48 @@
+<?php
+
+use Psr\Http\Message\ResponseInterface;
+use T3docs\BlogExample\Domain\Model\Blog;
+use TYPO3\CMS\Core\Pagination\SimplePagination;
+use TYPO3\CMS\Extbase\Http\ForwardResponse;
+use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+
+class PostController extends AbstractController
+{
+    /**
+     * Displays a list of posts. If $tag is set only posts matching this tag are shown
+     */
+    public function indexAction(
+        ?Blog $blog = null,
+        string $tag = '',
+        int $currentPage = 1,
+    ): ResponseInterface {
+        if ($blog == null) {
+            return (new ForwardResponse('index'))
+                ->withControllerName('Blog')
+                ->withExtensionName('blog_example')
+                ->withArguments(['currentPage' => $currentPage]);
+        }
+        $this->blogPageTitleProvider->setTitle($blog->getTitle());
+        if (empty($tag)) {
+            $posts = $this->postRepository->findBy(['blog' => $blog]);
+        } else {
+            $tag = urldecode($tag);
+            $posts = $this->postRepository->findByTagAndBlog($tag, $blog);
+            $this->view->assign('tag', $tag);
+        }
+        $paginator = new QueryResultPaginator(
+            $posts,
+            $currentPage,
+            (int)($this->settings['itemsPerPage'] ?? 3),
+        );
+        $pagination = new SimplePagination($paginator);
+        $this->view->assignMultiple([
+            'paginator' => $paginator,
+            'pagination' => $pagination,
+            'pages' => range(1, $pagination->getLastPageNumber()),
+            'blog' => $blog,
+            'posts' => $posts,
+        ]);
+        return $this->htmlResponse();
+    }
+}

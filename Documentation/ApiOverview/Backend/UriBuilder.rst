@@ -52,7 +52,8 @@ different types of edit/create record links in the backend.
 
 Here an excerpt:
 
-..  include:: _UriBuilder/_LinksAction.rst.txt
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_LinksAction.php
+   :caption: Class T3docs\\Examples\\Controller\\ModuleController
 
 The links appear in the example backend module:
 
@@ -76,7 +77,8 @@ one single form!
 
 Also the fields to be displayed can be restricted.
 
-..  include:: _UriBuilder/_GetEditDoktypeLink.rst.txt
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_GetEditDoktypeLink.php
+   :caption: Class T3docs\\Examples\\Controller\\ModuleController
 
 ..  deprecated:: 13.2
 
@@ -100,12 +102,14 @@ Display a link to "Create a New Record"
 The :ref:`t3ViewHelper:typo3-backend-uri-newrecord` can be used to create a
 "create new record" link:
 
-..  include:: _UriBuilder/_CreateHaikuBlankLink.rst.txt
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuBlankLink.html
+   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuBlankLink.html
 
 If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
 
-..  include:: _UriBuilder/_CreateHaikuLinkPhp.rst.txt
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLinkPhp.php
+   :caption: Class T3docs\\Examples\\Controller\\ModuleController
 
 ..  deprecated:: 13.2
 
@@ -114,7 +118,8 @@ default values for certain fields.
 
 It can then be displayed like this:
 
-..  include:: _UriBuilder/_CreateHaikuLink.rst.txt
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLink.html
+   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuLink.html
 
 The link triggers the creation a new record for the table `tx_examples_haiku`
 on page 1. It also sets a default value for the `title` field ("New haiku") and

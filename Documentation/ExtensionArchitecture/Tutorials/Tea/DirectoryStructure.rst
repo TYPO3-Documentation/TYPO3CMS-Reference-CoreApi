@@ -43,11 +43,14 @@ defined in file:`ext_emconf.php` in Classic mode installations):
 
     ..  group-tab:: Composer
 
-        .. include:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt
+        .. literalinclude:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.json
+           :caption: EXT:tea/composer.json, extract
 
     ..  group-tab:: Classic mode installation (no Composer)
 
-        .. include:: /CodeSnippets/Tutorials/Tea/ExtEmconfAutoload.rst.txt
+        .. literalinclude:: /CodeSnippets/Tutorials/Tea/ExtEmconfAutoload.php
+           :caption: EXT:tea/ext_emconf.php, extract
+           :emphasize-lines: 4
 
 The key of the psr-4 array, here :php:`'TTN\\Tea\\'`, defines the namespace
 for all classes in order to be found by

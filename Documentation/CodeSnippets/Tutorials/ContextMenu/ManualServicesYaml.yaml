@@ -1,0 +1,7 @@
+services:
+  _defaults:
+    autoconfigure: false
+
+  MyVendor\MyExtension\ContextMenu\SomeItemProvider:
+    tags:
+      - name: backend.contextmenu.itemprovider

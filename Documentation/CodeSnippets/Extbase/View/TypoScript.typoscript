@@ -1,0 +1,8 @@
+plugin.tx_blogexample {
+  view {
+    templateRootPaths.10 = {$plugin.tx_blogexample.view.templateRootPath}
+    partialRootPaths.10 = {$plugin.tx_blogexample.view.partialRootPath}
+    layoutRootPaths.10 = {$plugin.tx_blogexample.view.layoutRootPath}
+    defaultPid = auto
+  }
+}
