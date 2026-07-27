@@ -272,7 +272,8 @@ or any other provider from EXT:backend.
 
 See comments in the following code snippet clarifying implementation details.
 
-.. include:: /CodeSnippets/Tutorials/ContextMenu/HelloWorldItemProvider.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/HelloWorldItemProvider.php
+   :caption: EXT:examples/Classes/ContextMenu/HelloWorldItemProvider.php
 
 Step 2: JavaScript actions
 --------------------------
@@ -280,11 +281,13 @@ Step 2: JavaScript actions
 Provide a JavaScript file (ES6 module) which will be
 called after clicking on the context menu item.
 
-..  include:: /CodeSnippets/Tutorials/ContextMenu/ContextMenuActions.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/ContextMenuActions.js
+   :caption: EXT:examples/Resources/Public/JavaScript/context-menu-actions.js
 
 Register the JavaScript ES6 modules of your extension if not done yet:
 
-..  include:: /CodeSnippets/Tutorials/ContextMenu/JavaScriptModules.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/JavaScriptModules.php
+   :caption: examples/Configuration/JavaScriptModules.php
 
 Step 3: Registration
 --------------------
@@ -306,4 +309,6 @@ get registered as context menu items automatically:
 If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
 by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 
-..  include:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.rst.txt
+.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.yaml
+   :caption: EXT:my_extension/Configuration/Services.yaml
+   :emphasize-lines: 5-7

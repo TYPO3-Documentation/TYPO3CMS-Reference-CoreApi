@@ -22,7 +22,8 @@ Basic controller
 When creating a controller without Extbase an instance of :php:`ModuleTemplate`
 is required to return the rendered template:
 
-..  include:: _ModuleConfiguration/_AdminModuleControllerConstruct.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerConstruct.php
+   :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
 
 ..  note::
     A backend controller should be tagged with the
@@ -58,7 +59,8 @@ Main entry point
 The :php:`handleRequest()` method is the main entry point which triggers only the allowed actions.
 This makes it possible to include e.g. Javascript for all actions in the controller.
 
-..  include:: _ModuleConfiguration/_AdminModuleControllerHandleRequest.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerHandleRequest.php
+   :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
 
 Actions
 =======
@@ -66,7 +68,8 @@ Actions
 Now create an example :php:`debugAction()` and assign variables to your view
 as you would normally do.
 
-..  include:: _ModuleConfiguration/_AdminModuleControllerDebugAction.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerDebugAction.php
+   :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
 
 ..  _backend-modules-template-without-extbase-docheader:
 
@@ -76,7 +79,8 @@ The DocHeader
 To add a DocHeader button use :php:`$view->getDocHeaderComponent()->getButtonBar()`
 and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()` to add it.
 
-..  include:: _ModuleConfiguration/_AdminModuleControllerSetUpDocHeader.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerSetUpDocHeader.php
+   :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
 
 ..  seealso::
     :ref:`button-components`
@@ -85,7 +89,8 @@ and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()
 Template example
 ================
 
-..  include:: _ModuleConfiguration/_DebugHtml.rst.txt
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_DebugHtml.html
+   :caption: EXT:examples/Resources/Private/Templates/AdminModule/Debug.html
 
 .. note:: Some Fluid tags do not work in non-Extbase context such as
    :html:`<f:form>`.

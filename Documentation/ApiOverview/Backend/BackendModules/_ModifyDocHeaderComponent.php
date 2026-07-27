@@ -1,0 +1,37 @@
+<?php
+
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Template\ModuleTemplate;
+
+class BackendController extends ActionController
+{
+    private function modifyDocHeaderComponent(ModuleTemplate $view, string &$context): void
+    {
+        $menu = $this->buildMenu($view, $context);
+        $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
+
+        $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
+        $this->addButtons($buttonBar);
+
+        $metaInformation = $this->getMetaInformation();
+        if (is_array($metaInformation)) {
+            $view->getDocHeaderComponent()->setPageBreadcrumb($metaInformation);
+        }
+    }
+
+    protected function initializeModuleTemplate(
+        ServerRequestInterface $request,
+    ): ModuleTemplate {
+        $view = $this->moduleTemplateFactory->create($request);
+
+        $context = '';
+        $this->modifyDocHeaderComponent($view, $context);
+        $view->setFlashMessageQueue($this->getFlashMessageQueue());
+        $view->setTitle(
+            $this->getLanguageService()->sL('blog_example.module.mod:mlang_tabs_tab'),
+            $context,
+        );
+
+        return $view;
+    }
+}

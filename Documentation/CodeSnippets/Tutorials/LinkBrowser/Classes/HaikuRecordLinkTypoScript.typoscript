@@ -1,0 +1,10 @@
+config.recordLinks.haiku {
+   // Do not force link generation when the record is hidden
+   forceLink = 0
+
+   typolink {
+      parameter = {$plugin.tx_examples_haiku.settings.singlePid}
+      additionalParams.data = field:uid
+      additionalParams.wrap = &tx_examples_haiku[action]=show&tx_examples_haiku[haiku]=|
+   }
+}

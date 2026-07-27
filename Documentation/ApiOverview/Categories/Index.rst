@@ -55,7 +55,7 @@ takes care of generating the necessary TCA configuration and also adds
 the database column automatically. Developers only have to configure the
 TCA column and add it to the desired record types:
 
-.. include:: /CodeSnippets/Manual/Categoy/CategorySimple.rst.txt
+.. literalinclude:: /CodeSnippets/Manual/Categoy/CategorySimple.php
 
 This is the result of the above code:
 
@@ -77,7 +77,7 @@ Due to some limitations in FlexForm, the property
 `manyToMany` is not supported. Therefore, the default value for this property
 is `oneToMany`.
 
-.. include:: /CodeSnippets/Manual/Categoy/CategoryFlexform.rst.txt
+.. literalinclude:: /CodeSnippets/Manual/Categoy/CategoryFlexform.xml
 
 .. _categories-api:
 

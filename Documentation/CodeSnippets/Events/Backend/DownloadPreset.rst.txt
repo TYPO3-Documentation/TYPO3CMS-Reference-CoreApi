@@ -13,6 +13,6 @@
         :returns: `array`
 
     ..  php:method:: create(array $preset)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Backend\RecordList\DownloadPreset`
 
         :param $preset: the preset

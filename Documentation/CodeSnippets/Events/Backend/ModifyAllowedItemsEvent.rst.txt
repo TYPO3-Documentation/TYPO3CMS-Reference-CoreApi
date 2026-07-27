@@ -9,12 +9,12 @@
         :returns: `string[]`
 
     ..  php:method:: addAllowedItem(string $item)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Backend\Controller\Event\ModifyAllowedItemsEvent`
 
         :param $item: the item
 
     ..  php:method:: removeAllowedItem(string $new)
-        :returns: `self`
+        :returns: `\TYPO3\CMS\Backend\Controller\Event\ModifyAllowedItemsEvent`
 
         :param $new: the new
 

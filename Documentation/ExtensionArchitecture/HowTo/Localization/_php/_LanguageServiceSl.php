@@ -1,0 +1,26 @@
+<?php
+
+use Psr\Http\Message\ServerRequestInterface;
+
+final readonly class HaikuSeasonList implements MiddlewareInterface
+{
+    private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
+    private const TRANSLATION_PATH = 'LLL:examples.plugin_haiku.messages:season.';
+
+    /**
+     * @return array<string, string>
+     */
+    private function getSeasons(ServerRequestInterface $request): array
+    {
+        $languageService = $this->languageServiceFactory->createFromSiteLanguage(
+            $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage(),
+        );
+
+        $translatedSeasons = [];
+        foreach (self::SEASONS as $season) {
+            $translatedSeasons[$season] = $languageService->sL(self::TRANSLATION_PATH . $season);
+        }
+
+        return $translatedSeasons;
+    }
+}

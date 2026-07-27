@@ -361,7 +361,8 @@ The site package depends on
 Therefore the two sets provided by that system extension are included as
 dependencies:
 
-..  include:: _Sets/_site-package/_config.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.yaml
+   :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
 
 If you need additional dependencies, you can find all available sets with the
 console command :ref:`bin/typo3 site:sets:list <site-sets-cli>`.
@@ -381,7 +382,8 @@ the listed dependency is simply not loaded.
 In this example, the `typo3/form` dependency would be loaded based on
 the availability of the `EXT:form` extension:
 
-..  include:: _Sets/_config_optional.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_config_optional.yaml
+   :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
 
 ..  hint::
 
@@ -411,7 +413,8 @@ The example site package also loads its TypoScript by placing the files
 site set. These files use :typoscript:`@import` statements to import
 third party TypoScript files into this extension's directory :path:`Configuration/Sets/SitePackage/TypoScript`:
 
-..  include:: _Sets/_site-package/_setup.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_setup.typoscript
+   :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
 
 Dependant TypoScript is included by the dependant sets and not by
 TypoScript imports.
@@ -486,14 +489,17 @@ Multiple site sets to include separate functionality
 
 The main site set of the extension has the same name like the Composer name:
 
-..  include:: _Sets/_blog_example/_config.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_config.yaml
+   :caption: EXT:blog_example/Configuration/Sets/BlogExample/config.yaml
 
 The other two sets depend on this set being loaded and therefore declare it
 as dependency:
 
-..  include:: _Sets/_blog_example/_default_config.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_default_config.yaml
+   :caption: EXT:blog_example/Configuration/Sets/DefaultStyles/config.yaml
 
-..  include:: _Sets/_blog_example/_rss_config.rst.txt
+.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_rss_config.yaml
+   :caption: EXT:blog_example/Configuration/Sets/RssFeed/config.yaml
 
 The additional site sets provide TypoScript configuration that depends on
 the base site set. They do not use :typoscript:`@include` statements to include
