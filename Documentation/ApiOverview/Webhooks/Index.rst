@@ -19,9 +19,8 @@ TYPO3 supports incoming and outgoing webhooks:
 
 *   The system extension :doc:`Reactions <ext_reactions:Index>` provides the
     functionality to receive webhooks in TYPO3 from third-party system.
-*   The system extension :ref:`Webhooks <ext_core:feature-99629-1674550092>`
-    provides the possibility to send webhooks from TYPO3 to third-party
-    systems.
+*   The system extension :doc:`Webhooks <ext_webhooks:Index>` provides the
+    possibility to send webhooks from TYPO3 to third-party systems.
 
 :guilabel:`System -> Configuration` lists available reaction and webhook types
 which administrators can facilitate in the corresponding backend modules.
