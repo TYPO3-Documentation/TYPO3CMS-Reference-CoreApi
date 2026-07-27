@@ -1,3 +1,4 @@
+:navigation-title: Link factory
 ..  include:: /Includes.rst.txt
 ..  index:: Link factory
 ..  _link-factory:
@@ -12,77 +13,98 @@ to a page, a file, a folder, an external URL, an email address, a telephone
 number or a database record, such as a news entry.
 
 This functionality previously resided in
-:php:`ContentObjectRenderer->typoLink()` and
-:php:`ContentObjectRenderer->typoLink_URL()`. It has been extracted into a
-dedicated class that only deals with generating links.
+:php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer->typoLink()` and
+:php-short:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer->typoLink_URL()`.
+It has been extracted into a dedicated class that only deals with generating
+links.
+
+..  contents:: Table of contents
+    :local:
+    :depth: 2
 
 ..  note::
     For rendering links in :ref:`Fluid <fluid>` templates or TypoScript, the
     established path is still recommended: the ViewHelper
     :ref:`t3viewhelper:typo3-fluid-link-typolink` or the TypoScript function
-    :ref:`t3tsref:typolink`. Use :php:`LinkFactory` when an extension needs the
-    raw result programmatically, with access to more than just the anchor tag.
+    :ref:`t3tsref:typolink`. Use
+    :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` when an extension needs
+    the raw result programmatically, with access to more than just the anchor
+    tag.
 
-The two methods
-===============
+..  _link-factory-methods:
 
-:php:`LinkFactory` provides two public methods, both returning a
+Methods of the LinkFactory
+==========================
+
+:php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` provides two public
+methods, both returning a
 :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`:
 
-..  option:: create(string $linkText, array $linkConfiguration, ContentObjectRenderer $contentObjectRenderer): LinkResultInterface
+..  php:namespace::  TYPO3\CMS\Frontend\Typolink
 
-    Creates a link from a link text and a TypoLink configuration array. The
-    :php:`$linkConfiguration` uses the same keys as a TypoScript
-    :ref:`typolink <t3tsref:typolink>`, most importantly :php:`parameter`, and
-    optionally :php:`target`, :php:`class`, :php:`title` and
-    :php:`additionalParams`. Throws an
-    :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException` if the link cannot
-    be built.
+..  php:class:: LinkFactory
 
-..  option:: createUri(string $urlParameter, ?ContentObjectRenderer $contentObjectRenderer = null): LinkResultInterface
+    Creates links in the TYPO3 frontend from a TypoLink configuration.
 
-    Creates a link result for a single TypoLink parameter string, for example
-    :php:`'t3://page?uid=42 _blank css-class "My title"'`. Convenient when only
-    the URL is needed. The :php:`ContentObjectRenderer` is optional here, so this
-    method can also be used outside a typical content rendering context, including
-    in the TYPO3 backend.
+    ..  php:method:: create(string $linkText, array $linkConfiguration, ContentObjectRenderer $contentObjectRenderer)
 
-Obtaining a :php:`LinkFactory` instance
-=======================================
+        Creates a link from a link text and a TypoLink configuration array. The
+        :php:`$linkConfiguration` uses the same keys as a TypoScript
+        :ref:`typolink <t3tsref:typolink>`, most importantly :php:`parameter`,
+        and optionally :php:`target`, :php:`class`, :php:`title` and
+        :php:`additionalParams`. Throws an
+        :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException` if the link
+        cannot be built.
 
-Inject :php:`LinkFactory` through :ref:`dependency injection <DependencyInjection>`
-and call it from your own service:
+        :param $linkText: the text to be used as the link text
+        :param $linkConfiguration: the TypoLink configuration array
+        :param $contentObjectRenderer: the current content object renderer
+        :returns: `\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
+
+    ..  php:method:: createUri(string $urlParameter, ?ContentObjectRenderer $contentObjectRenderer = null)
+
+        Creates a link result for a single TypoLink parameter string, for
+        example :php:`'t3://page?uid=42 _blank css-class "My title"'`.
+        Convenient when only the URL is needed. The
+        :php-short:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer` is
+        optional here, so this method can also be used outside a typical content
+        rendering context, including in the TYPO3 backend.
+
+        :param $urlParameter: the TypoLink parameter string
+        :param $contentObjectRenderer: the current content object renderer, optional
+        :returns: `\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
+
+..  _link-factory-instance:
+
+Obtaining a LinkFactory instance
+================================
+
+Inject :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` through
+:ref:`dependency injection <DependencyInjection>` and call it from your own
+service:
 
 ..  literalinclude:: _LinkFactory/_MyLinkService.php
     :caption: EXT:my_extension/Classes/Service/MyLinkService.php
 
-Working with the result
-=======================
+..  _link-factory-result:
 
-Both methods return a :php:`LinkResultInterface`. It gives programmatic access to
-the individual parts of the generated link, rather than only the rendered anchor
-tag:
+Working with the LinkResult
+===========================
 
-*   :php:`getUrl()` returns the resolved URL.
-*   :php:`getType()` returns the link type, for example :php:`page` or
-    :php:`email`.
-*   :php:`getTarget()` returns the link target.
-*   :php:`getLinkText()` returns the link text.
-*   :php:`getAttributes()` returns all HTML attributes as an array. A single
-    attribute is read with :php:`getAttribute(string $attributeName)`, and its
-    presence checked with :php:`hasAttribute(string $attributeName)`.
-*   The immutable :php:`withLinkText(string $linkText)`,
-    :php:`withTarget(string $target)`,
-    :php:`withAttribute(string $attributeName, ?string $attributeValue)` and
-    :php:`withAttributes(array $additionalAttributes, bool $resetExistingAttributes = false)`
-    methods each return a modified copy of the result.
+Both methods return a
+:php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. It gives programmatic
+access to the individual parts of the generated link, rather than only the
+rendered anchor tag: the resolved URL, the link type, the link text, the link
+target and the HTML attributes. Immutable :php:`with*()` methods each return a
+modified copy of the result. The concrete
+:php:`\TYPO3\CMS\Frontend\Typolink\LinkResult` additionally renders the result
+as a complete anchor tag or as JSON, which is useful for headless or API output.
 
-The concrete :php:`\TYPO3\CMS\Frontend\Typolink\LinkResult` additionally renders
-the result:
-
-*   :php:`getHtml()` returns the complete :html:`<a>` anchor tag.
-*   :php:`getJson()` returns the link as a JSON string, which is useful for
-    headless or API output.
+See the API documentation of
+`LinkResultInterface <https://api.typo3.org/main/classes/TYPO3-CMS-Frontend-Typolink-LinkResultInterface.html>`_
+and
+`LinkResult <https://api.typo3.org/main/classes/TYPO3-CMS-Frontend-Typolink-LinkResult.html>`_
+for the complete list of available methods.
 
 ..  code-block:: php
     :caption: Rendering the result in different ways
@@ -93,6 +115,8 @@ the result:
     $html = $linkResult->getHtml();     // '<a href="/the/page/path">...</a>'
     $json = $linkResult->getJson();     // '{"href":"/the/page/path", ...}'
 
+..  _link-factory-examples:
+
 Examples per link type
 ======================
 
@@ -100,6 +124,8 @@ The link type is determined by the :php:`parameter` value. The following
 examples show the configuration for each type. They all use
 :php:`create()`; the same :php:`parameter` values work with
 :php:`createUri()` as the first part of the parameter string.
+
+..  _link-factory-example-page:
 
 Link to a page
 --------------
@@ -113,6 +139,8 @@ Link to a page
         $contentObjectRenderer,
     );
 
+..  _link-factory-example-file:
+
 Link to a file
 --------------
 
@@ -124,6 +152,8 @@ Link to a file
         ['parameter' => 't3://file?uid=17'],
         $contentObjectRenderer,
     );
+
+..  _link-factory-example-email:
 
 Link to an email address
 ------------------------
@@ -137,6 +167,8 @@ Link to an email address
         $contentObjectRenderer,
     );
 
+..  _link-factory-example-telephone:
+
 Link to a telephone number
 --------------------------
 
@@ -148,6 +180,8 @@ Link to a telephone number
         ['parameter' => 'tel:+1234567890'],
         $contentObjectRenderer,
     );
+
+..  _link-factory-example-record:
 
 Link to a record
 ----------------
@@ -161,11 +195,14 @@ Link to a record
         $contentObjectRenderer,
     );
 
-How the link is built
-=====================
+..  _link-factory-how-it-works:
 
-Once :php:`LinkFactory` has determined the link type, the actual link is built
-by the matching :ref:`link builder <link-builder>`, and the
+How the link is built by the link builders
+==========================================
+
+Once :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` has determined the
+link type, the actual link is built by the matching
+:ref:`link builder <link-builder>`, and the
 :ref:`AfterLinkIsGeneratedEvent <AfterLinkIsGeneratedEvent>` is dispatched so
 the result can still be modified. To learn how the individual link types are
 resolved, continue with the :ref:`frontend link builder <link-builder>`.
