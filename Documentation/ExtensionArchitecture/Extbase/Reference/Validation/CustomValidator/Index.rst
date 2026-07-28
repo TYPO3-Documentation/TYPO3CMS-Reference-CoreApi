@@ -31,7 +31,9 @@ Custom validator for a property of the domain model
 When the standard validators provided by Extbase are not sufficient you can
 write a custom validators to use on the property of a domain model:
 
-..  include:: /CodeSnippets/Extbase/Validator/PropertyValidator.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Validator/PropertyValidator.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Validator\\TitleValidator
+   :emphasize-lines: 8
 
 The method :php:`isValid()` does not return a value. In case of an error it
 adds an error to the validation result by calling method :php:`addError()`.
@@ -61,7 +63,8 @@ At certain times in the life cycle of a model it can be necessary to validate
 the complete domain model. This is usually done before calling a certain action
 that will persist the object.
 
-..  include:: /CodeSnippets/Extbase/Validator/ObjectValidator.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Validator/ObjectValidator.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Validator\\BlogValidator
 
 If the error is related to a specific property of the domain object, the
 function :php:`addErrorForProperty()` should be used instead of :php:`addError()`.

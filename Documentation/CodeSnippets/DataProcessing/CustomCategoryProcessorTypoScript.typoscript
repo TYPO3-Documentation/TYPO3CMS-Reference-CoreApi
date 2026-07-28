@@ -1,0 +1,11 @@
+tt_content {
+    examples_dataproccustom =< lib.contentElement
+    examples_dataproccustom {
+        templateName = DataProcCustom
+        dataProcessing.10 = custom-category
+        dataProcessing.10 {
+            as = categories
+            categoryList.field = categories
+        }
+    }
+}

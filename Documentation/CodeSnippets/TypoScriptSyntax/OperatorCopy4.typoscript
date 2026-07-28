@@ -1,0 +1,14 @@
+# The above is identical to this:
+myIdentifier = TEXT
+myIdentifier.value = Hello world
+myOtherIdentifier < myIdentifier
+
+# Changing myIdentifier *after* it has been copied over to myOtherIdentifier,
+# does *not* change myOtherIdentifier. The below line only changes the
+# value of myIdentifier, not myOtherIdentifier:
+myIdentifier.value = Hello world 2
+
+# Changing myOtherIdentifier *after* it has been copied from to myIdentifier,
+# does *not* change myIdentifier. The below line only changes the
+# value of myOtherIdentifier, not myIdentifier:
+myOtherIdentifier.value = Hello world 3

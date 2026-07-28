@@ -26,7 +26,8 @@ number of useful functions. Therefore, in simple classes that extend the
 
 The :php:`BlogRepository` sets some default orderings and is otherwise empty:
 
-..  include:: /CodeSnippets/Extbase/Domain/BlogRepository.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/BlogRepository.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Repository\\BlogRepository
 
 ..  contents:: **Table of contents**
     :local:
@@ -87,7 +88,8 @@ Custom find methods can be implemented. They can be used for complex queries.
 The :php:`PostRepository` of the :composer:`t3docs/blog-example` example extension implements
 several custom find methods, two of them are shown below:
 
-..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/CustomMethods.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Repository\\PostRepository
 
 ..  _extbase-repository-find-by-magic:
 
@@ -150,7 +152,8 @@ Query settings
 If the query settings should be used for all methods in the repository,
 they should be set in the method :php:`initializeObject()` method.
 
-..  include:: /CodeSnippets/Extbase/Domain/DefaultQuerySettings.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/DefaultQuerySettings.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Repository\\CommentRepository
 
 ..  attention::
     Depending on the query settings, hidden or even deleted objects can become
@@ -159,7 +162,8 @@ they should be set in the method :php:`initializeObject()` method.
 If you only want to change the query settings for a specific method, they can be
 set in the method itself:
 
-..  include:: /CodeSnippets/Extbase/Domain/SpecialQuerySettings.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Domain/SpecialQuerySettings.php
+   :caption: Class T3docs\\BlogExample\\Domain\\Repository\\CommentRepository
 
 ..  _extbase-repository-api:
 

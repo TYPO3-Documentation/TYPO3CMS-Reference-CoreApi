@@ -90,7 +90,9 @@ Extbase controller action and via :html:`{settings}` within Fluid.
 Example: Access settings in an Extbase controller
 -------------------------------------------------
 
-..  include:: /CodeSnippets/Extbase/Controllers/Settings.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Controllers/Settings.php
+   :caption: Class T3docs\\BlogExample\\Controller\\PostController
+   :emphasize-lines: 7
 
 ..  _extension-configuration-yaml:
 

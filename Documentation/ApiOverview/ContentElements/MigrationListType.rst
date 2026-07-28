@@ -99,7 +99,8 @@ to provide a custom upgrade wizard that moves existing plugins from the
 `list_type` definition to the `CType` definition. The resulting upgrade wizard
 will even adjust backend user permissions for the defined plugins:
 
-..  include:: /CodeSnippets/Extbase/Upgrades/ExtbasePluginListTypeToCTypeUpdate.rst.txt
+.. literalinclude:: /CodeSnippets/Extbase/Upgrades/ExtbasePluginListTypeToCTypeUpdate.php
+   :caption: Class T3docs\\Examples\\Upgrades\\ExtbasePluginListTypeToCTypeUpdate
 
 ..  _plugins-list-type-migration-extbase-replace:
 

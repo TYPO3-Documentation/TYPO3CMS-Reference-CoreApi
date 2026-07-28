@@ -60,7 +60,8 @@ information only if it matches a set of IP addresses (defined in
 
 For example, the following code:
 
-..  include:: /CodeSnippets/Debugging/DebugCookies.rst.txt
+.. literalinclude:: /CodeSnippets/Debugging/DebugCookies.php
+   :caption: Extension examples, file Classes/Controller/ModuleController.php
 
 will produce such an output:
 

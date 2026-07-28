@@ -37,7 +37,8 @@ automatically.
 1.  Register the custom link browser tab in page TSconfig
 =========================================================
 
-..  include:: _CustomLinkBrowser/_PageTsConfig.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_PageTsConfig.typoscript
+   :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig
 
 The following options are of note here:
 
@@ -82,7 +83,8 @@ We will explain some of the important methods below:
 Initialization and dependencies
 -------------------------------
 
-..  include:: _CustomLinkBrowser/_GitHubLinkHandlerInitialize.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.php
+   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
 For technical reasons, not all dependencies needed by the backend link handler can
 be acquired by :ref:`DependencyInjection`. Therefore the following two methods
@@ -136,7 +138,8 @@ The method :php:`LinkHandlerInterface::render()` is called when the tab should
 be rendered. It registers the required JavaScript in the page renderer, assigns
 variables to the view and returns the rendered HTML.
 
-..  include:: _CustomLinkBrowser/_GitHubLinkHandlerRender.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.php
+   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
 .. _tutorial_backend_link_handler_javascript:
 
@@ -148,7 +151,8 @@ JavaScript class interprets the form data and creates the link to be stored:
 
 ..  todo: Configure code snippet tool to remove or shorten the license comment here
 
-..  include:: _CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.js
+   :caption: EXT:examples/Resources/Public/JavaScript/github_link_handler.js
 
 It is important that the JavaScript function calls
 :js:`LinkBrowser.finalizeFunction()`. Otherwise no link will be set.
@@ -176,7 +180,8 @@ be called and can decide if they can handle that link. If so, they should store
 the provided information to be used in rendering (for example, to fill an input
 field with the old value).
 
-..  include:: _CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.php
+   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
 .. _tutorial_backend_link_handler_formatCurrentUrl:
 
@@ -215,7 +220,8 @@ of the new format by a second class which implements the
     :php:`TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface` handle the
     introduced link format. Such a class is called a "(core) link handler".
 
-..  include:: _CustomLinkBrowser/_GitHubLinkHandling.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandling.php
+   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandling
 
 The method :php:`LinkHandlingInterface::asString()` creates a string
 representation from the parameter array.
@@ -237,7 +243,8 @@ TypoScript :typoscript:`.typolink`, by the
 :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::typoLink`
 function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
-..  include:: _CustomLinkBrowser/_GithubLinkBuilder.rst.txt
+.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.php
+   :caption: Class T3docs\\Examples\\LinkHandler\\GithubLinkBuilder
 
 ..  todo: Mention LinkFactory for v12 and other calling API for v11
 

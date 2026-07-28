@@ -22,4 +22,5 @@
     See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
     for details.
 
-..  include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
+.. literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php

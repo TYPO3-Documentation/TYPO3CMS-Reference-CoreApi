@@ -1,0 +1,26 @@
+<?php
+
+use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
+
+final readonly class CheckExternalLinksToLocalPagesEventListener
+{
+    private const LOCAL_DOMAIN = 'example.org';
+    private const TABLE_NAME = 'tt_content';
+    private const FIELD_NAME = 'bodytext';
+
+    public function __invoke(BeforeRecordIsAnalyzedEvent $event): void
+    {
+        $table = $event->getTableName();
+        if ($table !== self::TABLE_NAME) {
+            return;
+        }
+        $results = $event->getResults();
+        $record = $event->getRecord();
+        $field = (string)$record[self::FIELD_NAME];
+        if (!str_contains($field, self::LOCAL_DOMAIN)) {
+            return;
+        }
+        $results = $this->parseField($record, $results);
+        $event->setResults($results);
+    }
+}

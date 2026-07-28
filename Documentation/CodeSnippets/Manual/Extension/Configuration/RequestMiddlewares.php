@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'frontend' => [
+        'middleware-identifier' => [
+            'target' => \Vendor\SomeExtension\Middleware\ConcreteClass::class,
+            'before' => [
+                'another-middleware-identifier',
+            ],
+            'after' => [
+                'yet-another-middleware-identifier',
+            ],
+        ],
+    ],
+    'backend' => [
+        'middleware-identifier' => [
+            'target' => \Vendor\SomeExtension\Middleware\AnotherConcreteClass::class,
+            'before' => [
+                'another-middleware-identifier',
+            ],
+            'after' => [
+                'yet-another-middleware-identifier',
+            ],
+        ],
+    ],
+];

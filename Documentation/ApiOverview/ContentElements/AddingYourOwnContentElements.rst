@@ -209,7 +209,8 @@ the `data` variable.
 The following example shows the text entered in the text field. New lines are
 converted to `<br>` tags.
 
-.. include:: /CodeSnippets/CustomContentElements/CustomContentElement.rst.txt
+.. literalinclude:: /CodeSnippets/CustomContentElements/CustomContentElement.html
+   :caption: EXT:examples/Resources/Private/Templates/NewContentElement.html
 
 All fields of the table :php:`tt_content` are now available in the variable
 `data`. Read more about :ref:`fluid`.
@@ -386,7 +387,8 @@ parameters to be used in the data processor:
 You can now iterate over the variable `myTable` in the Fluid template, in this
 example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.html`
 
-.. include:: /CodeSnippets/CustomContentElements/DataProcCsv.rst.txt
+.. literalinclude:: /CodeSnippets/CustomContentElements/DataProcCsv.html
+   :caption: EXT:examples/Resources/Private/Templates/ContentElements/DataProcCsv.html
 
 
 The output would look like this (we added a debug of the variable `myTable`):

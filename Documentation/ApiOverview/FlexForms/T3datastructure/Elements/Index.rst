@@ -179,7 +179,8 @@ T3DataStructure example: A simple FlexForm
 Below is the structure of a basic FlexForm from the example extension
 :composer:`typo3/cms-styleguide`:
 
-..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
+.. literalinclude:: /CodeSnippets/FlexForms/Simple.xml
+   :caption: EXT:styleguide/Configuration/FlexForms/Simple.xml
 
 For a more detailed example, have a look at the plugin configuration of
 system extension `felogin` (:t3src:`felogin/Configuration/FlexForms/Login.xml`).

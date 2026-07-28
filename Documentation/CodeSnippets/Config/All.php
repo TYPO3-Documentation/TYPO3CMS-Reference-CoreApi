@@ -7,5 +7,4 @@ return array_merge(
     include ('Api/All.php'),
     include ('Examples/All.php'),
     include ('ExtensionDevelopment/All.php'),
-    include ('Tutorials/All.php'),
 );
