@@ -23,16 +23,17 @@ Which versions to use depends on the PHP and TYPO3 versions to be supported.
 
 The following matrix can help you to choose the correct versions.
 
-================== ================ =================================== ==========
+================== ================ =================================== ===============
  testing-framework  TYPO3            PHP                                 PHPUnit
-================== ================ =================================== ==========
- 9.x.x              v13, v14 (main)  8.2, 8.3, (8.4)                     ^11, ^12
+================== ================ =================================== ===============
+ 10.x.x (main)      v14, v15 (main)  8.2, 8.3, 8.4, 8.5                  ^11, ^12, ^13
+ 9.x.x              v13, v14 (main)  8.2, 8.3, 8.4, 8.5                  ^11, ^12
  8.x.x              v12, v13         8.1, 8.2, 8.3 (8.4)                 ^10, ^11
  7.x.x              v11, v12         7.4, 8.0, 8.1, 8.2, 8.3 (8.4)       ^9, ^10
  6.x.x              v10, v11         7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3   ^8, ^9
-================== ================ =================================== ==========
+================== ================ =================================== ===============
 
-Testing framework <= 6.x is no longer maintained.
+Testing framework <= 7.x is no longer maintained.
 
 ..  _testing-unit-run-configure:
 
@@ -122,7 +123,7 @@ It is also possible to choose the PHP version to run the tests with:
 
 ..  code-block:: bash
 
-    Build/Script/runTests.sh -s unit -p 8.2
+    Build/Script/runTests.sh -s unit -p 8.5
 
 You can start by copying the
 `runTests.sh of blog_example <https://github.com/TYPO3-Documentation/blog_example/blob/main/Build/Scripts/runTests.sh>`__
