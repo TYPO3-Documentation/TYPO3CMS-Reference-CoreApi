@@ -21,5 +21,5 @@ can be looped over (once its content has been loaded). Thus,
 if the above code passed the :php:`$collection` variable to
 a :ref:`Fluid <fluid>` view, you could do the following:
 
-..  literalinclude:: _ExamplesCollection/_Iteration.html
+..  literalinclude:: _ExamplesCollection/_Iteration.fluid.html
     :language: html

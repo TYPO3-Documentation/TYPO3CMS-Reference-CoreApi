@@ -95,8 +95,8 @@ View requirements:
 *   Form fields must be provided within the section
     `<f:section name="loginFormFields">`.
 
-..  literalinclude:: _LoginProvider/_MyLoginForm.html
-    :caption: EXT:my_sitepackage/Resources/Private/Templates/MyLoginForm.html
+..  literalinclude:: _LoginProvider/_MyLoginForm.fluid.html
+    :caption: EXT:my_sitepackage/Resources/Private/Templates/MyLoginForm.fluid.html
 
 ..  _login-provider-examples:
 

@@ -32,8 +32,8 @@ Display a link to "Edit Record"
 The :ref:`t3ViewHelper:typo3-backend-uri-editrecord` can be used to create a
 "create new record" link:
 
-..  literalinclude:: _UriBuilder/_EditRecord.html
-    :caption: EXT:my_extension/Resources/Private/Partials/BackendModule/EditRecordLink.html
+..  literalinclude:: _UriBuilder/_EditRecord.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Partials/BackendModule/EditRecordLink.fluid.html
 
 If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
@@ -102,8 +102,8 @@ Display a link to "Create a New Record"
 The :ref:`t3ViewHelper:typo3-backend-uri-newrecord` can be used to create a
 "create new record" link:
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuBlankLink.html
-   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuBlankLink.html
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuBlankLink.fluid.html
+   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuBlankLink.fluid.html
 
 If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
@@ -119,8 +119,8 @@ default values for certain fields.
 
 It can then be displayed like this:
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLink.html
-   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuLink.html
+.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLink.fluid.html
+   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuLink.fluid.html
 
 The link triggers the creation a new record for the table `tx_examples_haiku`
 on page 1. It also sets a default value for the `title` field ("New haiku") and

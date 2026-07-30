@@ -54,8 +54,8 @@ Code example for the :php:`ArrayPaginator` in an
 
 And the corresponding Fluid template:
 
-..  literalinclude:: _ArrayPaginatorExamplePagination.html
-    :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.html
+..  literalinclude:: _ArrayPaginatorExamplePagination.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.fluid.html
 
 
 .. _pagination-example-query-builder-paginator:

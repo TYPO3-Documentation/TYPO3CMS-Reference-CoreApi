@@ -37,8 +37,8 @@ The ViewHelper should be given the name "gravatar" and take an email
 address and an optional alt-text  as a parameters.
 The ViewHelper is called in the template as follows:
 
-..  literalinclude:: _CustomViewHelper/_SomeTemplate.html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+..  literalinclude:: _CustomViewHelper/_SomeTemplate.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
 ..  _fluid-custom-viewhelper-implementation:
 

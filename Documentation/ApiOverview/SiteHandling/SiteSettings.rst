@@ -95,8 +95,8 @@ the site to the view:
 
 You can then use the variable `{site.settings}` to access the site settings:
 
-..  literalinclude:: _Settings/_ExampleControllerIndex.html
-    :caption: EXT:myvendor/my-extension/Resources/Private/Templates/Example/Index.html
+..  literalinclude:: _Settings/_ExampleControllerIndex.fluid.html
+    :caption: EXT:myvendor/my-extension/Resources/Private/Templates/Example/Index.fluid.html
 
 ..  index:: Site handling; TypoScript access to settings
 ..  _sitehandling-settings-access-typoscript:
