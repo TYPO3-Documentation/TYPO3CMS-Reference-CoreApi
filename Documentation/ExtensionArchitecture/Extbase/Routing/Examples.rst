@@ -62,7 +62,7 @@ page for each, and links between them need :php:`setTargetPageUid()` or
 
 In the list template, link to the detail page explicitly:
 
-..  literalinclude:: _snippets/_example-list-link.html
+..  literalinclude:: _snippets/_example-list-link.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/Conference/List.fluid.html
 
 Store the detail page UID in TypoScript settings so it is configurable
