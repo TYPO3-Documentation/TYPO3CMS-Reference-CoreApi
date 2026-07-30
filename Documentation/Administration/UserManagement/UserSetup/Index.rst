@@ -30,7 +30,7 @@ the prompt:
 
         ..  code-block:: bash
 
-            ddev typo3 typo3 backend:user:create
+            ddev typo3 backend:user:create
 
     ..  group-tab:: Composer
 
