@@ -51,8 +51,8 @@ In the Fluid template, the following variables are available:
 *   The current record as object (:php-short:`\TYPO3\CMS\Core\Domain\Record`)
     in variable `{record}`
 
-..  literalinclude:: _codesnippets/_Preview.html
-    :caption: EXT:my_extension/Resources/Private/Templates/Preview/MyCType.html
+..  literalinclude:: _codesnippets/_Preview.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Preview/MyCType.fluid.html
 
 ..  rubric:: Migration
 

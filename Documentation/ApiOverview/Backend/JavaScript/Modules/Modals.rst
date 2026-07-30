@@ -146,7 +146,7 @@ for example on an anchor element, which prevents the default behavior.
 
 Example:
 
-..  literalinclude:: _Modals/_DataModal.html
+..  literalinclude:: _Modals/_DataModal.fluid.html
 
 Examples
 ========
@@ -191,5 +191,5 @@ Templates, using the HTML class :html:`.t3js-modal-trigger` to initialize
 a modal dialog are also able to use the new option by adding the
 :html:`data-static-backdrop` attribute to the corresponding element.
 
-..  literalinclude:: _Modals/_StaticBackdrop.html
+..  literalinclude:: _Modals/_StaticBackdrop.fluid.html
     :language: html

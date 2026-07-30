@@ -58,9 +58,9 @@ A module can be added to the current page response either via
 In a Fluid template the `includeJavaScriptModules` property of the
 :html:`<f:be.pageRenderer>` ViewHelper may be used:
 
-..  literalinclude:: _BackendFluidTemplate.html
+..  literalinclude:: _BackendFluidTemplate.fluid.html
     :language: html
-    :caption: EXT:my_extension/Resources/Private/Backend/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Backend/Templates/SomeTemplate.fluid.html
 
 Some tips on ES6
 ================

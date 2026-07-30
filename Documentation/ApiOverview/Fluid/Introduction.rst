@@ -25,8 +25,8 @@ Example Fluid snippet
 
 This is how a simple Fluid snippet could look like:
 
-..  literalinclude:: _Introduction/_SomeTemplate.html
-    :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
+..  literalinclude:: _Introduction/_SomeTemplate.fluid.html
+    :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.fluid.html
 
 The resulting HTML may look like this:
 
@@ -191,8 +191,8 @@ Without a Layout
 
 For example, the layout may like this
 
-..  literalinclude:: _Introduction/_LayoutExtensionDefault.html
-    :caption: EXT:my_extension/Resources/Private/Layouts/Default.html
+..  literalinclude:: _Introduction/_LayoutExtensionDefault.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Layouts/Default.fluid.html
 
 The layout defines which sections are rendered and in which order. It can
 contain additional arbitrary Fluid / HTML. How you name the sections and which
@@ -200,8 +200,8 @@ sections you use is up to you.
 
 The corresponding template should include the sections which are to be rendered.
 
-..  literalinclude:: _Introduction/_ExtensionDefault.html
-    :caption:  EXT:my_extension/Resources/Private/Templates/Default.html
+..  literalinclude:: _Introduction/_ExtensionDefault.fluid.html
+    :caption:  EXT:my_extension/Resources/Private/Templates/Default.fluid.html
 
 ..  _fluid-partials:
 
@@ -218,8 +218,8 @@ Partials are stored, by convention, within :file:`Resources/Private/Partials/`.
 
 Example partial:
 
-..  literalinclude:: _Introduction/_Tags.html
-    :caption:  EXT:my_extension/Resources/Private/Partials/Tags.html
+..  literalinclude:: _Introduction/_Tags.fluid.html
+    :caption:  EXT:my_extension/Resources/Private/Partials/Tags.fluid.html
 
 Example template using the partial:
 
@@ -293,25 +293,25 @@ object.
 The template in file :file:`Pages/Default.html` is automatically used whenever there is
 no specific template for the current `Backend layout <https://docs.typo3.org/permalink/t3coreapi:be-layout>`_ of the page.
 
-..  literalinclude:: _Introduction/_Default.html
-    :caption: EXT:my_sitepackage/Resources/Private/PageView/Pages/Default.html
+..  literalinclude:: _Introduction/_Default.fluid.html
+    :caption: EXT:my_sitepackage/Resources/Private/PageView/Pages/Default.fluid.html
 
 It includes the layout :file:`Layouts/PageLayout.html`. And uses partial
 :file:`Partials/Content.html` to display its content.
 
 It uses the partial :file:`Partials/Content.html` to display its content.
 
-..  literalinclude:: _Introduction/_Content.html
-    :caption: Resources/Private/PageView/Partials/Content.html
+..  literalinclude:: _Introduction/_Content.fluid.html
+    :caption: Resources/Private/PageView/Partials/Content.fluid.html
 
 The template for a different backend layout will look similar, but has for
 example two columns:
 
-..  literalinclude:: _Introduction/_Subpage.html
-    :caption: my_sitepackage/Resources/Private/PageView/Page/Subpage.html
+..  literalinclude:: _Introduction/_Subpage.fluid.html
+    :caption: my_sitepackage/Resources/Private/PageView/Page/Subpage.fluid.html
 
 The page layout takes care of elements that are shared across all or most page
 types:
 
-..  literalinclude:: _Introduction/_PageLayout.html
-    :caption: my_sitepackage/Resources/Private/PageView/Layouts/PageLayout.html
+..  literalinclude:: _Introduction/_PageLayout.fluid.html
+    :caption: my_sitepackage/Resources/Private/PageView/Layouts/PageLayout.fluid.html

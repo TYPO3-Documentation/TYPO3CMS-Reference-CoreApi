@@ -257,8 +257,8 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
 
     ..  group-tab:: Fluid
 
-        ..  literalinclude:: _snippets/_Date.html
-            :caption: packages/my_extension/Resources/Private/Templates/Date/Show.html
+        ..  literalinclude:: _snippets/_Date.fluid.html
+            :caption: packages/my_extension/Resources/Private/Templates/Date/Show.fluid.html
 
 ..  _extbase-domain-property-types-datetime-consistency:
 ..  _extbase-model-datetime-consistency:
@@ -338,8 +338,8 @@ templates.
 
     ..  group-tab:: Fluid
 
-        ..  literalinclude:: _snippets/_Country.html
-            :caption: packages/my_extension/Resources/Private/Templates/TeaSupply/ShowTeaForm.html
+        ..  literalinclude:: _snippets/_Country.fluid.html
+            :caption: packages/my_extension/Resources/Private/Templates/TeaSupply/ShowTeaForm.fluid.html
 
         You can access any :php:`getXXX()` methods from the
         `Country API <https://docs.typo3.org/permalink/t3coreapi:country-api>`_
@@ -395,8 +395,8 @@ and `Radio buttons <https://docs.typo3.org/permalink/t3tca:columns-radio>`_.
 
     ..  group-tab:: Fluid
 
-        ..  literalinclude:: _snippets/_EnumExample.html
-            :caption: packages/my_extension/Resources/Private/Templates/Paper/Show.html
+        ..  literalinclude:: _snippets/_EnumExample.fluid.html
+            :caption: packages/my_extension/Resources/Private/Templates/Paper/Show.fluid.html
 
     ..  group-tab:: Localization
 
