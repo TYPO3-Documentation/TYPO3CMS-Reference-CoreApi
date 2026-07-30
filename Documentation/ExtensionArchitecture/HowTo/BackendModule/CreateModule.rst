@@ -89,8 +89,8 @@ and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()
 Template example
 ================
 
-.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_DebugHtml.html
-   :caption: EXT:examples/Resources/Private/Templates/AdminModule/Debug.html
+.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_DebugHtml.fluid.html
+   :caption: EXT:examples/Resources/Private/Templates/AdminModule/Debug.fluid.html
 
 .. note:: Some Fluid tags do not work in non-Extbase context such as
    :html:`<f:form>`.

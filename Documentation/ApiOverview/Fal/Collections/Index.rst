@@ -86,9 +86,9 @@ In the view we can then either use collection member variables as usual
 (like their title) or put them directly in a loop to iterate over the
 record selection:
 
-..  literalinclude:: _List.html
+..  literalinclude:: _List.fluid.html
     :language: html
-    :caption: EXT:my_extension/Resources/Private/Templates/List.html
+    :caption: EXT:my_extension/Resources/Private/Templates/List.fluid.html
 
 Here is what the result may look like (the exact result will obviously
 depend on the content of the selection):
