@@ -61,7 +61,7 @@ Line 2: :yaml:`label: My Set`
     This label will be used in the new select box of the site module. Should
     be as unique as possible to avoid duplication in the site module.
 Line 3-6: Settings
-    Define settings for the website
+    Define settings for the website.
     **Never** nest settings with a dot! e.g. `website.background.color`
     Otherwise the new settings definitions will not work later.
     If a setting value contains special characters or spaces, it is recommended to
@@ -427,7 +427,7 @@ Using the site set to override default settings
 In this example the file
 :file:`EXT:site_package/Configuration/Sets/SitePackage/settings.yaml`
 is used to
-override default settings made by the by the set of
+override default settings made by the set of
 :ref:`EXT:fluid_styled_content <typo3/cms-fluid-styled-content:start>`:
 
 ..  literalinclude:: _Sets/_site-package/_settings-map.yaml
@@ -487,7 +487,7 @@ site sets for special use-cases. It has the following file structure:
 Multiple site sets to include separate functionality
 ----------------------------------------------------
 
-The main site set of the extension has the same name like the Composer name:
+The main site set of the extension has the same name as the Composer name:
 
 .. literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_config.yaml
    :caption: EXT:blog_example/Configuration/Sets/BlogExample/config.yaml
