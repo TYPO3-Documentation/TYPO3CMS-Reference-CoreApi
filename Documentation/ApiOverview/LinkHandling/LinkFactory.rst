@@ -1,4 +1,5 @@
 :navigation-title: Link factory
+
 ..  include:: /Includes.rst.txt
 ..  index:: Link factory
 ..  _link-factory:
