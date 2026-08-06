@@ -590,5 +590,10 @@ All existing APIs like :typoscript:`typolink` or functionality evaluate the
 page routing API directly.
 
 ..  note::
-    If you update the site configuration with enhancers you have to to clear
-    all caches, for example via the upper menu bar in the backend.
+    If you update the site configuration by adding or modifying enhancers, remember to clear the TYPO3 cache afterwards.
+    The easiest way to do this is to log in to the TYPO3 backend and click the **lightning bolt** icon in the upper-right corner. Then select **"Flush all caches"**.
+    Alternatively, you can clear the cache using the **Maintenance** module or from the command line: 
+.. code-block:: bash
+
+   typo3 cache:flush
+
