@@ -563,10 +563,8 @@ separately, for instance, to redirect to the list page:
 ..  literalinclude:: _codesnippets/_MyController.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-..  index::
-    Routing; PageArguments
-    Routing; cHash
-    Routing; typolink
+..  _routing-aspect-behind-the-scenes:
+..  index:: Routing; Behind the scenes of routing in TYPO3
 
 Behind the scenes of routing in TYPO3
 =====================================
