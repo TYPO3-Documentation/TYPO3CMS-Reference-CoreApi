@@ -48,7 +48,7 @@ link fields can be converted into HTML by the function :ref:`t3tsref:typolink`.
 In PHP context links are usually stored in an array format. Each link type is
 handled by a :ref:`core-link-handler` which maps between different formats.
 
-..  todo: Add chapter about converting and outputting links in PHP
+To generate links from PHP, use the :ref:`frontend link factory <link-factory>`.
 
 The :ref:`link browser <linkbrowser-api>` is the modal in which users can configure
 links in both the :ref:`rte` and the :ref:`FormEngine`. The link browser offers
@@ -74,5 +74,6 @@ and :ref:`custom link handler implementations <tutorial-github-link-handler>`.
     LinkBrowserApi/Index
     Linkhandler/Index
     CoreLinkHandler
+    LinkFactory
     LinkBuilder
     Tutorials/Index
