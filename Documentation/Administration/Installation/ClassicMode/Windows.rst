@@ -59,6 +59,8 @@ following symlinks in your document root:
     :path:`vendor` directory. Missing this directory will result in missing
     dependencies.
 
+..  _classic-symlink-installation-windows-expected-directory-structure:
+
 Expected directory structure on Windows
 =======================================
 

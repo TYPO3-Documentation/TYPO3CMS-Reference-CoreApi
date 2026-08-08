@@ -15,6 +15,8 @@ is used by TYPO3 itself for :ref:`TCA fields with type "text" and renderType
     :local:
 
 
+..  _code-editor-usage-tca:
+
 Usage in TCA
 ============
 
@@ -36,6 +38,8 @@ the mode for syntax highlighting can be chosen. Allowed values:
 *   :php:`xml`
 *   and any :ref:`custom mode <code-editor-register-mode>` registered by an
     extension.
+
+..  _code-editor-usage-tca-example:
 
 Example
 -------

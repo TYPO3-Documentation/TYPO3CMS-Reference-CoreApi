@@ -23,6 +23,8 @@ emoji (UTF-8 representation).
    :local:
 
 
+..  _country-api-php-api:
+
 Using the PHP API
 =================
 
@@ -33,6 +35,8 @@ Using the PHP API
     :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
+
+..  _country-api-php-api-get-countries:
 
 Get all countries
 -----------------
@@ -46,6 +50,8 @@ To get all countries call the :php:`getAll()` method:
 
 The method returns an array of :php:`\TYPO3\CMS\Core\Country\Country` objects.
 
+
+..  _country-api-php-api-get-country:
 
 Get a country
 -------------
@@ -64,6 +70,8 @@ Get a country
 
 The methods return a :php:`\TYPO3\CMS\Core\Country\Country` object.
 
+
+..  _country-api-php-api-filter-countries:
 
 Filter countries
 ----------------
@@ -89,6 +97,8 @@ The method :php:`getFiltered()` return an array of
 :php:`\TYPO3\CMS\Core\Country\Country` objects.
 
 
+..  _country-api-php-api-country-object:
+
 The :php:`Country` object
 -------------------------
 
@@ -100,18 +110,26 @@ translatable labels:
     :caption: EXT:my_extension/Classes/MyClassWithTranslation.php
 
 
+..  _country-api-php-api-reference:
+
 PHP API reference
 =================
+
+..  _country-api-php-api-reference-countryprovider:
 
 :php:`CountryProvider`
 ----------------------
 
 .. include:: /CodeSnippets/Manual/Country/CountryProvider.rst.txt
 
+..  _country-api-php-api-reference-countryfilter:
+
 :php:`CountryFilter`
 ----------------------
 
 .. include:: /CodeSnippets/Manual/Country/CountryFilter.rst.txt
+
+..  _country-api-php-api-reference-country:
 
 :php:`Country`
 --------------

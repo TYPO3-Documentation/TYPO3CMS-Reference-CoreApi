@@ -13,6 +13,8 @@ Two :ref:`CLI commands <symfony-console-commands>` are available:
 *   `site:show`
 
 
+..  _sitehandling-cli-tools-list-configured-sites:
+
 List all configured sites
 =========================
 
@@ -34,6 +36,8 @@ enabled.
 
             typo3/sysext/core/bin/typo3 site:list
 
+
+..  _sitehandling-cli-tools-show-configuration-one:
 
 Show configuration for one site
 ===============================

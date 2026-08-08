@@ -103,6 +103,8 @@ good idea to force users to register with a password that has for instance at le
 and contains even some special characters. See also :ref:`password-policies`.
 
 
+..  _password-hashing-look-like:
+
 What does it look like?
 =======================
 
@@ -123,6 +125,8 @@ used hash algorithm. In this case it is `$argon2id` which denotes the Argon2id h
 
 
 .. index:: Password hashing; Configuration
+
+..  _password-hashing-configuration:
 
 Configuration
 =============
@@ -168,6 +172,8 @@ reason.
    TYPO3_CONF_VARS; FE passwordHashing
    TYPO3_CONF_VARS; BE passwordHashing
 
+..  _password-hashing-configuration-options:
+
 Configuration options
 =====================
 
@@ -203,6 +209,8 @@ administrators should know exactly what they are doing.
 
 .. index:: Password hashing;
 
+..  _password-hashing-available-algorithms-argon2i-argon2id:
+
 Argon2i / Argon2id
 ------------------
 
@@ -221,6 +229,8 @@ Options:
 
 .. index:: Password hashing;
 
+..  _password-hashing-available-algorithms-bcrypt:
+
 bcrypt
 ------
 
@@ -231,6 +241,8 @@ additional quirks for long passwords in PHP and should only be used if Argon2i i
 
 
 .. index:: Password hashing;
+
+..  _password-hashing-available-algorithms-pbkdf2:
 
 PBKDF2
 ------
@@ -244,6 +256,8 @@ It could be a preferred password hash algorithm if storing passwords in a FIPS c
 
 .. index:: Password hashing;
 
+..  _password-hashing-available-algorithms-phpass:
+
 phpass
 ------
 
@@ -255,6 +269,8 @@ The implementation should work on almost all PHP builds. Options:
 
 .. index:: Password hashing;
 
+..  _password-hashing-available-algorithms-blowfish:
+
 blowfish
 --------
 
@@ -264,6 +280,8 @@ that still need to upgrade outdated password hashes to better algorithms. Option
 
 * hash_count: The default log2 number of iterations for password stretching. Defaults to 7.
 
+..  _password-hashing-available-algorithms-md5salt:
+
 md5salt
 -------
 
@@ -272,8 +290,12 @@ It should not be used any longer and is only included for instances that still n
 to upgrade outdated password hashes to better algorithms.
 
 
+..  _password-hashing-php-api:
+
 PHP API
 =======
+
+..  _password-hashing-php-api-creating-hash:
 
 Creating a hash
 ---------------
@@ -292,6 +314,8 @@ Example implementation for TYPO3 frontend:
    $password = 'someHopefullyGoodAndLongPassword';
    $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
    $hashedPassword = $hashInstance->getHashedPassword($password);
+
+..  _password-hashing-php-api-checking-password:
 
 Checking a password
 -------------------
@@ -318,6 +342,8 @@ Example implementation for TYPO3 frontend:
        ->get($passwordHash, $mode) # or getDefaultHashInstance($mode)
        ->checkPassword($password, $passwordHash);
 
+..  _password-hashing-php-api-adding-new-hash:
+
 Adding a new hash mechanism
 ---------------------------
 
@@ -338,6 +364,8 @@ To add an additional hash algorithm, these steps are necessary:
 .. _blowfish: https://en.wikipedia.org/wiki/Blowfish_(cipher)
 .. _md5: https://en.wikipedia.org/wiki/MD5
 
+
+..  _password-hashing-information:
 
 More information
 ================

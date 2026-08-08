@@ -9,6 +9,8 @@ Using site configuration in TypoScript and Fluid templates
 
 .. index:: pair: Site handling; getText
 
+..  _sitehandling-in-typo-script-gettext:
+
 getText
 =======
 

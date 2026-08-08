@@ -12,6 +12,8 @@ Routing
    :depth: 1
    :local:
 
+..  _typo3-request-attribute-routing-frontend:
+
 Frontend
 ========
 
@@ -27,6 +29,8 @@ Example:
     $pageArguments = $request->getAttribute('routing');
     $pageId = $pageArguments->getPageId();
 
+
+..  _typo3-request-attribute-routing-frontend-api:
 
 API
 ---
@@ -52,6 +56,8 @@ Example:
 
 ..  seealso::
     :ref:`backend-routing-dynamic-parts`
+
+..  _typo3-request-attribute-routing-backend-api:
 
 API
 ---

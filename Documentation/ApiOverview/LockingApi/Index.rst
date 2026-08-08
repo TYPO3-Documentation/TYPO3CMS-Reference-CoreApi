@@ -21,6 +21,8 @@ result in incomplete or corrupt data, if locking is not used.
 
 .. index:: Locking; Strategy
 
+..  _locking-api-locking-strategies:
+
 Locking strategies
 ==================
 
@@ -69,6 +71,8 @@ locking strategy supported on system
    Locking; LOCK_CAPABILITY_NOBLOCK
    Locking; LOCK_CAPABILITY_EXCLUSIVE
    Locking; LOCK_CAPABILITY_SHARED
+
+..  _locking-api-locking-strategies-capabilities:
 
 Capabilities
 ------------
@@ -121,6 +125,8 @@ You can use bitwise `OR` to combine them:
    Locking; SimpleLockStrategy
    Locking; SemaphoreLockStrategy
 
+..  _locking-api-locking-strategies-priorities:
+
 Priorities
 ----------
 
@@ -143,6 +149,8 @@ for example in additional configuration:
    use TYPO3\CMS\Core\Locking\FileLockStrategy;
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['priority'] = 10;
+
+..  _locking-api-locking-strategies-examples:
 
 Examples
 --------
@@ -236,6 +244,8 @@ Caveats
 
 .. index:: Locking; FileLockStrategy & NFS
 
+..  _locking-api-caveats-filelockstrategy-nfs:
+
 FileLockStrategy & NFS
 ----------------------
 
@@ -256,6 +266,8 @@ first choice for most locking operations in TYPO3.
 
 
 .. index:: Locking; Multiple servers
+
+..  _locking-api-caveats-multiple-servers-cache:
 
 Multiple servers & Cache locking
 --------------------------------

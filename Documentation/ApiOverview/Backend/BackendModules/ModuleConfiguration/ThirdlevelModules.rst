@@ -20,6 +20,8 @@ This allows administrators to define access permissions via the module
 access logic for those modules individually. It also allows to influence the
 position of the third-level module.
 
+..  _backend-modules-third-level-module-example:
+
 Example
 =======
 

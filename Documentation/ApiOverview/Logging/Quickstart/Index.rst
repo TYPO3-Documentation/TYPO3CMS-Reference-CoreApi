@@ -32,6 +32,8 @@ automatically instantiate the logger:
     Logging; logger->error
     Logging; logger->warning
 
+..  _logging-quickstart-log-2:
+
 Log
 ===
 
@@ -72,6 +74,8 @@ specifying an invalid value) should use placeholders, denoted by
 ..  index::
     Logging; Output
     Logging; FileWriter
+
+..  _logging-quickstart-set-logging-output:
 
 Set logging output
 ==================

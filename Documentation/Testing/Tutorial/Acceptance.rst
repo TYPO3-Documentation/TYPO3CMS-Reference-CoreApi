@@ -6,9 +6,6 @@
 Acceptance testing of site_introduction
 =======================================
 
-Introduction
-============
-
 Testing entire projects is somehow different from Core and extension testing. As a developer
 or maintainer of a specific TYPO3 instance, you probably do not want to test extension details
 too much - those should have been tested on an extension level already. And you probably also
@@ -27,6 +24,8 @@ locally and by GitHub Actions.
 
 This is thought as an inspiration you may want to adapt for your project.
 
+
+..  _testing-tutorial-acceptance-project-site-introduction:
 
 Project site-introduction
 =========================
@@ -58,6 +57,8 @@ This will start various containers: A database, a phpmyadmin instance, and a web
 goes well, the instance is reachable on :samp:`https://introduction.ddev.site`.
 
 .. index:: Testing; Acceptance
+
+..  _testing-tutorial-acceptance-local-acceptance-testing:
 
 Local acceptance testing
 ========================
@@ -208,6 +209,8 @@ Done: Local test execution of a projects acceptance test!
 
 .. index:: Testing; GitHub Actions
 
+..  _testing-tutorial-acceptance-github-actions:
+
 GitHub Actions
 ==============
 
@@ -256,6 +259,8 @@ To tell the CI what to do, create a new workflow file in
 It's possible to see executed test runs `online <https://github.com/TYPO3-Documentation/site-introduction/actions>`_.
 Green :)
 
+
+..  _testing-tutorial-acceptance-summary:
 
 Summary
 =======

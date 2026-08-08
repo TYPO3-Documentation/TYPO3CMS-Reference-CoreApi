@@ -118,6 +118,8 @@ The parsers will return an instance of
 containing information about the references contained in the string.
 This object has two properties: :php:`$content` and :php:`$elements`.
 
+..  _soft-references-examples-property-content:
+
 Property :php:`$content`
 ------------------------
 
@@ -138,6 +140,8 @@ extracted by a soft reference parser.
 For each token there is an entry in :php:`$elements` which has a
 :php:`subst` key defining the :php:`tokenID` and the :php:`tokenValue`. See
 below.
+
+..  _soft-references-examples-property-elements:
 
 Property :php:`$elements`
 -------------------------
@@ -239,6 +243,8 @@ If :php:`$elements` is an empty array, this method will also be used internally.
 ..  index::
     Soft references; Usage
     BackendUtility; softRefParserObj
+
+..  _soft-references-soft-reference-parser:
 
 Using the soft reference parser
 ===============================

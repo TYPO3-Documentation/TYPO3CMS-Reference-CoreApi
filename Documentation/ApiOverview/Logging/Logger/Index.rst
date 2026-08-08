@@ -229,6 +229,8 @@ The instantiated logger will now have the channel "security",
 instead of the default one, which would be a combination of namespace and class
 of the instantiating class, such as `MyVendor.MyExtension.Service.MyClass`.
 
+..  _logging-channels-channel:
+
 Using the channel
 -----------------
 
@@ -279,6 +281,8 @@ Best practices
 There are no strict rules or guidelines about logging.
 Still it can be considered to be best practice to follow these rules:
 
+..  _logging-logger-best-practices-placeholders:
+
 Use placeholders
 ----------------
 
@@ -311,6 +315,8 @@ substitute placeholders in the message with data from the context array,
 if a context array key with same name exists.
 
 
+..  _logging-logger-best-practices-meaningful-message:
+
 Meaningful message
 ------------------
 
@@ -328,6 +334,8 @@ Good example:
 
     "Could not connect to database"
 
+
+..  _logging-logger-best-practices-searchable-message:
 
 Searchable message
 ------------------
@@ -348,6 +356,8 @@ Good example:
 
 This includes "connection", "mysql" and "database" as possible keywords.
 
+
+..  _logging-logger-best-practices-distinguishable-grouped:
 
 Distinguishable and grouped
 ---------------------------
@@ -373,6 +383,8 @@ Good examples:
 This way the same issue is grouped by the same structure,
 and one can scan the same position for either "MySQL" or "memcache".
 
+
+..  _logging-logger-best-practices-provide-useful-information:
 
 Provide useful information
 --------------------------

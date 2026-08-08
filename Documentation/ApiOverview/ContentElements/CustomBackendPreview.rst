@@ -116,6 +116,8 @@ The standard renderer may be composed and its rendering methods delegated to whe
 is desired, as :php-short:`\TYPO3\CMS\Form\Preview\FormPagePreviewRenderer` demonstrates.
 
 
+..  _configure-ce-preview-configuring-implementation:
+
 Configuring the implementation
 ==============================
 

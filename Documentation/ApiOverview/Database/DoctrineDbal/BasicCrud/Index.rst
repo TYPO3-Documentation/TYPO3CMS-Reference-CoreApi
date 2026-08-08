@@ -24,6 +24,8 @@ the :ref:`ConnectionPool <database-connection-pool>` in the classes.
 
 ..  index:: Database; INSERT
 
+..  _database-basic-crud-insert-row:
+
 Insert a row
 ============
 
@@ -81,6 +83,8 @@ The engine encloses field names in quotes, adds default TCA restrictions such as
     :sql:`delete()` or other query types.
 
 
+..  _database-select-select-multiple-rows:
+
 Select multiple rows with some "where" magic
 --------------------------------------------
 
@@ -116,6 +120,8 @@ The executed query looks like this:
 
 .. index:: Database; UPDATE
 
+..  _database-basic-crud-update-multiple-rows:
+
 Update multiple rows
 ====================
 
@@ -134,6 +140,8 @@ The executed query looks like this:
     queries. For examples, see the :ref:`QueryBuilder chapter
     <database-query-builder-update-set>`.
 
+
+..  _database-basic-crud-delete-row:
 
 Delete a row
 ============

@@ -14,6 +14,8 @@ Permissions management
    This chapter (and the following) cover modules that will only be available for backend users
    with :ref:`"admin" <admin-user>` access privileges.
 
+..  _permissions-management-introduction:
+
 Introduction
 ============
 

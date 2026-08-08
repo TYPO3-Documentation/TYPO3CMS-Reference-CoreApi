@@ -163,6 +163,8 @@ the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an overview o
 event listeners, see :ref:`EventDebugging`.
 
 
+..  _event-dispatcher-advantages-event-dispatcher:
+
 Advantages of the event dispatcher over hooks
 =============================================
 

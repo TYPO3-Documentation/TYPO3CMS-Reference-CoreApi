@@ -19,6 +19,8 @@ This chapter provides some examples about interacting with
 Getting a file
 ==============
 
+..  _fal-using-fal-examples-file-folder-get-file-uid:
+
 By uid
 ------
 
@@ -28,6 +30,8 @@ A file can be retrieved using its uid:
     :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
+
+..  _fal-using-fal-examples-file-folder-get-file-combined-identifier:
 
 By its combined identifier
 --------------------------
@@ -59,6 +63,8 @@ file identifier is adapted accordingly inside of TYPO3 to match the new
 storage's base path.
 
 
+..  _fal-using-fal-examples-file-folder-get-file-filename-folder:
+
 By filename from its folder
 ---------------------------
 
@@ -66,6 +72,8 @@ By filename from its folder
     :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
+
+..  _fal-using-fal-examples-file-folder-get-file-filename-folder-2:
 
 By its filename from the folder object
 --------------------------------------

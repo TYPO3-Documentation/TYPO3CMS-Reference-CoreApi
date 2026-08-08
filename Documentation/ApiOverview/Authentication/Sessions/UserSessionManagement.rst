@@ -31,6 +31,8 @@ and persisting them. It effectively encapsulates all calls to the
 
 .. index:: UserSessionManager
 
+..  _session-management-public-api-usersessionmanager:
+
 Public API of :php:`UserSessionManager`
 =======================================
 
@@ -49,6 +51,8 @@ You can then use the :php:`UserSessionManager` to work
 with user sessions. A couple of public methods are available:
 
 ..  include:: _UserSessionManager.rst.txt
+
+..  _session-management-public-api-usersession:
 
 Public API of :php:`UserSession`
 ================================

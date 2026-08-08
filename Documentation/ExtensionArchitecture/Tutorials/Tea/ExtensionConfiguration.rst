@@ -25,6 +25,8 @@ Though not required it is considered best practice for an extension to have an
 icon. This icon should have the format :file:`.svg` or :file:`.png` and has
 to be located at :file:`EXT:tea/Resources/Public/Icons/Extension.svg`.
 
+..  _extbase-tutorial-tea-extension-configuration-install-extension:
+
 Install the extension locally
 =============================
 

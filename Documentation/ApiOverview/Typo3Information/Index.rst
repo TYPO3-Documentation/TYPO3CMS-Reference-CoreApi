@@ -8,6 +8,8 @@ Global meta information about TYPO3
 ===================================
 
 
+..  _typo3-information-general-information:
+
 General information
 ===================
 
@@ -28,6 +30,8 @@ The following methods are available:
    ('If the program is interactive, make it output a short notice... ' )
    Therefore preventing this notice from being properly shown is a violation of the license, regardless of whether
    you remove it or use a stylesheet to obstruct the display.
+
+..  _typo3-information-version-information:
 
 Version Information
 ===================

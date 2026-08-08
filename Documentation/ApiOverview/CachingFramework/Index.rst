@@ -9,6 +9,8 @@ Caching
 ..  contents::
     :local:
 
+..  _caching-caching-typo3:
+
 Caching in TYPO3
 ================
 
@@ -153,6 +155,8 @@ The most flexible modification of the page cache parameters is using the
 :ref:`BeforePageCacheIdentifierIsHashedEvent <BeforePageCacheIdentifierIsHashedEvent>` event that allows adding, removing or modifying
 all parameters.
 
+..  _caching-example-excerpt-config:
+
 Example (excerpt of `config/system/additional.php`)
 ===================================================
 
@@ -194,6 +198,8 @@ partial matches allow to simplify the configuration and consider all items havin
         // ...
     ],
 
+..  _caching-clearing-flushing-warming:
+
 Clearing/flushing and warming up caches
 =======================================
 
@@ -222,6 +228,8 @@ new classes have been added to the system or in case of problems with the system
 using this cache clearing option will clear all caches including compiled code
 like the dependency injection container.
 
+..  _caching-clearing-flushing-warming-clear-cache-command:
+
 Clear cache command
 -------------------
 
@@ -244,6 +252,8 @@ option. The command defaults to flush all available cache groups as the
 Extensions that register custom caches may listen to the :ref:`CacheFlushEvent`,
 but usually the cache flush via cache manager groups will suffice to clear those
 caches, too.
+
+..  _caching-clearing-flushing-warming-cache-warmup:
 
 Cache warmup
 ------------
@@ -285,6 +295,8 @@ via :ref:`CacheWarmupEvent`.
     TYPO3 frontend caches will not be warmed by TYPO3 Core, such functionality
     could be added by third-party extensions with the help of
     :ref:`CacheWarmupEvent`.
+
+..  _caching-clearing-flushing-warming-case-deployment:
 
 Use case: deployment
 --------------------
@@ -341,6 +353,8 @@ per release. In other words, share :file:`var/session/`, :file:`var/log/`,
 :file:`var/lock/` and :file:`var/charset/` between releases, but keep
 :file:`var/cache/` be associated only with one release.
 
+
+..  _caching-caching-framework:
 
 Caching framework
 =================

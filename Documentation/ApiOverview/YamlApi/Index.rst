@@ -90,6 +90,8 @@ the reverse order, take care when updating projects from before v12!
 
 ..  index:: YAML; Custom placeholder
 
+..  _yaml-file-loader-custom-placeholder-processing:
+
 Custom placeholder processing
 -----------------------------
 

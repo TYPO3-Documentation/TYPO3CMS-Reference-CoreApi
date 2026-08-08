@@ -311,7 +311,7 @@ If autoconfiguration is disabled, manually tag the service in
          tags:
            - name: page_layout.data_provider
 
-..  _backend-layout-providers:
+..  _backend-layout-providers-ordering:
 
 Backend layout provider ordering
 --------------------------------

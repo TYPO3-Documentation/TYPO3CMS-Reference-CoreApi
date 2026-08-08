@@ -19,6 +19,8 @@ Example:
     $identifier = $route->getIdentifier();
 
 
+..  _typo3-request-attribute-module-api:
+
 API
 ===
 

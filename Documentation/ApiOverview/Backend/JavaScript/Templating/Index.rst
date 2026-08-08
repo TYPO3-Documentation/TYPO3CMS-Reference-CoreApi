@@ -33,9 +33,13 @@ information.
 .. _lit-element-guide: https://lit-element.polymer-project.org/guide
 
 
+..  _js-templating-examples:
+
 Examples
 ========
 
+
+..  _js-templating-examples-variable-assignment:
 
 Variable assignment
 -------------------
@@ -57,6 +61,8 @@ Variable assignment
 Unsafe tags would have been encoded (e.g. :html:`<b>World</b>`
 as :html:`&lt;b&gt;World&lt;/b&gt;`).
 
+
+..  _js-templating-examples-conditions-iteration:
 
 Conditions and iteration
 ------------------------
@@ -95,6 +101,8 @@ make use of custom conditions as well as iterations:
 *  iteration: :js:`${array.map((item) => { return item; })}`
 
 
+..  _js-templating-examples-events:
+
 Events
 ------
 
@@ -117,6 +125,8 @@ The result won't look much different than the first example - however the
 custom attribute :html:`@click` will be transformed into an according event
 listener bound to the element where it has been declared.
 
+
+..  _js-templating-examples-custom-html-elements:
 
 Custom HTML elements
 --------------------

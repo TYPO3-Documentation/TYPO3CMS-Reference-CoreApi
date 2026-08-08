@@ -48,6 +48,8 @@ Crowdin please contact either the maintainer of the extension or the
 
 .  _crowdin-faq-xliff-version:
 
+..  _crowdin-faq-general-why-xliff-files:
+
 Why do XLIFF files on Crowdin look different now?
 -------------------------------------------------
 
@@ -214,8 +216,12 @@ Crowdin configuration. Navigate in your Crowdin project to
 click on the :guilabel:`Edit` button and disable the :guilabel:`Push Sources`
 checkbox.
 
+..  _crowdin-faq-integration-why-translated-content:
+
 Why is translated content not available in TYPO3?
 -------------------------------------------------
+
+..  _crowdin-faq-integration-why-translated-content-approval-missing:
 
 Approval is missing
 ~~~~~~~~~~~~~~~~~~~
@@ -226,6 +232,8 @@ strings by yourself. Otherwise please ask in the Slack channel
 `#typo3-localization-team <https://typo3.slack.com/app_redirect?channel=CR75200FL>`__
 for approval. With the next run of the Crowdin Bridge the translations
 should be available (approx. every two hours).
+
+..  _crowdin-faq-integration-why-translated-content-integration-branch:
 
 Integration branch is not recognized
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

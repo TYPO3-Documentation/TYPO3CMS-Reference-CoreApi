@@ -9,6 +9,8 @@ Best practices
 Following are some good practices for creating custom content element types and
 plugins and for customizing content elements for usage in the backend.
 
+..  _best-practices-coding-structure:
+
 Coding / structure
 ==================
 
@@ -22,6 +24,8 @@ Coding / structure
   to check for deprecations and breaking changes between TYPO3 versions.
 * Some naming conventions are described in the chapter :ref:`extension-naming`.
 * Read (or skim) the :ref:`cgl`.
+
+..  _best-practices-backend-usability:
 
 Backend usability
 =================
