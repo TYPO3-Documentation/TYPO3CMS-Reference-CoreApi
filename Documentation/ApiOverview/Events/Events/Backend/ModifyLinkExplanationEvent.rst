@@ -32,12 +32,16 @@ The current context can be evaluated using the following methods:
 - :php:`getLinkParts()`: Returns the resolved link parts, such as `url`, `target` and `additionalParams`
 - :php:`getElementData()`: Returns the full FormEngine `$data` array for the current element
 
+..  _modify-link-explanation-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyLinkExplanationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _modify-link-explanation-event-api:
 
 API
 ===

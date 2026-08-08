@@ -13,10 +13,14 @@ is fired once an index was just added to the database (= indexed).
 *Example:* Using listeners for this event allows to additionally populate custom
 fields of the :sql:`sys_file` / :sql:`sys_file_metadata` database records.
 
+..  _after-file-added-to-index-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-file-added-to-index-event-api:
 
 API
 ===

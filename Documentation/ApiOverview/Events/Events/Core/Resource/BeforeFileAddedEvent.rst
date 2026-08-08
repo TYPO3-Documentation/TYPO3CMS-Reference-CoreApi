@@ -13,12 +13,16 @@ is fired before a file is about to be added to the resource
 This allows to perform custom checks to a file or restrict access to a file
 before the file is added.
 
+..  _before-file-added-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _BeforeFileAddedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
+
+..  _before-file-added-event-api:
 
 API
 ===

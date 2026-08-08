@@ -13,10 +13,14 @@ file reference of a TCA type :ref:`file <t3tca:columns-file>` field. This
 event is similar to the :ref:`ModifyInlineElementEnabledControlsEvent`, which
 is only available for TCA type :ref:`inline <t3tca:columns-inline>`.
 
+..  _modify-file-reference-enabled-controls-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _modify-file-reference-enabled-controls-event-api:
 
 API
 ===

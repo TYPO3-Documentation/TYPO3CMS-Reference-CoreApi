@@ -12,10 +12,14 @@ The PSR-14 event
 is used in the :guilabel:`Content > Workspaces` module to find all data of versions
 of a workspace.
 
+..  _after-data-generated-for-workspace-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-data-generated-for-workspace-event-api:
 
 API
 ===

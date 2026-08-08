@@ -11,10 +11,14 @@ The PSR-14 event
 allows to listen for before the :ref:`form engine <FormEngine>` has been
 initialized (before all data will be persisted).
 
+..  _before-form-engine-page-initialized-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-form-engine-page-initialized-event-api:
 
 API
 ===

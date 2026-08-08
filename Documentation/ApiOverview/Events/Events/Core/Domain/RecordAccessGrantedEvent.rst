@@ -13,12 +13,16 @@ property is set (either :php:`true` or :php:`false`), the defined settings are
 directly used, skipping any further event listener as well as any further
 evaluation.
 
+..  _record-access-granted-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _RecordAccessGrantedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
+
+..  _record-access-granted-event-api:
 
 API
 ===

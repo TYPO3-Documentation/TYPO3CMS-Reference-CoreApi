@@ -13,12 +13,16 @@ can be used to modify the button bar in the TYPO3 backend module
 ..  seealso::
     *   :ref:`button-components`
 
+..  _modify-button-bar-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyButtonBarEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _modify-button-bar-event-api:
 
 API
 ===

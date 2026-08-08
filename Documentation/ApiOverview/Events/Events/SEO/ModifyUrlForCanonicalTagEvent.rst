@@ -27,6 +27,8 @@ string.
     :php:`getCanonicalGenerationDisabledException()` method, which either
     returns the exception with the corresponding reason or :php:`null`.
 
+..  _modify-url-for-canonical-tag-event-example:
+
 Example
 =======
 
@@ -36,6 +38,8 @@ Changing the host of the current request and setting it as canonical:
     :language: php
     :caption: EXT:my_extension/Classes/Seo/EventListener/MyEventListener.php
 
+
+..  _modify-url-for-canonical-tag-event-api:
 
 API
 ===

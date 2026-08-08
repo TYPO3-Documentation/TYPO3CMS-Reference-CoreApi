@@ -15,10 +15,14 @@ See the
 :ref:`ModifyInlineElementControlsEvent example <ModifyInlineElementControlsEvent_example>`
 for details.
 
+..  _modify-inline-element-enabled-controls-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _modify-inline-element-enabled-controls-event-api:
 
 API
 ===

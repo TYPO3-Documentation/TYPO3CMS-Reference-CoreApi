@@ -18,12 +18,16 @@ stop the propagation.
 With the event, it is not only possible to reject the file dump request,
 but also to replace the file, which should be dumped.
 
+..  _modify-file-dump-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyFileDumpEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
+
+..  _modify-file-dump-event-api:
 
 API
 ===

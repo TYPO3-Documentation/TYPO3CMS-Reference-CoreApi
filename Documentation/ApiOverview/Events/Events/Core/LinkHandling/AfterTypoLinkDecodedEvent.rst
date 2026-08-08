@@ -17,12 +17,16 @@ inserted to the link markup.
 ..  seealso::
     :ref:`BeforeTypoLinkEncodedEvent`
 
+..  _after-typo-link-decoded-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterTypoLinkDecodedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
+
+..  _after-typo-link-decoded-event-api:
 
 API
 ===

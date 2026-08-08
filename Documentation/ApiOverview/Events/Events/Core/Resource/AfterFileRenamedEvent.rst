@@ -11,10 +11,14 @@ The PSR-14 event
 is fired after a file was renamed in order to further process a file or filename
 or update custom references to a file.
 
+..  _after-file-renamed-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-file-renamed-event-api:
 
 API
 ===

@@ -14,12 +14,16 @@ This event can be used to manipulate the icons/actions, used for the edit contro
 section in the files and folders listing within the :guilabel:`Media`
 module.
 
+..  _process-file-list-actions-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ProcessFileListActionsEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
+
+..  _process-file-list-actions-event-api:
 
 API
 ===

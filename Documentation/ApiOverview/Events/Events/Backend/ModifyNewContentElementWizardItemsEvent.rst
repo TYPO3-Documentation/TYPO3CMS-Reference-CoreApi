@@ -16,12 +16,16 @@ The event allows listeners to modify any available wizard item as well
 as adding new ones. It is therefore possible for the listeners to, for example,
 change the configuration, the position or to remove existing items altogether.
 
+..  _modify-new-content-element-wizard-items-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyNewContentElementWizardItemsEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _modify-new-content-element-wizard-items-event-api:
 
 API
 ===

@@ -19,6 +19,8 @@ Next to :php:`getRequest()` and the :php:`getModuleTemplate()`
 methods this event also features getters and setters for the header
 and footer content.
 
+..  _modify-info-module-content-event-access-control:
+
 Access control
 ==============
 
@@ -30,12 +32,16 @@ This way, event listeners can decide on their own, whether their content
 should always be shown, or only if a user also has access to the main module
 content.
 
+..  _modify-info-module-content-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyInfoModuleContentEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Info/EventListener/MyEventListener.php
+
+..  _modify-info-module-content-event-api:
 
 API
 ===

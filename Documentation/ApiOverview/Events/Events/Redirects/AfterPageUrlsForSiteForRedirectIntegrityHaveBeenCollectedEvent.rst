@@ -14,6 +14,8 @@ allows TYPO3 Extensions to register event listeners to modify
 the list of URLs that are being processed by the CLI command
 `redirects:checkintegrity <https://docs.typo3.org/permalink/typo3/cms-redirects:redirects-checkintegrity>`_.
 
+..  _after-page-urls-for-site-for-redirect-integrity-have-been-collected-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ registration, adds the URLs found in a sites XML sitemap to the list of URLs.
 
 ..  literalinclude:: _AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  _after-page-urls-for-site-for-redirect-integrity-have-been-collected-event-api:
 
 API
 ===

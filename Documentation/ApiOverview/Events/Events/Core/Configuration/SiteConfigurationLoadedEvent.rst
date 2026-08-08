@@ -15,6 +15,8 @@ before loading the configuration.
     If you need to change the configuration before it is saved to disk, use
     :ref:`SiteConfigurationBeforeWriteEvent`.
 
+..  _site-configuration-loaded-event-example:
+
 Example
 =======
 
@@ -31,6 +33,8 @@ site configuration.
 For more sophisticated examples, see also
 `Automatically register route enhancer definitions stored in TYPO3 extensions <https://brotkrueml.dev/register-route-enhancer-definitions-extensions-automatically-typo3/>`__.
 
+
+..  _site-configuration-loaded-event-api:
 
 API
 ===

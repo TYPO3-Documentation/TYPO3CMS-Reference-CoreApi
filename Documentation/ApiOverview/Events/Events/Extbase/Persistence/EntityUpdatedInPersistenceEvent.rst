@@ -10,10 +10,14 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityUpdatedInPersistenceEvent`
 is fired after an object/entity was persisted on update.
 
+..  _entity-updated-in-persistence-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _entity-updated-in-persistence-event-api:
 
 API
 ===

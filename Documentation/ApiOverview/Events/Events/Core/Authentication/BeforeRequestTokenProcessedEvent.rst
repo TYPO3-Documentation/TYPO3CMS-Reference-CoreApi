@@ -12,6 +12,8 @@ The event :php:`\TYPO3\CMS\Core\Authentication\Event\BeforeRequestTokenProcessed
 allows to intercept or adjust a :ref:`request token <authentication-request-token>`
 during active user authentication process.
 
+..  _before-request-token-processed-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ to submit a request token:
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Authentication/EventListener/MyEventListener.php
+
+..  _before-request-token-processed-event-api:
 
 API
 ===

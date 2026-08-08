@@ -11,10 +11,14 @@ The PSR-14 event
 is fired once an index was just updated inside the database (= indexed).
 Custom listeners can update further index values when a file was updated.
 
+..  _after-file-updated-in-index-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-file-updated-in-index-event-api:
 
 API
 ===

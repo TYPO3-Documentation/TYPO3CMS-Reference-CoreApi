@@ -33,6 +33,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 
+..  _enhance-std-wrap-event-api:
+
 API
 ===
 

@@ -19,12 +19,16 @@ persisted redirects.
     can be used.
 
 
+..  _after-auto-create-redirect-has-been-persisted-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterAutoCreateRedirectHasBeenPersistedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  _after-auto-create-redirect-has-been-persisted-event-api:
 
 API
 ===

@@ -25,11 +25,15 @@ creates early responses.
     #.  :ref:`AfterPageAndLanguageIsResolvedEvent`
 
 
+..  _before-page-is-resolved-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
 
+
+..  _before-page-is-resolved-event-api:
 
 API
 ===

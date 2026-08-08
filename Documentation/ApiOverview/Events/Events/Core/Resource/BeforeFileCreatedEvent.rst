@@ -15,10 +15,14 @@ The folder represents the "target folder".
 This allows to further analyze or modify the file or filename before it is
 written by the driver.
 
+..  _before-file-created-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-file-created-event-api:
 
 API
 ===

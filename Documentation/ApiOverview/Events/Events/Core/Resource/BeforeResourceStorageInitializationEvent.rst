@@ -14,10 +14,14 @@ is fired before a resource object is actually built/created.
 resource (file/folder) before the creation of a
 :ref:`storage <fal-architecture-components-storage>`.
 
+..  _before-resource-storage-initialization-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-resource-storage-initialization-event-api:
 
 API
 ===
