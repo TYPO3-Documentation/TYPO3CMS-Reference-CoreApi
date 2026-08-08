@@ -54,6 +54,8 @@ class
 function
     The function name.
 
+..  _logging-processors-introspection-options:
+
 Options
 ~~~~~~~
 
@@ -82,6 +84,8 @@ The memory usage processor adds the amount of used memory to the log record
 (result from `memory_get_usage()`_).
 
 ..  _memory_get_usage(): https://www.php.net/manual/en/function.memory-get-usage.php
+
+..  _logging-processors-memory-options:
 
 Options
 ~~~~~~~
@@ -112,6 +116,8 @@ The memory peak usage processor adds the peak amount of used memory to the
 :ref:`log record <logging-model>` (result from `memory_get_peak_usage()`_).
 
 ..  _memory_get_peak_usage(): https://www.php.net/manual/en/function.memory-get-peak-usage.php
+
+..  _logging-processors-memory-peak-options:
 
 Options
 ~~~~~~~

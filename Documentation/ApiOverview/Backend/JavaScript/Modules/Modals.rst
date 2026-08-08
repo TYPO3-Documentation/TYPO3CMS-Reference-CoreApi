@@ -114,6 +114,8 @@ Button settings
 
         The CSS class for the button.
 
+..  _modules-modals-api-data-attributes:
+
 Data Attributes
 ---------------
 
@@ -147,6 +149,8 @@ for example on an anchor element, which prevents the default behavior.
 Example:
 
 ..  literalinclude:: _Modals/_DataModal.fluid.html
+
+..  _modules-modals-examples:
 
 Examples
 ========

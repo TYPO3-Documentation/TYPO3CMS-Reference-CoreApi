@@ -15,6 +15,8 @@ listened to via JavaScript.
 
 .. index:: Broadcast service; Sending
 
+..  _broadcast-channels-send-message:
+
 Send a message
 --------------
 
@@ -41,6 +43,8 @@ Example code:
 .. index::
    Broadcast service; Receiving
    Hook; typo3/backend.php->constructPostProcess
+
+..  _broadcast-channels-receive-message:
 
 Receive a message
 -----------------

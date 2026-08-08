@@ -114,6 +114,8 @@ preview renderer class - and selectively override the methods from the API
 displayed above.
 
 
+..  _configure-ce-preview-configuring-implementation:
+
 Configuring the implementation
 ==============================
 

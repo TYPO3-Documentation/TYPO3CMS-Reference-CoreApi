@@ -10,6 +10,8 @@ Working with exceptions
 =======================
 
 
+..  _cgl-working-with-exceptions-introduction:
+
 Introduction
 ============
 
@@ -32,6 +34,8 @@ a log file for later analysis. Additionally, an exception usually comes
 along with a backtrace.
 
 
+..  _cgl-working-with-exceptions-exception-types:
+
 Exception types
 ===============
 
@@ -43,6 +47,8 @@ should never be caught, then a top-level PHP built-in exception should
 be thrown. For PHP built-in exceptions, the actual class is not crucial,
 if in doubt, a :php:`\RuntimeException` fits - it is much more important
 to throw a meaningful exception message in those cases.
+
+..  _cgl-working-with-exceptions-exception-types-typical-cases:
 
 Typical cases for exceptions that are designed to be caught
 -----------------------------------------------------------
@@ -68,6 +74,8 @@ Typical cases for exceptions that are designed to be caught
 
 ..  index:: RuntimeException
 
+..  _cgl-working-with-exceptions-exception-types-typical-cases-2:
+
 Typical cases for exceptions that should not be caught
 ------------------------------------------------------
 
@@ -83,6 +91,8 @@ Typical cases for exceptions that should not be caught
     of places in the Core. A top-level exception like
     :php:`\RuntimeException` should be thrown.
 
+
+..  _cgl-working-with-exceptions-typical-exception-arguments:
 
 Typical exception arguments
 ===========================
@@ -140,6 +150,8 @@ Example:
 
 
 
+..  _cgl-working-with-exceptions-exception-inheritance:
+
 Exception inheritance
 =====================
 
@@ -162,6 +174,8 @@ Typically, only the specific exceptions are
 caught however. In general, the inheritance hierarchy should not be
 extended much deeper and should be kept relatively flat.
 
+
+..  _cgl-working-with-exceptions-extending-exceptions:
 
 Extending exceptions
 ====================
@@ -192,6 +206,8 @@ to “value objects” that should not be changed. Having setters would
 spoil this idea: Once thrown, exceptions should be immutable, thus the
 only way to add data is by handing it over as constructor arguments.
 
+
+..  _cgl-working-with-exceptions-good-examples:
 
 Good examples
 =============
@@ -242,6 +258,8 @@ Good examples
         explain in more detail on what went wrong.
 
 
+..  _cgl-working-with-exceptions-bad-examples:
+
 Bad examples
 ============
 
@@ -264,6 +282,8 @@ Bad examples
 
         This would make it a method that returns multiple different types.
 
+
+..  _cgl-working-with-exceptions-further-readings:
 
 Further readings
 ================

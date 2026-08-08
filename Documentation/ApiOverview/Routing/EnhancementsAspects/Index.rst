@@ -568,6 +568,8 @@ separately, for instance, to redirect to the list page:
     Routing; cHash
     Routing; typolink
 
+..  _routing-advanced-routing-configuration-behind-scenes-routing:
+
 Behind the scenes of routing in TYPO3
 =====================================
 

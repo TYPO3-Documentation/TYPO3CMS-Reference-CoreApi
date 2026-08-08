@@ -37,6 +37,8 @@ extension is missing, check if you installed it properly.
     :guilabel:`Administration > Scheduler` choose `yes`. If it should be only callable
     from the console, for example if it prompts for input, choose `no`.
 
+..  _extension-make-console-command-look-created-files:
+
 Have a look at the created files
 ================================
 
@@ -53,6 +55,8 @@ The following files will be created or changed:
         ├── Configuration
         |   └── Services.yaml (*)
         └── composer.json
+
+..  _extension-make-console-command-call-new-command:
 
 Call the new command
 ====================
@@ -75,6 +79,8 @@ be available, then you can call it from the command line:
 
             typo3/sysext/core/bin/typo3 cache:flush
             typo3/sysext/core/bin/typo3 myextension:dosomething
+
+..  _extension-make-console-command-next-steps:
 
 Next steps
 ==========

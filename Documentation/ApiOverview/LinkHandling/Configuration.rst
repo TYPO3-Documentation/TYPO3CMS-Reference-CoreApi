@@ -52,6 +52,8 @@ Record link handlers have the following additional options:
 :typoscript:`configuration.pageTreeMountPoints = 123,456`
    Only records on these pages and their children will be displayed
 
+..  _link-handler-configuration-page-link-handler:
+
 Page link handler configuration
 ===============================
 

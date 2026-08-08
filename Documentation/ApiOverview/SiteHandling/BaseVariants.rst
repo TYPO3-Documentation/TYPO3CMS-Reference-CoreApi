@@ -53,6 +53,8 @@ would define a base variant to use in "Development" context.
 The following variables and functions are available in addition to the default
 Symfony functionality:
 
+..  _sitehandling-base-variants-example:
+
 Example
 =======
 
@@ -62,6 +64,8 @@ Example
 
 
 .. index:: Site handling; Base variant properties
+
+..  _sitehandling-base-variants-properties:
 
 Properties
 ==========
@@ -99,6 +103,8 @@ Properties
 .. index::
    Site handling; Base variant functions
    DefaultFunctionsProvider
+
+..  _sitehandling-base-variants-functions:
 
 Functions
 =========

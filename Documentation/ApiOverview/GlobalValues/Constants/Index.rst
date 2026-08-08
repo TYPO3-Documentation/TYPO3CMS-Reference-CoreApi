@@ -23,6 +23,8 @@ method for more constants.
 
 ..  index:: pair: Constants; Security
 
+..  _globals-constants-security-related-constant:
+
 Security-related constant
 =========================
 
@@ -30,6 +32,8 @@ Security-related constant
 ..  index::
     Security; FILE_DENY_PATTERN_DEFAULT
     Constants; FILE_DENY_PATTERN_DEFAULT
+
+..  _globals-constants-security-related-constant-file-deny:
 
 FILE_DENY_PATTERN_DEFAULT
 -------------------------
@@ -106,6 +110,8 @@ Enum case                    Value Description
 
 
 .. index:: Constants; HTTP status codes
+
+..  _globals-constants-http-status-codes:
 
 HTTP status codes
 =================

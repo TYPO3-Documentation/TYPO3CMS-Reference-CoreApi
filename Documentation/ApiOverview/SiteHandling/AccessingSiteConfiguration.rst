@@ -76,6 +76,8 @@ site identifier, you can use the class :php:`\TYPO3\CMS\Core\Site\SiteFinder`.
 The methods for finding a specific site throw a
 :php:`\TYPO3\CMS\Core\Exception\SiteNotFoundException`, if no site was found.
 
+..  _sitehandling-sitefinder-object-api:
+
 API
 ---
 
@@ -90,6 +92,8 @@ The :php:`Site` object
 
 A :php:`\TYPO3\CMS\Core\Site\Entity\Site` object gives access to the site
 configuration options.
+
+..  _sitehandling-site-object-api:
 
 API
 ---
@@ -106,6 +110,8 @@ The :php:`SiteLanguage` object
 The :php:`SiteLanguage` object is basically a simple model that represents the
 configuration options of the site regarding language as an object and provides
 getters for those properties.
+
+..  _sitehandling-sitelanguage-object-api:
 
 API
 ---
@@ -141,6 +147,8 @@ or even fetching all settings:
     $siteSettings->getAll();
 
 See :ref:`<sitehandling-inTypoScript>` for other means of accessing the site settings.
+
+..  _sitehandling-sitesetting-object-api:
 
 API
 ---

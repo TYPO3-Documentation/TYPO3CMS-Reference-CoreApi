@@ -39,6 +39,8 @@ Otherwise the value is either changed to the default or if this value is also
 not allowed, to the first allowed value.
 
 
+..  _typo3-request-attribute-module-data-api:
+
 API
 ===
 

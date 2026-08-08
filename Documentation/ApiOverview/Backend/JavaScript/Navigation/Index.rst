@@ -6,6 +6,8 @@
 Navigation via JavaScript
 =========================
 
+..  _javascript-navigation-navigate-url:
+
 Navigate to URL
 ===============
 
@@ -18,6 +20,8 @@ Navigate to a URL once selected drop-down is changed:
     </select>
 
 `$value` refers to the selected value.
+
+..  _javascript-navigation-navigate-url-data:
 
 Navigate to URL with data
 =========================
@@ -41,6 +45,8 @@ URL:
 `$data=~s/$value/` replaces the literal `${value}` with the selected value in
 :html:`data-navigate-value`.
 
+
+..  _javascript-navigation-show-info-popup:
 
 Show info popup
 ===============

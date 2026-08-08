@@ -1,6 +1,8 @@
 .. include:: /Includes.rst.txt
 .. highlight:: bash
 
+..  _migratetocomposer-steps:
+
 ===============
 Migration steps
 ===============
@@ -27,6 +29,8 @@ are using an older TYPO3 version in Classic mode, you have two options:
     your TYPO3 version (use the version selector of the documentation).
 
 
+..  _migratetocomposer-steps-delete-files:
+
 Delete files
 ============
 
@@ -43,6 +47,8 @@ extensions if they are published in a separate Git repository or included as a G
 Only keep your sitepackage extension and extensions which have been
 explicitly built for your current project and do not have their own Git
 repository.
+
+..  _migratetocomposer-steps-configure-composer:
 
 Configure Composer
 ==================
@@ -74,6 +80,8 @@ which use a guided approach to create the file.
    `Base Distribution's composer.json <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/14.x/composer.json>`__
    for differences between the TYPO3 versions.
 
+
+..  _migratetocomposer-steps-add-required-packages:
 
 Add all required packages to your project
 =========================================
@@ -180,6 +188,8 @@ and search for `typo3/cms-` to see all listed packages.
     the Composer command to require them.
 
 
+..  _migratetocomposer-steps-add-required-packages-install-extensions:
+
 Install extensions from Packagist
 ---------------------------------
 
@@ -196,6 +206,8 @@ same - :bash:`composer require`.
 To install a TYPO3 extension you need to know the package name. There are multiple
 ways to find it out:
 
+..  _migratetocomposer-steps-add-required-packages-install-extensions-notice:
+
 Notice on extension's TER page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -211,12 +223,16 @@ command and Composer package name can be used to install the extension.
     The command :bash:`composer req` is short for :bash:`composer require`. Both commands
     do exactly the same thing and are interchangeable.
 
+..  _migratetocomposer-steps-add-required-packages-install-extensions-search:
+
 Search on Packagist
 ~~~~~~~~~~~~~~~~~~~
 
 `Packagist <https://packagist.org>`__ has a quick and flexible search function. Often you can
 search by TYPO3 extension key or name of the extension and you will most likely
 find the package you are looking for.
+
+..  _migratetocomposer-steps-add-required-packages-install-extensions-check:
 
 Check manually
 ~~~~~~~~~~~~~~
@@ -389,6 +405,8 @@ in the :file:`composer.json`.
 After all custom extensions have been moved out of :file:`typo3conf/ext/` you can delete the directory
 from your project. You may also want to adapt your :file:`.gitignore` file to remove any entries
 related to that old directory.
+
+..  _migratetocomposer-steps-new-file-locations:
 
 New file locations
 ==================

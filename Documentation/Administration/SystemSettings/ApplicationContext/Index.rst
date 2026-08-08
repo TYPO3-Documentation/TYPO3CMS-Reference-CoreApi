@@ -129,12 +129,16 @@ build this yourself or use the
 `HelHum .env connector` :composer:`helhum/dotenv-connector`. This will
 initialise the Symfony package for you.
 
+..  _set-application-context-env-installation:
+
 Installation
 ~~~~~~~~~~~~
 
 ..  code-block::
 
     composer req helhum/dotenv-connector
+
+..  _set-application-context-env-env:
 
 .env
 ~~~~

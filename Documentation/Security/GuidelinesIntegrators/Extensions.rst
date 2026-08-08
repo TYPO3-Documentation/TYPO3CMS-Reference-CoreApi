@@ -16,6 +16,8 @@ The following sections deal with extensions in general, the risks and
 the basic countermeasures to address security related issues.
 
 
+..  _security-extensions-stable-reviewed-extensions:
+
 Stable and reviewed extensions
 ==============================
 
@@ -67,6 +69,8 @@ risks.
   :ref:`Use staging servers for developments and tests <security-staging-servers>`.
 
 
+..  _security-extensions-executable-binaries-shipped:
+
 Executable binaries shipped with extensions
 ===========================================
 
@@ -84,6 +88,8 @@ the vendor of your operating system - which also ensures, these binaries
 get updated in a timely manner, if a security vulnerability is
 discovered in these components.
 
+
+..  _security-extensions-remove-unused-extensions:
 
 Remove unused extensions and other code
 =======================================
@@ -130,6 +136,8 @@ environment but are definitely out of place at production sites.
 Extensions that allow editors to include PHP code must be avoided, too.
 
 
+..  _security-extensions-check-extension-updates:
+
 Check for extension updates regularly
 =====================================
 
@@ -160,6 +168,8 @@ automatically and periodically (e.g. once a day). In combination with
 the task "System Status Update (reports)", it is possible to get a
 notification by email when extension updates are available.
 
+
+..  _security-extensions-security-related-extensions:
 
 Security-related extensions
 ===========================

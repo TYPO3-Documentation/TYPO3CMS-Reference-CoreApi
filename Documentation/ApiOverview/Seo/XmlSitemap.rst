@@ -21,12 +21,16 @@ for each site and language.
    :depth: 1
    :local:
 
+..  _xmlsitemap-installation:
+
 Installation
 ============
 
 XML sitemaps are part of the "seo" system extension. If the extension is not
 available in your installation, require it as described here: :ref:`Installation, EXT:seo <ext_seo:installation>`
 Then include the static TypoScript template `XML Sitemap (seo)`.
+
+..  _xmlsitemap-access-xml-sitemap:
 
 How to access your XML sitemap
 ==============================
@@ -45,6 +49,8 @@ index. This is the sitemap for pages.
     -   Entry point `/` - :samp:`https://example.org/?type=1533906435`: for default language
     -   Entry point `/fr/` - :samp:`https://example.org/fr/?type=1533906435`: for French
     -   Entry point `/it/` - :samp:`https://example.org/it/?type=1533906435`: for Italian
+
+..  _xmlsitemap-setup-routing-xml:
 
 How to setup routing for the XML sitemap
 ========================================
@@ -78,11 +84,15 @@ sitemap types (`pages` and additional ones, for example, from the news extension
 
 .. index:: XmlSitemapDataProviders
 
+..  _xmlsitemap-xmlsitemapdataproviders:
+
 XmlSitemapDataProviders
 =======================
 
 The rendering of sitemaps is based on `XmlSitemapDataProviders`. EXT:seo ships
 with two `XmlSitemapDataProviders`.
+
+..  _xmlsitemap-xmlsitemapdataproviders-pages:
 
 For pages
 ---------
@@ -118,6 +128,8 @@ backend.
 .. note::
    The doktypes 137 and 138 in the example above are custom doktypes.
    The other doktypes given are the ones excluded by default by the SEO extension.
+
+..  _xmlsitemap-xmlsitemapdataproviders-records:
 
 For records
 -----------
@@ -226,6 +238,8 @@ a field with a decimal value between 0 and 1.
     These options only give hints to search engines in which order and how often
     you would like a crawler to visit your pages.
 
+..  _xmlsitemap-sitemap-records-without:
+
 Sitemap of records without sorting field
 ========================================
 
@@ -252,6 +266,8 @@ field:
             }
         }
     }
+
+..  _xmlsitemap-create-xmlsitemapdataprovider:
 
 Create your own XmlSitemapDataProvider
 ======================================

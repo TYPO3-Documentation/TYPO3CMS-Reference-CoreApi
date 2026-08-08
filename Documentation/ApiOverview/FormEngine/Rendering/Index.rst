@@ -170,6 +170,8 @@ names in format :php:`EXT:my_extension/path/to/file`.
     those resources must be registered via the result array only,
     using :php:`stylesheetFiles` and :php:`javaScriptModules`.
 
+..  _form-engine-rendering-result-array-adding-javascript-modules:
+
 Adding JavaScript modules
 -------------------------
 
@@ -237,6 +239,8 @@ It is possible to:
 *   It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
     "after" in TCA.
 
+
+..  _form-engine-rendering-add-fieldcontrol-example:
 
 Add fieldControl Example
 ========================

@@ -46,6 +46,8 @@ The different parts of a phpDoc_ statement after the keyword are separated by
 **one single space.**
 
 
+..  _cgl-using-phpdoc-class-information-block:
+
 Class information block
 =======================
 
@@ -54,6 +56,8 @@ Class information block
 ((was: For information on phpDoc use for class declarations see "Class
 information block".))
 
+
+..  _cgl-using-phpdoc-function-information-block:
 
 Function information block
 ==========================
@@ -77,6 +81,8 @@ Functions should have *parameters* and *the return type* documented. Example:
         // Do something
     }
 
+
+..  _cgl-using-phpdoc-function-information-block-short-long:
 
 Short and long description
 --------------------------

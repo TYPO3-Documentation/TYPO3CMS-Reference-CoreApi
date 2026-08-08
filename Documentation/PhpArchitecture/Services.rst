@@ -7,6 +7,8 @@ Services
 ========
 
 
+..  _cgl-services-characteristics:
+
 Characteristics
 ===============
 
@@ -16,6 +18,8 @@ Characteristics
 *   Services MAY have dependencies to other services and SHOULD get them
     injected using TYPO3 Core dependency injection.
 
+
+..  _cgl-services-rationale:
 
 Rationale
 =========
@@ -56,6 +60,8 @@ example is the core :php:`DataHandler` class which modifies numerous data proper
 its primary API methods are called. Such instances become "tainted" after use, and should
 not be injected but created on-demand using :php:`GeneralUtility::makeInstance()`.
 
+..  _cgl-services-good-examples:
+
 Good Examples
 =============
 
@@ -66,6 +72,8 @@ Good Examples
     *   A clear scope with reasonable API methods
     *   No data properties
 
+
+..  _cgl-services-bad-examples:
 
 Bad Examples
 ============
@@ -94,6 +102,8 @@ Developers needing aliases for core services can always add them in
 instance-specific extensions. The inclusion of such aliases in TYPO3 core will
 remain a case-by-case decision.
 
+
+..  _cgl-services-further-reading:
 
 Further Reading
 ===============

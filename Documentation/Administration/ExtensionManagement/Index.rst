@@ -2,6 +2,8 @@
 
 ..  include:: /Includes.rst.txt
 
+..  _administration-extension-management:
+
 ====================
 Extension management
 ====================

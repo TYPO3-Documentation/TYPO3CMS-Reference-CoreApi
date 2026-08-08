@@ -123,6 +123,8 @@ through the array :php:`$this->arguments`, in method :php:`render()`.
 
     Union types for ViewHelper arguments are available since TYPO3 14.0.
 
+..  _fluid-custom-viewhelper-implementation-render:
+
 `render()`
 ----------
 

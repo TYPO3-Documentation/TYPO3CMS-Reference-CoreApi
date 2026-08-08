@@ -9,6 +9,8 @@ System registry
 .. contents::
    :local:
 
+..  _registry-introduction:
+
 Introduction
 ============
 
@@ -77,6 +79,8 @@ This information can be retrieved later using:
     :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
+
+..  _registry-api-api:
 
 API
 ---

@@ -35,6 +35,8 @@ namespace :php:`MyVendor\MyExtension\EventListener`.
 .. literalinclude:: _Joh316PasswordInformer.php
    :language: php
 
+..  _extension-development-events-dispatch-event:
+
 Dispatch an event
 =================
 

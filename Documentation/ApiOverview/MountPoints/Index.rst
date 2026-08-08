@@ -49,6 +49,8 @@ accordingly.
    which in turn has another subpage, which is again a mount point. (Nested mount points.)
 
 
+..  _mount-points-simple-usage-example:
+
 Simple usage example
 ====================
 
@@ -94,6 +96,8 @@ about-us
 
 
 .. index:: Mount points; Multi-site
+
+..  _mount-points-multi-site-support:
 
 Multi-site support
 ==================
@@ -149,6 +153,8 @@ company/about-us
    visually different though if the sites use different styles.
 
 
+..  _mount-points-limitations:
+
 Limitations
 ===========
 
@@ -179,6 +185,8 @@ Limitations
       5      └── More              <- mount point page that is mounting page 2
       6      └── Imprint           <- slug manually configured to `more/imprint/`
 
+
+..  _mount-points-see:
 
 See also
 ========

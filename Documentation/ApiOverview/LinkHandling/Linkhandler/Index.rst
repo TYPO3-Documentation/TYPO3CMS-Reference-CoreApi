@@ -76,6 +76,8 @@ The minimal page TSconfig configuration is:
 
 See :ref:`link-handler-configuration` for all available options.
 
+..  _linkhandler-pagetsconfig-example-news-records:
+
 Example: news records from one storage pid
 ------------------------------------------
 
@@ -149,6 +151,8 @@ A configuration could look like this:
 
 The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
+
+..  _linkhandler-typoscript-example-news-records:
 
 Example: news records displayed on fixed detail page
 ----------------------------------------------------

@@ -83,6 +83,8 @@ You can find the complete class in the extension EXT:examples on GitHub:
 
 We will explain some of the important methods below:
 
+..  _tutorial-backend-link-handler-initialization-dependencies:
+
 Initialization and dependencies
 -------------------------------
 
@@ -118,6 +120,8 @@ the link browser window.
     :php:`setView()` is not part of the :php:`LinkHandlerInterface`
     and its call is an implementation detail that might be
     changed in the future.
+
+..  _tutorial-backend-link-handler-enable-dependency-injection:
 
 Enable dependency injection
 ---------------------------
