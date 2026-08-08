@@ -10,10 +10,14 @@ The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFileReplacedEvent`
 is fired before a file is about to be replaced. Custom listeners can check for
 file integrity or analyze the content of the file before it gets added.
 
+..  _before-file-replaced-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-file-replaced-event-api:
 
 API
 ===

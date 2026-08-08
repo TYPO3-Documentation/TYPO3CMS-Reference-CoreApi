@@ -11,6 +11,8 @@ The PSR-14 event
 allows custom TypoScript functions using the :typoscript:`:=` operator.
 
 
+..  _evaluate-modifier-function-event-example:
+
 Example
 =======
 
@@ -27,6 +29,8 @@ The corresponding event listener class could look like this:
 ..  literalinclude:: _EvaluateModifierFunctionEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
+
+..  _evaluate-modifier-function-event-api:
 
 API
 ===

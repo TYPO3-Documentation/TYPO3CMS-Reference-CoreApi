@@ -13,12 +13,16 @@ generated fragment and the to-be-used query parameters.
 The page to be linked to can also be modified to link to a different page.
 
 
+..  _modify-page-link-configuration-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyPageLinkConfigurationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
+
+..  _modify-page-link-configuration-event-api:
 
 API
 ===

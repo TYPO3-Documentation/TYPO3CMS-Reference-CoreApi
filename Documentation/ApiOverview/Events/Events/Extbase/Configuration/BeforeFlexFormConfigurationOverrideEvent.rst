@@ -13,12 +13,16 @@ can be used to implement a custom :ref:`FlexForm <flexforms>` override process
 based on the original FlexForm configuration and the framework configuration.
 
 
+..  _before-flex-form-configuration-override-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _BeforeFlexFormConfigurationOverrideEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Extbase/EventListener/MyEventListener.php
+
+..  _before-flex-form-configuration-override-event-api:
 
 API
 ===

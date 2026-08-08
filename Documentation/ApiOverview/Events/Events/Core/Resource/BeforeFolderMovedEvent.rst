@@ -13,10 +13,14 @@ fired before a folder is about to be moved to the resource
 Listeners can be used to modify a folder name before it is actually moved or to
 ensure consistency or specific rules when moving folders.
 
+..  _before-folder-moved-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-folder-moved-event-api:
 
 API
 ===

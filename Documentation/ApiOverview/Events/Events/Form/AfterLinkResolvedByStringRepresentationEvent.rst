@@ -21,12 +21,16 @@ in case a corresponding
 exists.
 
 
+..  _after-form-definition-loaded-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterFormDefinitionLoadedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
+
+..  _after-form-definition-loaded-event-api:
 
 API
 ===

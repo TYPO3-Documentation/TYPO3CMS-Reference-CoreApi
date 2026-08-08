@@ -27,12 +27,16 @@ redirects or return the matched redirect record from other sources.
     state to the event by properly deprecate it.
 
 
+..  _before-redirect-match-domain-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _BeforeRedirectMatchDomainEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  _before-redirect-match-domain-event-api:
 
 API
 ===

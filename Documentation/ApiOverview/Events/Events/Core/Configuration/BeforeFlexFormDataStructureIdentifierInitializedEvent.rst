@@ -18,15 +18,21 @@ object-oriented approach.
     *   :ref:`AfterFlexFormDataStructureParsedEvent`
     *   :ref:`BeforeFlexFormDataStructureParsedEvent`
 
+..  _before-flex-form-data-structure-identifier-initialized-event-example:
+
 Example
 =======
 
 Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`.
 
+..  _before-flex-form-data-structure-identifier-initialized-event-api:
+
 API
 ===
 
 ..  include:: /CodeSnippets/Events/Core/BeforeFlexFormDataStructureIdentifierInitializedEvent.rst.txt
+
+..  _before-flex-form-data-structure-identifier-initialized-event-migration:
 
 Migration
 =========

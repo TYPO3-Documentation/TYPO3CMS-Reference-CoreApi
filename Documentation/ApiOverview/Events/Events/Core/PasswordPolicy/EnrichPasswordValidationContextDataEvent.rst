@@ -27,12 +27,16 @@ validated against the globally configured password policy.
     by fetching the user with the :php:`uid` given in :php:`getUserData()`
     array).
 
+..  _enrich-password-validation-context-data-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _EnrichPasswordValidationContextDataEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  _enrich-password-validation-context-data-event-api:
 
 API
 ===

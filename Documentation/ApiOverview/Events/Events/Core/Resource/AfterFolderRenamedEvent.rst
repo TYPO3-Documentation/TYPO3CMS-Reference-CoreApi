@@ -15,10 +15,14 @@ This event is also used by TYPO3 itself to synchronize folder relations in
 records (for example in the table :sql:`sys_filemounts`) after renaming of
 folders.
 
+..  _after-folder-renamed-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-folder-renamed-event-api:
 
 API
 ===

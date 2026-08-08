@@ -15,10 +15,14 @@ before writing the configuration to disk.
     If you need to change the configuration when it is loaded, use
     :ref:`SiteConfigurationLoadedEvent`.
 
+..  _site-configuration-before-write-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _site-configuration-before-write-event-api:
 
 API
 ===

@@ -17,11 +17,15 @@ file storage, content processing/translation, ...) can provide the necessary
 mutations.
 
 
+..  _investigate-mutations-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
 
+
+..  _investigate-mutations-event-api:
 
 API
 ===

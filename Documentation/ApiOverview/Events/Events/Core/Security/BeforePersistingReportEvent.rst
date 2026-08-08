@@ -16,6 +16,8 @@ can be used to provide an alternative report or to prevent a particular report
 from being persisted at all.
 
 
+..  _before-persisting-report-event-example:
+
 Example
 =======
 

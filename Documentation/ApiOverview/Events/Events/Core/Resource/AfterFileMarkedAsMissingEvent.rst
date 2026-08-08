@@ -14,10 +14,14 @@ is fired once a file was just marked as missing in the database
 *Example*: If a file is marked as missing, listeners can try to recover a file.
 This can happen on specific setups where editors also work via FTP.
 
+..  _after-file-marked-as-missing-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-file-marked-as-missing-event-api:
 
 API
 ===

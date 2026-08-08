@@ -13,10 +13,14 @@ is fired before TYPO3 FAL's native URL generation for a resource is instantiated
 This allows listeners to create custom links to certain files (for example
 restrictions) for creating authorized deep links.
 
+..  _generate-public-url-for-resource-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _generate-public-url-for-resource-event-api:
 
 API
 ===

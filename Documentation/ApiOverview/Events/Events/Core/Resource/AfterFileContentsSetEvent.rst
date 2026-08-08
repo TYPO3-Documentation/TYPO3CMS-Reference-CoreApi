@@ -13,10 +13,14 @@ is fired after the contents of a file got set / replaced.
 *Example:* Listeners can analyze content for :abbr:`AI (Artificial Intelligence)`
 purposes within extensions.
 
+..  _after-file-contents-set-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-file-contents-set-event-api:
 
 API
 ===

@@ -20,12 +20,16 @@ on the parameters.
     to the :ref:`AfterPagePreviewUriGeneratedEvent`. They however do not
     overwrite the related class properties in :php:`PreviewUriBuilder`.
 
+..  _before-page-preview-uri-generated-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _BeforePagePreviewUriGeneratedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _before-page-preview-uri-generated-event-api:
 
 API
 ===

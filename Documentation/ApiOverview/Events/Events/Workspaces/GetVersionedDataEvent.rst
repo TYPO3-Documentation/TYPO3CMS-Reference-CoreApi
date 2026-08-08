@@ -13,10 +13,14 @@ of a workspace. In comparison to :ref:`AfterDataGeneratedForWorkspaceEvent`,
 this one contains the cleaned / prepared data with an optional limit applied
 depending on the view.
 
+..  _get-versioned-data-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _get-versioned-data-event-api:
 
 API
 ===

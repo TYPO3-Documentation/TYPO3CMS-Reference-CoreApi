@@ -12,12 +12,16 @@ allows to modify page module content.
 It is possible to add additional content, overwrite existing
 content or reorder the content.
 
+..  _modify-page-layout-content-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyPageLayoutContentEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _modify-page-layout-content-event-api:
 
 API
 ===

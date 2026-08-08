@@ -11,10 +11,14 @@ The PSR-14 event
 is triggered when rendering an additional action (currently within
 a Fluid ViewHelper) in the extension manager.
 
+..  _available-actions-for-extension-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _available-actions-for-extension-event-api:
 
 API
 ===

@@ -26,6 +26,8 @@ is required for custom source classes. Using this interface enables automatic
 detection of implementations. Additionally, this allows to transport custom
 information and data.
 
+..  _slug-redirect-change-item-created-event-examples:
+
 Examples
 ========
 
@@ -47,6 +49,8 @@ listener to build sources for non-zero page types.
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
+..  _slug-redirect-change-item-created-event-examples-custom-source:
+
 With a custom source implementation
 -----------------------------------
 
@@ -59,6 +63,8 @@ Example of a :php:`CustomSource` implementation:
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_CustomSource.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/CustomSource.php
+
+..  _slug-redirect-change-item-created-event-default-event-listeners:
 
 Default event listeners
 =======================
@@ -89,12 +95,16 @@ behaviour, which some instances may rely on.
 This behaviour can be modified by adding an event listener for
 :php:`SlugRedirectChangeItemCreatedEvent`:
 
+..  _slug-redirect-change-item-created-event-default-event-listeners-remove:
+
 Remove plain slug source, if page type 0 differs
 ------------------------------------------------
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
+
+..  _slug-redirect-change-item-created-event-api:
 
 API
 ===

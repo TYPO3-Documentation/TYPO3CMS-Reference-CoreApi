@@ -11,10 +11,14 @@ is called after a record has been loaded from database. It allows other places
 to perform the extension of metadata at runtime or, for example, translation
 and workspace overlay.
 
+..  _enrich-file-meta-data-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _enrich-file-meta-data-event-api:
 
 API
 ===

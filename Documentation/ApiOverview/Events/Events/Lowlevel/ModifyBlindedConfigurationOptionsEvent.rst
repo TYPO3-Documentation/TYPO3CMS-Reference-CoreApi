@@ -21,6 +21,8 @@ The method returns the identifier of the configuration provider as registered
 in the :ref:`configuration module <config-module>`.
 
 
+..  _modify-blinded-configuration-options-event-example:
+
 Example
 =======
 
@@ -28,6 +30,8 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Lowlevel/EventListener/MyEventListener.php
 
+
+..  _modify-blinded-configuration-options-event-api:
 
 API
 ===

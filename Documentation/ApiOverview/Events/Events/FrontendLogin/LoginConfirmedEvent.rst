@@ -15,10 +15,14 @@ triggered when a login was successful.
     logout redirect is configured. Previously the now removed `actionUri` was used as target
     for the logout form action, in which case the `LogoutConfirmedEvent` was not triggered on logout.
 
+..  _login-confirmed-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _login-confirmed-event-api:
 
 API
 ===

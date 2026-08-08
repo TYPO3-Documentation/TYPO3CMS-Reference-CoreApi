@@ -21,12 +21,16 @@ There are three possible use cases:
 3.  Execute additional code that doesn't influence the component rendering directly, for example
     adding certain frontend assets to the page automatically.
 
+..  _render-component-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _RenderComponentEvent/_RenderComponentListener.php
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/RenderComponentListener.php
+
+..  _render-component-event-api:
 
 API
 ===

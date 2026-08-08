@@ -15,6 +15,8 @@ to modify the set of handlers that will be used.
     *   :ref:`modifyLinkHandlers`
     *   :ref:`ModifyAllowedItemsEvent`
 
+..  _modify-link-handlers-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
+
+..  _modify-link-handlers-event-api:
 
 API
 ===

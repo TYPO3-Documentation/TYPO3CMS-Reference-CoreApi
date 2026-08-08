@@ -16,12 +16,16 @@ user, if the user has successfully logged in. See
 :t3src:`backend/Classes/Security/EmailLoginNotification.php`.
 
 
+..  _after-user-logged-in-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterUserLoggedInEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
+
+..  _after-user-logged-in-event-api:
 
 API
 ===

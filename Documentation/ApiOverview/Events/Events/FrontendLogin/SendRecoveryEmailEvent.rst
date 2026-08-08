@@ -23,10 +23,14 @@ requested a new password.
     all fields belonging to the affected frontend user. Therefore, for this
     use case, this event is not needed anymore.
 
+..  _send-recovery-email-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _send-recovery-email-event-api:
 
 API
 ===
