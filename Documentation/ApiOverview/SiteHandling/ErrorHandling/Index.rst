@@ -40,6 +40,8 @@ serves all error pages.
 
 ..  index:: pair: Site handling; Error handling properties
 
+..  _sitehandling-error-handling-properties:
+
 Properties
 ==========
 

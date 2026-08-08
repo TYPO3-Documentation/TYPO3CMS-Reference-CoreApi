@@ -15,6 +15,8 @@ search term is looked for in all supported TCA fields of the tables
     :local:
 
 
+..  _fal-using-fal-examples-file-search-searching-files-folder:
+
 Searching for files in a folder
 ===============================
 
@@ -22,6 +24,8 @@ Searching for files in a folder
     :language: php
     :caption: EXT:my_extension/Classes/SearchInFolderExample.php
 
+
+..  _fal-using-fal-examples-file-search-searching-files-storage:
 
 Searching for files in a storage
 ================================
@@ -33,6 +37,8 @@ Searching for files in a storage
 ..  seealso::
     :ref:`fal-using-fal-examples-storage-repository`
 
+
+..  _fal-using-fal-examples-file-search-add-additional-restrictions:
 
 Add additional restrictions
 ===========================
@@ -47,11 +53,15 @@ methods for ease of use:
     :caption: EXT:my_extension/Classes/SearchInStorageWithRestrictionsExample.php
 
 
+..  _fal-using-fal-examples-file-search-api:
+
 API
 ===
 
 ..  include:: /CodeSnippets/Resource/FileSearchDemand.rst.txt
 
+
+..  _fal-using-fal-examples-file-search-performance-optimization-custom:
 
 Performance optimization in a custom driver
 ===========================================

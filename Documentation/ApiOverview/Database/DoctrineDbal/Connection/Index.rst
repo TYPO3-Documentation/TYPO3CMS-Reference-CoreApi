@@ -44,6 +44,8 @@ are executed right away.
 Instantiation
 =============
 
+..  _database-connection-instantiation-connection-pool:
+
 Using the connection pool
 -------------------------
 
@@ -54,6 +56,8 @@ should be executed. The :php:`ConnectionPool` can be injected via constructor:
 
 ..  literalinclude:: _MyTableRepositoryWithConnectionPool.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+..  _database-connection-instantiation-dependency-injection:
 
 Via dependency injection
 ------------------------

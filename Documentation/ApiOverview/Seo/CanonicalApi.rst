@@ -49,6 +49,8 @@ The idea behind that is:
 
    — https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/pull/1326#issuecomment-788741312
 
+..  _canonicalapi-event-define-url:
+
 Using an event to define the URL
 ================================
 

@@ -78,6 +78,8 @@ a system setup that does not match with the guidelines described here.
 Backend access
 ==============
 
+..  _security-backend-access-username:
+
 Username
 --------
 
@@ -87,6 +89,8 @@ every person should have its own login (e.g. as first name + dot +
 last name). The maximum number of backend user accounts is not artificially
 limited in TYPO3 and they should not add additional costs.
 
+
+..  _security-backend-access-password:
 
 Password
 --------
@@ -101,6 +105,8 @@ user name in the :ref:`top bar <backend-modules-structure>`:
     :zoom: lightbox
 
     The :guilabel:`User Settings` screen, where you can change your password
+
+..  _security-backend-access-administrator-privileges:
 
 Administrator privileges
 ------------------------
@@ -124,6 +130,8 @@ should get in touch with the system provider to solve this issue.
     Screenshot of a menu with the section "System"
 
 
+..  _security-backend-access-notify-login:
+
 Notify at login
 ---------------
 
@@ -146,6 +154,8 @@ and/or administrates the TYPO3 site immediately. You should discuss
 the situation and the next steps, possibly to change the password as
 soon as possible.
 
+
+..  _security-backend-access-lock-ip-address:
 
 Lock to IP address(es)
 ----------------------

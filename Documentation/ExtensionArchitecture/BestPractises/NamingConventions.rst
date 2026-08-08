@@ -23,6 +23,8 @@ are based on the extension key.
       to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`MyVendor\CoolShop`)
 
 
+..  _extension-naming-abbreviations-glossary:
+
 Abbreviations & Glossary
 ========================
 
@@ -152,6 +154,8 @@ Here, the *extkey* is `my_extension`:
 
 .. index:: Vendor name
 
+..  _extension-naming-vendor-name:
+
 Vendor name
 ===========
 
@@ -273,6 +277,8 @@ Non-Extbase tables usually use a similar rule, without the "domain_model" part:
    # example for TYPO3 core:
    sys_category_record_mm
 
+..  _extension-naming-database-column-name:
+
 Database column name
 ====================
 
@@ -323,6 +329,8 @@ Example usage:
 
 For more details have a look into the :ref:`backend-modules-configuration`
 chapter.
+
+..  _extension-naming-backend-module-signature:
 
 Backend module signature
 ========================
@@ -452,6 +460,8 @@ Example register and configure an Extbase plugin:
       settings.pageId = 42
     }
 
+..  _extension-naming-class-name:
+
 Class name
 ==========
 
@@ -465,6 +475,8 @@ Examples:
 .. seealso::
 
    This follows `PSR-1 <https://www.php-fig.org/psr/psr-1/>`__ conventions.
+
+..  _extension-naming-upgrade-wizard-identifier:
 
 Upgrade wizard identifier
 =========================
@@ -496,6 +508,8 @@ the "user\_" prefix for their classes as well.
 
 .. _TER: https://extensions.typo3.org/
 .. _Packagist: https://packagist.org/
+
+..  _extension-naming-further-reading:
 
 Further reading
 ===============

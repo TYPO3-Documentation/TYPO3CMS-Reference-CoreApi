@@ -139,6 +139,8 @@ Crowdin is the official translation server for TYPO3.
 
 This is documented on :ref:`crowdin-extension-integration`.
 
+..  _publish-extension-further-reading:
+
 Further reading
 ===============
 

@@ -22,6 +22,8 @@ For each form in the backend/frontend (or link that changes some data), create a
 token and insert it as a hidden form element. The name of the form element does
 not matter; you only need it to get the form token for verifying it.
 
+..  _csrf-examples:
+
 Examples
 ========
 

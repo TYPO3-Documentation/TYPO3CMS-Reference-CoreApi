@@ -156,6 +156,8 @@ statement. Use this method instead of counting the number of records in a
     MySQL, but will fail with other databases like SQLite.
 
 
+..  _database-statement-reuse-prepared-statement:
+
 Reuse prepared statement
 ========================
 

@@ -26,6 +26,8 @@ One can retrieve the normalized parameters like this:
     $requestPort = $normalizedParams->getRequestPort();
 
 
+..  _typo3-request-attribute-normalized-params-api:
+
 API
 ===
 

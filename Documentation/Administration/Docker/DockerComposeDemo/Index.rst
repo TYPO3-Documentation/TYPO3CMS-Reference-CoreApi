@@ -25,6 +25,8 @@ to start, stop, and manage services as a group.
 
 ..  contents:: Table of contents
 
+..  _docker-compose-typo3-run-typo3-docker:
+
 How to run TYPO3 with Docker Compose
 ====================================
 

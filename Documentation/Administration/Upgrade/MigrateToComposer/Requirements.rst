@@ -1,9 +1,13 @@
 ..  include:: /Includes.rst.txt
 ..  highlight:: bash
 
+..  _migratetocomposer-requirements:
+
 ============
 Requirements
 ============
+
+..  _migratetocomposer-requirements-typo3-version:
 
 TYPO3 version
 =============
@@ -14,6 +18,8 @@ Composer packages for TYPO3 can be found on `packagist.org`_ down to version
 ..  _packagist.org: https://packagist.org/
 ..  _typo3/cms-*: https://packagist.org/search/?query=typo3%2Fcms-%2A
 
+..  _migratetocomposer-requirements-composer:
+
 Composer
 ========
 
@@ -23,6 +29,8 @@ installing Composer can be found on `getcomposer.org`_.
 ..  _getcomposer.org: https://getcomposer.org/
 
 Your host needs to be able to execute the :bash:`composer` binary.
+
+..  _migratetocomposer-requirements-folder-structure:
 
 Folder structure
 ================
@@ -103,6 +111,8 @@ providers offer a user interface to change the base directory of your project.
 For local development with `DDEV <https://ddev.com>`__ or `Docker <https://docker.com>`
 you will also need to adjust the corresponding configuration files.
 
+..  _migratetocomposer-requirements-git-version-control:
+
 Git version control, local development and deployment
 =====================================================
 
@@ -134,6 +144,8 @@ initial state.
 
 ..  todo: Point to a good guide for deployment and version control
 
+
+..  _migratetocomposer-requirements-code-integrity:
 
 Code integrity
 ==============

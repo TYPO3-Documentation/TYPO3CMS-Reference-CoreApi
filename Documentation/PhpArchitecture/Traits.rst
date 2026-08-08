@@ -6,6 +6,8 @@ Traits
 ======
 
 
+..  _cgl-traits-characteristica:
+
 Characteristica
 ===============
 
@@ -17,6 +19,8 @@ Characteristica
 
 * A trait interface MUST have a default implementation trait.
 
+
+..  _cgl-traits-rationale:
 
 Rationale
 =========
@@ -47,6 +51,8 @@ scope objects are currently not finally decided and we don’t want to
 have relatively hard to deprecate and remove traits at this point.
 
 
+..  _cgl-traits-good-examples:
+
 Good Examples
 =============
 
@@ -66,6 +72,8 @@ Good Examples
 * :php:`LoggerAwareInterface` with a default trait.
 
 
+..  _cgl-traits-bad-examples:
+
 Bad Examples
 ============
 
@@ -83,6 +91,8 @@ Bad Examples
     implement it as abstract.
 
 For these reasons the trait has been dissolved into an `AbstractMenuViewHelper`.
+
+..  _cgl-traits-further-reading:
 
 Further Reading
 ===============

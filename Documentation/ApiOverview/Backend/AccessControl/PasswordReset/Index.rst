@@ -29,6 +29,8 @@ The new password that the user specifies must comply with the configured
 The username of the backend user is displayed in the password recovery
 email alongside the reset link.
 
+..  _access-password-reset-notes-security:
+
 Notes on security
 =================
 
@@ -42,6 +44,8 @@ Notes on security
 *   When a user has logged in successfully (for example, because they remembered
     the password), the token is removed from the database, effectively
     invalidating all existing email links.
+
+..  _access-password-reset-notes-security-implications-displaying-username:
 
 Implications of displaying the username in the email
 ----------------------------------------------------
@@ -60,6 +64,8 @@ Implications of displaying the username in the email
 
 .. index:: Backend; passwordReset
 .. index:: Backend; passwordResetForAdmins
+
+..  _access-password-reset-global-configuration:
 
 Global configuration
 ====================
@@ -83,6 +89,8 @@ the following system-wide option to :php:`false`.
 Both options can be configured in the :guilabel:`System > Settings` module
 or in the :guilabel:`Install Tool`, but can also be set manually via
 :file:`config/system/settings.php` or :file:`config/system/additional.php`.
+
+..  _access-password-reset-reset-password-user:
 
 Reset password for user
 =======================

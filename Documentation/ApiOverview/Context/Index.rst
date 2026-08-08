@@ -6,9 +6,6 @@
 Context API and aspects
 =======================
 
-Introduction
-============
-
 The Context API encapsulates various information for data retrieval (for
 example, inside the database) and analysis of current permissions and caching
 information.

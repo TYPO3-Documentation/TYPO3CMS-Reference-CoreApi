@@ -19,6 +19,8 @@ Example:
     $moduleConfiguration = $route->getOption('moduleConfiguration');
 
 
+..  _typo3-request-attribute-route-api:
+
 API
 ===
 

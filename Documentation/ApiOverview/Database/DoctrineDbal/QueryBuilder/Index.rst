@@ -1274,6 +1274,8 @@ returning a list of backend user names!
     error during execution. This behaviour can be disabled by passing
     :php:`false` as third parameter to :php:`->set()`.
 
+..  _database-query-builder-create-named-parameter-examples:
+
 More examples
 -------------
 
@@ -1312,6 +1314,8 @@ Use integer, integer array:
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
+
+..  _database-query-builder-create-named-parameter-rules:
 
 Rules
 -----

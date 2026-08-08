@@ -33,6 +33,8 @@ Examples for features are:
    :local:
 
 
+..  _feature-toggles-naming-feature-toggles:
+
 Naming of feature toggles
 =========================
 
@@ -195,6 +197,8 @@ Internally, the changes are written to :file:`config/system/settings.php`:
     If the :file:`config/system/settings.php` file is write-protected an info
     box is rendered. In that case, all input fields are disabled and the save
     button is not available.
+
+..  _feature-toggles-feature-toggles-typoscript:
 
 Feature toggles in TypoScript
 =============================

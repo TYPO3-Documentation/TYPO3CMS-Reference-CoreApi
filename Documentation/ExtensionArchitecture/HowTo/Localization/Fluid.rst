@@ -129,6 +129,8 @@ can be replaced:
       <hr>
    </f:for>
 
+..  _extension-localization-fluid-source-language-file:
+
 Source of the language file
 ============================
 
@@ -220,6 +222,8 @@ Instead it is possible to insert a placeholder in the translation file:
             <target>Blogs ist hier: </target>
          </trans-unit>
 
+..  _extension-localization-fluid-arguments-argument-types:
+
 Argument types
 --------------
 
@@ -245,6 +249,8 @@ by the according ViewHelper :html:`<f:format.date>`, see section
 
 For a complete list of placeholders / specifiers see
 `PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__.
+
+..  _extension-localization-fluid-arguments-order-arguments:
 
 Order of the arguments
 ----------------------

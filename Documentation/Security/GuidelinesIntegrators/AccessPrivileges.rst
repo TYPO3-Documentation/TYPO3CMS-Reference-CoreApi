@@ -9,6 +9,8 @@ Users and access privileges
 
 .. index:: pair: Security guidelines; Backend user
 
+..  _security-access-privileges-backend:
+
 Backend
 =======
 
@@ -57,6 +59,8 @@ users that are allowed to continue using the system.
     Screenshot showing the screen to set an expiry date for a backend user
 
 .. index:: pair: Security guidelines; Frontend users
+
+..  _security-access-privileges-frontend:
 
 Frontend
 ========

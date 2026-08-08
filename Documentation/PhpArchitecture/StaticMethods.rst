@@ -8,6 +8,8 @@ Static Methods, static Classes, Utility Classes
 ===============================================
 
 
+..  _cgl-model-static-methods-characteristica:
+
 Characteristica
 ===============
 
@@ -38,6 +40,8 @@ Characteristica
 *   Static methods MUST call other static methods of the same class
     using the PHP :php:`self` keyword instead of the class name.
 
+
+..  _cgl-model-static-methods-rationale:
 
 Rationale
 =========
@@ -92,6 +96,8 @@ static method itself, defining the method behaviour especially for
 edge cases.
 
 
+..  _cgl-model-static-methods-good-examples:
+
 Good Examples
 =============
 
@@ -117,6 +123,8 @@ Good Examples
     *   Defines how version handling is done in TYPO3 and encapsulates this
         concern well.
 
+
+..  _cgl-model-static-methods-bad-examples:
 
 Bad Examples
 ============
@@ -147,6 +155,8 @@ Bad Examples
 
     *   Should probably be a dedicated class construct, probably a service is not enough. Why is this not part of a tree structure?
 
+
+..  _cgl-model-static-methods-red-flags:
 
 Red Flags
 =========

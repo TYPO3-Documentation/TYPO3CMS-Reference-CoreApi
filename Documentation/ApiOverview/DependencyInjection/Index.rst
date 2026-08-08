@@ -22,6 +22,8 @@ Dependency injection
    :local:
 
 
+..  _dependency-injection-abstract:
+
 Abstract
 ========
 
@@ -45,6 +47,8 @@ To activate the Symfony component for dependency injection a few lines of
 :ref:`configuration <Configuration>` are necessary.
 
 
+..  _dependency-injection-introduction:
+
 Introduction
 ============
 
@@ -58,6 +62,8 @@ implementation is based on `Symfony service container <https://symfony.com/doc/c
 and `Symfony dependency injection <https://symfony.com/doc/current/components/dependency_injection.html>`_ components,
 plus some TYPO3 specific sugar.
 
+
+..  _dependency-injection-background-history:
 
 Background and history
 ======================
@@ -210,6 +216,8 @@ Tool however should *always* work, even if the backend breaks down, so the "Flus
 button is always reachable. Note that *if* the container calculation fails, the
 :file:`var/log/typo3_*` files contain the exception with backtrace!
 
+
+..  _dependency-injection-important-terms:
 
 Important terms
 ===============
@@ -617,6 +625,8 @@ interface is given:
     :caption: EXT:my_extension/Classes/MyServiceUsingClockInterface.php
 
 
+..  _dependency-injection-faq:
+
 FAQ
 ===
 
@@ -716,6 +726,8 @@ be declared public:
 
 ..  dependency-injection-override-service-arguments:
 
+..  _dependency-injection-faq-override-service-arguments:
+
 How to override service arguments?
 ----------------------------------
 
@@ -746,6 +758,8 @@ It is important that the 3rd party extension is loaded **after** the extension w
 This can be achieved by requiring the original extension as a dependency in the :file:`packages/my-extension/composer.json` file
 of the 3rd party extension.
 
+
+..  _dependency-injection-faq-declare-shared-false:
 
 What do declare :php:`shared: false`?
 -------------------------------------
@@ -837,6 +851,8 @@ Only data objects - preferably using
 should be instantiated using the PHP keyword :php:`new`.
 
 
+..  _dependency-injection-faq-mix-manual-constructor:
+
 Mix manual constructor arguments and service dependencies?
 ----------------------------------------------------------
 
@@ -856,6 +872,8 @@ allowed such mixtures, but this has been replaced by the Symfony-based
 dependency injection solution, which does not support this practice.
 
 
+..  _dependency-injection-faq-user-functions:
+
 What about user functions?
 --------------------------
 
@@ -868,6 +886,8 @@ for example :ref:`.userFunc within TypoScript <t3tsref:cobj-user-properties>` or
 helper :php:`GeneralUtility::makeInstance()`, which can recognize and inject
 services that are marked public.
 
+
+..  _dependency-injection-faq-injection-xclass-ed:
 
 What about injection in a XCLASS'ed class?
 ------------------------------------------
@@ -896,6 +916,8 @@ notation including the `public` argument:
       alias: MyVendor\MyExtension\Controller\ExtendedBackendLogController
 
 
+..  _dependency-injection-yet-exemplified:
+
 Not yet exemplified
 ===================
 
@@ -912,6 +934,8 @@ Not yet exemplified
     "lazy." Another approach involves using a factory with an interface,
     as demonstrated in `ext:styleguide`.
 
+
+..  _dependency-injection-further-information:
 
 Further information
 ===================

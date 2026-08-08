@@ -9,6 +9,8 @@ Using site configuration in TCA `foreign_table_where`
 
 .. index:: pair: Site handling; foreign_table_where
 
+..  _sitehandling-in-tca-tca-foreign-table:
+
 TCA: `foreign_table_where`
 ==========================
 
@@ -21,6 +23,8 @@ To access a configuration value the following syntax is available:
 
 * `###SITE:<KEY>###` - <KEY> is your setting name from site config e.g. `###SITE:rootPageId###`
 * `###SITE:<KEY>.<SUBKEY>###` - an array path notation is possible. e.g. `###SITE:mySetting.categoryPid###`
+
+..  _sitehandling-in-tca-tca-foreign-table-example:
 
 Example:
 --------

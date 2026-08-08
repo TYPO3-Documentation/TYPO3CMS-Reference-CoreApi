@@ -77,6 +77,8 @@ local extensions like site packages and client-specific extensions are installed
         </testsuite>
     </testsuites>
 
+..  _testing-unit-run-run-unit-tests:
+
 Run the unit tests on your system or with DDEV
 ==============================================
 
@@ -107,6 +109,8 @@ You can of course define a
 `Composer script <https://getcomposer.org/doc/articles/scripts.md>` as well, so that
 this command can be executed easily on the host, within a DDEV container and also in
 GitHub Actions or Gitlab CI.
+
+..  _testing-unit-run-run-unit-tests-2:
 
 Run the unit tests with runTests.sh
 ===================================

@@ -13,12 +13,16 @@ Core for JavaScript files.
 
 Note that the TYPO3 Core  typically uses TypeScript now and automatically converts it to JavaScript.
 
+..  _cgl-javascript-directories-filenames:
+
 Directories and filenames
 =========================
 
 * JavaScript files should have the file ending :file:`.js`
 
 * JavaScript files are located under :file:`<extension>/Resources/Public/JavaScript/`
+
+..  _cgl-javascript-format:
 
 Format
 ======
@@ -31,6 +35,8 @@ Format
 
 * Prefix jQuery object variables with a `$`.
 
+
+..  _cgl-javascript-information:
 
 More information
 ================
