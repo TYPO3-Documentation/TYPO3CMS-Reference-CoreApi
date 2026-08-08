@@ -218,20 +218,6 @@ content element in the backend:
 ..  literalinclude:: _snippets/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-The icon argument passed to :php:`registerPlugin()` must be a
-:ref:`registered icon identifier <icon-registration>`, not a raw
-`EXT:` path — the example above uses TYPO3's built-in default
-plugin icon (`content-plugin`).
-
-Registering a custom icon is optional. If you want one, register it in
-:file:`Configuration/Icons.php`:
-
-..  literalinclude:: _snippets/_Icons.php
-    :caption: EXT:my_extension/Configuration/Icons.php
-
-and reference its identifier (`my-extension-conference-list`)
-instead of `content-plugin` in the :php:`registerPlugin()` call above.
-
 ..  seealso::
 
     :ref:`extbase-registration-frontend-plugin`

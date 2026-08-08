@@ -10,5 +10,5 @@ ExtensionUtility::registerPlugin(
     'MyExtension',
     'ConferenceList',
     'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:plugin.conferencelist.title',
-    'content-plugin',
+    'EXT:my_extension/Resources/Public/Icons/Extension.svg',
 );
