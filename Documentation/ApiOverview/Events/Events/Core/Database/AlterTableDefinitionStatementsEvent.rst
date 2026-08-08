@@ -11,10 +11,14 @@ The PSR-14 event
 allows to intercept the :sql:`CREATE TABLE` statement from all loaded
 extensions.
 
+..  _alter-table-definition-statements-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _alter-table-definition-statements-event-api:
 
 API
 ===

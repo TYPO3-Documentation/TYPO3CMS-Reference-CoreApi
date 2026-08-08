@@ -21,12 +21,16 @@ site configuration. Another use case could be to write data to additional
     can be used.
 
 
+..  _modify-auto-create-redirect-record-before-persisting-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyAutoCreateRedirectRecordBeforePersistingEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  _modify-auto-create-redirect-record-before-persisting-event-api:
 
 API
 ===

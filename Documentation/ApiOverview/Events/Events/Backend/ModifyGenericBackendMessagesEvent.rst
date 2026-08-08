@@ -19,12 +19,16 @@ use this event to display custom messages based on the system status:
 
     A generic backend message in the about module
 
+..  _modify-generic-backend-messages-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _modify-generic-backend-messages-event-api:
 
 API
 ===

@@ -17,12 +17,16 @@ types.
     *   :ref:`modifyLinkHandlers`
     *   :ref:`ModifyLinkHandlersEvent`
 
+..  _modify-allowed-items-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyAllowedItemsEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _modify-allowed-items-event-api:
 
 API
 ===

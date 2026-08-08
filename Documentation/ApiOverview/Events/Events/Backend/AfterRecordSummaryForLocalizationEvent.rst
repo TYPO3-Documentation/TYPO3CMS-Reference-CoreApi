@@ -13,12 +13,16 @@ is fired in the
 and allows extensions to modify the payload of the :php:`JsonResponse`.
 
 
+..  _after-record-summary-for-localization-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _after-record-summary-for-localization-event-api:
 
 API
 ===

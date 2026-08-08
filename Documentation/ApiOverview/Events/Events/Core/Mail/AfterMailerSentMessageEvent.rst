@@ -14,12 +14,16 @@ usually :php:`\TYPO3\CMS\Core\Mail\Mailer`. It contains the
 :php:`\Symfony\Component\Mailer\SentMessage` object, which can be retrieved
 using the :php:`getSentMessage()` method.
 
+..  _after-mailer-sent-message-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterMailerSentMessageEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
+
+..  _after-mailer-sent-message-event-api:
 
 API
 ===

@@ -19,12 +19,16 @@ based on currently active filtering.
     are not introducing any breach of security when using this event, for example,
     by revealing restricted information.
 
+..  _after-backend-user-list-constraints-assembled-from-demand-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterBackendUserListConstraintsAssembledFromDemandEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _after-backend-user-list-constraints-assembled-from-demand-event-api:
 
 API
 ===

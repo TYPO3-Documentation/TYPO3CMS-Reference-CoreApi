@@ -14,12 +14,16 @@ is about to return the resolved :php:`\TYPO3\CMS\Core\Imaging\ImageResource`
 the removed hook - always dispatched, even if no :php:`ImageResource` could be
 resolved. In this case, the corresponding return value is :php:`null`.
 
+..  _after-image-resource-resolved-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterImageResourceResolvedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
+
+..  _after-image-resource-resolved-event-api:
 
 API
 ===

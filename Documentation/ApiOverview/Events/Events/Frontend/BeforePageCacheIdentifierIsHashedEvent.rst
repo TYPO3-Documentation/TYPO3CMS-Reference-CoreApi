@@ -22,10 +22,14 @@ proper page caching in A/B testing.
     if an outer middleware did not return early (for instance due to permission
     issues).
 
+..  _before-page-cache-identifier-is-hashed-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-page-cache-identifier-is-hashed-event-api:
 
 API
 ===

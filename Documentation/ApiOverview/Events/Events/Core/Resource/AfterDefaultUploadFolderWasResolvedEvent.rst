@@ -11,12 +11,16 @@ The PSR-14 event
 allows to modify the default upload folder after it has been resolved for the
 current page or user.
 
+..  _after-default-upload-folder-was-resolved-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterDefaultUploadFolderWasResolvedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
+
+..  _after-default-upload-folder-was-resolved-event-api:
 
 API
 ===

@@ -28,6 +28,8 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php
 
+..  _after-flex-form-data-structure-identifier-initialized-event-api:
+
 API
 ===
 

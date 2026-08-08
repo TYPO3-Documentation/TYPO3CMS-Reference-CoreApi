@@ -15,12 +15,16 @@ parameters, since this will not have any effect, as the preview URI is directly
 returned after event dispatching and no further action is done by the
 :php:`\TYPO3\CMS\Backend\Routing\PreviewUriBuilder`.
 
+..  _after-page-preview-uri-generated-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterPagePreviewUriGeneratedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _after-page-preview-uri-generated-event-api:
 
 API
 ===

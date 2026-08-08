@@ -19,12 +19,16 @@ This may be useful, if TYPO3 frontend login
 acts as an :abbr:`SSO (Single-Sign On)` system, or if users should be redirected to an external URL after
 login.
 
+..  _modify-redirect-url-validation-result-event-example-validate:
+
 Example: Validate that the redirect after frontend login goes to a trusted domain
 =================================================================================
 
 ..  literalinclude:: _ModifyRedirectUrlValidationResultEvent/_ValidateRedirectUrl.php
     :language: php
     :caption: EXT:my_extension/Classes/EventListeners/ValidateRedirectUrl.php
+
+..  _modify-redirect-url-validation-result-event-api:
 
 API
 ===

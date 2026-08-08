@@ -20,6 +20,8 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
+..  _modify-inline-element-controls-event-api:
+
 API
 ===
 

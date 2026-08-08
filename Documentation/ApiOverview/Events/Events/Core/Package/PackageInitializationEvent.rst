@@ -26,6 +26,8 @@ in the event using the :php:`addStorageEntry()` method. This is also used
 by the Core listeners to store their result.
 
 
+..  _package-initialization-event-example:
+
 Example
 =======
 
@@ -33,6 +35,8 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php
 
+
+..  _package-initialization-event-api:
 
 API
 ===

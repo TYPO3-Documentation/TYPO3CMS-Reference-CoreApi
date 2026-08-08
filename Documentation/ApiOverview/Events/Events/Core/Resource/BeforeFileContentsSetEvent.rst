@@ -12,10 +12,14 @@ is fired before the contents of a file gets set / replaced.
 This allows to further analyze or modify the content of a file before it is
 written by the :ref:`driver <fal-architecture-components-drivers>`.
 
+..  _before-file-contents-set-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-file-contents-set-event-api:
 
 API
 ===

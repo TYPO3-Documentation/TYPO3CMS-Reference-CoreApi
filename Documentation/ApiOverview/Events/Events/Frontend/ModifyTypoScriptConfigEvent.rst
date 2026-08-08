@@ -26,10 +26,14 @@ The result of this event is available as a
     $configTree = $request->getAttribute('frontend.typoscript')->getConfigTree();
 
 
+..  _modify-typo-script-config-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _modify-typo-script-config-event-api:
 
 API
 ===

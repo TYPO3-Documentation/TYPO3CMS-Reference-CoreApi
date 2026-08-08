@@ -12,6 +12,8 @@ The PSR-14 event
 allows to modify results (= add results) or modify the record
 before :doc:`LinkValidator <ext_linkvalidator:Index>` analyzes the record.
 
+..  _before-record-is-analyzed-event-example:
+
 Example
 =======
 
@@ -80,6 +82,8 @@ need to worry about escaping here.
 
 See the complete class here:
 `CheckExternalLinksToLocalPagesEventListener <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/EventListener/LinkValidator/CheckExternalLinksToLocalPagesEventListener.php>`__.
+
+..  _before-record-is-analyzed-event-api:
 
 API
 ===

@@ -24,6 +24,8 @@ This functionality is implemented in the system extension
 :doc:`linkvalidator <ext_linkvalidator:Index>`. Other extensions can use the
 event to override the default behaviour.
 
+..  _broken-link-analysis-event-example:
+
 Example
 =======
 
@@ -43,6 +45,8 @@ The workflow would be:
 The corresponding event listener class:
 
 ..  include:: _TransformTextEvents/_TransformListener.php
+
+..  _broken-link-analysis-event-api:
 
 API
 ===

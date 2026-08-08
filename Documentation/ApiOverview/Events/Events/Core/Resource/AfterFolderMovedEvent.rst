@@ -13,10 +13,14 @@ is fired after a folder was moved within the resource
 :ref:`driver <fal-architecture-components-drivers>`.
 Custom references can be updated via listeners of this event.
 
+..  _after-folder-moved-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-folder-moved-event-api:
 
 API
 ===

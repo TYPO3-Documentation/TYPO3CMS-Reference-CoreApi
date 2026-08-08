@@ -18,10 +18,14 @@ The event has the possibility to bypass the regular logout process by TYPO3
 (removing the cookie and the user session) by calling
 :php:`$event->disableRegularLogoutProcess()` in an event listener.
 
+..  _before-user-logout-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-user-logout-event-api:
 
 API
 ===

@@ -20,12 +20,16 @@ and in the frontend.
 Extensions using the old hook that want to stay compatible with TYPO3 v11
 and v12 can implement both the hook and the event.
 
+..  _after-templates-have-been-determined-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterTemplatesHaveBeenDeterminedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
+
+..  _after-templates-have-been-determined-event-api:
 
 API
 ===
