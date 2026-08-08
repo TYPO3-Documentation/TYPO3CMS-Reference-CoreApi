@@ -38,6 +38,8 @@ The file needs to return a PHP configuration array with the following keys:
     :language: php
     :caption: EXT:my_extension/Configuration/Icons.php
 
+..  _icon-registration-minimal-svg-sprite:
+
 Minimal SVG sprite structure
 ----------------------------
 
@@ -53,6 +55,8 @@ The fragment identifier (``#tx-myextension``) is used to reference the symbol
 from the SVG sprite when registering the icon.
 
 ..  index:: Icon API; IconProviderInterface
+
+..  _icon-registration-icon-provider:
 
 Icon provider
 -------------
@@ -90,6 +94,8 @@ code or directly in Fluid.
 
 
 .. index:: Icon API; IconFactory
+
+..  _icon-usage-php-way:
 
 The PHP way
 -----------
@@ -131,6 +137,8 @@ The following icon sizes are available as enum values:
     Fluid; Core icon
     pair: Icon API; Fluid
 
+..  _icon-usage-fluid-viewhelper:
+
 The Fluid ViewHelper
 --------------------
 
@@ -167,6 +175,8 @@ The following icon sizes are available:
 
 
 ..  index:: JavaScript; getIcon
+
+..  _icon-usage-javascript-way:
 
 The JavaScript way
 ------------------

@@ -99,6 +99,8 @@ Example:
 
 ..  index:: YAML; Custom placeholder
 
+..  _yaml-file-loader-custom-placeholder-processing:
+
 Custom placeholder processing
 -----------------------------
 

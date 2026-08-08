@@ -13,6 +13,8 @@ TSconfig coding guidelines
 
 TSconfig files use TypoScript syntax.
 
+..  _cgl-tsconfig-directory-file-names:
+
 Directory and file names
 ========================
 
@@ -26,6 +28,8 @@ The following directory names are not mandatory, but recommended:
 * Configuration for :ref:`adding content elements to new content element wizard <content-element-wizard>`
   are located in the file :file:`<extension>/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig`
 
+..  _cgl-tsconfig-format:
+
 Format
 ======
 
@@ -34,6 +38,8 @@ Format
 
 See `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__ in core.
 
+
+..  _cgl-tsconfig-information:
 
 More information
 ================

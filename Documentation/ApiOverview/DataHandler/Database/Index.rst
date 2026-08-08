@@ -10,6 +10,8 @@ DataHandler basics
 ..  contents::
     :local:
 
+..  _tce-database-basics-introduction:
+
 Introduction
 ============
 
@@ -61,6 +63,8 @@ calling one (or both) of these two methods:
     Any error that might have occurred during your DataHandler operations can be
     accessed via its public property :php:`$this->dataHandler->errorLog`.
     See :ref:`tcemain-error-handling`.
+
+..  _tce-database-basics-commands-array:
 
 Commands array
 ==============
@@ -344,6 +348,8 @@ Examples of commands
     $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
     $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
+
+..  _tce-database-basics-commands-array-accessing-uid-copied:
 
 Accessing the uid of copied records
 -----------------------------------
@@ -632,6 +638,8 @@ custom ViewHelper):
     another version of this page for an example in an older TYPO3 version. For
     compatibility with TYPO3 v12 and v13 use
     :php:`TypoScriptFrontendController->addCacheTags()`.
+
+..  _tce-clear-cache-hook-cache-post:
 
 Hook for cache post-processing
 ------------------------------

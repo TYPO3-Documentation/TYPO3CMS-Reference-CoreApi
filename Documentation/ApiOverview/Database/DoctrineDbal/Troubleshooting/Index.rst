@@ -6,6 +6,8 @@
 Troubleshooting
 ===============
 
+..  _database-troubleshooting-database-error-row:
+
 About database error "Row size too large"
 =========================================
 

@@ -161,6 +161,8 @@ The following example shows how you can create instances by means of
    $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
 
+..  _namespaces-include-required:
+
 `include` and `required`
 ------------------------
 

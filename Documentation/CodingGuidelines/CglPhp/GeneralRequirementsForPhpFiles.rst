@@ -7,6 +7,8 @@
 General requirements for PHP files
 ==================================
 
+..  _cgl-general-requirements-for-php-files-typo3-coding-standards:
+
 TYPO3 coding standards
 ======================
 
@@ -20,6 +22,8 @@ is provided, that is based on PER-CS1.0 (PSR-12) at the time of this
 writing, and transitioning towards PER-CS2.0.
 
 
+
+..  _cgl-general-requirements-for-php-files-file-names:
 
 File names
 ==========
@@ -38,6 +42,8 @@ One file can contain only one class or interface.
 
 Extension for PHP files is always :code:`php`.
 
+
+..  _cgl-general-requirements-for-php-files-php-tags:
 
 PHP tags
 ========
@@ -58,6 +64,8 @@ Closing PHP tags (e.g. at the end of the file) are not used.
 Each newly introduced file **MUST** declare strict types for the given file.
 
 
+..  _cgl-general-requirements-for-php-files-line-breaks:
+
 Line breaks
 ===========
 
@@ -65,6 +73,8 @@ TYPO3 uses Unix line endings (`\n`, PHP `chr(10)`). If
 a developer uses Windows or Mac OS X platform, the editor must be
 configured to use Unix line endings.
 
+
+..  _cgl-general-requirements-for-php-files-line-length:
 
 Line length
 ===========
@@ -102,6 +112,8 @@ Comment lines should be kept within a limit of about 80 characters
         ) {
 
 
+..  _cgl-general-requirements-for-php-files-whitespace-indentation:
+
 Whitespace and indentation
 ==========================
 
@@ -134,6 +146,8 @@ Spaces must not be present:
 *   After an opening brace and before a closing brace. For example:
     `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`.
 
+
+..  _cgl-general-requirements-for-php-files-character-set:
 
 Character set
 =============

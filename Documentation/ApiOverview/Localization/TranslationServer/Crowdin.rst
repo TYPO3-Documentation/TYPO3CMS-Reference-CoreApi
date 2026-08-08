@@ -55,6 +55,8 @@ Translation memory
 
 ..  index:: Crowdin; Translations
 
+..  _xliff-translating-server-crowdin-contribute-translations:
+
 Contribute translations
 =======================
 

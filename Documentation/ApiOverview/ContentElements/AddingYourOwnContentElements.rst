@@ -332,6 +332,8 @@ called :sql:`tx_myextension_mytable`:
     :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
+..  _configure-ce-extend-tt-content-defining-field-tce:
+
 Defining the field in the TCE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

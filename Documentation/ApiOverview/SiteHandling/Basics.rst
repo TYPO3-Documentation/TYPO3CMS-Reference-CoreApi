@@ -88,6 +88,8 @@ When choosing an identifier, be sure to use ASCII, but you may also use `-`, `_`
 and `.` for convenience.
 
 
+..  _site-configuration-file-root-page-id:
+
 Root page ID
 ------------
 

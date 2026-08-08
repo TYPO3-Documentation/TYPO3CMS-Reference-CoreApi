@@ -26,6 +26,8 @@ TYPO3 files use the following structure:
 The following sections discuss each of these parts.
 
 
+..  _cgl-file-structure-namespace:
+
 Namespace
 =========
 
@@ -39,6 +41,8 @@ with the class :php:`ContentObjectRenderer` is in the namespace
 :php:`TYPO3\CMS\Frontend\ContentObject`.
 
 :php:`use` statements can be added to this section.
+
+..  _cgl-file-structure-copyright-notice:
 
 Copyright Notice
 ================
@@ -72,6 +76,8 @@ file. User files must have this copyright notice as well. Example:
 The wording must not be changed/updated/extended, under any circumstances.
 
 
+..  _cgl-file-structure-namespace-imports:
+
 Namespace imports
 =================
 
@@ -89,6 +95,8 @@ PER-CS2.0):
 
 Put one blank line before and after import statements.
 Also put one import statement per line.
+
+..  _cgl-file-structure-class-information-block:
 
 Class information block
 =======================
@@ -123,6 +131,8 @@ The PHP class declaration looks like the following:
         // ...
     }
 
+
+..  _cgl-file-structure-optional-module-execution:
 
 Optional module execution code
 ==============================

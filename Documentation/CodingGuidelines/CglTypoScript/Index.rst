@@ -7,6 +7,8 @@
 TypoScript coding guidelines
 ============================
 
+..  _cgl-typoscript-directory-file-names:
+
 Directory and file names
 ========================
 
@@ -23,12 +25,16 @@ Directory and file names
 
 *   File name for TypoScript in static templates: :file:`setup.typoscript`.
 
+..  _cgl-typoscript-format:
+
 Format
 ======
 
 *   Use spaces, not TABs.
 
 *   Use 2 spaces per indenting level.
+
+..  _cgl-typoscript-information:
 
 More information
 ================

@@ -7,6 +7,8 @@
 Creating a new database model
 =============================
 
+..  _creating-database-model-create-sql-database:
+
 Create SQL database schema
 ---------------------------
 
@@ -27,6 +29,8 @@ Create SQL database schema
         description text             DEFAULT '',
         foo_foo     tinyint(1)       DEFAULT '1'
     );
+
+..  _creating-database-model-create-tca-configuration:
 
 Create TCA configuration
 -------------------------

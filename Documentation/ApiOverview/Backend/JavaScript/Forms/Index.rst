@@ -6,6 +6,8 @@
 JavaScript form helpers
 =======================
 
+..  _javascript-form-helpers-empty-checkbox-handling:
+
 Empty checkbox handling
 =======================
 
@@ -22,6 +24,8 @@ Empty checkbox handling
 
 Checkboxes used to send a particular value when unchecked can be achieved by using
 :html:`data-empty-value="0"`. If this attribute is omitted, an empty string `''` is sent.
+
+..  _javascript-form-helpers-submitting-form-change:
 
 Submitting a form on change
 ===========================

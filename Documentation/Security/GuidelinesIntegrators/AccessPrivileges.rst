@@ -9,6 +9,8 @@ Users and access privileges
 
 .. index:: pair: Security guidelines; Backend user
 
+..  _security-access-privileges-backend:
+
 Backend
 =======
 
@@ -55,6 +57,8 @@ users that are allowed to continue using the system.
 
 
 .. index:: pair: Security guidelines; Frontend users
+
+..  _security-access-privileges-frontend:
 
 Frontend
 ========

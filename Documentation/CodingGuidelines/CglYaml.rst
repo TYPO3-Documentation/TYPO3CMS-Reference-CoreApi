@@ -9,10 +9,14 @@ YAML coding guidelines
 
 YAML is (one of the languages) used for configuration in TYPO3.
 
+..  _cgl-yaml-directory-file-names:
+
 Directory and file names
 ========================
 
 * Files have the ending :file:`.yaml`.
+
+..  _cgl-yaml-format:
 
 Format
 ======
@@ -37,6 +41,8 @@ Format
       Line breaks are preserved in this value. It's good for including
 
       <em>HTML snippets</em>.
+
+..  _cgl-yaml-information:
 
 More information
 ================

@@ -27,6 +27,8 @@ Two objects are available:
 
 .. index:: Site handling; TypoScript conditions
 
+..  _sitehandling-in-conditions-typoscript-examples:
+
 TypoScript examples
 ===================
 
@@ -61,6 +63,8 @@ Property of the current site language is evaluated:
 
 
 .. index:: pair: Site handling; YAML
+
+..  _sitehandling-in-conditions-example-ext-form:
 
 Example for EXT:form
 ====================

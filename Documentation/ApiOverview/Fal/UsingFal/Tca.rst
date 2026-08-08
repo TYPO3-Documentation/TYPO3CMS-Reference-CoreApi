@@ -35,6 +35,8 @@ Example:
 This will suppress two buttons for upload and external URL and only leave
 the button :guilabel:`Create new relation`.
 
+..  _fal-using-fal-tca-migration-extensionmanagementutility-getfilefieldtcaconfig:
+
 Migration from :php:`ExtensionManagementUtility::getFileFieldTCAConfig`
 =======================================================================
 

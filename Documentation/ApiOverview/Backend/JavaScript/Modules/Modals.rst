@@ -128,6 +128,7 @@ Button settings
     replacement, as the functionality can be expressed via :js:`Button.name`
     or :js:`Button.trigger` and is therefore redundant.
 
+..  _modules-modals-api-data-attributes:
 
 Data Attributes
 ---------------
@@ -162,6 +163,8 @@ for example on an anchor element, which prevents the default behavior.
 Example:
 
 ..  literalinclude:: _Modals/_DataModal.html
+
+..  _modules-modals-examples:
 
 Examples
 ========

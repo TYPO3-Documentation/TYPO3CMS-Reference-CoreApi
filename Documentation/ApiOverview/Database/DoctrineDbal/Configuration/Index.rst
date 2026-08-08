@@ -23,6 +23,8 @@ configuration is done in :file:`config/system/settings.php` and ends up in
 <bootstrapping>`. The specific sub-array is
 :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
+..  _database-configuration-example-one-connection:
+
 Example: one connection
 =======================
 
@@ -72,6 +74,8 @@ Remarks:
 
 .. _doctrine connection docs: https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html
 
+
+..  _database-configuration-example-two-connections:
 
 Example: two connections
 ========================

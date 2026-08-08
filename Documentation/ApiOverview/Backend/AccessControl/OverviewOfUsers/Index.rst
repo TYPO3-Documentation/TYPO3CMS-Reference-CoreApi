@@ -12,6 +12,8 @@ The :guilabel:`System > Backend users` module offers a convenient way
 of working with backend users and groups. It provides a list of both
 users and groups. The users list can be searched and filtered.
 
+..  _access-backend-users-module-comparing-users-groups:
+
 Comparing Users or Groups
 =========================
 
@@ -25,6 +27,8 @@ provided by the Introduction Package:
 
 The same functionality is available for user groups, including a comparison
 of their inherited permissions.
+
+..  _access-backend-users-module-impersonating-users-switch:
 
 Impersonating Users ("Switch to")
 =================================

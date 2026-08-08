@@ -16,6 +16,8 @@ This approach is standardized as `PSR-7`_.
 
 ..  index:: pair: Ajax; Controller
 
+..  _ajax-backend-create-controller:
+
 Create a controller
 ===================
 
@@ -56,6 +58,8 @@ do nothing with it yet. It is time to build a proper response:
 ..  index:: Ajax; Routes
 ..  index:: File; EXT:{extkey}/Configuration/Backend/AjaxRoutes.php
 
+..  _ajax-backend-register-endpoint:
+
 Register the endpoint
 =====================
 
@@ -89,6 +93,8 @@ Protect the endpoint
 Make sure to protect your endpoint against unauthorized access, if it performs
 actions which are limited to authorized backend users only.
 
+..  _protect-ajax-endpoint-inherit-access-backend:
+
 Inherit access from backend module
 ----------------------------------
 
@@ -105,6 +111,8 @@ using the configuration option `inheritAccessFromModule`:
     :language: php
     :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
+..  _protect-ajax-endpoint-permission-checks-standalone:
+
 Use permission checks on standalone endpoints
 ---------------------------------------------
 
@@ -114,6 +122,8 @@ checks on your own. You can use the
 :ref:`backend user object <t3coreapi:be-user-check>` to perform various
 authorization and permission checks on incoming requests.
 
+
+..  _ajax-backend-ajax:
 
 Use in Ajax
 ===========

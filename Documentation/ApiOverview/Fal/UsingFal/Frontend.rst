@@ -43,6 +43,8 @@ Here :html:`{image}` is an object of one of the following types:
 *   :php:`\TYPO3\CMS\Core\Resource\FileReference`
 *   :php:`\TYPO3\CMS\Extbase\Domain\Model\FileReference`
 
+..  _fal-using-fal-frontend-fluid-get-file-properties:
+
 Get file properties
 -------------------
 

@@ -9,9 +9,6 @@ Multi-factor authentication
 ..  contents::
     :local:
 
-Introduction
-============
-
 TYPO3 is capable of authentication via multiple factors, in short
 "multi-factor authentication" or "MFA". This is sometimes also referred to
 "2FA" as a 2-factor authentication process, where - in order to log in - the
@@ -59,6 +56,8 @@ Included MFA providers
 
 TYPO3 Core includes two MFA providers:
 
+..  _multi-factor-authentication-included-providers-time-based:
+
 Time-based one-time password (TOTP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,6 +69,8 @@ system and then synchronize a token, which changes every 30 seconds.
 On each log-in, after successfully entering the password, the six-digit code
 shown by the authenticator app must be entered.
 
+..  _multi-factor-authentication-included-providers-recovery-codes:
+
 Recovery codes
 ~~~~~~~~~~~~~~
 
@@ -79,6 +80,8 @@ authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
 ..  include:: /Images/ManualScreenshots/Authentication/MfaSelectProvider.rst.txt
+
+..  _multi-factor-authentication-introduction-third-party:
 
 Third-party MFA providers
 -------------------------
@@ -90,6 +93,8 @@ Some third-party MFA providers are available:
 *   `WebAuthn Provider (FIDO2/U2F) for MFA <https://extensions.typo3.org/extension/mfa_webauthn>`__
 *   `YubiKey OTP MFA provider <https://extensions.typo3.org/extension/mfa_yubikey>`__
 
+
+..  _multi-factor-authentication-introduction-setting-mfa:
 
 Setting up MFA for a backend user
 ---------------------------------
@@ -153,6 +158,8 @@ users via user TSconfig:
 
     setup.fields.mfaProviders.disabled = 1
 
+..  _multi-factor-authentication-introduction-setting-mfa-administration-user:
+
 Administration of user's MFA providers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -181,8 +188,12 @@ user TSconfig options.
 ..  include:: /Images/ManualScreenshots/Authentication/MfaConfigurationModule.rst.txt
 
 
+..  _multi-factor-authentication-introduction-configuration:
+
 Configuration
 -------------
+
+..  _multi-factor-authentication-introduction-configuration-enforcing-mfa:
 
 Enforcing MFA for users
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,6 +224,8 @@ The user TSconfig option overrules the global configuration.
     auth.mfa.required = 1
 
 
+..  _multi-factor-authentication-introduction-configuration-allowed-provider:
+
 Allowed provider
 ~~~~~~~~~~~~~~~~
 
@@ -236,6 +249,8 @@ This does not affect the remaining allowed providers from the "Access List".
 
     auth.mfa.disableProviders := addToList(totp)
 
+..  _multi-factor-authentication-introduction-configuration-recommended-provider:
+
 Recommended provider
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -251,6 +266,8 @@ can be used, which overrules the global configuration.
 
     auth.mfa.recommendedProvider = totp
 
+
+..  _multi-factor-authentication-introduction-typo3-integration:
 
 TYPO3 integration and API
 -------------------------

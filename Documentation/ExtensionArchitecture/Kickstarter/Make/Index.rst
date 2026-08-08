@@ -15,6 +15,8 @@ Kickstart a TYPO3 Extension with "Make"
 "`Make <https://github.com/b13/make>`__" is a TYPO3 extension provided by b13. It is a quick way to create
 a basic extension scaffold via the console. The extension is available for TYPO3 v10 and above.
 
+..  _extension-make-1-install-make:
+
 1. Install "Make"
 =================
 
@@ -42,6 +44,8 @@ it should not be used on production systems:
         `TYPO3 Extension Repository (TER), extension
         "make" <https://extensions.typo3.org/extension/make/>`__.
 
+..  _extension-make-2-kickstart-extension:
+
 2.  Kickstart an extension
 ==========================
 
@@ -67,6 +71,8 @@ Call the CLI script on the console:
 
             typo3/sysext/core/bin/typo3 make:extension
 
+
+..  _extension-make-3-answer-prompt:
 
 3.  Answer the prompt
 =====================
@@ -116,6 +122,8 @@ Call the CLI script on the console:
     choose `yes`. If your extension is local and in a Composer-based
     installation it is not necessary and you can choose `no`.
 
+..  _extension-make-4-look-result:
+
 4.  Have a look at the result
 =============================
 
@@ -133,6 +141,8 @@ the subfolder contains the following files:
         |   └── Services.yaml (optional)
         ├── composer.json
         └── ext_emconf.php (optional)
+
+..  _extension-make-5-install-extension:
 
 5. Install the extension
 ========================
@@ -180,6 +190,8 @@ name:
 
         Activate the extension in the Extension Manager.
 
+..  _extension-make-6-add-functionality:
+
 6.  Add functionality
 =====================
 
@@ -190,6 +202,8 @@ to your extension:
 *   `make:command` - :ref:`Create a new command <extension-make-console-command>`
 *   `make:eventlistener` - Create a new event listener
 *   `make:middleware` - Create a new middleware
+
+..  _extension-make-read:
 
 Read more:
 ==========

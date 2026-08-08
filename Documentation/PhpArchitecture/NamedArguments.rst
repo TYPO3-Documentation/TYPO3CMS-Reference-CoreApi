@@ -27,6 +27,8 @@ outlining best practices for TYPO3 extension and Core developers regarding the
 adoption and avoidance of this language feature.
 
 
+..  _cgl-named-arguments-named-arguments-public:
+
 Named arguments in public APIs
 ==============================
 
@@ -37,6 +39,8 @@ The key consideration when using this feature is outlined in the
     the public API, and changing the parameters of a function will be a semantic
     versioning breaking-change. This is an undesired effect of named parameters feature.
 
+
+..  _cgl-named-arguments-utilizing-named-arguments:
 
 Utilizing named arguments in extensions
 =======================================
@@ -52,6 +56,8 @@ forward compatibility:
     with PCPP-based value objects. The TYPO3 Core does not treat variable names as
     part of the API and may change them without considering it a breaking change.
 
+
+..  _cgl-named-arguments-typo3-core-development:
 
 TYPO3 Core development
 ======================
@@ -107,6 +113,8 @@ Objects with such class signatures MUST be instantiated using named arguments to
 maintain API consistency. Standardizing named argument usage allows the TYPO3
 Core to introduce deprecations for argument removals seamlessly.
 
+..  _cgl-named-arguments-typo3-core-development-invoking-2nd:
+
 Invoking 2nd-party (non-Core library) dependency methods
 --------------------------------------------------------
 
@@ -122,6 +130,8 @@ release of a library changes a variable name of some method that we call using
 named arguments. This would immediately break when TYPO3 projects upgrade to
 this patch level release due to the power of semantic versioning. TYPO3 Core must
 avoid this scenario.
+
+..  _cgl-named-arguments-typo3-core-development-invoking-core:
 
 Invoking Core API
 -----------------
@@ -156,6 +166,8 @@ the reasons for not using named arguments:
 
         // Pass params according to I::test() contract
         $obj->test(foo: "foo", bar: "bar"); // ERROR!
+
+..  _cgl-named-arguments-typo3-core-development-utilizing-named:
 
 Utilizing named arguments in PHPUnit test data providers
 --------------------------------------------------------
@@ -197,6 +209,8 @@ instance where PHPUnit utilizes the array keys :php:`languageKey` and
             // Test implementation
         }
     }
+
+..  _cgl-named-arguments-typo3-core-development-leveraging-named:
 
 Leveraging named arguments when invoking PHP functions
 ------------------------------------------------------

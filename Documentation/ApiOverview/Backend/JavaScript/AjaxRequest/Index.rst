@@ -10,6 +10,8 @@ TYPO3 Core ships an API to send Ajax requests to the server. This API is based
 on the `fetch API`_, which is implemented in every modern browser (for
 example, Chrome, Edge, Firefox, Safari).
 
+..  _ajax-request-prepare-request:
+
 Prepare a request
 =================
 
@@ -37,6 +39,8 @@ Example:
 
 The method detects whether the URL already contains a query string and appends
 the new query string in a proper format.
+
+..  _ajax-request-send-request:
 
 Send a request
 ==============
@@ -93,6 +97,8 @@ Example:
 
 ..  index:: Ajax; Response
 
+..  _ajax-request-handle-response:
+
 Handle the response
 ===================
 
@@ -130,6 +136,8 @@ response object.
     Ajax API converts such responses into errors for convenience reasons.
 
 ..  index:: Ajax; Abort
+
+..  _ajax-request-abort-request:
 
 Abort a request
 ===============

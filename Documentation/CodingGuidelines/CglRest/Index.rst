@@ -10,6 +10,8 @@ reStructuredText (reST)
 Documentation is typically stored in `reST <https://en.wikipedia.org/wiki/ReStructuredText>`__
 files.
 
+..  _cgl-rest-directory-file-names:
+
 Directory and file names
 ========================
 
@@ -17,12 +19,16 @@ Directory and file names
 
 * Language files are located in the directory :file:`<extension>/Documentation`.
 
+..  _cgl-rest-format:
+
 Format
 ======
 
 * Use spaces, not TABs.
 
 * Indent with 4 spaces per indent level.
+
+..  _cgl-rest-information:
 
 More information
 ================

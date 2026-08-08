@@ -7,6 +7,8 @@ Publish your extension in the TER
 =================================
 
 
+..  _publish-to-ter-publishing-extension-think:
+
 Before publishing extension, think about
 ========================================
 
@@ -33,6 +35,8 @@ effort in coding:
    *  test your extension for new TYPO3 releases
    *  provide and update a documentation for your extension
 
+..  _publish-to-ter-semantic-versions:
+
 Use semantic versions
 =====================
 
@@ -51,6 +55,8 @@ to the **MAJOR.MINOR.PATCH format**.
 
 More you can see at https://semver.org.
 
+..  _publish-to-ter-offer-feedback-options:
+
 Offer feedback options
 ======================
 
@@ -65,6 +71,8 @@ bug reports). In this case you should have
 You can edit these options in the
 `extension key management <https://extensions.typo3.org/my-extensions>`__
 (after login)
+
+..  _publish-to-ter-publish-extension:
 
 How to publish an extension
 ===========================

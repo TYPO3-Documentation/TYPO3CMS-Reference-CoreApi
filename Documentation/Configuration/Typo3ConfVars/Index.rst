@@ -180,6 +180,8 @@ which requires a lot of processing time.
     *   :file:`typo3conf/system/additional.php`
 
 
+..  _typo3-conf-vars-system-configuration-categories:
+
 System configuration categories
 ===============================
 

@@ -124,6 +124,8 @@ through the array :php:`$this->arguments`, in method :php:`render()`.
     Sometimes arguments can take various types. In this case, the type `mixed`
     should be used.
 
+..  _fluid-custom-viewhelper-implementation-render:
+
 `render()`
 ----------
 

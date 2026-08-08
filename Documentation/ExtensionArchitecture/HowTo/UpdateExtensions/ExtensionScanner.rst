@@ -9,6 +9,8 @@
 Extension scanner
 =================
 
+..  _extension-scanner-introduction:
+
 Introduction
 ============
 
@@ -36,6 +38,8 @@ This module has been featured on the TYPO3 YouTube channel:
 
 .. index:: Admin tool; Scan extension files
 
+..  _extension-scanner-quick-start:
+
 Quick start
 ===========
 
@@ -61,6 +65,8 @@ Quick start
         :alt: The extension scanner report with strong and weak matches
 
         Deprecations as strong and weak matches in the extension scanner for EXT:news
+
+..  _extension-scanner-goals-non-goals:
 
 Goals and non goals
 ===================
@@ -90,6 +96,8 @@ Goals and non goals
 
 
 .. index:: Extension scanner; Limits
+
+..  _extension-scanner-limits:
 
 Limits
 ======
@@ -196,6 +204,8 @@ in a Core version check.
 
 .. index:: Extension scanner; Extension authors
 
+..  _extension-scanner-extension-authors:
+
 Extension authors
 =================
 
@@ -258,6 +268,8 @@ may need attention when upgrading to a newer Core version, the following points 
 
 .. index:: Extension scanner; Project developers
 
+..  _extension-scanner-project-developers:
+
 Project developers
 ==================
 
@@ -275,6 +287,8 @@ an extension scanner run the following points should be considered:
   multiple TYPO3 versions in the same extension release.
 
 .. index:: Extension scanner; Core developers
+
+..  _extension-scanner-core-developers:
 
 Core developers
 ===============

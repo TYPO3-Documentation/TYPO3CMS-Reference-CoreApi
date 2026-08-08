@@ -15,6 +15,8 @@ Content Security Policy
 ..  contents::
     :local:
 
+..  _content-security-policy-introduction:
+
 Introduction
 ============
 
@@ -215,6 +217,8 @@ Specifically you want to to set these following rules, as an example.
     for example, YouTube is already allowed by the default TYPO3 frontend CSP configuration,
     which can be inherited.
 
+..  _content-security-policy-example-rules-example-com:
+
 Rules for example.com (editorial)
 ---------------------------------
 
@@ -223,6 +227,8 @@ Rules for example.com (editorial)
 *    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
      should be allowed
 
+..  _content-security-policy-example-rules-example-org:
+
 Rules for example.org (community)
 ---------------------------------
 
@@ -230,6 +236,8 @@ Rules for example.org (community)
 *    :html:`<img>` sources to `cdn.example.com` and `*.instagram.com` should be allowed
 *    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
      should be allowed
+
+..  _content-security-policy-example-rules-typo3-backend:
 
 Rules for the TYPO3 backend
 ---------------------------
@@ -240,6 +248,8 @@ rules for custom backend modules:
 *    :html:`<iframe>` to `cdn.example.com` should be allowed
 *    :html:`<img>` sources to `cdn.example.com` should be allowed
 *    :html:`<script>` sources to `cdn.example.com` should be allowed
+
+..  _content-security-policy-example-resulting-configuration-example:
 
 Resulting configuration example:
 --------------------------------
@@ -685,6 +695,8 @@ functionality.
 
 TYPO3 provides APIs to get the nonce for the current request:
 
+..  _content-security-policy-nonce-retrieve-php:
+
 Retrieve with PHP
 -----------------
 
@@ -700,6 +712,8 @@ The nonce can be retrieved via the
     if ($nonceAttribute instanceof ConsumableString) {
         $nonce = $nonceAttribute->consume();
     }
+
+..  _content-security-policy-nonce-fluid-template:
 
 In a Fluid template
 -------------------

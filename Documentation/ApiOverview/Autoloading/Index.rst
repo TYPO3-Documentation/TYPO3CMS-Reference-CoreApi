@@ -8,6 +8,8 @@ Autoloading
 
 The class autoloader takes care of finding classes in TYPO3.
 
+..  _autoload-makeinstance:
+
 About :php:`makeInstance()`
 ===========================
 
@@ -136,6 +138,8 @@ This method is failsafe unless the autoload information cannot be written. In
 this case, check the Install Tool for warnings and **make sure that**
 :file:`typo3temp/` **is writable**.
 
+..  _autoloading-without-composer-mode-troubleshooting:
+
 Troubleshooting:
 ----------------
 
@@ -155,6 +159,8 @@ If your classes cannot be found, try the following approaches.
 
 
 ..  index:: pair: Autoloader; PSR-4
+
+..  _autoload-best-practices:
 
 Best practices
 ==============
@@ -178,6 +184,8 @@ Best practices
     Group (FIG). PSR-4 is an advanced standard for autoloading PHP classes and
     replaces PSR-0. If you want to know more about the PHP FIG in general and
     PSR-4 in specific, please visit https://www.php-fig.org/psr/psr-4/.
+
+..  _autoload-further-reading:
 
 Further reading
 ===============

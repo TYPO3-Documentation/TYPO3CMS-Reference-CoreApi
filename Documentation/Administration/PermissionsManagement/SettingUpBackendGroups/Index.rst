@@ -101,6 +101,8 @@ Let’s explore how implementing prefixes in group names can help streamline the
 
 .. _role-group::
 
+..  _naming-convention-role-group:
+
 Role Group
 ----------
 
@@ -226,6 +228,8 @@ inheritance or assignments.
 This code demonstrates the assignment of a static description for the usergroup
 field in the backend user form. However, you should place it in a translation
 file and retrieve it from there for better flexibility and localization support.
+
+..  _setting-up-backend-user-groups-notes-field-describe:
 
 Use the Notes field to describe the purpose of the group
 ========================================================

@@ -16,6 +16,8 @@ relation handling (main modules and sub modules).
 
 ..  contents:: Table of contents
 
+..  _backend-module-interface-moduleinterface-api:
+
 ModuleInterface API
 ===================
 

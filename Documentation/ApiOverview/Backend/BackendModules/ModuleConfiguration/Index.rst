@@ -266,6 +266,8 @@ Default module configuration options (without Extbase)
             \TYPO3\CMS\Backend\Routing\UriBuilder->buildUriFromRoute('my_module.edit');
 
 
+..  _backend-modules-configuration-options-extbase-module-configuration:
+
 Extbase module configuration options
 ------------------------------------
 
@@ -322,6 +324,8 @@ Extbase module configuration options
         *   `web_ExtkeyExample`
         *   `web_ExtkeyExample.MyModule_list`
         *   `web_ExtkeyExample.MyModule_detail`
+
+..  _backend-module-configuration-debug-module-configuration:
 
 Debug the module configuration
 ===============================

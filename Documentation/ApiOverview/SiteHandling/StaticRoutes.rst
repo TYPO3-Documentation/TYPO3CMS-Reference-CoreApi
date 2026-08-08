@@ -32,6 +32,8 @@ configuration. There are two options: deliver static text or resolve a TYPO3 URL
 
 ..  index:: Site handling; StaticText
 
+..  _sitehandling-static-routes-statictext:
+
 :yaml:`staticText`
 ==================
 
@@ -74,6 +76,8 @@ and :samp:`https://example.org/favicon.ico`.
 The asset URL is configured on a per-site basis.
 This allows to deliver site-dependent custom favicon or manifest
 assets, for example.
+
+..  _sitehandling-static-routes-typo3-url-t3:
 
 TYPO3 URL (t3://)
 =================

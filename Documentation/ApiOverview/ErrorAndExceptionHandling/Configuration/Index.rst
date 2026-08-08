@@ -14,6 +14,8 @@ Configuration
    :depth: 1
    :local:
 
+..  _error-handling-configuration-gui-graphical-user:
+
 Via the :abbr:`GUI (Graphical User Interface)`
 ==============================================
 
@@ -28,6 +30,8 @@ For more fine-grained error handling you can change various settings in:
 
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options > SYS`
 
+
+..  _error-handling-configuration-configuration-files:
 
 Via configuration files
 =======================
@@ -85,6 +89,8 @@ The following configuration values are of interest:
     `PHP predefined constants for errors and logging
     <https://www.php.net/manual/en/errorfunc.constants.php>`__
 
+
+..  _error-handling-configuration-exception-handler-rendering:
 
 Exception handler for rendering TypoScript content objects
 ==========================================================

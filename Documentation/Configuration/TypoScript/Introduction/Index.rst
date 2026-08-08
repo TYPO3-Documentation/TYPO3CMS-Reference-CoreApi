@@ -8,6 +8,8 @@
 Introduction
 ============
 
+..  _typoscript-syntax-introduction-typoscript:
+
 What is TypoScript?
 ===================
 

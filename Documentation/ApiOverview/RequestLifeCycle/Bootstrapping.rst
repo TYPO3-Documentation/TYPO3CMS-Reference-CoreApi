@@ -15,11 +15,15 @@ Each application class registers request handlers to
 run a certain request type (e.g. eID or Ajax requests in the backend). Each
 application is handed over the class loader provided by Composer.
 
+..  _bootstrapping-applications:
+
 Applications
 ============
 
 There are four types of applications provided by the TYPO3 Core:
 
+
+..  _bootstrapping-applications-typo3cmsfrontendhttpapplication:
 
 \\TYPO3\\CMS\\Frontend\\Http\\Application
 -----------------------------------------
@@ -30,6 +34,8 @@ in the public web directory. It handles all regular page and eID requests.
 It checks if all configuration is set, otherwise redirects to the TYPO3 Install
 Tool.
 
+
+..  _bootstrapping-applications-typo3cmsbackendhttpapplication:
 
 \\TYPO3\\CMS\\Backend\\Http\\Application
 ----------------------------------------
@@ -47,12 +53,16 @@ The :php:`Application` checks if all configuration is set, otherwise it
 redirects to the TYPO3 Install Tool.
 
 
+..  _bootstrapping-applications-typo3cmscoreconsolecommandapplication:
+
 \\TYPO3\\CMS\\Core\\Console\\CommandApplication
 -----------------------------------------------
 
 This class is the entry point for the TYPO3 command line for console commands.
 In addition to registering all available commands, this also sets up a CLI user.
 
+
+..  _bootstrapping-applications-typo3cmsinstallhttpapplication:
 
 \\TYPO3\\CMS\\Install\\Http\\Application
 ----------------------------------------
@@ -96,10 +106,14 @@ used in the frontend, but only the backend process is described here.
 
 The following steps are performed during bootstrapping.
 
+..  _backend-initialization-1-initialize-class:
+
 1. Initialize the class loader
 ------------------------------
 
 This defines which autoloader to use.
+
+..  _backend-initialization-2-run-systemenvironmentbuilder:
 
 2. Run SystemEnvironmentBuilder
 -------------------------------
@@ -134,6 +148,8 @@ to have an overview of these base values, it is worth taking a look into the fol
    defines special variables which contain, for example, the current time or
    a simulated time as may be set using the Admin Panel.
 
+..  _backend-initialization-3-initialize-bootstrap:
+
 3.  Initialize bootstrap
 ------------------------
 
@@ -161,6 +177,8 @@ following:
 
 -  The database connection is established
 
+..  _backend-initialization-4-dispatch:
+
 4. Dispatch
 -----------
 
@@ -168,6 +186,8 @@ After all that the, the newly created container receives the application object
 and :php:`Application::run()` method is called, which basically dispatches the
 request to the right handler.
 
+
+..  _backend-initialization-5-initialization-typo3:
 
 5. Initialization of the TYPO3 backend
 --------------------------------------

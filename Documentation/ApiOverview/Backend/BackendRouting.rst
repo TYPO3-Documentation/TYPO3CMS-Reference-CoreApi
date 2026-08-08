@@ -39,6 +39,8 @@ property indicates that no authentication is required for that action.
     pair: Backend routing; Cross-site scripting
     Backend routing; Public
 
+..  _backend-routing-backend-routing-cross:
+
 Backend routing and cross-site scripting
 ========================================
 
@@ -183,6 +185,8 @@ You can configure the sudo mode in your backend routing like this:
     :caption: EXT:my_extension/Configuration/Backend/Routes.php
 
 See also :ref:`backend-module-sudo-modules`.
+
+..  _backend-routing-information:
 
 More information
 ================

@@ -87,6 +87,8 @@ Access settings
 The settings can be read using :php:`$this->settings` in an
 Extbase controller action and via :html:`{settings}` within Fluid.
 
+..  _extension-configuration-settings-example-access-settings:
+
 Example: Access settings in an Extbase controller
 -------------------------------------------------
 

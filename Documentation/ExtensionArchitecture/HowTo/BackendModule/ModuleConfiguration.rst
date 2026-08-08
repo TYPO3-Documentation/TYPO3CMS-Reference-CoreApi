@@ -13,6 +13,8 @@ See also the :ref:`Backend module configuration API <backend-modules-configurati
 
 Read more about
 
+..  _backend-modules-configuration-examples-example-register-two:
+
 Example: register two backend modules
 =====================================
 

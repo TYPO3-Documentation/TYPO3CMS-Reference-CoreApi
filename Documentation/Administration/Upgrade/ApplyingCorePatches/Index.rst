@@ -122,6 +122,8 @@ You can get a more verbose error message by calling:
 
    composer install -vvv
 
+..  _applying-core-patches-creating-diff-core:
+
 Creating a diff from a Core change
 ==================================
 

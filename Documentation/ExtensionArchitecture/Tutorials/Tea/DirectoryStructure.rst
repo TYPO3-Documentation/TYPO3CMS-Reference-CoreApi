@@ -27,6 +27,8 @@ On the first level `EXT:tea <https://github.com/TYPO3-Documentation/tea>`__ has 
     ├── ...
     └── README.md
 
+..  _extbase-tutorial-tea-directory-structure-directory-classes:
+
 Directory :file:`Classes`
 -------------------------
 
@@ -81,6 +83,8 @@ should be stored in the respective viewhelper folder.
 ..  note::
      :ref:`ViewHelpers <fluid-custom-viewhelper>` are a feature of the Fluid templating engine.
 
+..  _extbase-tutorial-tea-directory-structure-directory-configuration:
+
 Directory :file:`Configuration`
 -------------------------------
 
@@ -128,11 +132,15 @@ The :file:`Configuration` folder contains several subfolders:
     :ref:`dependency injection <Dependency-Injection>`. See also
     :ref:`extension-configuration-services-yaml`.
 
+..  _extbase-tutorial-tea-directory-structure-directory-documentation:
+
 Directory :file:`Documentation/`
 -------------------------------
 
 The :file:`Documentation/` folder contains files from which
 documentation is rendered. See :ref:`extension-files-documentation`.
+
+..  _extbase-tutorial-tea-directory-structure-directory-resources:
 
 Directory :file:`Resources/`
 ---------------------------
@@ -167,6 +175,8 @@ further divided up:
     All resource files that are directly loaded by the browser
     **must** go in this directory. Otherwise they are not accessible
     (depending on the setup of the installation).
+
+..  _extbase-tutorial-tea-directory-structure-directory-tests:
 
 Directory :file:`Tests/`
 -----------------------

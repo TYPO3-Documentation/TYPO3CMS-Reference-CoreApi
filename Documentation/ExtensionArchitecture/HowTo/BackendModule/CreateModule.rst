@@ -16,6 +16,8 @@ without Extbase. See also the :ref:`Backend module API <backend-modules>`.
    use :ref:`Extbase templating <backend-modules-template>`.
    If you are building  a simple backend module, it makes sense to work without Extbase.
 
+..  _backend-modules-template-without-extbase-basic-controller:
+
 Basic controller
 ================
 
@@ -53,6 +55,8 @@ with the `backend.controller` tag for dependency injection to work:
         tags: ['backend.controller']
 
 
+..  _backend-modules-template-without-extbase-main-entry:
+
 Main entry point
 ================
 
@@ -61,6 +65,8 @@ This makes it possible to include e.g. Javascript for all actions in the control
 
 .. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerHandleRequest.php
    :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
+
+..  _backend-modules-template-without-extbase-actions:
 
 Actions
 =======
@@ -85,6 +91,8 @@ and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()
 ..  seealso::
     :ref:`button-components`
 
+
+..  _backend-modules-template-without-extbase-template-example:
 
 Template example
 ================

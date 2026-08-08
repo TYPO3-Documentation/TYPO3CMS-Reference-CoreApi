@@ -11,6 +11,8 @@ Choosing an extension key
 The "extension key" is a string that uniquely identifies the extension.
 The folder in which the extension is located is named by this string.
 
+..  _extension-key-rules-extension-key:
+
 Rules for the Extension Key
 ===========================
 

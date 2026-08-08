@@ -10,6 +10,8 @@ Extending site configuration
 
 ..  index:: Site handling; Custom options
 
+..  _sitehandling-extending-site-configuration-adding-custom:
+
 Adding custom / project-specific options to site configuration
 ==============================================================
 
@@ -44,6 +46,8 @@ Access it via the API:
 
 
 .. index:: Site handling; Extending the Form
+
+..  _sitehandling-extending-site-configuration-extending-form:
 
 Extending the form / GUI
 ========================

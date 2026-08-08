@@ -23,6 +23,8 @@ If you plan to publish your extension in the TYPO3 Extension Repository
 *   Create the :ref:`ext_emconf-php` file for Classic mode installations and
     extensions what will be uploaded to TER
 
+..  _extension-create-new-installing-newly-created:
+
 Installing the newly created extension
 =======================================
 

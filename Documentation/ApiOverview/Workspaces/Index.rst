@@ -417,11 +417,15 @@ record is selected it should be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
 
+..  _workspaces-persistence-depth-scenarios:
+
 Persistence in-depth scenarios
 ==============================
 
 The following section represents how database records are actually persisted in a database
 table for different scenarios and previously performed actions.
+
+..  _workspaces-persistence-depth-scenarios-placeholders:
 
 Placeholders
 ------------
@@ -447,6 +451,8 @@ Workspace placeholders are stored in field :sql:`t3ver_state` which can have the
 `4`
    * **move pointer**
    * workspace pendant of a record that shall be moved
+
+..  _workspaces-persistence-depth-scenarios-overview:
 
 Overview
 --------
@@ -489,6 +495,8 @@ Overview
    33,20,0,224,1,0,1,11,2,Beitrag #1 (de)
    34,-1,0,224,1,33,-1,11,2,Beitrag #1 (de)
 
+..  _workspaces-persistence-depth-scenarios-scenario-create-new:
+
 Scenario: Create new page
 -------------------------
 
@@ -508,6 +516,8 @@ Scenario: Create new page
 * record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`,
   indicating new version state :code:`t3ver_state = -1`
 
+..  _workspaces-persistence-depth-scenarios-scenario-modify-record:
+
 Scenario: Modify record
 -----------------------
 
@@ -522,6 +532,8 @@ Scenario: Modify record
 
 * record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`,
   using default version state :code:`t3ver_state = 0`
+
+..  _workspaces-persistence-depth-scenarios-scenario-delete-record:
 
 Scenario: Delete record
 -----------------------
@@ -555,6 +567,8 @@ Scenario: Create new record on existing page
 * record :code:`uid = 25` defines :code:`sorting` insertion point on page :code:`pid = 20` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`,
   indicating new version state :code:`t3ver_state = -1`
+
+..  _workspaces-persistence-depth-scenarios-scenario-create-new-2:
 
 Scenario: Create new record on page that is new in workspace
 ------------------------------------------------------------
@@ -591,6 +605,8 @@ Scenario: Discard record workspace modifications
   (similar to :ref:`scenario-create-new-record-on-existing-page`)
 * both records represent the discarded state by having assigned :code:`deleted = 1` and :code:`t3ver_wsid = 0`
 
+..  _workspaces-persistence-depth-scenarios-scenario-create-new-3:
+
 Scenario: Create new record localization
 ----------------------------------------
 
@@ -612,6 +628,8 @@ Scenario: Create new record localization
 * records :code:`uid = 33` and :code:`uid = 34` represent localization to German :code:`sys_language_uid = 2`,
   pointing back to their localization origin :code:`l10n_parent = 11`
 
+..  _workspaces-persistence-depth-scenarios-scenario-create-new-4:
+
 Scenario: Create new record, then move to different page
 --------------------------------------------------------
 
@@ -628,6 +646,8 @@ Scenario: Create new record, then move to different page
   (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
   has been moved to target target page :code:`pid = 30`
 * record :code:`uid = 25` directly uses target page :code:`pid = 30`
+
+..  _workspaces-persistence-depth-scenarios-scenario-create-new-5:
 
 Scenario: Create new record, then delete
 ----------------------------------------

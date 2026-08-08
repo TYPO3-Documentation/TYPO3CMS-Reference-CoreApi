@@ -31,6 +31,8 @@ can assume the attribute to be set already. Usage example:
     :caption: EXT:my_extension/Classes/Middleware/MyLaterMiddleware.php
 
 
+..  _typo3-request-attribute-frontend-cache-instruction-api:
+
 API
 ===
 

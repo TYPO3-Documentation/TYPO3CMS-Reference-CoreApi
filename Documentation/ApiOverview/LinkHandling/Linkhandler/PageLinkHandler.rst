@@ -34,6 +34,8 @@ The PageLinkHandler is preconfigured in the page TSconfig as:
    }
 
 
+..  _pagelinkhandler-enable-direct-input:
+
 Enable direct input of the page id
 ==================================
 
