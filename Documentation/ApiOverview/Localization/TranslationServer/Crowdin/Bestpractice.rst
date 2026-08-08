@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Crowdin; Best Practice
-..  _crowdin-bestpractice
+..  _crowdin-bestpractice:
 
 
 ================================
@@ -67,6 +67,8 @@ and upload the files later.
 Best practice in short:
 -----------------------
 
+..  _crowdin-bestpractice-in-short-overview:
+
 EXT:Crowdin Overview
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -75,6 +77,8 @@ EXT:Crowdin Overview
     - Streamlined workflow without switching platforms.
     - Provides context for each string by showing where it’s used in TYPO3.
     - Helps track translated vs. missing files.
+
+..  _crowdin-bestpractice-in-short-setup:
 
 Crowdin Setup
 ~~~~~~~~~~~~~
@@ -85,6 +89,8 @@ Crowdin Setup
     - Options: Translate all files or single file.
 - Recommended View: “Comfortable” Editor View for better overview and tools.
 
+..  _crowdin-bestpractice-in-short-editor-features:
+
 Editor Features
 ~~~~~~~~~~~~~~~
 
@@ -92,12 +98,16 @@ Editor Features
 - Includes filtering, search, glossary, and TM access.
 - Keyboard shortcuts available for efficiency.
 
+..  _crowdin-bestpractice-in-short-glossary:
+
 Glossary
 ~~~~~~~~
 
 - Ensures consistent terminology across projects.
 - TYPO3 has a shared glossary (for example TypoScript, TsConfig, Cache).
 - Contributors can add or improve terms in Crowdin.
+
+..  _crowdin-bestpractice-in-short-tm:
 
 Translation Memory (TM)
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -107,6 +117,8 @@ Translation Memory (TM)
 - TYPO3 has a shared TM that grows over time.
 - Avoid mixing similar but different phrases to maintain quality.
 
+..  _crowdin-bestpractice-in-short-collaboration:
+
 Collaboration
 ~~~~~~~~~~~~~
 
@@ -115,6 +127,8 @@ Collaboration
     - **TYPO3 localization team**: Process and coordination.
 - Share experiences and tips for better results.
 
+..  _crowdin-bestpractice-in-short-daily-work:
+
 The daily work
 ~~~~~~~~~~~~~~
 
@@ -122,6 +136,8 @@ The daily work
 - Do **not** translate placeholders in curly brackets (for example {@viewPortLabel}).
 - Don’t rely solely on Crowdin’s percentage counters—quality matters more than quantity.
 - Review translations for consistency and natural language.
+
+..  _crowdin-bestpractice-in-short-final-tips:
 
 Final Tips
 ~~~~~~~~~~

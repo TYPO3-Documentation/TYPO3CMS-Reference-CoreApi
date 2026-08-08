@@ -8,6 +8,8 @@
 ComposerClassLoader
 ===================
 
+..  _composer-class-loader-integrating-composer-class:
+
 Integrating Composer class loader into TYPO3
 ============================================
 
@@ -17,6 +19,8 @@ class loader that is used by all Composer-based projects. We consider
 this functionality a crucial feature for the future of TYPO3 on the
 base level, but also as a dramatic increase of the overall performance
 of every request inside TYPO3.
+
+..  _composer-class-loader-understanding-typo3-class:
 
 Understanding the TYPO3 class loader
 ====================================
@@ -57,11 +61,15 @@ which is shipped with the core and no class alias is used.
 This is all built in a way so a lot of backwards-compatibility can be
 ensured.
 
+..  _composer-class-loader-understanding-composer-class:
+
 Understanding the Composer class loader
 =======================================
 
 Compared to the TYPO3 class loader, the Composer class loader
 concept differs in the following major points:
+
+..  _composer-class-loader-understanding-composer-class-caching-build:
 
 Caching on build stage
 ----------------------
@@ -73,6 +81,8 @@ or when updating the source, this file does not need to be rebuilt as
 the PHP classes of the loaded packages won’t change in a regular
 instance. This way all classes available inside TYPO3 are always
 available to the class loader.
+
+..  _composer-class-loader-understanding-composer-class-psr-4:
 
 Using PSR-4 compatible prefix-based resolving
 ---------------------------------------------
@@ -88,6 +98,8 @@ list of available namespace prefixes.
 The definition of these prefixes is set inside the :file:`composer.json <extension-composer-json>` file of each
 package or distribution / project.
 
+..  _composer-class-loader-understanding-composer-class-autoloading-developer:
+
 Autoloading developer-specific data differently
 -----------------------------------------------
 
@@ -96,6 +108,8 @@ installation differently, including for example unit and functional tests
 separately to the rest of the installation. The static map with all
 namespaces are thus different when using Composer with `composer
 install` or `composer install --no-dev`.
+
+..  _composer-class-loader-integration-approach:
 
 Integration Approach
 ====================
@@ -129,6 +143,8 @@ server-side level.
 If the Composer-based logic is not used in some legacy cases (for
 extensions etc), the usual TYPO3 class loader comes into play and does
 the same logic as before.
+
+..  _composer-class-loader-project-setup-extension:
 
 Project setup and extension considerations
 ==========================================

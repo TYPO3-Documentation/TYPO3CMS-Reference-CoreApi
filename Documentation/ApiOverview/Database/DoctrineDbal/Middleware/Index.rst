@@ -11,6 +11,8 @@ Doctrine DBAL driver middlewares
 ..  contents::
     :local:
 
+..  _database-middleware-introduction:
+
 Introduction
 ============
 
@@ -47,6 +49,8 @@ Example:
     :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
+
+..  _database-middleware-global-disable-global-middleware:
 
 Disable a global middleware for a specific connection
 -----------------------------------------------------
@@ -204,6 +208,8 @@ driver middleware interface which requires the implementation of the method
 This allows to decide, if a middleware should be used for a specific connection,
 either based on the :php:`$connectionName` or the :php:`$connectionParams`,
 for example the concrete :php:`$connectionParams['driver']`.
+
+..  _database-middleware-usable-for-connection-interface-example:
 
 Example
 -------

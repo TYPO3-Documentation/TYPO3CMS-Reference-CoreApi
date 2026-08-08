@@ -9,6 +9,8 @@ Fluid-based error handler
 The Fluid-based error handler is defined in
 :t3src:`core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php`.
 
+..  _sitehandling-error-handling-fluid-properties:
+
 Properties
 ==========
 
@@ -48,6 +50,8 @@ The Fluid-based error handler has the properties
 
     The paths to Fluid layouts in case more flexibility is needed.
 
+
+..  _sitehandling-error-handling-fluid-example:
 
 Example
 =======

@@ -32,6 +32,8 @@ For example, a file that was previously accessible as
 now be stored in :file:`vendor/my-vendor/my-extension/Resources/Public/Images/logo.svg`
 and be symlinked to :file:`public/_assets/9e592a1e5eec5752a1be78133e5e1a60/Resources/Public/Images/logo.svg`.
 
+..  _migrate-public-assets-migration:
+
 Migration
 =========
 

@@ -11,6 +11,8 @@ PHP syntax formatting
     You may also want to read `PHP architecture <https://docs.typo3.org/permalink/t3coreapi:cgl-best-practices>`_
     for best practices in PHP beyond pure code formatting.
 
+..  _cgl-php-syntax-formatting-identifiers:
+
 Identifiers
 ===========
 
@@ -86,6 +88,8 @@ Examples:
     $GLOBALS['TYPO3_CONF_VARS']
 
 
+..  _cgl-php-syntax-formatting-comments:
+
 Comments
 ========
 
@@ -132,6 +136,8 @@ If a variable can hold values of different types, use :php:`mixed` as
 type.
 
 
+..  _cgl-php-syntax-formatting-debug-output:
+
 Debug output
 ============
 
@@ -142,6 +148,8 @@ before pushing the code to the Git repository. Only very exceptionally
 is it allowed to even *think* of leaving a debug statement, if it is
 definitely a major help when developing user code for the TYPO3 Core.
 
+
+..  _cgl-php-syntax-formatting-curly-braces:
 
 Curly braces
 ============
@@ -183,6 +191,8 @@ The following is not allowed:
         }
     }
 
+
+..  _cgl-php-syntax-formatting-conditions:
 
 Conditions
 ==========
@@ -257,6 +267,8 @@ Wrong usage of the ternary conditional operator:
     $result = ($useComma ? ',' : $useDot ? '.' : ';');
 
 
+..  _cgl-php-syntax-formatting-switch:
+
 Switch
 ======
 
@@ -288,6 +300,8 @@ Examples:
             $content .= $this->errorUse();
     }
 
+
+..  _cgl-php-syntax-formatting-loops:
 
 Loops
 =====
@@ -345,6 +359,8 @@ This is done for performance reasons, as it is faster than calling
 :php:`array_keys()` and looping on its result.
 
 
+..  _cgl-php-syntax-formatting-strings:
+
 Strings
 =======
 
@@ -394,6 +410,8 @@ level.
                     . 'Donec varius libero non nisi. Proin eros.';
 
 
+..  _cgl-php-syntax-formatting-booleans:
+
 Booleans
 ========
 
@@ -402,12 +420,16 @@ integer values like :php:`0` or :php:`1`. Furthermore they should be
 written in lowercase, i.e. :php:`true` and :php:`false`.
 
 
+..  _cgl-php-syntax-formatting-null:
+
 NULL
 ====
 
 Similarly this special value is written in lowercase, i.e.
 :php:`null`.
 
+
+..  _cgl-php-syntax-formatting-arrays:
 
 Arrays
 ======
@@ -444,6 +466,8 @@ very small and simple array declarations, e.g. :
         0 => 'b',
     ];
 
+
+..  _cgl-php-syntax-formatting-php-features:
 
 PHP features
 ============
@@ -490,12 +514,16 @@ function declaration:
 
 
 
+..  _cgl-php-syntax-formatting-global-variables:
+
 Global variables
 ================
 
 Use of :php:`global` is not recommended. Always use
 :php:`$GLOBALS['variable']`.
 
+
+..  _cgl-php-syntax-formatting-functions:
 
 Functions
 =========

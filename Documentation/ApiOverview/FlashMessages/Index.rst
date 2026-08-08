@@ -30,6 +30,8 @@ The different severity levels are described below:
 *  *Error messages* are to signal failed actions, security issues, errors
    and the like.
 
+..  _flash-messages-further-reading:
+
 Further reading
 ===============
 

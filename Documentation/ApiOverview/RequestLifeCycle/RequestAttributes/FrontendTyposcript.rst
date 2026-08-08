@@ -22,6 +22,8 @@ current TypoScript, it can retrieve it using this API:
     $fullTypoScript = $request->getAttribute('frontend.typoscript')
         ->getSetupArray();
 
+..  _typo3-request-attribute-frontend-typoscript-api:
+
 API
 ===
 

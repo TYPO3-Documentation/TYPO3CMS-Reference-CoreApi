@@ -8,6 +8,8 @@
 Database
 ========
 
+..  _troubleshooting-database-mysql:
+
 MySQL
 =====
 

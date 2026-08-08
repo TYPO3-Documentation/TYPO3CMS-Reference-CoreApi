@@ -69,6 +69,8 @@ It is also possible to set the cropping configuration only for a **specific tt_c
         ],
     ];
 
+..  _ce-cropvariants-disable-crop-variants:
+
 Disable crop variants
 =====================
 

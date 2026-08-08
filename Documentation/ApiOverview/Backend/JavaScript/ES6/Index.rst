@@ -25,6 +25,8 @@ Exposing all module configurations is possible via
 done in backend context for logged-in users to avoid disclosing installed
 extensions to anonymous visitors.
 
+..  _backend-javascript-es6-configuration:
+
 Configuration
 =============
 
@@ -62,6 +64,8 @@ In a Fluid template the `includeJavaScriptModules` property of the
     :language: html
     :caption: EXT:my_extension/Resources/Private/Backend/Templates/SomeTemplate.fluid.html
 
+..  _backend-javascript-es6-tips-es6:
+
 Some tips on ES6
 ================
 
@@ -80,6 +84,8 @@ For a practical example on how to introduce ES6 modules into a large extension
 see this commit for EXT:news: `[TASK] Add support for TYPO3 v12 ES6
 modules <https://github.com/bnf/news/commit/f8e196b67ceaa2f56699fbf464080dde668ad526>`__.
 
+..  _backend-javascript-es6-tips-es6-jquery:
+
 Using JQuery
 ------------
 
@@ -92,6 +98,8 @@ with the following statement:
 ..  code-block:: javascript
 
     import $ from 'jquery';
+
+..  _backend-javascript-es6-add-javascript-modules:
 
 Add JavaScript modules to import map in backend form
 ====================================================

@@ -11,6 +11,8 @@ TypeScript coding guidelines
 <https://github.com/excelmicro/typescript>`__ should be used throughout the
 TYPO3 Core for TypeScript files.
 
+..  _cgl-typescript-directories-file-names:
+
 Directories and file names
 ==========================
 
@@ -18,6 +20,8 @@ Directories and file names
 
 * TypeScript files are located under :file:`<extension>/Resources/Private/TypeScript/`
 
+
+..  _cgl-typescript-format:
 
 Format
 ======
@@ -29,6 +33,8 @@ Format
 .. seealso::
 
    `Excel Micro : Whitespace <https://github.com/excelmicro/typescript#whitespace>`__
+
+..  _cgl-typescript-information:
 
 More information
 ================

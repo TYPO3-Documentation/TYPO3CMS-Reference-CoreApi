@@ -155,6 +155,8 @@ which requires a lot of processing time.
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 
+..  _typo3-conf-vars-system-configuration-categories:
+
 System configuration categories
 ===============================
 

@@ -272,6 +272,8 @@ next page to load while the email is being sent. This can be avoided by choosing
 to "spool" the emails instead of sending them directly.
 
 
+..  _mail-spooling-spooling-memory:
+
 Spooling in memory
 ------------------
 
@@ -283,6 +285,8 @@ When you use spooling to store the emails to memory, they will get sent right
 before the kernel terminates. This means the email only gets sent if the whole
 request got executed without any unhandled exception or any errors.
 
+
+..  _mail-spooling-spooling-files:
 
 Spooling using files
 --------------------
@@ -305,6 +309,8 @@ Additional notes about the mail spool path:
 *   The path must not contain symlinks (important for environments with auto
     deployment)
 *   The path must not contain ``//``, ``..`` or ``\``
+
+..  _mail-spooling-sending-spooled-mails:
 
 Sending spooled mails
 ---------------------
@@ -540,6 +546,8 @@ mailer is used.
     TYPO3\CMS\Core\Mail\MailerInterface:
         alias: MyVendor\SitePackage\Mail\MyCustomMailer
 
+
+..  _mail-psr-14-events:
 
 PSR-14 events on sending messages
 =================================

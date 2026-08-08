@@ -30,6 +30,8 @@ consistency, and then deep dives into the programming API.
     Database; DBAL
     DBMS
 
+..  _database-introduction-doctrine-dbal:
+
 Doctrine DBAL
 =============
 
@@ -60,6 +62,8 @@ interest to extensions.
 
 ..  index:: Doctrine; ORM
 
+..  _database-introduction-understanding-doctrine-dbal:
+
 Understanding Doctrine DBAL and Doctrine ORM
 ============================================
 
@@ -74,6 +78,8 @@ required nor implemented nor used.
 ..  index::
     Database;  Low-level calls
     DataHandler
+
+..  _database-introduction-low-level-high:
 
 Low-level and high-level database calls
 =======================================

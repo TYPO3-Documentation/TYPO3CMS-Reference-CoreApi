@@ -18,10 +18,14 @@ event unbinding.
     need to omit the :file:`.js` extension in :js:`import` statements.
     See https://github.com/microsoft/TypeScript/issues/16577 for the reasoning of this.
 
+..  _js-event-api-event-binding:
+
 Event Binding
 =============
 
 Each event strategy (see below) has two ways to bind a listener to an event:
+
+..  _js-event-api-event-binding-direct-binding:
 
 Direct Binding
 --------------
@@ -36,6 +40,8 @@ Example:
     :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
+
+..  _js-event-api-event-binding-event-delegation:
 
 Event Delegation
 ----------------
@@ -53,6 +59,8 @@ The event listener is now called every time the element matching the selector
 :js:`a[data-action="toggle"]` within :js:`document` is clicked.
 
 
+..  _js-event-api-event-binding-release-event:
+
 Release an event
 ----------------
 
@@ -66,10 +74,14 @@ Example:
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
+..  _js-event-api-event-strategies:
+
 Event strategies
 ================
 
 The Event API brings several strategies to handle event listeners:
+
+..  _js-event-api-event-strategies-regularevent:
 
 RegularEvent
 ------------
@@ -88,6 +100,8 @@ Example:
     :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
+
+..  _js-event-api-event-strategies-debounceevent:
 
 DebounceEvent
 -------------
@@ -132,6 +146,8 @@ Example:
     :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
+
+..  _js-event-api-event-strategies-requestanimationframeevent:
 
 RequestAnimationFrameEvent
 --------------------------

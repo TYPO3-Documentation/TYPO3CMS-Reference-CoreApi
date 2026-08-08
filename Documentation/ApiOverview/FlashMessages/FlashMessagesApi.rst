@@ -6,6 +6,8 @@
 Flash messages API
 ==================
 
+..  _flash-messages-api-instantiate-flash-message:
+
 Instantiate a flash message
 ---------------------------
 
@@ -42,6 +44,8 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 
 .. index:: ContextualFeedbackSeverity
 
+..  _flash-messages-api-flash-messages-severities:
+
 Flash messages severities
 -------------------------
 
@@ -58,6 +62,8 @@ The severity is defined by using the
 
 *  :php:`ContextualFeedbackSeverity::ERROR` for errors
 
+
+..  _flash-messages-api-add-flash-message:
 
 Add a flash message to the queue
 --------------------------------

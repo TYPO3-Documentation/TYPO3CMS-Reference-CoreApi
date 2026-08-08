@@ -14,6 +14,8 @@ more access or further damage (e.g. stolen user details) has been
 done.
 
 
+..  _security-detect-manipulated-frontpage:
+
 Manipulated frontpage
 =====================
 
@@ -36,6 +38,8 @@ because it is possible that the malicious code is not visible at a
 quick glance.
 
 
+..  _security-detect-malicious-code-html:
+
 Malicious code in the HTML source
 =================================
 
@@ -50,6 +54,8 @@ See alse the explanations below :ref:`Search engines warn about your
 site <security-detect-reports-from-search-engines>`.
 
 
+..  _security-detect-embedded-elements-site:
+
 Embedded elements in the site's content
 =======================================
 
@@ -63,6 +69,8 @@ download/execute these files.
 See also the explanations below :ref:`Reports from visitors or users
 <security-detect-reports-from-visitors>`.
 
+
+..  _security-detect-unusual-traffic-increase:
 
 Unusual traffic increase or decrease
 ====================================
@@ -111,6 +119,8 @@ unwanted software).
 One example for such a warning system is Google's "Safe Browsing
 Database". This database is also used by various browsers.
 
+
+..  _security-detect-leaked-credentials:
 
 Leaked credentials
 ==================

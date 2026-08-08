@@ -36,6 +36,8 @@ If you want to use the built-in error and exception handling but
 extend it with your own functionality, derive your class from the
 error and exception handling classes shipped with TYPO3.
 
+..  _error-handling-extending-example-debug-exception:
+
 Example Debug Exception Handler
 ===============================
 

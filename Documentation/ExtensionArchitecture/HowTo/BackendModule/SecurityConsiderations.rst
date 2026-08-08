@@ -9,8 +9,12 @@
 Security Considerations
 =======================
 
+..  _backend-modules-security-cross-site-request:
+
 Cross-Site-Request-Forgery (CSRF)
 =================================
+
+..  _backend-modules-security-cross-site-request-overview:
 
 Overview
 --------
@@ -40,8 +44,12 @@ provides a delete action. The previous implementation used `GET` links with
 query parameters for the delete action, which modifies the server's state.
 This should be replaced with `POST` requests for improved security.
 
+..  _backend-modules-security-cross-site-request-asserting-http:
+
 Asserting HTTP Methods in Custom Module Controllers
 ---------------------------------------------------
+
+..  _backend-modules-security-cross-site-request-asserting-http-enforcing-http:
 
 Enforcing HTTP Methods
 ......................
@@ -146,6 +154,8 @@ each controller action.
           }
       }
 
+..  _backend-modules-security-cross-site-request-asserting-http-template-example:
+
 Template Example
 ................
 
@@ -181,8 +191,12 @@ instead of `GET` links for delete actions:
     element. This allows multiple :html:`<button>` elements to be used with a single
     :html:`<form>`.
 
+..  _backend-modules-security-cross-site-request-asserting-http-2:
+
 Asserting HTTP Methods in Extbase Controllers
 ---------------------------------------------
+
+..  _backend-modules-security-cross-site-request-asserting-http-2-enforcing:
 
 Enforcing HTTP Methods
 ......................
@@ -234,6 +248,8 @@ controllers using :php:`AllowedMethodsTrait`:
               return $this->redirect('list');
           }
       }
+
+..  _backend-modules-security-cross-site-request-asserting-http-2-template:
 
 Template Example
 ................

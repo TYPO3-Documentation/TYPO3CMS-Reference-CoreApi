@@ -1,8 +1,12 @@
 ..  include:: /Includes.rst.txt
 
+..  _migratetocomposer-version-control:
+
 ===============
 Version control
 ===============
+
+..  _migratetocomposer-version-control-add-version-control:
 
 Add to version control system
 =============================
@@ -45,6 +49,8 @@ A :file:`.gitignore` file could look like this:
     /public/index.php
     /public/typo3/*
 
+..  _migratetocomposer-version-control-checkout-version-control:
+
 Checkout from version control system
 ====================================
 
@@ -52,6 +58,8 @@ All your co-workers should always run :bash:`composer install` after they have
 checked out the files. This command will install the packages in the appropriate
 versions defined in :file:`composer.lock`. This way, you and your co-workers
 always have the same versions of the TYPO3 Core and the extensions installed.
+
+..  _migratetocomposer-version-control-maintaining-versions-composer:
 
 Maintaining versions / composer update
 ======================================

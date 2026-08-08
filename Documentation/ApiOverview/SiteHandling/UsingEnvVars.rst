@@ -26,6 +26,8 @@ variables may be used to replace complete values or parts of a value.
 ..  _symfony/dotenv: https://github.com/symfony/dotenv
 
 
+..  _sitehandling-using-env-vars-examples:
+
 Examples
 ========
 
