@@ -22,8 +22,8 @@ to modify them via the :php:`getConstraints()` and
 
 ..  _modify-default-constraints-for-database-query-event-example:
 
-Example
-=======
+Example: Restrict queries using a custom `enablecolumns` entry
+==============================================================
 
 The following example adds an additional restriction based on a custom TCA
 `enablecolumns` entry. Assume a table stores a "purchased amount" range
