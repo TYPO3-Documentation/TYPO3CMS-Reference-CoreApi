@@ -46,9 +46,7 @@ Crowdin please contact either the maintainer of the extension or the
 
 ..  _Localization Team: https://typo3.community/contribute/teams-committees/localization
 
-.  _crowdin-faq-xliff-version:
-
-..  _crowdin-faq-general-why-xliff-files:
+..  _crowdin-faq-xliff-version:
 
 Why do XLIFF files on Crowdin look different now?
 -------------------------------------------------
