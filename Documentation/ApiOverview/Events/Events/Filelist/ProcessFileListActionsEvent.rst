@@ -14,6 +14,8 @@ This event can be used to manipulate the icons/actions, used for the edit contro
 section in the files and folders listing within the :guilabel:`File > Filelist`
 module.
 
+..  _process-file-list-actions-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ Example
     :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _process-file-list-actions-event-api:
 
 API
 ===

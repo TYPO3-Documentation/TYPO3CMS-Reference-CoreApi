@@ -13,10 +13,14 @@ allows to intercept, if a certain table should be excluded from the
 There is no need to add tables without a definition in :php:`$GLOBALS['TCA']`
 since the reference index only handles those.
 
+..  _is-table-excluded-from-reference-index-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _is-table-excluded-from-reference-index-event-api:
 
 API
 ===

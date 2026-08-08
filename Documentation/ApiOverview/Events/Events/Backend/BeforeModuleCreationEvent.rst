@@ -11,6 +11,8 @@ allows extension authors to manipulate the :ref:`module configuration
 <backend-modules-configuration>`, before it is used to create and register the
 module.
 
+..  _before-module-creation-event-example:
+
 Example
 =======
 
@@ -19,6 +21,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _before-module-creation-event-api:
 
 API
 ===

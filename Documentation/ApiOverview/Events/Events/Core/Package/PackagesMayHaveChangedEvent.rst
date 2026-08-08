@@ -18,10 +18,14 @@ package listings.
     `installer events by Composer <https://getcomposer.org/doc/articles/scripts.md#installer-events>`__
     for Composer-based installations.
 
+..  _packages-may-have-changed-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _packages-may-have-changed-event-api:
 
 API
 ===

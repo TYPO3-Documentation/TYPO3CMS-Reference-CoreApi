@@ -10,6 +10,8 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent`
 is fired before the storage backend is asked for results from a given query.
 
+..  _modify-query-before-fetching-object-data-event-example:
+
 Example
 =======
 
@@ -23,6 +25,8 @@ centralized and does not to be repeated in each repository class.
     :caption: EXT:my_extension/Classes/Extbase/EventListener/DisableRespectStoragePage.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-query-before-fetching-object-data-event-api:
 
 API
 ===

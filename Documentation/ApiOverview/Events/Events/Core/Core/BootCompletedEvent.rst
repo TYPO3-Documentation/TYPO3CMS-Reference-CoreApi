@@ -17,6 +17,8 @@ Use cases for this event include running extension's code which needs to be
 executed at any time and needs TYPO3's full configuration including all loaded
 extensions.
 
+..  _boot-completed-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/Bootstrap/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _boot-completed-event-api:
 
 API
 ===

@@ -43,11 +43,15 @@ page response if additional permissions should be checked.
     #.  :ref:`AfterPageAndLanguageIsResolvedEvent`
 
 
+..  _after-page-with-root-line-is-resolved-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
 
+
+..  _after-page-with-root-line-is-resolved-event-api:
 
 API
 ===

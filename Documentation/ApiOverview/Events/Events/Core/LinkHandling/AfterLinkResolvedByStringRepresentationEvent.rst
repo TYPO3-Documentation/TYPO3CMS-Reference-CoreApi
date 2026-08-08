@@ -28,6 +28,8 @@ resolve situations where no handler could be found for a `t3://` URN.
 
 
 
+..  _after-link-resolved-by-string-representation-event-example:
+
 Example
 =======
 
@@ -36,6 +38,8 @@ Example
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _after-link-resolved-by-string-representation-event-api:
 
 API
 ===

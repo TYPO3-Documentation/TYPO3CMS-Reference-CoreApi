@@ -24,6 +24,8 @@ inserted to the link markup.
 ..  seealso::
     :ref:`AfterTypoLinkDecodedEvent`
 
+..  _before-typo-link-encoded-event-example:
+
 Example
 =======
 
@@ -32,6 +34,8 @@ Example
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _before-typo-link-encoded-event-api:
 
 API
 ===

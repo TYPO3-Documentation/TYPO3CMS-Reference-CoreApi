@@ -16,6 +16,8 @@ is being dispatched in :php:`ContentObjectRenderer->getImageSourceCollection()`
 for each configured :php:`sourceCollection` and allows to enrich the final
 source collection result.
 
+..  _modify-image-source-collection-event-example:
+
 Example
 =======
 
@@ -24,6 +26,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _modify-image-source-collection-event-api:
 
 API
 ===

@@ -17,10 +17,14 @@ is triggered before a number of packages should become active.
     `installer events by Composer <https://getcomposer.org/doc/articles/scripts.md#installer-events>`__
     for Composer-based installations.
 
+..  _before-package-activation-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-package-activation-event-api:
 
 API
 ===

@@ -29,6 +29,8 @@ emptied.
     :php:`getCanonicalGenerationDisabledException()` method, which either
     returns the exception with the corresponding reason or :php:`null`.
 
+..  _modify-url-for-canonical-tag-event-example:
+
 Example
 =======
 
@@ -40,6 +42,8 @@ Changing the host of the current request and setting it as canonical:
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _modify-url-for-canonical-tag-event-api:
 
 API
 ===

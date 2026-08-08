@@ -17,6 +17,8 @@ property is set (either :php:`true` or :php:`false`), the defined settings are
 directly used, skipping any further event listener as well as any further
 evaluation.
 
+..  _record-access-granted-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _record-access-granted-event-api:
 
 API
 ===

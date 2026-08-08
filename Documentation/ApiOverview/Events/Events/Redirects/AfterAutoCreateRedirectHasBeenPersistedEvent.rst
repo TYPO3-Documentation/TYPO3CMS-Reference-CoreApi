@@ -21,6 +21,8 @@ persisted redirects.
     can be used.
 
 
+..  _after-auto-create-redirect-has-been-persisted-event-example:
+
 Example
 =======
 
@@ -28,7 +30,10 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
+
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-auto-create-redirect-has-been-persisted-event-api:
 
 API
 ===

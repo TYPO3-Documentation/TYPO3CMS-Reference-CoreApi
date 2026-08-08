@@ -14,6 +14,8 @@ is to modify the preview file of online media previews (like YouTube and Vimeo).
 If, for example, a processed file is bad (blank or outdated), this event can be
 used to modify and/or update the preview file.
 
+..  _after-video-preview-fetched-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ Example
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-video-preview-fetched-event-api:
 
 API
 ===

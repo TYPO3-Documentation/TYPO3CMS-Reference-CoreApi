@@ -34,10 +34,14 @@ The Core uses this in the :php:`TimeTrackInitialization` and the
     page" scenarios. :typoscript:`setup` and (internal) :typoscript:`page` may
     not be set.
 
+..  _after-typo-script-determined-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-typo-script-determined-event-api:
 
 API
 ===

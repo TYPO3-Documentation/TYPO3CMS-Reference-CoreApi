@@ -44,11 +44,15 @@ a custom 403 response).
     #.  AfterPageAndLanguageIsResolvedEvent
 
 
+..  _after-page-and-language-is-resolved-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
 
+
+..  _after-page-and-language-is-resolved-event-api:
 
 API
 ===

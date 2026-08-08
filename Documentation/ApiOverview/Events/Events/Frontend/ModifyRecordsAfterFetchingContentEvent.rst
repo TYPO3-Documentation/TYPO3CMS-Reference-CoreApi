@@ -18,6 +18,8 @@ of the options, such as `slide`. Listeners are also able to set the final
 content and change the whole TypoScript configuration, used for further
 processing.
 
+..  _modify-records-after-fetching-content-event-example:
+
 Example
 =======
 
@@ -26,6 +28,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _modify-records-after-fetching-content-event-api:
 
 API
 ===

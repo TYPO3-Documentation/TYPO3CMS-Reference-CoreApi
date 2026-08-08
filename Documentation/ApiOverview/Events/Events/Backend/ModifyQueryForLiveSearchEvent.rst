@@ -20,6 +20,8 @@ This event is fired in the
 and allows extensions to modify the :ref:`query builder <database-query-builder>`
 instance before execution.
 
+..  _modify-query-for-live-search-event-example:
+
 Example
 =======
 
@@ -29,6 +31,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _modify-query-for-live-search-event-api:
 
 API
 ===

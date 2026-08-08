@@ -17,6 +17,8 @@ generated automatically as a string from a PHP function.
 It is important to understand that this configuration is considered static and
 thus should not depend on runtime / request.
 
+..  _before-loaded-page-ts-config-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _before-loaded-page-ts-config-event-api:
 
 API
 ===

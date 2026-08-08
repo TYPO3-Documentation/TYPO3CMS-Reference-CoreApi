@@ -38,10 +38,14 @@ The result of this event is available as a
     event to **write** different :typoscript:`config` data is thus still a bit
     risky.
 
+..  _modify-typo-script-config-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _modify-typo-script-config-event-api:
 
 API
 ===

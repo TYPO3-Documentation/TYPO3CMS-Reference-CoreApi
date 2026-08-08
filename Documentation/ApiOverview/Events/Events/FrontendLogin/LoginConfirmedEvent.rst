@@ -15,6 +15,8 @@ Example
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
 
+..  _login-confirmed-event-api:
+
 API
 ===
 

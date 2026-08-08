@@ -23,6 +23,8 @@ in case a corresponding
 exists.
 
 
+..  _after-form-definition-loaded-event-example:
+
 Example
 =======
 
@@ -31,6 +33,8 @@ Example
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _after-form-definition-loaded-event-api:
 
 API
 ===

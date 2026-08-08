@@ -20,6 +20,8 @@ The event allows listeners to modify any available wizard item as well
 as adding new ones. It is therefore possible for the listeners to, for example,
 change the configuration, the position or to remove existing items altogether.
 
+..  _modify-new-content-element-wizard-items-event-example:
+
 Example
 =======
 
@@ -28,6 +30,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-new-content-element-wizard-items-event-api:
 
 API
 ===

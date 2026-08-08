@@ -35,6 +35,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+..  _after-flex-form-data-structure-identifier-initialized-event-api:
+
 API
 ===
 

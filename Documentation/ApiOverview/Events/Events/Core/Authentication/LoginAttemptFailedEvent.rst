@@ -15,6 +15,8 @@ The purpose of the PSR-14 event
 :php:`\TYPO3\CMS\Core\Authentication\Event\LoginAttemptFailedEvent`
 is to allow to notify remote systems about failed logins.
 
+..  _login-attempt-failed-event-example:
+
 Example
 =======
 
@@ -23,6 +25,8 @@ Example
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _login-attempt-failed-event-api:
 
 API
 ===

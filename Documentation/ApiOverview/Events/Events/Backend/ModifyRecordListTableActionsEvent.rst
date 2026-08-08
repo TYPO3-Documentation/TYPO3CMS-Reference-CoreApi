@@ -34,6 +34,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+..  _modify-record-list-table-actions-event-api:
+
 API
 ===
 

@@ -12,10 +12,14 @@ is fired after a file was replaced.
 *Example*: Further process a file or create variants, or index the
 contents of a file for :abbr:`AI (Artificial Intelligence)` analysis etc.
 
+..  _after-file-replaced-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-file-replaced-event-api:
 
 API
 ===

@@ -14,6 +14,8 @@ allows to decide whether a file can be selected in the file browser.
 To get the image dimensions (width and height) of a file, you can retrieve the
 file and use the :php:`getProperty()` method.
 
+..  _is-file-selectable-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _is-file-selectable-event-api:
 
 API
 ===

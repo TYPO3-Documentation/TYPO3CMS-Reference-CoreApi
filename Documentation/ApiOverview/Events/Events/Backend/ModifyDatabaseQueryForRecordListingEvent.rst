@@ -20,6 +20,8 @@ allows to alter the :ref:`query builder <database-query-builder>` SQL
 statement before a list of records is rendered in record lists, such as
 the :guilabel:`List` module or an element browser.
 
+..  _modify-database-query-for-record-listing-event-example:
+
 Example
 =======
 
@@ -28,6 +30,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-database-query-for-record-listing-event-api:
 
 API
 ===

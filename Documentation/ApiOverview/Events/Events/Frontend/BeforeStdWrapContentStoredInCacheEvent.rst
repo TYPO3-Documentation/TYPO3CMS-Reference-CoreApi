@@ -20,6 +20,8 @@ added, the cache :php:`$tags` to be used, as well as the corresponding cache
 Additionally, the new event provides the full TypoScript configuration
 and the current :php:`ContentObjectRenderer` instance.
 
+..  _before-std-wrap-content-stored-in-cache-event-example:
+
 Example
 =======
 
@@ -29,6 +31,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
+
+..  _before-std-wrap-content-stored-in-cache-event-api:
 
 API
 ===

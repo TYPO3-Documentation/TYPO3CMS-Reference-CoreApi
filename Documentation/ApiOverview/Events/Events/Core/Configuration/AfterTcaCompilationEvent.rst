@@ -15,10 +15,14 @@ the :ref:`TCA <t3tca:start>`.
     It is possible to check against the original TCA as this is stored within
     :php:`$GLOBALS['TCA']` before this event is fired.
 
+..  _after-tca-compilation-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-tca-compilation-event-api:
 
 API
 ===

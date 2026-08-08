@@ -16,12 +16,16 @@ entries that can be overridden or added, based on the root line.
     Apart from that no changes were made. TYPO3 v12 triggers *both* the old
     and the new event, and TYPO3 v13 stopped calling the old event.
 
+..  _modify-loaded-page-ts-config-event-example:
+
 Example
 =======
 
 ..  literalinclude:: _ModifyLoadedPageTsConfigEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/MyEventListener.php
+
+..  _modify-loaded-page-ts-config-event-api:
 
 API
 ===

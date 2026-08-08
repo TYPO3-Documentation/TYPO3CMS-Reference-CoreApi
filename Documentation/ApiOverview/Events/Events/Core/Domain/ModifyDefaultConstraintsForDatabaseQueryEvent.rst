@@ -24,10 +24,14 @@ The event contains a list of :php:`CompositeExpression` objects, allowing
 to modify them via the :php:`getConstraints()` and
 :php:`setConstraints(array $constraints)` methods.
 
+..  _modify-default-constraints-for-database-query-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _modify-default-constraints-for-database-query-event-api:
 
 API
 ===

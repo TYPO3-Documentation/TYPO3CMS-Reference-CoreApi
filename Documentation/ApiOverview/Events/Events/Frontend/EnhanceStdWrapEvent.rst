@@ -39,6 +39,8 @@ Example
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
 
+..  _enhance-std-wrap-event-api:
+
 API
 ===
 

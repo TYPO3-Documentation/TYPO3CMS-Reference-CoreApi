@@ -11,10 +11,14 @@ The PSR-14 event
 allows to modify values when
 :ref:`creating domain objects <extbase-model-hydrating>`.
 
+..  _after-object-thawed-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-object-thawed-event-api:
 
 API
 ===

@@ -19,6 +19,8 @@ It can be used to alter the incoming page ID or to even fetch a fully-loaded
 page object before the default TYPO3 behaviour is executed, effectively
 bypassing the default page resolving.
 
+..  _before-page-is-retrieved-event-example:
+
 Example
 =======
 
@@ -27,6 +29,8 @@ Example
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _before-page-is-retrieved-event-api:
 
 API
 ===

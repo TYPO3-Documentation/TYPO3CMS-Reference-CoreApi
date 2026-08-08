@@ -15,10 +15,14 @@ allows to inject custom variables into the login form.
     removed with v12. The :php:`getView()` method signature has been changed
     to :php:`TYPO3Fluid\Fluid\View\ViewInterface` with the v12 release.
 
+..  _modify-login-form-view-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _modify-login-form-view-event-api:
 
 API
 ===

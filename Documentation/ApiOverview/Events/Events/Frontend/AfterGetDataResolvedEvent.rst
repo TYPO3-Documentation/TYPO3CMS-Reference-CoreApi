@@ -18,6 +18,8 @@ The PSR-14 event
 is being dispatched just before :php:`ContentObjectRenderer->getData()`
 is about to return the resolved "data".
 
+..  _after-get-data-resolved-event-example:
+
 Example
 =======
 
@@ -26,6 +28,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _after-get-data-resolved-event-api:
 
 API
 ===

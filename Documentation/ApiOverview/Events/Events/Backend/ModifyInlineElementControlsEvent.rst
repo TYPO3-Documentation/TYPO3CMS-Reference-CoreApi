@@ -27,6 +27,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+..  _modify-inline-element-controls-event-api:
+
 API
 ===
 

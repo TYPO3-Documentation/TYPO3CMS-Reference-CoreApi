@@ -24,6 +24,8 @@ user, if the user has successfully logged in. See
 :t3src:`backend/Classes/Security/EmailLoginNotification.php`.
 
 
+..  _after-user-logged-in-event-example:
+
 Example
 =======
 
@@ -32,6 +34,8 @@ Example
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-user-logged-in-event-api:
 
 API
 ===

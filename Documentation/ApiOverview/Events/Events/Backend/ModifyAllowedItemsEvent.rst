@@ -24,6 +24,8 @@ types.
     *   :ref:`modifyLinkHandlers`
     *   :ref:`ModifyLinkHandlersEvent`
 
+..  _modify-allowed-items-event-example:
+
 Example
 =======
 
@@ -32,6 +34,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-allowed-items-event-api:
 
 API
 ===

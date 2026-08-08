@@ -20,6 +20,8 @@ to a deny list. Additionally, the PSR-14 event can be used to restrict the
 search result on certain page IDs or to modify the search query altogether.
 
 
+..  _before-search-in-database-record-provider-event-example:
+
 Example
 =======
 
@@ -29,6 +31,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _before-search-in-database-record-provider-event-api:
 
 API
 ===

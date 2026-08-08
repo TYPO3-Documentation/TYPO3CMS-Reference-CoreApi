@@ -23,6 +23,8 @@ site configuration. Another use case could be to write data to additional
     can be used.
 
 
+..  _modify-auto-create-redirect-record-before-persisting-event-example:
+
 Example
 =======
 
@@ -31,6 +33,8 @@ Example
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-auto-create-redirect-record-before-persisting-event-api:
 
 API
 ===

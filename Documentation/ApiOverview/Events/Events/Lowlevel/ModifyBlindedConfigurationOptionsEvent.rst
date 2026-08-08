@@ -25,6 +25,8 @@ The method returns the identifier of the configuration provider as registered
 in the :ref:`configuration module <config-module>`.
 
 
+..  _modify-blinded-configuration-options-event-example:
+
 Example
 =======
 
@@ -34,6 +36,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _modify-blinded-configuration-options-event-api:
 
 API
 ===

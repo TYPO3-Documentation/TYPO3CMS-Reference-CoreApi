@@ -16,6 +16,8 @@ usually :php:`\TYPO3\CMS\Core\Mail\Mailer`. It contains the
 :php:`\Symfony\Component\Mailer\SentMessage` object, which can be retrieved
 using the :php:`getSentMessage()` method.
 
+..  _after-mailer-sent-message-event-example:
+
 Example
 =======
 
@@ -24,6 +26,8 @@ Example
     :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-mailer-sent-message-event-api:
 
 API
 ===

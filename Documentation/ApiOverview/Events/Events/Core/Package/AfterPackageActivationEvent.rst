@@ -17,6 +17,8 @@ is triggered after a package has been activated.
     `installer events by Composer <https://getcomposer.org/doc/articles/scripts.md#installer-events>`__
     for Composer-based installations.
 
+..  _after-package-activation-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-package-activation-event-api:
 
 API
 ===

@@ -22,6 +22,8 @@ to modify the set of handlers that will be used.
     *   :ref:`modifyLinkHandlers`
     *   :ref:`ModifyAllowedItemsEvent`
 
+..  _modify-link-handlers-event-example:
+
 Example
 =======
 
@@ -31,6 +33,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _modify-link-handlers-event-api:
 
 API
 ===

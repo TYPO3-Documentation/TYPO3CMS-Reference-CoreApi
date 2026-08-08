@@ -28,6 +28,8 @@ assigning new values to `FluidEmail`.
     the event.
 
 
+..  _modify-validator-task-email-event-example:
+
 Example
 =======
 
@@ -101,6 +103,8 @@ of following columns:
 `Link Type`
     Type of the broken link (either `internal`, `external` or `file`)
 
+
+..  _modify-validator-task-email-event-api:
 
 API
 ===

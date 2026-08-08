@@ -27,6 +27,8 @@ displayed where it is needed and rendered the way it is wanted.
     The methods :php:`getIntegrityStatusCodes()` and
     :php:`setIntegrityStatusCodes()` have been added to the event class.
 
+..  _modify-redirect-management-controller-view-data-event-example:
+
 Example
 =======
 
@@ -35,6 +37,8 @@ Example
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-redirect-management-controller-view-data-event-api:
 
 API
 ===

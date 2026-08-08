@@ -15,6 +15,8 @@ The class :php:`\TYPO3\CMS\Seo\HrefLang\HrefLangGenerator` (identifier
 is to provide the default :html:`hreflang` tags. This way it is possible to
 register a custom event listener after or instead of this implementation.
 
+..  _modify-href-lang-tags-event-example:
+
 Example
 =======
 
@@ -27,6 +29,8 @@ executed after or before the given identifiers.
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _modify-href-lang-tags-event-api:
 
 API
 ===

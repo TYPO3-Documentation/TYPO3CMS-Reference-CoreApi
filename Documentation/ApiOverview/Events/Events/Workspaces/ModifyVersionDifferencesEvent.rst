@@ -19,6 +19,8 @@ with the :php:`getVersionDifferences()` method and updated using the
 :php:`setVersionDifferences(array $versionDifferences)` method.
 
 
+..  _modify-version-differences-event-example:
+
 Example
 =======
 
@@ -28,6 +30,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _modify-version-differences-event-api:
 
 API
 ===

@@ -13,10 +13,14 @@ fired before a folder is about to be added to the resource
 This allows to further specify folder names according to regulations for a
 specific project.
 
+..  _before-folder-added-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _before-folder-added-event-api:
 
 API
 ===

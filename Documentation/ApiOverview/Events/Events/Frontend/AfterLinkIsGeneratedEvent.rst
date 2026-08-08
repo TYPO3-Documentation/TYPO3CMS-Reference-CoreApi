@@ -37,6 +37,8 @@ If a link could not be generated, a
 :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`  might be thrown.
 
 
+..  _after-link-is-generated-event-example:
+
 Example
 =======
 
@@ -45,6 +47,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-link-is-generated-event-api:
 
 API
 ===

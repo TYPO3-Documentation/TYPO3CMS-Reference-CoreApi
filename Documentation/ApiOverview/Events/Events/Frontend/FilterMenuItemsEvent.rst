@@ -27,10 +27,14 @@ order is possible.
 Additionally, more information about the currently rendered menu, such as
 the menu items which were filtered out, is available.
 
+..  _filter-menu-items-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _filter-menu-items-event-api:
 
 API
 ===

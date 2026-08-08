@@ -27,6 +27,8 @@ URL will be opened in a new window.
     The element's crop variants will always be appended to the preview URL
     as JSON-encoded string, using the `cropVariants` parameter.
 
+..  _modify-image-manipulation-preview-url-event-example:
+
 Example
 =======
 
@@ -35,6 +37,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-image-manipulation-preview-url-event-api:
 
 API
 ===

@@ -28,6 +28,8 @@ the known TCA overrides API.
     might not even exist when the first call is done, for example, from
     :ref:`CLI <symfony-console-commands>`.
 
+..  _before-tca-overrides-event-example:
+
 Example
 =======
 
@@ -37,6 +39,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
+
+..  _before-tca-overrides-event-api:
 
 API
 ===

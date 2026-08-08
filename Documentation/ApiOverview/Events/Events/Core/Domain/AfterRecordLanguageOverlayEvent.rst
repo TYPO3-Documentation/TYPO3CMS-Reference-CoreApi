@@ -17,10 +17,14 @@ information or perform custom processing of the record.
 ..  seealso::
     *   :ref:`BeforeRecordLanguageOverlayEvent`
 
+..  _after-record-language-overlay-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-record-language-overlay-event-api:
 
 API
 ===

@@ -15,6 +15,8 @@ is fired in the
 and allows extensions to modify the payload of the :php:`JsonResponse`.
 
 
+..  _after-record-summary-for-localization-event-example:
+
 Example
 =======
 
@@ -23,6 +25,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-record-summary-for-localization-event-api:
 
 API
 ===

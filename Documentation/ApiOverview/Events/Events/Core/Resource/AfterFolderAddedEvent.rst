@@ -15,10 +15,14 @@ is fired after a folder was added to the resource
 This allows to customize permissions or set up editor permissions automatically
 via listeners.
 
+..  _after-folder-added-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-folder-added-event-api:
 
 API
 ===

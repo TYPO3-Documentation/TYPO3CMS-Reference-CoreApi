@@ -10,10 +10,14 @@ The PSR-14 event :php:`\TYPO3\CMS\Backend\Controller\Event\AfterFormEnginePageIn
 is available to listen for after the :ref:`form engine <FormEngine>` has been
 initialized (all data has been persisted).
 
+..  _after-form-engine-page-initialized-event-example:
+
 Example
 =======
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
+
+..  _after-form-engine-page-initialized-event-api:
 
 API
 ===

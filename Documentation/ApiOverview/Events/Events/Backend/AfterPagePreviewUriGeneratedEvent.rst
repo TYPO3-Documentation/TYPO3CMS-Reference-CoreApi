@@ -20,6 +20,8 @@ parameters, since this will not have any effect, as the preview URI is directly
 returned after event dispatching and no further action is done by the
 :php:`\TYPO3\CMS\Backend\Routing\PreviewUriBuilder`.
 
+..  _after-page-preview-uri-generated-event-example:
+
 Example
 =======
 
@@ -28,6 +30,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-page-preview-uri-generated-event-api:
 
 API
 ===

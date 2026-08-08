@@ -17,6 +17,8 @@ This event can be used to avoid loading from the cache when indexing via
 CLI happens from an external source, or if the cache should be ignored when
 logged in from a certain IP address.
 
+..  _should-use-cached-page-data-if-available-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _should-use-cached-page-data-if-available-event-api:
 
 API
 ===

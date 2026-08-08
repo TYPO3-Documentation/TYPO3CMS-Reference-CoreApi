@@ -17,6 +17,8 @@ icon. Extensions can listen to this event and perform necessary modifications
 to the overlay icon identifier based on their requirements.
 
 
+..  _modify-record-overlay-icon-identifier-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/Core/EventListener/ModifyRecordOverlayIconIdentifierEventListener.php
 
 ..  include:: /_includes/EventsAttributeAddedNew.rst.txt
+
+..  _modify-record-overlay-icon-identifier-event-api:
 
 API
 ===

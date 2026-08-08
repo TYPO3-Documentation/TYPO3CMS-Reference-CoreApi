@@ -17,6 +17,8 @@ allows to modify the form data, used to render the file edit form in the
 :ref:`FormEngine data compiling <FormEngine-DataCompiling>`.
 
 
+..  _modify-edit-file-form-data-event-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
     :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _modify-edit-file-form-data-event-api:
 
 API
 ===

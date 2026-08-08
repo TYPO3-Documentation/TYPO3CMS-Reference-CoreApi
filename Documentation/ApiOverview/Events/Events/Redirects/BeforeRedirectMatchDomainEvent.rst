@@ -29,6 +29,8 @@ redirects or return the matched redirect record from other sources.
     state to the event by properly deprecate it.
 
 
+..  _before-redirect-match-domain-event-example:
+
 Example
 =======
 
@@ -37,6 +39,8 @@ Example
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _before-redirect-match-domain-event-api:
 
 API
 ===

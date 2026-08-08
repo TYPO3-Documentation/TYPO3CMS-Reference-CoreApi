@@ -14,6 +14,8 @@ custom indexer after a file has been uploaded.
 This event is fired in the
 :php:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` class.
 
+..  _after-file-command-processed-event-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ Example
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _after-file-command-processed-event-api:
 
 API
 ===
