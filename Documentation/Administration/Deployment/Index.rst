@@ -21,14 +21,6 @@ However, for larger or more professional projects,
 `automated deployment <https://docs.typo3.org/permalink/t3coreapi:automated-deployment>`_
 using tools is highly recommended.
 
-..  attention::
-    We currently work on improving this section. We are very happy about any
-    Contribution. There is a project on GitHub:
-    `Project: TYPO3 Deployment Guide <https://github.com/orgs/TYPO3-Documentation/projects/26>`_
-    dedicated to improving the deployment information.
-
-    Please `Contribute to the TYPO3 documentation <https://docs.typo3.org/permalink/h2document:docs-official-workflow-methods>`_
-
 ..  _deployment-what-why:
 
 What is deployment and why do I need it?
