@@ -93,7 +93,7 @@ Extbase controller action and via :html:`{settings}` within Fluid.
 
 ..  _extension-configuration-settings-example-access-settings:
 
-Example: Access settings in an Extbase controller
+Example: access settings in an Extbase controller
 -------------------------------------------------
 
 ..  literalinclude:: /ExtensionArchitecture/HowTo/_codesnippets/Settings.php

@@ -4,9 +4,9 @@
     Logging; Model
 ..  _logging-model:
 
-===================
-The LogRecord model
-===================
+=====================
+The `LogRecord` model
+=====================
 
 All logging data is modeled using :php:`\TYPO3\CMS\Core\Log\LogRecord`.
 

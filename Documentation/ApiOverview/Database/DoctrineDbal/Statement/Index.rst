@@ -34,8 +34,8 @@ all rows as an array with :ref:`->fetchAllAssociative()
 
 ..  _database-result-fetch-associative:
 
-fetchAssociative()
-==================
+`fetchAssociative()`
+====================
 
 This method fetched the next row from the result. It is usually used in
 :php:`while()` loops. This is the recommended way of accessing the result in
@@ -74,8 +74,8 @@ It returns :php:`false` when no more rows can be found.
 
 ..  _database-result-fetch-all-associative:
 
-fetchAllAssociative()
-=====================
+`fetchAllAssociative()`
+=======================
 
 This method returns an array containing all rows of the result set by internally
 implementing the same while loop as above. Using that method saves some precious
@@ -106,8 +106,8 @@ a query builder with the connection pool.
 
 ..  _database-result-fetch-one:
 
-fetchOne()
-==========
+`fetchOne()`
+============
 
 The method returns a single column from the next row of a result set, other
 columns from this result row are discarded. It is especially handy for
@@ -141,8 +141,8 @@ a query builder with the connection pool.
 
 ..  _database-result-row-count:
 
-rowCount()
-==========
+`rowCount()`
+============
 
 This method returns the number of rows affected by the last execution of this
 statement. Use this method instead of counting the number of records in a

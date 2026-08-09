@@ -43,8 +43,8 @@ Three concrete paginators are available:
 
 .. _pagination-example-array-paginator:
 
-Example: ArrayPaginator
------------------------
+Example: `ArrayPaginator`
+-------------------------
 
 Code example for the :php:`ArrayPaginator` in an
 :ref:`Extbase controller <extbase-controller-action>`:
@@ -60,8 +60,8 @@ And the corresponding Fluid template:
 
 .. _pagination-example-query-builder-paginator:
 
-Example: QueryBuilderPaginator
-------------------------------
+Example: `QueryBuilderPaginator`
+--------------------------------
 
 The paginated items are fetched only once per page request by storing the result
 internally, avoiding double execution of the database statement.

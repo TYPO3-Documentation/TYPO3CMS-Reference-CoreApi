@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFileRenamedEvent
 ..  _BeforeFileRenamedEvent:
 
-======================
-BeforeFileRenamedEvent
-======================
+========================
+`BeforeFileRenamedEvent`
+========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFileRenamedEvent`
 is fired before a file is about to be renamed. Custom listeners can further

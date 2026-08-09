@@ -3,9 +3,9 @@
 ..  _ModifyLoginFormViewEvent:
 
 
-========================
-ModifyLoginFormViewEvent
-========================
+==========================
+`ModifyLoginFormViewEvent`
+==========================
 
 The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\ModifyLoginFormViewEvent`
 allows to inject custom variables into the login form.

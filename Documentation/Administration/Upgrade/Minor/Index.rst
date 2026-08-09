@@ -3,7 +3,7 @@
 .. _minor:
 
 ===================
-Patch/Bugfix update
+Patch/bugfix update
 ===================
 
 ..  figure:: /Images/ManualScreenshots/Backend/Typo3Version.png
@@ -33,7 +33,7 @@ The only tasks that need to be completed for a patch/bugfix update are :ref:`mak
 ..  _minor-check-updates-available:
 
 Check if updates are available
-===============================
+==============================
 
 There are two ways to check if a patch/bugfix update is available for an installation of TYPO3.
 

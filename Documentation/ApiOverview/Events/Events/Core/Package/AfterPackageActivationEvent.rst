@@ -2,9 +2,9 @@
 ..  index:: Events; AfterPackageActivationEvent
 ..  _AfterPackageActivationEvent:
 
-===========================
-AfterPackageActivationEvent
-===========================
+=============================
+`AfterPackageActivationEvent`
+=============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent`
 is triggered after a package has been activated.

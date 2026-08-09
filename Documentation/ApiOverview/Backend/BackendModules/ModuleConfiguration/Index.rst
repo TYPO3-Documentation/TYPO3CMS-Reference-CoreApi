@@ -5,7 +5,7 @@
 ..  _backend-modules-configuration:
 
 ==========================================
-Modules.php - Backend module configuration
+Modules.php - backend module configuration
 ==========================================
 
 The configuration of backend modules is placed in the
@@ -341,7 +341,7 @@ Extbase module configuration options
 ..  _backend-module-configuration-debug-module-configuration:
 
 Debug the module configuration
-===============================
+==============================
 
 All registered modules are stored as objects in a registry. They can be viewed
 in the backend in the :guilabel:`System > Configuration > Backend Modules`

@@ -16,8 +16,8 @@ This chapter lists the various tables related to the file abstraction layer
 ..  index:: Tables; sys_file
 ..  _fal-architecture-database-sys-file:
 
-:sql:`sys_file`
-===============
+`sys_file`
+==========
 
 This table is used to store basic information about each file.
 Some important fields:
@@ -63,8 +63,8 @@ Some important fields:
 ..  index:: Tables; sys_file_metadata
 ..  _fal-architecture-database-sys-file-metadata:
 
-:sql:`sys_file_metadata`
-========================
+`sys_file_metadata`
+===================
 
 This table is used to store metadata about each file. It has a one-to-one
 relationship with table :ref:`sys_file <fal-architecture-database-sys-file>`.
@@ -120,8 +120,8 @@ of that table:
 ..  index:: Tables; sys_file_reference
 ..  _fal-architecture-database-sys-file-reference:
 
-:sql:`sys_file_reference`
-=========================
+`sys_file_reference`
+====================
 
 This table is used to store all references between files and
 whatever other records they are used in, typically pages and
@@ -152,8 +152,8 @@ content elements. The most important fields are:
 ..  index:: Tables; sys_file_processedfile
 ..  _fal-architecture-database-sys-file-processedfile:
 
-:sql:`sys_file_processedfile`
-=============================
+`sys_file_processedfile`
+========================
 
 This table is similar to :ref:`sys_file <fal-architecture-database-sys-file>`,
 but for "temporary" files, like image previews. This table does not have a
@@ -164,8 +164,8 @@ direct SQL queries in the source code.
 ..  index:: Tables; sys_file_collection
 ..  _fal-architecture-database-sys-file-collection:
 
-:sql:`sys_file_collection`
-==========================
+`sys_file_collection`
+=====================
 
 FAL offers the possibility to create file collections,
 which can then be used for various purposes. By default,
@@ -194,8 +194,8 @@ The most important fields are:
 ..  index:: Tables; sys_file_storage
 ..  _fal-architecture-database-sys-file-storage:
 
-:sql:`sys_file_storage`
-=======================
+`sys_file_storage`
+==================
 
 This table is used to store the storages available in the installation.
 The most important fields are:
@@ -213,8 +213,8 @@ The most important fields are:
 ..  index:: Tables; sys_filemounts
 ..  _fal-architecture-database-sys-filemounts:
 
-:sql:`sys_filemounts`
-=====================
+`sys_filemounts`
+================
 
 File mounts are not specifically part of FAL (they existed long
 before), but their definition is based on

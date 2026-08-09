@@ -3,9 +3,9 @@
 ..  _BeforeStylesheetsRenderingEvent:
 
 
-===============================
-BeforeStylesheetsRenderingEvent
-===============================
+=================================
+`BeforeStylesheetsRenderingEvent`
+=================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Page\Event\BeforeStylesheetsRenderingEvent`

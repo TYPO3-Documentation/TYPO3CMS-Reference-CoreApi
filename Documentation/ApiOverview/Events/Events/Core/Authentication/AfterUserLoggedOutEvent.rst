@@ -2,9 +2,9 @@
 ..  index:: Events; AfterUserLoggedOutEvent
 ..  _AfterUserLoggedOutEvent:
 
-=======================
-AfterUserLoggedOutEvent
-=======================
+=========================
+`AfterUserLoggedOutEvent`
+=========================
 
 ..  versionadded::  12.3
     The event replaces the deprecated hook

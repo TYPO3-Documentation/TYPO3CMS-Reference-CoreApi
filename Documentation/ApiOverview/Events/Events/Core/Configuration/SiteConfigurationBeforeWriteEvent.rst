@@ -2,9 +2,9 @@
 ..  index:: Events; SiteConfigurationBeforeWriteEvent
 ..  _SiteConfigurationBeforeWriteEvent:
 
-=================================
-SiteConfigurationBeforeWriteEvent
-=================================
+===================================
+`SiteConfigurationBeforeWriteEvent`
+===================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\SiteConfigurationBeforeWriteEvent`

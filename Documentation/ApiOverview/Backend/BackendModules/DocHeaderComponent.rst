@@ -2,9 +2,9 @@
 ..  index:: Backend modules; DocHeaderComponent
 ..  _DocHeaderComponent:
 
-==================
-DocHeaderComponent
-==================
+====================
+`DocHeaderComponent`
+====================
 
 The :php:`\TYPO3\CMS\Backend\Template\Components\DocHeaderComponent` can be
 used to display a standardized header section in a backend module with buttons,
@@ -24,8 +24,8 @@ from your module template.
 
 ..  _DocHeaderComponent-api:
 
-DocHeaderComponent API
-======================
+`DocHeaderComponent` API
+========================
 
 It has the following methods:
 
@@ -33,8 +33,8 @@ It has the following methods:
 
 ..  _DocHeaderComponent-example:
 
-Example: Build a module header with buttons and a menu
-=======================================================
+Example: build a module header with buttons and a menu
+======================================================
 
 ..  include:: _AboutBlogExample.rst.txt
 

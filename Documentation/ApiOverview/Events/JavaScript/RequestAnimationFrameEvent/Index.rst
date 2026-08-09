@@ -2,9 +2,9 @@
 ..  index:: JavaScript; RequestAnimationFrame event
 ..  _Events_JavaScript_rAF:
 
-===========================
-RequestAnimationFrame event
-===========================
+=============================
+`RequestAnimationFrame` event
+=============================
 
 A "request animation frame event" is similar to using :js:`ThrottleEvent` with a limit of `16`, as this event type
 incorporates the browser's RequestAnimationFrame API (rAF) which aims to run at 60 fps (:math:`16 = \frac{1}{60}`) but

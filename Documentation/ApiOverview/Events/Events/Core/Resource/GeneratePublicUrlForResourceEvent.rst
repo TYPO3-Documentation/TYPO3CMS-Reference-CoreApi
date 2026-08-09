@@ -2,9 +2,9 @@
 ..  index:: Events; GeneratePublicUrlForResourceEvent
 ..  _GeneratePublicUrlForResourceEvent:
 
-=================================
-GeneratePublicUrlForResourceEvent
-=================================
+===================================
+`GeneratePublicUrlForResourceEvent`
+===================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\GeneratePublicUrlForResourceEvent`

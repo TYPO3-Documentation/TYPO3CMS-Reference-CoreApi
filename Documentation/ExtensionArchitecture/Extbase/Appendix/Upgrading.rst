@@ -76,7 +76,7 @@ TYPO3 v12. In TYPO3 v14 the annotation syntax was removed entirely.
 
 ..  _extbase-upgrading-attribute-namespace:
 
-Attribute namespace moved from Annotation to Attribute (TYPO3 v14)
+Attribute namespace moved from annotation to attribute (TYPO3 v14)
 ==================================================================
 
 ..  versionchanged:: 14.0
@@ -127,8 +127,8 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 ..  _extbase-upgrading-fileupload-named-arguments:
 ..  _extbase_fileupload_attribute-migration:
 
-:php:`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
-=========================================================================
+`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
+====================================================================
 
 ..  versionchanged:: 14.0
 
@@ -178,8 +178,8 @@ v14 the attribute requires named arguments instead:
 ..  _extbase-upgrading-ignorevalidation-parameter:
 ..  _extbase-validation-migration:
 
-:php:`#[Validate]` and :php:`#[IgnoreValidation]` moved to parameter level (TYPO3 v14, removed in v15)
-======================================================================================================
+`#[Validate]` and `#[IgnoreValidation]` moved to parameter level (TYPO3 v14, removed in v15)
+============================================================================================
 
 ..  versionchanged:: 14.0
 
@@ -212,8 +212,8 @@ meaning you can now position the attribute on the parameter itself:
 
 ..  _extbase-upgrading-magic-findby:
 
-Magic findBy*(), findOneBy*(), countBy*() methods removed (TYPO3 v14)
-=====================================================================
+Magic `findBy`*(), `findOneBy`*(), `countBy`*() methods removed (TYPO3 v14)
+===========================================================================
 
 ..  versionchanged:: 14.0
 
@@ -241,8 +241,8 @@ available.
 
 ..  _extbase-upgrading-standalone-view:
 
-StandaloneView removed (TYPO3 v14)
-==================================
+`StandaloneView` removed (TYPO3 v14)
+====================================
 
 ..  versionchanged:: 14.0
 
@@ -295,8 +295,8 @@ factory uses it for request-aware rendering (language, base URI, etc.).
 
 ..  _extbase-upgrading-plugin-list-type:
 
-list_type plugin removed; fifth parameter of configurePlugin() restricted (TYPO3 v14)
-=====================================================================================
+list_type plugin removed; fifth parameter of `configurePlugin()` restricted (TYPO3 v14)
+=======================================================================================
 
 ..  versionchanged:: 14.0
 

@@ -2,9 +2,9 @@
 ..  _extension-configuration-extbase-persistence:
 ..  index:: Path; EXT:{extkey}/Configuration/Extbase/Persistence
 
-===================
-:file:`Persistence`
-===================
+=============
+`Persistence`
+=============
 
 This folder contains the following file:
 

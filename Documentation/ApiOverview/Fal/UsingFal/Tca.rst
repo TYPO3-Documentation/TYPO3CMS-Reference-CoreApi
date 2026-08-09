@@ -31,8 +31,8 @@ the button :guilabel:`Create new relation`.
 
 ..  _fal-using-fal-tca-migration-extensionmanagementutility-getfilefieldtcaconfig:
 
-Migration from :php:`ExtensionManagementUtility::getFileFieldTCAConfig`
-=======================================================================
+Migration from `ExtensionManagementUtility::getFileFieldTCAConfig`
+==================================================================
 
 ..  code-block:: php
 

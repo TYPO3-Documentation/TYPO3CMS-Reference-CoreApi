@@ -2,9 +2,9 @@
 ..  index:: Events; AfterCacheableContentIsGeneratedEvent
 ..  _AfterCacheableContentIsGeneratedEvent:
 
-=====================================
-AfterCacheableContentIsGeneratedEvent
-=====================================
+=======================================
+`AfterCacheableContentIsGeneratedEvent`
+=======================================
 
 ..  important::
     ..  versionchanged:: 14.0

@@ -2,7 +2,7 @@
 ..  _fluid-versions:
 
 ==============
-Fluid Versions
+Fluid versions
 ==============
 
 Each major TYPO3 version uses a specific Fluid major version. Usually, your

@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFilemountsListIsAssembledEvent
 ..  _AfterFilemountsListIsAssembledEvent:
 
-===================================
-AfterFilemountsListIsAssembledEvent
-===================================
+=====================================
+`AfterFilemountsListIsAssembledEvent`
+=====================================
 
 ..  versionadded:: 14.0
 

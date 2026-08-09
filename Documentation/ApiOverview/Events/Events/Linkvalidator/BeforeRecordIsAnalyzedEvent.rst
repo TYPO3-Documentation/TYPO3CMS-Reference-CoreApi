@@ -3,9 +3,9 @@
 ..  _BeforeRecordIsAnalyzedEvent:
 
 
-===========================
-BeforeRecordIsAnalyzedEvent
-===========================
+=============================
+`BeforeRecordIsAnalyzedEvent`
+=============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent`

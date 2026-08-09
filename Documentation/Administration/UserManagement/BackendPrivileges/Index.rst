@@ -5,7 +5,7 @@
 .. _privileges:
 
 =========================================================
-Backend privileges: Administrators and System Maintainers
+Backend privileges: administrators and System Maintainers
 =========================================================
 
 The following chapters cover modules that will only be available for backend
@@ -41,7 +41,7 @@ Administrators
 .. _user-management-system-maintainers:
 .. _system-maintainer:
 
-System Maintainers
+System maintainers
 ==================
 
 The first backend admin created during installation will automatically be a system

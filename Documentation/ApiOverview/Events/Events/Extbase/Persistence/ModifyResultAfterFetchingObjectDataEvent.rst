@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyResultAfterFetchingObjectDataEvent
 ..  _ModifyResultAfterFetchingObjectDataEvent:
 
-========================================
-ModifyResultAfterFetchingObjectDataEvent
-========================================
+==========================================
+`ModifyResultAfterFetchingObjectDataEvent`
+==========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\ModifyResultAfterFetchingObjectDataEvent`

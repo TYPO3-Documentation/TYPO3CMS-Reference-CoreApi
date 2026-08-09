@@ -10,8 +10,8 @@ The class autoloader takes care of finding classes in TYPO3.
 
 ..  _autoload-makeinstance:
 
-About :php:`makeInstance()`
-===========================
+About `makeInstance()`
+======================
 
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is a generic way
 throughout Core and extensions to create objects. It takes care of singleton

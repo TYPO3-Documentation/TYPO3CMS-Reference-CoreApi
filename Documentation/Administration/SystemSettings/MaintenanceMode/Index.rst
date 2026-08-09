@@ -3,7 +3,7 @@
 ..  _maintenance-mode:
 
 =======================================================
-Maintenance mode: Prevent backend logins during upgrade
+Maintenance mode: prevent backend logins during upgrade
 =======================================================
 
 Set the backend into maintenance mode to prevent editors or even all

@@ -222,7 +222,7 @@ entirely during read and write operations.
 
 ..  _extbase-appendix-tasks-contentblock-settings:
 
-Let editors set plugin settings in a Content Block FlexForm
+Let editors set plugin settings in a content block FlexForm
 ===========================================================
 
 **Goal:** Expose a plugin setting (for example "items per page") as an editable

@@ -32,8 +32,8 @@ visibility — followed by paging, persisting and debugging.
 
 ..  _extbase-persistence-queries-build:
 
-Building a query with createQuery()
-===================================
+Building a query with `createQuery()`
+=====================================
 
 When :php:`findBy(['published' => true])` is not expressive enough — you need a
 range, a pattern, or a combination of conditions — write a method on the
@@ -204,8 +204,8 @@ constraints and returns an integer.
 
 ..  _extbase-persistence-queries-combine:
 
-Combining constraints with logicalAnd(), logicalOr() and logicalNot()
----------------------------------------------------------------------
+Combining constraints with `logicalAnd()`, `logicalOr()` and `logicalNot()`
+---------------------------------------------------------------------------
 
 :php:`matching()` takes exactly one constraint. To apply several conditions,
 combine them with :php:`logicalAnd()`, :php:`logicalOr()` and
@@ -267,8 +267,8 @@ report, an export, a quick lookup — and stay with the default
 
 ..  _extbase-persistence-queries-storagepid:
 
-The storagePid page restriction
-===============================
+The `storagePid` page restriction
+=================================
 
 Every query a repository builds is restricted to records on configured *storage
 pages* (the **storagePid**), in addition to the constraints you set with
@@ -401,8 +401,8 @@ This deferred flush is convenient, but has two consequences that are worth knowi
 
 ..  _extbase-persistence-queries-persistall:
 
-Forcing a write with persistAll()
----------------------------------
+Forcing a write with `persistAll()`
+-----------------------------------
 
 Two situations need the flush to happen earlier than the end of the request.
 Call :php:`$this->persistenceManager->persistAll()` in both:

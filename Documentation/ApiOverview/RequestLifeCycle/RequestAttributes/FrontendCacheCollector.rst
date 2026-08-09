@@ -29,7 +29,7 @@ years in the future.
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-add-single-cache-tag:
 
-Example: Add a single cache tag
+Example: add a single cache tag
 ===============================
 
 ..  code-block:: php
@@ -44,7 +44,7 @@ Example: Add a single cache tag
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-add-multiple-cache-tags:
 
-Example: Add multiple cache tags with different lifetimes
+Example: add multiple cache tags with different lifetimes
 =========================================================
 
 ..  code-block:: php
@@ -60,7 +60,7 @@ Example: Add multiple cache tags with different lifetimes
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-remove-single-cache-tag:
 
-Example: Remove a single cache tag
+Example: remove a single cache tag
 ==================================
 
 ..  code-block:: php
@@ -75,7 +75,7 @@ Example: Remove a single cache tag
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-remove-multiple-cache-tags:
 
-Example: Remove multiple cache tags
+Example: remove multiple cache tags
 ===================================
 
 ..  code-block:: php
@@ -91,7 +91,7 @@ Example: Remove multiple cache tags
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-get-minimum-lifetime:
 
-Example: Get minimum lifetime, calculated from all cache tags
+Example: get minimum lifetime, calculated from all cache tags
 =============================================================
 
 ..  code-block:: php
@@ -103,7 +103,7 @@ Example: Get minimum lifetime, calculated from all cache tags
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-get-all-cache-tags:
 
-Example: Get all cache tags
+Example: get all cache tags
 ===========================
 
 ..  code-block:: php

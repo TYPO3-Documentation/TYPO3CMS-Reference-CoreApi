@@ -3,9 +3,9 @@
     Events; RenderComponentEvent
 ..  _RenderComponentEvent:
 
-====================
-RenderComponentEvent
-====================
+======================
+`RenderComponentEvent`
+======================
 
 ..  versionadded:: 14.1
 

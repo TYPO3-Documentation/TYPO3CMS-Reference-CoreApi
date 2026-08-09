@@ -381,8 +381,8 @@ context and must not be used in those situations.
 ..  _extbase-view-jsonview:
 ..  _extbase-response-json:
 
-JsonView: rendering JSON responses from Extbase
-===============================================
+`JsonView`: rendering JSON responses from Extbase
+=================================================
 
 To return :abbr:`JSON (JavaScript Object Notation)` from an action, set
 :php:`$this->defaultViewObjectName` to

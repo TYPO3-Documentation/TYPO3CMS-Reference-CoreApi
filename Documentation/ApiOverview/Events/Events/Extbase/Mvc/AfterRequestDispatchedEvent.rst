@@ -3,9 +3,9 @@
 ..  _AfterRequestDispatchedEvent:
 
 
-===========================
-AfterRequestDispatchedEvent
-===========================
+=============================
+`AfterRequestDispatchedEvent`
+=============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Extbase\Event\Mvc\AfterRequestDispatchedEvent`
 is fired after the dispatcher has successfully dispatched a request to a

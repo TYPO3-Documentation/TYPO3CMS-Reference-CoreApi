@@ -3,9 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _t3ds-parsing:
 
-===========================
-Parsing T3DataStructure XML
-===========================
+=============================
+Parsing `T3DataStructure` XML
+=============================
 
 You can convert a Data Structure XML document into a PHP array by using the
 function :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()`.

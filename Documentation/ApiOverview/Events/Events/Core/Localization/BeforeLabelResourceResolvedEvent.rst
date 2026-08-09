@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeLabelResourceResolvedEvent
 ..  _BeforeLabelResourceResolvedEvent:
 
-================================
-BeforeLabelResourceResolvedEvent
-================================
+==================================
+`BeforeLabelResourceResolvedEvent`
+==================================
 
 ..  versionadded:: 14.0
 
@@ -37,7 +37,7 @@ The event provides access to the following public properties:
 
 ..  _BeforeLabelResourceResolvedEvent-example:
 
-Example: Map translation domain for my_extension.messages to a different file
+Example: map translation domain for my_extension.messages to a different file
 =============================================================================
 
 This example listener shortens generated domain names for a specific extension:
@@ -47,7 +47,7 @@ This example listener shortens generated domain names for a specific extension:
 
 ..  _BeforeLabelResourceResolvedEvent-api:
 
-API of the event BeforeLabelResourceResolvedEvent
-=================================================
+API of the event `BeforeLabelResourceResolvedEvent`
+===================================================
 
 ..  include:: /CodeSnippets/Events/Localization/BeforeLabelResourceResolvedEvent.rst.txt

@@ -41,7 +41,7 @@ care of the following parts:
 
 .. _distribution-kickstart:
 
-Kickstarting the Distribution
+Kickstarting the distribution
 =============================
 
 A distribution is a special kind of extension. The first step
@@ -56,7 +56,7 @@ except for the "category" property which must be set to
 
 .. _distribution-kickstart-image:
 
-Configuring the Distribution Display in the EM
+Configuring the distribution display in the EM
 ----------------------------------------------
 
 You should provide two preview images for your distribution. Provide
@@ -68,7 +68,7 @@ The welcome image is displayed in the distribution detail view inside the Extens
 
 .. _distribution-kickstart-fileadmin:
 
-Fileadmin Files
+Fileadmin files
 ---------------
 
 Create the following folder structure inside your extension:
@@ -122,7 +122,7 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 
 .. _distribution-kickstart-database:
 
-Database Data
+Database data
 -------------
 
 The database data is delivered as TYPO3 CMS export file under :file:`Initialisation/data.xml`.
@@ -230,7 +230,7 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
 
 .. _distribution-kickstart-configuration:
 
-Distribution Configuration
+Distribution configuration
 --------------------------
 
 A distribution is technically handled as an extension. Therefore you
@@ -242,7 +242,7 @@ scheme) on the fly.
 
 .. _distribution-testing:
 
-Test Your Distribution
+Test your distribution
 ======================
 
 To test your distribution, copy your extension to an empty

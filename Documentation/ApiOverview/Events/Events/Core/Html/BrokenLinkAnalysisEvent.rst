@@ -2,9 +2,9 @@
 ..  index:: Events; BrokenLinkAnalysisEvent
 ..  _BrokenLinkAnalysisEvent:
 
-=======================
-BrokenLinkAnalysisEvent
-=======================
+=========================
+`BrokenLinkAnalysisEvent`
+=========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Html\Event\BrokenLinkAnalysisEvent`
 can be used to get information about broken links set in the

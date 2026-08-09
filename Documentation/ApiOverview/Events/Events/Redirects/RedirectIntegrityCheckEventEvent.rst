@@ -2,9 +2,9 @@
 ..  index:: Events; RedirectIntegrityCheckEvent
 ..  _RedirectIntegrityCheckEvent:
 
-==============================================================
-RedirectIntegrityCheckEvent
-==============================================================
+=============================
+`RedirectIntegrityCheckEvent`
+=============================
 
 ..  versionadded:: 14.2
 

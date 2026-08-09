@@ -37,8 +37,8 @@ automatically instantiate the logger:
     Logging; logger->log
 .. _logging-logger-log:
 
-The log() method
-================
+The `log()` method
+==================
 
 The :php:`\TYPO3\CMS\Core\Log\Logger` class provides a central point for
 submitting log messages, the :php:`log()` method:

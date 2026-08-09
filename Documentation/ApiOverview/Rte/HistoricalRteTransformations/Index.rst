@@ -4,7 +4,7 @@
 .. _appendix-a:
 
 =============================================
-Historical Perspective on RTE Transformations
+Historical perspective on RTE transformations
 =============================================
 
 The next sections describe in more details the necessity of RTE

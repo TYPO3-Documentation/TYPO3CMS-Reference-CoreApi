@@ -2,9 +2,9 @@
 ..  index:: Events; AfterPageTreeItemsPreparedEvent
 ..  _AfterPageTreeItemsPreparedEvent:
 
-===============================
-AfterPageTreeItemsPreparedEvent
-===============================
+=================================
+`AfterPageTreeItemsPreparedEvent`
+=================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterPageTreeItemsPreparedEvent`

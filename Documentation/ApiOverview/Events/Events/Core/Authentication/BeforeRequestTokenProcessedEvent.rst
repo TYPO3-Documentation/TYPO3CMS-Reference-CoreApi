@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeRequestTokenProcessedEvent
 ..  _BeforeRequestTokenProcessedEvent:
 
-================================
-BeforeRequestTokenProcessedEvent
-================================
+==================================
+`BeforeRequestTokenProcessedEvent`
+==================================
 
 ..  versionadded::  12.1
 

@@ -70,7 +70,7 @@ These are the most important ones:
 
 .. _extension-scope:
 
-Scope of extensions: System, third-party or custom
+Scope of extensions: system, third-party or custom
 ==================================================
 
 Extension files are installed in the:file:`vendor/`

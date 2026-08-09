@@ -17,7 +17,7 @@ by Extbase.
 ..  _extbase_tutorial_tea_model_database:
 ..  _extbase_tutorial_tea_model_tca:
 
-TCA - Table Configuration Array
+TCA - table configuration array
 ===============================
 
 ..  versionchanged:: 13.0
@@ -50,8 +50,8 @@ keys on the first level:
 
 ..  _extbase_tutorial_tea_model_ctrl:
 
-TCA :php:`ctrl` - Settings for the complete table
--------------------------------------------------
+TCA `ctrl` - settings for the complete table
+--------------------------------------------
 
 .. literalinclude:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaCtrl.php
    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
@@ -59,8 +59,8 @@ TCA :php:`ctrl` - Settings for the complete table
 
 ..  _extbase_tutorial_tea_model_ctrl_title:
 
-:php:`title`
-~~~~~~~~~~~~
+`title`
+~~~~~~~
 
 Defines the title used when we are talking about the table in the backend.
 It will be displayed on top of the list view of records in the backend
@@ -86,8 +86,8 @@ will be output as they are. This title will always be output as "Tea" without lo
 
 ..  _extbase_tutorial_tea_model_ctrl_label:
 
-:php:`label`
-~~~~~~~~~~~~
+`label`
+~~~~~~~
 
 The :php:`label` is used as name for a specific tea record. The name is used
 in listings and in backend forms:
@@ -100,15 +100,15 @@ in listings and in backend forms:
 
 ..  _extbase_tutorial_tea_model_ctrl_others:
 
-:php:`tstamp`, :php:`deleted`, ...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`tstamp`, `deleted`, ...
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 These fields are used to keep timestamp and status information for each record. You can read more about them in the :ref:`TCA Reference, chapter Table properties (ctrl) <t3tca:ctrl>`.
 
 ..  _extbase_tutorial_tea_model_columns:
 
-TCA :php:`columns` - Defining the fields
-----------------------------------------
+TCA `columns` - defining the fields
+-----------------------------------
 
 All fields that can be changed in the TYPO3 backend or used in the Extbase
 model have to be listed here. Otherwise they will not be recognized by TYPO3.
@@ -142,8 +142,8 @@ See also :ref:`TCA type 'file', property 'allowed' <t3tca:confval-file-allowed>`
 
 ..  _extbase_tutorial_tea_model_types:
 
-TCA :php:`types` - Configure the input form
--------------------------------------------
+TCA `types` - configure the input form
+--------------------------------------
 
 .. literalinclude:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaTypes.php
    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
@@ -161,7 +161,7 @@ backend input form, in the order they should be displayed.
 ..  _extbase_tutorial_tea_model-tca-result:
 
 Result - the complete TCA
---------------------------
+-------------------------
 
 Have a look at the complete file
 `EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php <https://github.com/TYPO3BestPractices/tea/blob/main/Configuration/TCA/tx_tea_domain_model_tea.php>`_.

@@ -250,7 +250,7 @@ this way you define the `crowdin_branch_name` which can be set to
 ..  index:: Crowdin; Reconnect your project
 ..  _reconnect-your-project:
 
-My integration stopped working and I saved the setup again. Now, the language files are shown twice?
+My integration stopped working and I saved the setup again. now, the language files are shown twice?
 ----------------------------------------------------------------------------------------------------
 
 If there was an attempt to connect another repository to the project before, this
@@ -354,7 +354,7 @@ Questions about TYPO3 Core integration
 
 ..  _crowdin-faq-core-notavailable:
 
-The Core Team added a new system extension. Why are language packs not available even though it has already been translated into language XY?
+The Core team added a new system extension. why are language packs not available even though it has already been translated into language XY?
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 The new system extension needs to be added to the configuration of

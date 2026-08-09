@@ -3,9 +3,9 @@
 ..  _BeforeActionCallEvent:
 
 
-=====================
-BeforeActionCallEvent
-=====================
+=======================
+`BeforeActionCallEvent`
+=======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Extbase\Event\Mvc\BeforeActionCallEvent` is
 triggered before any Extbase action is called within the :php:`ActionController`

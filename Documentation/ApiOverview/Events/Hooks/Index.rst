@@ -140,7 +140,7 @@ naming scheme should be used:
     pair: Hooks; Extensions
 ..  _hooks-extensions:
 
-$GLOBALS['TYPO3\_CONF\_VARS']['EXTCONF']
+`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']`
 ----------------------------------------
 
 **Configuration space for third-party extensions.**
@@ -179,8 +179,8 @@ particular extension.
     pair: Hooks; Core
 ..  _hooks-core:
 
-$GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
-============================================
+`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']`
+===========================================
 
 **Configuration space for Core extensions.**
 

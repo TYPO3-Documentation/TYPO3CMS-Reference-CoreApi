@@ -26,7 +26,7 @@ The file must implement the :php:`\TYPO3\CMS\Core\Resource\Processing\ProcessorI
 .. _file_processing-register:
 
 Register the file processor
-============================
+===========================
 
 To register a new processor, add the following code to :file:`ext_localconf.php`
 

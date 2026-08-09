@@ -4,9 +4,9 @@
 ..  index:: pair: Extbase; Persistence
 ..  _extbase-concepts-persistence:
 
-=====================================
+===============================
 Persistence and the Extbase ORM
-=====================================
+===============================
 
 Extbase includes an :abbr:`ORM (Object-Relational Mapper)`. The ORM's job is to
 translate between the relational world of database tables and the
@@ -122,8 +122,8 @@ any additional code. Custom queries are added as methods on the repository.
 
 ..  _extbase-concepts-persistence-storagepid:
 
-The storagePid: where Extbase looks for records
-===============================================
+The `storagePid`: where Extbase looks for records
+=================================================
 
 This is the single most common source of confusion in Extbase: a repository
 returns no results even though the records exist in the database.

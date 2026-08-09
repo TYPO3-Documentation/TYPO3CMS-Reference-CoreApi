@@ -6,9 +6,9 @@
 .. index:: Extbase; Tutorials
 .. _extbase_tutorials:
 
-===================================
+==================================
 Extension development with Extbase
-===================================
+==================================
 
 Extension Development with Extbase @ TYPO3 Developer Days 2019
 

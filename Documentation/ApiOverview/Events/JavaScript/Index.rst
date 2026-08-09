@@ -3,7 +3,7 @@
 ..  _Events_JavaScript:
 
 ====================
-JavaScript Event API
+JavaScript event API
 ====================
 
 The Event API in TYPO3 incorporates different techniques to handle JavaScript events in an easy, convenient and

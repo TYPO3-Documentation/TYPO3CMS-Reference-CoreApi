@@ -15,7 +15,7 @@ multi-step wizard with the following features:
 
 ..  _modules-multistepwizard-addslide:
 
-Add Slide
+Add slide
 =========
 
 You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
@@ -94,7 +94,7 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
 
 ..  _modules-multistepwizard-show-hide-wizard:
 
-Show / Hide Wizard
+Show / hide wizard
 ==================
 
 After defining some slides you can show
@@ -103,7 +103,7 @@ After defining some slides you can show
 
 ..  _modules-multistepwizard-lock-unlock-wizard:
 
-Lock/Unlock steps
+Lock/unlock steps
 =================
 
 Switching to the next or previous slides is called a `step`. The buttons

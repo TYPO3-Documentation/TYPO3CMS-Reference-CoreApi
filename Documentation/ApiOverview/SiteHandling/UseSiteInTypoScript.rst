@@ -11,8 +11,8 @@ Using site configuration in TypoScript and Fluid templates
 
 ..  _sitehandling-in-typo-script-gettext:
 
-getText
-=======
+`getText`
+=========
 
 Site configuration can be accessed via the :ref:`site <t3tsref:data-type-site>` property in TypoScript.
 

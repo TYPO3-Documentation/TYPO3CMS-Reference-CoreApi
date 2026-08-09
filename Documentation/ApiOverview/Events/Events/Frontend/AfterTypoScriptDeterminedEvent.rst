@@ -2,9 +2,9 @@
 ..  index:: Events; AfterTypoScriptDeterminedEvent
 ..  _AfterTypoScriptDeterminedEvent:
 
-==============================
-AfterTypoScriptDeterminedEvent
-==============================
+================================
+`AfterTypoScriptDeterminedEvent`
+================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\AfterTypoScriptDeterminedEvent`
 is dispatched after the :php:`\TYPO3\CMS\Core\TypoScript\FrontendTypoScript`

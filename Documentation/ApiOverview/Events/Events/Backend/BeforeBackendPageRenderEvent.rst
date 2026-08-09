@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeBackendPageRenderEvent
 ..  _BeforeBackendPageRenderEvent:
 
-============================
-BeforeBackendPageRenderEvent
-============================
+==============================
+`BeforeBackendPageRenderEvent`
+==============================
 
 ..  versionadded:: 14.2
 

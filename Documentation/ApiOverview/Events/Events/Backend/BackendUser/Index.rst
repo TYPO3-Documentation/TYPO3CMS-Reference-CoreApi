@@ -3,7 +3,7 @@
 ..  _eventlist-backend-user:
 
 ============
-Backend User
+Backend user
 ============
 
 ..  versionadded:: 14.0

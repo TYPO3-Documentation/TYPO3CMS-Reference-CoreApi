@@ -3,9 +3,9 @@
 ..  _ModifyAllowedItemsEvent:
 
 
-=======================
-ModifyAllowedItemsEvent
-=======================
+=========================
+`ModifyAllowedItemsEvent`
+=========================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyAllowedItemsEvent`

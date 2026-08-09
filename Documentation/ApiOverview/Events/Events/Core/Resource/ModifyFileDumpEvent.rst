@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyFileDumpEvent
 ..  _ModifyFileDumpEvent:
 
-===================
-ModifyFileDumpEvent
-===================
+=====================
+`ModifyFileDumpEvent`
+=====================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\ModifyFileDumpEvent` is
 fired in the :php:`\TYPO3\CMS\Core\Controller\FileDumpController` and allows

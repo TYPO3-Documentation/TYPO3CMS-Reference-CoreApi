@@ -10,12 +10,12 @@ TYPO3
 
 .. _troubleshooting-typo3-password-reset:
 
-Resetting Passwords
+Resetting passwords
 ===================
 
 .. _troubleshooting-backend-admin-password:
 
-Backend Administrator Password
+Backend administrator password
 ------------------------------
 
 When the password for a backend user needs to be reset, log into the backend with an
@@ -67,7 +67,7 @@ including administrators.
 
 .. _troubleshooting-install-tool-password:
 
-Install Tool Password
+Install tool password
 ---------------------
 
 ..  versionadded:: 14.0
@@ -118,7 +118,7 @@ array entry with the new hashed password:
 
 .. _troubleshooting-debug-mode:
 
-Debug Settings
+Debug settings
 ==============
 
 During troubleshooting, in the :guilabel:`"Settings > Configuration Presets"`
@@ -162,7 +162,7 @@ Caching
 
 .. _troubleshooting-caching-typo3temp:
 
-Cached Files in typo3temp/
+Cached files in typo3temp/
 --------------------------
 
 TYPO3 generates temporary "cached" files and PHP scripts in :file:`<var-path>/cache/`
@@ -194,7 +194,7 @@ files and should improve performance.
 
 .. _troubleshooting-possible-problems-with-the-cached-files:
 
-Possible Problems With the Cached Files
+Possible problems with the cached files
 ---------------------------------------
 
 .. _troubleshooting-changing-the-absolute-path-to-typo3:
@@ -212,7 +212,7 @@ and use the "Clear all caches" function. Then hit the page again.
 
 .. _troubleshooting-changing-image-processing-settings:
 
-Changing Image Processing Settings
+Changing image processing settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When you change the settings for Image Processing (in normal mode),

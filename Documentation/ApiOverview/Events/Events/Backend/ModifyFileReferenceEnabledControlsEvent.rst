@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyFileReferenceEnabledControlsEvent
 ..  _ModifyFileReferenceEnabledControlsEvent:
 
-=======================================
-ModifyFileReferenceEnabledControlsEvent
-=======================================
+=========================================
+`ModifyFileReferenceEnabledControlsEvent`
+=========================================
 
 Listeners to the PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyFileReferenceEnabledControlsEvent`

@@ -2,9 +2,9 @@
 ..  index:: Events; AfterTemplatesHaveBeenDeterminedEvent
 ..  _AfterTemplatesHaveBeenDeterminedEvent:
 
-=====================================
-AfterTemplatesHaveBeenDeterminedEvent
-=====================================
+=======================================
+`AfterTemplatesHaveBeenDeterminedEvent`
+=======================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\AfterTemplatesHaveBeenDeterminedEvent`

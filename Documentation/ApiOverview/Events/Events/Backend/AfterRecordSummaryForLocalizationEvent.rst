@@ -2,9 +2,9 @@
 ..  index:: Events; AfterRecordSummaryForLocalizationEvent
 ..  _AfterRecordSummaryForLocalizationEvent:
 
-======================================
-AfterRecordSummaryForLocalizationEvent
-======================================
+========================================
+`AfterRecordSummaryForLocalizationEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent`

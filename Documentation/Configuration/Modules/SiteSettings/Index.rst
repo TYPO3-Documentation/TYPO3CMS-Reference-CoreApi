@@ -4,7 +4,7 @@
 ..  _config-overview-backend-site:
 
 =====================================================================
-Site settings: Site-wide settings for the site package and extensions
+Site settings: site-wide settings for the site package and extensions
 =====================================================================
 
 TYPO3 backend administrators can set site-wide configuration options in the

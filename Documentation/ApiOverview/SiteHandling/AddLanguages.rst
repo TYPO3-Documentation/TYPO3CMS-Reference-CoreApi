@@ -3,7 +3,7 @@
 ..  _sitehandling-addingLanguages:
 
 ================
-Adding Languages
+Adding languages
 ================
 
 The :guilabel:`Sites > Setup` module lets you specify which languages

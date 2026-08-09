@@ -86,8 +86,8 @@ sitemap types (`pages` and additional ones, for example, from the news extension
 
 ..  _xmlsitemap-xmlsitemapdataproviders:
 
-XmlSitemapDataProviders
-=======================
+`XmlSitemapDataProviders`
+=========================
 
 The rendering of sitemaps is based on `XmlSitemapDataProviders`. EXT:seo ships
 with two `XmlSitemapDataProviders`.
@@ -269,8 +269,8 @@ field:
 
 ..  _xmlsitemap-create-xmlsitemapdataprovider:
 
-Create your own XmlSitemapDataProvider
-======================================
+Create your own `XmlSitemapDataProvider`
+========================================
 
 If you need more logic in your sitemap, you can also write your own
 `XmlSitemapProvider`. You can do this by extending the

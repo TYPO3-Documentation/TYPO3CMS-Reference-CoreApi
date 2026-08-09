@@ -3,9 +3,9 @@
 ..  _BeforePagePreviewUriGeneratedEvent:
 
 
-==================================
-BeforePagePreviewUriGeneratedEvent
-==================================
+====================================
+`BeforePagePreviewUriGeneratedEvent`
+====================================
 
 The :php:`\TYPO3\CMS\Backend\Routing\Event\BeforePagePreviewUriGeneratedEvent`
 is executed in :php:`\TYPO3\CMS\Backend\Routing->buildUri()`, before the preview

@@ -2,9 +2,9 @@
 ..  index:: Events; EntityPersistedEvent
 ..  _EntityPersistedEvent:
 
-====================
-EntityPersistedEvent
-====================
+======================
+`EntityPersistedEvent`
+======================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityPersistedEvent`

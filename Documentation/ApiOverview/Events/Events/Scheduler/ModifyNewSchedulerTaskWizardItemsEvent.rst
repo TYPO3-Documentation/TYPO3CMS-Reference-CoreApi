@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyNewSchedulerTaskWizardItemsEvent
 ..  _ModifyNewSchedulerTaskWizardItemsEvent:
 
-======================================
-ModifyNewSchedulerTaskWizardItemsEvent
-======================================
+========================================
+`ModifyNewSchedulerTaskWizardItemsEvent`
+========================================
 
 ..  versionadded:: 14.0
 
@@ -14,8 +14,8 @@ backend module :guilabel:`Administration > Scheduler`.
 
 ..  _ModifyNewSchedulerTaskWizardItemsEvent-example:
 
-Example: Listening for a ModifyNewSchedulerTaskWizardItemsEvent
-===============================================================
+Example: listening for a `ModifyNewSchedulerTaskWizardItemsEvent`
+=================================================================
 
 The following example adds an additional item to the scheduler task wizard,
 removes an existing item and modifies one.
@@ -26,7 +26,7 @@ removes an existing item and modifies one.
 
 ..  _ModifyNewSchedulerTaskWizardItemsEvent-api:
 
-API of ModifyNewSchedulerTaskWizardItemsEvent
-=============================================
+API of `ModifyNewSchedulerTaskWizardItemsEvent`
+===============================================
 
 ..  include:: /CodeSnippets/Events/Scheduler/ModifyNewSchedulerTaskWizardItemsEvent.rst.txt

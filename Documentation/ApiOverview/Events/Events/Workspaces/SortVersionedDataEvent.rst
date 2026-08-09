@@ -3,9 +3,9 @@
 ..  _SortVersionedDataEvent:
 
 
-======================
-SortVersionedDataEvent
-======================
+========================
+`SortVersionedDataEvent`
+========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Workspaces\Event\SortVersionedDataEvent` is
 used in the :guilabel:`Content > Workspaces` module after sorting all data for

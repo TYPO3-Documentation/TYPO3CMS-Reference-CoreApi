@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFileCopiedEvent
 ..  _BeforeFileCopiedEvent:
 
-=====================
-BeforeFileCopiedEvent
-=====================
+=======================
+`BeforeFileCopiedEvent`
+=======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFileCopiedEvent`
 is fired before a file is about to be copied within a resource

@@ -201,8 +201,8 @@ string URL with the raw namespace parameters and a :yaml:`cHash`.
 
 ..  _extbase-routing-enhancer-chash:
 
-The cHash parameter
-===================
+The `cHash` parameter
+=====================
 
 When a URL contains dynamic parameters that are not fully constrained,
 TYPO3 appends a ``cHash`` signature. This prevents arbitrary URIs from being

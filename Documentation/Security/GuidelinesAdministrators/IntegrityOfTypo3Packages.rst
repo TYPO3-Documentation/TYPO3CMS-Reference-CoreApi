@@ -3,9 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _security-integrity-packages:
 
-===============================
+==============================
 Verify integrity of TYPO3 code
-===============================
+==============================
 
 Ensuring that the TYPO3 source code has not been tampered with is very important
 for security reasons. TYPO3 can either be installed via Composer or by downloading

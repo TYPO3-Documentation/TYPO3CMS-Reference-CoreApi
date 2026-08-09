@@ -2,9 +2,9 @@
 .. index:: JavaScript (Backend); SessionStorage wrapper
 .. _modules-sessionstorage:
 
-======================
-SessionStorage wrapper
-======================
+========================
+`SessionStorage` wrapper
+========================
 
 TYPO3 ships a module acting as a wrapper for :js:`sessionStorage`. It
 behaves similar to the :js:`localStorage`, except that the stored data is dropped

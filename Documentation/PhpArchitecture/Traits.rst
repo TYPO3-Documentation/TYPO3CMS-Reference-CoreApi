@@ -53,7 +53,7 @@ have relatively hard to deprecate and remove traits at this point.
 
 ..  _cgl-traits-good-examples:
 
-Good Examples
+Good examples
 =============
 
 * :php:`\Symfony\Component\DependencyInjection\ContainerAwareInterface` with
@@ -74,7 +74,7 @@ Good Examples
 
 ..  _cgl-traits-bad-examples:
 
-Bad Examples
+Bad examples
 ============
 
 * Old :php:`\TYPO3\CMS\FluidStyledContent\ViewHelpers\Menu\MenuViewHelperTrait` (available in previous TYPO3 versions)
@@ -94,7 +94,7 @@ For these reasons the trait has been dissolved into an `AbstractMenuViewHelper`.
 
 ..  _cgl-traits-further-reading:
 
-Further Reading
+Further reading
 ===============
 
 See https://www.rosstuck.com/how-i-use-traits.

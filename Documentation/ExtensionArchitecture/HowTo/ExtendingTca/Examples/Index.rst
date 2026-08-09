@@ -2,7 +2,7 @@
 .. _extending-examples:
 
 ======================
-Customization Examples
+Customization examples
 ======================
 
 There are many customization examples in the documentation, but this section
@@ -14,8 +14,8 @@ provides the most complete examples.
    File; EXT:{extkey}Configuration/TCA/Overrides/fe_users.php
 .. _extending-examples-feusers:
 
-Example 1: Extending the fe\_users table
-========================================
+Example 1: extending the `fe_users` table
+=========================================
 
 The "examples" extension adds two fields to the "fe\_users" table.
 Here is the complete code, taken from file
@@ -140,8 +140,8 @@ The next example shows how to position a field more precisely.
    File; EXT:{extkey}Configuration/TCA/Overrides/tt_content.php
 .. _extending-examples-ttcontent:
 
-Example 2: Extending the tt\_content Table
-==========================================
+Example 2: extending the `tt_content` table
+===========================================
 
 In this second example, we will add a "No print" field to all content
 element types. First of all, we add its SQL definition in

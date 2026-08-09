@@ -24,8 +24,8 @@ placeholder name they apply to.
 
 ..  _extbase-routing-aspects-persisted-alias:
 
-PersistedAliasMapper
-====================
+`PersistedAliasMapper`
+======================
 
 The most common aspect for Extbase plugins, implemented by
 :php:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper`. It looks up a
@@ -60,8 +60,8 @@ URL — no UID ever appears in the address bar.
 
 ..  _extbase-routing-aspects-persisted-pattern:
 
-PersistedPatternMapper
-======================
+`PersistedPatternMapper`
+========================
 
 Implemented by :php:`\TYPO3\CMS\Core\Routing\Aspect\PersistedPatternMapper`,
 this combines multiple database fields into one URL segment. Useful when no slug
@@ -100,8 +100,8 @@ from a realurl-era configuration that used title-plus-UID URLs.
 
 ..  _extbase-routing-aspects-static-value:
 
-StaticValueMapper
-=================
+`StaticValueMapper`
+===================
 
 Implemented by :php:`\TYPO3\CMS\Core\Routing\Aspect\StaticValueMapper`, this maps
 a fixed set of values between their internal representation and a human-readable
@@ -146,8 +146,8 @@ language without changing the internal values:
 
 ..  _extbase-routing-aspects-static-range:
 
-StaticRangeMapper
-=================
+`StaticRangeMapper`
+===================
 
 Implemented by :php:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper`, this
 declares that a placeholder accepts an integer within a fixed range. The

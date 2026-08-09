@@ -56,7 +56,7 @@ repositories. A paid plan may be required for production use.
 
 ..  _docker-image-distribution-ghcr:
 
-Option 2: GitHub Container Registry (GHCR)
+Option 2: GitHub container registry (GHCR)
 ------------------------------------------
 
 If your TYPO3 project's source code is stored in a GitHub repository,
@@ -90,7 +90,7 @@ Docker images.
 
 ..  _docker-image-distribution-gitlab:
 
-Option 3: GitLab Container Registry
+Option 3: GitLab container registry
 -----------------------------------
 
 If your TYPO3 project's source code is managed in GitLab, you can use the
@@ -118,7 +118,7 @@ as part of their development and deployment process.
 
 ..  _docker-image-distribution-self-hosted:
 
-Option 4: Self-hosted Docker registry
+Option 4: self-hosted Docker registry
 -------------------------------------
 
 Running your own Docker registry gives you full control over where and how
@@ -137,7 +137,7 @@ images are stored and accessed.
 
 ..  _docker-image-distribution-cloud:
 
-Option 5: Cloud provider registries
+Option 5: cloud provider registries
 -----------------------------------
 
 If you are deploying TYPO3 to a major cloud provider, consider using their
@@ -152,7 +152,7 @@ with their respective cloud services and IAM systems.
 
 ..  _docker-image-distribution-summary:
 
-Summary: Choosing the right distribution method
+Summary: choosing the right distribution method
 ===============================================
 
 TYPO3 Docker images must be securely transferred to the target environment

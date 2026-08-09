@@ -56,8 +56,8 @@ can jump from a file to the according test file by hitting `CTRL+Shift+T`.
 ..  index:: Unit tests; Extending UnitTestCase
 ..  _testing-writing-unit-extending:
 
-Extending UnitTestCase
-======================
+Extending `UnitTestCase`
+========================
 
 Extending a unit test from class :php:`TYPO3\TestingFramework\Core\Unit\UnitTestCase` of the
 `typo3/testing-framework` package instead of the native phpunit class :php:`PHPUnit\Framework\TestCase`

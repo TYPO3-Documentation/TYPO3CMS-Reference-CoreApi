@@ -13,7 +13,7 @@ The folder in which the extension is located is named by this string.
 
 ..  _extension-key-rules-extension-key:
 
-Rules for the Extension Key
+Rules for the extension key
 ===========================
 
 The extension key must comply with the following rules:

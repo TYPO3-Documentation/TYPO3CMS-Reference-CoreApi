@@ -3,9 +3,9 @@
     Events; ModifyImageManipulationPreviewUrlEvent
 ..  _ModifyImageManipulationPreviewUrlEvent:
 
-======================================
-ModifyImageManipulationPreviewUrlEvent
-======================================
+========================================
+`ModifyImageManipulationPreviewUrlEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyImageManipulationPreviewUrlEvent`

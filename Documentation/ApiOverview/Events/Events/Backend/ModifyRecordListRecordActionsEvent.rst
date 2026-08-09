@@ -3,9 +3,9 @@
 ..  _ModifyRecordListRecordActionsEvent:
 
 
-==================================
-ModifyRecordListRecordActionsEvent
-==================================
+====================================
+`ModifyRecordListRecordActionsEvent`
+====================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent`

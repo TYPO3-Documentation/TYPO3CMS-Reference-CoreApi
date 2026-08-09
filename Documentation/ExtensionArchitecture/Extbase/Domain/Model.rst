@@ -23,8 +23,8 @@ automatically.
 
 ..  _extbase-domain-model-abstract-entity:
 
-AbstractEntity — what you get for free
-======================================
+`AbstractEntity` — what you get for free
+========================================
 
 Every persisted domain object extends
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`:

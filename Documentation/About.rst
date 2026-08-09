@@ -3,7 +3,7 @@
 .. _about:
 
 =================
-About This Manual
+About this manual
 =================
 
 
@@ -24,7 +24,7 @@ of choice in your work with TYPO3.
 
 .. _audience:
 
-Intended Audience
+Intended audience
 =================
 
 This document is intended to be a reference for TYPO3 developers and partially
@@ -56,7 +56,7 @@ use them as a basis for your own extensions.
 .. _contribute:
 .. _feedback:
 
-Feedback and Contribute
+Feedback and contribute
 =======================
 
 If you find an error in this manual, please be so kind to hit

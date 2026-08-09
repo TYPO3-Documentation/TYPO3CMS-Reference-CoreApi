@@ -31,8 +31,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-default-upload-folder-resolver:
 
-:php:`\TYPO3\CMS\Core\Resource\DefaultUploadFolderResolver`
-===========================================================
+`\TYPO3\CMS\Core\Resource\DefaultUploadFolderResolver`
+======================================================
 
 :ref:`AfterDefaultUploadFolderWasResolvedEvent`
     Allows to modify the default upload folder after it has been resolved for
@@ -41,8 +41,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-preview-processing:
 
-:php:`\TYPO3\CMS\Core\Resource\OnlineMedia\Processing\PreviewProcessing`
-========================================================================
+`\TYPO3\CMS\Core\Resource\OnlineMedia\Processing\PreviewProcessing`
+===================================================================
 
 :ref:`AfterVideoPreviewFetchedEvent`
     Modifies the preview file of online media previews (like YouTube and Vimeo).
@@ -50,8 +50,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-resource-storage:
 
-:php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
-===============================================
+`\TYPO3\CMS\Core\Resource\ResourceStorage`
+==========================================
 
 :ref:`SanitizeFileNameEvent`
     The sanitize file name operation aims to remove characters from
@@ -178,8 +178,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-storage-repository:
 
-:php:`\TYPO3\CMS\Core\Resource\StorageRepository`
-=================================================
+`\TYPO3\CMS\Core\Resource\StorageRepository`
+============================================
 
 :ref:`BeforeResourceStorageInitializationEvent`
     This event is dispatched by the method
@@ -196,8 +196,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-file-index-repository:
 
-:php:`\TYPO3\CMS\Core\Resource\Index\FileIndexRepository`
-=========================================================
+`\TYPO3\CMS\Core\Resource\Index\FileIndexRepository`
+====================================================
 
 :ref:`AfterFileAddedToIndexEvent`
     Receives an array containing the information collected about the file
@@ -222,8 +222,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-metadata-repository:
 
-:php:`\TYPO3\CMS\Core\Resource\Index\MetaDataRepository`
-========================================================
+`\TYPO3\CMS\Core\Resource\Index\MetaDataRepository`
+===================================================
 
 :ref:`EnrichFileMetaDataEvent`
     This event is dispatched after metadata has been retrieved for a given
@@ -245,8 +245,8 @@ operation, the other one **after**.
 
 ..  _fal-architecture-events-file-processing-service:
 
-:php:`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`
-=============================================================
+`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`
+========================================================
 
 :ref:`BeforeFileProcessingEvent`
     This event is dispatched before a file is processed. The event receives
@@ -266,8 +266,8 @@ for more information about this class.
 
 ..  _fal-architecture-events-extended-file-utility:
 
-:php:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility`
-=======================================================
+`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility`
+==================================================
 
 :ref:`AfterFileCommandProcessedEvent`
     The event can be used to perform additional tasks for specific file

@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeRecordDownloadIsExecutedEvent
 ..  _BeforeRecordDownloadIsExecutedEvent:
 
-===================================
-BeforeRecordDownloadIsExecutedEvent
-===================================
+=====================================
+`BeforeRecordDownloadIsExecutedEvent`
+=====================================
 
 The event :php:`TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadIsExecutedEvent`
 can be used to modify the result of a download / export initiated via
@@ -18,7 +18,7 @@ create backups or web hooks, record who accesses the data, and more.
 
 ..  _BeforeRecordDownloadIsExecutedEvent-example:
 
-Example: Redact columns with private content in exports
+Example: redact columns with private content in exports
 =======================================================
 
 ..  literalinclude:: _BeforeRecordDownloadIsExecutedEvent/_DataListener.php
@@ -26,7 +26,7 @@ Example: Redact columns with private content in exports
 
 ..  _BeforeRecordDownloadIsExecutedEvent-api:
 
-API of BeforeRecordDownloadIsExecutedEvent
-==========================================
+API of `BeforeRecordDownloadIsExecutedEvent`
+============================================
 
 ..  include:: /CodeSnippets/Events/Backend/BeforeRecordDownloadIsExecutedEvent.rst.txt

@@ -16,8 +16,8 @@ to the use of services.
    ExtensionManagementUtility; findService
 .. _services-developer-service-related-api-extension-management-utility:
 
-\\TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility
-=======================================================
+`\\TYPO3\\CMS\\Core\\Utility\\ExtensionManagementUtility`
+=========================================================
 
 This extension management class contains three methods related to
 services:
@@ -49,8 +49,8 @@ deactivateService
    GeneralUtility; makeInstanceService
 .. _services-developer-service-related-api-general-utility:
 
-\\TYPO3\\CMS\\Core\\Utility\\GeneralUtility
-===========================================
+`\\TYPO3\\CMS\\Core\\Utility\\GeneralUtility`
+=============================================
 
 This class contains a single method related to services, but the most
 useful one, used to get an instance of a service.

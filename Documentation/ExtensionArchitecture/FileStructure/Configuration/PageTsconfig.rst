@@ -4,9 +4,9 @@
    Path; EXT:{extkey}/Configuration/page.tsconfig
 .. _extension-configuration-page_tsconfig:
 
-=====================
-:file:`page.tsconfig`
-=====================
+===============
+`page.tsconfig`
+===============
 
 ..  typo3:file:: page.tsconfig
     :scope: extension

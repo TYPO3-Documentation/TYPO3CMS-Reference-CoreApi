@@ -21,7 +21,7 @@ For the reasoning behind each step, follow the links into the relevant chapters.
 
 ..  _extbase-quickstart-scaffold:
 
-Step 1: Scaffold the extension
+Step 1: scaffold the extension
 ==============================
 
 Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/kickstarter>`_ to generate the extension skeleton:
@@ -45,7 +45,7 @@ your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>
 
 ..  _extbase-quickstart-model:
 
-Step 2: Create the domain model
+Step 2: create the domain model
 ===============================
 
 Add a class extending :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` to
@@ -73,7 +73,7 @@ Key points:
 
 ..  _extbase-quickstart-repository:
 
-Step 3: Create the repository
+Step 3: create the repository
 =============================
 
 For a basic repository, extending
@@ -96,7 +96,7 @@ box.
 
 ..  _extbase-quickstart-tca:
 
-Step 4: Define the database table (TCA)
+Step 4: define the database table (TCA)
 =======================================
 
 Create :file:`Configuration/TCA/tx_myextension_domain_model_conference.php` with the
@@ -126,7 +126,7 @@ The TCA column names must match the property names of your model
 
 ..  _extbase-quickstart-controller:
 
-Step 5: Create the controller
+Step 5: create the controller
 =============================
 
 Controllers live in :file:`Classes/Controller/` and extend
@@ -150,7 +150,7 @@ Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies v
 
 ..  _extbase-quickstart-templates:
 
-Step 6: Add Fluid templates
+Step 6: add Fluid templates
 ===========================
 
 Create the template files Extbase expects by convention:
@@ -198,7 +198,7 @@ directly in the template.
 
 ..  _extbase-quickstart-plugin:
 
-Step 7: Register the plugin
+Step 7: register the plugin
 ===========================
 
 Two calls are required — one in :file:`ext_localconf.php`, one in
@@ -225,7 +225,7 @@ content element in the backend:
 
 ..  _extbase-quickstart-routing:
 
-Step 8: Configure routing (optional but recommended)
+Step 8: configure routing (optional but recommended)
 ====================================================
 
 Without a route enhancer, URLs contain the raw plugin namespace parameters
@@ -244,7 +244,7 @@ clean URLs like :samp:`/conferences/my-conference`.
 
 ..  _extbase-quickstart-install:
 
-Step 9: Install and try it
+Step 9: install and try it
 ==========================
 
 Install your extension if it is not already active. In a Composer-based project,

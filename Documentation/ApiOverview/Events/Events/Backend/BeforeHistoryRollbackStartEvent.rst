@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeHistoryRollbackStartEvent
 ..  _BeforeHistoryRollbackStartEvent:
 
-===============================
-BeforeHistoryRollbackStartEvent
-===============================
+=================================
+`BeforeHistoryRollbackStartEvent`
+=================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\History\Event\BeforeHistoryRollbackStartEvent`

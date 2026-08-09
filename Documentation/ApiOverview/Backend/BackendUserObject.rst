@@ -214,7 +214,7 @@ the user. In this case the value for "options.clipboardNumberPads":
 .. index:: Backend user; User record
 .. _be-user-name:
 
-Getting the Username
+Getting the username
 ====================
 
 The full "be\_users" record of a authenticated user is available in
@@ -228,7 +228,7 @@ The full "be\_users" record of a authenticated user is available in
 
 .. _be-user-configuration:
 
-Get User Configuration Value
+Get user configuration value
 ============================
 
 The internal :php:`->uc` array contains options which are managed by the

@@ -7,7 +7,7 @@
 ..  _legacyinstallation:
 
 ======================================================
-Classic mode TYPO3 installation (No Composer required)
+Classic mode TYPO3 installation (no Composer required)
 ======================================================
 
 This installation method includes access to the `TYPO3 Extension Repository (TER)

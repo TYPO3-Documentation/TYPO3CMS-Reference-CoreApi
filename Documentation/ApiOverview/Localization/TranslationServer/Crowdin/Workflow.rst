@@ -7,7 +7,7 @@
 ..  _crowdin-workflow:
 
 =================================================================
-Workflow: From new Crowdin translations to the TYPO3 installation
+Workflow: from new Crowdin translations to the TYPO3 installation
 =================================================================
 
 The following workflow is used to bring a translation into a TYPO3 installation.

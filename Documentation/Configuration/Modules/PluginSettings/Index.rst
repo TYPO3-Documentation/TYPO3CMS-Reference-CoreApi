@@ -4,7 +4,7 @@
 ..  _plugin-settings:
 
 ========================================
-Plugin options: Settings at plugin level
+Plugin options: settings at plugin level
 ========================================
 
 The plugins of many extensions come with settings inside the content

@@ -3,7 +3,7 @@
 ..  _testing-unit-run:
 
 ==================
-Running Unit tests
+Running unit tests
 ==================
 
 ..  _testing-unit-run-install:
@@ -113,8 +113,8 @@ GitHub Actions or Gitlab CI.
 
 ..  _testing-unit-run-run-unit-tests-2:
 
-Run the unit tests with runTests.sh
-===================================
+Run the unit tests with `runTests.sh`
+=====================================
 
 If you are using a :file:`runTests.sh` like the one used by the
 :composer:`t3docs/blog-example` you can run the tests with:

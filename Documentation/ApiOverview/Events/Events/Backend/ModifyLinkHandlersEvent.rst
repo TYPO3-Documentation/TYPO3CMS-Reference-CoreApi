@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyLinkHandlersEvent
 ..  _ModifyLinkHandlersEvent:
 
-=======================
-ModifyLinkHandlersEvent
-=======================
+=========================
+`ModifyLinkHandlersEvent`
+=========================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyLinkHandlersEvent`

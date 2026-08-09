@@ -39,7 +39,7 @@ channel. You can also open an issue or start a discussion on the projects GitHub
 
 ..  _tools-ext-core-upgrader:
 
-EXT: Core Upgrader (v2)
+EXT: Core upgrader (v2)
 =======================
 
 The TYPO3 extension was initially developed as

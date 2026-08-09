@@ -31,7 +31,7 @@ PHP built-in attributes.
 ..  _extbase-annotation-orm:
 ..  _extbase-attribute-orm:
 
-ORM (Object Relational Mapping) attributes (persistence)
+ORM (object relational mapping) attributes (persistence)
 ========================================================
 
 **ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`_)

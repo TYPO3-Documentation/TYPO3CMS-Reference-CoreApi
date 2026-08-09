@@ -114,7 +114,7 @@ once.
 
 ..  _admin-tools-upgrade-documentation:
 
-View upgrade documentation (Changelogs)
+View upgrade documentation (changelogs)
 =======================================
 
 You can read all the changelog entries that affect the current Core version in the
@@ -135,7 +135,7 @@ which extensions are causing errors.
 
 ..  _admin-tools-upgrade-extension-scanner:
 
-Extension scanner: Scan extension files
+Extension scanner: scan extension files
 =======================================
 
 ..   figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png

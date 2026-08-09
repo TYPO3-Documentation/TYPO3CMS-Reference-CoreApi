@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileMovedEvent
 ..  _AfterFileMovedEvent:
 
-===================
-AfterFileMovedEvent
-===================
+=====================
+`AfterFileMovedEvent`
+=====================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileMovedEvent`

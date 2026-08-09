@@ -2,9 +2,9 @@
 ..  index:: Events; AfterGetDataResolvedEvent
 ..  _AfterGetDataResolvedEvent:
 
-=========================
-AfterGetDataResolvedEvent
-=========================
+===========================
+`AfterGetDataResolvedEvent`
+===========================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\AfterGetDataResolvedEvent`

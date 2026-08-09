@@ -32,7 +32,7 @@ To get more in depth information about the site handling please refer to the
 
 ..  _seo-configuration-site-entry-point:
 
-Entry Point
+Entry point
 -----------
 
 Please ensure, that you have configured your sites so that they all have an entry point. This is used for
@@ -64,7 +64,7 @@ See :ref:`t3coreapi:sitehandling-addingLanguages` for more details.
 
 ..  _seo-configuration-site-error-handling:
 
-Error Handling
+Error handling
 --------------
 
 Although TYPO3 will respond with a HTTP status code `404 (Not found)` when a page is not found, it is best practice to
@@ -98,7 +98,7 @@ option in the page properties or set the robot HTTP header `X-Robots-tag` manual
 
 ..  _seo-configuration-site-routes:
 
-Static Routes and redirects
+Static routes and redirects
 ---------------------------
 
 Having correct redirects and choosing the appropriate
@@ -134,7 +134,7 @@ More information how to work with EventListeners can be found in the documentati
 
 ..  _config-canonical-tag:
 
-Canonical Tag
+Canonical tag
 -------------
 
 Just like the `hreflang` link-tags, the :html:`<link rel="canonical" href="" />` link-tag is also generated automatically.
@@ -182,8 +182,8 @@ There are a couple of TypoScript settings that can influence the output regardin
 
 ..  _seo-configuration-typoscript-examples-og:
 
-Setting missing OpenGraph meta tags
------------------------------------
+Setting missing `OpenGraph` meta tags
+-------------------------------------
 
 Most of the OpenGraph meta tags are rendered automatically when `EXT:seo` is installed. If you
 want to add meta tags properties such as `og:title`, `og:description` and `og:image`, you can use

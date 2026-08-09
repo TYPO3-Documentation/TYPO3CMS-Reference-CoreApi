@@ -7,7 +7,7 @@
 .. _access-options:
 
 ======================
-Access Control Options
+Access control options
 ======================
 
 The permissions of fully initialized backend users are the result of the
@@ -37,7 +37,7 @@ User TSconfig
 
 .. _access-options-access-lists:
 
-Access Lists
+Access lists
 ============
 
 Access lists are defined at group-level. Usage of access lists for defining
@@ -220,7 +220,7 @@ to every part of the installation.
 
 .. _access-options-page-permissions:
 
-Page Permissions
+Page permissions
 ----------------
 
 Page permissions are designed to work like file permissions on UNIX

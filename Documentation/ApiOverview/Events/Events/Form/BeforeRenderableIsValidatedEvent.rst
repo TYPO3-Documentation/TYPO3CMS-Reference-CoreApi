@@ -4,7 +4,7 @@
 ..  _BeforeRenderableIsValidatedEvent:
 
 ==================================
-BeforeRenderableIsValidatedEvent
+`BeforeRenderableIsValidatedEvent`
 ==================================
 
 ..  versionadded:: 14.0

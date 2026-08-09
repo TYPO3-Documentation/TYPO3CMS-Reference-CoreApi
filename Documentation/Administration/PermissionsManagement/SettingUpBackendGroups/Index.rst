@@ -36,7 +36,7 @@ System groups are likely to be the ones you modify the least often.
 
 .. _acl-groups:
 
-Access Control List (ACL) groups
+Access control list (ACL) groups
 ================================
 
 Access Control List (ACL) groups are the largest set of groups, used to
@@ -64,7 +64,7 @@ access to a specific part of the system and can be integrated later with other u
 .. _role-groups:
 
 Role groups as an aggregation of specific role permissions
-=======================================================
+==========================================================
 
 Backend role groups in TYPO3 are designed to correspond to the specific roles
 users fulfill, such as editor, proofreader, etc. These groups accumulate
@@ -83,7 +83,7 @@ nothing more, nothing less.
 .. _naming-convention:
 
 Implementing naming conventions for easy group management
-================================================================
+=========================================================
 
 TYPO3 currently lacks the feature to categorize backend user groups by context
 or purpose, sorting them alphabetically instead. While helpful for quick searches,
@@ -103,7 +103,7 @@ Let’s explore how implementing prefixes in group names can help streamline the
 
 ..  _naming-convention-role-group:
 
-Role Group
+Role group
 ----------
 
 **ROLE_** or **R_**
@@ -115,7 +115,7 @@ Role Group
 
 .. _page-group:
 
-Page Group
+Page group
 ----------
 
 **PAGE_GROUP_** or **PG_**
@@ -129,7 +129,7 @@ Page Group
 
 .. _database-mount:
 
-Database Mount
+Database mount
 --------------
 
 **DATABASE_MOUNT_** or **DBM_**
@@ -143,7 +143,7 @@ Database Mount
 
 .. _file-mount:
 
-File Mount
+File mount
 ----------
 
 **FILE_MOUNT_** or **FM_**
@@ -153,7 +153,7 @@ File Mount
 
 .. _category-mount:
 
-Category Mount
+Category mount
 --------------
 
 **CATEGORY_MOUNT_** or **CM_**
@@ -163,7 +163,7 @@ Category Mount
 
 .. _access-control-lists:
 
-Access Control Lists
+Access control lists
 --------------------
 
 **ACCESS_CONTROL** or **ACL_**
@@ -174,7 +174,7 @@ Access Control Lists
 
 .. _file-operations:
 
-File Operations
+File operations
 ---------------
 
 **FILE_OPERATION_** or **FO_**
@@ -231,7 +231,7 @@ file and retrieve it from there for better flexibility and localization support.
 
 ..  _setting-up-backend-user-groups-notes-field-describe:
 
-Use the Notes field to describe the purpose of the group
+Use the notes field to describe the purpose of the group
 ========================================================
 
 Another good practice for managing backend groups is to clearly describe

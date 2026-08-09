@@ -2,9 +2,9 @@
 ..  index:: Events; CustomFileControlsEvent
 ..  _CustomFileControlsEvent:
 
-=======================
-CustomFileControlsEvent
-=======================
+=========================
+`CustomFileControlsEvent`
+=========================
 
 Listeners to the PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\CustomFileControlsEvent`

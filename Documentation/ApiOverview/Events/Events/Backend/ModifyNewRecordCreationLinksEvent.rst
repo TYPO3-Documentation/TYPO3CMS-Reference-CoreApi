@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyNewRecordCreationLinksEvent
 ..  _ModifyNewRecordCreationLinksEvent:
 
-=================================
-ModifyNewRecordCreationLinksEvent
-=================================
+===================================
+`ModifyNewRecordCreationLinksEvent`
+===================================
 
 ..  versionadded:: 14.0
     See `Feature: #99459 - Respect record type while creating new records <https://docs.typo3.org/permalink/changelog:feature-99459-1672857664>`_.
@@ -19,7 +19,7 @@ to be modified.
 
 ..  _ModifyNewRecordCreationLinksEvent-example:
 
-Example: Customizing the create new record wizard
+Example: customizing the create new record wizard
 =================================================
 
 ..  literalinclude:: _ModifyNewRecordCreationLinksEvent/_CustomizeNewRecordWizardEventListener.php
@@ -27,8 +27,8 @@ Example: Customizing the create new record wizard
 
 ..  _ModifyNewRecordCreationLinksEvent-api:
 
-API of ModifyNewRecordCreationLinksEvent
-========================================
+API of `ModifyNewRecordCreationLinksEvent`
+==========================================
 
 The event provides access to:
 
@@ -44,8 +44,8 @@ compatibility with existing customizations.
 
 ..  _ModifyNewRecordCreationLinksEvent-Datastructure:
 
-Datastructure used in the ModifyNewRecordCreationLinksEvent
------------------------------------------------------------
+Datastructure used in the `ModifyNewRecordCreationLinksEvent`
+-------------------------------------------------------------
 
 The event works with a nested array structure representing grouped creation links:
 

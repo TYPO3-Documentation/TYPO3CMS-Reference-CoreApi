@@ -20,7 +20,7 @@ but are not needed directly by the browser. This includes:
 
 .. _extension-resources-private-fluid:
 
-Fluid templates in the folder Resources/Private
+Fluid templates in the folder resources/private
 ===============================================
 
 Fluid templates are commonly stored in a folder called
@@ -124,7 +124,7 @@ TypoScript object to display the HTML page output. They have one folder, commonl
 
 .. _extension-resources-private-fluid-site-fsc:
 
-Common locations to override Fluid-Styled content elements
+Common locations to override Fluid-Styled Content elements
 ==========================================================
 
 Templates to override or extend Fluid-Styled Content based content objects are

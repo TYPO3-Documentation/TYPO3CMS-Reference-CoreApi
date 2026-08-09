@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFolderRenamedEvent
 ..  _AfterFolderRenamedEvent:
 
-=======================
-AfterFolderRenamedEvent
-=======================
+=========================
+`AfterFolderRenamedEvent`
+=========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\AfterFolderRenamedEvent`
 is fired after a folder was renamed.

@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFileAddedEvent
 ..  _BeforeFileAddedEvent:
 
-====================
-BeforeFileAddedEvent
-====================
+======================
+`BeforeFileAddedEvent`
+======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFileAddedEvent`
 is fired before a file is about to be added to the resource

@@ -4,9 +4,9 @@
     Events; LocalizationController
 ..  _AfterPageColumnsSelectedForLocalizationEvent:
 
-============================================
-AfterPageColumnsSelectedForLocalizationEvent
-============================================
+==============================================
+`AfterPageColumnsSelectedForLocalizationEvent`
+==============================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterPageColumnsSelectedForLocalizationEvent`

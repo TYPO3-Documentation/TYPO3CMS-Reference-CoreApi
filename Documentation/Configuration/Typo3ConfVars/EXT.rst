@@ -5,7 +5,7 @@
 ..  _typo3ConfVars_ext:
 
 =====================================
-EXT - Extension manager configuration
+EXT - extension manager configuration
 =====================================
 
 The following configuration variables can be used to configure settings for

@@ -25,7 +25,7 @@ Some of the tools available here include:
 ..  _admin-tools-maintenance-flush-cache:
 ..  _clear-caches:
 
-Flush TYPO3 and PHP Cache
+Flush TYPO3 and PHP cache
 =========================
 
 By clicking the button :guilabel:`Flush cache` you can flush all caches. This is
@@ -51,7 +51,7 @@ You can achieve the same effect by calling
 ..  _run-the-database-analyser:
 ..  _database-analyser:
 
-Analyze Database Structure
+Analyze database structure
 ==========================
 
 Before running a database compare, try `flushing the cache <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-flush-cache>`_.

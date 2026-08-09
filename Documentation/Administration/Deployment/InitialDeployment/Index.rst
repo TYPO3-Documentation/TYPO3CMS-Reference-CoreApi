@@ -68,7 +68,7 @@ You can speed up the transfer using archive tools like zip or tar, or use
 ..  _import_database:
 
 Import the database on the production server
-------------------------------------------
+--------------------------------------------
 
 For example using
 `mysql <https://dev.mysql.com/doc/refman/8.0/en/mysql.html>`_:

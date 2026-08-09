@@ -3,9 +3,9 @@
 ..  _crowdin-bestpractice:
 
 
-================================
-Crowdin Best Practice
-================================
+=====================
+Crowdin best practice
+=====================
 
 ..  contents::
     :local:
@@ -69,7 +69,7 @@ Best practice in short:
 
 ..  _crowdin-bestpractice-in-short-overview:
 
-EXT:Crowdin Overview
+EXT:Crowdin overview
 ~~~~~~~~~~~~~~~~~~~~
 
 - **Purpose**: Integrates Crowdin’s in-context editing into TYPO3 for easy translation of backend XLF files.
@@ -80,7 +80,7 @@ EXT:Crowdin Overview
 
 ..  _crowdin-bestpractice-in-short-setup:
 
-Crowdin Setup
+Crowdin setup
 ~~~~~~~~~~~~~
 
 - **Prerequisites**: Must be a translator or proofreader in Crowdin and logged in.
@@ -91,7 +91,7 @@ Crowdin Setup
 
 ..  _crowdin-bestpractice-in-short-editor-features:
 
-Editor Features
+Editor features
 ~~~~~~~~~~~~~~~
 
 - Shows source text, TM suggestions, comments, and string status.
@@ -109,7 +109,7 @@ Glossary
 
 ..  _crowdin-bestpractice-in-short-tm:
 
-Translation Memory (TM)
+Translation memory (TM)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 - Stores approved translations for reuse.
@@ -139,7 +139,7 @@ The daily work
 
 ..  _crowdin-bestpractice-in-short-final-tips:
 
-Final Tips
+Final tips
 ~~~~~~~~~~
 
 - Use shortcuts for speed.
@@ -241,7 +241,7 @@ You find the Crowdin Docs here: `Crowdin Docs`_
 
 ..  _crowdin-bestpractice-glossary:
 
-Working with Glossary
+Working with glossary
 ---------------------
 
 A Glossary is used to establish a terminology and frequently used terms within a
@@ -263,7 +263,7 @@ You can read more about creating and using Glossary on Crowdin Docs: `Glossary |
 
 .. _crowdin-bestpractice-tm:
 
-Translation Memory (TM)
+Translation memory (TM)
 -----------------------
 
 Translation Memory(TM) is a central part of a translation tool like Crowdin. TM

@@ -2,9 +2,9 @@
 ..  index:: Events; ShouldUseCachedPageDataIfAvailableEvent
 ..  _ShouldUseCachedPageDataIfAvailableEvent:
 
-=======================================
-ShouldUseCachedPageDataIfAvailableEvent
-=======================================
+=========================================
+`ShouldUseCachedPageDataIfAvailableEvent`
+=========================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent`
 allows TYPO3 extensions to register event listeners to modify if a

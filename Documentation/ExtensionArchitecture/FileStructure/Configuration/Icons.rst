@@ -4,9 +4,9 @@
     Path; EXT:{extkey}/Configuration/Icons.php
 ..  _extension-configuration-Icons-php:
 
-=================
-:file:`Icons.php`
-=================
+===========
+`Icons.php`
+===========
 
 ..  typo3:file:: Icons.php
     :scope: extension

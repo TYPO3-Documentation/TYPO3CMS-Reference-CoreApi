@@ -276,8 +276,8 @@ finally retrieve the files:
 
 ..  _fal-using-fal-examples-file-folder-eid:
 
-Dumping a file via eID script
-=============================
+Dumping a file via `eID` script
+===============================
 
 TYPO3 registers an `eID` script that allows dumping / downloading / referencing
 files via their FAL IDs. Non-public storages use this script to make their files

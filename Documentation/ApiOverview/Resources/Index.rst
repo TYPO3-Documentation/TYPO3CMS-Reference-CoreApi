@@ -20,7 +20,7 @@ configuration files and localization files.
 ..  _resources-composer:
 
 Location for resources in Composer-mode installations
-======================================================
+=====================================================
 
 By default, public resources must be put into the folder
 :folder:`Resources/Public` of an extension or somewhere within the web root

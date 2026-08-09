@@ -87,7 +87,7 @@ is chosen automatically for you.
 .. _services-introduction-good-reasons-implementation:
 .. _services-introduction-good-reasons-extensibility:
 
-Reasons for using the Services API
+Reasons for using the services API
 ==================================
 
 The :php:`AbstractService` has been removed and it is planned to also

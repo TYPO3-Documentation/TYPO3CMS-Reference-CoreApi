@@ -4,9 +4,9 @@
    ClassLoader
 .. _composer-class-loader:
 
-===================
-ComposerClassLoader
-===================
+=====================
+`ComposerClassLoader`
+=====================
 
 ..  _composer-class-loader-integrating-composer-class:
 
@@ -111,7 +111,7 @@ install` or `composer install --no-dev`.
 
 ..  _composer-class-loader-integration-approach:
 
-Integration Approach
+Integration approach
 ====================
 
 The Composer class loader is injected inside the Bootstrap process of

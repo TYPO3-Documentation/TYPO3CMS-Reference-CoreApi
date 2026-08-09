@@ -19,7 +19,7 @@ into account.
 
 .. _record_objects_typoscript:
 
-Provide Records in TypoScript
+Provide records in TypoScript
 =============================
 
 In TypoScript you can use the

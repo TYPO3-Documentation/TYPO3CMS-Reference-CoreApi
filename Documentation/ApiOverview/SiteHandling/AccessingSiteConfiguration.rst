@@ -67,8 +67,8 @@ retrieve all needed attributes from the request object.
 ..  index:: pair: Site handling; SiteFinder
 ..  _sitehandling-sitefinder-object:
 
-Finding a site object with the :php:`SiteFinder` class
-======================================================
+Finding a site object with the `SiteFinder` class
+=================================================
 
 When you need to access the site configuration for a specific page ID or by a
 site identifier, you can use the class :php:`\TYPO3\CMS\Core\Site\SiteFinder`.
@@ -87,8 +87,8 @@ API
 .. index:: pair: Site handling; Site object
 ..  _sitehandling-site-object:
 
-The :php:`Site` object
-======================
+The `Site` object
+=================
 
 A :php:`\TYPO3\CMS\Core\Site\Entity\Site` object gives access to the site
 configuration options.
@@ -104,8 +104,8 @@ API
 .. index:: pair: Site handling; SiteLanguage object
 ..  _sitehandling-sitelanguage-object:
 
-The :php:`SiteLanguage` object
-==============================
+The `SiteLanguage` object
+=========================
 
 The :php:`SiteLanguage` object is basically a simple model that represents the
 configuration options of the site regarding language as an object and provides
@@ -120,8 +120,8 @@ API
 
 ..  _sitehandling-sitesetting-object:
 
-The :php:`SiteSettings` object
-==============================
+The `SiteSettings` object
+=========================
 
 The :ref:`site settings <sitehandling-settings>` can be retrieved using the
 :php:`getSettings()` method of the :ref:`Site <sitehandling-site-object>`

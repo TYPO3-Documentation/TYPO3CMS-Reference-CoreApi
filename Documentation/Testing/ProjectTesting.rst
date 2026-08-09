@@ -130,7 +130,7 @@ as the php-cs-fixer.
 
 .. _testing-projects-configuration-phpstan:
 
-PHPstan - Static PHP analysis
+PHPStan - static PHP analysis
 -----------------------------
 
 When configuring PHPstan the various places in which PHP files can be found
@@ -144,7 +144,7 @@ It also makes sense to exclude any :path:`node_modules` directory.
 
 ..  _testing-projects-configuration-phpunit:
 
-Unit and Functional test configuration
+Unit and functional test configuration
 --------------------------------------
 
 See the chapters :ref:`Unit testing <testing-writing-unit>` and
@@ -171,7 +171,7 @@ file:
 
 .. _testing-projects-execution-phpstan:
 
-Run PHPstan
+Run PHPStan
 -----------
 
 ..  code-block:: bash
@@ -188,7 +188,7 @@ Regenerate the baseline:
 
 ..  _testing-projects-execution-phpunit:
 
-Run Unit tests
+Run unit tests
 --------------
 
 As Unit tests need no database or other dependencies you can run them directly
@@ -201,7 +201,7 @@ on your host system or DDEV:
 
 ..  _testing-projects-execution-functional-sqlite:
 
-Run Functional tests using sqlite and DDEV
+Run functional tests using sqlite and DDEV
 ------------------------------------------
 
 ..  code-block:: bash
@@ -212,7 +212,7 @@ Run Functional tests using sqlite and DDEV
 
 .. _testing-projects-execution-functional-mysqli:
 
-Run Functional tests using mysqli and DDEV
+Run functional tests using mysqli and DDEV
 ------------------------------------------
 ..  code-block:: bash
 
