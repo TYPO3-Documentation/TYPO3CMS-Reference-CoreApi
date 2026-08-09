@@ -185,7 +185,7 @@ php.ini
 
 In `php.ini` there is the option of always loading a specific file first for
 each request. The property is
-`auto_prepend_file <https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file>`.
+`auto_prepend_file <https://www.php.net/manual/en/ini.core.php#ini.auto-prepend-file>`_.
 Enter the absolute path to a php file with the following content in your
 hosting package.
 

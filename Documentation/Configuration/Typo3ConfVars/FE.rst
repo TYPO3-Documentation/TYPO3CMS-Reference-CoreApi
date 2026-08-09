@@ -297,7 +297,7 @@ the TYPO3 frontend:
     :type: text
     :Default: ''
 
-    Same as `$TYPO3_CONF_VARS[SYS][cookieDomain]<_typo3ConfVars_sys_cookieDomain>`
+    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain] <typo3ConfVars_sys_cookieDomain>`
     but only for FE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
@@ -405,7 +405,7 @@ the TYPO3 frontend:
     only with plugins that dont use this parameter. However, using
     "&amp;no_cache=1" should be avoided anyway because there are better ways to
     disable caching for a certain part of the website
-    (see `COA_INT/USER_INT<t3tsref:cobj-coa-int>`).
+    (see `COA_INT/USER_INT <https://docs.typo3.org/permalink/t3tsref:cobj-coa-int>`_).
 
 ..  _typo3ConfVars_fe_additionalCanonicalizedUrlParameters:
 
