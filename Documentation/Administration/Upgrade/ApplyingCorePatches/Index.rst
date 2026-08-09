@@ -260,7 +260,7 @@ First, install the package:
 
    composer req gilbertsoft/typo3-core-patches
 
-Then look up the change ID on `review.typo3.org <https://review.typo3.org/>`.
+Then look up the change ID on `review.typo3.org <https://review.typo3.org/>`_.
 You can find it in the URL or left of the title of the change. In the example
 it's `75368`.
 

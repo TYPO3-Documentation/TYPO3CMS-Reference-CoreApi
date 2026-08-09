@@ -107,7 +107,7 @@ test class) you can use the filter option:
     php vendor/bin/phpunit -c Build/phpunit/UnitTests.xml --filter "MyTest"
 
 You can of course define a
-`Composer script <https://getcomposer.org/doc/articles/scripts.md>` as well, so that
+`Composer script <https://getcomposer.org/doc/articles/scripts.md>`_ as well, so that
 this command can be executed easily on the host, within a DDEV container and also in
 GitHub Actions or Gitlab CI.
 

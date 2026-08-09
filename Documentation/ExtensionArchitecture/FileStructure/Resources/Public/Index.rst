@@ -35,7 +35,7 @@ This can be achieved by applying proper access restrictions on the web server.
 See: :ref:`security-restrict-access-server-level`.
 
 By using the Composer package
-`helhum/typo3-secure-web <https://github.com/helhum/typo3-secure-web>` all
+:composer:`helhum/typo3-secure-web` all
 files except those that should be publicly available can be stored outside
 the servers web root.
 
