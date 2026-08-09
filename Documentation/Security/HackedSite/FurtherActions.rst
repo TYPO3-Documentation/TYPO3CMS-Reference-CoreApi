@@ -1,15 +1,16 @@
-.. include:: /Includes.rst.txt
-.. index:: Hacked site; What to do
-.. _security-further-actions:
+:navigation-title: Further actions
 
-===============
-Further actions
-===============
+..  include:: /Includes.rst.txt
+..  index:: Hacked site; What to do
+..  _security-further-actions:
 
-Given the fact that the TYPO3 site is now working again, is clean and
-that the security hole has been identified and fixed, you can switch
-the website back online. However, there are some further things to do
-or to consider:
+============================================
+Further actions after recovering from a hack
+============================================
+
+Once the TYPO3 site is working again and clean, and the security hole
+has been identified and fixed, you can switch the website back online.
+However, there are some further things to do or to consider:
 
 * change (all) passwords and other access details
 

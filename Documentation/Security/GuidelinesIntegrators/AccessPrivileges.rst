@@ -1,18 +1,18 @@
-.. include:: /Includes.rst.txt
-.. index:: Security guidelines; Users and access
-.. _security-access-privileges:
+..  include:: /Includes.rst.txt
+..  index:: Security guidelines; Users and access
+..  _security-access-privileges:
 
 ===========================
 Users and access privileges
 ===========================
 
 
-.. index:: pair: Security guidelines; Backend user
+..  index:: pair: Security guidelines; Backend user
 
 ..  _security-access-privileges-backend:
 
-Backend
-=======
+Backend user access privileges
+==============================
 
 TYPO3 offers a very sophisticated and complex access concept: you can
 define permissions on a user-level, on a group-level, on pages, on
@@ -58,12 +58,12 @@ users that are allowed to continue using the system.
 
     Screenshot showing the screen to set an expiry date for a backend user
 
-.. index:: pair: Security guidelines; Frontend users
+..  index:: pair: Security guidelines; Frontend users
 
 ..  _security-access-privileges-frontend:
 
-Frontend
-========
+Frontend user access privileges
+===============================
 
 Access to pages and content in the TYPO3 frontend can be configured with
 frontend user groups. Similar suggestions like for backend users also apply here.
