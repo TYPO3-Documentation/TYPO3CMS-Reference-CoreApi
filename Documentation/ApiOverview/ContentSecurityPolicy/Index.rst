@@ -350,15 +350,18 @@ and one ore more actual values ("sources", type
 :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue` or
 :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceKeyword`).
 
-Additionally, a :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope`
-instance object is included, which can either be
-:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope::backend()` or
-:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope::frontend()`.
+Each entry in the returned map is keyed by a
+:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope` instance —
+either :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope::backend()`
+or :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope::frontend()`.
+The scope is required, not optional: there is no way to apply a single set
+of mutations to both frontend and backend at once. To apply the same
+mutations to both, add two separate entries, one per scope.
 
 A good PHP IDE will allow for good autocompletion and hinting, and using
 a boilerplate configuration like the example above helps you to get started.
 
-..  todo: Better explain "Scope", "MutationCollection", "Mutation", "MutationMode"
+..  todo: Better explain "MutationCollection", "Mutation", "MutationMode"
 
 .. _content-security-policy-backend-specification:
 
