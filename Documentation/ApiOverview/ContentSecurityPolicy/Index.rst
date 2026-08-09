@@ -338,22 +338,27 @@ example:
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
 The API here is much like the YAML syntax. The PHP code needs to return
-a mapped array of an :php:`MutationCollection` instance with all rules
-put into a sub-array, containing instances of a single :php:`Mutation`.
+a mapped array of an :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection`
+instance with all rules put into a sub-array, containing instances of a
+single :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Mutation`.
 
-Each :php:`Mutation` instance is like a Data Object (DO) where its constructor
-allows you to specifiy a `mode` (type :php:`MutationMode`), a `directive`
-(type :php:`Directive`) and one ore more actual values ("sources", type :php:`UriValue`
-or `SourceKeyword`).
+Each :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Mutation`
+instance is like a Data Object (DO) where its constructor allows you to
+specifiy a `mode` (type :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationMode`),
+a `directive` (type :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive`)
+and one ore more actual values ("sources", type
+:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue` or
+:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceKeyword`).
 
-Additionally, a :php:`Scope` instance object is included, which can either
-be :php:`Scope::backend()` or :php:`Scope::frontend()`.
+Additionally, a :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope`
+instance object is included, which can either be
+:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope::backend()` or
+:php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope::frontend()`.
 
 A good PHP IDE will allow for good autocompletion and hinting, and using
 a boilerplate configuration like the example above helps you to get started.
 
 ..  todo: Better explain "Scope", "MutationCollection", "Mutation", "MutationMode"
-..  todo: Link to API docs / FQDNs?
 
 .. _content-security-policy-backend-specification:
 
