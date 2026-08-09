@@ -216,7 +216,7 @@ which allows four options:
     Require multi-factor authentication only for admin users
 
 To set this requirement only for a specific user or user group, a user TSconfig
-option `auth.mfa.required <t3tsref:user-auth-mfa-required>` is available.
+option `auth.mfa.required <https://docs.typo3.org/permalink/t3tsref:user-auth-mfa-required>`_ is available.
 The user TSconfig option overrules the global configuration.
 
 ..  code-block:: typoscript
