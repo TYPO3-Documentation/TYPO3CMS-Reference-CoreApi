@@ -687,6 +687,15 @@ as listed below, or use TypoScript only for passing DOM attributes
 and using external scripts to actually evaluate these attributes to control
 functionality.
 
+..  note::
+    Using a nonce in your HTML is not enough on its own — the relevant
+    policy directive (for example `script-src` or `style-src`) must also
+    allow the source keyword `nonce-proxy`, otherwise the nonce is never
+    added to the compiled `Content-Security-Policy` header and the browser
+    still blocks the content. See the `nonce-proxy` source in the
+    :ref:`extension-specific <content-security-policy-extension>` and
+    :ref:`site-specific <content-security-policy-site>` examples above.
+
 TYPO3 provides APIs to get the nonce for the current request:
 
 ..  _content-security-policy-nonce-retrieve-php:
