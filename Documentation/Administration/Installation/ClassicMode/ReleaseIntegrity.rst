@@ -237,10 +237,10 @@ Public keys for release integrity checks
 
 ..  note::
     Starting in June 2017, TYPO3 releases have been cryptographically signed by the
-    `TYPO3 Release Team <typo3cms@typo3.org>` with a dedicated public key.
+    `TYPO3 Release Team <mailto:typo3cms@typo3.org>`_ with a dedicated public key.
     Since July 2017 releases are signed by individual members of the TYPO3
-    Release Team directly, namely `Benni Mack <benni@typo3.org>` and
-    `Oliver Hader <oliver@typo3.org>`.
+    Release Team directly, namely `Benni Mack <mailto:benni@typo3.org>`_ and
+    `Oliver Hader <mailto:oliver@typo3.org>`_.
 
 You can download the used public keys from `get.typo3.org.keys`_
 

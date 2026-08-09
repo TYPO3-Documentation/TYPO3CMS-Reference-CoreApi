@@ -16,7 +16,7 @@ module is based on a regular TYPO3 installation. Extbase is not used.
 
 In this video dependency injection is achieved via `Constructor Promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__.
 
-Additionally `Named arguments <https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments>`
+Additionally `Named arguments <https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments>`_
 are used in the example.
 
 These features are available starting with PHP 8.0. With TYPO3 v11.5 it

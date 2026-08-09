@@ -108,7 +108,7 @@ server about the changed web root folder if necessary. You do that by changing a
 `DocumentRoot` (Apache) or `root` (Nginx) configuration option. Most hosting
 providers offer a user interface to change the base directory of your project.
 
-For local development with `DDEV <https://ddev.com>`__ or `Docker <https://docker.com>`
+For local development with `DDEV <https://ddev.com>`__ or `Docker <https://docker.com>`_
 you will also need to adjust the corresponding configuration files.
 
 ..  _migratetocomposer-requirements-git-version-control:
