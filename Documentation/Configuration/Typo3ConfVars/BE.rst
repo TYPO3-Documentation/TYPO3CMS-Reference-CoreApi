@@ -444,7 +444,7 @@ The following configuration variables can be used to configure the TYPO3 backend
     :Default: false
 
     Don't use exec() function (except for ImageMagick which is disabled by
-    `[GFX][im]<typo3ConfVars_gfx_im>` =0). If set, all file operations are done
+    :ref:`[GFX][processor_enabled] <typo3ConfVars_gfx_processor_enabled>` = false). If set, all file operations are done
     by the default PHP functions. This is necessary under Windows! On Unix
     system commands using exec() can be used, unless this is disabled.
 

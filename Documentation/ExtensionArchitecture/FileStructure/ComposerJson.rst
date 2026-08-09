@@ -210,7 +210,7 @@ autoload
 (*required*)
 
 The autoload section defines the namespace/path mapping for
-`PSR-4 autoloading <https://www.php-fig.org/psr/psr-4/>`. In TYPO3 we follow
+`PSR-4 autoloading <https://www.php-fig.org/psr/psr-4/>`_. In TYPO3 we follow
 the convention that all classes (except test classes) are in the directory
 :file:`Classes/`.
 
