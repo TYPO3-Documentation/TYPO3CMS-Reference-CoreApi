@@ -31,10 +31,10 @@ permission strategy.
 
 ..  contents:: Table of contents
 
-.. _file-permissions-composer:
+..  _file-permissions-composer:
 
-Composer-based installations
-============================
+Composer-based installations: file permissions
+==============================================
 
 In Composer-based TYPO3 installations, the document root is typically a
 :file:`public/` directory. Core files, extensions, and the :file:`vendor/` directory
@@ -65,10 +65,10 @@ reside outside the web root, improving security by design.
     read-only for the web server.
 
 
-.. _file-permissions-classic:
+..  _file-permissions-classic:
 
-Classic-mode installations
-==========================
+Classic-mode installations: file permissions
+============================================
 
 In classic TYPO3 installations, all TYPO3 files (Core, extensions, uploads) are located
 inside the web server's document root. This increases the risk of file exposure or
@@ -84,7 +84,7 @@ accidental manipulation, making secure filesystem permissions essential.
     -   :file:`fileadmin/`
     -   :file:`typo3temp/`
 
-    - Only grant write access to subdirectories within :file:`typo3conf/` as needed:
+    -   Only grant write access to subdirectories within :file:`typo3conf/` as needed:
 
     -   :file:`typo3conf/ext/`, :file:`typo3conf/autoload/`, :file:`typo3conf/PackageStates.php`:
         Required if you want to install or update extensions using the Extension Manager.

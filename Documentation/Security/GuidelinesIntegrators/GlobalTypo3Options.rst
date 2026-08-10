@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Security guidelines; Global TYPO3 configuration
-   pair: Security guidelines; Debugging
-.. _security-global-typo3-options:
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Security guidelines; Global TYPO3 configuration
+    pair: Security guidelines; Debugging
+..  _security-global-typo3-options:
 
 ==================================
 Global TYPO3 configuration options
@@ -18,37 +18,37 @@ usage depends on your specific site and requirements).
     :local:
 
 
-.. _security-global-typo3-options-displayErrors:
+..  _security-global-typo3-options-displayErrors:
 
-displayErrors
-=============
+`displayErrors`
+===============
 
 This :ref:`configuration option <typo3ConfVars_sys_displayErrors>` controls
 whether PHP errors should be displayed or not (information disclosure). Possible
 values are: `-1`, `0`, `1` (integer) with the following meaning:
 
 `-1`
-   This overrides the PHP setting :php:`display_errors`.
-   If :ref:`devIPmask <security-global-typo3-options-devIpMask>` matches the user's IP address the
-   configured :php:`debugExceptionHandler` is used for exceptions,
-   if not, `productionExceptionHandler` will be used. This is the default setting.
+    This overrides the PHP setting :php:`display_errors`.
+    If :ref:`devIPmask <security-global-typo3-options-devIpMask>` matches the user's IP address the
+    configured :php:`debugExceptionHandler` is used for exceptions,
+    if not, `productionExceptionHandler` will be used. This is the default setting.
 
 `0`
-   This suppresses any PHP error messages, overrides the value of `exceptionalErrors`
-   and sets it to `0` (no errors are turned into exceptions), the configured
-   `productionExceptionHandler` is used as exception handler.
+    This suppresses any PHP error messages, overrides the value of `exceptionalErrors`
+    and sets it to `0` (no errors are turned into exceptions), the configured
+    `productionExceptionHandler` is used as exception handler.
 
 `1`
-   This shows PHP error messages with the registered error handler.
-   The configured `debugExceptionHandler` is used as exception handler.
+    This shows PHP error messages with the registered error handler.
+    The configured `debugExceptionHandler` is used as exception handler.
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']`
 
 
-.. _security-global-typo3-options-devIpMask:
+..  _security-global-typo3-options-devIpMask:
 
-devIPmask
-=========
+`devIPmask`
+===========
 
 The :ref:`option devIPmask <typo3ConfVars_sys_devIPmask>` defines a comma-separated list
 of IP addresses which will allow development output to display (information
@@ -61,10 +61,10 @@ which means "localhost" only.
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']`
 
 
-.. _security-global-typo3-options-fileDenyPattern:
+..  _security-global-typo3-options-fileDenyPattern:
 
-fileDenyPattern
-===============
+`fileDenyPattern`
+=================
 
 The :ref:`fileDenyPattern <typo3ConfVars_be_fileDenyPattern>` is a
 Perl-compatible regular expression that (if it matches a file name) will prevent
@@ -86,10 +86,10 @@ it only gained access to the TYPO3 backend with a normal, unprivileged user acco
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']`
 
 
-.. _security-global-typo3-options-IPmaskList:
+..  _security-global-typo3-options-IPmaskList:
 
-IPmaskList
-==========
+`IPmaskList`
+============
 
 Some TYPO3 instances are maintained by a selected group of integrators
 and editors who only work from a specific IP range or (in an ideal
@@ -104,79 +104,79 @@ The use of wildcards is also possible to specify a network. The following
 example opens the backend for users with the IP address `123.45.67.89` and from
 the network `192.168.xxx.xxx`:
 
-.. code-block:: php
-  :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-  $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList'] = 123.45.67.89,192.168.*.*
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList'] = 123.45.67.89,192.168.*.*
 
 The default value is an empty string.
 
-.. _security-global-typo3-options-lockIP:
+..  _security-global-typo3-options-lockIP:
 
-lockIP / lockIPv6
-=================
+`lockIP` / `lockIPv6`
+=====================
 
 If a frontend or backend user logs into TYPO3, the user's session can be locked
 to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for IPv6
 control how many parts of the IP address have to match with the IP address used
 at authentication time.
 
-.. attention::
+..  attention::
 
-   IP locking breaks modern IPv6 setups because of the
-   `Fast Fallback aka. Happy Eyeballs <https://en.wikipedia.org/wiki/Happy_Eyeballs>`__
-   algorithm that can cause users to jump between IPv4 and IPv6
-   arbitrarily. Enabling an IP lock should be a very conscious decision. Therefore,
-   this is disabled by default.
+    IP locking breaks modern IPv6 setups because of the
+    `Fast Fallback aka. Happy Eyeballs <https://en.wikipedia.org/wiki/Happy_Eyeballs>`__
+    algorithm that can cause users to jump between IPv4 and IPv6
+    arbitrarily. Enabling an IP lock should be a very conscious decision. Therefore,
+    this is disabled by default.
 
 
 Possible values for **IPv4** are: `0`, `1`, `2`, `3` or `4` (integer)
 with the following meaning:
 
 `0`
-   Disable IP locking entirely.
+    Disable IP locking entirely.
 
 `1`
-   Only the first part of the IPv4 address needs to match, e.g. `123.xxx.xxx.xxx`.
+    Only the first part of the IPv4 address needs to match, e.g. `123.xxx.xxx.xxx`.
 
 `2`
-   Only the first and second part of the IPv4 address need to match, e.g. `123.45.xxx.xxx`.
+    Only the first and second part of the IPv4 address need to match, e.g. `123.45.xxx.xxx`.
 
 `3`
-   Only the first, second and third part of the IPv4 address need to match, e.g. `123.45.67.xxx`.
+    Only the first, second and third part of the IPv4 address need to match, e.g. `123.45.67.xxx`.
 
 `4`
-   The complete IPv4 address has to match (e.g. `123.45.67.89`).
+    The complete IPv4 address has to match (e.g. `123.45.67.89`).
 
 Possible values for **IPv6** are: `0`, `1`, `2`, `3`, `4`,  `5`,  `6`, `7`, `8` (integer)
 with the following meaning:
 
 `0`
-   Disable IP locking entirely.
+    Disable IP locking entirely.
 
 `1`
-   Only the first block (16 bits) of the IPv6 address needs to match, e.g. `2001:`
+    Only the first block (16 bits) of the IPv6 address needs to match, e.g. `2001:`
 
 `2`
-   The first two blocks (32 bits) of the IPv6 address need to match, e.g. `2001:0db8`.
+    The first two blocks (32 bits) of the IPv6 address need to match, e.g. `2001:0db8`.
 
 `3`
-   The first three blocks (48 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3`
+    The first three blocks (48 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3`
 
 `4`
-   The first four blocks (64 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3`
+    The first four blocks (64 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3`
 
 `5`
-   The first five blocks (80 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319`
+    The first five blocks (80 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319`
 
 `6`
-   The first six blocks (96 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e`
+    The first six blocks (96 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e`
 
 `7`
-   The first seven blocks (112 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370`
+    The first seven blocks (112 bits) of the IPv6 address need to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370`
 
 `8`
-   The full IPv6 address has to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370:7344`
+    The full IPv6 address has to match, e.g. `2001:0db8:85a3:08d3:1319:8a2e:0370:7344`
 
 If your users experience that their sessions sometimes drop out, it
 might be because of a changing IP address (this may happen with
@@ -199,10 +199,10 @@ four PHP variables are available:
 * :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']`
 
 
-.. _security-global-typo3-options-lockSSL:
+..  _security-global-typo3-options-lockSSL:
 
-lockSSL
-=======
+`lockSSL`
+=========
 
 As described in :ref:`encrypted client/server communication
 <security-encrypted-client-server-connection>`, the use of `https://` scheme
@@ -218,10 +218,10 @@ values are: `true`, `false` (boolean) with the following meaning:
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']`
 
 
-.. _security-global-typo3-options-trustedHostsPattern:
+..  _security-global-typo3-options-trustedHostsPattern:
 
-trustedHostsPattern
-===================
+`trustedHostsPattern`
+=====================
 
 TYPO3 uses the HTTP header `Host:` to generate absolute URLs in several
 places such as 404 handling, http(s) enforcement, password reset links
@@ -247,10 +247,10 @@ or SSL termination scenarios.
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']`
 
 
-.. _security-global-typo3-options-warning-email-addr:
+..  _security-global-typo3-options-warning-email-addr:
 
-warning_email_addr
-==================
+`warning_email_addr`
+====================
 
 The email address defined in :ref:`warning_email_addr
 <typo3ConfVars_be_warning_email_addr>` will receive notifications, whenever an
@@ -263,10 +263,10 @@ The default value is an empty string.
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']`
 
 
-.. _security-global-typo3-options-warning-mode:
+..  _security-global-typo3-options-warning-mode:
 
-warning_mode
-============
+`warning_mode`
+==============
 
 This :ref:`setting <typo3ConfVars_be_warning_mode>` specifies if emails should
 be send to :ref:`warning_email_addr
@@ -276,12 +276,12 @@ login.
 The value in an integer:
 
 `0`
-   Do not send notification emails upon backend login (default)
+    Do not send notification emails upon backend login (default)
 
 `1`
-   Send a notification email every time a backend user logs in
+    Send a notification email every time a backend user logs in
 
 `2`
-   Send a notification email every time an **admin** backend user logs in
+    Send a notification email every time an **admin** backend user logs in
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']`

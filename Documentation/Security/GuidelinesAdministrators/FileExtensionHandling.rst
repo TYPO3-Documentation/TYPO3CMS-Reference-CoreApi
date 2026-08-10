@@ -1,10 +1,12 @@
+:navigation-title: File extension handling
+
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Security guidelines; File extensions
 ..  _security-file-extension-handling:
 
-=======================
-File extension handling
-=======================
+=======================================================
+Avoid MIME-type confusion from multiple file extensions
+=======================================================
 
 Most web servers have a default configuration
 mapping file extensions like `.html` or `.txt`

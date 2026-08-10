@@ -15,11 +15,11 @@ It also shows how to stay informed and react quickly to vulnerabilities.
 ..  contents:: Table of contents
 
 ..  index::
-   pair: Security guidelines; TYPO3 versions
-   Security guidelines; Long term support
-   Long term support
-   see: LTS; Long term support
-   LTS
+    pair: Security guidelines; TYPO3 versions
+    Security guidelines; Long term support
+    Long term support
+    see: LTS; Long term support
+    LTS
 ..  _security-typo3-versions:
 
 TYPO3 versions and lifecycle
@@ -78,7 +78,7 @@ List of TYPO3 LTS releases:
     can be ordered at https://typo3.com/services/extended-support-elts
 *   v11 (11.5 ELTS): No free bugfix/security update. Extended long-term support
     can be ordered at https://typo3.com/services/extended-support-elts
-*   v12 (12.4 LTS): No free bugfix/security update. Extended long-term support
+*   v12 (12.4 ELTS): No free bugfix/security update. Extended long-term support
     can be ordered at https://typo3.com/services/extended-support-elts
 *   v13 (13.4 LTS): Versions 13.0 through 13.3 do not receive security
     updates any longer
@@ -132,8 +132,8 @@ an official Twitter account `@typo3\_security <https://twitter.com/typo3_securit
 can be used additionally to stay up-to-date on security advisories.
 
 ..  index::
-   Security guidelines; Security bulletins
-   Security bulletins
+    Security guidelines; Security bulletins
+    Security bulletins
 ..  _security-bulletins:
 
 Security bulletins
@@ -172,10 +172,10 @@ fix including the review and deployment is publicly visible and can be
 monitored by everyone.
 
 ..  index::
-   Security bulletins; Public service announcements
-   Public service announcements
-   see: PSA; Public service announcements
-   PSA
+    Security bulletins; Public service announcements
+    Public service announcements
+    see: PSA; Public service announcements
+    PSA
 
 ..  _security-bulletins-psa:
 
@@ -196,10 +196,10 @@ related information about the server infrastructure of typo3.org and
 other important recommendations how to securely use TYPO3 products.
 
 ..  index::
-   Security bulletins; Common vulnerability scoring system
-   Common vulnerability scoring system
-   see: CVSS; Common vulnerability scoring system
-   CVSS
+    Security bulletins; Common vulnerability scoring system
+    Common vulnerability scoring system
+    see: CVSS; Common vulnerability scoring system
+    CVSS
 
 ..  _security-bulletins-cvss:
 

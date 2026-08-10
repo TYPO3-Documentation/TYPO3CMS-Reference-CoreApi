@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Hacked site; Detect
-.. _security-detect:
+..  include:: /Includes.rst.txt
+..  index:: Hacked site; Detect
+..  _security-detect:
 
 =======================
 Detect a hacked website
@@ -8,10 +8,10 @@ Detect a hacked website
 
 Typical signs which could indicate that a website or the server was
 hacked are listed below. Please note that these are common situations
-and examples only, others have been seen. Even if you are the victim
-of one of them only, it does not mean that the attacker has not gained
-more access or further damage (e.g. stolen user details) has been
-done.
+and examples only; other signs have been seen as well. Even if you
+are the victim of one of them only, it does not mean that the attacker
+has not gained further access or caused further damage (e.g. stolen
+user details).
 
 
 ..  _security-detect-manipulated-frontpage:
@@ -91,7 +91,7 @@ server traffic in general. Significant changes in this traffic
 behavior should definitely make you investigating the cause.
 
 
-.. _security-detect-reports-from-visitors:
+..  _security-detect-reports-from-visitors:
 
 Reports from visitors or users
 ==============================
@@ -104,7 +104,7 @@ not be visible to you if you just check the generated output - see
 explanations above.
 
 
-.. _security-detect-reports-from-search-engines:
+..  _security-detect-reports-from-search-engines:
 
 Search engines or browsers warn about your site
 ===============================================

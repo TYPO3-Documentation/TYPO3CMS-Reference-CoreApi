@@ -18,8 +18,8 @@ awareness directly affect the security of the system.
     pair: Security guidelines; Editor role
 ..  _security-editor-definition:
 
-Role definition
-===============
+Editor role definition
+======================
 
 Typically, a software development company or web design agency
 develops the initial TYPO3 website for the client. After the delivery,
@@ -49,17 +49,17 @@ Advanced tasks of editors are for example the compilation and
 publishing of newsletters, the maintenance of frontend user records
 and/or export of data (e.g. online shop orders).
 
-Editors usually do not change the layout of the website, they do not
-set up the system, new backend user accounts, new site functionality
-(for example, they do not install, update or remove extensions), they
-do not need to have programming, database or HTML knowledge and they
-do not configure the TYPO3 instance by changing TypoScript code or templates.
+Editors usually do not change the layout of the website, set up the system,
+or add new backend user accounts or site functionality (for example, they
+do not install, update or remove extensions). They also do not need
+programming, database or HTML knowledge, and they do not configure the
+TYPO3 instance by changing TypoScript code or templates.
 
 
 ..  _security-editor-rules:
 
-General rules
-=============
+General rules for editors
+=========================
 
 The :ref:`General Guidelines <security-general-guidelines>` also apply to editors
 – especially the section "Secure passwords" and "Operating system and browser version".
@@ -80,8 +80,8 @@ Backend access
 
 ..  _security-backend-access-username:
 
-Username
---------
+Backend username
+----------------
 
 Generic usernames such as "editor", "webmaster", "cms" or similar are
 not recommended. Shared user accounts are not recommended either:
@@ -92,8 +92,8 @@ limited in TYPO3 and they should not add additional costs.
 
 ..  _security-backend-access-password:
 
-Password
---------
+Backend password
+----------------
 
 Please read the :ref:`chapter about secure passwords <security-secure-passwords>`.
 If your current TYPO3 password does not match the rules explained above, change your

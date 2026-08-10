@@ -1,18 +1,20 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Security guidelines; Content elements
-   pair: Security guidelines; RTE
-.. _security-content-elements:
+:navigation-title: Content elements
 
-================
-Content elements
-================
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Security guidelines; Content elements
+    pair: Security guidelines; RTE
+..  _security-content-elements:
 
-.. todo:: Needs review: Outdated: This section is outdated and needs an update.
+===========================================
+Security risks of raw HTML content elements
+===========================================
 
-.. warning::
+..  todo:: Needs review: Outdated: This section is outdated and needs an update.
 
-   The information on this page is outdated!
+..  warning::
+
+    The information on this page is outdated!
 
 
 Besides the :ref:`low-level extensions <security-extensions-low-level>`, there
@@ -38,12 +40,12 @@ consider disabling the function by configuring the buttons shown in
 the `RTE`. The :ref:`page TSconfig <t3tsref:pageTsRte>` enables you to
 list all buttons visible in the RTE by using the following TypoScript:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   RTE.default {
-     showButtons = ...
-     hideButtons = ...
-   }
+    RTE.default {
+      showButtons = ...
+      hideButtons = ...
+    }
 
 In order to disable the button "toggle text mode", add "chMode" to the
 hideButtons list. The TSconfig/RTE (Rich Text Editor) documentation
