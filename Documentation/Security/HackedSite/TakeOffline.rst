@@ -1,10 +1,10 @@
-.. include:: /Includes.rst.txt
-.. index:: Hacked site; Take offline
-.. _security-take-offline:
+..  include:: /Includes.rst.txt
+..  index:: Hacked site; Take offline
+..  _security-take-offline:
 
-========================
-Take the website offline
-========================
+=============================
+Take a hacked website offline
+=============================
 
 Assuming you have detected that your site has been hacked, you should
 take it offline for the duration of the analysis and restoration
@@ -25,7 +25,7 @@ it may be necessary to perform more than one of the following tasks:
 There are many reasons why it is important to take the whole site or
 server offline: In the case where the hacked site is used for
 distributing malicious software, a visitor who gets attacked by a
-virus from your site, will most likely lose the trust in your site and
+virus from your site will most likely lose trust in your site and
 your services. A visitor who simply finds your site offline (or in
 "maintenance mode") for a while will (or at least might) come back
 later.

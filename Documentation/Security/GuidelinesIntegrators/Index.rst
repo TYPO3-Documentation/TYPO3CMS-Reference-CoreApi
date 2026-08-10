@@ -33,12 +33,12 @@ for integrators:
     ContentElements
 
 ..  index::
-   Security guidelines; User roles
-   Security guidelines; Integrator role
+    Security guidelines; User roles
+    Security guidelines; Integrator role
 ..  _security-integrator-definition:
 
-Role definition
-===============
+Integrator role definition
+==========================
 
 A TYPO3 integrator develops the template for a website, selects,
 imports, installs and configures extensions and sets up access rights
@@ -69,8 +69,8 @@ administrator and often one person is in both roles.
 ..  index:: Security guidelines; General rules
 ..  _security-integrator-rules:
 
-General rules
-=============
+General rules for TYPO3 integrators
+===================================
 
 All :ref:`general rules <security-administrators>` for a system administrator
 also apply for a TYPO3 integrator. One of the most important rules is to change the

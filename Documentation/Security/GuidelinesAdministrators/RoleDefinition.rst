@@ -1,9 +1,9 @@
 :navigation-title: Role Definition
 
-.. include:: /Includes.rst.txt
-.. index::
-   Security guidelines; Administrator role
-.. _security-administrator-definition:
+..  include:: /Includes.rst.txt
+..  index::
+    Security guidelines; Administrator role
+..  _security-administrator-definition:
 
 ================================================
 Role definition: What is a system administrator?

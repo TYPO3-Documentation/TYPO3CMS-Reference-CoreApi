@@ -1,12 +1,14 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Security guidelines; Logs
-   pair: Security guidelines; Reports
-.. _security-reports-logs:
+:navigation-title: Reports and logs
 
-================
-Reports and logs
-================
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Security guidelines; Logs
+    pair: Security guidelines; Reports
+..  _security-reports-logs:
+
+==================================
+Security-relevant reports and logs
+==================================
 
 Two backend modules in TYPO3 require special attention: *Reports*
 and *Log*:

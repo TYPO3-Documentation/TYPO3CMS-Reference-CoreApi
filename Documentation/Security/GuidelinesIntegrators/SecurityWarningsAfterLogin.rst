@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Security guidelines; Login warnings
-.. _security-security-warnings:
+..  include:: /Includes.rst.txt
+..  index:: Security guidelines; Login warnings
+..  _security-security-warnings:
 
 =====================================
 Security-related warnings after login

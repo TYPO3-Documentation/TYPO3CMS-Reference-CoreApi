@@ -62,7 +62,7 @@ applies to Extbase queries, Doctrine DBAL :ref:`QueryBuilder
 ..  _trusted-properties:
 
 Trusted properties (Extbase Only)
-==================================
+=================================
 
 ..  danger::
 

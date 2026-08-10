@@ -4,7 +4,7 @@
 ..  _security-threats:
 
 =========================
-Types of Security Threats
+Types of security threats
 =========================
 
 This section provides a brief overview of the most common security
@@ -50,8 +50,8 @@ website should be secured so that no data can be retrieved without the
 consent of the owner of the website.
 
 ..  index::
-   SQL; Injection
-   pair: Security; SQL injections
+    SQL; Injection
+    pair: Security; SQL injections
 ..  _security-sql-injection:
 
 SQL injection
@@ -97,13 +97,13 @@ client-side data input validation). Authentication modules shipped
 with the TYPO3 Core  are well-tested and reviewed. However, due to the
 open architecture of TYPO3, this system can be extended by alternative
 solutions. The code quality and security aspects may vary, see chapter
-:ref:`Guidelines for TYPO3 Integrators: TYPO3 extensions
+:ref:`Guidelines for TYPO3 Integrators: Security considerations for extensions
 <security-extensions>` for further details.
 
 ..  index::
-   ! Cross-site scripting
-   XSS
-   see: XSS; Cross-site scripting
+    ! Cross-site scripting
+    XSS
+    see: XSS; Cross-site scripting
 ..  _security-xss:
 
 Cross-site scripting (XSS)
@@ -125,9 +125,9 @@ Implementing :ref:`Content Security Policy <content-security-policy>` headers
 can reduce the risk of cross-site scripting.
 
 ..  index::
-   ! Cross-site request forgery
-   XSRF
-   see: XSRF; Cross-site request forgery
+    ! Cross-site request forgery
+    XSRF
+    see: XSRF; Cross-site request forgery
 ..  _security-xsrf:
 
 Cross-site request forgery (XSRF)
