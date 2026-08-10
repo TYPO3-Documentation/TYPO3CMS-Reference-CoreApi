@@ -1,10 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index:: Hacked site; Repair
-.. _security-repair-restore:
+:navigation-title: Repair/restore
 
-==============
-Repair/restore
-==============
+..  include:: /Includes.rst.txt
+..  index:: Hacked site; Repair
+..  _security-repair-restore:
+
+===============================
+Repair or restore a hacked site
+===============================
 
 When you know what the problem was and how the attacker gained access
 to your system, double check if there are no other security
@@ -12,7 +14,7 @@ vulnerabilities. Then, you may want to either repair the
 infected/modified/deleted files or choose to make a full restore from
 a backup (you need to make sure that you are using a backup that has
 been made before the attack). Using a full restore from backup has the
-advantage, that the website is returned to a state where the data has
+advantage that the website is returned to a state where the data has
 been intact. Fixing only individual files bears the risk that some
 malicious code may be overlooked.
 

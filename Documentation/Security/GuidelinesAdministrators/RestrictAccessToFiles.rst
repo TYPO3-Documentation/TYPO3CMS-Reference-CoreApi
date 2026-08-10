@@ -21,8 +21,8 @@ at the operating system level, see
 
 ..  _security-restrict-access-server-level-composer:
 
-Composer-based installations
-============================
+Composer-based installations: restricting file access
+=====================================================
 
 For Composer-based TYPO3 installations, the public document root is typically
 the :file:`public/` directory. All web-accessible files are
@@ -49,8 +49,8 @@ sensitive files, eliminating the need for complex blacklisting rules.
 
 ..  _security-restrict-access-server-level-classic:
 
-Classic-mode installations
-==========================
+Classic-mode installations: restricting file access
+===================================================
 
 In classic TYPO3 installations (without Composer), all files are contained in the
 web root directory. This increases the risk of accidental exposure of internal

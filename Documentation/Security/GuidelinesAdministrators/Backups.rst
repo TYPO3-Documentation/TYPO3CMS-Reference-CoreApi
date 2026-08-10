@@ -12,9 +12,7 @@ recover from data loss, attacks, or misconfiguration. However, backups themselve
 can also be a security risk if stored in the web root or transmitted without encryption.
 
 For full recommendations on what to back up, how to store backups securely, and how
-to automate and test them, see:
-
-For full recommendations on how to handle backups securely, see
+to automate and test them, see
 :ref:`Backup strategy <administration-backups>`.
 
 ..  _security-backup-risk:

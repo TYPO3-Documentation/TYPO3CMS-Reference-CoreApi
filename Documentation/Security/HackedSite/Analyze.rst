@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Hacked site; Analyze
-.. _security-analyze:
+..  include:: /Includes.rst.txt
+..  index:: Hacked site; Analyze
+..  _security-analyze:
 
 =======================
 Analyzing a hacked site
@@ -24,10 +24,10 @@ the content of all files on your hard disk(s) for similar patterns.
 However, attackers often try to obscure their actions or the malicious
 code. An example could look like the following line:
 
-.. code-block:: php
-   :caption: An example how attackers may hide malicious code
+..  code-block:: php
+    :caption: An example how attackers may hide malicious code
 
-   eval(base64_decode('dW5saW5rKCd0ZXN0LnBocCcpOw=='));
+    eval(base64_decode('dW5saW5rKCd0ZXN0LnBocCcpOw=='));
 
 Where the hieroglyphic string "dW5saW5rKCd0ZXN0LnBocCcpOw==" contains
 the PHP command :php:`unlink('test.php');` (base64 encoded), which deletes
@@ -45,7 +45,7 @@ these files need to be checked for modifications, too.
 
 As described above, fixing these manipulated files is not sufficient.
 It is absolutely necessary that you learn which vulnerability the
-attacker exploited and to fix it. Check log files and other components
+attacker exploited and fix it. Check log files and other components
 on your system which could be affected, too.
 
 If you have any proof or a reasonable ground for suspecting that TYPO3

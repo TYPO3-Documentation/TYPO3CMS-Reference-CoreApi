@@ -1,26 +1,28 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Security guidelines; Install tool
-   File; typo3conf/ENABLE_INSTALL_TOOL
-.. _security-install-tool:
+:navigation-title: Install tool
 
-============
-Install tool
-============
+..  include:: /Includes.rst.txt
+..  index::
+    Security guidelines; Install tool
+    File; typo3conf/ENABLE_INSTALL_TOOL
+..  _security-install-tool:
+
+=========================
+Securing the Install Tool
+=========================
 
 The Install Tool allows you to configure the TYPO3 system on a very
 low level, which means, not only the basic settings but also the most
 essential settings can be changed.
 
-.. _security-install-tool-access:
+..  _security-install-tool-access:
 
 Enabling and accessing the Install Tool
 =======================================
 
-.. _security-install-tool-access-intro:
+..  _security-install-tool-access-intro:
 
-Introduction
-------------
+How Install Tool access is protected
+------------------------------------
 
 A TYPO3 backend account is not required in order to access the Install
 Tool, so it is clear that the Install Tool requires some special attention
@@ -38,7 +40,7 @@ The Install Tool can be found as a stand-alone application via :samp:`https://ex
 It is also :ref:`accessible in the backend <security-install-tool-backend-access>`,
 but only for logged-in users with administrator and maintainer privileges.
 
-.. _security-install-tool-access-enable-file:
+..  _security-install-tool-access-enable-file:
 
 The :file:`ENABLE_INSTALL_TOOL` file
 ------------------------------------
@@ -66,7 +68,7 @@ administrator privileges.
 ..  include:: /_includes/_EnableInstallToolWarning.rst.txt
     :show-buttons:
 
-.. _security-install-tool-password:
+..  _security-install-tool-password:
 
 The Install Tool password
 -------------------------
@@ -80,16 +82,16 @@ The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
 in the global configuration file :file:`config/system/settings.php`:
 
-.. code-block:: php
-   :caption: config/system/settings.php
+..  code-block:: php
+    :caption: config/system/settings.php
 
-   <?php
-   return [
-       'BE' => [
-           'installToolPassword' => '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.',
-           // ...
-       ],
-   ];
+    <?php
+    return [
+        'BE' => [
+            'installToolPassword' => '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.',
+            // ...
+        ],
+    ];
 
 The Install Tool password is initially set during the
 installation process. This means that if a system administrator
@@ -111,7 +113,7 @@ to change the install tool password:
 
 ..  tabs::
 
-    ..   group-tab:: Composer-mode
+    ..  group-tab:: Composer-mode
 
         ..  code-block:: bash
 
@@ -153,7 +155,7 @@ install tool password`.
 
     Screen to change the Install Tool password
 
-.. _security-install-tool-backend-access:
+..  _security-install-tool-backend-access:
 
 Accessing the Install Tool in the backend
 -----------------------------------------
@@ -188,17 +190,17 @@ Users can be assigned the role in the :guilabel:`System > Settings` section of
 It is also possible to manually modify the list by adding or removing the
 user's UID (:sql:`be_users.uid`) in :file:`config/system/settings.php`:
 
-.. code-block:: php
-   :caption: config/system/settings.php
+..  code-block:: php
+    :caption: config/system/settings.php
 
-   <?php
-   return [
-       // ...
-       'SYS' => [
-           'systemMaintainers' => [1, 7, 36],
-           // ...
-       ],
-   ];
+    <?php
+    return [
+        // ...
+        'SYS' => [
+            'systemMaintainers' => [1, 7, 36],
+            // ...
+        ],
+    ];
 
 
 For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`
@@ -208,7 +210,7 @@ these measures have an impact on the usability of the system. If you
 are not the only person who uses the Install Tool, you should
 discuss the best approach with the team.
 
-.. _security-install-tool-core-updates:
+..  _security-install-tool-core-updates:
 
 TYPO3 Core updates
 ==================
@@ -218,19 +220,19 @@ TYPO3 Core with a click on a button. This feature can be found under
 :guilabel:`Important actions`, and it checks/installs revision updates only
 (that is, bug fixes and security updates).
 
-.. figure:: /Images/ManualScreenshots/Security/CoreUpdates.png
+..  figure:: /Images/ManualScreenshots/Security/CoreUpdates.png
     :class: with-border with-shadow
     :alt: Install Tool function to update the TYPO3 Core
 
 This feature can be disabled by an environment variable:
 
-.. code-block:: none
+..  code-block:: none
 
-   TYPO3_DISABLE_CORE_UPDATER=1
+    TYPO3_DISABLE_CORE_UPDATER=1
 
 
-.. index:: Security guidelines; Encryption key
-.. _security-encryption-key:
+..  index:: Security guidelines; Encryption key
+..  _security-encryption-key:
 
 Encryption key
 ==============
@@ -248,7 +250,7 @@ to force the rebuild of this data with the new encryption key.
     Keep in mind that this string is security-related and you should keep
     it in a safe place.
 
-.. _security-encryption-key-generate:
+..  _security-encryption-key-generate:
 
 Generating the encryption key
 -----------------------------

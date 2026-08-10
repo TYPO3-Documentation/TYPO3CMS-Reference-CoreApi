@@ -12,6 +12,9 @@ The recommendations in this chapter apply for all roles: system
 administrators, TYPO3 integrators, editors and strictly speaking even
 for (frontend) users.
 
+..  contents::
+    :local:
+
 ..  index:: pair: Security guidelines; passwords
 ..  _security-secure-passwords:
 
@@ -29,9 +32,9 @@ should be implemented in a password policy:
     and special characters.
 
 #.  Passwords should not be made up of personal information such as names,
-    nick names, pet's names, birthdays, anniversaries, etc.
+    nicknames, pet names, birthdays, anniversaries, etc.
 
-#.  Passwords should not be made out of common words that can be found in
+#.  Passwords should not be made up of common words that can be found in
     dictionaries.
 
 #.  Do not store passwords on Post-it notes, under your desk cover, in
@@ -41,42 +44,42 @@ should be implemented in a password policy:
     same password for your e-mail account, the TYPO3 backend, an online
     forum and so on.
 
-#.  Change your passwords in regular intervals but not too often (this
+#.  Change your passwords at regular intervals but not too often (this
     would make remembering the correct password too difficult) and avoid
-    to re-use the last 10 passwords.
+    re-using the last 10 passwords.
 
 #.  Do not use the "stay logged in" feature on websites and do not store
     passwords in applications like FTP clients. Enter the password
     manually every time you log in.
 
 A good rule for a secure password would be that a search engine such
-as Google should deliver no results if you would search for it. Please
-note: do not determine your passwords by this idea – this is an
-example only how cryptic a password should be.
+as Google should deliver no results if you searched for it. Please
+note: do not choose your passwords based on this idea – it is only an
+example of how cryptic a password should be.
 
 Another rule is that you should not choose a password that is too
 strong either. This sounds self-contradictory but most people will
 write down a password that is too difficult to remember – and this is
 against the rules listed above.
 
-In a perfect world you should use "trusted" computers, only. Public
+In a perfect world you should only use "trusted" computers. Public
 computers in libraries, internet cafés, and sometimes even computers
 of work colleagues and friends can be manipulated (with or without the
 knowledge of the owner) and log your keyboard input.
 
 ..  tip::
-    Since TYPO3 v12.0 password policies can be configured in backend and/or
-    frontend context. Have a look into the chapter :ref:`password-policies`.
+    Password policies can be configured in backend and/or frontend context,
+    see the :ref:`Password policies <password-policies>` chapter.
 
 ..  _security-update-operating-system:
 ..  _security-update-browser:
 
-Operating System and Browser Version
+Operating system and browser version
 ====================================
 
 Make sure that you are using up-to-date software versions of your
 browser and that you have installed the latest updates for your
-operating system (such as Microsoft Windows, Mac OS X or Linux). Check
+operating system (such as Microsoft Windows, macOS or Linux). Check
 for software updates regularly and install security patches
 immediately or at least as soon as possible.
 
@@ -85,13 +88,13 @@ Trojans, keyloggers, rootkits and other "malware".
 
 ..  _security-communication:
 
-Communication
-=============
+Communication between roles
+===========================
 
-A good communication between several roles is essential to clarify
-responsibilities and to coordinate the next steps when updates are
-required, an attacked site needs to be restored or other security-
-related actions need to be done as soon as possible.
+Good communication between several roles is essential to clarify
+responsibilities and coordinate the next steps, whether updates are
+required, an attacked site needs to be restored, or other
+security-related actions need to be taken as soon as possible.
 
 A central point of contact, for example a person or a team responsible
 for coordinating these actions, is generally a good idea. This also
@@ -100,28 +103,26 @@ can report issues.
 
 ..  _security-react-quickly:
 
-React Quickly
+React quickly
 =============
 
 TYPO3 is open source software as well as all TYPO3 extensions
-published in the TYPO3 Extension Repository (TER). This means,
+published in the TYPO3 Extension Repository (TER). This means that
 everyone can download and investigate the code base. From a security
 perspective, this usually improves the software, simply because more
-people review the code, not only a few Core developers. Currently,
-there are hundreds of developers actively involved in the TYPO3
-community and if someone discovers and reports a security issue,
-he/she will be honored by being credited in the appropriate security
-bulletin.
+people review the code, not only a few Core developers. Hundreds of
+developers are actively involved in the TYPO3 community, and if
+someone discovers and reports a security issue, they will be
+honored by being credited in the appropriate security bulletin.
 
 The open source concept also implies that everyone can compare the old
 version with the new version of the software after a vulnerability
-became public. This may give an insight to anyone who has programming
-knowledge, how to exploit the vulnerability and therefore it is
-understandable how important it is, to react quickly and fix the issue
-before someone else compromises it. In other words, it is not enough
-to receive and read the security bulletins, it is also essential to
-react as soon as possible and to update the software or deinstall the
-affected component.
+became public. This may give anyone with programming knowledge insight
+into how to exploit the vulnerability, so it is important to react
+quickly and fix the issue before someone else compromises it. In other
+words, it is not enough to receive and read the security bulletins; it
+is also essential to react as soon as possible and to update the
+software or uninstall the affected component.
 
 The security bulletins may also include specific advice such as
 configuration changes or similar. Check your individual TYPO3 instance
@@ -133,24 +134,23 @@ and follow these recommendations.
 Keep the TYPO3 Core up-to-date
 ==============================
 
-As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
-new version of TYPO3 can either be a major update (e.g. from version 10.x.x to
-version 11.x.x), a minor update (e.g. from version 11.4.x to version
-11.5.x) or a maintenance/bugfix/security release (e.g. from version
-11.5.11 to 11.5.12).
+As described in the :ref:`TYPO3 versions <security-typo3-versions>`
+chapter, a new version of TYPO3 can either be a major update (e.g. from
+version 13.x.x to version 14.x.x), a minor update (e.g. from version
+14.2.x to version 14.3.x) or a maintenance/bugfix/security release
+(e.g. from version 14.3.0 to 14.3.1).
 
-In most cases, a maintenance/bugfix/security update is a no-brainer,
-see chapter ::ref:`Patch/Bugfix updates <t3coreapi:minor>`
+In most cases, a maintenance/bugfix/security update is a no-brainer;
+see the chapter :ref:`Patch/Bugfix updates <t3coreapi:minor>`
 for further details.
 
 When you extract the archive file of new TYPO3 sources into the
 existing install directory (e.g. the web root of your web server) and
-update the symbolic links, pointing to the directory of the new version,
+update the symbolic links to point to the directory of the new version,
 do not forget to **delete** the old and possibly insecure TYPO3 Core
-version. Failing doing this creates the risk of leaving the source code
-of the previous TYPO3 version on the system and as a consequence, the
-insecure code may still be accessible and a security vulnerability
-possibly exploitable.
+version. Failing to do this creates the risk of leaving the source code
+of the previous TYPO3 version on the system, so the insecure code may
+still be accessible and result in an exploitable security vulnerability.
 
 Another option is to store the extracted TYPO3 sources outside of the
 web root directory (so they are not accessible via web requests) as
@@ -160,10 +160,10 @@ the correct and secure TYPO3 version.
 ..  index:: pair: Security guidelines; Extensions update
 ..  _security-updating-extensions:
 
-Keep TYPO3 Extensions Up-to-date
+Keep TYPO3 extensions up-to-date
 ================================
 
-Do not rely on publicly released security announcements only. Reading
+Do not rely only on publicly released security announcements. Reading
 the official security bulletins and updating TYPO3 extensions which
 are listed in the bulletins is an essential task but not sufficient to
 have a "secure" system.
@@ -185,20 +185,20 @@ versions or TYPO3 extensions.
 ..  todo: Update this to include Composer
 
 The recommended way to update TYPO3 extensions is to use TYPO3's
-internal Extension Manager (EM). The EM takes care of the download of
-the extension source code, extracts the archive and stores the files in
-the correct place, overwriting an existing old version by default. This
-ensures, the source code containing a possible security vulnerability
-will be removed from server when a new version of an extension is
+internal Extension Manager (EM). The EM downloads the extension source
+code, extracts the archive and stores the files in the correct place,
+overwriting an existing old version by default. This ensures that the
+source code containing a possible security vulnerability will be
+removed from the server when a new version of an extension is
 installed.
 
 When a system administrator decides to create a copy of the directory of
-an existing insecure extension, before installing the new version, he/she
-often introduces the risk of leaving the (insecure) copy on the web
+an existing insecure extension before installing the new version, they
+often introduce the risk of leaving the (insecure) copy on the web
 server. For example:
 
 ..  code-block:: none
-    :caption: Remove old extensions, dont rename
+    :caption: Remove old extensions, don't rename
 
     typo3conf/ext/insecure_extension.bak
     typo3conf/ext/insecure_extension.delete_me
@@ -226,13 +226,13 @@ requirements.
 
 A website that is already "live" and publicly accessible should not be
 used for these purposes. New developments and tests should be done on
-so called "staging servers" which are used as a temporary stage and
+so-called "staging servers" which are used as a temporary stage and
 could be messed up without an impact on the "live" site. Only
 relevant/required, tested and reviewed clean code should then be
 implemented on the production site.
 
-This is not security-related on the first view but "tests" are often
-grossly negligent implemented, without security aspects in mind.
-Staging servers also help keeping the production sites slim and clean
+This is not security-related at first glance, but "tests" are often
+implemented with gross negligence, without security aspects in mind.
+Staging servers also help keep the production sites slim and clean
 and reduce maintenance work (e.g. updating extensions which are not in
 use).
