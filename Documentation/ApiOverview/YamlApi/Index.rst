@@ -26,8 +26,8 @@ YAML is used in TYPO3 for various configurations; most notable are
 ..  index:: YamlFileLoader
 ..  _yamlFileLoader:
 
-YamlFileLoader
-==============
+`YamlFileLoader`
+================
 
 TYPO3 is using a custom YAML loader for handling YAML in TYPO3 based on the
 `symfony/yaml`_ package. It is located at

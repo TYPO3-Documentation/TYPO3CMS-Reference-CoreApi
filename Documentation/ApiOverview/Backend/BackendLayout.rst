@@ -25,7 +25,7 @@ Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 .. _be-layout-info-module:
 
 Backend layout configuration
-=============================
+============================
 
 The backend layout to be used can be configurated for each page and/or a pages'
 subpages in the :guilabel:`Page properties > Appearance`. Multiple backend

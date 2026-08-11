@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyIconForResourcePropertiesEvent
 ..  _ModifyIconForResourcePropertiesEvent:
 
-====================================
-ModifyIconForResourcePropertiesEvent
-====================================
+======================================
+`ModifyIconForResourcePropertiesEvent`
+======================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\ModifyIconForResourcePropertiesEvent`

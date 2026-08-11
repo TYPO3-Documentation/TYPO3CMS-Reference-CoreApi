@@ -8,7 +8,7 @@ TypoScript
 
 .. _extension-localization-typoscript-gettext:
 
-Output localized strings with Typoscript
+Output localized strings with TypoScript
 ========================================
 
 The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be
@@ -84,8 +84,8 @@ itself.
 
 ..  _localization-typoscript-stdWrap.lang:
 
-:typoscript:`stdWrap.lang`
-==========================
+`stdWrap.lang`
+==============
 
 :typoscript:`stdWrap` offers the :ref:`lang <t3tsref:stdwrap-lang>` property,
 which can be used to provide localized strings directly from TypoScript.

@@ -3,9 +3,9 @@
 ..  _BeforePersistingReportEvent:
 
 
-===========================
-BeforePersistingReportEvent
-===========================
+=============================
+`BeforePersistingReportEvent`
+=============================
 
 ..  versionadded:: 14.2
 
@@ -27,7 +27,7 @@ Example
 
 ..  _BeforePersistingReportEvent-example-api:
 
-API: BeforePersistingReportEvent
-===
+API: `BeforePersistingReportEvent`
+==================================
 
 ..  include:: /CodeSnippets/Events/Core/Security/BeforePersistingReportEvent.rst.txt

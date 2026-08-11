@@ -4,9 +4,9 @@
 ..  _eventlist-felogin:
 
 
-=============
-FrontendLogin
-=============
+===============
+`FrontendLogin`
+===============
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
 in EXT:frontend, the frontend login .

@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyButtonBarEvent
 ..  _ModifyButtonBarEvent:
 
-====================
-ModifyButtonBarEvent
-====================
+======================
+`ModifyButtonBarEvent`
+======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent`
 can be used to modify the button bar in the TYPO3 backend module

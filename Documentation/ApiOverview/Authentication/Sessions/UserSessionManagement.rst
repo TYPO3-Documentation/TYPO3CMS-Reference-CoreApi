@@ -33,8 +33,8 @@ and persisting them. It effectively encapsulates all calls to the
 
 ..  _session-management-public-api-usersessionmanager:
 
-Public API of :php:`UserSessionManager`
-=======================================
+Public API of `UserSessionManager`
+==================================
 
 The :php:`UserSessionManager` can be retrieved using its static factory
 method :php:`create()`:
@@ -54,8 +54,8 @@ with user sessions. A couple of public methods are available:
 
 ..  _session-management-public-api-usersession:
 
-Public API of :php:`UserSession`
-================================
+Public API of `UserSession`
+===========================
 
 The session object created or retrieved by the :php:`UserSessionManager`
 provides the following API methods:

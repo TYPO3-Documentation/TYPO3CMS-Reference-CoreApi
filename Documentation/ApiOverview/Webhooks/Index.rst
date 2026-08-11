@@ -7,7 +7,7 @@
 .. _webhooks:
 
 =======================================================
-Webhooks and reactions: Integration of external systems
+Webhooks and reactions: integration of external systems
 =======================================================
 
 ..  versionchanged:: 14.0

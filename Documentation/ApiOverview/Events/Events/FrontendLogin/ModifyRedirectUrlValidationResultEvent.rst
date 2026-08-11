@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyRedirectUrlValidationResultEvent
 ..  _ModifyRedirectUrlValidationResultEvent:
 
-======================================
-ModifyRedirectUrlValidationResultEvent
-======================================
+========================================
+`ModifyRedirectUrlValidationResultEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\FrontendLogin\Event\ModifyRedirectUrlValidationResultEvent`
@@ -21,7 +21,7 @@ login.
 
 ..  _modify-redirect-url-validation-result-event-example-validate:
 
-Example: Validate that the redirect after frontend login goes to a trusted domain
+Example: validate that the redirect after frontend login goes to a trusted domain
 =================================================================================
 
 ..  literalinclude:: _ModifyRedirectUrlValidationResultEvent/_ValidateRedirectUrl.php

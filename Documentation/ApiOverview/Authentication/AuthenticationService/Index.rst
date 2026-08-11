@@ -21,7 +21,7 @@ their own.
 
 ..  _authentication-why-services:
 
-Why Use Services?
+Why use services?
 =================
 
 Services provide the flexibility needed for such a complex
@@ -58,7 +58,7 @@ extension :composer:`typo3/cms-lowlevel` has to be installed.
 
 ..  _authentication-process:
 
-The Authentication Process
+The authentication process
 ==========================
 
 The authentication process is not managed entirely by services.
@@ -309,7 +309,7 @@ authentication proceed for "local" TYPO3 users.
 
 ..  _authentication-advanced-options:
 
-Advanced Options
+Advanced options
 ================
 
 There are some special configuration options which can be used

@@ -279,8 +279,8 @@ be written as:
     File; EXT:{extkey}/Configuration/Services.yaml
 ..  _EventDispatcherRegistration:
 
-Registering the event listener via :file:`Services.yaml`
---------------------------------------------------------
+Registering the event listener via `Services.yaml`
+--------------------------------------------------
 
 If an extension author wants to provide a custom event listener, an according
 entry with the tag :yaml:`event.listener` can be added to the

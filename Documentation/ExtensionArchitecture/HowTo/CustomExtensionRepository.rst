@@ -5,7 +5,7 @@
 .. _custom-extension-repository:
 
 ===========================
-Custom Extension Repository
+Custom extension repository
 ===========================
 
 .. note::

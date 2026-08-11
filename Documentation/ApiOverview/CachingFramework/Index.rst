@@ -52,7 +52,7 @@ renders all dynamic parts.
 
 ..  _chash:
 
-Caching variants - or: What is a "cache hash"?
+Caching variants - or: what is a "cache hash"?
 ==============================================
 
 TYPO3 ideally delivers fully cached pages for maximum performance. However, in

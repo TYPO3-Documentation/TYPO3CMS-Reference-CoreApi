@@ -4,9 +4,9 @@
     Path; EXT:{extkey}/Configuration/user.tsconfig
 ..  _extension-configuration-user_tsconfig:
 
-=====================
-:file:`user.tsconfig`
-=====================
+===============
+`user.tsconfig`
+===============
 
 ..  typo3:file:: user.tsconfig
     :scope: extension

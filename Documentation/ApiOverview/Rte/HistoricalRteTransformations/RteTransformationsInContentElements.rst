@@ -4,7 +4,7 @@
 .. _appendix-a-content-elements:
 
 =======================================
-RTE Transformations in Content Elements
+RTE transformations in content elements
 =======================================
 
 The RTE is used in the bodytext field of the content elements,

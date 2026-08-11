@@ -183,8 +183,8 @@ Example:
 
 ..  _database-middleware-UsableForConnectionInterface:
 
-The interface :php:`UsableForConnectionInterface`
-=================================================
+The interface `UsableForConnectionInterface`
+============================================
 
 ..  note::
     Real use cases for this interface should be rare edge cases. Typically,

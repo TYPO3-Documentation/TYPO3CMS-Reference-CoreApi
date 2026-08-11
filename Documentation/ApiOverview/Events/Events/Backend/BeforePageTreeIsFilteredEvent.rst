@@ -2,9 +2,9 @@
 ..  index:: Events; BeforePageTreeIsFilteredEvent
 ..  _BeforePageTreeIsFilteredEvent:
 
-=============================
-BeforePageTreeIsFilteredEvent
-=============================
+===============================
+`BeforePageTreeIsFilteredEvent`
+===============================
 
 ..  versionadded:: 14.0
     This PSR-14 event was introduced to add custom functionality and advanced
@@ -22,7 +22,7 @@ title or ID.
 
 ..  _BeforePageTreeIsFilteredEvent-example:
 
-Example: Add evaluation of document types to the page tree search filter
+Example: add evaluation of document types to the page tree search filter
 ========================================================================
 
 The event listener class, using the PHP attribute :php:`#[AsEventListener]` for
@@ -33,8 +33,8 @@ registration, adds additional conditions to the filter.
 
 ..  _BeforePageTreeIsFilteredEvent-api:
 
-BeforePageTreeIsFilteredEvent API
-=================================
+`BeforePageTreeIsFilteredEvent` API
+===================================
 
 The event provides the following member properties:
 

@@ -2,9 +2,9 @@
 ..  index:: Events; PageContentPreviewRenderingEvent
 ..  _PageContentPreviewRenderingEvent:
 
-================================
-PageContentPreviewRenderingEvent
-================================
+==================================
+`PageContentPreviewRenderingEvent`
+==================================
 
 Use the PSR-14 event
 :php:`\TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent`

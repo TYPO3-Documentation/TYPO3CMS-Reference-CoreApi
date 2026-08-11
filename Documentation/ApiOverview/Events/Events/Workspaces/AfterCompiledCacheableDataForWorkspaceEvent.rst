@@ -3,9 +3,9 @@
 ..  _AfterCompiledCacheableDataForWorkspaceEvent:
 
 
-===========================================
-AfterCompiledCacheableDataForWorkspaceEvent
-===========================================
+=============================================
+`AfterCompiledCacheableDataForWorkspaceEvent`
+=============================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Workspaces\Event\AfterCompiledCacheableDataForWorkspaceEvent`

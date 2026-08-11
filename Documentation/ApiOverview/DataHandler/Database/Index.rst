@@ -646,7 +646,7 @@ function. Configuration of the hook can be done from
 ..  _tce-flags:
 
 Flags in the DataHandler
-=======================
+========================
 
 ..  versionchanged:: 14.0
     The following public properties of the PHP class `TYPO3\CMS\Core\DataHandling\DataHandler` have been removed:

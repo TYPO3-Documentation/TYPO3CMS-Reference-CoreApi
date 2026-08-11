@@ -271,7 +271,7 @@ To install the mask extension version 8.3.\*, type:
 
 .. _composer-require-repository:
 
-Install extension from version control system (e.g. GitHub, Gitlab, ...)
+Install extension from version control system (e.g. GitHub, GitLab, ...)
 ------------------------------------------------------------------------
 
 In some cases, you will have to install a TYPO3 extension that is not

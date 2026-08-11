@@ -4,7 +4,7 @@
 .. _appendix-a-properties:
 
 ==============================
-Properties and Transformations
+Properties and transformations
 ==============================
 
 The RTE applications typically expect to be fed with content formatted

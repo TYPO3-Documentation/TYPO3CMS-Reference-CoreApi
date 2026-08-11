@@ -37,8 +37,8 @@ API
 ..  index:: Request handling; Migration from getIndpEnv
 ..  _GeneralUtility-getIndpEnv-migration:
 
-Migrating from :php:`GeneralUtility::getIndpEnv()`
-==================================================
+Migrating from `GeneralUtility::getIndpEnv()`
+=============================================
 
 The class :php:`\TYPO3\CMS\Core\Http\NormalizedParams` is a one-to-one transition
 of :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv()`, the old

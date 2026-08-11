@@ -18,7 +18,7 @@ users and groups. The users list can be searched and filtered.
 
 ..  _access-backend-users-module-comparing-users-groups:
 
-Comparing Users or Groups
+Comparing users or groups
 =========================
 
 The :guilabel:`Backend users` module offers the possibility to compare users.
@@ -37,7 +37,7 @@ of their inherited permissions.
 
 ..  _access-backend-users-module-impersonating-users-switch:
 
-Impersonating Users ("Switch to")
+Impersonating users ("Switch to")
 =================================
 
 We can impersonate (switch) to a user by clicking the :guilabel:`Switch to user`

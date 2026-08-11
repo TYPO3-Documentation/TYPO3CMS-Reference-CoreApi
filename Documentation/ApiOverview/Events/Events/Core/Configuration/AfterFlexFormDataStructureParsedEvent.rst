@@ -3,9 +3,9 @@
 
 ..  _AfterFlexFormDataStructureParsedEvent:
 
-=====================================
-AfterFlexFormDataStructureParsedEvent
-=====================================
+=======================================
+`AfterFlexFormDataStructureParsedEvent`
+=======================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent`

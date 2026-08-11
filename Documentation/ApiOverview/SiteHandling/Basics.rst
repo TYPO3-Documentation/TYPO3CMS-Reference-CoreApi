@@ -111,8 +111,8 @@ Root pages are identified by one of these two properties:
 
 ..  _sitehandling-basics-websiteTitle:
 
-websiteTitle
-------------
+`websiteTitle`
+--------------
 
 The title of the website which is used in :html:`<title>` tag in the frontend.
 
@@ -166,8 +166,8 @@ description see :ref:`Language configuration <sitehandling-addingLanguages>`.
 
 ..  _sitehandling-basics-errorHandling:
 
-errorHandling
--------------
+`errorHandling`
+---------------
 
 The error handling section describes how to handle error status codes for this
 website. It allows you to configure custom redirects, rendering templates, and
@@ -188,8 +188,8 @@ Read more at :ref:`static routes<sitehandling-staticRoutes>`.
 
 ..  _sitehandling-basics-routeEnhancers:
 
-routeEnhancers
---------------
+`routeEnhancers`
+----------------
 
 ..  todo: Add some more documentation here from the changelog?
 

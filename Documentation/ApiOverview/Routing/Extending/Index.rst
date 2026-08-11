@@ -5,7 +5,7 @@
 ..  _routing-extending-routing:
 
 =================
-Extending Routing
+Extending routing
 =================
 
 The TYPO3 Routing is extendable by design, so you can write both custom aspects
@@ -88,7 +88,7 @@ example above could be used as `type: MyCustomEnhancerAsUsedInYaml`.
 ..  index:: Routing; Manipulating slugs
 
 Manipulating generated slugs
-=============================
+============================
 
 The "slug" TCA type includes a possibility to hook into the generation of a slug
 via custom TCA generation options.

@@ -4,7 +4,7 @@
 ..  _cgl-static-methods:
 
 ===============================================
-Static Methods, static Classes, Utility Classes
+Static methods, static classes, utility classes
 ===============================================
 
 
@@ -98,7 +98,7 @@ edge cases.
 
 ..  _cgl-model-static-methods-good-examples:
 
-Good Examples
+Good examples
 =============
 
 *   :php:`Core/Utility/ArrayUtility`
@@ -126,7 +126,7 @@ Good Examples
 
 ..  _cgl-model-static-methods-bad-examples:
 
-Bad Examples
+Bad examples
 ============
 
 *   :php:`Backend/Utility/BackendUtility`
@@ -158,7 +158,7 @@ Bad Examples
 
 ..  _cgl-model-static-methods-red-flags:
 
-Red Flags
+Red flags
 =========
 
 *   :php:`$GLOBALS: Utility` code should not have dependencies to global

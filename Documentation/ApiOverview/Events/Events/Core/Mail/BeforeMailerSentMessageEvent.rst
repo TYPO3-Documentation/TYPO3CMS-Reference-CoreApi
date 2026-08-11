@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeMailerSentMessageEvent
 ..  _BeforeMailerSentMessageEvent:
 
-============================
-BeforeMailerSentMessageEvent
-============================
+==============================
+`BeforeMailerSentMessageEvent`
+==============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent`
 is dispatched before the message is sent by the mailer and can be

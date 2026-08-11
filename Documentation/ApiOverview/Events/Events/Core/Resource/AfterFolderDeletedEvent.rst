@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFolderDeletedEvent
 ..  _AfterFolderDeletedEvent:
 
-=======================
-AfterFolderDeletedEvent
-=======================
+=========================
+`AfterFolderDeletedEvent`
+=========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\AfterFolderDeletedEvent`
 is fired after a folder was deleted. Custom listeners can then further clean up

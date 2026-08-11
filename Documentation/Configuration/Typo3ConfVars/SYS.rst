@@ -6,7 +6,7 @@
 ..  _typo3ConfVars_sys:
 
 ==========================
-SYS - System configuration
+SYS - system configuration
 ==========================
 
 The following configuration variables can be used for system-wide

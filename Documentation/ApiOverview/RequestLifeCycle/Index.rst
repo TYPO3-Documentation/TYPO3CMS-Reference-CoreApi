@@ -5,7 +5,7 @@
 .. _request-life-cycle:
 
 ==================
-Request Life Cycle
+Request life cycle
 ==================
 
 ..  toctree::

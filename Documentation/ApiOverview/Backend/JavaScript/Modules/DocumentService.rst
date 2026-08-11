@@ -2,9 +2,9 @@
 
 .. _modules-documentservice:
 
-=========================================
-DocumentService (jQuery.ready substitute)
-=========================================
+===========================================
+`DocumentService` (jQuery.ready substitute)
+===========================================
 
 The module :js:`TYPO3/CMS/Core/DocumentService` provides native JavaScript
 functions to detect DOM ready-state returning a :js:`Promise<Document>`.

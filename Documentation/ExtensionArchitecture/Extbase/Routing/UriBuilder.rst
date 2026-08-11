@@ -6,9 +6,9 @@
 ..  _extbase-uri-builder:
 ..  _uri-builder-api:
 
-===================================
-Generating URLs with the UriBuilder
-===================================
+=====================================
+Generating URLs with the `UriBuilder`
+=====================================
 
 The :php-short:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder` generates URLs
 for Extbase actions. When routing configuration is in place, it produces the

@@ -6,7 +6,7 @@
 ..  _typo3ConfVars_db:
 
 =========================
-DB - Database connections
+DB - database connections
 =========================
 
 The following configuration variables can be used to configure settings for

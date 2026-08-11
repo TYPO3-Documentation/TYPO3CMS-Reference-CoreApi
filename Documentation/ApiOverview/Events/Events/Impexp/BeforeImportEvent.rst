@@ -3,9 +3,9 @@
 ..  _BeforeImportEvent:
 
 
-=================
-BeforeImportEvent
-=================
+===================
+`BeforeImportEvent`
+===================
 
 The PSR-14 event :php:`\TYPO3\CMS\Impexp\Event\BeforeImportEvent` is triggered
 when an import file is about to be imported.

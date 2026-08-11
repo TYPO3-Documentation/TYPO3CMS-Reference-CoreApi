@@ -6,9 +6,9 @@
    Resources; locallang
 .. _extension-Resources-Private-Language:
 
-================
-:file:`Language`
-================
+==========
+`Language`
+==========
 
 Contains Language resources.
 

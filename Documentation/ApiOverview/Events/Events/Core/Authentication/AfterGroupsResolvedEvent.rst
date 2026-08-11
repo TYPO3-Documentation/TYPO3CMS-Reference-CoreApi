@@ -2,9 +2,9 @@
 ..  index:: Events; AfterGroupsResolvedEvent
 ..  _AfterGroupsResolvedEvent:
 
-========================
-AfterGroupsResolvedEvent
-========================
+==========================
+`AfterGroupsResolvedEvent`
+==========================
 
 When user groups are loaded, for example when a backend editor's groups and permissions
 are calculated, a new PSR-14 event `AfterGroupsResolvedEvent` is fired.

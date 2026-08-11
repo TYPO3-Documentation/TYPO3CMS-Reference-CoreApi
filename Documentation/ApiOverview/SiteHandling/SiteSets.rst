@@ -145,7 +145,7 @@ Settings have a default value that can be
 ..  _site-sets-settings:
 
 Override site settings defaults by subsets
-===========================================
+==========================================
 
 Settings for subsets (for example to configure settings in declared dependencies)
 can be shipped via :file:`settings.yaml <set-settings-yaml>` when placed next to the set file
@@ -315,7 +315,7 @@ A list of available site sets can be retrieved with the console command
 
 ..  _site-sets-example-site-package:
 
-Example: Using a set within a site package
+Example: using a set within a site package
 ==========================================
 
 You can see an example of using a set within a site package in the extension
@@ -435,7 +435,7 @@ override default settings made by the set of
 
 ..  _site-sets-example-extension:
 
-Example: Providing a site set in an extension
+Example: providing a site set in an extension
 =============================================
 
 Non site-package extensions can also provide site sets. These can be used by
@@ -508,7 +508,7 @@ correct loading order of the TypoScript.
 
 ..  _site-sets-php-api:
 
-Site Set PHP API
+Site set PHP API
 ================
 
 ..  _site-sets-php-api-site:
@@ -527,8 +527,8 @@ already been validated, converted and, if not set, the default value is used.
 
 ..  _site-sets-php-api-setregistry:
 
-SetRegistry
------------
+`SetRegistry`
+-------------
 
 The :php:`\TYPO3\CMS\Core\Site\Set\SetRegistry` retrieves the site sets found in an ordered sequence, as
 defined by `dependencies` in `config.yaml`. Please preferably use the site
@@ -540,8 +540,8 @@ use :php:`TYPO3\CMS\Core\Site\Set\SetCollector`.
 
 ..  _site-sets-php-api-setregistry-getsets:
 
-getSets
-~~~~~~~
+`getSets`
+~~~~~~~~~
 
 Reads one or more site set definitions including their dependencies.
 
@@ -551,8 +551,8 @@ Reads one or more site set definitions including their dependencies.
 
 ..  _site-sets-php-api-setregistry-hasset:
 
-hasSet
-~~~~~~
+`hasSet`
+~~~~~~~~
 
 Checks whether a site set definition is available.
 
@@ -562,8 +562,8 @@ Checks whether a site set definition is available.
 
 ..  _site-sets-php-api-setregistry-getset:
 
-getSet
-~~~~~~
+`getSet`
+~~~~~~~~
 
 Reads a site set definition WITHOUT dependencies.
 
@@ -573,8 +573,8 @@ Reads a site set definition WITHOUT dependencies.
 
 ..  _site-sets-php-api-setcollector:
 
-SetCollector
-~~~~~~~~~~~~
+`SetCollector`
+~~~~~~~~~~~~~~
 
 TYPO3 comes with a new `ServiceProvider`, which goes through all extensions
 with the first instantiation of the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` and

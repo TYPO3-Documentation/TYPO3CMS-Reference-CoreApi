@@ -151,7 +151,7 @@ cache for subsequent lookups.
 
 .. _translation-domain-rules:
 
-Domain Generation Rules
+Domain generation rules
 -----------------------
 
 Domain names are derived from file paths using the following transformation
@@ -207,8 +207,8 @@ domains in custom extensions:
 
 ..  _label-reference-legacy:
 
-Legacy file-based lLabel references
-===================================
+Legacy file-based `lLabel` references
+=====================================
 
 The legacy label reference format uses the `LLL:` prefix and an explicit
 path to an XLIFF translation file within an extension.
@@ -262,7 +262,7 @@ If label references are not resolved, you can do it manually:
 
 ..  _label-reference-resolve-fluid:
 
-Fluid: Using the f:translate ViewHelper
+Fluid: using the f:translate ViewHelper
 ---------------------------------------
 
 Use the :ref:`f:translate <t3viewhelper:typo3-fluid-translate>` ViewHelper to
@@ -280,8 +280,8 @@ See also: `The translation ViewHelper f:translate
 
 ..  _label-reference-resolve-typoscript:
 
-TypoScript: Using the getText property
---------------------------------------
+TypoScript: using the `getText` property
+----------------------------------------
 
 The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be used to
 fetch translations from a language file and render them in the current language.
@@ -303,7 +303,7 @@ See also:
 
 ..  _label-reference-resolve-php:
 
-PHP: Using a translator
+PHP: using a translator
 -----------------------
 
 In PHP localized labels can be retrieved via a

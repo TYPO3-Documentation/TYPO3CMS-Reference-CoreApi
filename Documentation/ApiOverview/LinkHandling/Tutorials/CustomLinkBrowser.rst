@@ -287,8 +287,8 @@ If the link cannot be built, it should throw a
 
 ..  _AbstractTypolinkBuilder-migration:
 
-Migration from AbstractTypolinkBuilder::build() to TypolinkBuilderInterface
-===========================================================================
+Migration from `AbstractTypolinkBuilder::build()` to `TypolinkBuilderInterface`
+===============================================================================
 
 If you are an extension developer with custom TypolinkBuilder classes:
 

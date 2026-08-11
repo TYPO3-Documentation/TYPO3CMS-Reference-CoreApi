@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyConstraintsForLiveSearchEvent
 ..  _ModifyConstraintsForLiveSearchEvent:
 
-===================================
-ModifyConstraintsForLiveSearchEvent
-===================================
+=====================================
+`ModifyConstraintsForLiveSearchEvent`
+=====================================
 
 ..  versionadded:: 14.2
 The PSR-14 event :php-short:`\TYPO3\CMS\Backend\Search\Event\ModifyConstraintsForLiveSearchEvent`

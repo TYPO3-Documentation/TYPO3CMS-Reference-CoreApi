@@ -4,9 +4,9 @@
    Path; EXT:{extkey}/Configuration/ContentSecurityPolicies.php
 .. _extension-configuration-ContentSecurityPolicies-php:
 
-===================================
-:file:`ContentSecurityPolicies.php`
-===================================
+=============================
+`ContentSecurityPolicies.php`
+=============================
 
 ..  typo3:file:: ContentSecurityPolicies.php
     :scope: extension

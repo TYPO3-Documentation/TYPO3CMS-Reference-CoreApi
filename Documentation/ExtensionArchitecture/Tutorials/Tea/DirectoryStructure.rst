@@ -28,8 +28,8 @@ On the first level `EXT:tea <https://github.com/TYPO3-Documentation/tea>`__ has 
 
 ..  _extbase-tutorial-tea-directory-structure-directory-classes:
 
-Directory :file:`Classes`
--------------------------
+Directory `Classes`
+-------------------
 
 The :file:`Classes/` folder should contain all the PHP classes provided by the
 extension. Otherwise they will not be available in the default
@@ -72,8 +72,8 @@ should be stored in the respective viewhelper folder.
 
 ..  _extbase-tutorial-tea-directory-structure-directory-configuration:
 
-Directory :file:`Configuration`
--------------------------------
+Directory `Configuration`
+-------------------------
 
 See also documentation on the :ref:`extension-configuration-files` folder.
 
@@ -121,16 +121,16 @@ The :file:`Configuration` folder contains several subfolders:
 
 ..  _extbase-tutorial-tea-directory-structure-directory-documentation:
 
-Directory :file:`Documentation/`
--------------------------------
+Directory `Documentation/`
+--------------------------
 
 The :file:`Documentation/` folder contains files from which
 documentation is rendered. See :ref:`extension-files-documentation`.
 
 ..  _extbase-tutorial-tea-directory-structure-directory-resources:
 
-Directory :file:`Resources/`
----------------------------
+Directory `Resources/`
+----------------------
 
 See also documentation on the :ref:`extension-Resources` folder.
 
@@ -165,8 +165,8 @@ further divided up:
 
 ..  _extbase-tutorial-tea-directory-structure-directory-tests:
 
-Directory :file:`Tests/`
------------------------
+Directory `Tests/`
+------------------
 
 Contains automatic tests (topic not covered by this tutorial).
 

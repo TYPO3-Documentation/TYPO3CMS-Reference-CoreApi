@@ -2,9 +2,9 @@
 
 .. _applying-core-patches:
 
-==============================
+=====================
 Applying Core patches
-==============================
+=====================
 
 At some point you may be required to apply changes to TYPO3's core. For example
 you may be testing a colleague's feature or working on a patch of your own.

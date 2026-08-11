@@ -64,7 +64,7 @@ later in the Icon API.
 
 ..  _page-types-example-register-icon:
 
-Register the icon via Icon API
+Register the icon via icon API
 ==============================
 
 The identifier used in the TCA (`tx-examples-archive-page`) must be

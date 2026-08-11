@@ -2,9 +2,9 @@
 ..  index:: Events; AfterBackendGroupFilterListIsAssembledEvent
 ..  _AfterBackendGroupFilterListIsAssembledEvent:
 
-===========================================
-AfterBackendGroupFilterListIsAssembledEvent
-===========================================
+=============================================
+`AfterBackendGroupFilterListIsAssembledEvent`
+=============================================
 
 ..  versionadded:: 14.0
 

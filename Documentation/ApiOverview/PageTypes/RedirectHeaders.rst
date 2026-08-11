@@ -7,9 +7,9 @@
     Page types; Redirect headers
 ..  _page-types-redirect-header:
 
-==================================================
-X-Redirect-By header for pages with redirect types
-==================================================
+====================================================
+`X-Redirect-By` header for pages with redirect types
+====================================================
 
 The following page types trigger a redirect:
 

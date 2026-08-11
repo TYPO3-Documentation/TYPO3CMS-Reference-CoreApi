@@ -5,7 +5,7 @@
 .. _production-settings:
 
 ===================
-Production Settings
+Production settings
 ===================
 
 To ensure a secure installation of TYPO3 on a production server, the following settings need to be set:

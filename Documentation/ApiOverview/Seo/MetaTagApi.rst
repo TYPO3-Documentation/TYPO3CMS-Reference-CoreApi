@@ -2,9 +2,9 @@
 .. index:: ! MetaTag
 .. _metatagapi:
 
-============
-MetaTag API
-============
+=============
+`MetaTag` API
+=============
 
 The MetaTag API is available for setting meta tags in a flexible way.
 
@@ -23,8 +23,8 @@ In addition to the MetaTagManagers included in the Core, you can also register y
 .. index:: pair: MetaTag; API
 .. _metatagapi-usage:
 
-Using the MetaTag API
-======================
+Using the `MetaTag` API
+=======================
 
 To use the API, first get the right :php:`MetaTagManager` for your tag from the :php:`MetaTagManagerRegistry`.
 You can use that manager to add your meta tag; see the example below for the :html:`og:title` meta tag.
@@ -54,8 +54,8 @@ Or remove all previously set meta tags of a specific manager:
 .. index:: MetaTag; Custom MetaTagManager
 .. _metatagapi-create-your-own:
 
-Creating Your Own MetaTagManager
-================================
+Creating your own `MetaTagManager`
+==================================
 
 If you need to specify the settings and rendering of a specific meta tag (for example when you want to make it possible
 to have multiple occurrences of a specific tag), you can create your own :php:`MetaTagManager`.

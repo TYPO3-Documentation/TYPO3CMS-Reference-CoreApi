@@ -5,9 +5,9 @@
 .. _extension-configuration-RequestMiddlewares-php:
 
 
-================================
-:file:`RequestMiddlewares.php`
-================================
+========================
+`RequestMiddlewares.php`
+========================
 
 ..  typo3:file:: RequestMiddlewares.php
     :scope: extension

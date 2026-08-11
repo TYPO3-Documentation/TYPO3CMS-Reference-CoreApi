@@ -2,9 +2,9 @@
 ..  index:: Events; IsTableExcludedFromReferenceIndexEvent
 ..  _IsTableExcludedFromReferenceIndexEvent:
 
-======================================
-IsTableExcludedFromReferenceIndexEvent
-======================================
+========================================
+`IsTableExcludedFromReferenceIndexEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\DataHandling\Event\IsTableExcludedFromReferenceIndexEvent`

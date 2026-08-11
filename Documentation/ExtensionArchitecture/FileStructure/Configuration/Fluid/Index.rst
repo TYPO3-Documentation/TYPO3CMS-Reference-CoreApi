@@ -7,9 +7,9 @@
 
 ..  _extension-configuration-fluid:
 
-========================================
+======================================
 Extension folder `Configuration/Fluid`
-========================================
+======================================
 
 The folder :file:`EXT:my_extension/Configuration/Fluid/` contains
 configuration that introduces namespaces for Fluid.

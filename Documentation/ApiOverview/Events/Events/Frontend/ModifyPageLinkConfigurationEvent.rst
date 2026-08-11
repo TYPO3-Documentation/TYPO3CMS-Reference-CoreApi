@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyPageLinkConfigurationEvent
 ..  _ModifyPageLinkConfigurationEvent:
 
-================================
-ModifyPageLinkConfigurationEvent
-================================
+==================================
+`ModifyPageLinkConfigurationEvent`
+==================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\ModifyPageLinkConfigurationEvent`
 is called after a page has been resolved, and includes arguments such as the

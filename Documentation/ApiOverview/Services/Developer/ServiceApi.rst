@@ -16,7 +16,7 @@ Authentication services should inherit from
 .. _services-developer-service-api-implementation:
 
 
-Service Implementation
+Service implementation
 ======================
 
 These methods are related to the general functioning of services.
@@ -73,7 +73,7 @@ called.
 
 .. _services-developer-service-api-getters:
 
-Getter Methods for Service Information
+Getter methods for service information
 ======================================
 
 Most of the below methods are quite obvious, except for
@@ -121,7 +121,7 @@ getServiceOption
 
 .. _services-developer-service-api-error:
 
-Error Handling
+Error handling
 ==============
 
 This set of methods handles the error reporting and manages the error
@@ -158,7 +158,7 @@ resetErrors
 
 .. _services-developer-service-api-general:
 
-General Service Functions
+General service functions
 =========================
 
 checkExec
@@ -213,7 +213,7 @@ unlinkTempFiles
 
 .. _services-developer-service-api-io-input-output:
 
-I/O Input and I/O Output
+I/O Input and I/O output
 ========================
 
 These methods provide a standard way of defining or getting the

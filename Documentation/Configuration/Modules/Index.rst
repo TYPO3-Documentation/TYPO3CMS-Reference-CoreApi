@@ -4,7 +4,7 @@
 ..  _config-overview-backend:
 
 =================================================
-View and edit settings from the backend: Overview
+View and edit settings from the backend: overview
 =================================================
 
 ..  toctree::

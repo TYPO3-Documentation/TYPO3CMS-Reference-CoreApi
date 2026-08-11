@@ -3,9 +3,9 @@
 ..  _fal-using-fal-examples:
 ..  _fal-using-fal-examples-storage-repository:
 
-===========================
-The StorageRepository class
-===========================
+=============================
+The `StorageRepository` class
+=============================
 
 The :php:`\TYPO3\CMS\Core\Resource\StorageRepository` is the
 main class for creating and retrieving

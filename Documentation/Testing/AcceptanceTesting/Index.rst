@@ -94,8 +94,8 @@ further tests:
 
 ..  _testing-writing-acceptance-pagetree:
 
-PageTree
-========
+`PageTree`
+==========
 
 An abstract class of `typo3/testing-framework` can be extended and used to open and
 select specific pages in the page tree. A typical class looks like this:
@@ -118,8 +118,8 @@ not yet done, and then select the second level page called "elements basic".
 
 ..  _testing-writing-acceptance-modal:
 
-ModalDialog
-===========
+`ModalDialog`
+=============
 
 Similar to the PageTree, an abstract class called :php:`AbstractModalDialog` is
 provided by `typo3/testing-framework` to help dealing with modal "popups" The

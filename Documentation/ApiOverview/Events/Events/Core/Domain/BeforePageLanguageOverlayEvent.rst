@@ -2,9 +2,9 @@
 ..  index:: Events; BeforePageLanguageOverlayEvent
 ..  _BeforePageLanguageOverlayEvent:
 
-==============================
-BeforePageLanguageOverlayEvent
-==============================
+================================
+`BeforePageLanguageOverlayEvent`
+================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Domain\Event\BeforePageLanguageOverlayEvent`
 is a special event which is fired when TYPO3 is about to do the language overlay

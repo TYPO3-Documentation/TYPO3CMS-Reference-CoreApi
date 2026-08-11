@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyClearCacheActionsEvent
 ..  _ModifyClearCacheActionsEvent:
 
-============================
-ModifyClearCacheActionsEvent
-============================
+==============================
+`ModifyClearCacheActionsEvent`
+==============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent`
 is fired in the :php-short:`\TYPO3\CMS\Backend\Backend\ToolbarItems\ClearCacheToolbarItem`
@@ -57,8 +57,8 @@ API
 
 ..  _ModifyClearCacheActionsEvent-api-add-cache-action:
 
-addCacheAction
---------------
+`addCacheAction`
+----------------
 
 The cache action array element consists of the following keys and values:
 
@@ -128,8 +128,8 @@ The cache action array element consists of the following keys and values:
 
 ..  _ModifyClearCacheActionsEvent-api-add-cache-identifier:
 
-addCacheActionIdentifier
-------------------------
+`addCacheActionIdentifier`
+--------------------------
 
 The cache identifier array is a numerical array in which the array value
 corresponds to the registered `id` of the cache action array.

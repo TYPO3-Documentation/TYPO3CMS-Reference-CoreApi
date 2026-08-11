@@ -89,7 +89,7 @@ in the initial (manual) deployment section.
 ..  _deployment-rsync-deployment-regular:
 
 Incremental deployments with rsync
-==============================
+==================================
 
 On subsequent deployments you only have to deploy the files that contain the
 code that you have developed locally. You do not want to override images that

@@ -26,7 +26,7 @@
 
 ..  _ext-tables-php-migration:
 
-Migration: Move registrations from `ext_tables.php`
+Migration: move registrations from `ext_tables.php`
 ===================================================
 
 Move all registrations from :file:`ext_tables.php` to the appropriate

@@ -2,9 +2,9 @@
 .. index:: Events; ModifyHrefLangTagsEvent
 .. _ModifyHrefLangTagsEvent:
 
-=======================
-ModifyHrefLangTagsEvent
-=======================
+=========================
+`ModifyHrefLangTagsEvent`
+=========================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` is available to alter

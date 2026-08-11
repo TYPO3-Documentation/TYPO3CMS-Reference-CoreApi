@@ -10,7 +10,7 @@ Creating a new database model
 ..  _creating-database-model-create-sql-database:
 
 Create SQL database schema
----------------------------
+--------------------------
 
 *   Add `example-extension/ext_tables.sql`
 *   Model the database scheme from the TCA or PHP model perspective, then check which fields still have to be added to the ext_tables regarding your TYPO3 version by comparing database model with configuration, read more `here <https://docs.typo3.org/permalink/changelog:feature-101553-1691166389/>`_
@@ -33,7 +33,7 @@ Create SQL database schema
 ..  _creating-database-model-create-tca-configuration:
 
 Create TCA configuration
--------------------------
+------------------------
 
 *   Add `example-extension/Configuration/TCA/{table name}.php`
     * In the example: `example-extension/Configuration/TCA/tx_exampleextension_domain_model_example.php`

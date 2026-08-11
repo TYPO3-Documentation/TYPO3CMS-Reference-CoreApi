@@ -2,9 +2,9 @@
 ..  index:: Events; AfterImageResourceResolvedEvent
 ..  _AfterImageResourceResolvedEvent:
 
-===============================
-AfterImageResourceResolvedEvent
-===============================
+=================================
+`AfterImageResourceResolvedEvent`
+=================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\AfterImageResourceResolvedEvent`

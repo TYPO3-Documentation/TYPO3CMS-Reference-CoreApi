@@ -40,8 +40,8 @@ Environment PHP API
    File; composer.json
 .. _Environment-project-path:
 
-getProjectPath()
-----------------
+`getProjectPath()`
+------------------
 
 The environment provides the path to the folder containing the :file:`composer.json`.
 For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
@@ -52,8 +52,8 @@ For projects without Composer setup, this is equal to :ref:`Environment-public-p
    PATH_site
 .. _Environment-public-path:
 
-getPublicPath()
----------------
+`getPublicPath()`
+-----------------
 
 The environment provides the path to the public web folder with
 :file:`index.php` for the TYPO3 frontend. This was previously :php:`PATH_site`.
@@ -66,8 +66,8 @@ For projects without Composer setup, this is equal to :ref:`Environment-project-
    Path; typo3temp/var
 .. _Environment-var-path:
 
-getVarPath()
-------------
+`getVarPath()`
+--------------
 
 The environment provides the path to the :file:`var/` folder. This folder contains
 data like logs, sessions, locks, and cache files.
@@ -90,8 +90,8 @@ installations :ref:`classic-directory-typo3temp-var`.
    Path; config
 .. _Environment-config-path:
 
-getConfigPath()
----------------
+`getConfigPath()`
+-----------------
 
 In Composer-based installation this method provides the path
 :ref:`directory-config`, in Classic mode installations
@@ -121,8 +121,8 @@ containing the :ref:`configuration files <configuration-files>`
    Path; typo3conf/l10n
 .. _Environment-labels-path:
 
-getLabelsPath()
----------------
+`getLabelsPath()`
+-----------------
 
 The environment provides the path to :ref:`directory-var-labels` in
 Composer-based installations, respective :ref:`classic-directory-typo3conf-l10n`
@@ -139,8 +139,8 @@ folder in Classic mode installations. This folder contains downloaded translatio
 .. index:: Environment; getCurrentScript
 .. _Environment-current-script:
 
-getCurrentScript()
-------------------
+`getCurrentScript()`
+--------------------
 
 Returns the path and filename to the current PHP script.
 
@@ -150,8 +150,8 @@ Returns the path and filename to the current PHP script.
    TYPO3_CONTEXT
 .. _Environment-context:
 
-getContext()
-------------
+`getContext()`
+--------------
 
 Returns the current :ref:`application-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
 May be one of `Production`, `Testing`, or `Development` with optional sub-contexts like `Production/Staging`.

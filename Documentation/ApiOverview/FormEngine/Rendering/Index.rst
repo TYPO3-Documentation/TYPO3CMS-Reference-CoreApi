@@ -46,7 +46,7 @@ on it.
 
 .. _FormEngine-Rendering-ClassInheritance:
 
-Class Inheritance
+Class inheritance
 =================
 
 ..  uml:: /Images/Plantuml/FormEngine/FormEngineRenderClasses.plantuml
@@ -64,8 +64,8 @@ single element never calls a container again.
 
 .. _FormEngine-Rendering-NodeFactory:
 
-NodeFactory
-===========
+`NodeFactory`
+=============
 
 The :php:`NodeFactory` plays an important abstraction role within the render chain: Creation of child nodes is
 always routed through it, and the NodeFactory takes care of finding and validating the according class that
@@ -129,7 +129,7 @@ The trick here is that CKEditor registers his resolver with a higher priority (5
 
 .. _FormEngine-Rendering-ResultArray:
 
-Result Array
+Result array
 ============
 
 Each node, no matter if it is a container, an element, or a :ref:`node expansion <FormEngine-Rendering-NodeExpansion>`,
@@ -192,7 +192,7 @@ Or a controller:
 
 .. _FormEngine-Rendering-NodeExpansion:
 
-Node Expansion
+Node expansion
 ==============
 
 The "node expansion" classes :php:`FieldControl`, :php:`FieldInformation` and :php:`FieldWizard` are called by containers
@@ -242,8 +242,8 @@ It is possible to:
 
 ..  _form-engine-rendering-add-fieldcontrol-example:
 
-Add fieldControl Example
-========================
+Add `fieldControl` example
+==========================
 
 To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages

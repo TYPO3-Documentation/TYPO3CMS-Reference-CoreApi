@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyLocalizationHandlerIsAvailableEvent
 ..  _ModifyLocalizationHandlerIsAvailableEvent:
 
-=========================================
-ModifyLocalizationHandlerIsAvailableEvent
-=========================================
+===========================================
+`ModifyLocalizationHandlerIsAvailableEvent`
+===========================================
 
 ..  versionadded:: 14.2
 

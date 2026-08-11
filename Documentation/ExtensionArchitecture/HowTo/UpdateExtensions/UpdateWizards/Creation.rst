@@ -37,8 +37,8 @@ The class *may* implement other interfaces (optional):
 .. _upgrade-wizards-register:
 .. _upgrade-wizards-interface:
 
-UpgradeWizardInterface
-======================
+`UpgradeWizardInterface`
+========================
 
 ..  deprecated:: 14.0
     :php:`\TYPO3\CMS\Install\Updates\UpgradeWizardInterface` has been deprecated,

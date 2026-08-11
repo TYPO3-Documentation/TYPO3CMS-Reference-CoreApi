@@ -4,9 +4,9 @@
 .. index:: Backend modules; TypoScript
 .. _backend-module-typoscript:
 
-====================================
+===================================
 TypoScript configuration of modules
-====================================
+===================================
 
 The backend module of an extension can be configured via TypoScript.
 The configuration is done

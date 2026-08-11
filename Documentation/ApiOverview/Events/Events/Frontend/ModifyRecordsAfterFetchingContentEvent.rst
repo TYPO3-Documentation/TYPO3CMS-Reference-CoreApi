@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyRecordsAfterFetchingContentEvent
 ..  _ModifyRecordsAfterFetchingContentEvent:
 
-======================================
-ModifyRecordsAfterFetchingContentEvent
-======================================
+========================================
+`ModifyRecordsAfterFetchingContentEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\ModifyRecordsAfterFetchingContentEvent`

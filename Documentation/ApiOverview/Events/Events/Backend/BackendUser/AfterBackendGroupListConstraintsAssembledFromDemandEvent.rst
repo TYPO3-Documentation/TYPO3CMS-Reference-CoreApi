@@ -2,9 +2,9 @@
 ..  index:: Events; AfterBackendGroupListConstraintsAssembledFromDemandEvent
 ..  _AfterBackendGroupListConstraintsAssembledFromDemandEvent:
 
-========================================================
-AfterBackendGroupListConstraintsAssembledFromDemandEvent
-========================================================
+==========================================================
+`AfterBackendGroupListConstraintsAssembledFromDemandEvent`
+==========================================================
 
 ..  versionadded:: 14.0
 

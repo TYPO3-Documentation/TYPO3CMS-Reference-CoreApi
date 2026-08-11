@@ -49,8 +49,8 @@ For more information about extension structure, please refer to the
     Path; EXT:{extkey}/Configuration/TCA/Overrides
 ..  _storing-changes-extension-overrides:
 
-Storing in the :file:`Overrides/` folder
-----------------------------------------
+Storing in the `Overrides/` folder
+----------------------------------
 
 Modifications to :php:`$GLOBALS['TCA']`
 must be stored in :file:`Configuration/TCA/Overrides/`. For clarity, files should

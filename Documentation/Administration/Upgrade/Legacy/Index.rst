@@ -9,7 +9,7 @@ Classic mode upgrade
 
 ..  _classic-mode-upgrade-minor:
 
-Minor Upgrades  - Using The Core Updater
+Minor upgrades  - using the Core updater
 ========================================
 
 The "Install Tool" in the section "Important Actions" provides a function to
@@ -45,7 +45,7 @@ that your update is finished.
 ..  _classic-mode-upgrade-major:
 ..  _install-manually:
 
-Major Upgrades - Symlink The Core
+Major upgrades - symlink the Core
 =================================
 
 Go to https://typo3.org/download/ and download
@@ -70,7 +70,7 @@ for the new version.
 
 ..  _classic-mode-upgrade-disable:
 
-Disabling the Core Updater in a classic mode installation
+Disabling the Core updater in a classic mode installation
 =========================================================
 
 The Core Updater functionality can be turned off, in order to avoid users using it,

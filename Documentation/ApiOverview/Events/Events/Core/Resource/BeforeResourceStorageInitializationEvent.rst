@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeResourceStorageInitializationEvent
 ..  _BeforeResourceStorageInitializationEvent:
 
-========================================
-BeforeResourceStorageInitializationEvent
-========================================
+==========================================
+`BeforeResourceStorageInitializationEvent`
+==========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\BeforeResourceStorageInitializationEvent`

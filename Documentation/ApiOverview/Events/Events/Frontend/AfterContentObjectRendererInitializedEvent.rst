@@ -2,9 +2,9 @@
 ..  index:: Events; AfterContentObjectRendererInitializedEvent
 ..  _AfterContentObjectRendererInitializedEvent:
 
-==========================================
-AfterContentObjectRendererInitializedEvent
-==========================================
+============================================
+`AfterContentObjectRendererInitializedEvent`
+============================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\AfterContentObjectRendererInitializedEvent`

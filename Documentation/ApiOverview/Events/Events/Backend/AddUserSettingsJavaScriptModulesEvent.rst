@@ -2,9 +2,9 @@
 ..  index:: Events; AddUserSettingsJavaScriptModulesEvent
 ..  _AddUserSettingsJavaScriptModulesEvent:
 
-=====================================
-AddUserSettingsJavaScriptModulesEvent
-=====================================
+=======================================
+`AddUserSettingsJavaScriptModulesEvent`
+=======================================
 
 JavaScript events in custom user settings configuration options should not be
 placed as inline JavaScript. Instead, use a dedicated JavaScript module to

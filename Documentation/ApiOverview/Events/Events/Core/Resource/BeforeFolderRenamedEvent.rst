@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFolderRenamedEvent
 ..  _BeforeFolderRenamedEvent:
 
-========================
-BeforeFolderRenamedEvent
-========================
+==========================
+`BeforeFolderRenamedEvent`
+==========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFolderRenamedEvent`
 is fired before a folder is about to be renamed. Listeners can be used to modify

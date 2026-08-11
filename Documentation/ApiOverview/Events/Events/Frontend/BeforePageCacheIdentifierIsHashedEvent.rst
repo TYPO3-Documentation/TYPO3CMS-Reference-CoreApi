@@ -2,9 +2,9 @@
 ..  index:: Events; BeforePageCacheIdentifierIsHashedEvent
 ..  _BeforePageCacheIdentifierIsHashedEvent:
 
-======================================
-BeforePageCacheIdentifierIsHashedEvent
-======================================
+========================================
+`BeforePageCacheIdentifierIsHashedEvent`
+========================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\BeforePageCacheIdentifierIsHashedEvent`
 is dispatched just before the final page cache identifier is created, that is

@@ -3,9 +3,9 @@
 ..  _SwitchUserEvent:
 
 
-===============
-SwitchUserEvent
-===============
+=================
+`SwitchUserEvent`
+=================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Authentication\Event\SwitchUserEvent`

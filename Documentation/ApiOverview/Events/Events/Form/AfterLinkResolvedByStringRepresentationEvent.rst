@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFormDefinitionLoadedEvent
 ..  _AfterFormDefinitionLoadedEvent:
 
-==============================
-AfterFormDefinitionLoadedEvent
-==============================
+================================
+`AfterFormDefinitionLoadedEvent`
+================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Form\Mvc\Persistence\Event\AfterFormDefinitionLoadedEvent`

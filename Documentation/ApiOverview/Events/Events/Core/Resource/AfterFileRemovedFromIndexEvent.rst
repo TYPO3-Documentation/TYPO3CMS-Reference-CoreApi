@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileRemovedFromIndexEvent
 ..  _AfterFileRemovedFromIndexEvent:
 
-==============================
-AfterFileRemovedFromIndexEvent
-==============================
+================================
+`AfterFileRemovedFromIndexEvent`
+================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileRemovedFromIndexEvent`

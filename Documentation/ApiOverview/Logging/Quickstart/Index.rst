@@ -5,7 +5,7 @@
 ..  _logging-quickstart:
 
 ==========================================
-Quickstart: Writing to the logger from PHP
+Quickstart: writing to the logger from PHP
 ==========================================
 
 ..  index::

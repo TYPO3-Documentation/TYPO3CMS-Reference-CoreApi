@@ -22,7 +22,7 @@ special functionality like
 
 ..  _LanguageService-loaders-custom:
 
-Example: A custom json translation file loader
+Example: a custom json translation file loader
 ==============================================
 
 ..  versionadded:: 14.0

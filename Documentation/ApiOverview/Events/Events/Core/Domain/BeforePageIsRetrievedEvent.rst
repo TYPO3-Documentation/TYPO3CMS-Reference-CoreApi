@@ -2,9 +2,9 @@
 ..  index:: Events; BeforePageIsRetrievedEvent
 ..  _BeforePageIsRetrievedEvent:
 
-==========================
-BeforePageIsRetrievedEvent
-==========================
+============================
+`BeforePageIsRetrievedEvent`
+============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Domain\Event\BeforePageIsRetrievedEvent`
 allows to modify the resolving of page records within

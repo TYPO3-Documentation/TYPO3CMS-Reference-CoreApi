@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileStorageTreeItemsPreparedEvent
 ..  _AfterFileStorageTreeItemsPreparedEvent:
 
-======================================
-AfterFileStorageTreeItemsPreparedEvent
-======================================
+========================================
+`AfterFileStorageTreeItemsPreparedEvent`
+========================================
 
 ..  versionadded:: 14.0
     This PSR-14 event was introduced to add visual cues and improved

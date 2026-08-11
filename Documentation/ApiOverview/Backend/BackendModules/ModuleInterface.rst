@@ -2,9 +2,9 @@
 .. index:: Backend modules; ModuleInterface
 .. _backend-module-interface:
 
-===============
-ModuleInterface
-===============
+=================
+`ModuleInterface`
+=================
 
 The registered backend modules are stored as objects in a registry and can be
 fetched using the :php:`\TYPO3\CMS\Backend\Module\ModuleProvider`.
@@ -24,7 +24,7 @@ relation handling (main modules and sub modules).
 
 ..  _backend-module-interface-moduleinterface-api:
 
-ModuleInterface API
-===================
+`ModuleInterface` API
+=====================
 
 ..  include:: /CodeSnippets/Manual/Backend/ModuleInterface.rst.txt

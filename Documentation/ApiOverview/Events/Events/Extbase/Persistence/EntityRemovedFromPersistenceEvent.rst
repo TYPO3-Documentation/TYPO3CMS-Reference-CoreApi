@@ -2,9 +2,9 @@
 ..  index:: Events; EntityRemovedFromPersistenceEvent
 ..  _EntityRemovedFromPersistenceEvent:
 
-=================================
-EntityRemovedFromPersistenceEvent
-=================================
+===================================
+`EntityRemovedFromPersistenceEvent`
+===================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityRemovedFromPersistenceEvent`

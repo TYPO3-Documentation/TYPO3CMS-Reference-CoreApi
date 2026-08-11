@@ -6,7 +6,7 @@
 .. _backend-modules-security:
 
 =======================
-Security Considerations
+Security considerations
 =======================
 
 ..  _backend-modules-security-cross-site-request:
@@ -46,12 +46,12 @@ This should be replaced with `POST` requests for improved security.
 
 ..  _backend-modules-security-cross-site-request-asserting-http:
 
-Asserting HTTP Methods in Custom Module Controllers
+Asserting HTTP methods in custom module controllers
 ---------------------------------------------------
 
 ..  _backend-modules-security-cross-site-request-asserting-http-enforcing-http:
 
-Enforcing HTTP Methods
+Enforcing HTTP methods
 ......................
 
 The revised example below uses dedicated target handlers for each controller
@@ -156,7 +156,7 @@ each controller action.
 
 ..  _backend-modules-security-cross-site-request-asserting-http-template-example:
 
-Template Example
+Template example
 ................
 
 In the revised template, `POST`-based form buttons are used
@@ -193,12 +193,12 @@ instead of `GET` links for delete actions:
 
 ..  _backend-modules-security-cross-site-request-asserting-http-2:
 
-Asserting HTTP Methods in Extbase Controllers
+Asserting HTTP methods in Extbase controllers
 ---------------------------------------------
 
 ..  _backend-modules-security-cross-site-request-asserting-http-2-enforcing:
 
-Enforcing HTTP Methods
+Enforcing HTTP methods
 ......................
 
 The following example demonstrates enforcing HTTP methods in Extbase module
@@ -251,7 +251,7 @@ controllers using :php:`AllowedMethodsTrait`:
 
 ..  _backend-modules-security-cross-site-request-asserting-http-2-template:
 
-Template Example
+Template example
 ................
 
 In the revised template, `POST`-based form buttons are used

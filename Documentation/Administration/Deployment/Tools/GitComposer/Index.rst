@@ -4,7 +4,7 @@
 ..  _deployment-git-composer:
 
 ======================================
-Deploying TYPO3 Using Git and Composer
+Deploying TYPO3 using Git and Composer
 ======================================
 
 This guide describes how to deploy a TYPO3 project directly onto your server
@@ -20,7 +20,7 @@ and **rsync**, see section
 
 ..  _deployment-git-composer-quick:
 
-Quick start: Deploy with Git and Composer
+Quick start: deploy with Git and Composer
 =========================================
 
 Execute the following in the folder into which your project was originally
@@ -57,7 +57,7 @@ Prerequisites:
 
 ..  _deployment-git-composer-clone:
 
-Step 1: Clone or update the repository
+Step 1: clone or update the repository
 --------------------------------------
 
 **First-time setup:**
@@ -76,7 +76,7 @@ Step 1: Clone or update the repository
 
 ..  _deployment-git-composer-install:
 
-Step 2: Install production dependencies
+Step 2: install production dependencies
 ---------------------------------------
 
 Install only production-relevant packages by running:
@@ -91,7 +91,7 @@ to use `--ignore-platform-reqs` to skip platform checks.
 
 ..  _deployment-git-composer-commands:
 
-Step 3: Run TYPO3 maintenance commands
+Step 3: run TYPO3 maintenance commands
 --------------------------------------
 
 Apply database schema updates if required:

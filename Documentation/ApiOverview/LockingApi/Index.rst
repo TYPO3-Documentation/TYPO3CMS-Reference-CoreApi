@@ -211,7 +211,7 @@ Acquire and use an exclusive, non-blocking lock:
 
 .. _use-locking-api-in-extensions:
 
-Extend locking in Extensions
+Extend locking in extensions
 ============================
 
 An extension can extend the locking functionality by adding a new locking
@@ -246,8 +246,8 @@ Caveats
 
 ..  _locking-api-caveats-filelockstrategy-nfs:
 
-FileLockStrategy & NFS
-----------------------
+`FileLockStrategy` & NFS
+------------------------
 
 There is a problem with PHP `flock()
 <https://www.php.net/manual/en/function.flock.php>`__ on NFS systems.
@@ -269,7 +269,7 @@ first choice for most locking operations in TYPO3.
 
 ..  _locking-api-caveats-multiple-servers-cache:
 
-Multiple servers & Cache locking
+Multiple servers & cache locking
 --------------------------------
 
 Since the Core uses the locking API for some cache operations, make sure that
@@ -286,7 +286,7 @@ Specifically, this may be a problem:
 
 .. _locking-api-more-info:
 
-Related Information
+Related information
 ===================
 
 Some of these resources are for specific systems. We link to these, if the

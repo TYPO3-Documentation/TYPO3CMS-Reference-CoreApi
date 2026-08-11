@@ -5,7 +5,7 @@
 .. _custom-permissions:
 
 ===============================
-Using Custom Permission Options
+Using custom permission options
 ===============================
 
 TYPO3 allows extension developers to register their own
@@ -63,7 +63,7 @@ The function returns true if the option is set, otherwise false.
 
 .. _custom-permissions-keys:
 
-Keys for Options
+Keys for options
 ================
 
 It is good practice to use the extension keys prefixed with :code:`tx_` on

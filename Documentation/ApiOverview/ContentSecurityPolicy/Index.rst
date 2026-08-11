@@ -4,7 +4,7 @@
 ..  _content-security-policy:
 
 =======================
-Content Security Policy
+Content security policy
 =======================
 
 ..  todo: Split this up into sub-pages!
@@ -360,7 +360,7 @@ a boilerplate configuration like the example above helps you to get started.
 .. _content-security-policy-backend-specification:
 
 Backend-specific
-------------------
+----------------
 
 The YAML configuration only applies to the frontend part of TYPO3.
 Backend policies need to be set using the PHP API, within an extension
@@ -430,7 +430,7 @@ server-side process responds with a 403 HTTP error message.
 
 ..  _content-security-policy-site-endpoints-disable:
 
-Example: Disabling the reporting endpoint
+Example: disabling the reporting endpoint
 """""""""""""""""""""""""""""""""""""""""
 
 ..  literalinclude:: _csp_reporting_false.yaml
@@ -438,7 +438,7 @@ Example: Disabling the reporting endpoint
 
 ..  _content-security-policy-site-endpoints-custom:
 
-Example: Using custom external reporting endpoint
+Example: using custom external reporting endpoint
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 ..  literalinclude:: _csp_reporting_custom.yaml
@@ -446,7 +446,7 @@ Example: Using custom external reporting endpoint
 
 ..  _content-security-policy-modes:
 
-Content Security Police modes
+Content security police modes
 -----------------------------
 
 Adjusting specific directives / mutations for a policy can be performed

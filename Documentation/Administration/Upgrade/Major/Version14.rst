@@ -4,7 +4,7 @@
 ..  _upgrade-14:
 
 =====================================
-TYPO3 14: Upgrading the major version
+TYPO3 14: upgrading the major version
 =====================================
 
 ..  warning::
@@ -17,7 +17,7 @@ TYPO3 14: Upgrading the major version
 
 ..  _upgrade-wizards-14:
 
-Upgrade Wizards for TYPO3 14
+Upgrade wizards for TYPO3 14
 ============================
 
 ..  _upgrade-wizards-14-scheduler:

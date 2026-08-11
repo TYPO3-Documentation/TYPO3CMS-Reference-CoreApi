@@ -56,7 +56,7 @@ can be inspected using the module :guilabel:`System > Configuration`.
 
 ..  _config-module-extending:
 
-Extending the Configuration module
+Extending the configuration module
 ==================================
 
 The :guilabel:`System > Configuration` module can also be extended or configured

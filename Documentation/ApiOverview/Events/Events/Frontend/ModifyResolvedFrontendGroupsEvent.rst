@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyResolvedFrontendGroupsEvent
 ..  _ModifyResolvedFrontendGroupsEvent:
 
-=================================
-ModifyResolvedFrontendGroupsEvent
-=================================
+===================================
+`ModifyResolvedFrontendGroupsEvent`
+===================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Authentication\ModifyResolvedFrontendGroupsEvent`
 event allows frontend groups to be added to a (frontend) request, regardless of

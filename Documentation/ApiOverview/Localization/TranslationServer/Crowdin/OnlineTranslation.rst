@@ -200,7 +200,7 @@ FAQ
 ..  _crowdin-crowdin-translation-faq-versions:
 
 Should I localize both 14.3 and main?
----------------------------------------
+-------------------------------------
 
 The main branch is the leading version. Any string that is also present in the
 previous version is automatically filled during export and only needs to be

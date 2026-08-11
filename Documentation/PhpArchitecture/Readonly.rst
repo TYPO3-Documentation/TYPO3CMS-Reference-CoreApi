@@ -2,9 +2,9 @@
 ..  index:: pair: Coding guidelines; About readonly
 ..  _php-architecture-readonly:
 
-=====================
-About :php:`readonly`
-=====================
+================
+About `readonly`
+================
 
 PHP v8.1 introduced
 `readonly properties <https://www.php.net/manual/en/language.oop5.properties.php#language.oop5.properties.readonly-properties>`_

@@ -120,8 +120,8 @@ This object has two properties: :php:`$content` and :php:`$elements`.
 
 ..  _soft-references-examples-property-content:
 
-Property :php:`$content`
-------------------------
+Property `$content`
+-------------------
 
 ..  code-block:: html
 
@@ -143,8 +143,8 @@ below.
 
 ..  _soft-references-examples-property-elements:
 
-Property :php:`$elements`
--------------------------
+Property `$elements`
+--------------------
 
 ..  code-block:: php
 

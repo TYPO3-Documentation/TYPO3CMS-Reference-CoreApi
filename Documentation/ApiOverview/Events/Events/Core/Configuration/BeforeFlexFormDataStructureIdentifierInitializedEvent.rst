@@ -3,9 +3,9 @@
 
 .. _BeforeFlexFormDataStructureIdentifierInitializedEvent:
 
-=====================================================
-BeforeFlexFormDataStructureIdentifierInitializedEvent
-=====================================================
+=======================================================
+`BeforeFlexFormDataStructureIdentifierInitializedEvent`
+=======================================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureIdentifierInitializedEvent`

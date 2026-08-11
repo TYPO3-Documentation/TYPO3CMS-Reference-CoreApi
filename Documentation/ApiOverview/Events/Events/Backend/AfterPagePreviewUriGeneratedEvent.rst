@@ -2,9 +2,9 @@
 ..  index:: Events; AfterPagePreviewUriGeneratedEvent
 ..  _AfterPagePreviewUriGeneratedEvent:
 
-=================================
-AfterPagePreviewUriGeneratedEvent
-=================================
+===================================
+`AfterPagePreviewUriGeneratedEvent`
+===================================
 
 The :php:`\TYPO3\CMS\Backend\Routing\Event\AfterPagePreviewUriGeneratedEvent`
 is executed in :php:`\TYPO3\CMS\Backend\Routing->buildUri()`, after the preview

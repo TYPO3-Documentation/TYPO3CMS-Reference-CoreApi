@@ -33,7 +33,7 @@ The following methods are available:
 
 ..  _typo3-information-version-information:
 
-Version Information
+Version information
 ===================
 
 PHP class :php:`TYPO3\CMS\Core\Information\Typo3Version` provides an API for

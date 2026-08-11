@@ -4,9 +4,9 @@
 ..  _tunetypo3:
 ..  _administation-production:
 
-=======================================
+========================================
 Running TYPO3 in production environments
-=======================================
+========================================
 
 This chapter contains information on how to configure and optimize the infrastructure
 running TYPO3 for production.

@@ -3,9 +3,9 @@
 ..  _BeforeJavaScriptsRenderingEvent:
 
 
-===============================
-BeforeJavaScriptsRenderingEvent
-===============================
+=================================
+`BeforeJavaScriptsRenderingEvent`
+=================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Page\Event\BeforeJavaScriptsRenderingEvent`

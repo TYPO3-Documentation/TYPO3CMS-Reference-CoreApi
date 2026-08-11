@@ -3,9 +3,9 @@
 
 .. _extension-files-documentation:
 
-================================
-:file:`Documentation`
-================================
+===============
+`Documentation`
+===============
 
 Contains the extension documentation in ReStructuredText (ReST, .rst) format.
 Read more on the topic in chapter :ref:`extension documentation <extension-documentation>`.

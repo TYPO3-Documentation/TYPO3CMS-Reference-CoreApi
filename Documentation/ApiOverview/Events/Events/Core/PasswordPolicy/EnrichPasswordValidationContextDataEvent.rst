@@ -3,9 +3,9 @@
 ..  _EnrichPasswordValidationContextDataEvent:
 
 
-========================================
-EnrichPasswordValidationContextDataEvent
-========================================
+==========================================
+`EnrichPasswordValidationContextDataEvent`
+==========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\PasswordPolicy\Event\EnrichPasswordValidationContextDataEvent`

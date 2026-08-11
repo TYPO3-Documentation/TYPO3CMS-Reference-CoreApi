@@ -4,7 +4,7 @@
 ..  _typo3ConfVars_lang:
 
 =============================
-LANG - Language configuration
+LANG - language configuration
 =============================
 
 ..  confval-menu::
