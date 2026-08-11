@@ -63,18 +63,20 @@ To start using Deployer, :file:`deploy.yaml` should look like this:
 
 ..  _deployer-official:
 
-Official Deployer recipe for TYPO3 <= 11.5
-------------------------------------------
+Official Deployer recipe for TYPO3
+-----------------------------------
 
-..  attention::
-    This recipe can only be used for TYPO3 versions up to 11.5.
+Deployer ships an `official TYPO3 recipe <https://deployer.org/docs/8.x/recipe/typo3>`_
+for Composer-based TYPO3 installations. It auto-detects the public web
+directory and the `typo3` CLI binary path from `composer.json`, and
+provides Deployer tasks like `typo3:extension:setup`,
+`typo3:install:fixfolderstructure` and `typo3:cache:warmup`, which in turn
+run the corresponding TYPO3 console commands on the server.
 
-The Deployer documentation describes an
-`official TYPO3 (classic mode) Deployer recipe <https://deployer.org/docs/8.x/recipe/typo3>`_.
+..  code-block:: php
+    :caption: deploy.php
 
-However, this recipe is only correct for TYPO3 projects **up to version 11.5**,
-using the **classic directory structure**.
-For newer TYPO3 versions with Composer-based setups, this recipe requires manual changes.
+    require 'recipe/typo3.php';
 
 ..  _deployer-ddev:
 
