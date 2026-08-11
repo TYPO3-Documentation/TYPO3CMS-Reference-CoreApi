@@ -127,7 +127,7 @@ instead of this solution. For backend module configuration you should use
         }
     }
 
-Here an example for a :class:`SiteFinder` 
+Here an example for a :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
 
 .. code-block:: php
     :caption: EXT:my_extension/Classes/Service/SiteConfigurationService.php
