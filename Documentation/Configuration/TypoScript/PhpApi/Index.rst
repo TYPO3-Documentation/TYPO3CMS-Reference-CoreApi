@@ -94,21 +94,12 @@ instead of this solution. For backend module configuration you should use
     use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
 
     class OrderController implements SingletonInterface
-    {
-        protected ConnectionPool $connectionPool;
-        private   ContainerInterface $container;
-        protected BackendConfigurationManager $concreteConfigurationManager;
-    
+    {    
         public function __construct(
-            ConnectionPool $connectionPool,
-            ContainerInterface $container,
-            BackendConfigurationManager $configurationManager
-        )
-        {
-            $this->connectionPool = $connectionPool;
-            $this->container = $container;
-            $this->concreteConfigurationManager = $configurationManager;
-        }
+            protected ConnectionPool $connectionPool,
+            protected ContainerInterface $container,
+            protected BackendConfigurationManager $concreteConfigurationManager
+        ) {}
 
         public function main(
             string $content,
