@@ -77,6 +77,8 @@ Backend TypoScript
 ==================
 
 Another means needs to be used to read the Frontend TypoScript of the currently selected page in the backend page module.
+This is needed in a case where some Frontend classes need to be called as well by from the Backend. E.g. a shop administrator
+is allowed to resend an order email with a new modified bill after the customer has cancelled one item from his order.
 The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
 Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider unsing the
 `SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
