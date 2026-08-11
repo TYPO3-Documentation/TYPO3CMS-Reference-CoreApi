@@ -127,3 +127,30 @@ instead of this solution. For backend module configuration you should use
         }
     }
 
+Here an example for a :class:`SiteFinder` 
+
+.. code-block:: php
+    :caption: EXT:my_extension/Classes/Service/SiteConfigurationService.php
+
+    namespace MyVendor\MyExtension\Service;
+
+    use TYPO3\CMS\Core\Site\SiteFinder;
+    use TYPO3\CMS\Core\Site\Entity\Site;
+    
+    readonly class SiteConfigurationService
+    {
+        // Inject the SiteFinder via constructor injection
+        public function __construct(
+            private SiteFinder $siteFinder
+        ) {}
+    
+        public function getMyGeneralWarningText(int $pageId): string
+        {
+            // Find the site object by traversing the rootline upwards from the given page ID
+            $site = $this->siteFinder->getSiteByPageId($pageId);
+            
+            // Access configuration attributes or custom site settings
+            return $site->getAttribute('myGeneralWarningText') ?? 'Warning!';
+        }
+    }
+
