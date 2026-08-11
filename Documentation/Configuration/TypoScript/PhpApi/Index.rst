@@ -101,7 +101,6 @@ instead of this solution. For backend module configuration you should use
     {    
         public function __construct(
             protected ConnectionPool $connectionPool,
-            protected ContainerInterface $container,
             protected BackendConfigurationManager $concreteConfigurationManager
         ) {}
 
