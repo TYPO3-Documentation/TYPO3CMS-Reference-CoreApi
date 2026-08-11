@@ -88,12 +88,16 @@ instead of this solution. For backend module configuration you should use
 
     namespace MyDomain\MyExtension\Backend;
 
+    use Psr\Http\Message\ResponseInterface;
     use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Backend\Attribute\AsController;
     use TYPO3\CMS\Core\Database\ConnectionPool;
+    use TYPO3\CMS\Core\Http\HtmlResponse;
     use TYPO3\CMS\Core\SingletonInterface;
     use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
 
-    class OrderController implements SingletonInterface
+    #[AsController]
+    final readonly class OrderController implements SingletonInterface
     {    
         public function __construct(
             protected ConnectionPool $connectionPool,
@@ -101,14 +105,11 @@ instead of this solution. For backend module configuration you should use
             protected BackendConfigurationManager $concreteConfigurationManager
         ) {}
 
-        public function main(
-            string $content,
-            array $conf,
-            ServerRequestInterface $request,
-        ) : string {
+        public function handleRequest(ServerRequestInterface $request): ResponseInterface
+        {
             $setup = $this->getTypoScript($request);
             $foo = $setup['my_extension']['bar'] ?? '';
-            return '<div>Foo Setup: ' . $foo . '</div>';
+            return new HtmlResponse('<div>Foo Setup: ' . $foo . '</div>');
         }
 
         public function getTypoScript(ServerRequestInterface $request): array
