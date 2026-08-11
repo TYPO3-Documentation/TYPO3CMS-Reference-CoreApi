@@ -2,9 +2,9 @@
 ..  index:: Events; ProcessFileListActionsEvent
 ..  _ProcessFileListActionsEvent:
 
-===========================
-ProcessFileListActionsEvent
-===========================
+=============================
+`ProcessFileListActionsEvent`
+=============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Configuration\Event\ProcessFileListActionsEvent`
 is fired after generating the actions for the files and folders listing in the

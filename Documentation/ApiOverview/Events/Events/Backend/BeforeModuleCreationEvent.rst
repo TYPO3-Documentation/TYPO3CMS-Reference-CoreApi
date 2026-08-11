@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeModuleCreationEvent
 ..  _BeforeModuleCreationEvent:
 
-=========================
-BeforeModuleCreationEvent
-=========================
+===========================
+`BeforeModuleCreationEvent`
+===========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent`
 allows extension authors to manipulate the :ref:`module configuration

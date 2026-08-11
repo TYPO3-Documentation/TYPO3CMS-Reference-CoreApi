@@ -39,7 +39,7 @@ multiple data objects with distinct validation rules for each step.
 ..  _extbase-domain-dto-example:
 ..  _extbase-dto-example-dto:
 
-Example: A BMI calculator without storage
+Example: a BMI calculator without storage
 =========================================
 
 The body mass index (BMI) calculator in this example contains a form where users can

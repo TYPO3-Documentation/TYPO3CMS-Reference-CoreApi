@@ -327,8 +327,8 @@ of Fluid components that are registered using the new configuration file
 
 ..  _generic-view-factory:
 
-Using the generic view factory (ViewFactoryInterface)
-=====================================================
+Using the generic view factory (`ViewFactoryInterface`)
+=======================================================
 
 You can :ref:`inject <dependency-injection>` an instance of the
 :php:`TYPO3\CMS\Core\View\ViewFactoryInterface` to create an instance of a

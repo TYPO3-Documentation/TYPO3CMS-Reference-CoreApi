@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyCacheLifetimeForPageEvent
 ..  _ModifyCacheLifetimeForPageEvent:
 
-===============================
-ModifyCacheLifetimeForPageEvent
-===============================
+=================================
+`ModifyCacheLifetimeForPageEvent`
+=================================
 
 This event allows to modify the lifetime of how long a rendered page of a
 frontend call should be stored in the "pages" cache.

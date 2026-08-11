@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileMetaDataDeletedEvent
 ..  _AfterFileMetaDataDeletedEvent:
 
-=============================
-AfterFileMetaDataDeletedEvent
-=============================
+===============================
+`AfterFileMetaDataDeletedEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileMetaDataDeletedEvent`

@@ -62,7 +62,7 @@ not be injected but created on-demand using :php:`GeneralUtility::makeInstance()
 
 ..  _cgl-services-good-examples:
 
-Good Examples
+Good examples
 =============
 
 *   :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` has been refactored in
@@ -75,7 +75,7 @@ Good Examples
 
 ..  _cgl-services-bad-examples:
 
-Bad Examples
+Bad examples
 ============
 
 *   :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
@@ -105,7 +105,7 @@ remain a case-by-case decision.
 
 ..  _cgl-services-further-reading:
 
-Further Reading
+Further reading
 ===============
 
 *   http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/

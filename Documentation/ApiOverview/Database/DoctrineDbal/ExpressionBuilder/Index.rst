@@ -175,8 +175,8 @@ Various expressions
 
 ..  _database-expression-builder-as:
 
-:php:`ExpressionBuilder::as()`
-------------------------------
+`ExpressionBuilder::as()`
+-------------------------
 
 ..  include:: _ExpressionBuilderAs.rst.txt
 
@@ -193,8 +193,8 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 
 ..  _database-expression-builder-concat:
 
-:php:`ExpressionBuilder::concat()`
-----------------------------------
+`ExpressionBuilder::concat()`
+-----------------------------
 
 ..  include:: _ExpressionBuilderConcat.rst.txt
 
@@ -213,8 +213,8 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 
 ..  _database-expression-builder-castInt:
 
-:php:`ExpressionBuilder::castInt()`
------------------------------------
+`ExpressionBuilder::castInt()`
+------------------------------
 
 ..  include:: _ExpressionBuilderCastInt.rst.txt
 
@@ -232,8 +232,8 @@ is used.
 
 ..  _database-expression-builder-castText:
 
-:php:`ExpressionBuilder::castText()`
-------------------------------------
+`ExpressionBuilder::castText()`
+-------------------------------
 
 ..  todo: Add api description as soon as building code-snippets is working again
 
@@ -252,8 +252,8 @@ or similar methods based on the database engine.
 
 ..  _database-expression-builder-castVarchar:
 
-:php:`ExpressionBuilder::castVarchar()`
----------------------------------------
+`ExpressionBuilder::castVarchar()`
+----------------------------------
 
 ..  include:: _ExpressionBuilderCastVarchar.rst.txt
 
@@ -274,8 +274,8 @@ where :sql:`"value"::INTEGER` cast notation is used.
 
 ..  _database-expression-builder-if:
 
-:php:`ExpressionBuilder::if()`
-------------------------------
+`ExpressionBuilder::if()`
+-------------------------
 
 ..  include:: _ExpressionBuilderIf.rst.txt
 
@@ -321,8 +321,8 @@ Result with MySQL/MariaDB:
 
 ..  _database-expression-builder-left:
 
-:php:`ExpressionBuilder::left()`
---------------------------------
+`ExpressionBuilder::left()`
+---------------------------
 
 ..  include:: _ExpressionBuilderLeft.rst.txt
 
@@ -340,8 +340,8 @@ to provide a compatible expression.
 
 ..  _database-expression-builder-leftPad:
 
-:php:`ExpressionBuilder::leftPad()`
------------------------------------
+`ExpressionBuilder::leftPad()`
+------------------------------
 
 ..  include:: _ExpressionBuilderLeftPad.rst.txt
 
@@ -360,8 +360,8 @@ more complex compatible replacement expression construct is created.
 
 ..  _database-expression-builder-length:
 
-:php:`ExpressionBuilder::length()`
-----------------------------------
+`ExpressionBuilder::length()`
+-----------------------------
 
 ..  include:: _ExpressionBuilderLength.rst.txt
 
@@ -378,8 +378,8 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 
 ..  _database-expression-builder-repeat:
 
-:php:`ExpressionBuilder::repeat()`
-----------------------------------
+`ExpressionBuilder::repeat()`
+-----------------------------
 
 ..  include:: _ExpressionBuilderRepeat.rst.txt
 
@@ -400,8 +400,8 @@ vendors except SQLite which uses
 
 ..  _database-expression-builder-right:
 
-:php:`ExpressionBuilder::right()`
----------------------------------
+`ExpressionBuilder::right()`
+----------------------------
 
 ..  include:: _ExpressionBuilderRight.rst.txt
 
@@ -419,8 +419,8 @@ database vendors except SQLite, which uses :sql:`substring("value", start_of_str
 
 ..  _database-expression-builder-rightPad:
 
-:php:`ExpressionBuilder::rightPad()`
-------------------------------------
+`ExpressionBuilder::rightPad()`
+-------------------------------
 
 ..  include:: _ExpressionBuilderRightPad.rst.txt
 
@@ -438,8 +438,8 @@ more complex compatible replacement expression construct is created.
 
 ..  _database-expression-builder-space:
 
-:php:`ExpressionBuilder::space()`
----------------------------------
+`ExpressionBuilder::space()`
+----------------------------
 
 ..  include:: _ExpressionBuilderSpace.rst.txt
 
@@ -457,8 +457,8 @@ and SQLite.
 
 ..  _database-expression-builder-trim:
 
-:php:`ExpressionBuilder::trim()`
---------------------------------
+`ExpressionBuilder::trim()`
+---------------------------
 
 ..  include:: _ExpressionBuilderTrim.rst.txt
 

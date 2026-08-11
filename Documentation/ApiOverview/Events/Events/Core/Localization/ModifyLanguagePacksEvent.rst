@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyLanguagePacksEvent
 ..  _ModifyLanguagePacksEvent:
 
-========================
-ModifyLanguagePacksEvent
-========================
+==========================
+`ModifyLanguagePacksEvent`
+==========================
 
 ..  deprecated:: 14.2
     The event :php:`ModifyLanguagePacksEvent`

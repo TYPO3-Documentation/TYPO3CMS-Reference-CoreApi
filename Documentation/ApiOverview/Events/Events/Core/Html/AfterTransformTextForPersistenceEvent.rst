@@ -2,9 +2,9 @@
 ..  index:: Events; AfterTransformTextForPersistenceEvent
 ..  _AfterTransformTextForPersistenceEvent:
 
-=====================================
-AfterTransformTextForPersistenceEvent
-=====================================
+=======================================
+`AfterTransformTextForPersistenceEvent`
+=======================================
 
 Modify data when saving rich-text-editor (RTE) content to the database
 (persistence). As opposed to :ref:`BeforeTransformTextForPersistenceEvent`
@@ -29,7 +29,7 @@ see example:
 
 ..  _AfterTransformTextForPersistenceEvent-example:
 
-Example: Transform a text before saving to database
+Example: transform a text before saving to database
 ===================================================
 
 An event listener class is constructed which will take a RTE input *TYPO3* and internally
@@ -52,7 +52,7 @@ The corresponding event listener class:
 
 ..  _AfterTransformTextForPersistenceEvent-api:
 
-API of AfterTransformTextForPersistenceEvent
-============================================
+API of `AfterTransformTextForPersistenceEvent`
+==============================================
 
 ..  include:: /CodeSnippets/Events/Core/Html/AfterTransformTextForPersistenceEvent.rst.txt

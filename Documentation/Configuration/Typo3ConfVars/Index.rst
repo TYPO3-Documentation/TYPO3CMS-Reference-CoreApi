@@ -68,8 +68,8 @@ This file overrides default settings from
 ..  _typo3ConfVars-settings:
 ..  _typo3ConfVars-localConfiguration:
 
-File :file:`config/system/settings.php`
----------------------------------------
+File `config/system/settings.php`
+---------------------------------
 
 ..  typo3:file:: settings.php
     :scope: project
@@ -226,8 +226,8 @@ change parts of :file:`config/system/settings.php`. They can be found in
 ..  index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
 ..  _typo3ConfVars-defaultConfiguration:
 
-File DefaultConfiguration.php
-=============================
+File `DefaultConfiguration.php`
+===============================
 
 TYPO3 comes with some default settings which are defined in
 file :file:`EXT:core/Configuration/DefaultConfiguration.php`. View the

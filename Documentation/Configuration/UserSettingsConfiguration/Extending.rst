@@ -61,7 +61,7 @@ Available field types:
 
 .. _user-settings-extending-javascript:
 
-"On Click" / "On Confirmation" JavaScript Callbacks
+"On Click" / "On Confirmation" JavaScript callbacks
 ===================================================
 
 PSR-14 event :ref:`AddJavaScriptModulesEvent` can be used
@@ -69,8 +69,8 @@ to inject a JavaScript module to handle custom JavaScript events.
 
 .. _user-settings-extending-migration:
 
-Migration from addFieldsToUserSettings to addUserSetting
-========================================================
+Migration from `addFieldsToUserSettings` to `addUserSetting`
+============================================================
 
 Replace the two-step approach with the new :php:`addUserSetting()` method.
 Note that the new method uses TCA-style configuration and should be called from

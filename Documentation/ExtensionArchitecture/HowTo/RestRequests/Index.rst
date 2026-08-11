@@ -101,23 +101,23 @@ and not overwritten.
 
 ..  _http-http-utility-methods:
 
-HTTP Utility Methods
+HTTP utility methods
 ====================
 
 TYPO3 provides a small set of helper methods related to HTTP Requests in the class :php:`HttpUtility`:
 
 ..  _http-http-utility-methods-httputility-buildurl:
 
-HttpUtility::buildUrl
----------------------
+`HttpUtility::buildUrl`
+-----------------------
 
 Creates a URL string from an array containing the URL parts, such as those
 output by :php:`parse_url()`.
 
 ..  _http-http-utility-methods-httputility-buildquerystring:
 
-HttpUtility::buildQueryString
------------------------------
+`HttpUtility::buildQueryString`
+-------------------------------
 
 The :php:`buildQueryString()` method is an enhancement to the `PHP function`_
 :php:`http_build_query()`. It implodes multidimensional parameter arrays and

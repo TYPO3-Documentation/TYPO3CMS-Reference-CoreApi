@@ -35,8 +35,8 @@ that can be inserted into the Fluid template.
 
 .. _f-translate:
 
-The translation ViewHelper :html:`f:translate`
-==============================================
+The translation ViewHelper `f:translate`
+========================================
 
 To insert translations into a template, Fluid offers the ViewHelper
 :ref:`f:translate <t3viewhelper:typo3-fluid-translate>`.
@@ -132,7 +132,7 @@ can be replaced:
 ..  _extension-localization-fluid-source-language-file:
 
 Source of the language file
-============================
+===========================
 
 If the Fluid template is called outside of an Extbase context there are two
 options on how to configure the correct language file.

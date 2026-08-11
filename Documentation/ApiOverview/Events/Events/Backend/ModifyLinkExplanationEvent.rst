@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyLinkExplanationEvent
 ..  _ModifyLinkExplanationEvent:
 
-==========================
-ModifyLinkExplanationEvent
-==========================
+============================
+`ModifyLinkExplanationEvent`
+============================
 
 While the removed hook effectively only allowed to modify the link explanation
 of TCA `link` fields in case the resolved link type did not already match

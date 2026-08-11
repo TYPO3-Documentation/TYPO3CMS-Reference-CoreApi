@@ -2,9 +2,9 @@
 ..  index:: Events; AfterUserLoggedInEvent
 ..  _AfterUserLoggedInEvent:
 
-======================
-AfterUserLoggedInEvent
-======================
+========================
+`AfterUserLoggedInEvent`
+========================
 
 The purpose of the PSR-14 event
 :php:`\TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent`

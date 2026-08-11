@@ -25,7 +25,7 @@ are based on the extension key.
 
 ..  _extension-naming-abbreviations-glossary:
 
-Abbreviations & Glossary
+Abbreviations & glossary
 ========================
 
 UpperCamelCase
@@ -252,7 +252,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 ..  _naming-tables-mm:
 
 MM-tables for multiple-multiple relations between tables
----------------------------------------------------------
+--------------------------------------------------------
 
 **MM** tables (for multiple-multiple relations between tables) follow these rules.
 

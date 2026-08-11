@@ -10,7 +10,7 @@ PHP
 
 .. _troubleshooting-php-modules:
 
-Missing PHP Modules
+Missing PHP modules
 -------------------
 
 The "System Environment" section of the Install Tool provides detailed
@@ -38,7 +38,7 @@ On a Windows-based server, these are the extension files:
 
 .. _troubleshooting-php-caches-extension-classes-etc:
 
-PHP Caches, Extension Classes etc.
+PHP caches, extension classes etc.
 ----------------------------------
 
 There are some situations which can cause what appear to be
@@ -70,7 +70,7 @@ best choice is OPcache.
 
 ..  _troubleshooting-php-troubleshooting-opcode-opcode-cache:
 
-This opcode cache is marked as malfunctioning by the TYPO3 CMS Team.
+This opcode cache is marked as malfunctioning by the TYPO3 CMS team.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This will be shown if an opcode cache system is found and activated,

@@ -3,9 +3,9 @@
 ..  _ModifyUrlForCanonicalTagEvent:
 
 
-=============================
-ModifyUrlForCanonicalTagEvent
-=============================
+===============================
+`ModifyUrlForCanonicalTagEvent`
+===============================
 
 With the PSR-14 event `\TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent`
 the URL for the :html:`href` attribute of the canonical tag can be altered or

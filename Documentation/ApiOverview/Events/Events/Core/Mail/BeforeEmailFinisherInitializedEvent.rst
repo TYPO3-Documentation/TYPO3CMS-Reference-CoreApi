@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeEmailFinisherInitializedEvent
 ..  _BeforeEmailFinisherInitializedEvent:
 
-===================================
-BeforeEmailFinisherInitializedEvent
-===================================
+=====================================
+`BeforeEmailFinisherInitializedEvent`
+=====================================
 
 ..  versionadded:: 14.0
 

@@ -3,9 +3,9 @@
 ..  _ModifyAutoCreateRedirectRecordBeforePersistingEvent:
 
 
-===================================================
-ModifyAutoCreateRedirectRecordBeforePersistingEvent
-===================================================
+=====================================================
+`ModifyAutoCreateRedirectRecordBeforePersistingEvent`
+=====================================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\ModifyAutoCreateRedirectRecordBeforePersistingEvent`

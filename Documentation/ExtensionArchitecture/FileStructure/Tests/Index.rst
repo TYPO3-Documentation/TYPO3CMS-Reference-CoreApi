@@ -3,9 +3,9 @@
 
 ..  _extension-files-tests:
 
-=============
-:file:`Tests`
-=============
+=======
+`Tests`
+=======
 
 This folder contains all automatic tests to test the extension.
 

@@ -4,7 +4,7 @@
 ..  _ci-cd-for-typo3-projects:
 
 ==============================================
-CI/CD: Automatic deployment for TYPO3 Projects
+CI/CD: automatic deployment for TYPO3 projects
 ==============================================
 
 **Continuous Integration (CI)** and **Continuous Deployment/Delivery (CD)**
@@ -27,12 +27,12 @@ automates these concerns.
 
 ..  _ci-cd-common-stages:
 
-Common CI/CD Stages in TYPO3 Projects
+Common CI/CD stages in TYPO3 projects
 =====================================
 
 ..  _ci-cd-code-quality-checks:
 
-Code Quality Checks
+Code quality checks
 -------------------
 
 *   **PHP Linting** (for example, :bash:`php -l`)
@@ -42,7 +42,7 @@ Code Quality Checks
 
 ..  _ci-cd-unit-functional-testing:
 
-Unit and Functional Testing
+Unit and functional testing
 ---------------------------
 
 *   `Unit tests <https://docs.typo3.org/permalink/t3coreapi:testing-writing-unit>`_
@@ -51,7 +51,7 @@ Unit and Functional Testing
 
 ..  _ci-cd-building-artifacts:
 
-Building Artifacts
+Building artifacts
 ------------------
 
 *   Installing required extensions and other PHP packages via Composer
@@ -76,7 +76,7 @@ Deployment
 ..  _ci-cd-environment-configuration:
 
 Environment configuration
---------------------------
+-------------------------
 
 Manage environment-specific settings using
 `.env / dotenv files <https://docs.typo3.org/permalink/t3coreapi:environment-dotenv>`_
@@ -84,7 +84,7 @@ or `Plain PHP configuration files <https://docs.typo3.org/permalink/t3coreapi:en
 
 ..  _ci-cd-typical-tools:
 
-Typical CI/CD Tools Used
+Typical CI/CD tools used
 ------------------------
 
 CI/CD Platforms
@@ -110,7 +110,7 @@ Deployment Tools
 
 ..  _ci-cd-plattforms:
 
-CI/CD Platforms
+CI/CD platforms
 ===============
 
 ..  _ci-cd-gitlab:
@@ -127,7 +127,7 @@ Even if you already set up your project you can find valuable examples there.
 
 ..  _ci-cd-github:
 
-Using GitHub Actions
+Using GitHub actions
 --------------------
 
 In the following code-block you find a very simplified example of what

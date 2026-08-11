@@ -11,8 +11,8 @@ Troubleshooting
 
 ..  _password-hashing-troubleshooting-1533818591-invalidpasswordhashexception:
 
-#1533818591 InvalidPasswordHashException
-========================================
+#1533818591 `InvalidPasswordHashException`
+==========================================
 
 If the hashing mechanism used in passwords is not supported by your PHP build
 Errors like the following might pop up:
@@ -46,7 +46,7 @@ Solutions
 
 ..  _password-hashing-troubleshooting-1533818591-invalidpasswordhashexception-solutions-recommended:
 
-Recommended: Fix the server side
+Recommended: fix the server side
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is highly recommended to run PHP 7.2 or above with argon2 support.
@@ -77,8 +77,8 @@ working algorithm.
 
 ..  _password-hashing-troubleshooting-1533818591-invalidpasswordhashexception-solutions-manually:
 
-Manually disable argon2 in the :file:`config/system/settings.php`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manually disable argon2 in the `config/system/settings.php`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This may be necessary if access to the install tool is not possible.
 This can happen when the first installation was done on a system with argon2

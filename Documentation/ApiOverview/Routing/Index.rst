@@ -210,7 +210,7 @@ redirects are automatically generated when a slug is adjusted by and editor.
 
 ..  _routing-tips:
 
-Tips: Using imports in YAML files
+Tips: using imports in YAML files
 =================================
 
 ..  versionadded:: 14.1

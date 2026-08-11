@@ -7,7 +7,7 @@
 ..  _assets:
 
 ===============================
-Assets (CSS, JavaScript, Media)
+Assets (CSS, JavaScript, media)
 ===============================
 
 ..  contents:: **Table of Contents**
@@ -74,7 +74,7 @@ path will be used as-is in the resulting HTML tag.
 
 ..  _asset-collector-api:
 
-The Asset collector API
+The asset collector API
 -----------------------
 
 ..  include:: /CodeSnippets/Manual/Core/AssetCollector.rst.txt

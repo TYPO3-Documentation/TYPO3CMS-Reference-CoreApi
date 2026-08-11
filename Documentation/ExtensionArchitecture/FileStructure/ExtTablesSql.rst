@@ -103,7 +103,7 @@ Fixed-length SQL type `CHAR`
 
 ..  _ext-tables-sql-types-char-varchar-difference:
 
-Key Difference Between CHAR and VARCHAR
+Key difference between CHAR and VARCHAR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The main difference between :sql:`CHAR` and :sql:`VARCHAR` is how the database
@@ -123,7 +123,7 @@ space, leaving the remaining table row space available for other data.
 ..  _ext-tables-sql-types-char-when:
 
 When to use `CHAR` columns
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Rule of thumb for fixed-length** :sql:`CHAR` **columns**
 
@@ -134,7 +134,7 @@ When to use `CHAR` columns
 ..  _ext-tables-sql-types-char-hints:
 
 Hints on using fixed-length `CHAR` columns
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *   Ensure to write fixed-length values for :sql:`CHAR` (non-space characters),
     for example use hash algorithms which produce fixed-length hash identifier

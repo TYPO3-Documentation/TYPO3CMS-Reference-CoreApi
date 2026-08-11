@@ -99,8 +99,8 @@ The method :php:`getFiltered()` return an array of
 
 ..  _country-api-php-api-country-object:
 
-The :php:`Country` object
--------------------------
+The `Country` object
+--------------------
 
 A country object can be used to fetch all information about it, also with
 translatable labels:
@@ -117,22 +117,22 @@ PHP API reference
 
 ..  _country-api-php-api-reference-countryprovider:
 
-:php:`CountryProvider`
-----------------------
+`CountryProvider`
+-----------------
 
 .. include:: /CodeSnippets/Manual/Country/CountryProvider.rst.txt
 
 ..  _country-api-php-api-reference-countryfilter:
 
-:php:`CountryFilter`
-----------------------
+`CountryFilter`
+---------------
 
 .. include:: /CodeSnippets/Manual/Country/CountryFilter.rst.txt
 
 ..  _country-api-php-api-reference-country:
 
-:php:`Country`
---------------
+`Country`
+---------
 
 .. include:: /CodeSnippets/Manual/Country/Country.rst.txt
 

@@ -313,8 +313,8 @@ but we are now at the point where we can begin unit testing!
 
 .. _testing-tutorial-enetcache-runtests:
 
-runTests.sh and docker-compose.yml
-----------------------------------
+`runTests.sh` and docker-compose.yml
+------------------------------------
 
 Next, we need to setup our tests. The two files we need are: `Build/Scripts/runTests.sh
 <https://github.com/lolli42/enetcache/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/
@@ -411,7 +411,7 @@ for example:
 
 .. _testing-tutorial-enetcache-github:
 
-Github Actions
+GitHub actions
 --------------
 
 With basic testing in place, we now want automatic execution of tests whenever
@@ -807,7 +807,7 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 
 .. _testing-tutorial-enetcache-github2:
 
-Github Actions
+GitHub actions
 --------------
 
 Now we want all of this checked automatically by Github Actions. As before, we

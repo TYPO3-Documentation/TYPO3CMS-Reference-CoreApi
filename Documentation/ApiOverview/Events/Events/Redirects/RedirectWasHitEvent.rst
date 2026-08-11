@@ -3,9 +3,9 @@
 ..  _RedirectWasHitEvent:
 
 
-===================
-RedirectWasHitEvent
-===================
+=====================
+`RedirectWasHitEvent`
+=====================
 
 The PSR-14 event :php:`\TYPO3\CMS\Redirects\Event\RedirectWasHitEvent` is fired
 in the :php:`\TYPO3\CMS\Redirects\Http\Middleware\RedirectHandler`
@@ -15,7 +15,7 @@ process the matched redirect and to adjust the PSR-7 response.
 
 ..  _redirect-was-hit-event-example-disable-hit:
 
-Example: Disable the hit count increment for monitoring tools
+Example: disable the hit count increment for monitoring tools
 =============================================================
 
 TYPO3 already implements the :t3src:`redirects/Classes/EventListener/IncrementHitCount.php`

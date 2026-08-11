@@ -5,9 +5,9 @@
 ..  _extbase-domain-fileupload:
 ..  _extbase_fileupload:
 
-======================================
+=====================================
 File uploads in Extbase domain models
-======================================
+=====================================
 
 Extbase can handle file uploads as part of its normal property
 mapping and persistence flow by using the
@@ -52,8 +52,8 @@ renders them:
 ..  _extbase-domain-fileupload-writing:
 ..  _extbase_fileupload_writing:
 
-Writing uploaded files with :php:`#[FileUpload]`
-================================================
+Writing uploaded files with `#[FileUpload]`
+===========================================
 
 The :php:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute on a model
 property is all that is needed for upload processing. Extbase validates
@@ -117,8 +117,8 @@ next attempt. This avoids stale temporary files.
 ..  _extbase_fileupload_attribute_configuration:
 ..  _extbase_fileupload_writing-attributes:
 
-Configuring the :php:`#[FileUpload]` attribute
-==============================================
+Configuring the `#[FileUpload]` attribute
+=========================================
 
 The :php:`#[FileUpload]` attribute accepts named arguments as follows:
 

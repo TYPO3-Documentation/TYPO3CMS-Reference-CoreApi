@@ -2,9 +2,9 @@
 ..  index:: Events; AfterDefaultUploadFolderWasResolvedEvent
 ..  _AfterDefaultUploadFolderWasResolvedEvent:
 
-========================================
-AfterDefaultUploadFolderWasResolvedEvent
-========================================
+==========================================
+`AfterDefaultUploadFolderWasResolvedEvent`
+==========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterDefaultUploadFolderWasResolvedEvent`

@@ -2,9 +2,9 @@
 ..  index:: Events; AfterPageContentPreviewRenderedEvent
 ..  _AfterPageContentPreviewRenderedEvent:
 
-====================================
-AfterPageContentPreviewRenderedEvent
-====================================
+======================================
+`AfterPageContentPreviewRenderedEvent`
+======================================
 
 ..  versionadded:: 14.1
 

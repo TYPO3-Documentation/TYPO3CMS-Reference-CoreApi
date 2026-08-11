@@ -3,9 +3,9 @@
 ..  _eventlist-backend-extension-manager:
 
 
-================
-ExtensionManager
-================
+==================
+`ExtensionManager`
+==================
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
 in EXT:extension_manager.

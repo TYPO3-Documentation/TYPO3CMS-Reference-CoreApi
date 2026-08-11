@@ -25,8 +25,8 @@ There are four types of applications provided by the TYPO3 Core:
 
 ..  _bootstrapping-applications-typo3cmsfrontendhttpapplication:
 
-\\TYPO3\\CMS\\Frontend\\Http\\Application
------------------------------------------
+`\\TYPO3\\CMS\\Frontend\\Http\\Application`
+-------------------------------------------
 
 This class handles all incoming web requests coming through :file:`index.php`
 in the public web directory. It handles all regular page and eID requests.
@@ -37,8 +37,8 @@ Tool.
 
 ..  _bootstrapping-applications-typo3cmsbackendhttpapplication:
 
-\\TYPO3\\CMS\\Backend\\Http\\Application
-----------------------------------------
+`\\TYPO3\\CMS\\Backend\\Http\\Application`
+------------------------------------------
 
 This class handles all incoming web requests for any regular backend call
 inside :file:`typo3/\*`.
@@ -55,8 +55,8 @@ redirects to the TYPO3 Install Tool.
 
 ..  _bootstrapping-applications-typo3cmscoreconsolecommandapplication:
 
-\\TYPO3\\CMS\\Core\\Console\\CommandApplication
------------------------------------------------
+`\\TYPO3\\CMS\\Core\\Console\\CommandApplication`
+-------------------------------------------------
 
 This class is the entry point for the TYPO3 command line for console commands.
 In addition to registering all available commands, this also sets up a CLI user.
@@ -64,8 +64,8 @@ In addition to registering all available commands, this also sets up a CLI user.
 
 ..  _bootstrapping-applications-typo3cmsinstallhttpapplication:
 
-\\TYPO3\\CMS\\Install\\Http\\Application
-----------------------------------------
+`\\TYPO3\\CMS\\Install\\Http\\Application`
+------------------------------------------
 
 The install tool :php:`Application` only runs with a very limited bootstrap
 set up. The failsafe package manager does not take
@@ -115,8 +115,8 @@ This defines which autoloader to use.
 
 ..  _backend-initialization-2-run-systemenvironmentbuilder:
 
-2. Run SystemEnvironmentBuilder
--------------------------------
+2. Run `SystemEnvironmentBuilder`
+---------------------------------
 
 The :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder` is responsible for setting
 up a system environment that is shared by all contexts (FE, BE, Install Tool and CLI).

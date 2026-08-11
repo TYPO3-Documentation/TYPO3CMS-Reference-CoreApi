@@ -116,7 +116,7 @@ Button settings
 
 ..  _modules-modals-api-data-attributes:
 
-Data Attributes
+Data attributes
 ---------------
 
 It is also possible to use :html:`data` attributes to trigger a modal,

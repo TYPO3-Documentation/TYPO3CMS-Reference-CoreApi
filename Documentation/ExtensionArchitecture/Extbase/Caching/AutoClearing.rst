@@ -114,8 +114,8 @@ than infer it:
 
 ..  _extbase-caching-autoclearing-setting:
 
-The enableAutomaticCacheClearing setting for Extbase
-====================================================
+The `enableAutomaticCacheClearing` setting for Extbase
+======================================================
 
 Automatic clearing is controlled by
 :typoscript:`config.tx_extbase.persistence.enableAutomaticCacheClearing`, which is

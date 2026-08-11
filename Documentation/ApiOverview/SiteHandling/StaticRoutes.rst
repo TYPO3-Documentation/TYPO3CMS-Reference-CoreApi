@@ -34,8 +34,8 @@ configuration. There are two options: deliver static text or resolve a TYPO3 URL
 
 ..  _sitehandling-static-routes-statictext:
 
-:yaml:`staticText`
-==================
+`staticText`
+============
 
 The :yaml:`staticText` option allows to deliver simple text content. The text
 can be added through a text field directly in the site configuration. This is

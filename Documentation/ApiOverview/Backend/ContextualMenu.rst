@@ -44,8 +44,8 @@ data attributes mentioned above and executes an Ajax call to the
 
 ..  _csm-implementation-contextmenucontroller:
 
-ContextMenuController
----------------------
+`ContextMenuController`
+-----------------------
 
 :php:`ContextMenuController` asks :php:`\TYPO3\CMS\Backend\ContextMenu\ContextMenu`
 to generate an array of items. :php:`ContextMenu` builds a list of available
@@ -239,7 +239,7 @@ independently from other places (disabled items can be configured in TSconfig).
 
 ..  _csm-disabling-context-menu:
 
-Disabling Context Menu Items from TSConfig
+Disabling context menu items from TSconfig
 ==========================================
 
 Context menu items can be disabled in TSConfig by adding item name to the
@@ -267,7 +267,7 @@ For more details see :ref:`TSConfig reference <t3tsref:useroptions-contextmenu-k
 
 .. _csm-adding:
 
-Tutorial: How to add a custom context menu item
+Tutorial: how to add a custom context menu item
 ===============================================
 
 ..  todo: Document the new ES6 way of creating a context menu
@@ -280,7 +280,7 @@ Follow these steps to add a custom menu item for pages records. You will add a
 
 ..  _csm-adding-step-1-implementation:
 
-Step 1: Implementation of the item provider class
+Step 1: implementation of the item provider class
 -------------------------------------------------
 
 Implement your own item provider class. Provider must implement
@@ -311,7 +311,7 @@ Register the JavaScript ES6 modules of your extension if not done yet:
 
 ..  _csm-adding-step-3-registration:
 
-Step 3: Registration
+Step 3: registration
 --------------------
 
 If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` file all

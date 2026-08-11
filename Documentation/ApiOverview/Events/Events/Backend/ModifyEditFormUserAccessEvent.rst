@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyEditFormUserAccessEvent
 ..  _ModifyEditFormUserAccessEvent:
 
-=============================
-ModifyEditFormUserAccessEvent
-=============================
+===============================
+`ModifyEditFormUserAccessEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent\ModifyEditFormUserAccessEvent`

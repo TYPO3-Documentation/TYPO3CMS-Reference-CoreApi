@@ -3,9 +3,9 @@
 ..  _AfterDataGeneratedForWorkspaceEvent:
 
 
-===================================
-AfterDataGeneratedForWorkspaceEvent
-===================================
+=====================================
+`AfterDataGeneratedForWorkspaceEvent`
+=====================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Workspaces\Event\AfterDataGeneratedForWorkspaceEvent`

@@ -14,7 +14,7 @@ shows some example uses.
 
 .. _parsing-html-extraction-blocks:
 
-Extracting Blocks From an HTML Document
+Extracting blocks from an HTML document
 =======================================
 
 The first example shows how to extract parts of a document.
@@ -75,7 +75,7 @@ all tags were found).
 
 .. _parsing-html-extraction-single:
 
-Extracting Single Tags
+Extracting single tags
 ======================
 
 It is also possible to split by non-block tags, for example "img" and "br":
@@ -99,7 +99,7 @@ tags or self-closing tags.
 
 .. _parsing-html-cleanup:
 
-Cleaning HTML Content
+Cleaning HTML content
 =====================
 
 The HTML parsing class also provides a tool for manipulating HTML
@@ -162,7 +162,7 @@ This is the result:
 
 .. _parsing-html-advanced:
 
-Advanced Processing
+Advanced processing
 ===================
 
 There's much more that can be achieved with

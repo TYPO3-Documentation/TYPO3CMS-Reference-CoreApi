@@ -152,7 +152,7 @@ Do not use the prefix :file:`ext_` in your extension names as this is a reserved
 
 .. _extension-reserved-folders:
 
-Reserved Folders
+Reserved folders
 ================
 
 In the early days, extension authors "baked their own bread" when it came to

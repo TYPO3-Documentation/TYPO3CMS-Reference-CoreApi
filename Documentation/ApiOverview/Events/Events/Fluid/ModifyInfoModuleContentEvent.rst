@@ -3,9 +3,9 @@
     Events; ModifyComponentDefinitionEvent
 ..  _ModifyComponentDefinitionEvent:
 
-==============================
-ModifyComponentDefinitionEvent
-==============================
+================================
+`ModifyComponentDefinitionEvent`
+================================
 
 ..  versionadded:: 14.1
 

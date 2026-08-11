@@ -34,8 +34,8 @@ links.
 
 ..  _link-factory-methods:
 
-Methods of the LinkFactory
-==========================
+Methods of the `LinkFactory`
+============================
 
 :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` provides two public
 methods, both returning a
@@ -77,8 +77,8 @@ methods, both returning a
 
 ..  _link-factory-instance:
 
-Obtaining a LinkFactory instance
-================================
+Obtaining a `LinkFactory` instance
+==================================
 
 Inject :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` through
 :ref:`dependency injection <DependencyInjection>` and call it from your own
@@ -89,8 +89,8 @@ service:
 
 ..  _link-factory-result:
 
-Working with the LinkResult
-===========================
+Working with the `LinkResult`
+=============================
 
 Both methods return a
 :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. It gives programmatic

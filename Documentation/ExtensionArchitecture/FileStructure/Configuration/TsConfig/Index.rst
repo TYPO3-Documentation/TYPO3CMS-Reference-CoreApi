@@ -2,9 +2,9 @@
 .. _extension-configuration-tsconfig:
 .. index:: Path; EXT:{extkey}/Configuration/TsConfig
 
-================
-:file:`TsConfig`
-================
+==========
+`TsConfig`
+==========
 
 ..  typo3:file:: something.tsconfig
     :scope: extension

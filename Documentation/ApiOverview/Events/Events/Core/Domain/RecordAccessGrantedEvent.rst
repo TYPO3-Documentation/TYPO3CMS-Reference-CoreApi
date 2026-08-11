@@ -2,9 +2,9 @@
 ..  index:: Events; RecordAccessGrantedEvent
 ..  _RecordAccessGrantedEvent:
 
-========================
-RecordAccessGrantedEvent
-========================
+==========================
+`RecordAccessGrantedEvent`
+==========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Domain\Access\RecordAccessGrantedEvent`
 can be used to either define whether a record access is granted

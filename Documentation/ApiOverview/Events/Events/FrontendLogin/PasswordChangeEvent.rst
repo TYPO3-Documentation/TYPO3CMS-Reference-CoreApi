@@ -2,9 +2,9 @@
 ..  index:: Events; PasswordChangeEvent
 ..  _PasswordChangeEvent:
 
-===================
-PasswordChangeEvent
-===================
+=====================
+`PasswordChangeEvent`
+=====================
 
 The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\PasswordChangeEvent`
 contains information about the password that has been set and will be

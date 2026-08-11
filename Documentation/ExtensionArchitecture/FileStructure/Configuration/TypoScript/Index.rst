@@ -4,9 +4,9 @@
    Path; EXT:{extkey}/Configuration/TypoScript
 .. _extension-configuration-typoscript:
 
-==================
-:file:`TypoScript`
-==================
+============
+`TypoScript`
+============
 
 TypoScript constants should be stored in the file :file:`constants.typoscript`
 and TypoScript setup in :file:`setup.typoscript`.

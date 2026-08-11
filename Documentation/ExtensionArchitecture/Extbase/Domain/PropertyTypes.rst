@@ -263,8 +263,8 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
 ..  _extbase-domain-property-types-datetime-consistency:
 ..  _extbase-model-datetime-consistency:
 
-Consistent DateTime handling
-----------------------------
+Consistent `DateTime` handling
+------------------------------
 
 With the feature flag :php:`extbase.consistentDateTimeHandling`, Extbase aligns
 its DateTime mapping logic with the behavior of FormEngine and DataHandler.

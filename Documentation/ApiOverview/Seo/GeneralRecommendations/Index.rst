@@ -4,7 +4,7 @@
 ..  _seo-recommendations:
 
 ==============================================
-General SEO Recommendations for TYPO3 projects
+General SEO recommendations for TYPO3 projects
 ==============================================
 
 ..  _seo-recommendations-extensions:

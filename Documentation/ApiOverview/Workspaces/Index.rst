@@ -5,7 +5,7 @@
 .. _workspaces:
 
 =========================
-Versioning and Workspaces
+Versioning and workspaces
 =========================
 
 TYPO3 provides a feature called "workspaces", whereby changes
@@ -493,7 +493,7 @@ Overview
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new:
 
-Scenario: Create new page
+Scenario: create new page
 -------------------------
 
 .. csv-table:: Page "Topic #1 new" is created with their according placeholders
@@ -514,7 +514,7 @@ Scenario: Create new page
 
 ..  _workspaces-persistence-depth-scenarios-scenario-modify-record:
 
-Scenario: Modify record
+Scenario: modify record
 -----------------------
 
 .. csv-table:: Record "Article #1" is modified in workspace
@@ -531,7 +531,7 @@ Scenario: Modify record
 
 ..  _workspaces-persistence-depth-scenarios-scenario-delete-record:
 
-Scenario: Delete record
+Scenario: delete record
 -----------------------
 
 .. csv-table:: Record "Article #2" is deleted in workspace
@@ -548,7 +548,7 @@ Scenario: Delete record
 
 .. _scenario-create-new-record-on-existing-page:
 
-Scenario: Create new record on existing page
+Scenario: create new record on existing page
 --------------------------------------------
 
 .. csv-table:: Record "Article #4" is created on existing page
@@ -566,7 +566,7 @@ Scenario: Create new record on existing page
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-2:
 
-Scenario: Create new record on page that is new in workspace
+Scenario: create new record on page that is new in workspace
 ------------------------------------------------------------
 
 .. csv-table:: Record "Topic #1 Article" is created on page that is new in workspace
@@ -585,7 +585,7 @@ Scenario: Create new record on page that is new in workspace
 
 .. _scenario-discard-record-workspace-modifications:
 
-Scenario: Discard record workspace modifications
+Scenario: discard record workspace modifications
 ------------------------------------------------
 
 .. csv-table:: Previously created record "Article #5" is discarded
@@ -603,7 +603,7 @@ Scenario: Discard record workspace modifications
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-3:
 
-Scenario: Create new record localization
+Scenario: create new record localization
 ----------------------------------------
 
 .. csv-table:: Record "Article #1" is localized to French and German
@@ -626,7 +626,7 @@ Scenario: Create new record localization
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-4:
 
-Scenario: Create new record, then move to different page
+Scenario: create new record, then move to different page
 --------------------------------------------------------
 
 .. csv-table:: Record "Article #4" is created on existing page, then moved to different page
@@ -645,7 +645,7 @@ Scenario: Create new record, then move to different page
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-5:
 
-Scenario: Create new record, then delete
+Scenario: create new record, then delete
 ----------------------------------------
 
 .. csv-table:: Record "Article #4" is created on existing page, then deleted

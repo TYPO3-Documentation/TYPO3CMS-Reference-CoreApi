@@ -327,7 +327,7 @@ Symptoms include:
 
 ..  _classic-docker-permission-linux:
 
-On Linux or WSL: File ownership and permission tips
+On Linux or WSL: file ownership and permission tips
 ---------------------------------------------------
 
 Linux containers often run with a web server user like `www-data` (UID 33).

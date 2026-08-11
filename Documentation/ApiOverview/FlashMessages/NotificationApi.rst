@@ -8,7 +8,7 @@
 ..  _notification_api:
 
 ==================================================
-JavaScript-based flash messages (Notification API)
+JavaScript-based flash messages (notification API)
 ==================================================
 
 ..  attention::

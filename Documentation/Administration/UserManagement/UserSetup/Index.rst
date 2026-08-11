@@ -19,7 +19,7 @@ If you need to create an administrator or system maintainer, go to chapter
 ..  _setup-user:
 
 Create a new backend user via a console command
-=============================================
+===============================================
 
 You can quickly create a backend user using a TYPO3 console command and following
 the prompt:
@@ -78,7 +78,7 @@ Enter the username, password and group membership:
 .. _user-management-simple-editor:
 .. _simulate-user:
 
-Simulate User
+Simulate user
 =============
 
 Save and close the record. We will check the result of our work

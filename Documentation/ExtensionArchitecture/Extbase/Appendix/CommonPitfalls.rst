@@ -51,8 +51,8 @@ lazy-loading proxies and dirty-state tracking, which can matter for relations.
 
 ..  _extbase-appendix-pitfalls-storagepid:
 
-findAll() returns nothing on an Extbase repository
-==================================================
+`findAll()` returns nothing on an Extbase repository
+====================================================
 
 **Symptom:** :php:`$repository->findAll()` (or any repository query) returns
 an empty result, but the records clearly exist in the database.
@@ -90,8 +90,8 @@ ignores them. The replacement is native PHP attributes.
 
 ..  _extbase-appendix-pitfalls-magic-findby:
 
-Magic findBy*() methods removed in TYPO3 v14
-============================================
+Magic `findBy`*() methods removed in TYPO3 v14
+==============================================
 
 **Symptom:** Calls to :php:`findByTitle($value)`, :php:`findOneBySlug($value)`,
 or :php:`countByStatus($value)` throw an error or do nothing after upgrading
@@ -128,8 +128,8 @@ in v13.4 and removed in v14. Plugins must now be registered as dedicated
 
 ..  _extbase-appendix-pitfalls-abstract-value-object:
 
-AbstractValueObject is not public API
-=====================================
+`AbstractValueObject` is not public API
+=======================================
 
 **Symptom:** Code extending
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractValueObject` produces

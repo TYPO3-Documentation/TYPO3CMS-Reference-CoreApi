@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFinalSearchQueryIsExecutedEvent
 ..  _BeforeFinalSearchQueryIsExecutedEvent:
 
-=====================================
-BeforeFinalSearchQueryIsExecutedEvent
-=====================================
+=======================================
+`BeforeFinalSearchQueryIsExecutedEvent`
+=======================================
 
 The PSR-14 :php:`\TYPO3\CMS\IndexedSearch\Event\BeforeFinalSearchQueryIsExecutedEvent`
 has been introduced which allows developers to manipulate the (internal)

@@ -3,9 +3,9 @@
 
 ..  _AfterFormIsBuiltEvent:
 
-=====================
-AfterFormIsBuiltEvent
-=====================
+=======================
+`AfterFormIsBuiltEvent`
+=======================
 
 ..  versionadded:: 14.0
     The events :php-short:`TYPO3\CMS\Form\Event\AfterFormIsBuiltEvent`

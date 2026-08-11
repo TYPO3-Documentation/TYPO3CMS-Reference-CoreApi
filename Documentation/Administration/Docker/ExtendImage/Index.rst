@@ -209,7 +209,7 @@ You can now open your browser at: http://localhost:8081
 ..  _docker-extend-typo3-advantages:
 
 Advantages of extending the community-maintained image
-=======================================================
+======================================================
 
 Extending the `martinhelmich/typo3` image is useful for learning purposes:
 

@@ -24,13 +24,13 @@ Pages, content elements and files contain category fields by default.
 
 .. _categories-using:
 
-Using Categories
+Using categories
 ================
 
 
 .. _categories-managing:
 
-Managing Categories
+Managing categories
 -------------------
 
 System categories are defined like any other record. Each category
@@ -86,7 +86,7 @@ System categories API
 
 .. _categories-collections:
 
-Category Collections
+Category collections
 ====================
 
 The :php:`\TYPO3\CMS\Core\Category\Collection\CategoryCollection`

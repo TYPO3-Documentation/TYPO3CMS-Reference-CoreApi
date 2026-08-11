@@ -5,7 +5,7 @@
 ..  _testing-organization:
 
 ========================================
-Test Runners: Organize and execute tests
+Test runners: organize and execute tests
 ========================================
 
 Executing commands to run tests and other toolchain scripts
@@ -263,8 +263,8 @@ Disadvantages:
 
 ..  _testing-organization-runtests-core:
 
-Use the :file:`runTests.sh` script based on the TYPO3-Core
-==========================================================
+Use the `runTests.sh` script based on the TYPO3-Core
+====================================================
 
 Because of the need to run tests reliably the same way for everyone,
 the TYPO3 core internally uses the script
@@ -306,8 +306,8 @@ Disadvantages:
 
 ..  _testing-organization-runtests-blog:
 
-Use a customized :file:`runTests.sh` script based on `blog_example`
-===================================================================
+Use a customized `runTests.sh` script based on `blog_example`
+=============================================================
 
 Because the `runTests.sh` file of the TYPO3 Core may be intimidating,
 several TYPO3 projects have already adapted the script and stripped

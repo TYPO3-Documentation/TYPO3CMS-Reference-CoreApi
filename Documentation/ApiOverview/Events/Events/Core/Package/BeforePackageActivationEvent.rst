@@ -2,9 +2,9 @@
 ..  index:: Events; BeforePackageActivationEvent
 ..  _BeforePackageActivationEvent:
 
-============================
-BeforePackageActivationEvent
-============================
+==============================
+`BeforePackageActivationEvent`
+==============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Package\Event\BeforePackageActivationEvent`
 is triggered before a number of packages should become active.

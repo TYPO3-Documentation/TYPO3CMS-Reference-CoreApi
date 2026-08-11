@@ -4,7 +4,7 @@
 ..  _application-context:
 
 ===================
-Application Context
+Application context
 ===================
 
 In outdated TYPO3 versions, error messages were displayed unfiltered in the
@@ -62,8 +62,8 @@ as follows:
 
 ..  _default-application-context:
 
-Default ApplicationContext
-==========================
+Default `ApplicationContext`
+============================
 
 In the :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder`, TYPO3 reads
 different environment variables to determine the desired `ApplicationContext`.
@@ -76,8 +76,8 @@ The following order applies from high priority to no priority:
 
 ..  _set-application-context:
 
-Set the ApplicationContext
-==========================
+Set the `ApplicationContext`
+============================
 
 The `ApplicationContext` is read very early in TYPO3. Even before the actual
 TYPO3 bootstrap process. This means that even if you set the
@@ -152,8 +152,8 @@ Please make sure not to insert any spaces before and after the `=`
 
 ..  _set-application-context-autoloader:
 
-AutoLoader (Composer only)
---------------------------
+`AutoLoader` (Composer only)
+----------------------------
 
 If your TYPO3 was set up using Composer, you can misuse the
 `Composer files <https://getcomposer.org/doc/04-schema.md#files>`__
@@ -249,8 +249,8 @@ again and use it to set a different base URI using the
 
 ..  _root-application-context:
 
-Root ApplicationContext
-=======================
+Root `ApplicationContext`
+=========================
 
 It doesn't matter whether you are working with just one `ApplicationContext`
 or with an `ApplicationContext` divided several times by a slash (`/`). The
@@ -260,8 +260,8 @@ first part is always the root `ApplicationContext` and must always be either
 
 ..  _parent-application-context:
 
-Parent ApplicationContext
-=========================
+Parent `ApplicationContext`
+===========================
 
 This section only applies if you have divided the `ApplicationContext` into
 several sections using slashes (`/`). The entire remaining value after the
@@ -291,8 +291,8 @@ and `Ddev/Dev2` at level 3.
 
 ..  _read-application-context:
 
-Reading the ApplicationContext
-==============================
+Reading the `ApplicationContext`
+================================
 
 TYPO3 itself already queries the `ApplicationContext` in various places, but
 you can also react to the `ApplicationContext` in various places.

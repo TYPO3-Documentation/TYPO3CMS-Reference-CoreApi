@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyResultItemInLiveSearchEvent
 ..  _ModifyResultItemInLiveSearchEvent:
 
-=================================
-ModifyResultItemInLiveSearchEvent
-=================================
+===================================
+`ModifyResultItemInLiveSearchEvent`
+===================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Search\Event\ModifyResultItemInLiveSearchEvent`
 allows extension developers to take control over search result

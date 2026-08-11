@@ -6,7 +6,7 @@
 .. _backend-modules-tutorials:
 
 ======================================
-Tutorial - Backend Module Registration
+Tutorial - backend module registration
 ======================================
 
 Susanne Moog demonstrates how to register a TYPO3 backend module. The backend

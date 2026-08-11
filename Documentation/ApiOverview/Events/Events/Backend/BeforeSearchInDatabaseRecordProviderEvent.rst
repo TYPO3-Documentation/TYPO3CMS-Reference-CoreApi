@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeSearchInDatabaseRecordProviderEvent
 ..  _BeforeSearchInDatabaseRecordProviderEvent:
 
-=========================================
-BeforeSearchInDatabaseRecordProviderEvent
-=========================================
+===========================================
+`BeforeSearchInDatabaseRecordProviderEvent`
+===========================================
 
 In some individual cases it may not be desirable to search in a specific table.
 Therefore, the PSR-14 event

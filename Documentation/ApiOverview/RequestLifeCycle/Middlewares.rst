@@ -7,7 +7,7 @@
 ..  _request-handling:
 
 ==============================
-Middlewares (Request handling)
+Middlewares (request handling)
 ==============================
 
 TYPO3 has implemented `PSR-15`_ for handling incoming HTTP requests. The

@@ -4,7 +4,7 @@
 ..  _config-page-properties:
 
 =======================================
-Page properties: Settings at page level
+Page properties: settings at page level
 =======================================
 
 If the user has the correct permissions, settings for a page (and in some

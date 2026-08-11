@@ -10,7 +10,7 @@
 ..  _extbase_reference:
 
 =====================================
-Extbase: Extension framework in TYPO3
+Extbase: extension framework in TYPO3
 =====================================
 
 Extbase is the TYPO3 framework for building structured, maintainable extensions.

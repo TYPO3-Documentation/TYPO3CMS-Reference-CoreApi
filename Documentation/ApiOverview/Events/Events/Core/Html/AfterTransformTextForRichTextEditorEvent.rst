@@ -2,9 +2,9 @@
 ..  index:: Events; AfterTransformTextForRichTextEditorEvent
 ..  _AfterTransformTextForRichTextEditorEvent:
 
-========================================
-AfterTransformTextForRichTextEditorEvent
-========================================
+==========================================
+`AfterTransformTextForRichTextEditorEvent`
+==========================================
 
 Modify data when retrieving content from the database and pass to the
 rich-text-editor (RTE). As opposed to :ref:`BeforeTransformTextForRichTextEditorEvent`
@@ -29,7 +29,7 @@ see example: :ref:`AfterTransformTextForPersistenceEvent-example`.
 
 ..  _AfterTransformTextForRichTextEditorEvent-api:
 
-API of AfterTransformTextForRichTextEditorEvent
-===============================================
+API of `AfterTransformTextForRichTextEditorEvent`
+=================================================
 
 ..  include:: /CodeSnippets/Events/Core/Html/AfterTransformTextForRichTextEditorEvent.rst.txt

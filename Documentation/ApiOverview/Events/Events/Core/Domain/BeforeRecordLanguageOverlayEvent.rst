@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeRecordLanguageOverlayEvent
 ..  _BeforeRecordLanguageOverlayEvent:
 
-================================
-BeforeRecordLanguageOverlayEvent
-================================
+==================================
+`BeforeRecordLanguageOverlayEvent`
+==================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Domain\Event\BeforeRecordLanguageOverlayEvent`
 can be used to modify information (such as the
@@ -16,7 +16,7 @@ record from the database) before the database is queried.
 
 ..  _BeforeRecordLanguageOverlayEvent-example:
 
-Example: Change the overlay type to "on" (connected)
+Example: change the overlay type to "on" (connected)
 ====================================================
 
 In this example, we will change the overlay type to "on" (connected). This may

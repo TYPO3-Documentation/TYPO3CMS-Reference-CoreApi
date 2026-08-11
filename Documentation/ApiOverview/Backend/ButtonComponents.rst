@@ -72,8 +72,8 @@ dropdown list.
 
 ..  _dropdown-button-components-button:
 
-DropDownButton
---------------
+`DropDownButton`
+----------------
 
 This button type is a container for dropdown items. It will render a dropdown
 containing all items attached to it. There are different kinds available, each
@@ -100,8 +100,8 @@ Example:
 
 ..  _dropdown-button-components-divider:
 
-DropDownDivider
----------------
+`DropDownDivider`
+-----------------
 
 This dropdown item type renders the divider element.
 
@@ -118,8 +118,8 @@ Example:
 
 ..  _dropdown-button-components-header:
 
-DropDownHeader
---------------
+`DropDownHeader`
+----------------
 
 This dropdown item type renders a non-interactive text element to group items
 and gives more meaning to a set of options.
@@ -138,8 +138,8 @@ Example:
 
 ..  _dropdown-button-components-item:
 
-DropDownItem
-------------
+`DropDownItem`
+--------------
 
 This dropdown item type renders a simple element. Use this element if you need
 a link button.
@@ -163,8 +163,8 @@ Example:
 
 ..  _dropdown-button-components-radio:
 
-DropDownRadio
--------------
+`DropDownRadio`
+---------------
 
 This dropdown item type renders an element with an active state. Use this
 element to display a radio-like selection of a state. When set to active, it
@@ -200,8 +200,8 @@ Example:
 
 ..  _dropdown-button-components-toggle:
 
-DropDownToggle
---------------
+`DropDownToggle`
+----------------
 
 This dropdown item type renders an element with an active state. When set to
 active, it will show a checkmark in front of the icon and text to indicate the

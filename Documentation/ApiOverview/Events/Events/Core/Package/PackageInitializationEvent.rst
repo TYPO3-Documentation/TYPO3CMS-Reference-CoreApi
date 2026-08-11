@@ -2,9 +2,9 @@
 ..  index:: Events; PackageInitializationEvent
 ..  _PackageInitializationEvent:
 
-==========================
-PackageInitializationEvent
-==========================
+============================
+`PackageInitializationEvent`
+============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Package\Event\PackageInitializationEvent`
 allows listeners to execute custom functionality after an extension has been

@@ -64,7 +64,7 @@ Each crop variant has at least one *ratio configuration* defined under ``allowed
 
 ..  _cropvariants-general-cropArea:
 
-Crop Area
+Crop area
 =========
 
 An initial crop area can be defined. If it is not defined, the default crop area will cover the complete image.
@@ -91,7 +91,7 @@ The example below has an initial crop area in the same size that the previous im
 
 ..  _cropvariants-general-focusArea:
 
-Focus Area
+Focus area
 ==========
 
 Users can also select a focus area, if configured. The focus area is always **inside**
@@ -124,7 +124,7 @@ and centered.
 
 ..  _cropvariants-general-coverAreas:
 
-Cover Area
+Cover area
 ==========
 
 Images are often used in a context where they are overlaid with other DOM elements

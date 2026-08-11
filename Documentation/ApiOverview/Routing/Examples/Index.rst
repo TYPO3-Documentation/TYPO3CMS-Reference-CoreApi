@@ -18,7 +18,7 @@ Collection of various routing examples
 ..  index:: Routing; EXT: News
 ..  _routing-examples-news:
 
-EXT: News
+EXT: news
 =========
 
 **Prerequisites:**
@@ -43,7 +43,7 @@ For more examples and background information see the
 ..  index:: Routing; EXT: Blog
 ..  _routing-examples-blog:
 
-EXT: Blog with custom aspect
+EXT: blog with custom aspect
 ============================
 
 Taken from https://typo3.com routing configuration and the blog extension.
@@ -109,8 +109,8 @@ Taken from an anonymous live project:
 ..  index:: Routing; EXT: DpnGlossary
 ..  _routing-examples-glossary:
 
-EXT: DpnGlossary
-================
+EXT: `DpnGlossary`
+==================
 
 **Prerequisites:**
 

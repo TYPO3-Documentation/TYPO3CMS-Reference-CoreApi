@@ -238,7 +238,7 @@ dump of all available data:
 
 .. _AddingCE-Extended-Example:
 
-Extended example: Extend tt_content and use data processing
+Extended example: extend tt_content and use data processing
 ===========================================================
 
 You can find the complete example in the  TYPO3 Documentation Team extension

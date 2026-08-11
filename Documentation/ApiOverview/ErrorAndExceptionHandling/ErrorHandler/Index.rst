@@ -3,7 +3,7 @@
 .. _error-handling-error-handler:
 
 =============
-Error Handler
+Error handler
 =============
 
 Class :php:`\TYPO3\CMS\Core\Error\ErrorHandler` is the default error handler in

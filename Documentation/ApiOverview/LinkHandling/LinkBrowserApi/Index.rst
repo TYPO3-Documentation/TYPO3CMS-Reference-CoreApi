@@ -3,9 +3,9 @@
 .. _linkbrowser-api:
 .. _LinkBrowser:
 
-===============
-LinkBrowser API
-===============
+=================
+`LinkBrowser` API
+=================
 
 .. _linkbrowser-api-description:
 

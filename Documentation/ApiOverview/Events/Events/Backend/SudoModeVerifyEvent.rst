@@ -2,9 +2,9 @@
 ..  index:: Events; SudoModeVerifyEvent
 ..  _SudoModeVerifyEvent:
 
-===================
-SudoModeVerifyEvent
-===================
+=====================
+`SudoModeVerifyEvent`
+=====================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Backend\Event\SudoModeVerifyEvent` is triggered before
@@ -29,7 +29,7 @@ on custom logic — for example, by identifying users authenticated via an
 
 ..  _SudoModeVerifyEvent-example:
 
-Example: Use an event listener to modify the verification of password in sudo mode
+Example: use an event listener to modify the verification of password in sudo mode
 ==================================================================================
 
 The following demonstrates using the event to statically check the password for

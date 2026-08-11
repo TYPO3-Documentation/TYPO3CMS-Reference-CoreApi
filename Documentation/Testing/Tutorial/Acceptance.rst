@@ -211,7 +211,7 @@ Done: Local test execution of a projects acceptance test!
 
 ..  _testing-tutorial-acceptance-github-actions:
 
-GitHub Actions
+GitHub actions
 ==============
 
 With local testing in place, we now want tests to run automatically when something is merged

@@ -4,9 +4,9 @@
 ..  index:: Backend modules; ModuleProvider
 ..  _backend-module-provider:
 
-==============
-ModuleProvider
-==============
+================
+`ModuleProvider`
+================
 
 The :php:`ModuleProvider` API allows extension authors to work with the
 registered modules.
@@ -17,7 +17,7 @@ for example for the use in menus.
 
 ..  _backend-module-provider-api:
 
-ModuleProvider API
-==================
+`ModuleProvider` API
+====================
 
 .. include:: /CodeSnippets/Manual/Backend/ModuleProvider.rst.txt

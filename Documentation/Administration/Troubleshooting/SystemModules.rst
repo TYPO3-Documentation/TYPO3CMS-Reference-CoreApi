@@ -3,7 +3,7 @@
 .. _troubleshooting-system_modules:
 
 ==============
-System Modules
+System modules
 ==============
 
 The following system modules can help when trying to troubleshoot issues with

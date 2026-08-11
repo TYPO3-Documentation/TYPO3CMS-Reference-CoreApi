@@ -4,7 +4,7 @@
 ..  _console-command-tutorial:
 
 ===============================================
-Tutorial: Create a console command from scratch
+Tutorial: create a console command from scratch
 ===============================================
 
 A console command is always inside an extension. If you want to create
@@ -99,8 +99,8 @@ which can be added on the command line:
 
 ..  _console-command-tutorial-fluidmail:
 
-Sending a FluidMail via command
--------------------------------
+Sending a `FluidMail` via command
+---------------------------------
 
 ..  literalinclude:: _Tutorial/_SendFluidMailCommand.php
     :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php

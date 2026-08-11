@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyQueryBeforeFetchingObjectDataEvent
 ..  _ModifyQueryBeforeFetchingObjectDataEvent:
 
-========================================
-ModifyQueryBeforeFetchingObjectDataEvent
-========================================
+==========================================
+`ModifyQueryBeforeFetchingObjectDataEvent`
+==========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent`

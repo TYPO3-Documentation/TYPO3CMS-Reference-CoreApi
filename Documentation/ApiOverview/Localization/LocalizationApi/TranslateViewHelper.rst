@@ -5,7 +5,7 @@
 ..  _xliff-api-fluid:
 
 ===============================
-Fluid: The translate ViewHelper
+Fluid: the translate ViewHelper
 ===============================
 
 In Fluid, a typical call to fetch a string in the user's selected language looks like this:

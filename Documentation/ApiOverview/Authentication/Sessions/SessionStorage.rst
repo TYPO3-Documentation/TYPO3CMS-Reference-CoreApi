@@ -141,8 +141,8 @@ the Redis backend):
 
 .. _sessions-manager:
 
-:php:`SessionManager` API
-=========================
+`SessionManager` API
+====================
 
 ..  include:: _SessionManager.rst.txt
 

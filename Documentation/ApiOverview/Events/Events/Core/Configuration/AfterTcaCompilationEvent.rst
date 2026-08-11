@@ -2,9 +2,9 @@
 ..  index:: Events; AfterTcaCompilationEvent
 ..  _AfterTcaCompilationEvent:
 
-========================
-AfterTcaCompilationEvent
-========================
+==========================
+`AfterTcaCompilationEvent`
+==========================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\AfterTcaCompilationEvent` is

@@ -5,7 +5,7 @@
 .. _troubleshooting-webserver:
 
 ==========
-Web Server
+Web server
 ==========
 
 .. _troubleshooting-apache:
@@ -45,8 +45,8 @@ After making any changes to the Apache configuration, the service must be restar
 
 .. _troubleshooting-adjust-threadstacksize-on-windows:
 
-Adjust ThreadStackSize on Windows
----------------------------------
+Adjust `ThreadStackSize` on Windows
+-----------------------------------
 
 If you are running TYPO3 on Windows, the extension manager might not
 render.

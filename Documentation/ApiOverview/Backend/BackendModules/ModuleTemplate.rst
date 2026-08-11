@@ -2,9 +2,9 @@
 ..  index:: Backend modules; ModuleTemplate
 ..  _ModuleTemplate:
 
-==============
-ModuleTemplate
-==============
+================
+`ModuleTemplate`
+================
 
 Backend controllers should use :ref:`ModuleTemplateFactory::create() <ModuleTemplateFactory>`
 to create instances of a :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`.
@@ -17,8 +17,8 @@ so values can be assigned to it in the actions.
 
 ..  _ModuleTemplate-examples:
 
-Example: Create and use a ModuleTemplate in an Extbase Controller
-=================================================================
+Example: create and use a `ModuleTemplate` in an Extbase controller
+===================================================================
 
 ..  include:: _AboutBlogExample.rst.txt
 

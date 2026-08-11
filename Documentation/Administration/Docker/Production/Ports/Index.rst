@@ -33,7 +33,7 @@ forwards traffic to port `80` inside the container.
 
 ..  _classic-docker-reverse-proxy:
 
-Using HTTPS and reverse proxies (SSL Offloading)
+Using HTTPS and reverse proxies (SSL offloading)
 ================================================
 
 ..  seealso::

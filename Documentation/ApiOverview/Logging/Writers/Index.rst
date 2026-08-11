@@ -37,8 +37,8 @@ use these options.
 
 ..  _logging-writers-database:
 
-DatabaseWriter
---------------
+`DatabaseWriter`
+----------------
 
 ..  deprecated:: 14.2
     Using the :php-short:`\TYPO3\CMS\Core\Log\Writer\DatabaseWriter` for a
@@ -64,8 +64,8 @@ The following option is available:
 
 ..  _logging-writers-FileWriter:
 
-FileWriter
-----------
+`FileWriter`
+------------
 
 The file writer logs into a log file, one log record per line. If the log file
 does not exist, it will be created (including parent directories, if needed).
@@ -117,8 +117,8 @@ The corresponding configuration might look like this for the example class
 
 ..  _logging-writers-RotatingFileWriter:
 
-RotatingFileWriter
-------------------
+`RotatingFileWriter`
+--------------------
 
 TYPO3 log files tend to grow over time if not manually cleaned on a regular
 basis, potentially leading to full disks. Also, reading its contents may be
@@ -193,8 +193,8 @@ Another example introduces log rotation for the "deprecation" log file:
 
 ..  _logging-writers-php:
 
-PhpErrorLogWriter
------------------
+`PhpErrorLogWriter`
+-------------------
 
 This writer logs into the PHP error log using `error_log()`_
 
@@ -202,8 +202,8 @@ This writer logs into the PHP error log using `error_log()`_
 
 ..  _logging-writers-syslog:
 
-SyslogWriter
-------------
+`SyslogWriter`
+--------------
 
 The syslog writer logs into the syslog (Unix only).
 

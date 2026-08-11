@@ -2,9 +2,9 @@
 ..  index:: Events; EnrichFileMetaDataEvent
 ..  _EnrichFileMetaDataEvent:
 
-=======================
-EnrichFileMetaDataEvent
-=======================
+=========================
+`EnrichFileMetaDataEvent`
+=========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\EnrichFileMetaDataEvent`
 is called after a record has been loaded from database. It allows other places

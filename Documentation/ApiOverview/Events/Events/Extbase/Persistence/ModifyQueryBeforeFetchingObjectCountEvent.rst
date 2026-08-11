@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyQueryBeforeFetchingObjectCountEvent
 ..  _ModifyQueryBeforeFetchingObjectCountEvent:
 
-=========================================
-ModifyQueryBeforeFetchingObjectCountEvent
-=========================================
+===========================================
+`ModifyQueryBeforeFetchingObjectCountEvent`
+===========================================
 
 ..  versionadded:: 14.0
 

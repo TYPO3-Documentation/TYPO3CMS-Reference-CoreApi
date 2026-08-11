@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeCountriesEvaluatedEvent
 ..  _BeforeCountriesEvaluatedEvent:
 
-=============================
-BeforeCountriesEvaluatedEvent
-=============================
+===============================
+`BeforeCountriesEvaluatedEvent`
+===============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Country\Event\BeforeCountriesEvaluatedEvent`
 allows to modify the list of countries provided by
@@ -26,7 +26,7 @@ provider class itself and ViewHelpers like the
 
 ..  _BeforeCountriesEvaluatedEvent-example:
 
-Example: Add a new country to the country selectors
+Example: add a new country to the country selectors
 ===================================================
 
 The following event listener adds a new country, 'Magic Kingdom' with alpha 2
@@ -68,7 +68,7 @@ And Klingon:
 
 ..  _BeforeCountriesEvaluatedEvent-api:
 
-API of event BeforeCountriesEvaluatedEvent
-==========================================
+API of event `BeforeCountriesEvaluatedEvent`
+============================================
 
 ..  include:: /CodeSnippets/Events/Core/Country/BeforeCountriesEvaluatedEvent.rst.txt

@@ -83,8 +83,8 @@ value; :typoscript:`ignoreFlexFormSettingsIfEmpty` (see
 
 ..  _extbase-configuration-typoscript-global-scope:
 
-The global scope: :typoscript:`config.tx_extbase`
-=================================================
+The global scope: `config.tx_extbase`
+=====================================
 
 The :typoscript:`config.tx_extbase` block is the only scope that is **not** bound
 to a single extension. Everything below :typoscript:`plugin.tx_myextension` and
@@ -128,8 +128,8 @@ takes precedence over the global scope.
 
 ..  _extbase-configuration-typoscript-settings:
 
-Custom settings: the :typoscript:`settings` block
-=================================================
+Custom settings: the `settings` block
+=====================================
 
 The :typoscript:`settings` configuration block contains your own configuration
 values — everything from "how many items per page" to default values for business
@@ -152,7 +152,7 @@ through the relevant plugin's FlexForm.
 
 ..  _extbase-configuration-typoscript-settings-contentblocks:
 
-"Feeding" settings from a Content Block FlexForm
+"Feeding" settings from a content block FlexForm
 ------------------------------------------------
 
 Content elements built using Content Blocks and that render an Extbase plugin can
@@ -355,8 +355,8 @@ uses:
 
 ..  _extbase-configuration-typoscript-mvc:
 
-MVC error handling: the :typoscript:`mvc` block
-===============================================
+MVC error handling: the `mvc` block
+===================================
 
 The :typoscript:`mvc` block controls what Extbase does when a request cannot be
 dispatched to a valid action. There are two separate failure stages, and the

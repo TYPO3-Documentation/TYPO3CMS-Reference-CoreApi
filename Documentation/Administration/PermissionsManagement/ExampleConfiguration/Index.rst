@@ -17,7 +17,7 @@ are discussed.
 .. _single-site-structure:
 
 Backend groups’ structure for a small project
-==============================================
+=============================================
 
 When setting up backend groups and permissions for small, single-site projects
 future complexity should be considered. Organizing groups by best practice from the start
@@ -62,7 +62,7 @@ permissions should only be assigned to users via role groups.
 .. _multisite-structure:
 
 Backend group structure for a multi-site project
-==================================================
+================================================
 
 When creating backend user groups for a multi-site project, the approach is
 the same as that of smaller, :ref:`single-site projects <_single-site-structure>`.

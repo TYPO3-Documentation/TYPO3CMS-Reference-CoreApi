@@ -4,9 +4,9 @@
 ..  _xliff-api-php:
 ..  _extension-localization-php:
 
-====================
+===================
 Localization in PHP
-====================
+===================
 
 Sometimes you have to localize a string in PHP code, for
 example inside of a controller or a user function.
@@ -109,7 +109,7 @@ account. See :ref:`localization-typoscript-LOCAL_LANG`.
 
 ..  _extension-localization-extbase-example:
 
-Example: Translate a Flash message in an Extbase Controller
+Example: translate a flash message in an Extbase controller
 -----------------------------------------------------------
 
 In this example the content of the flash message to be displayed in the backend
@@ -133,7 +133,7 @@ This behaviour is the same like in a
 
 ..  _example-localization-middleware:
 
-Example: Provide localized strings via JSON by a middleware
+Example: provide localized strings via JSON by a middleware
 ===========================================================
 
 In the following example we use the :ref:`Translator API <translator-api>`

@@ -47,7 +47,7 @@ The following toplevel modules are provided by the Core:
 ..  _backend-modules-toplevel-module-register-custom-toplevel:
 
 Register a custom toplevel module
-==================================
+=================================
 
 Toplevel modules like :guilabel:`Content` or :guilabel:`Media` are registered in the
 :file:`Configuration/Backend/Modules.php`. All toplevel modules provided by

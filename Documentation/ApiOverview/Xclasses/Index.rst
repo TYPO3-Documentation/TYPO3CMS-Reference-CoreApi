@@ -7,7 +7,7 @@
 ..  _xclasses:
 
 ============================
-XCLASSes (Extending Classes)
+XCLASSes (extending classes)
 ============================
 
 

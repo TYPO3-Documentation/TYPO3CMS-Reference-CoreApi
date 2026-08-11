@@ -8,9 +8,9 @@
 ..  _extbase-validator-conjunction:
 ..  _extbase-validator-disjunction:
 
-========================================================
-Built-in validators and the :php:`#[Validate]` attribute
-========================================================
+===================================================
+Built-in validators and the `#[Validate]` attribute
+===================================================
 
 Extbase ships a set of validators that cover the most common input constraints.
 They are attached to action parameters and model properties using the
@@ -26,8 +26,8 @@ same target are treated as a conjunction. All of them must pass.
 ..  _extbase-validation-arguments:
 ..  _extbase-validator-multiple-example:
 
-Syntax of the :php:`#[Validate]` attribute
-==========================================
+Syntax of the `#[Validate]` attribute
+=====================================
 
 The attribute takes the validator name as its first argument and an optional
 ``options`` array:
@@ -63,8 +63,8 @@ below) or a fully qualified class name for :ref:`custom validators
 
 ..  _extbase-validation-builtin-empty:
 
-Empty values and the acceptsEmptyValues flag
-============================================
+Empty values and the `acceptsEmptyValues` flag
+==============================================
 
 Most built-in validators skip validation if the value is :php:`null` or an
 empty string. This is intentional: a blank field is different
@@ -94,8 +94,8 @@ separately in :ref:`extbase-validation-builtin-file`.
 ..  _extbase-validation-builtin-notempty:
 ..  _extbase-validator-notempty:
 
-NotEmpty
---------
+`NotEmpty`
+----------
 
 Rejects :php:`null`, empty strings, empty arrays, and
 `Countable <https://www.php.net/manual/en/class.countable.php>`_ objects with
@@ -122,8 +122,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
 ..  _extbase-validation-builtin-stringlength:
 ..  _extbase-validator-stringlength:
 
-StringLength
-------------
+`StringLength`
+--------------
 
 Checks that a string's character count (measured in UTF-8 characters) is
 within the given bounds. Objects with a :php:`__toString()` method are
@@ -151,8 +151,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 ..  _extbase-validator-numberrange-example:
 ..  _extbase-validator-numberrange-options:
 
-NumberRange
------------
+`NumberRange`
+-------------
 
 Checks that a numeric value falls within a given range (inclusive). If
 ``minimum`` is greater than ``maximum``, the values are swapped silently.
@@ -181,8 +181,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberRangeValidator`
 ..  _extbase-validator-regularexpression-important:
 ..  _extbase-validator-regularexpression-use-cases:
 
-RegularExpression
------------------
+`RegularExpression`
+-------------------
 
 Validates a value against a
 `PCRE regular expression <https://www.php.net/manual/en/book.pcre.php>`_.
@@ -227,8 +227,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
 ..  _extbase-validation-builtin-emailaddress:
 ..  _extbase-validator-emailaddress:
 
-EmailAddress
-------------
+`EmailAddress`
+--------------
 
 Checks that the value is a syntactically valid email address using
 :php:`GeneralUtility::validEmail()`.
@@ -341,8 +341,8 @@ No options beyond the optional ``message`` override.
 ..  _extbase-validation-builtin-datetime:
 ..  _extbase-validator-datetime:
 
-DateTime
---------
+`DateTime`
+----------
 
 Checks that a value is a :php:`\DateTime` or :php:`\DateTimeImmutable`
 instance. Typically used after property mapping has converted a string
@@ -366,8 +366,8 @@ action parameters.
 
 ..  _extbase-validation-builtin-fileextension:
 
-FileExtension
--------------
+`FileExtension`
+---------------
 
 Checks that the uploaded file has an allowed file extension.
 
@@ -387,8 +387,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
 ..  _extbase-validation-builtin-filesize:
 ..  _extbase-validator-file-size:
 
-FileSize
---------
+`FileSize`
+----------
 
 Checks that the uploaded file size falls within a given range.
 
@@ -409,8 +409,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator`
 ..  _extbase-validation-builtin-mimetype:
 ..  _extbase-validator-mime-type:
 
-MimeType
---------
+`MimeType`
+----------
 
 Checks that the uploaded file's :abbr:`MIME (Multipurpose Internet Mail Extensions)` type is in the allowed list.
 
@@ -430,8 +430,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
 ..  _extbase-validation-builtin-imagedimensions:
 ..  _extbase-validator-image-dimensions:
 
-ImageDimensions
----------------
+`ImageDimensions`
+-----------------
 
 Checks that an uploaded image's width and height fall within the given bounds.
 
@@ -455,8 +455,8 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
 
 ..  _extbase-validation-builtin-fileextensionmimetypeconsistency:
 
-FileExtensionMimeTypeConsistency
---------------------------------
+`FileExtensionMimeTypeConsistency`
+----------------------------------
 
 Cross-checks that the file's extension and its detected MIME type are
 consistent with each other, guarding against disguised file uploads (for
@@ -476,8 +476,8 @@ No configurable options.
 ..  _extbase-validation-builtin-filename:
 ..  _extbase-validator-file-name:
 
-FileName
---------
+`FileName`
+----------
 
 Rejects uploaded files whose name matches dangerous executable extensions
 (such as ``.php``, ``.phar``, ``.exe``). The default pattern is derived from

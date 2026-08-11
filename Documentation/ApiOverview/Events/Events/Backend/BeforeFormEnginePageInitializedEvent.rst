@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFormEnginePageInitializedEvent
 ..  _BeforeFormEnginePageInitializedEvent:
 
-====================================
-BeforeFormEnginePageInitializedEvent
-====================================
+======================================
+`BeforeFormEnginePageInitializedEvent`
+======================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\BeforeFormEnginePageInitializedEvent`

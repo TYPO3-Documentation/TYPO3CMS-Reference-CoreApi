@@ -22,7 +22,7 @@ view of a haiku poem.
 
 ..  _table-record-link-browser-tutorials-backend-configure-link:
 
-Backend: Configure the link browser with page TSconfig
+Backend: configure the link browser with page TSconfig
 ======================================================
 
 The following configuration displays an additional tab in the link browser
@@ -55,7 +55,7 @@ link will be removed upon rendering. See the next step:
 
 ..  _table-record-link-browser-tutorials-frontend-configure-detail:
 
-Frontend: Configure the detail link to the record with TypoScript
+Frontend: configure the detail link to the record with TypoScript
 =================================================================
 
 For the frontend output of a haiku record link we have to configure the

@@ -16,8 +16,8 @@ Configuration
 
 ..  _error-handling-configuration-gui-graphical-user:
 
-Via the :abbr:`GUI (Graphical User Interface)`
-==============================================
+Via the `GUI (Graphical User Interface)`
+========================================
 
 You can configure the most important settings for live or debug error
 handling in the presets:

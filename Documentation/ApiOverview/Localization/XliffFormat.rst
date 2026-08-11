@@ -240,8 +240,8 @@ if the context is about `menuAbstract`.
 
 .. _xliff-id-naming-lower-camel:
 
-Use lowerCamelCase for XLIFF IDs
---------------------------------
+Use `lowerCamelCase` for XLIFF IDs
+----------------------------------
 
 Generally, lowerCamelCase should be used:
 

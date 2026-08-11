@@ -146,7 +146,7 @@ So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespac
 
 .. _namespaces-instances:
 
-Creating Instances
+Creating instances
 ------------------
 
 The following example shows how you can create instances by means of

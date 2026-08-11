@@ -33,8 +33,8 @@ automatically whenever an action parameter is typed as :php:`int`,
 
 ..  _extbase-appendix-typeconverters-integer:
 
-IntegerConverter
-----------------
+`IntegerConverter`
+------------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\IntegerConverter`
 :Sources: :php:`integer`, :php:`string`
@@ -49,8 +49,8 @@ No configuration constants.
 
 ..  _extbase-appendix-typeconverters-float:
 
-FloatConverter
---------------
+`FloatConverter`
+----------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\FloatConverter`
 :Sources: :php:`float`, :php:`integer`, :php:`string`
@@ -71,8 +71,8 @@ thousands separator and decimal point characters can be configured:
 
 ..  _extbase-appendix-typeconverters-boolean:
 
-BooleanConverter
-----------------
+`BooleanConverter`
+------------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\BooleanConverter`
 :Sources: :php:`boolean`, :php:`string`
@@ -86,8 +86,8 @@ No configuration constants.
 
 ..  _extbase-appendix-typeconverters-string:
 
-StringConverter
----------------
+`StringConverter`
+-----------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\StringConverter`
 :Sources: :php:`string`, :php:`integer`
@@ -101,8 +101,8 @@ No configuration constants.
 
 ..  _extbase-appendix-typeconverters-array:
 
-ArrayConverter
---------------
+`ArrayConverter`
+----------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\ArrayConverter`
 :Sources: :php:`array`, :php:`string`
@@ -129,8 +129,8 @@ splits it on a configurable delimiter:
 
 ..  _extbase-appendix-typeconverters-datetime:
 
-DateTimeConverter
-=================
+`DateTimeConverter`
+===================
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter`
 :Sources: :php:`string`, :php:`integer`, :php:`array`
@@ -161,8 +161,8 @@ action parameter is typed as a domain object, an enum, or
 
 ..  _extbase-appendix-typeconverters-persistentobject:
 
-PersistentObjectConverter
--------------------------
+`PersistentObjectConverter`
+---------------------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter`
 :Sources: :php:`integer`, :php:`string`, :php:`array`
@@ -190,8 +190,8 @@ them automatically based on whether an ``__identity`` field was rendered.
 
 ..  _extbase-appendix-typeconverters-objectconverter:
 
-ObjectConverter
----------------
+`ObjectConverter`
+-----------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\ObjectConverter`
 :Sources: :php:`array`
@@ -214,8 +214,8 @@ arguments or property values. Used for value objects and
 
 ..  _extbase-appendix-typeconverters-objectstorage:
 
-ObjectStorageConverter
-----------------------
+`ObjectStorageConverter`
+------------------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\ObjectStorageConverter`
 :Sources: :php:`string`, :php:`array`
@@ -232,8 +232,8 @@ No configuration constants.
 
 ..  _extbase-appendix-typeconverters-enum:
 
-EnumConverter
--------------
+`EnumConverter`
+---------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\EnumConverter`
 :Sources: :php:`string`, :php:`integer`, :php:`float`
@@ -260,8 +260,8 @@ for the relevant action parameters.
 
 ..  _extbase-appendix-typeconverters-coretype:
 
-CoreTypeConverter
------------------
+`CoreTypeConverter`
+-------------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\CoreTypeConverter`
 :Sources: :php:`string`, :php:`integer`, :php:`float`, :php:`boolean`, :php:`array`
@@ -277,8 +277,8 @@ No configuration constants.
 
 ..  _extbase-appendix-typeconverters-country:
 
-CountryConverter
-----------------
+`CountryConverter`
+------------------
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\CountryConverter`
 :Sources: :php:`string`

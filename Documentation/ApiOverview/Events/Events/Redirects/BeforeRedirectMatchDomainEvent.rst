@@ -3,9 +3,9 @@
 ..  _BeforeRedirectMatchDomainEvent:
 
 
-==============================
-BeforeRedirectMatchDomainEvent
-==============================
+================================
+`BeforeRedirectMatchDomainEvent`
+================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent`

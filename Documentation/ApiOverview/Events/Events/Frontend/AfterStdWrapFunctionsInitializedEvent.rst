@@ -2,9 +2,9 @@
 ..  index:: Events; AfterStdWrapFunctionsInitializedEvent
 ..  _AfterStdWrapFunctionsInitializedEvent:
 
-=====================================
-AfterStdWrapFunctionsInitializedEvent
-=====================================
+=======================================
+`AfterStdWrapFunctionsInitializedEvent`
+=======================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\AfterStdWrapFunctionsInitializedEvent`

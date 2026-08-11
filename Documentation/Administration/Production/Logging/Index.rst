@@ -94,7 +94,7 @@ you also need to switch those log files to use the
 
 ..  _production-logging-system-tools:
 
-Use system-Level log management tools
+Use system-level log management tools
 =====================================
 
 In addition to TYPO3's internal logging features, it is common practice to

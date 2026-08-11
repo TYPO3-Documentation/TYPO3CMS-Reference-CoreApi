@@ -5,7 +5,7 @@
 ..  _deployment-deployer:
 
 =============================
-Deployer for TYPO3 Deployment
+Deployer for TYPO3 deployment
 =============================
 
 `Deployer <https://deployer.org>`__ is a deployment tool written in PHP.
@@ -23,7 +23,7 @@ Deployer recipes for TYPO3
 
 ..  _deployer-SourceBroker:
 
-SourceBroker's Deployer - Extended TYPO3
+SourceBroker's Deployer - extended TYPO3
 ----------------------------------------
 
 This recipe extends Deployer's capabilities to cover TYPO3 projects.

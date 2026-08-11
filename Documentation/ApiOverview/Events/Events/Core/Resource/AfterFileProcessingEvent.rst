@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileProcessingEvent
 ..  _AfterFileProcessingEvent:
 
-========================
-AfterFileProcessingEvent
-========================
+==========================
+`AfterFileProcessingEvent`
+==========================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileProcessingEvent`

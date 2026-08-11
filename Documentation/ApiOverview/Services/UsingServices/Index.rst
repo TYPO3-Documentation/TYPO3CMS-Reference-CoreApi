@@ -2,7 +2,7 @@
 .. _services-using-services:
 
 ==============
-Using Services
+Using services
 ==============
 
 This chapter describes the different ways in which services

@@ -20,14 +20,14 @@ event unbinding.
 
 ..  _js-event-api-event-binding:
 
-Event Binding
+Event binding
 =============
 
 Each event strategy (see below) has two ways to bind a listener to an event:
 
 ..  _js-event-api-event-binding-direct-binding:
 
-Direct Binding
+Direct binding
 --------------
 
 The event listener is bound to the element that triggers the event. This is done
@@ -43,7 +43,7 @@ Example:
 
 ..  _js-event-api-event-binding-event-delegation:
 
-Event Delegation
+Event delegation
 ----------------
 
 The event listener is called if the event was triggered to any matching element
@@ -83,8 +83,8 @@ The Event API brings several strategies to handle event listeners:
 
 ..  _js-event-api-event-strategies-regularevent:
 
-RegularEvent
-------------
+`RegularEvent`
+--------------
 
 The :js:`RegularEvent` attaches a simple event listener to an event and element
 and has no further tweaks. This is the common use case for event handling.
@@ -103,8 +103,8 @@ Example:
 
 ..  _js-event-api-event-strategies-debounceevent:
 
-DebounceEvent
--------------
+`DebounceEvent`
+---------------
 
 The :js:`DebounceEvent` is most suitable if an event is triggered quite often
 but executing the event listener is called only after a certain wait time.
@@ -124,8 +124,8 @@ Example:
 
 ..  _js-event-api-throttleevent:
 
-ThrottleEvent
--------------
+`ThrottleEvent`
+---------------
 
 Arguments:
 
@@ -149,8 +149,8 @@ Example:
 
 ..  _js-event-api-event-strategies-requestanimationframeevent:
 
-RequestAnimationFrameEvent
---------------------------
+`RequestAnimationFrameEvent`
+----------------------------
 
 The :js:`RequestAnimationFrameEvent` binds its execution to the browser's
 :js:`RequestAnimationFrame` API. It is suitable for event listeners that

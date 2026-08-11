@@ -6,7 +6,7 @@
 ..  _typo3ConfVars_log:
 
 ===========================
-LOG - Logging configuration
+LOG - logging configuration
 ===========================
 
 The array :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` defines how TYPO3 handles

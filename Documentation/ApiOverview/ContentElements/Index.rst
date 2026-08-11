@@ -3,7 +3,7 @@
 ..  _content-element-and-plugin:
 
 ==========================
-Content Elements & Plugins
+Content elements & plugins
 ==========================
 
 This chapter handles content elements & plugins: What they are, how they can be

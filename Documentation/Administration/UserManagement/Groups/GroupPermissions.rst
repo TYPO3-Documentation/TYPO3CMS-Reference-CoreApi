@@ -38,8 +38,8 @@ will be inherited by the current group.
 
 ..  _backend-group-inheritance:
 
-Inherit settings from groups" section of tab "General" in backend user groups
------------------------------------------------------------------------------
+"Inherit settings from groups" section of tab "General" in backend user groups
+------------------------------------------------------------------------------
 
 If you chose groups in the "Inherit settings from groups" section of tab
 "General", the current group inherits all the permissions of the parent group and
@@ -58,7 +58,7 @@ See also `Setting user TSconfig <https://docs.typo3.org/permalink/t3tsref:settin
 
 ..  _access-lists-page-types:
 
-"Allowed page types" section in Record permissions of user group
+"Allowed page types" section in record permissions of user group
 ----------------------------------------------------------------
 
 You should allow at least the "Standard" page type if you want your
@@ -68,7 +68,7 @@ See also :ref:`Editors Guide, page types <t3editors:pages-types>`.
 
 ..  _access-lists-tables:
 
-"Table permissions" section in Record permissions of user group
+"Table permissions" section in record permissions of user group
 ---------------------------------------------------------------
 
 This section allows you to grant "read" or "read and write" permissions for
@@ -84,7 +84,7 @@ permissions to actually write saved files.
 
 ..  _access-lists-allowed-excludefields:
 
-"Allowed fields" section in Record permissions of user group
+"Allowed fields" section in record permissions of user group
 ------------------------------------------------------------
 
 When defining table fields in TYPO3, you can mark them as
@@ -104,7 +104,7 @@ their excluded fields.
 
 ..  _access-lists-explicitly-allow-deny-field-values:
 
-"Explicitly allow field values" section in Record permissions of user group
+"Explicitly allow field values" section in record permissions of user group
 ---------------------------------------------------------------------------
 
 By default you can choose which content element types are allowed for a backend
@@ -124,7 +124,7 @@ a user of this group.
 
 ..  _access-lists-language-limit:
 
-"Limit to languages" section in Record permissions of user group
+"Limit to languages" section in record permissions of user group
 ----------------------------------------------------------------
 
 In a multilingual web site, it is also possible to restrict users
@@ -223,7 +223,7 @@ you can even override all file mounts.
 ..  _access-lists-file-permissions:
 
 "File operation permissions" in tab "Mounts and Workspaces"
-----------------------------------------------------------
+-----------------------------------------------------------
 
 Specific operations on files and directories must be allowed.
 Choose either "Directory" or "Files" and start checking boxes.

@@ -57,8 +57,8 @@ replace its registered :php:`provider` class with your custom class.
 
 ..  _login-provider-interface:
 
-LoginProviderInterface
-======================
+`LoginProviderInterface`
+========================
 
 ..  include:: /CodeSnippets/Backend/LoginProviderInterface.rst.txt
 

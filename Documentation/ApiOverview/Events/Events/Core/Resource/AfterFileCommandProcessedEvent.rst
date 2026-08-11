@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileCommandProcessedEvent
 ..  _AfterFileCommandProcessedEvent:
 
-==============================
-AfterFileCommandProcessedEvent
-==============================
+================================
+`AfterFileCommandProcessedEvent`
+================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent` can be used

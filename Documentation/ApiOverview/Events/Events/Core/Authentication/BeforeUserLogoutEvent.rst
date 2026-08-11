@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeUserLogoutEvent
 ..  _BeforeUserLogoutEvent:
 
-=====================
-BeforeUserLogoutEvent
-=====================
+=======================
+`BeforeUserLogoutEvent`
+=======================
 
 ..  versionadded::  12.3
     The event replaces the deprecated hook
