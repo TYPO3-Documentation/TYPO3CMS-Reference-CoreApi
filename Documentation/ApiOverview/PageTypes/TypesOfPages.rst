@@ -29,8 +29,8 @@ additional fields in pages to be filled out:
 ..  _list-of-page-types-link:
 
 `DOKTYPE_LINK` - ID: `3`
-   Link to external URLs, other pages, content elements, sections, files,
-   folders, email addresses or custom records (for example news records).
+   Link to external URLs, other pages, content elements, files,
+   folders, email addresses or custom records (for example, news records).
 
    This type of page creates a redirect to an URL in the frontend.
    The URL is specified in the field `pages.url`.
