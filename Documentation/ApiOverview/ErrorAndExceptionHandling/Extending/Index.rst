@@ -38,7 +38,7 @@ error and exception handling classes shipped with TYPO3.
 
 ..  _error-handling-extending-example-debug-exception:
 
-Example Debug Exception Handler
+Example debug exception handler
 ===============================
 
 This uses the default Core exception handler `DebugExceptionHandler` and overrides some

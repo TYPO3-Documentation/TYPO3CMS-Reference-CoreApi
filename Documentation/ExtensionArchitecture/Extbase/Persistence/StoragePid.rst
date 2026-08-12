@@ -4,9 +4,9 @@
 ..  index:: pair: Extbase; storagePid
 ..  _extbase-persistence-storagepid:
 
-===============================================
-The storagePid: where Extbase looks for records
-===============================================
+=================================================
+The `storagePid`: where Extbase looks for records
+=================================================
 
 Every Extbase repository query — except :php:`findByUid()` and
 :php:`findByIdentifier()` — is restricted to records stored on specific TYPO3
@@ -27,8 +27,8 @@ single query.
 
 ..  _extbase-persistence-storagepid-constraint:
 
-storagePid as a query constraint
-================================
+`storagePid` as a query constraint
+==================================
 
 When a repository builds a query, Extbase adds a :sql:`WHERE` condition limiting
 the result to records whose :sql:`pid` is one of the configured storage pages.
@@ -45,8 +45,8 @@ actually searches is not always the one you set.
 
 ..  _extbase-persistence-storagepid-resolution:
 
-The storagePid resolution chain in the frontend
-===============================================
+The `storagePid` resolution chain in the frontend
+=================================================
 
 Several options feed the storagePid, and later ones override earlier ones. In a
 frontend request Extbase resolves them in this order, depending on the controller that
@@ -87,8 +87,8 @@ settings always have the final say.
 
 ..  _extbase-persistence-storagepid-backend:
 
-The storagePid resolution chain in a backend module
-===================================================
+The `storagePid` resolution chain in a backend module
+=====================================================
 
 An Extbase repository behaves the same way inside a backend module as it does in
 the frontend: every query is restricted to the configured storage pages. What
@@ -165,8 +165,8 @@ next to it that does the same for the editor-chosen pages.
 
 ..  _extbase-persistence-storagepid-override:
 
-Overriding the storagePid for a single query
-============================================
+Overriding the `storagePid` for a single query
+==============================================
 
 The configured storagePid is the default for every query a repository builds. To
 change it for one query, use the query settings object inside a custom repository
@@ -210,8 +210,8 @@ records, which are independent of the storagePid:
 
 ..  _extbase-persistence-storagepid-zero:
 
-Why :php:`storagePid = 0` does not disable the restriction
-==========================================================
+Why `storagePid = 0` does not disable the restriction
+=====================================================
 
 A common misconception is that setting the storagePid to :typoscript:`0` switches
 off the page restriction. It does not. For an ordinary table, :sql:`0` is the UID of
@@ -228,8 +228,8 @@ instead:
 
 ..  _extbase-persistence-storagepid-build:
 
-Building the storagePid array from editor input
-===============================================
+Building the `storagePid` array from editor input
+=================================================
 
 When for any reason the storagePid array can't be built by Extbase but you want
 to do it manually, use Core API rather than constructing the recursive page list

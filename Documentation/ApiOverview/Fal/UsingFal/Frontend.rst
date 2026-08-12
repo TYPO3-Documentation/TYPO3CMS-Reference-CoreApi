@@ -27,8 +27,8 @@ Fluid
 
 ..  _fal-using-fal-frontend-fluid-image:
 
-The ImageViewHelper
--------------------
+The `ImageViewHelper`
+---------------------
 
 If you have the uid of a file reference, you can use it directly in the
 :ref:`\\TYPO3\\CMS\\Fluid\\ViewHelpers\\ImageViewHelper <t3viewhelper:typo3-fluid-image>`:

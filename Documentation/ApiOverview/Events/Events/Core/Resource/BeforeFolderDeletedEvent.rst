@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFolderDeletedEvent
 ..  _BeforeFolderDeletedEvent:
 
-========================
-BeforeFolderDeletedEvent
-========================
+==========================
+`BeforeFolderDeletedEvent`
+==========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFolderDeletedEvent`
 is fired before a folder is about to be deleted.

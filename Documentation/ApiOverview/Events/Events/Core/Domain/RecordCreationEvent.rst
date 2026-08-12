@@ -2,9 +2,9 @@
 ..  index:: Events; RecordCreationEvent
 ..  _RecordCreationEvent:
 
-===================
-RecordCreationEvent
-===================
+=====================
+`RecordCreationEvent`
+=====================
 
 The `Database Record <https://docs.typo3.org/permalink/t3coreapi:database-records>`_ object, which
 represents a raw database record based on TCA and is usually used in the

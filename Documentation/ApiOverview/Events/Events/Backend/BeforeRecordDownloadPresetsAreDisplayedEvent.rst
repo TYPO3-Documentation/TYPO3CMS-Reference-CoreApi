@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeRecordDownloadPresetsAreDisplayedEvent
 ..  _BeforeRecordDownloadPresetsAreDisplayedEvent:
 
-============================================
-BeforeRecordDownloadPresetsAreDisplayedEvent
-============================================
+==============================================
+`BeforeRecordDownloadPresetsAreDisplayedEvent`
+==============================================
 
 The event :php:`TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadPresetsAreDisplayedEvent`
 can be used to manipulate the list of available download presets in
@@ -32,7 +32,7 @@ changed `label` and `columns` constructor properties.
 
 ..  _BeforeRecordDownloadPresetsAreDisplayedEvent-example:
 
-Example: Manipulate download presets
+Example: manipulate download presets
 ====================================
 
 ..  literalinclude:: _BeforeRecordDownloadPresetsAreDisplayedEvent/_PresetListener.php
@@ -40,14 +40,14 @@ Example: Manipulate download presets
 
 ..  _BeforeRecordDownloadPresetsAreDisplayedEvent-api:
 
-API of BeforeRecordDownloadPresetsAreDisplayedEvent
-===================================================
+API of `BeforeRecordDownloadPresetsAreDisplayedEvent`
+=====================================================
 
 ..  include:: /CodeSnippets/Events/Backend/BeforeRecordDownloadPresetsAreDisplayedEvent.rst.txt
 
 ..  _DownloadPreset-api:
 
-API of DownloadPreset
-=====================
+API of `DownloadPreset`
+=======================
 
 ..  include:: /CodeSnippets/Events/Backend/DownloadPreset.rst.txt

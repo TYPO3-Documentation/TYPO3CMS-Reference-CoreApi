@@ -8,7 +8,7 @@
 ..  _classic-directory-structure:
 
 ===============================================
-Classic mode installations: Directory structure
+Classic mode installations: directory structure
 ===============================================
 
 The structure below describes the directory layout of a Classic TYPO3 installation
@@ -55,8 +55,8 @@ Directories in a typical Classic mode project
 ..  _classic-directory-fileadmin:
 ..  _legacy-directory-fileadmin:
 
-:path:`fileadmin/`
-------------------
+`fileadmin/`
+------------
 
 This is a directory in which editors store files.
 It is used for the same files like
@@ -66,8 +66,8 @@ structure.
 ..  _classic-directory-typo3:
 ..  _legacy-directory-typo3:
 
-:path:`typo3/`
---------------
+`typo3/`
+--------
 
 Among others, this directory contains the PHP
 file for accessing the install tool (:file:`public/typo3/install.php`).
@@ -79,16 +79,16 @@ file for accessing the install tool (:file:`public/typo3/install.php`).
 ..  _classic-directory-typo3-sysext:
 ..  _legacy-directory-typo3-sysext:
 
-:path:`typo3/sysext/`
-~~~~~~~~~~~~~~~~~~~~~
+`typo3/sysext/`
+~~~~~~~~~~~~~~~
 
 All system extensions, supplied by the TYPO3 Core, are stored here.
 
 ..  _classic-directory-typo3_source:
 ..  _legacy-directory-typo3_source:
 
-:path:`typo3_src/`
----------------------
+`typo3_src/`
+------------
 
 It is a common practice in Classic mode installations to use symlinks to quickly
 change between TYPO3 Core versions. In many installations you will find a symlink or folder
@@ -120,8 +120,8 @@ the following symlink structure:
 ..  _classic-directory-typo3conf:
 ..  _legacy-directory-typo3conf:
 
-:path:`typo3conf/`
-------------------
+`typo3conf/`
+------------
 
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
@@ -129,8 +129,8 @@ This path can be retrieved from the Environment API, see
 ..  _classic-directory-typo3conf-autoload:
 ..  _legacy-directory-typo3conf-autoload:
 
-:path:`typo3conf/autoload/`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`typo3conf/autoload/`
+~~~~~~~~~~~~~~~~~~~~~
 
 Contains :ref:`autoloading <autoload>` information.
 The files are updated each time an extension is installed via the
@@ -139,8 +139,8 @@ The files are updated each time an extension is installed via the
 ..  _classic-directory-typo3conf-ext:
 ..  _legacy-directory-typo3conf-ext:
 
-:path:`typo3conf/ext/`
-~~~~~~~~~~~~~~~~~~~~~~
+`typo3conf/ext/`
+~~~~~~~~~~~~~~~~
 
 Directory for third-party and custom TYPO3 extensions. Each subdirectory
 contains one extension. The name of each directory **must** be the extension
@@ -153,8 +153,8 @@ for more information on how the extensions are structured.
 ..  _classic-directory-typo3conf-l10n:
 ..  _legacy-directory-typo3conf-l10n:
 
-:path:`typo3conf/l10n/`
-~~~~~~~~~~~~~~~~~~~~~~~
+`typo3conf/l10n/`
+~~~~~~~~~~~~~~~~~
 
 Directory for extension localizations. Contains all downloaded translation
 files.
@@ -165,8 +165,8 @@ This path can be retrieved from the Environment API, see
 ..  _classic-directory-typo3conf-sites:
 ..  _legacy-directory-typo3conf-sites:
 
-:path:`typo3conf/sites/`
-~~~~~~~~~~~~~~~~~~~~~~~~
+`typo3conf/sites/`
+~~~~~~~~~~~~~~~~~~
 
 The folder :path:`typo3conf/sites/` contains subfolders, one for each site
 in the installation. See chapter :ref:`site-folder`.
@@ -174,8 +174,8 @@ in the installation. See chapter :ref:`site-folder`.
 ..  _classic-directory-typo3conf-system:
 ..  _legacy-directory-typo3conf-system:
 
-:path:`typo3conf/system/`
-~~~~~~~~~~~~~~~~~~~~~~~~~
+`typo3conf/system/`
+~~~~~~~~~~~~~~~~~~~
 
 The folder :path:`typo3conf/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
@@ -194,8 +194,8 @@ This path can be retrieved from the Environment API, see
 ..  _classic-directory-typo3temp:
 ..  _legacy-directory-typo3temp:
 
-:path:`typo3temp/`
-------------------
+`typo3temp/`
+------------
 
 Directory for temporary files. It contains subdirectories (see below)
 for temporary files of extensions and TYPO3 components.
@@ -210,8 +210,8 @@ for temporary files of extensions and TYPO3 components.
 ..  _classic-directory-typo3temp-assets:
 ..  _legacy-directory-typo3temp-assets:
 
-:path:`typo3temp/assets/`
-~~~~~~~~~~~~~~~~~~~~~~~~~
+`typo3temp/assets/`
+~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files that should be publicly available
 (e.g. generated images).
@@ -219,8 +219,8 @@ Directory for temporary files that should be publicly available
 ..  _classic-directory-typo3temp-var:
 ..  _legacy-directory-typo3temp-var:
 
-:path:`typo3temp/var/`
-~~~~~~~~~~~~~~~~~~~~~~
+`typo3temp/var/`
+~~~~~~~~~~~~~~~~
 
 Directory for temporary files that should not be accessed through the web
 (cache, log, etc).
@@ -228,8 +228,8 @@ Directory for temporary files that should not be accessed through the web
 ..  _classic-directory-vendor:
 ..  _legacy-directory-vendor:
 
-:path:`vendor/`
-~~~~~~~~~~~~~~~
+`vendor/`
+~~~~~~~~~
 
 This directory contains third-party packages that are required by the
 TYPO3 Core.

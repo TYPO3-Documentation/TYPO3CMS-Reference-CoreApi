@@ -53,7 +53,7 @@ in *TYPO3 Explained*.
 
 ..  _update_reference_index:
 
-Update Reference Index
+Update reference index
 ======================
 
 ..  tip::
@@ -121,7 +121,7 @@ have to run the update multiple times.
 
 ..  _check-the-changelog-and-news-md:
 
-Check the ChangeLog
+Check the Changelog
 ===================
 
 In addition to the deprecations you may want to read the information about important

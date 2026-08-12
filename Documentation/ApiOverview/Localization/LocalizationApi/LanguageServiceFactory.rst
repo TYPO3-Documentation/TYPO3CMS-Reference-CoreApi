@@ -1,9 +1,9 @@
 ..  include:: /Includes.rst.txt
 ..  _LanguageServiceFactory-api:
 
-======================
-LanguageServiceFactory
-======================
+========================
+`LanguageServiceFactory`
+========================
 
 The :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` class is
 for retrieving a :ref:`\TYPO3\CMS\Core\Localization\TranslatorInterface <translator-api>`

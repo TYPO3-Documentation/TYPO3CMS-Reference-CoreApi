@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyValidatorTaskEmailEvent
 ..  _ModifyValidatorTaskEmailEvent:
 
-=============================
-ModifyValidatorTaskEmailEvent
-=============================
+===============================
+`ModifyValidatorTaskEmailEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent`

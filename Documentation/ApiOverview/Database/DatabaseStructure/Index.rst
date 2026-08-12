@@ -85,8 +85,8 @@ this behavior.
 
 ..  _database-structure-pages:
 
-The :sql:`pages` table
-======================
+The `pages` table
+=================
 
 Defines TYPO3's hierarchical page tree. All managed records reference a
 :sql:`pages.uid` via their :sql:`pid`.

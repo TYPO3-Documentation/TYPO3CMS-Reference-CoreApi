@@ -242,7 +242,7 @@ part of the parent. Child ordering comes from the TCA of the relation
 ..  _extbase-persistence-relations-lazy:
 ..  _extbase-model-lazy-loading:
 
-Lazy loading and the N+1 query trap
+Lazy loading and the n+1 query trap
 ===================================
 
 Eager loading is convenient but not free. Loading a list of 50 conferences, each

@@ -4,7 +4,7 @@
 .. _access-other-options:
 
 =============
-Other Options
+Other options
 =============
 
 This chapter presents a few more, miscellaneous options for
@@ -47,7 +47,7 @@ Lock to domain
 
 .. _access-other-options-groups:
 
-Backend Groups
+Backend groups
 ==============
 
 Disable

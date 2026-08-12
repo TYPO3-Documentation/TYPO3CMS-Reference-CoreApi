@@ -72,7 +72,7 @@ The main array is initialized by :php:`FormDataCompiler`, and each :php:`DataPro
 
 ..  _form-engine-data-compiling-data-groups-providers:
 
-Data Groups and Providers
+Data groups and providers
 =========================
 
 So we have this empty data array, pre-set with data by a controller and then initialized by :php:`FormDataCompiler`,
@@ -153,7 +153,7 @@ Post process after single field values are prepared:
 
 ..  _form-engine-data-compiling-extending-data-groups:
 
-Extending Data Groups With Own Providers
+Extending data groups with own providers
 ========================================
 
 The base set of DataProviders for all DataGroups is defined within :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
@@ -200,7 +200,7 @@ Limitations:
 
 ..  _form-engine-data-compiling-adding-data-data:
 
-Adding Data to Data Array
+Adding data to data array
 =========================
 
 Most custom data providers change or add existing data within the main data array. A typical use case is an additional
@@ -216,7 +216,7 @@ with other data that a different extension may add.
 
 ..  _form-engine-data-compiling-disable-single-formengine:
 
-Disable Single FormEngine Data Provider
+Disable single FormEngine data provider
 =======================================
 
 Single data providers used in the FormEngine data compilation step can be disabled to allow extension authors to substitute

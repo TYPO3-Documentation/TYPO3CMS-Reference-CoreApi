@@ -3,9 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _t3ds-elements:
 
-===============================
-XML Elements in T3DataStructure
-===============================
+=================================
+XML elements in `T3DataStructure`
+=================================
 
 This is the list of elements and their nesting in the Data Structure.
 
@@ -13,7 +13,7 @@ This is the list of elements and their nesting in the Data Structure.
 
 ..  _t3ds-elements-array:
 
-Elements Nesting Other Elements ("Array" Elements)
+Elements nesting other elements ("Array" elements)
 ==================================================
 
 All elements defined here cannot contain a string value but  *must*
@@ -112,7 +112,7 @@ An example would look like:
 
 ..  _t3ds-elements-value:
 
-Elements Containing Values ("Value" Elements)
+Elements containing values ("Value" elements)
 =============================================
 
 All elements defined here must contain a string value and no other XML
@@ -164,8 +164,8 @@ Details can be found in
 
 ..  _t3ds-elements-example:
 
-T3DataStructure example: A simple FlexForm
-==========================================
+`T3DataStructure` example: a simple FlexForm
+============================================
 
 Below is the structure of a basic FlexForm from the example extension
 :composer:`typo3/cms-styleguide`:

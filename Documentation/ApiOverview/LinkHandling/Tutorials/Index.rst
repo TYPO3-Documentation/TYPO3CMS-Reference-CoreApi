@@ -2,9 +2,9 @@
 .. index:: LinkBrowser; Tutorials
 .. _LinkBrowserTutorials:
 
-=====================
-LinkBrowser Tutorials
-=====================
+=======================
+`LinkBrowser` tutorials
+=======================
 
 **Contents:**
 

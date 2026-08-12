@@ -2,9 +2,9 @@
 ..  index:: Events; AvailableActionsForExtensionEvent
 ..  _AvailableActionsForExtensionEvent:
 
-=================================
-AvailableActionsForExtensionEvent
-=================================
+===================================
+`AvailableActionsForExtensionEvent`
+===================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Extensionmanager\Event\AvailableActionsForExtensionEvent`

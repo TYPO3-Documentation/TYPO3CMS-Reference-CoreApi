@@ -2,7 +2,7 @@
 .. _transformations:
 
 ===================
-RTE Transformations
+RTE transformations
 ===================
 
 

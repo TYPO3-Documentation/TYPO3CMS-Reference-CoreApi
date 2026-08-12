@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFileCreatedEvent
 ..  _BeforeFileCreatedEvent:
 
-======================
-BeforeFileCreatedEvent
-======================
+========================
+`BeforeFileCreatedEvent`
+========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFileCreatedEvent`
 is fired before a file is about to be created within a resource

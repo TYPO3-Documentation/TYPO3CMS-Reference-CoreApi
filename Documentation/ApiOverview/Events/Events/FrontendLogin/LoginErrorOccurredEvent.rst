@@ -3,9 +3,9 @@
 ..  _LoginErrorOccurredEvent:
 
 
-=======================
-LoginErrorOccurredEvent
-=======================
+=========================
+`LoginErrorOccurredEvent`
+=========================
 
 The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\LoginErrorOccurredEvent`
 is triggered when an error occurs while trying to log in a user.

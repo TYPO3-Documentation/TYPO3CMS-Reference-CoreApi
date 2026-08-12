@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFolderMovedEvent
 ..  _AfterFolderMovedEvent:
 
-=====================
-AfterFolderMovedEvent
-=====================
+=======================
+`AfterFolderMovedEvent`
+=======================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFolderMovedEvent`

@@ -5,7 +5,7 @@
 ..  _deployment-deployer:
 
 =============================
-Deployer for TYPO3 Deployment
+Deployer for TYPO3 deployment
 =============================
 
 `Deployer <https://deployer.org>`__ is a deployment tool written in PHP.
@@ -23,7 +23,7 @@ Deployer recipes for TYPO3
 
 ..  _deployer-SourceBroker:
 
-SourceBroker's Deployer - Extended TYPO3
+SourceBroker's Deployer - extended TYPO3
 ----------------------------------------
 
 This recipe extends Deployer's capabilities to cover TYPO3 projects.
@@ -64,7 +64,7 @@ To start using Deployer, :file:`deploy.yaml` should look like this:
 ..  _deployer-official:
 
 Official Deployer recipe for TYPO3
------------------------------------
+----------------------------------
 
 Deployer ships an `official TYPO3 recipe <https://deployer.org/docs/8.x/recipe/typo3>`_
 for Composer-based TYPO3 installations. It auto-detects the public web

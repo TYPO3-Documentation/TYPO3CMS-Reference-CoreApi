@@ -91,8 +91,8 @@ upgrade.
 ..  _install-next-step:
 ..  _upgradecore-require:
 
-Running :bash:`composer require` with new major version dependencies
-====================================================================
+Running `composer require` with new major version dependencies
+==============================================================
 
 ..  warning::
     Never try the following on a production system. Work locally and use

@@ -2,9 +2,9 @@
 ..  index:: Events; AfterContentHasBeenFetchedEvent
 ..  _AfterContentHasBeenFetchedEvent:
 
-===============================
-AfterContentHasBeenFetchedEvent
-===============================
+=================================
+`AfterContentHasBeenFetchedEvent`
+=================================
 
 ..  versionadded:: 13.4.2 / 14.0
 

@@ -14,9 +14,9 @@
 
 ..  _localization:
 
-==========================================
-Localization: Translating labels in TYPO3
-==========================================
+=========================================
+Localization: translating labels in TYPO3
+=========================================
 
 In TYPO3, two types of texts require translation:
 

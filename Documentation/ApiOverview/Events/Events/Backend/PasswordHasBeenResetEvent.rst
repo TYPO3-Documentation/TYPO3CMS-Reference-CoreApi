@@ -2,9 +2,9 @@
 ..  index:: Events; PasswordHasBeenResetEvent
 ..  _PasswordHasBeenResetEvent:
 
-=========================
-PasswordHasBeenResetEvent
-=========================
+===========================
+`PasswordHasBeenResetEvent`
+===========================
 
 ..  versionadded:: 14.0
     It is possible to add custom business logic after a Backend user resets their

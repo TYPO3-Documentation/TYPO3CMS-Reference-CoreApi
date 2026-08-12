@@ -2,9 +2,9 @@
 .. index:: Events; ModifyInlineElementEnabledControlsEvent
 .. _ModifyInlineElementEnabledControlsEvent:
 
-=======================================
-ModifyInlineElementEnabledControlsEvent
-=======================================
+=========================================
+`ModifyInlineElementEnabledControlsEvent`
+=========================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Form\Event\ModifyInlineElementEnabledControlsEvent`
 is called before any control markup is generated. It can be used to

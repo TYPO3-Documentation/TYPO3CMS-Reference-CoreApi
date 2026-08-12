@@ -2,9 +2,9 @@
 ..  index:: Events; AfterBackendUserListConstraintsAssembledFromDemandEvent
 ..  _AfterBackendUserListConstraintsAssembledFromDemandEvent:
 
-=======================================================
-AfterBackendUserListConstraintsAssembledFromDemandEvent
-=======================================================
+=========================================================
+`AfterBackendUserListConstraintsAssembledFromDemandEvent`
+=========================================================
 
 ..  versionadded:: 14.0
 

@@ -4,9 +4,9 @@
 ..  _t3ds-sheet-references:
 ..  _t3ds-sheet-references-example:
 
-==============================================
-Sheet reference support in the T3DataStructure
-==============================================
+================================================
+Sheet reference support in the `T3DataStructure`
+================================================
 
 If Data Structures are arranged in a collection of sheets you can
 choose to store one or more sheets externally in separate files. This

@@ -3,9 +3,9 @@
     Events; ProvideStaticVariablesToComponentEvent
 ..  _ProvideStaticVariablesToComponentEvent:
 
-======================================
-ProvideStaticVariablesToComponentEvent
-======================================
+========================================
+`ProvideStaticVariablesToComponentEvent`
+========================================
 
 ..  versionadded:: 14.1
 

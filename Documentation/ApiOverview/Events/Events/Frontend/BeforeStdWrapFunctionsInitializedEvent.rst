@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeStdWrapFunctionsInitializedEvent
 ..  _BeforeStdWrapFunctionsInitializedEvent:
 
-======================================
-BeforeStdWrapFunctionsInitializedEvent
-======================================
+========================================
+`BeforeStdWrapFunctionsInitializedEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapFunctionsInitializedEvent`

@@ -4,7 +4,7 @@
 ..  _authentication:
 
 ==========================================
-Authentication: Backend and frontend users
+Authentication: backend and frontend users
 ==========================================
 
 In TYPO3, there are two distinct user types:

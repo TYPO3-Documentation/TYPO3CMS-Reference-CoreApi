@@ -78,7 +78,7 @@ and workspace handling. A record can have relations to other records.
 
 .. _database-records-tca:
 
-TCA (Table Configuration Array)
+TCA (table configuration array)
 ===============================
 
 TYPO3 uses the **TCA** to define how records of a specific table are

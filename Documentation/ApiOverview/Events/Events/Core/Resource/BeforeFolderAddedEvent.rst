@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFolderAddedEvent
 ..  _BeforeFolderAddedEvent:
 
-======================
-BeforeFolderAddedEvent
-======================
+========================
+`BeforeFolderAddedEvent`
+========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFolderAddedEvent` is
 fired before a folder is about to be added to the resource

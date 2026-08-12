@@ -2,9 +2,9 @@
 ..  index:: Events; LoginAttemptFailedEvent
 ..  _LoginAttemptFailedEvent:
 
-=======================
-LoginAttemptFailedEvent
-=======================
+=========================
+`LoginAttemptFailedEvent`
+=========================
 
 ..  versionadded::  12.3
     The event replaces the deprecated hook

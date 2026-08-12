@@ -15,8 +15,8 @@ default password policy.
 
 ..  _password-policies-validators-CorePasswordValidator:
 
-CorePasswordValidator
-=====================
+`CorePasswordValidator`
+=======================
 
 The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
 validator has the ability to ensure a complex password with a defined
@@ -62,8 +62,8 @@ The following options are available:
 
 ..  _password-policies-validators-NotCurrentPasswordValidator:
 
-NotCurrentPasswordValidator
-===========================
+`NotCurrentPasswordValidator`
+=============================
 
 The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator`
 validator can be used to ensure, that the new user password is not

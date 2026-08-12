@@ -2,9 +2,9 @@
 
 ..  _caching-backend:
 
-===============
+==============
 Cache backends
-===============
+==============
 
 There are a variety of different storage backends. They have different characteristics
 and can be used for different caching needs. The best backend depends on
@@ -25,8 +25,8 @@ All backends must implement the :code:`TYPO3\CMS\Core\Cache\Backend\BackendInter
 
 ..  _caching_backend-api-BackendInterface:
 
-BackendInterface
-----------------
+`BackendInterface`
+------------------
 
 ..  include:: /CodeSnippets/Manual/Cache/BackendInterface.rst.txt
 
@@ -37,15 +37,15 @@ directly, but should use the frontend object instead.
 
 ..  _caching_backend-api-TaggableBackendInterface:
 
-TaggableBackendInterface
-------------------------
+`TaggableBackendInterface`
+--------------------------
 
 ..  include:: /CodeSnippets/Manual/Cache/TaggableBackendInterface.rst.txt
 
 ..  _caching_backend-api-PhpCapableBackendInterface:
 
-PhpCapableBackendInterface
---------------------------
+`PhpCapableBackendInterface`
+----------------------------
 
 ..  include:: /CodeSnippets/Manual/Cache/PhpCapableBackendInterface.rst.txt
 
@@ -64,7 +64,7 @@ Common options of caching backends
 
 ..  _caching-backend-db:
 
-Database Backend
+Database backend
 ================
 
 This is the main backend and is suitable for most storage needs.
@@ -105,8 +105,8 @@ multiple times in one request.
 
 ..  _caching-backend-db-innodb:
 
-InnoDB Issues
--------------
+`InnoDB` issues
+---------------
 
 The MySQL database backend uses InnoDB tables. Due to the nature of InnoDB, deleting records
 `does not reclaim <https://bugs.mysql.com/bug.php?id=1287>`_ disk space. For example, if the cache uses 10GB,
@@ -243,7 +243,7 @@ Options for the memcached backend
 
 ..  _caching-backend-redis:
 
-Redis Backend
+Redis backend
 =============
 
 `Redis <https://redis.io/>`_ is a key-value storage/database.
@@ -526,7 +526,7 @@ Options for the file backend
 
 ..  _caching-backend-simple-file:
 
-Simple File Backend
+Simple file backend
 ===================
 
 The simple file backend is the small brother of the :ref:`file backend <caching-backend-file>`. In contrast to most
@@ -538,7 +538,7 @@ usually flushed completely and does not need specific cache entry eviction.
 
 ..  _caching-backend-pdo:
 
-PDO Backend
+PDO backend
 ===========
 
 The PDO backend can be used as a native PDO interface to databases which are connected to PHP via PDO.
@@ -585,7 +585,7 @@ Options for the PDO backend
 
 ..  _caching-backend-transient:
 
-Transient Memory Backend
+Transient memory backend
 ========================
 
 The transient memory backend stores data in a PHP array. It is only valid for one request. This is useful if code
@@ -601,7 +601,7 @@ the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP 
 
 ..  _caching-backend-null:
 
-Null Backend
+Null backend
 ============
 
 The null backend is a dummy backend which doesn't store any data and always returns :code:`false`

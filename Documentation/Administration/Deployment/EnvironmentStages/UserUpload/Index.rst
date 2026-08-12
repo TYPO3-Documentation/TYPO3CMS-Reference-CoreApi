@@ -236,7 +236,7 @@ Recommended approaches
 ..  _multi-stage-environment-file-processed-files-balancing:
 
 Balancing performance, storage size, and deployment speed
---------------------------------------------------------
+---------------------------------------------------------
 
 Based on the priorities set for your project, choose between:
 

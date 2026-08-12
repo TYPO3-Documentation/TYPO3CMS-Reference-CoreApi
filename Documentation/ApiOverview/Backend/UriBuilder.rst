@@ -4,9 +4,9 @@
 
 ..  _edit-links:
 
-=====================================================
-Use the backend UriBuilder to link to "Edit Records"
-=====================================================
+======================================================
+Use the backend `UriBuilder` to link to "Edit Records"
+======================================================
 
 It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.

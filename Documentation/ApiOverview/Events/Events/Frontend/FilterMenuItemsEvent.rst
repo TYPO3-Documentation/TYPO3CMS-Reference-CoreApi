@@ -2,9 +2,9 @@
 ..  index:: Events; FilterMenuItemsEvent
 ..  _FilterMenuItemsEvent:
 
-====================
-FilterMenuItemsEvent
-====================
+======================
+`FilterMenuItemsEvent`
+======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent` has
 a variety of properties and getters, along with

@@ -20,7 +20,7 @@ TYPO3 v14
 .. _extbase-examples-extensions-real-world:
 .. _extbase-examples-extensions-news:
 
-Extbase Documentation Rewrite
+Extbase documentation rewrite
 -----------------------------
 
 .. versionchanged:: 14.3
@@ -40,8 +40,8 @@ been retired — see the rewritten Extbase documentation for current guidance.
 ..  _typo3-request-attribute-frontend-controller:
 ..  _assets-TypoScriptFrontendController:
 
-TypoScriptFrontendController and $GLOBALS['TSFE'] removed
-=========================================================
+`TypoScriptFrontendController` and $GLOBALS['TSFE'] removed
+===========================================================
 
 ..  deprecated:: 13.4
 
@@ -55,8 +55,8 @@ Most properties can be retrieved from the
 ..  _typo3ConfVars-fe-additionalAbsRefPrefixDirectories:
 ..  _convval-typo3-conf-vars-fe-additionalAbsRefPrefixDirectories:
 
-$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories'] has no effect anymore
-============================================================================================
+`$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']` has no effect anymore
+==============================================================================================
 
 ..  versionchanged:: 14.0
     Global search and replace code for links has been removed, which means setting

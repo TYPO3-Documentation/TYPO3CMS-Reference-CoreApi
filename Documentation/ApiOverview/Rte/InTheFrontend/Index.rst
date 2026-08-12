@@ -4,7 +4,7 @@
 ..  _rte-frontend:
 
 =============================================
-Rich Text Editors (RTE) in the TYPO3 frontend
+Rich text editors (RTE) in the TYPO3 frontend
 =============================================
 
 When you add forms to a website you might want to offer
@@ -81,7 +81,7 @@ The optional features
 
 ..  _rte-frontend-introduction-technical:
 
-Technical Overview
+Technical overview
 ==================
 
 **Files**: Any required files to include a form in the frontend require

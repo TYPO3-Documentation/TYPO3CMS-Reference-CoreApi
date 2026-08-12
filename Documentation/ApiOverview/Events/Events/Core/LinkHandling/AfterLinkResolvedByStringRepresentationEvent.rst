@@ -2,9 +2,9 @@
 ..  index:: Events; AfterLinkResolvedByStringRepresentationEvent
 ..  _AfterLinkResolvedByStringRepresentationEvent:
 
-============================================
-AfterLinkResolvedByStringRepresentationEvent
-============================================
+==============================================
+`AfterLinkResolvedByStringRepresentationEvent`
+==============================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\LinkHandling\Event\AfterLinkResolvedByStringRepresentationEvent`
 is being dispatched after the :php:`\TYPO3\CMS\Core\LinkHandling\LinkService`

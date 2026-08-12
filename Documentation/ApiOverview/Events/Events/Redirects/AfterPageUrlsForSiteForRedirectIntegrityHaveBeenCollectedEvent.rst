@@ -2,9 +2,9 @@
 ..  index:: Events; AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent
 ..  _AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent:
 
-==============================================================
-AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent
-==============================================================
+================================================================
+`AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent`
+================================================================
 
 ..  versionadded:: 14.0
 

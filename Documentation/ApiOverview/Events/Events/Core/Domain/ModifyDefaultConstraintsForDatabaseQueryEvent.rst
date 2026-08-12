@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyDefaultConstraintsForDatabaseQueryEvent
 ..  _ModifyDefaultConstraintsForDatabaseQueryEvent:
 
-=============================================
-ModifyDefaultConstraintsForDatabaseQueryEvent
-=============================================
+===============================================
+`ModifyDefaultConstraintsForDatabaseQueryEvent`
+===============================================
 
 The API class :php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` has a
 method :php:`getDefaultConstraints()` which accumulates common

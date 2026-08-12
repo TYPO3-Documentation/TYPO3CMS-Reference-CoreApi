@@ -2,9 +2,9 @@
 .. index:: Events; CustomFileSelectorsEvent
 .. _CustomFileSelectorsEvent:
 
-========================
-CustomFileSelectorsEvent
-========================
+==========================
+`CustomFileSelectorsEvent`
+==========================
 
 ..  versionadded:: 14.2
 

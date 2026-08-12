@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyResultAfterFetchingObjectCountEvent
 ..  _ModifyResultAfterFetchingObjectCountEvent:
 
-=========================================
-ModifyResultAfterFetchingObjectCountEvent
-=========================================
+===========================================
+`ModifyResultAfterFetchingObjectCountEvent`
+===========================================
 
 ..  versionadded:: 14.0
 

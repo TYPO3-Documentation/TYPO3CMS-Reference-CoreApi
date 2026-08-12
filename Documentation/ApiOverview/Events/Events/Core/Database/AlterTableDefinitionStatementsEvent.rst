@@ -2,9 +2,9 @@
 ..  index:: Events; AlterTableDefinitionStatementsEvent
 ..  _AlterTableDefinitionStatementsEvent:
 
-===================================
-AlterTableDefinitionStatementsEvent
-===================================
+=====================================
+`AlterTableDefinitionStatementsEvent`
+=====================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Database\Event\AlterTableDefinitionStatementsEvent`

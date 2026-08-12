@@ -4,7 +4,7 @@
 .. _services-developer:
 
 =================
-Developer's Guide
+Developer's guide
 =================
 
 This chapter describes all you need to know to develop a new service,

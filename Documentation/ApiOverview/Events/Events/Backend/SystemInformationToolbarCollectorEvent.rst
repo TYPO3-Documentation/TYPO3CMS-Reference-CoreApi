@@ -2,9 +2,9 @@
 ..  index:: Events; SystemInformationToolbarCollectorEvent
 ..  _SystemInformationToolbarCollectorEvent:
 
-======================================
-SystemInformationToolbarCollectorEvent
-======================================
+========================================
+`SystemInformationToolbarCollectorEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Backend\Event\SystemInformationToolbarCollectorEvent`
@@ -13,7 +13,7 @@ with various information.
 
 ..  _SystemInformationToolbarCollectorEvent-example:
 
-Example: Display release information in "System Information" toolbar window
+Example: display release information in "System Information" toolbar window
 ===========================================================================
 
 The event :php-short:`\TYPO3\CMS\Backend\Backend\Event\SystemInformationToolbarCollectorEvent`

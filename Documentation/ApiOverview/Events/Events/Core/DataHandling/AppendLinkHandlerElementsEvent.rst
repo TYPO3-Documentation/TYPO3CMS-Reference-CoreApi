@@ -2,9 +2,9 @@
 ..  index:: Events; AppendLinkHandlerElementsEvent
 ..  _AppendLinkHandlerElementsEvent:
 
-==============================
-AppendLinkHandlerElementsEvent
-==============================
+================================
+`AppendLinkHandlerElementsEvent`
+================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\DataHandling\Event\AppendLinkHandlerElementsEvent`

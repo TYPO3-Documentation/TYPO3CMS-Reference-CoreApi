@@ -39,7 +39,7 @@ Export your data
 ..  _migratecontent-export-data-cli-command:
 
 Via CLI command
-----------------
+---------------
 
 Exporting a TYPO3 page tree without php time limit is possible via
 :ref:`Symfony Console Commands (cli) <t3coreapi:symfony-console-commands-cli>`.
@@ -136,7 +136,7 @@ Import your data
 ..  _migratecontent-import-data-cli-command:
 
 Via CLI command
-----------------
+---------------
 
 Importing a TYPO3 page tree without php time limit is possible via
 :ref:`Symfony Console Commands (cli) <t3coreapi:symfony-console-commands-cli>`.

@@ -55,7 +55,7 @@ For example:
 -   Replace personal data with dummy values.
 ..  _multi-stage-environment-database-import-export:
 
-Import/Export workflows in TYPO3
+Import/export workflows in TYPO3
 ================================
 
 TYPO3 provides a built-in :doc:`Import/Export module <typo3/cms-impexp:Index#typo3-import-export>`,

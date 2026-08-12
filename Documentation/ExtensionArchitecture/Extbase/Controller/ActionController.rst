@@ -6,9 +6,9 @@
 ..  _extbase-action-controller:
 ..  _extbase-action-controller-events:
 
-==================================================
-ActionController: actions, arguments and responses
-==================================================
+====================================================
+`ActionController`: actions, arguments and responses
+====================================================
 
 A controller handles the request, coordinates repository and service calls,
 and returns a response. Business logic can live in the controller directly —
@@ -24,8 +24,8 @@ focused. In Extbase every controller extends
 ..  _extbase-controller-action-structure:
 ..  _extbase_class_hierarchy-actions:
 
-Structure of an Extbase ActionController
-========================================
+Structure of an Extbase `ActionController`
+==========================================
 
 Controllers live in :file:`Classes/Controller/`. Public methods with a name
 ending in :php:`Action` are actions that can be mapped to plugin actions or
@@ -196,8 +196,8 @@ an exception or stop execution on their own.
 
 ..  _extbase-controller-action-redirect-redirect:
 
-redirect() — redirect to another Extbase action
------------------------------------------------
+`redirect()` — redirect to another Extbase action
+-------------------------------------------------
 
 :php:`redirect()` issues an
 `HTTP 303 "See Other" <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/303>`_
@@ -284,8 +284,8 @@ The full signature is:
 
 ..  _extbase-controller-action-redirect-uri:
 
-redirectToUri() — redirect to an arbitrary URL
-----------------------------------------------
+`redirectToUri()` — redirect to an arbitrary URL
+------------------------------------------------
 
 :php:`redirectToUri(string|\Psr\Http\Message\UriInterface $uri)` issues the
 same HTTP 303 redirect but accepts a URL rather than an Extbase action
@@ -317,8 +317,8 @@ do not leak into the next one.
 ..  _extbase-controller-action-redirect-forward:
 ..  _extbase-action-controller-forward:
 
-ForwardResponse — transfer control within the same request
-----------------------------------------------------------
+`ForwardResponse` — transfer control within the same request
+------------------------------------------------------------
 
 :php-short:`\TYPO3\CMS\Extbase\Http\ForwardResponse` transfers control to
 another action *within the same request*. There is no browser redirect or new HTTP
@@ -399,8 +399,8 @@ Render them in Fluid with the :html:`<f:flashMessages />` ViewHelper.
 ..  _extbase-controller-action-initialize:
 ..  _extbase_class_hierarchy-define_initialization_code:
 
-initializeAction and per-action initialization in Extbase
-=========================================================
+`initializeAction` and per-action initialization in Extbase
+===========================================================
 
 :php:`initializeAction()` is called before every controller action. Use it
 for setup that is common to all actions.
@@ -420,8 +420,8 @@ formats for arguments. See :ref:`extbase-controller-propertymapping-typeconverte
 
 ..  _extbase-controller-action-authorize:
 
-Protecting Extbase actions with :php:`#[Authorize]`
-===================================================
+Protecting Extbase actions with `#[Authorize]`
+==============================================
 
 ..  versionadded:: 14.0
 
@@ -475,8 +475,8 @@ which lets event listeners return a custom response instead of the default 403.
 
 ..  _extbase-controller-action-ratelimit:
 
-Rate-limiting Extbase actions with :php:`#[RateLimit]`
-======================================================
+Rate-limiting Extbase actions with `#[RateLimit]`
+=================================================
 
 ..  versionadded:: 14.0
 
@@ -527,8 +527,8 @@ listener to customize this response.
 ..  _extbase_class_hierarchy-catching_validation_errors_with_error_action:
 ..  _extbase_error_action:
 
-errorAction: Extbase validation and argument-mapping errors
-===========================================================
+`errorAction`: Extbase validation and argument-mapping errors
+=============================================================
 
 If argument mapping or validation fails, Extbase calls :php:`errorAction()`
 instead of the original action. The default implementation either dispatches back

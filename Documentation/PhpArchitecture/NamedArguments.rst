@@ -72,7 +72,7 @@ or vice versa without clear further benefits.
 
 ..  _cgl-named-arguments-pcpp-value-objects:
 
-Leveraging Named Arguments in PCPP Value Objects
+Leveraging named arguments in PCPP value objects
 ------------------------------------------------
 
 Advancements in the TYPO3 Core codebase emphasize the separation of

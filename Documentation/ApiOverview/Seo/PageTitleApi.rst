@@ -39,8 +39,8 @@ highest to lowest priority.
 
 ..  _page-title-provider-seo:
 
-SeoTitlePageTitleProvider
--------------------------
+`SeoTitlePageTitleProvider`
+---------------------------
 
 System extension :composer:`typo3/cms-seo` ships
 the :php:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider`. It is only
@@ -54,8 +54,8 @@ extension, the field and provider are not available.
 
 ..  _page-title-provider-record-title:
 
-RecordTitleProvider
--------------------
+`RecordTitleProvider`
+---------------------
 
 ..  versionadded:: 14.0
 
@@ -70,8 +70,8 @@ This provider can be used by third-party extensions to set the page title.
 
 ..  _page-title-provider-record:
 
-RecordPageTitleProvider
------------------------
+`RecordPageTitleProvider`
+-------------------------
 
 The fallback provider with the lowest priority is the
 :php:`\TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider`. It has the identifier
@@ -98,7 +98,7 @@ quite easy to create one.
 
 ..  _page-title-provider-custom-example:
 
-Example: Set the page title from your extension's controller
+Example: set the page title from your extension's controller
 ------------------------------------------------------------
 
 First, create a PHP class in your extension that implements the
@@ -122,7 +122,7 @@ Configure the new page title provider in your TypoScript setup:
 
 ..  _page-title-provider-custom-site-config:
 
-Example: Use values from the site configuration in the page title
+Example: use values from the site configuration in the page title
 -----------------------------------------------------------------
 
 If you want to use data from the :ref:`site configuration <sitehandling>`, for
@@ -157,8 +157,8 @@ you can change this by loading your custom provider before `seo`.
 
 .. _define-the-priority-of-pagetitleproviders:
 
-Define the priority of PageTitleProviders
-=========================================
+Define the priority of `PageTitleProviders`
+===========================================
 
 The priority of the providers is set by the TypoScript property
 `config.pageTitleProviders <https://docs.typo3.org/permalink/t3tsref:confval-config-pagetitleproviders>`_.

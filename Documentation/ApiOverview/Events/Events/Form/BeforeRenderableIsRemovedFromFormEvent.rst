@@ -3,9 +3,9 @@
 
 ..  _BeforeRenderableIsRemovedFromFormEvent:
 
-======================================
-BeforeRenderableIsRemovedFromFormEvent
-======================================
+========================================
+`BeforeRenderableIsRemovedFromFormEvent`
+========================================
 
 ..  versionadded:: 14.0
     The event :php-short:`TYPO3\CMS\Form\Event\BeforeRenderableIsRemovedFromFormEvent`

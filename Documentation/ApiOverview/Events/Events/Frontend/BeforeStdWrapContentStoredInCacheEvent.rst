@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeStdWrapContentStoredInCacheEvent
 ..  _BeforeStdWrapContentStoredInCacheEvent:
 
-======================================
-BeforeStdWrapContentStoredInCacheEvent
-======================================
+========================================
+`BeforeStdWrapContentStoredInCacheEvent`
+========================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapContentStoredInCacheEvent`

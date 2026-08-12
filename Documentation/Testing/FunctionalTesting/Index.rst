@@ -18,7 +18,7 @@ Functional testing with the TYPO3 testing framework
 
 ..  _testing-writing-functional-example-simple:
 
-Simple Example
+Simple example
 ==============
 
 At the time of this writing, TYPO3 Core  contains more than 2600 functional tests, so
@@ -36,8 +36,8 @@ declare extension styleguide should be loaded and have a first test.
 
 ..  _testing-writing-functional-setup:
 
-Extending setUp
-===============
+Extending `setUp`
+=================
 
 Note :php:`setUp()` is not overridden in this case. If you override it, remember to always
 call :php:`parent::setUp()` before doing own stuff. An example can be found in

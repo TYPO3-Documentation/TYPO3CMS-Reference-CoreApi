@@ -3,9 +3,9 @@
 ..  _SlugRedirectChangeItemCreatedEvent:
 
 
-==================================
-SlugRedirectChangeItemCreatedEvent
-==================================
+====================================
+`SlugRedirectChangeItemCreatedEvent`
+====================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Redirects\Event\SlugRedirectChangeItemCreatedEvent`
 is fired in the :php:`\TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItemFactory`
@@ -33,8 +33,8 @@ Examples
 
 ..  _use_pagetypesource:
 
-Using the :php:`PageTypeSource`
--------------------------------
+Using the `PageTypeSource`
+--------------------------
 
 The source type implementation based on
 :php:`\TYPO3\CMS\Redirects\RedirectUpdate\PageTypeSource`

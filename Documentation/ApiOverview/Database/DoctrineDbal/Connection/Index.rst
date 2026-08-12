@@ -133,8 +133,8 @@ Internally, these parameter types are mapped to the types Doctrine DBAL expects.
 
 .. _database-connection-insert:
 
-insert()
-========
+`insert()`
+==========
 
 The :php:`insert()` method creates and executes an :sql:`INSERT INTO` statement.
 Example:
@@ -181,8 +181,8 @@ thrown.
 
 .. _database-connection-bulk-insert:
 
-bulkInsert()
-============
+`bulkInsert()`
+==============
 
 This method insert multiple rows at once:
 
@@ -219,8 +219,8 @@ The number of inserted rows are returned. If something goes wrong, a
 
 .. _database-connection-update:
 
-update()
-========
+`update()`
+==========
 
 Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 :php:`ResourceStorage` sets a storage to offline:
@@ -259,8 +259,8 @@ The method returns the number of updated rows. If something goes wrong, a
 
 .. _database-connection-delete:
 
-delete()
-========
+`delete()`
+==========
 
 Execute a :sql:`DELETE` query using `equal` conditions in :sql:`WHERE`, example
 from :php:`BackendUtility`, to mark rows as no longer locked by a user:
@@ -297,8 +297,8 @@ The method returns the number of deleted rows. If something goes wrong, a
 
 .. _database-connection-truncate:
 
-truncate()
-==========
+`truncate()`
+============
 
 This method empties a table, removing all rows. It is usually much faster than
 a :ref:`delete() <database-connection-delete>` of all rows. This typically
@@ -317,8 +317,8 @@ a :php:`\Doctrine\DBAL\Exception` is thrown.
 
 .. _database-connection-count:
 
-count()
-=======
+`count()`
+=========
 
 This method executes a :sql:`COUNT` query. Again, this becomes useful when very
 simple :sql:`COUNT` statements are to be executed. The example below returns the
@@ -366,8 +366,8 @@ Remarks:
 
 .. _database-connection-select:
 
-select()
-========
+`select()`
+==========
 
 This method creates and executes a simple :sql:`SELECT` query based on `equal`
 conditions. Its usage is limited, the :ref:`restriction builder
@@ -415,8 +415,8 @@ Remarks:
 
 .. _database-connection-last-insert-id:
 
-lastInsertId()
-==============
+`lastInsertId()`
+================
 
 This method returns the :sql:`uid` of the last :ref:`insert()
 <database-connection-insert>` statement. This is useful if the ID is to be used
@@ -438,8 +438,8 @@ Remarks:
 
 .. _database-connection-create-query-builder:
 
-createQueryBuilder()
-====================
+`createQueryBuilder()`
+======================
 
 The :ref:`query builder <database-query-builder>` should not be reused for
 multiple different queries. However, sometimes it is convenient to first fetch a

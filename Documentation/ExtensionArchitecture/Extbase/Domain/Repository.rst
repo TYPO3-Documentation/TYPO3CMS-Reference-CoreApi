@@ -224,8 +224,8 @@ persistence query page:
 
 ..  _extbase-domain-repository-storagepid:
 
-The storagePid constraint on repository queries
-===============================================
+The `storagePid` constraint on repository queries
+=================================================
 
 Every repository query — except :php:`findByUid()` and :php:`findByIdentifier()`
 — is automatically restricted to records stored on specific TYPO3 pages, the
@@ -294,7 +294,7 @@ inject methods are an alternative to use.
 
 ..  _extbase-domain-repository-dbal:
 
-When to drop out of ORM (Object Relational Mapping)
+When to drop out of ORM (object relational mapping)
 ===================================================
 
 The Extbase query API covers most common patterns. Use raw

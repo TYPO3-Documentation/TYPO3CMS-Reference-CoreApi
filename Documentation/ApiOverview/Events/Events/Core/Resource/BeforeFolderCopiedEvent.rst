@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeFolderCopiedEvent
 ..  _BeforeFolderCopiedEvent:
 
-=======================
-BeforeFolderCopiedEvent
-=======================
+=========================
+`BeforeFolderCopiedEvent`
+=========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFolderCopiedEvent`
 is fired before a folder is about to be copied to the resource

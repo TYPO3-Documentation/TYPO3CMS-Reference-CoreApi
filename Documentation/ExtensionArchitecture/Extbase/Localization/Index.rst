@@ -4,9 +4,9 @@
 ..  index:: Extbase; Localization
 ..  _extbase-localisation:
 
-============================
+=======================
 Localization in Extbase
-============================
+=======================
 
 ..  Ported from old docs, combining two pages:
     - Extbase/Reference/Localization.rst (whole page, no old anchor —
@@ -23,8 +23,8 @@ Localization in Extbase
 
 ..  _extbase-localisation-translate:
 
-Translating labels with the LocalizationUtility
-===============================================
+Translating labels with the `LocalizationUtility`
+=================================================
 
 Multilingual websites are widespread nowadays, which means that the
 web-available texts have to be localized. Extbase provides the helper class

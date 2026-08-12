@@ -6,7 +6,7 @@
 ..  _configuration:
 
 =====================================================
-Settings and Configuration of TYPO3 systems and sites
+Settings and configuration of TYPO3 systems and sites
 =====================================================
 
 TYPO3 settings can be changed in the backend, depending on the logged-in user's

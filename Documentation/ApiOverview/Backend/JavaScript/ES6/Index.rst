@@ -3,7 +3,7 @@
 .. _backend-javascript-es6:
 
 ========================
-ES6 in the TYPO3 Backend
+ES6 in the TYPO3 backend
 ========================
 
 ES6 modules may be used instead of AMD modules, both in backend and frontend context.
@@ -86,7 +86,7 @@ modules <https://github.com/bnf/news/commit/f8e196b67ceaa2f56699fbf464080dde668a
 
 ..  _backend-javascript-es6-tips-es6-jquery:
 
-Using JQuery
+Using jQuery
 ------------
 
 In the TYPO3 Core usage of jQuery is eliminated step-by-step as the necessary

@@ -3,9 +3,9 @@
     Events; ModifyInfoModuleContentEvent
 ..  _ModifyInfoModuleContentEvent:
 
-============================
-ModifyInfoModuleContentEvent
-============================
+==============================
+`ModifyInfoModuleContentEvent`
+==============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent`
 allows the content above and below the info module to be modified. The content

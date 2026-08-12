@@ -186,8 +186,8 @@ following applies:
 
 ..  _database-restriction-builder-queryrestrictioncontainer:
 
-QueryRestrictionContainer
-=========================
+`QueryRestrictionContainer`
+===========================
 
 .. rst-class:: dl-parameters
 

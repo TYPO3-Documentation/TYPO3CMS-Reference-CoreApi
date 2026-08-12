@@ -2,9 +2,9 @@
 ..  index:: Events; AfterLinkIsGeneratedEvent
 ..  _AfterLinkIsGeneratedEvent:
 
-=========================
-AfterLinkIsGeneratedEvent
-=========================
+===========================
+`AfterLinkIsGeneratedEvent`
+===========================
 
 ..  note::
     It is recommended to use the PSR-14 event instead of the global

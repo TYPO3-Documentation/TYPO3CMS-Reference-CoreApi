@@ -34,8 +34,8 @@ section for how to use these options.
 ..  index:: Logging; IntrospectionProcessor
 ..  _logging-processors-introspection:
 
-IntrospectionProcessor
-----------------------
+`IntrospectionProcessor`
+------------------------
 
 The introspection processor adds backtrace data about where the log event was
 triggered.
@@ -77,8 +77,8 @@ Options
 ..  index:: Logging; MemoryUsageProcessor
 ..  _logging-processors-memory:
 
-MemoryUsageProcessor
---------------------
+`MemoryUsageProcessor`
+----------------------
 
 The memory usage processor adds the amount of used memory to the log record
 (result from `memory_get_usage()`_).
@@ -109,8 +109,8 @@ Options
 ..  index:: Logging; MemoryPeakUsageProcessor
 ..  _logging-processors-memory-peak:
 
-MemoryPeakUsageProcessor
-------------------------
+`MemoryPeakUsageProcessor`
+--------------------------
 
 The memory peak usage processor adds the peak amount of used memory to the
 :ref:`log record <logging-model>` (result from `memory_get_peak_usage()`_).
@@ -141,8 +141,8 @@ Options
 ..  index:: Logging; Processors
 ..  _logging-processors-web:
 
-WebProcessor
-------------
+`WebProcessor`
+--------------
 
 The web processor adds selected webserver environment variables to the log record,
 that means, all possible values from

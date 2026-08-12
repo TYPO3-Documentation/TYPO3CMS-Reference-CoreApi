@@ -2,9 +2,9 @@
 ..  index:: Events; AfterBackendPageRenderEvent
 ..  _AfterBackendPageRenderEvent:
 
-===========================
-AfterBackendPageRenderEvent
-===========================
+=============================
+`AfterBackendPageRenderEvent`
+=============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent`
 gets triggered after the page in the backend is rendered and includes the

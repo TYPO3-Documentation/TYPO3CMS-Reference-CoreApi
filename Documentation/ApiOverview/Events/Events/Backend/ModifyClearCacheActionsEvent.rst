@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyClearCacheActionsEvent
 ..  _ModifyClearCacheActionsEvent:
 
-============================
-ModifyClearCacheActionsEvent
-============================
+==============================
+`ModifyClearCacheActionsEvent`
+==============================
 
 ..  versionchanged:: 14.3
     The `CacheAction` array key `href` used in cache action definitions
@@ -64,8 +64,8 @@ API
 
 ..  _ModifyClearCacheActionsEvent-api-add-cache-action:
 
-addCacheAction
---------------
+`addCacheAction`
+----------------
 
 The cache action array element consists of the following keys and values:
 
@@ -135,8 +135,8 @@ The cache action array element consists of the following keys and values:
 
 ..  _ModifyClearCacheActionsEvent-api-add-cache-identifier:
 
-addCacheActionIdentifier
-------------------------
+`addCacheActionIdentifier`
+--------------------------
 
 The cache identifier array is a numerical array in which the array value
 corresponds to the registered `id` of the cache action array.

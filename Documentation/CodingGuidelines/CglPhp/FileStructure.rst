@@ -44,7 +44,7 @@ with the class :php:`ContentObjectRenderer` is in the namespace
 
 ..  _cgl-file-structure-copyright-notice:
 
-Copyright Notice
+Copyright notice
 ================
 
 TYPO3 is released under the terms of GNU General Public License

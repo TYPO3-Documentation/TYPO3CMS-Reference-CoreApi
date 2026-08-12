@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeTypoLinkEncodedEvent
 ..  _BeforeTypoLinkEncodedEvent:
 
-==========================
-BeforeTypoLinkEncodedEvent
-==========================
+============================
+`BeforeTypoLinkEncodedEvent`
+============================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\LinkHandling\Event\BeforeTypoLinkEncodedEvent`
 allows developers to fully manipulate the encoding of

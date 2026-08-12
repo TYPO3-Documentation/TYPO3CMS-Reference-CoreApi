@@ -62,7 +62,7 @@ Conditions:
 
 ..  _fluid-variables:
 
-Passing Variables from PHP
+Passing variables from PHP
 --------------------------
 
 In PHP, you can use the :php:`assign()` method on an instance of
@@ -159,15 +159,15 @@ TYPO3 provides the possibility to set the paths using TypoScript.
 
 ..  _fluid-templates:
 
-:file:`Templates`
------------------
+`Templates`
+-----------
 
 The template contains the main Fluid template.
 
 ..  _fluid-layouts:
 
-:file:`Layouts`
----------------
+`Layouts`
+---------
 
 *optional*
 
@@ -205,8 +205,8 @@ The corresponding template should include the sections which are to be rendered.
 
 ..  _fluid-partials:
 
-:file:`Partials`
-----------------
+`Partials`
+----------
 
 *optional*
 
@@ -235,8 +235,8 @@ import can be done in the template or the partial.
 
 ..  _fluid-components:
 
-:file:`Components`
-----------------
+`Components`
+------------
 
 *optional*
 
@@ -246,7 +246,7 @@ good code reuseability.
 
 ..  _fluid-theme-example:
 
-Example: Using Fluid to create a theme for a site package
+Example: using Fluid to create a theme for a site package
 =========================================================
 
 This example was taken from a theme created by the

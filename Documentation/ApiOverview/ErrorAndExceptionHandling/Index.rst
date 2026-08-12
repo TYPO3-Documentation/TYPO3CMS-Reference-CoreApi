@@ -4,9 +4,9 @@
    ! Exceptions
 .. _error-handling:
 
-================================
+============================
 Error and exception handling
-================================
+============================
 
 TYPO3 has a built-in error and exception handling system. Administrators can
 configure how errors and exceptions are displayed in both the backend and the

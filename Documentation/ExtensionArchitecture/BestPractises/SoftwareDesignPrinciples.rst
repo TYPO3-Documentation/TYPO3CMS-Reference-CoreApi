@@ -35,7 +35,7 @@ patterns <https://designpatternsphp.readthedocs.io/en/latest/>`__.
 
 ..  _concept-dto:
 
-Data Transfer Objects (DTO) as a software design concept
+Data transfer objects (DTO) as a software design concept
 ========================================================
 
 A very common pattern in Extbase extensions is a :abbr:`DTO (Data Transfer Object)`.

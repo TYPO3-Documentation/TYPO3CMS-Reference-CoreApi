@@ -2,9 +2,9 @@
 ..  index:: Events; BootCompletedEvent
 ..  _BootCompletedEvent:
 
-==================
-BootCompletedEvent
-==================
+====================
+`BootCompletedEvent`
+====================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Core\Event\BootCompletedEvent` is fired
 on every request when TYPO3 has been fully booted, right after all configuration

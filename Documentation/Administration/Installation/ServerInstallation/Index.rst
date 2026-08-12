@@ -87,7 +87,7 @@ a valid short-term decision.
 ..  _direct-server-risks:
 
 What can go wrong
-------------------
+-----------------
 
 Despite the convenience, there are significant risks:
 

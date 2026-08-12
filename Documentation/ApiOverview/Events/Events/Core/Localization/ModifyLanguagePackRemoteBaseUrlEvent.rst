@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyLanguagePackRemoteBaseUrlEvent
 ..  _ModifyLanguagePackRemoteBaseUrlEvent:
 
-====================================
-ModifyLanguagePackRemoteBaseUrlEvent
-====================================
+======================================
+`ModifyLanguagePackRemoteBaseUrlEvent`
+======================================
 
 ..  deprecated:: 14.2
     The event :php:`ModifyLanguagePackRemoteBaseUrlEvent`

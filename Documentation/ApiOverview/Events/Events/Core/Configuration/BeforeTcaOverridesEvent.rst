@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeTcaOverridesEvent
 ..  _BeforeTcaOverridesEvent:
 
-=======================
-BeforeTcaOverridesEvent
-=======================
+=========================
+`BeforeTcaOverridesEvent`
+=========================
 
 A PSR-14 event :php:`\TYPO3\CMS\Core\Configuration\Event\BeforeTcaOverridesEvent`
 enables developers to listen to the state between loaded base TCA and merging of

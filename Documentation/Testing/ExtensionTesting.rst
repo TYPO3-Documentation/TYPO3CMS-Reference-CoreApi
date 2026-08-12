@@ -117,7 +117,7 @@ environment you can run static code analysis tests, using `phpstan`:
 ..  _testing-extensions-unit:
 
 Unit tests (PHPUnit!)
-====================
+=====================
 
 Unit tests are executing the code to be tested and define input and their
 expected outcome. They are run on an isolated classes or methods.

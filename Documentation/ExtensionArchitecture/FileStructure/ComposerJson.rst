@@ -337,8 +337,8 @@ For example: `"version": "1.4.2+obsolete"`.
 
 ..  _ext-composer-json-property-provides-packages:
 
-extra.typo3/cms.Package.providesPackages
-----------------------------------------
+`extra.typo3/cms.Package.providesPackages`
+------------------------------------------
 
 ..  versionadded:: 14.2
 
@@ -442,7 +442,7 @@ and `revisions on helhum/composer.json <https://gist.github.com/helhum/0ffd82525
 
 ..  _ext-composer-json-more-information:
 
-More Information
+More information
 ================
 
 Not TYPO3-specific:

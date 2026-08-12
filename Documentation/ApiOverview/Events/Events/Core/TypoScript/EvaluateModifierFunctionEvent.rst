@@ -2,9 +2,9 @@
 ..  index:: Events; EvaluateModifierFunctionEvent
 ..  _EvaluateModifierFunctionEvent:
 
-=============================
-EvaluateModifierFunctionEvent
-=============================
+===============================
+`EvaluateModifierFunctionEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent`

@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileReplacedEvent
 ..  _AfterFileReplacedEvent:
 
-======================
-AfterFileReplacedEvent
-======================
+========================
+`AfterFileReplacedEvent`
+========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileReplacedEvent`
 is fired after a file was replaced.

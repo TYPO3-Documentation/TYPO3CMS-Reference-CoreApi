@@ -3,9 +3,9 @@
 
 ..  _AfterRichtextConfigurationPreparedEvent:
 
-=======================================
-AfterRichtextConfigurationPreparedEvent
-=======================================
+=========================================
+`AfterRichtextConfigurationPreparedEvent`
+=========================================
 
 ..  versionadded:: 14.0
 
@@ -15,7 +15,7 @@ allows to modify the richtext configuration after it has been fetched and prepar
 
 ..  _AfterRichtextConfigurationPreparedEvent-example:
 
-Example: Enable debugging in the rich text editor
+Example: enable debugging in the rich text editor
 =================================================
 
 The following event listener enables debugging in the rich text editor:

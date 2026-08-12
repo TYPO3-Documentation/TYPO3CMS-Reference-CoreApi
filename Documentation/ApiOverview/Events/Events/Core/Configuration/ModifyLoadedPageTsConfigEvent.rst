@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyLoadedPageTsConfigEvent
 ..  _ModifyLoadedPageTsConfigEvent:
 
-=============================
-ModifyLoadedPageTsConfigEvent
-=============================
+===============================
+`ModifyLoadedPageTsConfigEvent`
+===============================
 
 Extensions can modify :ref:`page TSconfig <t3tsref:pagetoplevelobjects>`
 entries that can be overridden or added, based on the root line.

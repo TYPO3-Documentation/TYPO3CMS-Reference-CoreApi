@@ -2,9 +2,9 @@
 ..  index:: Events; EnhanceStdWrapEvent
 ..  _EnhanceStdWrapEvent:
 
-===================
-EnhanceStdWrapEvent
-===================
+=====================
+`EnhanceStdWrapEvent`
+=====================
 
 Listeners to the PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\EnhanceStdWrapEvent` are able to

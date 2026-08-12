@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyQueryForLiveSearchEvent
 ..  _ModifyQueryForLiveSearchEvent:
 
-=============================
-ModifyQueryForLiveSearchEvent
-=============================
+===============================
+`ModifyQueryForLiveSearchEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent`

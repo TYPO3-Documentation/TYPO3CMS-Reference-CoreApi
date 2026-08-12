@@ -59,8 +59,8 @@ Select field
 
 ..  _flexforms-itemsProcFunc:
 
-Populate a `select` field using a PHP Function (itemsProcFunc)
---------------------------------------------------------------
+Populate a `select` field using a PHP function (`itemsProcFunc`)
+----------------------------------------------------------------
 
 ..  code-block:: xml
 
@@ -113,8 +113,8 @@ The function :php:`user_orderBy` populates the select field in
 ..  index:: FlexForms; Display conditions
 ..  _flexformDisplayCond:
 
-Display fields/sheets conditionally (displayCond)
--------------------------------------------------
+Display fields/sheets conditionally (`displayCond`)
+---------------------------------------------------
 
 Some settings may only make sense in the context of other settings.
 For example, in one setting you define a sorting order (by date, title etc.)

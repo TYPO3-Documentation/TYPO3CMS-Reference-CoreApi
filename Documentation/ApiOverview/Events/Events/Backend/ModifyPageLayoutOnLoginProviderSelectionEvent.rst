@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyPageLayoutOnLoginProviderSelectionEvent
 ..  _ModifyPageLayoutOnLoginProviderSelectionEvent:
 
-=============================================
-ModifyPageLayoutOnLoginProviderSelectionEvent
-=============================================
+===============================================
+`ModifyPageLayoutOnLoginProviderSelectionEvent`
+===============================================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\LoginProvider\Event\ModifyPageLayoutOnLoginProviderSelectionEvent`

@@ -9,7 +9,7 @@ Make
 
 .. _extension-make-kickstart:
 
-Kickstart a TYPO3 Extension with "Make"
+Kickstart a TYPO3 extension with "Make"
 =======================================
 
 "`Make <https://github.com/b13/make>`__" is a TYPO3 extension provided by b13. It is a quick way to create

@@ -38,7 +38,7 @@ PSR-14 events to influence the functionality of the page tree
 
 ..  _page-tree-tsconfig:
 
-TsConfig settings to influence the page tree
+TSconfig settings to influence the page tree
 ============================================
 
 The rendering of the page tree can be influenced via user TsConfig

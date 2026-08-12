@@ -3,9 +3,9 @@
 ..  _GetVersionedDataEvent:
 
 
-=====================
-GetVersionedDataEvent
-=====================
+=======================
+`GetVersionedDataEvent`
+=======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Workspaces\Event\GetVersionedDataEvent`
 is used in the :guilabel:`Content > Workspaces` module to find all data of versions

@@ -6,7 +6,7 @@
 ..  _routing-advanced-routing-configuration:
 
 ==============================================
-Route Enhancements and Aspects: for extensions
+Route enhancements and aspects: for extensions
 ==============================================
 
 ..  contents:: Table of contents
@@ -61,7 +61,7 @@ and resolving the route.
 
 ..  _routing-advanced-routing-configuration-enhancers:
 
-Routing Enhancers
+Routing enhancers
 =================
 
 ..  tip::
@@ -299,8 +299,8 @@ To understand what is happening in the :yaml:`aspects` part, read on.
 ..  index:: Routing; PageType decorator
 ..  _routing-pagetype-decorator:
 
-PageType decorator
-------------------
+`PageType` decorator
+--------------------
 
 The PageType enhancer (route decorator) allows to add a suffix to the existing route
 (including existing other enhancers) to map a page type (GET parameter `&type=`)
@@ -399,8 +399,8 @@ Let us start with some examples first:
 ..  _routing-aspect-StaticValueMapper:
 ..  index:: Routing; StaticValueMapper
 
-StaticValueMapper
------------------
+`StaticValueMapper`
+-------------------
 
 The static value mapper replaces values on a 1:1 mapping list of an argument
 into a speaking segment, useful for a checkout process to define the steps into
@@ -422,8 +422,8 @@ locale of a value to use in multi-language setups:
 ..  _routing-aspect-LocaleModifier:
 ..  index:: Routing; LocaleModifier
 
-LocaleModifier
---------------
+`LocaleModifier`
+----------------
 
 If we have an enhanced route path such as `/archive/{year}/{month}`
 it should be possible in multi-language setups to change `/archive/` depending
@@ -440,8 +440,8 @@ locale of the language of that page.
 ..  _routing-aspect-StaticRangeMapper:
 ..  index:: Routing; StaticRangeMapper
 
-StaticRangeMapper
------------------
+`StaticRangeMapper`
+-------------------
 
 A static range mapper allows to avoid the `cHash` and narrow down the available
 possibilities for a placeholder. It explicitly defines a range for a value,
@@ -459,8 +459,8 @@ the placeholder.
 ..  _routing-aspect-PersistedAliasMapper:
 ..  index:: Routing; PersistedAliasMapper
 
-PersistedAliasMapper
---------------------
+`PersistedAliasMapper`
+----------------------
 
 If an extension ships with a slug field or a different field used for the
 speaking URL path, this database field can be used to build the URL:
@@ -485,8 +485,8 @@ is recommended.
 ..  _routing-aspect-PersistedPatternMapper:
 ..  index:: Routing; PersistedPatternMapper
 
-PersistedPatternMapper
-----------------------
+`PersistedPatternMapper`
+------------------------
 
 When a placeholder should be fetched from multiple fields of the database, the
 persisted pattern mapper is for you. It allows to combine various fields into
@@ -593,4 +593,3 @@ page routing API directly.
     If you update the site configuration by adding or modifying enhancers, remember to clear the TYPO3 cache afterwards.
     The easiest way to do this is to log in to the TYPO3 backend and click the **lightning bolt** icon in the upper-right corner. Then select **"Flush all caches"**.
     Alternatively, you can clear the cache using the **Maintenance** module or from the command line: `typo3 cache:flush`
-

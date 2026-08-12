@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileMarkedAsMissingEvent
 ..  _AfterFileMarkedAsMissingEvent:
 
-=============================
-AfterFileMarkedAsMissingEvent
-=============================
+===============================
+`AfterFileMarkedAsMissingEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileMarkedAsMissingEvent`

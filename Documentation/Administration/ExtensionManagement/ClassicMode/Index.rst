@@ -4,14 +4,14 @@
 ..  _extensions-legacy-management:
 
 ====================================
-Installing Extensions - Classic mode
+Installing extensions - Classic mode
 ====================================
 
 .. _extension-manager:
 .. _extension-package-manager:
 .. _extension-install:
 
-Installing an Extension using the Extension Manager
+Installing an extension using the extension manager
 ===================================================
 
 In the backend:
@@ -38,14 +38,14 @@ In the backend:
 
 ..  _uninstall-extension-without-composer:
 
-Uninstall an Extension Without Composer
+Uninstall an extension without Composer
 =======================================
 
 If you installed TYPO3 via composer you should uninstall Extensions via composer.
 
 ..  _uninstall-extension-without-composer-dependencies:
 
-Check Dependencies
+Check dependencies
 ------------------
 
 First find out, which other extensions and functions of your TYPO3 installation
@@ -76,7 +76,7 @@ of it, you can uninstall / install extensions manually with
 
 ..  _uninstall-extension-backend:
 
-Uninstall / Deactivate Extension via TYPO3 Backend
+Uninstall / deactivate extension via TYPO3 backend
 --------------------------------------------------
 
 ..  include:: /Images/ManualScreenshots/ExtensionManager/UninstallExtension.rst.txt
@@ -99,8 +99,8 @@ After some seconds the icon changes to the grey Extension Install Icon.
 
 ..  _remove-extension-backend:
 
-Remove an Extension via the TYPO3 Backend
---------------------------------------------------
+Remove an extension via the TYPO3 backend
+-----------------------------------------
 
 After successfully uninstalling an extension via the Extension Manager you
 can permanently remove the extension by clicking on the waste-basket symbol
@@ -108,7 +108,7 @@ can permanently remove the extension by clicking on the waste-basket symbol
 
 ..  _uninstall-extension-manually:
 
-Uninstalling an Extension Manually
+Uninstalling an extension manually
 ----------------------------------
 
 At times an extension causes a problem and the TYPO3 Backend can not

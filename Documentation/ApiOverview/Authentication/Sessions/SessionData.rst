@@ -25,7 +25,7 @@ You can use the following methods in
 
 ..  _session-data-example-multi-step:
 
-Example: Save shopping basket into user session
+Example: save shopping basket into user session
 ===============================================
 
 Let us assume we have an Extbase Controller for a shopping basket. We want to

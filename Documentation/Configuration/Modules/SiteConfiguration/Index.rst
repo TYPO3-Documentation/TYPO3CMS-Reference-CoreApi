@@ -4,7 +4,7 @@
 ..  _site-configuration:
 
 =========================================================
-Site configuration: Basic settings for the whole web site
+Site configuration: basic settings for the whole web site
 =========================================================
 
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteConfigurationOverview.png

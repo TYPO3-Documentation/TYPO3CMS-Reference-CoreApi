@@ -144,7 +144,7 @@ cache tables after a successful restore.
 ..  _security-backup-verify:
 
 Verifying your backups
------------------------
+----------------------
 
 Always test your backups to ensure they can be restored.
 

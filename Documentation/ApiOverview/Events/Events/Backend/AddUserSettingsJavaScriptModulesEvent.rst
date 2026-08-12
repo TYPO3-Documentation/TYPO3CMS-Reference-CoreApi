@@ -3,9 +3,9 @@
 ..  _AddJavaScriptModulesEvent:
 ..  _AddUserSettingsJavaScriptModulesEvent:
 
-=====================================
-AddUserSettingsJavaScriptModulesEvent
-=====================================
+=======================================
+`AddUserSettingsJavaScriptModulesEvent`
+=======================================
 
 ..  versionchanged:: 14.3
     This event was moved from :php:`TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent`

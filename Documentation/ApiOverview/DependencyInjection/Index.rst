@@ -9,7 +9,6 @@
    File; config/system/services.php
 
 .. _DependencyInjection:
-.. _Dependency-Injection:
 .. _dependency-injection:
 
 ====================
@@ -428,8 +427,8 @@ Configuration
 
 ..  _dependency-injection-in-extensions:
 
-:file:`Services.yaml` declaring service defaults
-------------------------------------------------
+`Services.yaml` declaring service defaults
+------------------------------------------
 
 Extensions have to configure their classes to make use of
 dependency injection. This can be done in :file:`Configuration/Services.yaml`.
@@ -481,8 +480,8 @@ Model exclusion
 
 .. _dependency-injection-autoconfigure:
 
-Autoconfiguration using attributes and :file:`Services.yaml`
-------------------------------------------------------------
+Autoconfiguration using attributes and `Services.yaml`
+------------------------------------------------------
 
 Single service classes may need to change auto configuration
 to be different than above declared defaults. This can be done using PHP attributes.
@@ -761,8 +760,8 @@ of the 3rd party extension.
 
 ..  _dependency-injection-faq-declare-shared-false:
 
-What do declare :php:`shared: false`?
--------------------------------------
+What do declare `shared: false`?
+--------------------------------
 
 ..  attention::
     **In short**: Declare a service :php:`shared: false` if it is stateful.
@@ -775,8 +774,8 @@ stateful services using :php:`GeneralUtility::makeInstance()` when needed, rathe
 than within :php:`__construct()`.
 
 .. _when-to-use-php-generalutility-makeinstance:
-When to use :php:`GeneralUtility::makeInstance()`?
---------------------------------------------------
+When to use `GeneralUtility::makeInstance()`?
+---------------------------------------------
 
 ..  attention::
     **In short**: Use :php:`GeneralUtility::makeInstance()` to obtain instances of stateful
@@ -832,8 +831,8 @@ compatible with dependency injection.
 
 .. _dependency-injection-new:
 
-When to use :php:`new`?
------------------------
+When to use `new`?
+------------------
 
 ..  attention::
     **In short**: Use :php:`new` to instantiate data objects, not services.

@@ -2,9 +2,9 @@
 ..  index:: Events; AfterFileDeletedEvent
 ..  _AfterFileDeletedEvent:
 
-=====================
-AfterFileDeletedEvent
-=====================
+=======================
+`AfterFileDeletedEvent`
+=======================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileDeletedEvent`

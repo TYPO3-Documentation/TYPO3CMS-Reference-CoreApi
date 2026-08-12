@@ -132,8 +132,8 @@ this to work.
 
 ..  _extbase-validation-ignore:
 
-Ignoring the validation result with :php:`#[IgnoreValidation]`
-==============================================================
+Ignoring the validation result with `#[IgnoreValidation]`
+=========================================================
 
 Sometimes you need to receive an object without running its validators, for
 example when displaying a "new" form that is pre-populated from a submitted but
@@ -175,8 +175,8 @@ Without :php:`#[IgnoreValidation]`, the framework would see the invalid
 ..  _extbase-validation-error-action:
 ..  _extbase_error_action-howto:
 
-Customising :php:`errorAction()`
-================================
+Customising `errorAction()`
+===========================
 
 The built-in :php:`errorAction()` adds a generic :ref:`flash message
 <flash-messages>` and redirects the user to the referring request. For most contact or registration forms this

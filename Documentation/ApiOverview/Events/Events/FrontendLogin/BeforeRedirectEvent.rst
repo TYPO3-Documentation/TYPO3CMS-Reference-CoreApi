@@ -3,9 +3,9 @@
 ..  _BeforeRedirectEvent:
 
 
-===================
-BeforeRedirectEvent
-===================
+=====================
+`BeforeRedirectEvent`
+=====================
 
 The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\BeforeRedirectEvent` is
 triggered before a redirect is made.

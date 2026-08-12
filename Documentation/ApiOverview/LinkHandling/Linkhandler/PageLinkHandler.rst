@@ -2,9 +2,9 @@
 .. index:: LinkHandlers; PageLinkHandler
 .. _pagelinkhandler:
 
-===================
-The PageLinkHandler
-===================
+=====================
+The `PageLinkHandler`
+=====================
 
 The PageLinkHandler enables editors to link to pages and content.
 

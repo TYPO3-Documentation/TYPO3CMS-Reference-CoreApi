@@ -2,9 +2,9 @@
 ..  index:: Events; SudoModeRequiredEvent
 ..  _SudoModeRequiredEvent:
 
-=====================
-SudoModeRequiredEvent
-=====================
+=======================
+`SudoModeRequiredEvent`
+=======================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Backend\Event\SudoModeRequiredEvent` is triggered before
@@ -29,7 +29,7 @@ authenticated through an :abbr:`SSO (single sign-on)` system.
 ..  _SudoModeRequiredEvent-example:
 
 
-Example: Use an event listener to skip step-up authentication for SSO users
+Example: use an event listener to skip step-up authentication for SSO users
 ===========================================================================
 
 The following example demonstrates how to use an event listener to skip step-up

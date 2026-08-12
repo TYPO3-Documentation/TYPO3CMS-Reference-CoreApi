@@ -2,9 +2,9 @@
 ..  index:: pair: Coding guidelines; phpDoc
 ..  _cgl-using-phpdoc:
 
-============
-Using phpDoc
-============
+==============
+Using `phpDoc`
+==============
 
 "phpDocumentor" (`phpDoc <https://www.phpdoc.org/>`_) is used for documenting
 source code. TYPO3 code typically uses the following phpDoc_ keywords:

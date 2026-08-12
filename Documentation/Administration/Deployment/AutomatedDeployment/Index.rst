@@ -7,7 +7,7 @@
 ..  _automated-deployment:
 
 ====================
-Automated Deployment
+Automated deployment
 ====================
 
 A typical setup for deploying web applications consists of three different parts:

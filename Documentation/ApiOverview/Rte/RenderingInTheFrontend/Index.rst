@@ -9,7 +9,7 @@
 ..  _rte-rendering-frontend:
 
 =====================================
-Rendering RTE content in the Frontend
+Rendering RTE content in the frontend
 =====================================
 
 The explanations on this page don't show how to display an RTE but rather, describe how

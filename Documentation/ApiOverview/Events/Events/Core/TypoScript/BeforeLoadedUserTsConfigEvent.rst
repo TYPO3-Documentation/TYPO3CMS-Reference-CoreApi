@@ -2,9 +2,9 @@
 ..  index:: Events; BeforeLoadedUserTsConfigEvent
 ..  _BeforeLoadedUserTsConfigEvent:
 
-=============================
-BeforeLoadedUserTsConfigEvent
-=============================
+===============================
+`BeforeLoadedUserTsConfigEvent`
+===============================
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedUserTsConfigEvent`

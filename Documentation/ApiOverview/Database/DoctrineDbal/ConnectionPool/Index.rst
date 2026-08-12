@@ -2,9 +2,9 @@
 
 ..  _database-connection-pool:
 
-==============
-ConnectionPool
-==============
+================
+`ConnectionPool`
+================
 
 TYPO3's interface for executing queries via Doctrine DBAL starts with
 a request to the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` for a

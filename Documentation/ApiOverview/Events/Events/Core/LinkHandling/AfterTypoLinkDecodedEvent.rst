@@ -2,9 +2,9 @@
 ..  index:: Events; AfterTypoLinkDecodedEvent
 ..  _AfterTypoLinkDecodedEvent:
 
-=========================
-AfterTypoLinkDecodedEvent
-=========================
+===========================
+`AfterTypoLinkDecodedEvent`
+===========================
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\LinkHandling\Event\AfterTypoLinkDecodedEvent`
 allows developers to fully manipulate the decoding of

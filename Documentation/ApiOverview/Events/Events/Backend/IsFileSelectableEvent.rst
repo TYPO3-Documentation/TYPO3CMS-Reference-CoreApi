@@ -2,9 +2,9 @@
 ..  index:: Events; IsFileSelectableEvent
 ..  _IsFileSelectableEvent:
 
-=====================
-IsFileSelectableEvent
-=====================
+=======================
+`IsFileSelectableEvent`
+=======================
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\ElementBrowser\Event\IsFileSelectableEvent`
 allows to decide whether a file can be selected in the file browser.

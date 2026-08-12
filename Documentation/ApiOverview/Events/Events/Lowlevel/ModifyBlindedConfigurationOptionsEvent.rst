@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyBlindedConfigurationOptionsEvent
 ..  _ModifyBlindedConfigurationOptionsEvent:
 
-======================================
-ModifyBlindedConfigurationOptionsEvent
-======================================
+========================================
+`ModifyBlindedConfigurationOptionsEvent`
+========================================
 
 The PSR-14 event :php:`\TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent`
 is fired in the :php:`\TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider`
