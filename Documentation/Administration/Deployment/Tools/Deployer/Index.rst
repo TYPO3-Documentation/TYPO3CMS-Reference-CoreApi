@@ -64,7 +64,7 @@ To start using Deployer, :file:`deploy.yaml` should look like this:
 ..  _deployer-official:
 
 Official Deployer recipe for TYPO3
------------------------------------
+----------------------------------
 
 Deployer ships an `official TYPO3 recipe <https://deployer.org/docs/8.x/recipe/typo3>`_
 for Composer-based TYPO3 installations. It auto-detects the public web
