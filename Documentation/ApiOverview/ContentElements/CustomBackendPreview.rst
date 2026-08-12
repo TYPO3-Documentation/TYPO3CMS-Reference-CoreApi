@@ -145,13 +145,13 @@ approaches:
     This specifies the preview renderer only for records of type :php:`$type` as
     determined by the :ref:`type field <t3tca:types>` of your table.
 
-The content elements `text`, `textpic`, `textmedia` and
-`image` do not have their own `PreviewRenderer` — they use the
-standard :php-short:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`
-like any other content type. To customize their preview, use the
+Like all other content types, `text`, `textpic`, `textmedia` and
+`image` use the standard
+:php-short:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`. To customize
+previews for these elements, use the
 :ref:`page TSconfig <ConfigureCE-Preview-PageTSconfig>` or
 :ref:`event listener <ConfigureCE-Preview-EventListener>` approach described
-above instead of registering a type-specific preview renderer.
+above (instead of registering type-specific preview renderers as in the past).
 
 ..  note::
     The :ref:`recommended location <extension-configuration-tca>` is in the
