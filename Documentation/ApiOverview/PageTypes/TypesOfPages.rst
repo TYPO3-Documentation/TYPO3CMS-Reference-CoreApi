@@ -6,6 +6,12 @@
 Types of pages
 ==============
 
+..  versionchanged:: 14.0
+    The page type `Link to External URL` has been renamed to just `Link`
+    and has a lot more features.
+    See
+    :ref:`Feature: #17406 - Enhance page type "Link" to fully support typolinks <changelog:feature-17406-1762953087>`
+
 TYPO3 has predefined a number of pages types as constants in
 :file:`typo3/sysext/core/Classes/Domain/Repository/PageRepository.php`.
 
@@ -23,10 +29,11 @@ additional fields in pages to be filled out:
 ..  _list-of-page-types-link:
 
 `DOKTYPE_LINK` - ID: `3`
-   Link to External URL
+   Link to external URLs, other pages, content elements, files,
+   folders, email addresses or custom records (for example, news records).
 
-   This type of page creates a redirect to an URL in the frontend.
-   The URL is specified in the field `pages.url`.
+   This type of page creates a redirect to a URL in the frontend.
+   The URL is specified in the `pages.url` field.
 
 ..  index:: Page types; DOKTYPE_SHORTCUT
 ..  _list-of-page-types-shortcut:
