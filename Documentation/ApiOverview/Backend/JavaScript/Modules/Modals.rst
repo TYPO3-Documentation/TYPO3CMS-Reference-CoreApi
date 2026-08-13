@@ -197,3 +197,32 @@ a modal dialog are also able to use the new option by adding the
 
 ..  literalinclude:: _Modals/_StaticBackdrop.fluid.html
     :language: html
+
+..  _modules-modals-html-content:
+
+Rendering HTML content in a modal
+----------------------------------
+
+Plain string content, as used in the examples above, is HTML-escaped before
+being rendered.
+
+To render real HTML, pass a `lit` `html` template result
+as `content` instead of a string:
+
+..  literalinclude:: _Modals/_html-content.js
+
+..  warning::
+    `lit` only auto-escapes values inside `${}` expressions of the `html`
+    template — the static markup written directly in the template is always
+    rendered as-is. Never use the `unsafeHTML()` directive (or otherwise
+    build the template from untrusted data) unless the content is fully
+    sanitized first, as doing so reintroduces the same HTML injection risk
+    the default escaping protects against.
+
+Translated labels can be included the same way, using the `lll()` helper
+from `@typo3/core/lit-helper.js`. The label itself must first be made
+available to JavaScript via :php:`PageRenderer->addInlineLanguageLabel()`:
+
+..  literalinclude:: _Modals/_HtmlContentLabel.php
+
+..  literalinclude:: _Modals/_html-content-translated.js
