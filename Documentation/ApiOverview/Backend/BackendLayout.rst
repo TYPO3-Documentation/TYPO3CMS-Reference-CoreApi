@@ -262,7 +262,11 @@ backend layouts and frontend layouts may be feasible. The extension
 :composer:`b13/container`
 integrates the grid layout concept also to regular content elements.
 
-
+Extension content_defender is not necessary in TYPO3 14.
+========================
+..  versionchanged:: 14.0
+    Backend layout uses allowedContentTypes to restrict content types.
+    https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.1/Feature-108623-AllowContentElementRestrictionsPerColPos.html#feature-108623-1768315053
 
 ..  _backend-layout-providers:
 
