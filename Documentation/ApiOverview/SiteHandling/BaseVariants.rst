@@ -136,9 +136,10 @@ exception:
 
 ..  note::
     For request-dependent base variants (for example matching the current
-    host or request parameters), use a dedicated extension such as
-    :composer:`b13/host-variants`, or register your own condition or function
-    provider that injects the request into the expression language context.
+    host or request parameters), or to use ``traverse()`` on custom data,
+    use a dedicated extension such as :composer:`b13/host-variants`, or
+    register your own condition or function provider that injects the
+    needed variables into the expression language context.
 
 The following request-independent functions are available:
 
