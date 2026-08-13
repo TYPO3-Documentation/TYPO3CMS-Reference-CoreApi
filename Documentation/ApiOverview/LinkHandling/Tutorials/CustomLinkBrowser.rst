@@ -175,6 +175,11 @@ As our JavaScript class depends on classes provided by the backend system extens
 :php:`backend` has to be added as dependency. See also
 :ref:`backend-javascript-es6-loading`.
 
+The `backend.form` tag is required because the import map is only generated
+on the initial request. Without this tag, the module would not be resolvable
+when the link browser is opened later from within a form, for example from
+an inline record.
+
 
 .. _tutorial_backend_link_handler_canHandleLink:
 
