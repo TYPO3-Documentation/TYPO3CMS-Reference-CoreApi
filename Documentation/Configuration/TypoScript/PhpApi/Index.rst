@@ -96,14 +96,14 @@ instead of this solution. For backend module configuration you should use
     use TYPO3\CMS\Core\Database\ConnectionPool;
     use TYPO3\CMS\Core\Http\HtmlResponse;
     use TYPO3\CMS\Core\SingletonInterface;
-    use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
+    use MyDomain\MyExtension\Backend\TypoScriptConfigurationManager;
 
     #[AsController]
     final readonly class OrderController implements SingletonInterface
     {    
         public function __construct(
             protected ConnectionPool $connectionPool,
-            protected BackendConfigurationManager $concreteConfigurationManager
+            protected TypoScriptConfigurationManager $concreteConfigurationManager
         ) {}
 
         public function handleRequest(ServerRequestInterface $request): ResponseInterface
@@ -119,6 +119,146 @@ instead of this solution. For backend module configuration you should use
              return $setup;
         }
     }
+
+
+This is an example TypoScript Configuration Manager:
+
+.. code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/TypoScriptConfigurationManager.php
+
+    namespace MyDomain\MyExtension\Backend;
+
+    use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
+    use TYPO3\CMS\Core\Cache\Frontend\PhpFrontend;
+    use TYPO3\CMS\Core\Database\ConnectionPool;
+    use TYPO3\CMS\Core\Site\Entity\NullSite;
+    use TYPO3\CMS\Core\Site\Set\SetRegistry;
+    use TYPO3\CMS\Core\Site\SiteFinder;
+    use TYPO3\CMS\Core\TypoScript\IncludeTree\SysTemplateRepository;
+    use TYPO3\CMS\Core\TypoScript\FrontendTypoScriptFactory;
+    use TYPO3\CMS\Core\Utility\RootlineUtility;
+
+
+    final readonly class TypoScriptConfigurationManager
+    {
+        public function __construct(
+            #[Autowire(service: 'cache.typoscript')]
+            private PhpFrontend $typoScriptCache,
+            #[Autowire(service: 'cache.runtime')]
+            private FrontendInterface $runtimeCache,
+            private SysTemplateRepository $sysTemplateRepository,
+            private SiteFinder $siteFinder,
+            private FrontendTypoScriptFactory $frontendTypoScriptFactory,
+            private ConnectionPool $connectionPool,
+            private SetRegistry $setRegistry,
+        ) {}
+
+
+        /**
+        * Returns TypoScript Setup array from current Environment.
+        *
+        * @return array the raw TypoScript setup
+        */
+        public function getTypoScriptSetup(ServerRequestInterface $request): array
+        {
+            $currentPageId = $this->getCurrentPageId($request);
+
+            $cacheIdentifier = 'mydomain-backend-typoscript-pageIda-' . $currentPageId;
+            $setupArray = $this->runtimeCache->get($cacheIdentifier);
+            if (is_array($setupArray)) {
+                return $setupArray;
+            }
+
+            $site = $request->getAttribute('site');
+            if (($site === null || $site instanceof NullSite) && $currentPageId > 0) {
+                try {
+                    $site = $this->siteFinder->getSiteByPageId($currentPageId);
+                } catch (SiteNotFoundException) {
+                    // Keep null / NullSite when no site could be determined for whatever reason.
+                }
+            }
+            if ($site === null) {
+                // If still no site object, have NullSite (usually pid 0).
+                $site = new NullSite();
+            }
+
+            $rootLine = [];
+            $sysTemplateRows = [];
+            if ($currentPageId > 0) {
+                $rootLine = GeneralUtility::makeInstance(RootlineUtility::class, $currentPageId)->get();
+                // When the site acts as a TypoScript root, limit sys_template lookup to
+                // pages within this site by truncating the rootline at the site root page.
+                // This mirrors the frontend behavior and prevents sys_template records from
+                // parent sites from leaking into the backend TypoScript evaluation.
+                // @see \TYPO3\CMS\Frontend\Page\PageInformationFactory::setSysTemplateRows()
+                $rootLineForSysTemplates = $rootLine;
+                if ($site instanceof Site && $site->isTypoScriptRoot()) {
+                    $rootLineForSysTemplates = [];
+                    foreach ($rootLine as $index => $rootlinePage) {
+                        $rootLineForSysTemplates[$index] = $rootlinePage;
+                        if ((int)($rootlinePage['uid'] ?? 0) === $site->getRootPageId()) {
+                            break;
+                        }
+                    }
+                }
+                $sysTemplateRows = $this->sysTemplateRepository->getSysTemplateRowsByRootline($rootLineForSysTemplates, $request);
+                ksort($rootLine);
+            }
+            $sets = $site instanceof Site ? $this->setRegistry->getSets(...$site->getSets()) : [];
+            if (empty($sysTemplateRows) && $sets === []) {
+                // If no page with sys_template rows or site sets could be derived, we
+                // "fake" a row to trigger inclusion of 'global' TypoScript only.
+                $sysTemplateFakeRow = [
+                    'uid' => 0,
+                    'pid' => 0,
+                    'title' => 'Fake sys_template row to force global TypoScript loading',
+                    'root' => 1,
+                    'clear' => 3,
+                    'include_static_file' => '',
+                    'basedOn' => '',
+                    'includeStaticAfterBasedOn' => 0,
+                    'static_file_mode' => false,
+                    'constants' => '',
+                    'config' => '',
+                    'deleted' => 0,
+                    'hidden' => 0,
+                    'starttime' => 0,
+                    'endtime' => 0,
+                    'sorting' => 0,
+                ];
+                $sysTemplateRows[] = $sysTemplateFakeRow;
+            }
+
+            $expressionMatcherVariables = [
+                'request' => $request,
+                'pageId' => $currentPageId,
+                'page' => !empty($rootLine) ? $rootLine[array_key_first($rootLine)] : [],
+                'fullRootLine' => $rootLine,
+                'site' => $site,
+            ];
+
+            $typoScript = $this->frontendTypoScriptFactory->createSettingsAndSetupConditions($site, $sysTemplateRows, $expressionMatcherVariables, $this->typoScriptCache);
+            $typoScript = $this->frontendTypoScriptFactory->createSetupConfigOrFullSetup(true, $typoScript, $site, $sysTemplateRows, $expressionMatcherVariables, '0', $this->typoScriptCache, null);
+            $setupArray = $typoScript->getSetupArray();
+            $this->runtimeCache->set($cacheIdentifier, $setupArray);
+            return $setupArray;
+        }
+
+        /**
+        * Get page id from the request, accessing POST / GET 'id'
+        */
+        private function getCurrentPageId(ServerRequestInterface $request): int
+        {
+            $id = 0;
+            $potentialId = $request->getParsedBody()['id'] ?? $request->getQueryParams()['id'] ?? 0;
+            if (MathUtility::canBeInterpretedAsInteger($potentialId) && $potentialId > 0) {
+                $id = (int)$potentialId;
+            }
+            return $id;
+        }
+    }
+
+
 
 Here an example for a :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
 
