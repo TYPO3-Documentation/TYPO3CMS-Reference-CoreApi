@@ -95,11 +95,10 @@ instead of this solution. For backend module configuration you should use
     use TYPO3\CMS\Backend\Attribute\AsController;
     use TYPO3\CMS\Core\Database\ConnectionPool;
     use TYPO3\CMS\Core\Http\HtmlResponse;
-    use TYPO3\CMS\Core\SingletonInterface;
     use MyDomain\MyExtension\Backend\TypoScriptConfigurationManager;
 
     #[AsController]
-    final readonly class OrderController implements SingletonInterface
+    final readonly class OrderController
     {    
         public function __construct(
             protected ConnectionPool $connectionPool,
