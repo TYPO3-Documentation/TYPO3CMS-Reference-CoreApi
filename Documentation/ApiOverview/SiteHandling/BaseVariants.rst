@@ -146,7 +146,7 @@ are available:
 ..  option:: date
 
     :type: string
-    :Example: checking the current month: `date("j") == 7`
+    :Example: checking the day of the month: `date("j") == 7`
 
     Get the current date in given format.
 
