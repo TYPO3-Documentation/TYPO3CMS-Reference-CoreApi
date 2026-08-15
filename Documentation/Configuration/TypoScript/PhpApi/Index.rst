@@ -77,12 +77,13 @@ Backend TypoScript
 ==================
 
 Another means needs to be used to read the Frontend TypoScript of the currently selected page in the backend page module.
-This is needed in a case where some Frontend classes need to be called as well by from the Backend. E.g. a shop administrator
+This is needed in the case some Frontend classes need to be called as well from the Backend. E.g. a shop administrator
 is allowed to resend an order email with a new modified bill after the customer has cancelled one item from his order.
 The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
 Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider using the
-`SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
-instead of this solution. For backend module configuration you should use 
+`SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_ 
+and site configuration attributes instead of this solution. 
+For backend module configuration you should use 
 `Backend TypoScript / TSconfig <https://docs.typo3.org/permalink/t3tsref:about-tsconfig>`_ instead of Frontend TypoScript. 
 
 .. code-block:: php
@@ -101,8 +102,8 @@ instead of this solution. For backend module configuration you should use
     final readonly class OrderController
     {    
         public function __construct(
-            protected ConnectionPool $connectionPool,
-            protected TypoScriptConfigurationManager $concreteConfigurationManager
+            private ConnectionPool $connectionPool,
+            private TypoScriptConfigurationManager $concreteConfigurationManager
         ) {}
 
         public function handleRequest(ServerRequestInterface $request): ResponseInterface
@@ -267,7 +268,7 @@ This is an example TypoScript Configuration Manager:
     }
 
 
-Here an example for a :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
+Example for :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
 
 .. code-block:: php
     :caption: EXT:my_extension/Classes/Service/SiteConfigurationService.php
