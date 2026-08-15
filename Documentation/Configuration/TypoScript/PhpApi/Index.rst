@@ -125,7 +125,6 @@ This is an example TypoScript Configuration Manager:
 
 .. code-block:: php
     :caption: EXT:my_extension/Classes/Backend/TypoScriptConfigurationManager.php
-
     namespace MyDomain\MyExtension\Backend;
 
     use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
@@ -136,6 +135,8 @@ This is an example TypoScript Configuration Manager:
     use TYPO3\CMS\Core\Site\SiteFinder;
     use TYPO3\CMS\Core\TypoScript\IncludeTree\SysTemplateRepository;
     use TYPO3\CMS\Core\TypoScript\FrontendTypoScriptFactory;
+    use TYPO3\CMS\Core\TypoScript\TypoScriptService;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Utility\RootlineUtility;
 
 
@@ -239,9 +240,17 @@ This is an example TypoScript Configuration Manager:
 
             $typoScript = $this->frontendTypoScriptFactory->createSettingsAndSetupConditions($site, $sysTemplateRows, $expressionMatcherVariables, $this->typoScriptCache);
             $typoScript = $this->frontendTypoScriptFactory->createSetupConfigOrFullSetup(true, $typoScript, $site, $sysTemplateRows, $expressionMatcherVariables, '0', $this->typoScriptCache, null);
+            // Retrieve the TypoScript setup array containing trailing dots
             $setupArray = $typoScript->getSetupArray();
             $this->runtimeCache->set($cacheIdentifier, $setupArray);
-            return $setupArray;
+            
+            // Instantiate the TypoScriptService
+            $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
+
+            // Convert the TypoScript array to a plain nested array (removing trailing dots)
+            $plainArray = $typoScriptService->convertTypoScriptArrayToPlainArray($setupArray);
+
+            return $plainArray;
         }
 
         /**
@@ -257,7 +266,6 @@ This is an example TypoScript Configuration Manager:
             return $id;
         }
     }
-
 
 
 Here an example for a :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
