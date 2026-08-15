@@ -62,7 +62,7 @@ the frontend parsing chain, this part will evolve in the future and further API 
 evolve allowing extensions to parse TypoScript more easily.
 
 However, extension controllers that need the parsed TypoScript can access the parsed
-setup as array:
+setup as array (including trailing dots):
 
 .. code-block:: php
 
@@ -275,6 +275,7 @@ Here an example for a :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
 
     namespace MyVendor\MyExtension\Service;
 
+    use Psr\Http\Message\ServerRequestInterface;
     use TYPO3\CMS\Core\Site\SiteFinder;
     use TYPO3\CMS\Core\Site\Entity\Site;
     
@@ -289,9 +290,15 @@ Here an example for a :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
         {
             // Find the site object by traversing the rootline upwards from the given page ID
             $site = $this->siteFinder->getSiteByPageId($pageId);
+            $warningText = 'Warning!';
             
-            // Access configuration attributes or custom site settings
-            return $site->getAttribute('myGeneralWarningText') ?? 'Warning!';
+            // Ensure $site is not null before proceeding
+            if ($site instanceof Site) {
+                // Access configuration attributes or custom site settings
+                $warningText = $site->getAttribute('myGeneralWarningText') ?? $warningText;
+            }
+
+            return warningText;
         }
     }
 
