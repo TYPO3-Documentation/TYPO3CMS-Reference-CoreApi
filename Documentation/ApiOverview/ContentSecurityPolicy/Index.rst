@@ -165,7 +165,7 @@ Nonces
     exemptions are valid in a policy, a so-called "Nonce" (a unique "**n**umber used **once**")
     is created (details on `https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce`__).
 
-    *   TYPO3 can manage these Nonces and apply them were configured.
+    *   TYPO3 can manage these Nonces and apply them where configured.
     *   Nonces are retrieved from :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
         and will be used for any directive within the scope of a single HTTP request.
     *   More details are covered in :ref:`content-security-policy-nonce`.
