@@ -32,6 +32,10 @@ PHP requirements and configuration
 TYPO3 requires PHP with a supported version and specific configuration
 values and extensions.
 
+..  versionchanged:: 15.0
+    The minimum required PHP version was raised to PHP 8.5.
+    See `Breaking: #110211 - Raise minimum PHP version to 8.5 <https://docs.typo3.org/permalink/changelog:breaking-110211-1784210220>`_.
+
 ..  _system-requirements-php-configuration:
 
 Recommended PHP configuration settings
@@ -216,24 +220,24 @@ or NGINX using official base images.
 
 Recommended base images:
 
-* Apache: `php:8.4-apache`
-* NGINX: `nginx:stable` + `php:8.4-fpm`
+* Apache: `php:8.5-apache`
+* NGINX: `nginx:stable` + `php:8.5-fpm`
 
 Install required PHP extensions and set suitable PHP configuration.
 
 ..  tabs::
 
-    ..  tab:: Apache + PHP 8.4
+    ..  tab:: Apache + PHP 8.5
 
         ..  literalinclude:: _codesnippets/_Dockerfile-apache-php
             :language: dockerfile
-            :caption: Dockerfile for Apache with PHP 8.4
+            :caption: Dockerfile for Apache with PHP 8.5
 
-    ..  tab:: NGINX + PHP-FPM 8.4
+    ..  tab:: NGINX + PHP-FPM 8.5
 
         ..  literalinclude:: _codesnippets/_Dockerfile-fpm-php
             :language: dockerfile
-            :caption: Dockerfile for PHP 8.4 with FPM (for NGINX)
+            :caption: Dockerfile for PHP 8.5 with FPM (for NGINX)
 
         See :ref:`system-requirements-nginx` for NGINX configuration.
 
@@ -286,11 +290,11 @@ DDEV is a widely used and recommended solution for running TYPO3 projects
 locally. It provides a preconfigured Docker-based environment with TYPO3-
 compatible PHP, web server, and database services.
 
-To set up a TYPO3 project with PHP 8.4, run:
+To set up a TYPO3 project with PHP 8.5, run:
 
 ..  code-block:: bash
 
-    ddev config --php-version 8.4 --docroot public --project-type typo3
+    ddev config --php-version 8.5 --docroot public --project-type typo3
 
 This will generate the necessary configuration and allow you to start the
 project using:
