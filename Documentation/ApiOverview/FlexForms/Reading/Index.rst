@@ -41,13 +41,6 @@ value is not defined in the plugin.
 `FlexFormTools`: read FlexForms values in PHP
 =============================================
 
-..  deprecated:: 14.0
-    Class :php-short:`\TYPO3\CMS\Core\Service\FlexFormService` has been merged
-    into :php-short:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools`.
-
-    :php-short:`\TYPO3\CMS\Core\Service\FlexFormService` can be used with
-    an alias up until TYPO3 v15.
-
 You can use the :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` to read
 the content of a FlexForm field.
 
