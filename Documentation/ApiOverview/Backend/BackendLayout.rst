@@ -105,6 +105,7 @@ The following page TSconfig example creates a simple backend layout consisting o
                      1 {
                        identifier = border
                        name = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:colPos.I.3
+                       allowedContentTypes = html, text, ...
                        colPos = 3
                        colspan = 1
                      }
@@ -261,8 +262,12 @@ backend layouts and frontend layouts may be feasible. The extension
 :composer:`b13/container`
 integrates the grid layout concept also to regular content elements.
 
-The extension :composer:`ichhabrecht/content-defender` offers advanced options to
-the column positions i.e. allowed or disallowed content elements, a maximal number of content elements.
+..  versionchanged:: 14.0
+    Installing the extension :composer:`ichhabrecht/content-defender` for allowed
+    or disallowed content elements per column is no longer necessary. Backend
+    layout columns can now natively restrict content element types via
+    :typoscript:`allowedContentTypes` and :typoscript:`disallowedContentTypes`.
+    See `Feature: #108623 - Allow content element restrictions per colPos <https://docs.typo3.org/permalink/changelog:feature-108623-1768315053>`_.
 
 ..  _backend-layout-providers:
 
