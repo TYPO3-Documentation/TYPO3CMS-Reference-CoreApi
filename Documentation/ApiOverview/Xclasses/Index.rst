@@ -93,6 +93,32 @@ class, the latter being part of the :composer:`t3docs/examples` extension.
 When XCLASSing a class that does not use namespaces, use that class name
 in the declaration.
 
+..  _xclasses-extbase-actions:
+
+XCLASSing an Extbase controller action
+======================================
+
+Extbase controllers are resolved as services from the
+:ref:`dependency injection container <DependencyInjection>` and are never
+instantiated directly. Two additional requirements therefore apply when
+XCLASSing them.
+
+**The XCLASS has to be registered as a service itself.**
+
+The conventional :yaml:`resource: '../Classes/*'` entry in the
+:file:`Configuration/Services.yaml` of the extension providing the XCLASS is
+sufficient. Without it the container does not know the replacement class, and
+some action attributes will not work - both those from the original action and
+any declared on the XCLASS itself.
+
+**Attributes are not inherited in PHP.**
+
+An overriding action method declares its own set of attributes; those of the
+parent method are not merged in. Every attribute of the original action that
+should remain in effect has to be repeated - :php:`#[Authorize]` and
+:php:`#[RateLimit]` on the method, :php:`#[Validate]` and
+:php:`#[IgnoreValidation]` on the corresponding parameters.
+
 
 ..  _xclasses-coding:
 
