@@ -49,7 +49,11 @@ Makefile                    # local install/build/test commands
     LTS branches, skips this entirely), this repo has `main`, `14.3`,
     `13.4` (verify this is still current) — default to `main, 14.3`; add
     `13.4` only for a bugfix/security fix worth backporting that far, not
-    for plain content/style changes.
+    for plain content/style changes. If a PR gets no `backport <version>`
+    label, label it `main only` instead (mutually exclusive with
+    `backport <version>` — not both). Separately, label every PR that
+    addresses a `TYPO3-Documentation/Changelog-To-Doc` issue with
+    `changelog`, regardless of its backport status.
 
 ## References
 
