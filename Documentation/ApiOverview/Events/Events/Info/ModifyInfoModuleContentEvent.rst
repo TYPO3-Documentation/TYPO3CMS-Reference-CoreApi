@@ -38,7 +38,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyInfoModuleContentEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Info/EventListener/MyEventListener.php
 
 ..  _modify-info-module-content-event-api:

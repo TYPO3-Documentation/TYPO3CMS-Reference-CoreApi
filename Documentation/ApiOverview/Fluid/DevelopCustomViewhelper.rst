@@ -189,7 +189,6 @@ Because the Gravatar ViewHelper creates an :html:`<img>` tag the use of the
 `$this->tag` is advised:
 
 ..  literalinclude:: _CustomViewHelper/_GravatarTagBasedViewHelper.php
-    :language: php
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php (Example 2, tag-based)
     :linenos:
 
@@ -311,7 +310,6 @@ available in the :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelpe
 This returns the evaluated object between the opening and closing tag.
 
 ..  literalinclude:: _CustomViewHelper/_GravatarTagBasedViewHelper_getContentArgumentName.php
-    :language: php
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php  (Example 3, with content arguments)
     :linenos:
 

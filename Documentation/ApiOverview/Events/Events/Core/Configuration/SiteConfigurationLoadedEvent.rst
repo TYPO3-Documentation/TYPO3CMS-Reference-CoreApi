@@ -27,7 +27,6 @@ is no need to :ref:`add an import manually <routing-examples-imports>` to the
 site configuration.
 
 ..  literalinclude:: _SiteConfigurationLoadedEvent/_ImportRoutesIntoSiteConfiguration.php
-    :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/ImportRoutesIntoSiteConfiguration.php
 
 For more sophisticated examples, see also

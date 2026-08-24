@@ -25,7 +25,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterBackendUserListConstraintsAssembledFromDemandEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _after-backend-user-list-constraints-assembled-from-demand-event-api:

@@ -20,7 +20,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterMailerSentMessageEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
 
 ..  _after-mailer-sent-message-event-api:

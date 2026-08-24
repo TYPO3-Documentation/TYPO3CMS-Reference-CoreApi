@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeFlexFormConfigurationOverrideEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Extbase/EventListener/MyEventListener.php
 
 ..  _before-flex-form-configuration-override-event-api:

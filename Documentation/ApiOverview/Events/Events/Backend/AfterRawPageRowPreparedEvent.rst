@@ -20,7 +20,6 @@ Example: sort pages by title in the page tree
 =============================================
 
 ..  literalinclude:: _AfterRawPageRowPreparedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _AfterRawPageRowPreparedEvent-api:

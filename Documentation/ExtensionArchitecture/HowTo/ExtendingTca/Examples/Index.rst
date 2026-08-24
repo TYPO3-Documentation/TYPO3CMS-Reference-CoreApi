@@ -99,7 +99,6 @@ calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. The parameters ar
 Example code:
 
 ..  literalinclude:: _fe_users.php
-    :language: php
     :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
 
 If the fourth parameter is omitted or the field is not found,

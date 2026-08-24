@@ -20,16 +20,13 @@ recommend creating specific bitset classes that extend the TYPO3
 The functionality is best described by an example:
 
 ..  literalinclude:: _BitSet/_PlainExample.php
-    :language: php
 
 The example above uses global constants. Implementing that via an
 extended bitset class makes it clearer and easier to use:
 
 ..  literalinclude:: _BitSet/_Permissions.php
-    :language: php
     :caption: EXT:my_extension/Classes/Bitmask/Permissions.php
 
 Then use your custom bitset class:
 
 ..  literalinclude:: _BitSet/_PlainExample2.php
-    :language: php

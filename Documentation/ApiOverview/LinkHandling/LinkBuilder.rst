@@ -25,7 +25,6 @@ Register a custom link builder in your extension's
 :ref:`ext-localconf-php`:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 The link builders provided by the Core can be found in namespace

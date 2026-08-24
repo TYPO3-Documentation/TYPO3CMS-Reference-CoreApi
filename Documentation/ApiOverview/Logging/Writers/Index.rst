@@ -92,7 +92,6 @@ The corresponding configuration might look like this for the example class
 :php:`\T3docs\Examples\Controller`:
 
 ..  literalinclude:: _ext_localconf_FileWriter.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 
@@ -162,13 +161,11 @@ accepts all options of :php:`FileWriter` in addition of the following:
 The following example introduces log rotation for the "main" log file:
 
 ..  literalinclude:: _additionalRotationFileWriter.php
-    :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 Another example introduces log rotation for the "deprecation" log file:
 
 ..  literalinclude:: _additionalRotationFileWriterForDeprecations.php
-    :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 
@@ -241,7 +238,6 @@ One or more log writers for this class are configured in the file
 :file:`ext_localconf.php`:
 
 ..  literalinclude:: _ext_localconf_FileWriter_config.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  _logging-writers-examples:

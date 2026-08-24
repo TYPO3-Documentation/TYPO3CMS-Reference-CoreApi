@@ -16,7 +16,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyDatabaseQueryForContentEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-database-query-for-content-event-api:

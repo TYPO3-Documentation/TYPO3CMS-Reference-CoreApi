@@ -38,7 +38,6 @@ behaviors for each language.
 Example of a language configuration (excerpt):
 
 ..  literalinclude:: _language-example.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 ..  index:: pair: Site handling; Languages properties

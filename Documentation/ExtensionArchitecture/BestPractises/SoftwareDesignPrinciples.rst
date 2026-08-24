@@ -53,7 +53,6 @@ entity: The DTO getters retrieve the data, and the Extbase domain model entity's
 receive that data:
 
 ..  literalinclude:: _dto.php
-    :language: php
     :caption: Example of DTO and AbstractEntity used in an Extbase controller
 
 DTOs are helpful because:

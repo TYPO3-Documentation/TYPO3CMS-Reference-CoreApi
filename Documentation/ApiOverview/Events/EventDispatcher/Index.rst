@@ -54,7 +54,6 @@ If you just want to listen on an existing event, see section
     for all properties:
 
     ..  literalinclude:: _DoingThisAndThatEvent.php
-        :language: php
         :caption: EXT:my_extension/Classes/Event/DoingThisAndThatEvent.php
 
     Read more about :ref:`implementing event classes <EventDispatcherEvents>`.
@@ -67,7 +66,6 @@ If you just want to listen on an existing event, see section
     If the event dispatcher is not yet available, you need to inject it:
 
     ..  literalinclude:: _SomeClass.php
-        :language: php
         :caption: EXT:my_extension/Classes/SomeClass.php
 
 #.  Dispatch the event
@@ -76,7 +74,6 @@ If you just want to listen on an existing event, see section
     Use the data of mutable properties as it suits your business logic:
 
     ..  literalinclude:: _SomeClass2.php
-        :language: php
         :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  index:: ! PSR-14
@@ -217,7 +214,6 @@ An example listener, which hooks into the :ref:`Mailer API <mail>` to modify
 mailer settings to not send any emails, could look like this:
 
 ..  literalinclude:: _MailerEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/MailerEventListener.php
 
 An extension can define multiple listeners. The attribute can be used on class
@@ -262,14 +258,12 @@ The PHP attribute is repeatable, which allows to register the same class
 to listen for different events, for example:
 
 ..  literalinclude:: _MailerEventListenerRepeatable.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/MailerEventListener.php
 
 The PHP attribute can also be used on a method level. The above example can also
 be written as:
 
 ..  literalinclude:: _MailerEventListenerRepeatable2.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/MailerEventListener.php
 
 
@@ -287,7 +281,6 @@ entry with the tag :yaml:`event.listener` can be added to the
 :file:`Configuration/Services.yaml` file of that extension.
 
 ..  literalinclude:: _ServicesWithMethod.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
@@ -311,7 +304,6 @@ If no attribute :yaml:`method` is given, the class is treated as invokable, thus
 its :php:`__invoke()` method will be called:
 
 ..  literalinclude:: _ServicesWithoutMethod.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
@@ -330,14 +322,12 @@ For example, a third-party extension listens on the event
 :php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` via the PHP attribute:
 
 ..  literalinclude:: _ServicesOverrideBase.php
-    :language: php
     :caption: EXT:some_extension/Classes/EventListener/SeoEvent.php
     :emphasize-lines: 12
 
 or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideBase.yaml
-    :language: yaml
     :caption: EXT:some_extension/Configuration/Services.yaml
     :emphasize-lines: 5
 
@@ -345,14 +335,12 @@ If you want to replace this event listener with your custom implementation, your
 achieve this by specifying the overridden identifier via the PHP attribute:
 
 ..  literalinclude:: _ServicesOverrideCustom.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Classes/EventListener/MySeoEvent.php
     :emphasize-lines: 12
 
 or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideCustom.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
     :emphasize-lines: 6
 

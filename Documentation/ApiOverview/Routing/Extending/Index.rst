@@ -47,7 +47,6 @@ After implementing the matching interface, your aspect needs to be
 registered in :file:`ext_localconf.php`:
 
 ..  literalinclude:: _codesnippets/_ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 It can now be used in the routing configuration as `type`. The example above
@@ -78,7 +77,6 @@ The interfaces contain methods you need to implement as well as a description of
 To register the enhancer, add the following to your `ext_localconf.php`:
 
 ..  literalinclude:: _codesnippets/_ext_localconf_custom_enhancer.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 Now you can use your new enhancer in the routing configuration as `type`. The

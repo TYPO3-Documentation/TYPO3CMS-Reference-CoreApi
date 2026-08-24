@@ -83,7 +83,6 @@ The syntax is as follows and is commonly located in an extension's
 :file:`ext_localconf.php` file:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class

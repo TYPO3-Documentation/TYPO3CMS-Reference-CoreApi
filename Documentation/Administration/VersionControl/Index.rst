@@ -375,7 +375,6 @@ https://git-scm.com/docs/gitignore
 
         .. literalinclude:: _codesnippets/_GitIgnoreComposer.txt
             :caption: project_root/.gitignore
-            :language: plaintext
             :linenos:
 
         ..  seealso::
@@ -390,7 +389,6 @@ https://git-scm.com/docs/gitignore
 
         .. literalinclude:: _codesnippets/_GitIgnoreClassic.txt
             :caption: project_root/.gitignore
-            :language: plaintext
             :linenos:
 ..  note::
 

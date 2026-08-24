@@ -25,7 +25,6 @@ Example
 This event adds an additional BCC receiver right before the mail is sent:
 
 ..  literalinclude:: _BeforeMailerSentMessageEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Mail/EventListener/AddMailMessageBcc.php
 
 ..  _BeforeMailerSentMessageEvent-api:

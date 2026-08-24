@@ -28,7 +28,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyImageManipulationPreviewUrlEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-image-manipulation-preview-url-event-api:

@@ -18,7 +18,6 @@ Example
 =======
 
 ..  literalinclude:: _IsFileSelectableEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _is-file-selectable-event-api:

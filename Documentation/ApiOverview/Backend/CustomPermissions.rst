@@ -26,7 +26,6 @@ Options are configured in the global variable
 the following example, which registers two custom permission options:
 
 ..  literalinclude:: _CustomPermissions/_ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 The result is that these options appear in the group access lists like

@@ -18,7 +18,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyRecordListTableActionsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-record-list-table-actions-event-api:

@@ -24,7 +24,6 @@ With :yaml:`after` and :yaml:`before`, you can make sure your own listener is
 executed after or before the given identifiers.
 
 ..  literalinclude:: _ModifyHrefLangTagsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 

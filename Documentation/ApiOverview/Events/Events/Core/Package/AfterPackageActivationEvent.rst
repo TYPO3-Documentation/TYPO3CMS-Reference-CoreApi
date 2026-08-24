@@ -23,7 +23,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterPackageActivationEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php
 
 ..  _after-package-activation-event-api:

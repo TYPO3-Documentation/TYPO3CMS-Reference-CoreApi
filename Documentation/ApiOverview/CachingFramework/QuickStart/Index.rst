@@ -33,7 +33,6 @@ Example for a configuration of a
 instead of the default database backend with compression for the pages cache:
 
 ..  literalinclude:: _settings.php
-    :language: php
     :caption: config/system/settings.php | typo3conf/system/settings.php
 
 

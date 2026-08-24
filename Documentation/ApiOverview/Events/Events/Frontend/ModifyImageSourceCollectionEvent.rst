@@ -18,7 +18,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyImageSourceCollectionEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _modify-image-source-collection-event-api:

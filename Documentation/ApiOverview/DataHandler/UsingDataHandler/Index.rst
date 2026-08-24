@@ -81,7 +81,6 @@ Submitting data
 This is the most basic example of how to submit data into the database.
 
 ..  literalinclude:: _SubmitData.php
-    :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 
@@ -93,7 +92,6 @@ Executing commands
 The most basic way of executing commands:
 
 ..  literalinclude:: _ExecuteCommands.php
-    :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 
@@ -111,7 +109,6 @@ calling the :php:`start()` method (which will initialize internal state).
     "admin" or have :ref:`specific permissions <t3tsref:useroptions>` to do so.
 
 ..  literalinclude:: _ClearCache.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 Caches are organized in groups. Clearing "all" caches will actually clear caches
@@ -156,7 +153,6 @@ be updated at the earliest occasion possible. Finally, the cache for
 all pages is cleared.
 
 ..  literalinclude:: _SubmitComplexData.php
-    :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 
@@ -177,7 +173,6 @@ should not set this argument since you want DataHandler to use the global
 :php:`$GLOBALS['BE_USER']`.
 
 ..  literalinclude:: _UseAlternativeUser.php
-    :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 
@@ -192,5 +187,4 @@ In this property, the data handler collects all errors.
 You can use these, for example, for logging or other error handling.
 
 ..  literalinclude:: _ErrorHandling.php
-    :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php

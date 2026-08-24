@@ -86,7 +86,6 @@ url
 The default setup is found in :t3src:`core/Configuration/Services.yaml`:
 
 ..  literalinclude:: _Services.yaml
-    :language: yaml
     :caption: Excerpt from EXT:core/Configuration/Services.yaml
 
 ..  _soft-references-examples:
@@ -98,7 +97,6 @@ For the :sql:`tt_content.bodytext` field of type text from the example
 above, the configuration looks like this:
 
 ..  literalinclude:: _tt_content_bodytext.php
-    :language: php
     :caption: Excerpt from EXT:frontend/Configuration/TCA/tt_content.php
 
 This means, the parsers for the soft reference types `typolink_tag`, `email` and
@@ -209,7 +207,6 @@ registering them in your :file:`Services.yaml` file. This will load them
 via :ref:`dependency injection <Dependency-Injection>`:
 
 ..  literalinclude:: _YourSoftReferenceParser.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
@@ -256,5 +253,4 @@ They can be retrieved with the :php:`getSoftReferenceParser()` method. You
 have to provide the desired key as the first and only argument.
 
 ..  literalinclude:: _MyController.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyController.php

@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _RecordAccessGrantedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
 
 ..  _record-access-granted-event-api:

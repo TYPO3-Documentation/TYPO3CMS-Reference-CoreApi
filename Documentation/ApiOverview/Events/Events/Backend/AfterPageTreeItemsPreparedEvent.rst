@@ -51,7 +51,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _AfterPageTreeItemsPreparedEvent-api:

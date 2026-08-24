@@ -23,7 +23,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyComponentDefinitionEvent/_ModifyComponentDefinitionListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/ModifyComponentDefinitionListener.php
 
 ..  _modify-component-definition-event-api:

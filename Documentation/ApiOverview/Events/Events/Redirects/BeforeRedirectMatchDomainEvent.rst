@@ -33,7 +33,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeRedirectMatchDomainEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  _before-redirect-match-domain-event-api:

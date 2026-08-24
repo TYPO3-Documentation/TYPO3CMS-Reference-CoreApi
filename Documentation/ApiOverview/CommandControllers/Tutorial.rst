@@ -28,7 +28,6 @@ Create a class called :php:`DoSomethingCommand` which extends
 :php:`\Symfony\Component\Console\Command\Command`.
 
 ..  literalinclude:: _Tutorial/_DoSomethingCommandViaAttribute.php
-    :language: php
     :caption: EXT:my_extension/Classes/Command/MyCommand.php
 
 The following two methods should be overridden by your class:

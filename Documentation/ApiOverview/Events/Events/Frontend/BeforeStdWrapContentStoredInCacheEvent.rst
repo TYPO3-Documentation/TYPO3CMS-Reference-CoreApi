@@ -22,7 +22,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeStdWrapContentStoredInCacheEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 

@@ -342,7 +342,6 @@ enforced, or even not applied at all, by returning an empty expression in certai
 To add a custom restriction class, use the following snippet:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  note::
@@ -359,7 +358,6 @@ Removing third party restrictions is possible, by setting the option
 or :file:`ext_localconf.php` of an extension:
 
 ..  literalinclude:: _ext_localconf_remove.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  _database-restriction-builder-examples:

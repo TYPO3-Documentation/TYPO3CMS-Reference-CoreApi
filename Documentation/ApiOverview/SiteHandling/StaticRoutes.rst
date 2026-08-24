@@ -44,7 +44,6 @@ suitable for files like :file:`robots.txt` or :file:`humans.txt`.
 A configuration example:
 
 ..  literalinclude:: _static-routes-static-text.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 
@@ -66,7 +65,6 @@ resources which are typically located in the directory
 A configuration example:
 
 ..  literalinclude:: _static-routes-assets.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 This enables you to reach the files at :samp:`https://example.org/example.svg`
@@ -88,5 +86,4 @@ content delivered.
 A configuration example:
 
 ..  literalinclude:: _static-routes-uri.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml

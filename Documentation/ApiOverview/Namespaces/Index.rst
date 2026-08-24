@@ -117,13 +117,11 @@ extension key is used.
 For a backend module:
 
 ..  literalinclude:: _Modules.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
 For a frontend module:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 .. index:: pair: Namespaces; Tests

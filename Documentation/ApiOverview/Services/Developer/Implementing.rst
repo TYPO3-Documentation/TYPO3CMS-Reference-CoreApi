@@ -28,7 +28,6 @@ Registering a service is done inside the :file:`ext_localconf.php`
 file. Let's look at what is inside.
 
 ..  literalinclude:: _Implementing/_ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 A service is registered with TYPO3 CMS by calling

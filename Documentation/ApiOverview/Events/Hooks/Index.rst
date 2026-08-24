@@ -29,7 +29,6 @@ clear-cache post-processing. The objective of this could be to perform
 additional actions whenever the cache is cleared for a specific page:
 
 ..  literalinclude:: _ext_localconf_addhook.php
-    :language: php
     :caption: EXT:site_package/ext_localconf.php
 
 This hook registers the class/method name to a hook inside of
@@ -46,7 +45,6 @@ If we take a look inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
 find the hook to be activated like this:
 
 ..  literalinclude:: _DataHandler.php
-    :language: php
     :caption: :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` (excerpt)
 
 This is how hooks are typically constructed. The main action happens in line 5
@@ -109,7 +107,6 @@ Using `\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 Data submission to extensions:
 
 ..  literalinclude:: _SomeClass.php
-    :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  _hooks-creation-function:
@@ -120,7 +117,6 @@ Using with `\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
 Constructor post-processing:
 
 ..  literalinclude:: _SomeClassPostProc.php
-    :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  index:: Hooks; Configuration
@@ -151,7 +147,6 @@ available to you will depend on a search in the documentation for that
 particular extension.
 
 ..  literalinclude:: _ext_localconf_schema.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 `<extension_key>`
@@ -190,7 +185,6 @@ which do not have a natural identifier like extensions have their
 extension keys.
 
 ..  literalinclude:: _ext_localconf_schema_core.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 `<main_key>`

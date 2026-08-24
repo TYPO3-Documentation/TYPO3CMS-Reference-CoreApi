@@ -29,7 +29,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterLinkResolvedByStringRepresentationEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
 
 ..  _after-link-resolved-by-string-representation-event-api:

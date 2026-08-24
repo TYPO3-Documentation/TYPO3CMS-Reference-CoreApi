@@ -47,7 +47,6 @@ the :php:`Registry` class via :ref:`dependency injection <DependencyInjection>`.
 The instance returned will always be the same, as the registry is a singleton:
 
 ..  literalinclude:: _Injection.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 You can access registry values through its :php:`get()` method. The :php:`get()`
@@ -70,13 +69,11 @@ The registry can be used, for example, to write run information of a
 :ref:`console command <symfony-console-commands>` into the registry:
 
 ..  literalinclude:: _MyCommand.php
-    :language: php
     :caption: EXT:my_extension/Classes/Command/MyCommand.php
 
 This information can be retrieved later using:
 
 ..  literalinclude:: _MyClass.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 

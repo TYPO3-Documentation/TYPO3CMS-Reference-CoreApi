@@ -22,7 +22,6 @@ the case when you are not using a login callback and have not the possibility
 to submit a request token:
 
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Authentication/EventListener/MyEventListener.php
 
 ..  _before-request-token-processed-event-api:

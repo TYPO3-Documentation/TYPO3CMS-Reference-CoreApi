@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _SessionStorageWrapper/_storage.js
-    :language: js
 
 ..  _modules-sessionstorage-api-methods:
 

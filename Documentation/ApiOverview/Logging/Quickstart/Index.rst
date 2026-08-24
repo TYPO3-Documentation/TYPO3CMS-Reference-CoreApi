@@ -20,7 +20,6 @@ Instantiate a logger for the current class
 automatically instantiate the logger:
 
 ..  literalinclude:: _MyClass.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 

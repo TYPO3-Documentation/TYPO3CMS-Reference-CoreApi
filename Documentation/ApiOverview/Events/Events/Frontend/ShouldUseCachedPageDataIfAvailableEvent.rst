@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _ShouldUseCachedPageDataIfAvailableEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _should-use-cached-page-data-if-available-event-api:

@@ -400,7 +400,6 @@ After the example site package is installed, you can include the site set
 in your site configuration:
 
 ..  literalinclude:: _Sets/_site-package/_site_config.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 ..  _site-sets-example-typoscript:

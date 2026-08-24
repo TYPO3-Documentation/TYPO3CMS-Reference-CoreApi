@@ -37,7 +37,6 @@ by using the method :js:`bindTo()`, which accepts any element, :js:`document` an
 Example:
 
 ..  literalinclude:: _DirectBinding.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
@@ -52,7 +51,6 @@ inside its bound element.
 Example:
 
 ..  literalinclude:: _EventDelegation.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 The event listener is now called every time the element matching the selector
@@ -70,7 +68,6 @@ detach the event listener.
 Example:
 
 ..  literalinclude:: _ReleaseEvent.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
@@ -97,7 +94,6 @@ Arguments:
 Example:
 
 ..  literalinclude:: _RegularEvent.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
@@ -118,7 +114,6 @@ Arguments:
 Example:
 
 ..  literalinclude:: _DebounceEvent.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
@@ -143,7 +138,6 @@ the event listener gets called up to 20 times in total (2000 / 100).
 Example:
 
 ..  literalinclude:: _ThrottleEvent.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
@@ -164,5 +158,4 @@ Arguments:
 Example:
 
 ..  literalinclude:: _RequestAnimationFrameEvent.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
