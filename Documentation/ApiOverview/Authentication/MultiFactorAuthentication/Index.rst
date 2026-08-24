@@ -211,7 +211,7 @@ Enforcing MFA for users
 It seems reasonable to require MFA for specific users or user groups. This can
 be achieved with
 :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa'] <typo3ConfVars_be_requireMfa>`
-which allows four options:
+which allows five options:
 
 `0`
     Do not require multi-factor authentication (default)
@@ -224,6 +224,9 @@ which allows four options:
 
 `3`
     Require multi-factor authentication only for admin users
+
+`4`
+    Require multi-factor authentication only for system maintainers
 
 To set this requirement only for a specific user or user group, a user TSconfig
 option `auth.mfa.required <https://docs.typo3.org/permalink/t3tsref:user-auth-mfa-required>`_ is available.
