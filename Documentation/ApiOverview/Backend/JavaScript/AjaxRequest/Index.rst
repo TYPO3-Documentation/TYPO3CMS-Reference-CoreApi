@@ -20,7 +20,6 @@ must be imported. To prepare a request, create a new instance of
 :js:`AjaxRequest` per request and pass the URL as the constructor argument:
 
 ..  literalinclude:: _MyRequest1.js
-    :language: js
     :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 The API offers a method :js:`withQueryArguments()` which allows to attach a query
@@ -31,7 +30,6 @@ possible to pass either strings, arrays or objects as an argument.
 Example:
 
 ..  literalinclude:: _MyRequest2.js
-    :language: js
     :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 The method detects whether the URL already contains a query string and appends
@@ -88,7 +86,6 @@ conversion will happen, but it is still recommended to set proper headers.
 Example:
 
 ..  literalinclude:: _MyRequestPromise1.js
-    :language: js
     :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 
@@ -103,7 +100,6 @@ In the examples above :js:`promise` is, as the name already spoils, a `Promise`_
 object. To fetch the actual response, we make use of :js:`then()`:
 
 ..  literalinclude:: _MyRequestPromise2.js
-    :language: js
     :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 :js:`response` is an object of type :js:`AjaxResponse` shipped by TYPO3
@@ -124,7 +120,6 @@ function may receive a :js:`AjaxResponse` object which contains the original
 response object.
 
 ..  literalinclude:: _MyRequestPromise3.js
-    :language: js
     :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 ..  hint::

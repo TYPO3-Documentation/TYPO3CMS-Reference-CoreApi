@@ -31,7 +31,6 @@ or JavaScript created by a sub-class is returned by the sub-class "up" again in 
 format.
 
 ..  literalinclude:: _SomeContainer.php
-    :language: php
     :caption: EXT:my_extension/Classes/Containers/SomeContainer.php
 
 Above example lets :php:`NodeFactory` find and compile some data from "subContainer", and merges the child result
@@ -80,7 +79,6 @@ to add for instance an own multi-language rendering of flex fields. It does that
 flex container with own implementation:
 
 ..  literalinclude:: _ext_localconf_flex.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 This re-routes the :php:`renderType` "flex" to an own class. If multiple registrations for a single renderType exist,
@@ -99,14 +97,12 @@ the one with highest priority wins.
 Adding a new renderType in :file:`ext_localconf.php`
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 And use it in TCA for a specific field, keeping the full database functionality in DataHandler together with the
 data preparation of FormDataCompiler, but just routing the rendering of that field to the new element:
 
 ..  literalinclude:: _tx_cooltagcloud.php
-    :language: php
     :caption: EXT:cool_tag_cloud/Configuration/TCA/overrides/tx_cooltagcloud.php
 
 The above examples are a static list of nodes that can be changed by settings in :file:`ext_localconf.php`. If that
@@ -120,7 +116,6 @@ editing in his user settings, then the resolvers return their own :php:`RichText
 field:
 
 ..  literalinclude:: _ext_localconf_rte.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 The trick here is that CKEditor registers his resolver with a higher priority (50) than "rtehtmlarea" (40), so the
@@ -181,13 +176,11 @@ function :php:`JavaScriptModuleInstruction::create()`.
 You can for example use it in a container:
 
 ..  literalinclude:: _SomeContainerJavaScript.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/SomeContainer.php
 
 Or a controller:
 
 ..  literalinclude:: _SomeController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/Controller/SomeController.php
 
 .. _FormEngine-Rendering-NodeExpansion:
@@ -224,7 +217,6 @@ Example. The :php:`InputTextElement` (standard input element) defines a couple o
 main result HTML:
 
 ..  literalinclude:: _InputTextElement.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/Form/InputTextElement.php
 
 This element defines three wizards to be called by default. The :php:`renderType` concept is re-used, the
@@ -252,14 +244,12 @@ table to trigger a data import via Ajax.
 Add a new renderType in :file:`ext_localconf.php`:
 
 ..  literalinclude:: _ext_localconf_fieldcontrol.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 Register the control in :file:`Configuration/TCA/Overrides/pages.php`:
 
 
 ..  literalinclude:: _pages.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
 
 ..  note::
@@ -269,7 +259,6 @@ Add the PHP class for rendering the control in
 :file:`Classes/FormEngine/FieldControl/ImportDataControl.php`:
 
 ..  literalinclude:: _ImportDataControl.php
-    :language: php
     :caption: EXT:my_extension/Classes/FormEngine/FieldControl/ImportDataControl.php
 
 ..  todo: switch from RequireJS to ES6
@@ -283,19 +272,16 @@ Add the JavaScript for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:
 
 ..  literalinclude:: _ImportData.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/ImportData.js
 
 Add an Ajax route for the request in
 :file:`Configuration/Backend/AjaxRoutes.php`:
 
 ..  literalinclude:: _AjaxRoutes.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
 Add the Ajax controller class in
 :file:`Classes/Controller/Ajax/ImportDataController.php`:
 
 ..  literalinclude:: _ImportDataController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/Ajax/ImportDataController.php

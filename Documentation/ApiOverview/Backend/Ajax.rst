@@ -30,7 +30,6 @@ The controller needs not that much logic right now. We create a method called
 :php:`doSomethingAction()` which will be our Ajax endpoint.
 
 ..  literalinclude:: _Ajax/_ExampleController1.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ExampleController.php
 
 In its current state, the method does nothing yet. We can add a very generic
@@ -38,7 +37,6 @@ handling that exponentiates an incoming number by 2. The incoming value will be
 passed as a query string argument named `input`.
 
 ..  literalinclude:: _Ajax/_ExampleController2.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ExampleController.php
 
 ..  note::
@@ -50,7 +48,6 @@ We have computed our result by using the `exponentiation operator`_, but we
 do nothing with it yet. It is time to build a proper response:
 
 ..  literalinclude:: _Ajax/_ExampleController3.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ExampleController.php
 
 
@@ -70,7 +67,6 @@ file will be exposed to JavaScript automatically. Let us register our endpoint
 now:
 
 ..  literalinclude:: _Ajax/_AjaxRoutes.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
 The naming of the key `myextension_example_dosomething` and path
@@ -103,7 +99,6 @@ configure your endpoint to inherit access rights from this specific module by
 using the configuration option `inheritAccessFromModule`:
 
 ..  literalinclude:: _Ajax/_AjaxRoutesProtected.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
 ..  _protect-ajax-endpoint-permission-checks-standalone:
@@ -133,7 +128,6 @@ example, we will ask the server to compute our input and write the result into
 the console.
 
 ..  literalinclude:: _Ajax/_Calculate.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/Calculate.js
 
 ..  seealso::

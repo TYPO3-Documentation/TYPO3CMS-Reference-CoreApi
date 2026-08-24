@@ -28,7 +28,6 @@ manager will choose the default
 :ref:`database backend <caching-backend-db>` by default.
 
 ..  literalinclude:: _init.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  tip::
@@ -55,7 +54,6 @@ in this case.
     them for whatever reason.
 
 ..  literalinclude:: _transient.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  _caching-developer-example:
@@ -69,7 +67,6 @@ in the :ref:`container service configuration
 <configure-dependency-injection-in-extensions>`:
 
 ..  literalinclude:: _Services.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions
@@ -83,7 +80,6 @@ sure they are unique and clearly hint at the purpose of your cache.
 Here is some example code which retrieves the cache via dependency injection:
 
 ..  literalinclude:: _MyClass.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 ..  tip::
@@ -98,7 +94,6 @@ service configuration <configure-dependency-injection-in-extensions>` needs to
 be extended:
 
 ..  literalinclude:: _Services_autowiring.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions

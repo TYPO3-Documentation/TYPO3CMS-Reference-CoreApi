@@ -27,7 +27,6 @@ Example
 =======
 
 ..  literalinclude:: _RenderComponentEvent/_RenderComponentListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/RenderComponentListener.php
 
 ..  _render-component-event-api:

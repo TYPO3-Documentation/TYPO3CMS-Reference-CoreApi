@@ -18,7 +18,6 @@ The following listener limits the cache lifetime to 30 seconds in development
 context:
 
 ..  literalinclude:: _ModifyCacheLifetimeForPageEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _modify-cache-lifetime-for-page-event-api:

@@ -32,7 +32,6 @@ Example
 =======
 
 ..  literalinclude:: _PackageInitializationEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php
 
 

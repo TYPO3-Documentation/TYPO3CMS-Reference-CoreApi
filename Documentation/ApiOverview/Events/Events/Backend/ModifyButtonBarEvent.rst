@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyButtonBarEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-button-bar-event-api:

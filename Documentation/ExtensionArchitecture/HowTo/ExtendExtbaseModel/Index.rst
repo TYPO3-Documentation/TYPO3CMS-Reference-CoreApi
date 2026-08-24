@@ -148,7 +148,6 @@ configuration array) as described in :ref:`Extending TCA <extending-tca>`. Exten
 original model in your extension using a class:
 
 ..  literalinclude:: _MyExtendedModel.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/MyExtendedModel.php
 
 Add all the additional fields that you require. By convention the database
@@ -163,11 +162,9 @@ The extended model needs to be registered for :ref:`Extbase persistence <extbase
 :file:`Configuration/Extbase/Persistence/Classes.php` and :file:`ext_localconf.php`.
 
 ..  literalinclude:: _Classes.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  _extending-extbase-model_extend_original_repository:
@@ -178,7 +175,6 @@ Extend the original repository (optional)
 Similarly, extend the original repository:
 
 ..  literalinclude:: _MyExtendedModelRepository.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyExtendedModelRepository.php
 
 The rule that a repository must follow the naming schema of the model also
@@ -200,7 +196,6 @@ Extbase to use your repository instead of the original one whenever the original
 repository is requested via Dependency Injection in a controller or service.
 
 ..  literalinclude:: _ext_localconf_repository.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 ..  _extending-extbase-model_alternative_strategies:

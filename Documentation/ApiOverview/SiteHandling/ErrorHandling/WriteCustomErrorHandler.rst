@@ -74,7 +74,6 @@ Example for a simple 404 error handler
 The configuration:
 
 ..  literalinclude:: _custom-error-handler.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 The error handler class:

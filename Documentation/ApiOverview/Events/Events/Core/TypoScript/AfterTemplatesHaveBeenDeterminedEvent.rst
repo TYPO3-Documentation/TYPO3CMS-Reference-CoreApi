@@ -26,7 +26,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterTemplatesHaveBeenDeterminedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
 
 ..  _after-templates-have-been-determined-event-api:

@@ -34,7 +34,6 @@ To register icons for your own extension, create a file called
 The file needs to return a PHP configuration array with the following keys:
 
 ..  literalinclude:: _Icons.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Icons.php
 
 ..  _icon-registration-minimal-svg-sprite:

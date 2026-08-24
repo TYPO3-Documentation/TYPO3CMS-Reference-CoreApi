@@ -37,7 +37,6 @@ the method is called :php:`__invoke`:
 The listener must then be registered in the extensions :php:`Services.yaml`:
 
 ..  literalinclude:: _BeforeRecordIsAnalyzedEvent/_Services.yaml
-    :language: yaml
     :caption: EXT:examples/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.

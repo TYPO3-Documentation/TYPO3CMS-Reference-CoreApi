@@ -28,7 +28,6 @@ event. We therefore need different logic to determine the user who just logged
 out. This logic is not part of the example below.
 
 ..  literalinclude:: _LogoutConfirmedEvent/_DeletePrivateKeyOnLogout.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListeners/DeletePrivateKeyOnLogout.php
 
 ..  _logout-confirmed-event-api:

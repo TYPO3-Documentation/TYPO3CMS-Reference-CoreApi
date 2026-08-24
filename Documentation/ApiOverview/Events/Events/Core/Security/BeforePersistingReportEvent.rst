@@ -22,7 +22,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforePersistingReportEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php
 
 ..  _BeforePersistingReportEvent-example-api:

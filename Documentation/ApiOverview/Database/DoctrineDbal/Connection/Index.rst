@@ -73,7 +73,6 @@ Another way is to inject the :php:`Connection` object directly via
     the factory option in the service configuration:
 
     ..  literalinclude:: _Services.yaml
-        :language: yaml
         :caption: EXT:my_extension/Configuration/Services.yaml
         :emphasize-lines: 10-18
 
@@ -83,7 +82,6 @@ Another way is to inject the :php:`Connection` object directly via
     the constructor:
 
     ..  literalinclude:: _MyTableRepositoryWithConnection.php
-        :language: php
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
@@ -140,7 +138,6 @@ The :php:`insert()` method creates and executes an :sql:`INSERT INTO` statement.
 Example:
 
 ..  literalinclude:: _MyTableRepository_insert.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -163,7 +160,6 @@ Arguments of the :php:`insert()` method:
     a string:
 
     ..  literalinclude:: _MyTableRepository_insert_types.php
-        :language: php
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
     Read :ref:`how to instantiate <database-connection-instantiation>` a
@@ -187,7 +183,6 @@ thrown.
 This method insert multiple rows at once:
 
 ..  literalinclude:: _MyTableRepository_bulkinsert.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -226,7 +221,6 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 :php:`ResourceStorage` sets a storage to offline:
 
 ..  literalinclude:: _MyTableRepository_update.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 This method supports the native database field declaration :sql:`json`,
@@ -266,7 +260,6 @@ Execute a :sql:`DELETE` query using `equal` conditions in :sql:`WHERE`, example
 from :php:`BackendUtility`, to mark rows as no longer locked by a user:
 
 ..  literalinclude:: _MyTableRepository_delete.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -305,7 +298,6 @@ a :ref:`delete() <database-connection-delete>` of all rows. This typically
 resets "auto increment primary keys" to zero. Use with care:
 
 ..  literalinclude:: _MyCacheRepository_truncate.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -327,7 +319,6 @@ table :sql:`tx_myextension_mytable` whose
 field :sql:`some_value` field set to :php:`$something`:
 
 ..  literalinclude:: _MyTableRepository_count.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -375,7 +366,6 @@ conditions. Its usage is limited, the :ref:`restriction builder
 quoted:
 
 ..  literalinclude:: _MyTableRepository_select.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -423,7 +413,6 @@ This method returns the :sql:`uid` of the last :ref:`insert()
 directly afterwards:
 
 ..  literalinclude:: _MyTableRepository_lastinsertId.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -451,7 +440,6 @@ good example could be found in the Core.
 The method can also be useful in loops to save some precious code characters:
 
 ..  literalinclude:: _MyTableRepository_queryBuilder.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
@@ -483,7 +471,6 @@ Example:
     :caption: EXT:my_extension/ext_tables.sql
 
 ..  literalinclude:: _MyTableRepository_insert.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  note::

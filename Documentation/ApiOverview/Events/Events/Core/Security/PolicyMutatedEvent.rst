@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _PolicyMutatedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php
 
 

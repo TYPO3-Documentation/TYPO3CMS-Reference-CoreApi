@@ -42,7 +42,6 @@ Example:
     example, :ref:`settings defined in the "Fluid Styled Content" site set <typo3/cms-fluid-styled-content:site-set-fluid-styled-content-settings>`:
 
     ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
-        :language: yaml
         :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
 
 .. _extension-configuration-sets-settings-definitions-yaml:

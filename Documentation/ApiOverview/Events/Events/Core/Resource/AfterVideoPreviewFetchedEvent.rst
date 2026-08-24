@@ -18,7 +18,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterVideoPreviewFetchedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 ..  _after-video-preview-fetched-event-api:

@@ -27,7 +27,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyRedirectManagementControllerViewDataEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  _modify-redirect-management-controller-view-data-event-api:

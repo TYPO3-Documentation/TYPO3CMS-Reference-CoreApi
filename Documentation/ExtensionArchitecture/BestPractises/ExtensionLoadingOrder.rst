@@ -33,7 +33,6 @@ the :composer:`typo3/cms-felogin` system extension, the dependency should be def
 as follows:
 
 ..  literalinclude:: _snippets/_require-composer.json
-    :language: json
     :caption: Excerpt of EXT:my_extension/composer.json
 
 This ensures that TYPO3 loads the extension **after** the

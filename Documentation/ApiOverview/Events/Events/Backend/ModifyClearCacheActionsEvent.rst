@@ -25,7 +25,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyClearCacheActionsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 The response returned by the AJAX endpoint should look like this:

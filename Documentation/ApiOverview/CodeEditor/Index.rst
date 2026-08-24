@@ -104,7 +104,6 @@ Register an addon
 To register an addon, the following code may be used:
 
 ..  literalinclude:: _register_addon.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Backend/T3editor/Addons.php
 
 The following configuration options are available:
@@ -151,7 +150,6 @@ Register a mode
 To register a mode, the following code may be used:
 
 ..  literalinclude:: _register_mode.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Backend/T3editor/Modes.php
 
 The following configuration options are available:

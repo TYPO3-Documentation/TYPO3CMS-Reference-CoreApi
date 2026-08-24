@@ -25,7 +25,6 @@ Example: validate that the redirect after frontend login goes to a trusted domai
 =================================================================================
 
 ..  literalinclude:: _ModifyRedirectUrlValidationResultEvent/_ValidateRedirectUrl.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListeners/ValidateRedirectUrl.php
 
 ..  _modify-redirect-url-validation-result-event-api:

@@ -84,5 +84,4 @@ Example
 =======
 
 ..  literalinclude:: _example.js
-    :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/hotkey.js

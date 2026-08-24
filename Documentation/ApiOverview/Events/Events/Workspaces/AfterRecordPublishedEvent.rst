@@ -23,7 +23,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterRecordPublishedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Workspaces/EventListener/MyEventListener.php
 
 ..  _after-record-published-event-api:

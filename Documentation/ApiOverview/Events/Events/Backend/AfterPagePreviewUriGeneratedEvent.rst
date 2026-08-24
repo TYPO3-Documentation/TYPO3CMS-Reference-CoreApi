@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterPagePreviewUriGeneratedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _after-page-preview-uri-generated-event-api:

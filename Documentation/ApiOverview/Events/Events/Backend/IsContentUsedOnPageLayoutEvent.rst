@@ -23,7 +23,6 @@ Example: display "Unused elements detected on this page" for elements with missi
 =========================================================================================
 
 ..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_ContentUsedOnPage.php
-    :language: php
     :caption: EXT:my_extension/Classes/Listener/ContentUsedOnPage.php
 
 ..  _IsContentUsedOnPageLayoutEvent-api:

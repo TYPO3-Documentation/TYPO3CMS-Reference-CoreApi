@@ -39,7 +39,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeDatabaseRecordLinkResolvedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _BeforeDatabaseRecordLinkResolvedEvent-api:

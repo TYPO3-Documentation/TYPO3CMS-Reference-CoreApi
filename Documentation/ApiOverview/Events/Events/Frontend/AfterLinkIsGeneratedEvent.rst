@@ -34,7 +34,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterLinkIsGeneratedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _after-link-is-generated-event-api:

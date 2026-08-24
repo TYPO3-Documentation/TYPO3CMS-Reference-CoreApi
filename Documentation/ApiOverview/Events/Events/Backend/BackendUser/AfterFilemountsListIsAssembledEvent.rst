@@ -24,7 +24,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterFilemountsListIsAssembledEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _after-filemounts-list-is-assembled-event-api:

@@ -169,7 +169,6 @@ extension. Therefore we need to add the path to the
 :ref:`t3tsref:cobj-fluidtemplate-properties-templaterootpaths`:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup.typoscript
-    :language: typoscript
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 You can use any index (`200` in this example), just make sure it is unique.
@@ -178,7 +177,6 @@ If needed you can also add paths for partials and layouts.
 Now you can register the rendering of your custom content element:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup_2.typoscript
-    :language: typoscript
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 The :typoscript:`lib.contentElement` path is defined in file
@@ -310,7 +308,6 @@ The new field *tx_examples_separator* is added to the TCA definition of the tabl
 :file:`Configuration/TCA/Overrides/tt_content.php`:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_temporary_column.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 You can read more about defining fields via TCA in the :ref:`t3tca:start`.
@@ -325,7 +322,6 @@ called :sql:`tx_myextension_mytable`:
 
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_reference.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 ..  _configure-ce-extend-tt-content-defining-field-tce:
@@ -340,7 +336,6 @@ id of the general storage folder. Then the examples extension will only use
 the content records from the given page id.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page-page-id.tsconfig
-    :language: typoscript
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
 If more than one page id is allowed, this configuration must be used instead
@@ -348,7 +343,6 @@ If more than one page id is allowed, this configuration must be used instead
 instead of `###PAGE_TSCONFIG_ID###`):
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page-page-id-list.tsconfig
-    :language: typoscript
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
 ..  note::
@@ -379,7 +373,6 @@ Each processor has to be added with a fully qualified class name and optional
 parameters to be used in the data processor:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup_myextension_newcontentcsv.typoscript
-    :language: typoscript
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 You can now iterate over the variable `myTable` in the Fluid template, in this

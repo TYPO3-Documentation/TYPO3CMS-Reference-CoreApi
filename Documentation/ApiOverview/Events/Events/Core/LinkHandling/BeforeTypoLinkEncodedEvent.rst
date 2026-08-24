@@ -23,7 +23,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeTypoLinkEncodedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
 
 ..  _before-typo-link-encoded-event-api:

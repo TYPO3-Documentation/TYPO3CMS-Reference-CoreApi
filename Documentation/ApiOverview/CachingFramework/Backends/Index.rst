@@ -322,7 +322,6 @@ caches.
 
 
 ..  literalinclude:: _redis.php
-    :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 

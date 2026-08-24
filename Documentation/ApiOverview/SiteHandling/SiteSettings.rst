@@ -57,7 +57,6 @@ Adding site settings
 Add settings to the :file:`settings.yaml <set-settings-yaml>`:
 
 ..  literalinclude:: _site-settings.yaml
-    :language: yaml
     :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
 
 ..  note::

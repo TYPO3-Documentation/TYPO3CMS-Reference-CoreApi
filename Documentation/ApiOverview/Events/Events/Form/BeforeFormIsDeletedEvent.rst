@@ -29,7 +29,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeFormIsDeletedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
 
 ..  _BeforeFormIsDeletedEvent-api:

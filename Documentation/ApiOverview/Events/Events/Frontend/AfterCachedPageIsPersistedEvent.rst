@@ -16,7 +16,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterCachedPageIsPersistedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _AfterCachedPageIsPersistedEvent-api:

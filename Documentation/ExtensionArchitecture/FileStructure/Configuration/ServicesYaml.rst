@@ -32,7 +32,6 @@ This file can configure services. TYPO3 uses it for:
 *  :ref:`Registering a widget with the dashboard <ext_dashboard:register-new-widget>`
 
 ..  literalinclude:: _snippets/_example_services.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 ..  seealso::

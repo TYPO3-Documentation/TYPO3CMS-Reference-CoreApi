@@ -292,7 +292,6 @@ third-party extension. The provider then has to be configured in the extension's
 tag.
 
 ..  literalinclude:: RegisterCustomProvider.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
@@ -311,13 +310,11 @@ If you do not want your provider to be selectable as a default provider, set the
 You can also completely deactivate existing providers with:
 
 ..  literalinclude:: DeactivateExistingProvider.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 You can also register multiple providers:
 
 ..  literalinclude:: RegisterMultipleProviders.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 The :php:`MfaProviderInterface` contains a lot of methods to be implemented by

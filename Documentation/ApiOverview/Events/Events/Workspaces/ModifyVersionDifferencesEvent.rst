@@ -20,7 +20,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyVersionDifferencesEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Workspaces/EventListener/MyEventListener.php
 
 

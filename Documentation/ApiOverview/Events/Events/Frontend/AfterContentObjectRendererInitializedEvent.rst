@@ -17,7 +17,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterContentObjectRendererInitializedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _after-content-object-renderer-initialized-event-api:

@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _CustomFileSelectorsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _custom-file-selectors-event-api:

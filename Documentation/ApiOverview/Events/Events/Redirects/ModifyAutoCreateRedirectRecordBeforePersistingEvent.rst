@@ -27,7 +27,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyAutoCreateRedirectRecordBeforePersistingEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  _modify-auto-create-redirect-record-before-persisting-event-api:
