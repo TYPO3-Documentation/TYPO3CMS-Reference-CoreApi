@@ -1,8 +1,10 @@
-# AGENTS.md — TYPO3 Core API Reference
+# AGENTS.md — TYPO3 Explained
 
-TYPO3 Core API reference documentation
-(TYPO3-Documentation/TYPO3CMS-Reference-CoreApi), rendered to
-docs.typo3.org. `main` targets the next TYPO3 major version.
+Source for the **"TYPO3 Explained"** manual, rendered to docs.typo3.org.
+Lives in the git repo TYPO3-Documentation/TYPO3CMS-Reference-CoreApi — a
+legacy name that doesn't match the manual title (see
+`Documentation/Index.rst`/`About.rst`). `main` targets the next TYPO3
+major version.
 
 ## Repo structure
 
@@ -54,6 +56,15 @@ Makefile                    # local install/build/test commands
     `backport <version>` — not both). Separately, label every PR that
     addresses a `TYPO3-Documentation/Changelog-To-Doc` issue with
     `changelog`, regardless of its backport status.
+5.  **Commit trailers**: end every commit message with, in this order —
+    the `Resolves:`/`References:` line for a `Changelog-To-Doc` issue if
+    applicable (see rule 4's changelog note), `Releases:`, then
+    `Assisted-by: Claude Sonnet 5 <noreply@anthropic.com>` (or the actual
+    assisting model) whenever AI assisted in drafting the commit, then
+    the human author's `Signed-off-by: <Name>`. This isn't a DCO
+    requirement tracked elsewhere in this repo — it's an observed
+    convention from merged commit history, so follow the trailer order
+    above rather than only the `Releases:`/label rules in 4.
 
 ## References
 
