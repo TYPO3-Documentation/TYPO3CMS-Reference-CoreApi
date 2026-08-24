@@ -21,7 +21,6 @@ repository and model classes. By using an event listener, this setting is
 centralized and does not to be repeated in each repository class.
 
 ..  literalinclude:: _ModifyQueryBeforeFetchingObjectDataEvent/_DisableRespectStoragePage.php
-    :language: php
     :caption: EXT:my_extension/Classes/Extbase/EventListener/DisableRespectStoragePage.php
 
 ..  _modify-query-before-fetching-object-data-event-api:

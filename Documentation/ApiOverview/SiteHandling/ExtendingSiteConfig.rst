@@ -35,7 +35,6 @@ form are left alone and will not get overwritten when saved.
 Example:
 
 ..  literalinclude:: _extending-site-config.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 Access it via the API:

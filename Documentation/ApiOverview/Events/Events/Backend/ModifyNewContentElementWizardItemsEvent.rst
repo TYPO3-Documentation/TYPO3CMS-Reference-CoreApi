@@ -22,7 +22,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyNewContentElementWizardItemsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-new-content-element-wizard-items-event-api:

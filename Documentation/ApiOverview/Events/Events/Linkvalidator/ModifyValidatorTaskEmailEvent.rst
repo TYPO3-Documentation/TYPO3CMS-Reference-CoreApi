@@ -34,7 +34,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyValidatorTaskEmailEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Linkvalidator/EventListener/MyEventListener.php
 
 The :php:`\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult` contains the

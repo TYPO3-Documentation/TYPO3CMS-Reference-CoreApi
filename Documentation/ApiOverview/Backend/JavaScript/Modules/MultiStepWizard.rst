@@ -127,7 +127,6 @@ sheet. As it used :javascript:`SeverityEnum.warning` the title and buttons
 will be colored in yellow.
 
 ..  literalinclude:: _MultiStepWizard/_multi-step-wizard.js
-    :language: javascript
     :caption: EXT:my_extension/Resources/Public/JavaScript/HelloWorldModule.js
 
 To call the JavaScript from above you have to use the

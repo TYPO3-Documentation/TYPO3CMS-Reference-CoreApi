@@ -114,7 +114,6 @@ allows overriding XLIFF files. This applies to both translations and default
 (language = English) files.
 
 ..  literalinclude:: _snippets/_ext_localconf.php
-    :language: php
     :caption: EXT:examples/ext_localconf.php
 
 The German language file could look like this:

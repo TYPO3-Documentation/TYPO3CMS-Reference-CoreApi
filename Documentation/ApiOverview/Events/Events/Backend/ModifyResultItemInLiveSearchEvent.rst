@@ -16,7 +16,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyResultItemInLiveSearchEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-result-item-in-live-search-event-api:

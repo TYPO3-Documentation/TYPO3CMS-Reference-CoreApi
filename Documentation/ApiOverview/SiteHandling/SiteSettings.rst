@@ -157,7 +157,6 @@ First define the setting in a set that is active for the site:
 Then override the defined setting in the site's :file:`settings.yaml`:
 
 ..  literalinclude:: _site-settings.yaml
-    :language: yaml
     :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
 
 ..  note::

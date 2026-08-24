@@ -32,5 +32,4 @@ So it is useful to initialize the backend module template in a function commonly
 used by all actions:
 
 ..  literalinclude:: _BackendModuleController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/BackendModuleController.php

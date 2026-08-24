@@ -18,7 +18,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyRecordOverlayIconIdentifierEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Core/EventListener/ModifyRecordOverlayIconIdentifierEventListener.php
 
 ..  _modify-record-overlay-icon-identifier-event-api:

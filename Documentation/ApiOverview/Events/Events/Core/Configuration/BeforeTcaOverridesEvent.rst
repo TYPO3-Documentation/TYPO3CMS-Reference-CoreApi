@@ -32,7 +32,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeTcaOverridesEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Configuration/EventListener/MyEventListener.php
 
 

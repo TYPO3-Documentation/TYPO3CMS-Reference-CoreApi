@@ -106,7 +106,6 @@ To retrieve the configuration use the API provided by the
 :ref:`constructor injection <Constructor-injection>`:
 
 ..  literalinclude:: _ExtConfTemplate/_MyClass.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 This will return the whole configuration as an array.
@@ -114,7 +113,6 @@ This will return the whole configuration as an array.
 To directly fetch specific values like :typoscript:`myVariable` from the example above:
 
 ..  literalinclude:: _ExtConfTemplate/_MyClass2.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 

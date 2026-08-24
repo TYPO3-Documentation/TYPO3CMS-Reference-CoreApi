@@ -33,7 +33,6 @@ Example
 =======
 
 ..  literalinclude:: _EnrichPasswordValidationContextDataEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  _enrich-password-validation-context-data-event-api:

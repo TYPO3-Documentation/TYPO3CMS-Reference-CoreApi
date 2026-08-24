@@ -75,7 +75,6 @@ Instead of using the :abbr:`GUI (Graphical User Interface)` you can also enable
 or disable the deprecation log with the :php:`disabled` option:
 
 ..  literalinclude:: _settings.php
-    :language: php
     :caption: Excerpt of config/system/settings.php | typo3conf/system/settings.php
 
 Deprecation logging can also be enabled in the :file:`additional.php`
@@ -83,7 +82,6 @@ configuration file, here with safeguarding to only enable it in
 development context:
 
 ..  literalinclude:: _additional.php
-    :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 For more information on how to configure the writing of deprecation logs see

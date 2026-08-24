@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeFormIsDuplicatedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
 
 ..  _BeforeFormIsDuplicatedEvent-api:

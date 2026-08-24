@@ -31,7 +31,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _AfterCacheableContentIsGeneratedEvent-api:

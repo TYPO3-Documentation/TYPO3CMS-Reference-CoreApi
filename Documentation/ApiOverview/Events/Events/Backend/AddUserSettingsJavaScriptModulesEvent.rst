@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _AddUserSettingsJavaScriptModulesEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/UserSettings/EventListener/MyEventListener.php
 
 

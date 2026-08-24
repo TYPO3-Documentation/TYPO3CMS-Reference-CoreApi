@@ -23,7 +23,6 @@ registration, removes some of the fetched page content elements based on
 specific field values.
 
 ..  literalinclude:: _AfterContentHasBeenFetchedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _AfterContentHasBeenFetchedEvent-api:

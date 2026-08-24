@@ -25,7 +25,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterBackendGroupListConstraintsAssembledFromDemandEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _after-backend-group-list-constraints-assembled-from-demand-event-api:

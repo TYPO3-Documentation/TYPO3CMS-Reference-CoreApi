@@ -33,7 +33,6 @@ populate a new cache to the system. Without further configuration, the cache
 system falls back to the default backend and default frontend settings:
 
 ..  literalinclude:: _default.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 Extensions, like :ref:`Extbase <extbase-extension-framework>`, define default caches this way,
@@ -46,7 +45,6 @@ is an example configuration to switch **pages** to the **Redis** backend using
 database 3:
 
 ..  literalinclude:: _redis.php
-    :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 Some backends have mandatory as well as optional parameters (which are
@@ -71,5 +69,4 @@ Example configuration to switch the *extbase_reflection* cache to use the
 **null** backend:
 
 ..  literalinclude:: _null.php
-    :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php

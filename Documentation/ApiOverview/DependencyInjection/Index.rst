@@ -293,7 +293,6 @@ direct dependency of the controller service. A typical constructor dependency in
 to resolve the dependency by the framework looks like this:
 
 ..  literalinclude:: _ConstructorInjection.php
-    :language: php
     :caption: EXT:my_extension/Controller/UserController.php
 
 The symfony container setup process will now see :php:`UserRepository` as a dependency
@@ -313,7 +312,6 @@ Method injection
 A second way to get services injected is by using :php:`inject*()` methods:
 
 ..  literalinclude:: _MethodInjection.php
-    :language: php
     :caption: EXT:my_extension/Controller/UserController.php
 
 This ends up with basically the same result as above: The controller instance retrieves
@@ -328,7 +326,6 @@ since the instance is not set during :php:`__construct()`. But that's just an
 implementation detail. More important is an abstraction scenario. Consider this case:
 
 ..  literalinclude:: _MethodInjectionWithAbstract.php
-    :language: php
     :caption: EXT:my_extension/Controller/UserController.php
 
 We have an abstract controller service with a dependency plus a controller service that extends
@@ -367,7 +364,6 @@ Interface injection
 -------------------
 
 ..  literalinclude:: _InterfaceInjection.php
-    :language: php
     :caption: EXT:my_extension/Controller/UserController.php
 
 Notice the difference? The code requests the injection of an interface and not a class!
@@ -391,31 +387,24 @@ A :file:`Services.yaml` file configures different service implementation for
 some service consumers:
 
 ..  literalinclude:: _MyFirstController.php
-    :language: php
     :caption: EXT:my_extension/Controller/MyFirstController.php
 
 ..  literalinclude:: _MySecondController.php
-    :language: php
     :caption: EXT:my_extension/Controller/MySecondController.php
 
 ..  literalinclude:: _MyThirdController.php
-    :language: php
     :caption: EXT:my_extension/Controller/MyThirdController.php
 
 ..  literalinclude:: _MyServiceInterface.php
-    :language: php
     :caption: EXT:my_extension/Service/MyServiceInterface.php
 
 ..  literalinclude:: _MyDefaultServiceImplementation.php
-    :language: php
     :caption: EXT:my_extension/Service/MyDefaultServiceImplementation.php
 
 ..  literalinclude:: _MyOtherServiceImplementation.php
-    :language: php
     :caption: EXT:my_extension/Service/MyOtherServiceImplementation.php
 
 ..  literalinclude:: _ServicesYamlUsingInterfaceInjection.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 
@@ -441,7 +430,6 @@ A basic :file:`Services.yaml` file of an extension looks like the following.
     cache must be flushed, see :ref:`above <dependency-injection-caches>` for details.
 
 ..  literalinclude:: _ServicesYamlDefaults.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 
@@ -488,7 +476,6 @@ to be different than above declared defaults. This can be done using PHP attribu
 The most common use case is :php:`public: true`:
 
 ..  literalinclude:: _MyServiceUsingAutoconfigurePublicTrue.php
-    :language: php
     :caption: EXT:my_extension/Services/MyServiceUsingAutoconfigurePublicTrue.php
 
 The above usage of the :php:`Autoconfigure` attribute declares this service as
@@ -498,7 +485,6 @@ The above usage of the :php:`Autoconfigure` attribute declares this service as
 Similar with :php:`shared: false`:
 
 ..  literalinclude:: _MyServiceUsingAutoconfigureSharedFalse.php
-    :language: php
     :caption: EXT:my_extension/Services/MyServiceUsingAutoconfigureSharedFalse.php
 
 It is possible to set both using :php:`#[Autoconfigure(public: true, shared: false)]`.
@@ -519,7 +505,6 @@ via constructor or method injection, rather than
 the "foreign" service as "public" in :file:`Services.yaml`:
 
 ..  literalinclude:: _ServicesYamlDeclaringForeignServicePublicTrue.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 
@@ -541,13 +526,11 @@ naive approach is to inject the core :php:`CacheManager` and retrieve the
 runtime cache instance:
 
 ..  literalinclude:: _MyServiceUsingCacheManager.php
-    :language: php
     :caption: EXT:my_extension/Services/MyServiceUsingCacheManager.php
 
 This can be simplified, resulting in more streamlined code:
 
 ..  literalinclude:: _MyServiceGettingRuntimeCacheInjected.php
-    :language: php
     :caption: EXT:my_extension/Services/MyServiceGettingRuntimeCacheInjected.php
 
 The "cache.runtime" service alias, configured by the TYPO3 core extension,
@@ -559,7 +542,6 @@ of the results, which is useful for "compile-time" state that remains constant
 during requests. For example, to inject a feature toggle status:
 
 ..  literalinclude:: _MyServiceGettingFeatureToggleResultInjected.php
-    :language: php
     :caption: EXT:my_extension/Services/MyServiceGettingFeatureToggleResultInjected.php
 
 Another example, including alias definition, is new in TYPO3 v13. It enables
@@ -567,11 +549,9 @@ injecting values from :file:`ext_conf_templates.txt` files using the
 :php:`ExtensionConfiguration` API.
 
 ..  literalinclude:: _CoreExtensionConfiguration.php
-    :language: php
     :caption: EXT:core/Configuration/ExtensionConfiguration.php
 
 ..  literalinclude:: _MyServiceGettingExtensionConfigurationValueInjected.php
-    :language: php
     :caption: EXT:my_extension/Services/MyServiceGettingExtensionConfigurationValueInjected.php
 
 This example demonstrates the combination of a service class with an alias and
@@ -613,14 +593,12 @@ files from extensions. The global files can provide defaults but can not overrid
 service definitions from service configuration files loaded afterwards.
 
 ..  literalinclude:: _ServicesYamlInstallationWide.yaml
-    :language: yaml
     :caption: config/system/services.yaml
 
 The concrete clock implementation is now injected when a type hint to the
 interface is given:
 
 ..  literalinclude:: _MyServiceUsingClockInterface.php
-    :language: php
     :caption: EXT:my_extension/Classes/MyServiceUsingClockInterface.php
 
 

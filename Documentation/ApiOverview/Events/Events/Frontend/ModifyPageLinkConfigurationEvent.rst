@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyPageLinkConfigurationEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _modify-page-link-configuration-event-api:

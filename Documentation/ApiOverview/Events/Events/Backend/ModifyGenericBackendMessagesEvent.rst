@@ -25,7 +25,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-generic-backend-messages-event-api:

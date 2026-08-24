@@ -189,14 +189,12 @@ into the button.
 A modal with static backdrop:
 
 ..  literalinclude:: _Modals/_static_backdrop.js
-    :language: js
 
 Templates, using the HTML class :html:`.t3js-modal-trigger` to initialize
 a modal dialog are also able to use the new option by adding the
 :html:`data-static-backdrop` attribute to the corresponding element.
 
 ..  literalinclude:: _Modals/_StaticBackdrop.fluid.html
-    :language: html
 
 ..  _modules-modals-html-content:
 

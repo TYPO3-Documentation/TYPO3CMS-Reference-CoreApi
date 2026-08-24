@@ -48,7 +48,6 @@ Basic usage
 ===========
 
 ..  literalinclude:: _BasicUsage.php
-    :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 After this initialization you usually want to perform the actual operations by
@@ -625,7 +624,6 @@ from within your :ref:`Extbase <extbase-extension-framework>` plugin (for exampl
 custom ViewHelper):
 
 ..  literalinclude:: _SomeController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
 ..  _tce-clear-cache-hook-cache-post:
@@ -638,7 +636,6 @@ function. Configuration of the hook can be done from
 :file:`ext_localconf.php`. An example might look like:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 

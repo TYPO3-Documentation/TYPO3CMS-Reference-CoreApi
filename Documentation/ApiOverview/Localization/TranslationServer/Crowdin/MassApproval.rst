@@ -71,7 +71,6 @@ The following script demonstrates mass approval using the Crowdin API v2:
 
 ..  literalinclude:: _codesnippets/crowdin_mass_approve.php
     :caption: crowdin_mass_approve.php
-    :language: php
 
 ..  _crowdin-mass-approval-implementation-usage:
 

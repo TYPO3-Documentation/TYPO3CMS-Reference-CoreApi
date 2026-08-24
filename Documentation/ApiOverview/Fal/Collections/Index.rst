@@ -75,7 +75,6 @@ The following example demonstrates the usage of collections. Here is what
 happens in the controller:
 
 ..  literalinclude:: _MyController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 All collections are fetched and passed
@@ -87,7 +86,6 @@ In the view we can then either use collection member variables as usual
 record selection:
 
 ..  literalinclude:: _List.fluid.html
-    :language: html
     :caption: EXT:my_extension/Resources/Private/Templates/List.fluid.html
 
 Here is what the result may look like (the exact result will obviously

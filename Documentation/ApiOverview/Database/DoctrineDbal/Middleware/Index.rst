@@ -46,7 +46,6 @@ Global driver middlewares are applied to all
 Example:
 
 ..  literalinclude:: _ext_localconf_global.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 
@@ -58,7 +57,6 @@ Disable a global middleware for a specific connection
 Example:
 
 ..  literalinclude:: _ext_localconf_global_disable.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 
@@ -71,7 +69,6 @@ In this example, the custom driver middleware :php:`MyDriverMiddleware` is added
 to the `Default` connection:
 
 ..  literalinclude:: _ext_localconf_specific.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 
@@ -83,13 +80,11 @@ Migration
 For example:
 
 ..  literalinclude:: _ext_localconf_specific_deprecated.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 needs to be converted to:
 
 ..  literalinclude:: _ext_localconf_specific.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 ..  _database-middleware-specific-registration-v12-v13:
@@ -102,7 +97,6 @@ the :php:`Typo3Version` class to provide the configuration suitable for the Core
 version and avoiding the deprecation notice:
 
 ..  literalinclude:: _ext_localconf_specific_dual_versions.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 
@@ -165,7 +159,6 @@ structure for a middleware configuration is:
 Example:
 
 ..  literalinclude:: _ext_localconf_sorting.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
 
 ..  tip::
@@ -217,18 +210,15 @@ Example
 The custom driver:
 
 ..  literalinclude:: _CustomDriver.php
-    :language: php
     :caption: EXT:my_extension/Classes/DoctrineDBAL/CustomDriver.php
 
 The custom driver middleware which implements the
 :php:`\TYPO3\CMS\Core\Database\Middleware\UsableForConnectionInterface`:
 
 ..  literalinclude:: _CustomMiddleware.php
-    :language: php
     :caption: EXT:my_extension/Classes/DoctrineDBAL/CustomMiddleware.php
 
 Register the custom driver middleware:
 
 ..  literalinclude:: _ext_localconf_CustomMiddleware.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php

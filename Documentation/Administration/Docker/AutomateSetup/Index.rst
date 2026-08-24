@@ -75,7 +75,6 @@ To automate setup, you must provide all required parameters via environment
 variables. Add these to the `web` service in your `docker-compose.yml`:
 
 ..  literalinclude:: _codesnippets/_docker-compose.yml
-    :language: yaml
     :caption: docker-compose.yml (excerpt)
 
 ..  warning::

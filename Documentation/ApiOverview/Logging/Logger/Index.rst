@@ -21,7 +21,6 @@ Instantiation
 automatically instantiate the logger:
 
 ..  literalinclude:: _MyClassLoggerInjection.php
-    :language: php
     :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 ..  tip::
@@ -215,14 +214,12 @@ dependency injection services as a class attribute.
 Registration via class attribute for :php:`\Psr\Log\LoggerInterface` injection:
 
 ..  literalinclude:: _MyClassChannel.php
-    :language: php
     :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 Registration via parameter attribute for :php:`\Psr\Log\LoggerInterface`
 injection, overwrites possible class attributes:
 
 ..  literalinclude:: _MyClassChannel2.php
-    :language: php
     :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 The instantiated logger will now have the channel "security",

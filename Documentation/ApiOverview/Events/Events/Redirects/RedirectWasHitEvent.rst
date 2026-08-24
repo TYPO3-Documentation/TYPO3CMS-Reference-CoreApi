@@ -28,7 +28,6 @@ can either implement your own listener with the same identifier
 before and dynamically set the records :php:`disable_hitcount` flag.
 
 ..  literalinclude:: _RedirectWasHitEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  _redirect-was-hit-event-api:

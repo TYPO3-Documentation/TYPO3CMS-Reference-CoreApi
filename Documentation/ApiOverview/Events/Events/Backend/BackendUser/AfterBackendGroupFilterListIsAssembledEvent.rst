@@ -24,7 +24,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterBackendGroupFilterListIsAssembledEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _after-backend-group-filter-list-is-assembled-event-api:

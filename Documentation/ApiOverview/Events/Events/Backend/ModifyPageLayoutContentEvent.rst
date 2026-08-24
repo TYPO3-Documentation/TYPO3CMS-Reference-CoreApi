@@ -18,7 +18,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyPageLayoutContentEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-page-layout-content-event-api:

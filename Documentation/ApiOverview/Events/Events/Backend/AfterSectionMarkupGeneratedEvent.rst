@@ -24,7 +24,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterSectionMarkupGeneratedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API

@@ -29,7 +29,6 @@ based on the implementation of ext:rte_ckeditor.
    than the Core's implementation:
 
     ..  literalinclude:: _ext_localconf.php
-        :language: php
         :caption: EXT:my_extension/ext_localconf.php
 
 -  Now create the class :php:`\MyVendor\MyExtension\Form\Resolver\RichTextNodeResolver`.
@@ -38,7 +37,6 @@ based on the implementation of ext:rte_ckeditor.
    are met, the RichTextElement class name is returned:
 
     ..  literalinclude:: _RichTextNodeResolver.php
-        :language: php
         :caption: :php:`\MyVendor\MyExtension\Form\Resolver\RichTextNodeResolver`
 
 -  Next step is to implement the RichtTextElement class. You can look up the

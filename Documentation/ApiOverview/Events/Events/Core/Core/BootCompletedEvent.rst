@@ -23,7 +23,6 @@ Example
 =======
 
 ..  literalinclude:: _BootCompletedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Bootstrap/EventListener/MyEventListener.php
 
 ..  _boot-completed-event-api:

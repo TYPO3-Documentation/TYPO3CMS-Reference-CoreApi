@@ -41,13 +41,11 @@ be annotated with :php:`@test`.
 Example for a system under test located at :file:`typo3/sysext/core/Utility/ArrayUtility.php` (stripped):
 
 ..  literalinclude:: _UnitTests/_ArrayUtility.php
-    :language: php
     :caption: typo3/sysext/core/Utility/ArrayUtility.php (stripped)
 
 The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php` (stripped):
 
 ..  literalinclude:: _UnitTests/_ArrayUtilityTest.php
-    :language: php
     :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php  (stripped)
 
 This way it is easy to find unit tests for any given file. Note PhpStorm understands this structure and
@@ -122,7 +120,6 @@ Data providers are used quite often for this and we encourage developers to do s
 from :php:`ArrayUtilityTest`:
 
 ..  literalinclude:: _UnitTests/_ArrayUtilityTestDataProvider.php
-    :language: php
     :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php (excerpts)
 
 
@@ -144,7 +141,6 @@ like additional objects, they should be usually "mocked away". A simple example 
 :php:`TYPO3\CMS\Backend\Tests\Unit\Controller\FormInlineAjaxControllerTest`:
 
 ..  literalinclude:: _UnitTests/_FormInlineAjaxControllerTest.php
-    :language: php
     :caption: typo3/sysext/backend/Tests/Unit/Controller/FormInlineAjaxControllerTest.php
 
 The above case is pretty straight since the mocked dependency is hand over as argument to
@@ -153,7 +149,6 @@ dependency on its own - typically using :php:`GeneralUtility::makeInstance()`, t
 can be manually registered for makeInstance:
 
 ..  literalinclude:: _UnitTests/_SomeTest.php
-    :language: php
     :caption: EXT:my_extension/Tests/Unit/SomeTest.php
 
 This works well for prototypes. :php:`addInstance()` adds objects to a LiFo, multiple instances
@@ -162,7 +157,6 @@ empty to avoid side effects on other tests. Singleton instances can be registere
 similar way:
 
 ..  literalinclude:: _UnitTests/_TcaFlexPrepareTest.php
-    :language: php
     :caption: typo3/sysext/backend/Tests/Unit/Form/FormDataProvider/TcaFlexPrepareTest.php
 
 ..  todo: EnvironmentService has been removed with version 12.0, find another Example here
@@ -206,5 +200,4 @@ a simple example, this is from :php:`TYPO3\CMS\Core\Tests\Unit\Cache\CacheManage
 and tests both the exception class and the exception code:
 
 ..  literalinclude:: _UnitTests/_OnTheFlyTest.php
-    :language: php
     :caption: typo3/sysext/backend/Tests/Unit/Form/FormDataGroup/OnTheFlyTest.php

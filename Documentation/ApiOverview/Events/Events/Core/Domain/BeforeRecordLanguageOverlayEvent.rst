@@ -24,7 +24,6 @@ be necessary if your site is configured with free mode, but you have a record
 type that has languages connected.
 
 ..  literalinclude:: _BeforeRecordLanguageOverlayEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Language/MyEventListener.php
 
 ..  _BeforeRecordLanguageOverlayEvent-api:

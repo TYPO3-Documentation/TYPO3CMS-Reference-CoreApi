@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _after-record-summary-for-localization-event-api:

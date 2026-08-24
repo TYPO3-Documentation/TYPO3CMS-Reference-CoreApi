@@ -24,7 +24,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyFileDumpEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 ..  _modify-file-dump-event-api:

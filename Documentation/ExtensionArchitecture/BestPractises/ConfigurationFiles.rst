@@ -122,7 +122,6 @@ file with all configuration of other extensions.
 The following example contains the complete code:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding

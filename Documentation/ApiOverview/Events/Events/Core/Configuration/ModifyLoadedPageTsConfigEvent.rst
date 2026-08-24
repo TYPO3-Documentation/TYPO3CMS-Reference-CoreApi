@@ -15,7 +15,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyLoadedPageTsConfigEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/MyEventListener.php
 
 ..  _modify-loaded-page-ts-config-event-api:

@@ -35,7 +35,6 @@ Example
 Changing the host of the current request and setting it as canonical:
 
 ..  literalinclude:: _ModifyUrlForCanonicalTagEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Seo/EventListener/MyEventListener.php
 
 

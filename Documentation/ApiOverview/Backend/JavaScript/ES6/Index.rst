@@ -34,14 +34,12 @@ A simple configuration example for an extension that maps
 the `Public/JavaScript` folder to an import prefix `@vendor/my-extensions`:
 
 ..  literalinclude:: _JavaScriptModulesSimple.php
-    :language: php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php
 
 Complex configuration example containing recursive-lookup exclusions,
 third-party library definitions and overwrites:
 
 ..  literalinclude:: _JavaScriptModulesExtended.php
-    :language: php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php
 
 .. _backend-javascript-es6-loading:
@@ -54,14 +52,12 @@ A module can be added to the current page response either via
 :php:`JavaScriptRenderer`:
 
 ..  literalinclude:: _PageRendererJavaScriptLoading.php
-    :language: php
     :caption: EXT:my_extension/Classes/SomeNamespace/SomeClass.php
 
 In a Fluid template the `includeJavaScriptModules` property of the
 :html:`<f:be.pageRenderer>` ViewHelper may be used:
 
 ..  literalinclude:: _BackendFluidTemplate.fluid.html
-    :language: html
     :caption: EXT:my_extension/Resources/Private/Backend/Templates/SomeTemplate.fluid.html
 
 ..  _backend-javascript-es6-tips-es6:
@@ -119,5 +115,4 @@ CKEditor is not part of the main record but needs to be loaded for
 the child record.
 
 ..  literalinclude:: _JavaScriptModulesBackendForm.php
-    :language: php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php

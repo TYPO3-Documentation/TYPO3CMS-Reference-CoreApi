@@ -19,7 +19,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyRecordsAfterFetchingContentEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _modify-records-after-fetching-content-event-api:

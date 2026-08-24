@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforeLoadedPageTsConfigEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
 
 ..  _before-loaded-page-ts-config-event-api:
