@@ -32,7 +32,7 @@ output.
 Example
 =======
 
-An event listener that validates ``t3://record`` targets:
+An event listener that validates `t3://record` targets:
 
 ..  literalinclude:: _RedirectIntegrityCheckEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php

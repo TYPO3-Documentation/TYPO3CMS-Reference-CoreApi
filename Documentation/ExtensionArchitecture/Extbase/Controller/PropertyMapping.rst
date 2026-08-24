@@ -35,14 +35,14 @@ parameter and runs the matching type converter:
 *   A parameter typed as a domain object (for example :php:`Conference`)
     receives a :abbr:`UID (unique identifier, the primary key of a TYPO3 database record)`
     from the request — either as a plain integer or as an array containing an
-    ``__identity`` key. Extbase uses that identity to load the corresponding
+    `__identity` key. Extbase uses that identity to load the corresponding
     record from the repository and passes the
     :abbr:`hydrated (an object populated with values loaded from the database)`
-    object to the action. Additional array keys alongside ``__identity`` are
+    object to the action. Additional array keys alongside `__identity` are
     mapped onto the object's properties, enabling update forms to submit both
     the identity of an existing record and its changed values in one request.
     The same mechanism works for child relations: a nested array with its own
-    ``__identity`` key identifies a related object.
+    `__identity` key identifies a related object.
 *   A parameter typed as a
     `\DateTime <https://www.php.net/manual/en/class.datetime.php>`_ or
     `\DateTimeImmutable <https://www.php.net/manual/en/class.datetimeimmutable.php>`_
@@ -79,12 +79,12 @@ To prevent
 attacks, Extbase only writes properties that have been explicitly
 "allowlisted". When a form is built with :html:`<f:form>`, this allowlisting
 happens **automatically and transparently**: the ViewHelper generates a
-``__trustedProperties`` token — an
+`__trustedProperties` token — an
 :abbr:`HMAC (Hash-based Message Authentication Code)`-signed list of every
 field rendered in the form. On submission, Extbase reads the token, verifies
 its signature, and permits exactly those properties. Whether to allow
 creation or modification of a persistent object is also derived from the
-token automatically, based on whether an ``__identity`` field is present.
+token automatically, based on whether an `__identity` field is present.
 
 For the standard Extbase workflow, Fluid form → controller action, no
 additional configuration is needed. If your request does not originate from
@@ -189,7 +189,7 @@ pitfalls appendix.
 Allowing creation and modification of nested Extbase objects
 ============================================================
 
-When a request (without a ``__trustedProperties`` token) submits a nested
+When a request (without a `__trustedProperties` token) submits a nested
 object that does not yet have a UID (creation) or has a UID and additional
 fields (modification), you must explicitly unlock those operations on the
 :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter`:

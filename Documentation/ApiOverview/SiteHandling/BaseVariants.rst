@@ -30,8 +30,8 @@ conditions, for example:
 would define a base variant to use in "Development" context.
 
 ..  note::
-    Environment variables can be used in the :yaml:`base` via ``%env(...)%``.
-    :yaml:`condition` needs ``getenv(...)`` instead.
+    Environment variables can be used in the :yaml:`base` via `%env(...)%`.
+    :yaml:`condition` needs `getenv(...)` instead.
 
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
     :zoom: lightbox

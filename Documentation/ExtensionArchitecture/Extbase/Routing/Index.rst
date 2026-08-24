@@ -27,7 +27,7 @@ Extbase plugin enhancer is a specialised layer on top — it handles the
 controller/action namespace automatically. Moving plugin arguments out of the
 query string and into the path also simplifies
 :ref:`cHash <extbase-routing-enhancer-chash>` handling considerably — a fully
-routed URL needs no ``cHash`` at all. Understanding the general TYPO3 routing
+routed URL needs no `cHash` at all. Understanding the general TYPO3 routing
 concepts first makes Extbase routing much easier to follow.
 
 ..  seealso::

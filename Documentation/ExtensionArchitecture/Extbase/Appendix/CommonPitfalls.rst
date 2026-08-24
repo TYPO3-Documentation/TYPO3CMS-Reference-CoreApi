@@ -358,8 +358,8 @@ versa. A backend editor saves a record that a frontend action then rejects
 immediately. Or a record saved through Extbase arrives in the backend in a
 state the backend form cannot open cleanly.
 
-**Why:** Extbase validation (``#[Validate]`` attributes on model properties)
-and TCA validation (``eval``, ``required``, and similar TCA column
+**Why:** Extbase validation (`#[Validate]` attributes on model properties)
+and TCA validation (`eval`, `required`, and similar TCA column
 configuration) are entirely separate systems. Neither one knows about the
 other: Extbase validation runs during frontend request processing; TCA
 validation runs in the backend form engine. There is no shared layer that
@@ -372,7 +372,7 @@ model class is involved.
 
 **What to do instead:** Treat the two systems as complementary and configure
 both deliberately. If a constraint is important in both contexts, add it
-both as a ``#[Validate]`` attribute on the model property and as a
+both as a `#[Validate]` attribute on the model property and as a
 corresponding TCA column configuration. For records that must be valid in both
 contexts, test both paths.
 

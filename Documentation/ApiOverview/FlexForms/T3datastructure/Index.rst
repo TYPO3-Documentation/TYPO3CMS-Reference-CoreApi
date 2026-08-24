@@ -18,7 +18,7 @@ FlexForms. This documentation describes the general XML format.
 
 **Key facts:**
 
--   Defined in XML with a root ``<T3DataStructure>`` tag.
+-   Defined in XML with a root `<T3DataStructure>` tag.
 -   Compatible with :php:`GeneralUtility::xml2array()`, mapping directly to a
     multidimensional PHP array.
 -   Can be divided into *sheets*, a one-dimensional categorization whose purpose

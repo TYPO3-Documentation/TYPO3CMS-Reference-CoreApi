@@ -15,7 +15,7 @@ Data transfer objects (DTO) in Extbase
 ..  todo::
     Needs review: This page was ported verbatim from the old Extbase
     documentation and needs updating to the rewrite conventions (Conference
-    domain, self-contained headlines, ``_snippets/`` review).
+    domain, self-contained headlines, `_snippets/` review).
 
 ..  warning::
     The information on this page is outdated!

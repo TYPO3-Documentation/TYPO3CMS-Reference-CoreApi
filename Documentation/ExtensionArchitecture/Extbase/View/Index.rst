@@ -346,7 +346,7 @@ Commonly used ViewHelpers (with links to their full reference) are:
 *   :ref:`f:flashMessages <t3viewhelper:typo3-fluid-flashmessages>`
     — render flash messages added by the controller.
 *   :ref:`f:form <t3viewhelper:typo3-fluid-form>`
-    — build forms with automatic ``__trustedProperties`` token generation.
+    — build forms with automatic `__trustedProperties` token generation.
 *   :ref:`f:translate <t3viewhelper:typo3-fluid-translate>`
     — render localised labels from :file:`locallang.xlf`.
 *   :ref:`f:debug <t3viewhelper:typo3-fluid-debug>`

@@ -277,7 +277,7 @@ than what you expect, and it has its own page:
 
 ..  seealso::
 
-    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why ``storagePid = 0`` does not disable the restriction, and how to override or drop the restriction for a single query.
+    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why `storagePid = 0` does not disable the restriction, and how to override or drop the restriction for a single query.
 
 
 ..  _extbase-persistence-queries-querysettings:

@@ -119,7 +119,7 @@ the file :file:`typo3_src-12.4.11.tar.gz` has an additional signature file
     gpg:                using RSA key 2B1F3D58AEEFB6A7EE3241A0C19FAFD699012A5A
     gpg: Can't check signature: No public key
 
-The warning means that the public key ``2B1F3D58AEEFB6A7EE3241A0C19FAFD699012A5A`` is not yet available on the
+The warning means that the public key `2B1F3D58AEEFB6A7EE3241A0C19FAFD699012A5A` is not yet available on the
 local system and cannot be used to validate the signature. The public key can be
 obtained by any key server - a popular one is `pgpkeys.mit.edu`_.
 

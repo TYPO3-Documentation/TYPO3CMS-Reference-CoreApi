@@ -135,7 +135,7 @@ Validation
 Before mass approval:
 
 #.  Verify that translations are complete and accurate.
-#.  Check for placeholder consistency (e.g., ``%s``, ``{variable}``).
+#.  Check for placeholder consistency (e.g., `%s`, `{variable}`).
 #.  Validate that translations do not contain English source text.
 #.  Review automatic translations from machine translation services.
 

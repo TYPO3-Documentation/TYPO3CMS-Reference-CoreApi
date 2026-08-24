@@ -15,17 +15,17 @@ Two crop variants are configured; one with the id "mobile" and
 one with the id "desktop". Crop variant ids are referenced
 by image view helpers to render images.
 
-Each crop variant has at least one *ratio configuration* defined under ``allowedAspectRatios``:
+Each crop variant has at least one *ratio configuration* defined under `allowedAspectRatios`:
 
-*  the ratio configuration key **must not** contain a dot character (``.``):
+*  the ratio configuration key **must not** contain a dot character (`.`):
 
-   *  good examples: ``NaN``, ``4:3`` or ``other-format``
-   *  bad example: ``1:1.441``
+   *  good examples: `NaN`, `4:3` or `other-format`
+   *  bad example: `1:1.441`
 
 *  the ratio configuration value is an array consisting of two keys:
 
-   *  ``title``: should be a string (or preferably an LLL reference)
-   *  ``value``: should be a **float** (not a string)
+   *  `title`: should be a string (or preferably an LLL reference)
+   *  `value`: should be a **float** (not a string)
 
 ..  code-block:: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php

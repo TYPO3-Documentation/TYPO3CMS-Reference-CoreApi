@@ -58,7 +58,7 @@ The Extbase-specific keys are:
 
 :confval:`extensionName <backend-module-extensionName>`
     The extension name in UpperCamelCase, for example, if the extension key is
-    ``my_extension`` the extension name will be ``MyExtension``.
+    `my_extension` the extension name will be `MyExtension`.
 
 :confval:`controllerActions <backend-module-controllerActions>`
     An array mapping controller class names to a list of allowed action names.
@@ -70,8 +70,8 @@ them for modules whose controllers do not extend
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Use the
 standard :confval:`routes <backend-module-routes>` key instead.
 
-The remaining keys — ``parent``, ``position``, ``access``, ``path``,
-``iconIdentifier``, ``labels`` — are standard backend module configuration and
+The remaining keys — `parent`, `position`, `access`, `path`,
+`iconIdentifier`, `labels` — are standard backend module configuration and
 apply to all modules regardless of whether they use Extbase or not. See
 :ref:`backend-modules-api` for the full reference.
 
@@ -81,14 +81,14 @@ apply to all modules regardless of whether they use Extbase or not. See
 Access control
 ==============
 
-The ``access`` key limits who can access the module:
+The `access` key limits who can access the module:
 
-*   ``'user'`` — available to backend users who have been granted access in
+*   `'user'` — available to backend users who have been granted access in
     their user or group settings.
-*   ``'admin'`` — available to administrators only.
-*   ``'systemMaintainer'`` — available to system maintainers only.
+*   `'admin'` — available to administrators only.
+*   `'systemMaintainer'` — available to system maintainers only.
 
-User-level access (``'user'``) requires permission to be explicitly granted in
+User-level access (`'user'`) requires permission to be explicitly granted in
 :guilabel:`Backend Users > Edit > Modules`. Admin-only modules skip this check.
 
 
@@ -97,7 +97,7 @@ User-level access (``'user'``) requires permission to be explicitly granted in
 Module labels
 =============
 
-The ``labels`` key accepts either a translation label reference or a
+The `labels` key accepts either a translation label reference or a
 translation domain string. Using the
 :ref:`domain syntax <label-reference-domain>` introduced in TYPO3 v14:
 
@@ -107,12 +107,12 @@ translation domain string. Using the
 
 This resolves to
 :file:`EXT:my_extension/Resources/Private/Language/Modules/conferences.xlf`.
-The middle segment (``modules``) becomes a subdirectory under
-:file:`Resources/Private/Language/`; the last segment (``conferences``)
-becomes the filename. The file should define the key ``title`` and optionally
-``description`` and ``shortDescription``.
+The middle segment (`modules`) becomes a subdirectory under
+:file:`Resources/Private/Language/`; the last segment (`conferences`)
+becomes the filename. The file should define the key `title` and optionally
+`description` and `shortDescription`.
 
-The legacy ``LLL:EXT:`` syntax is equally valid and remains fully supported.
+The legacy `LLL:EXT:` syntax is equally valid and remains fully supported.
 
 
 ..  _extbase-registration-backend-module-template:
@@ -200,7 +200,7 @@ The resulting array has three top-level keys that Extbase uses directly:
 ..  seealso::
 
     *   :ref:`backend-modules-api` for the full reference for all module configuration
-        keys including ``parent``, ``position``, ``access``, ``path``, and
+        keys including `parent`, `position`, `access`, `path`, and
         submodule definitions.
 
     *   :ref:`ModuleTemplateFactory` for how to add buttons, menus, and

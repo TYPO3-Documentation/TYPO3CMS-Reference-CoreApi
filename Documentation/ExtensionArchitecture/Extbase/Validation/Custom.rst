@@ -23,17 +23,17 @@ determines what it can see and when it runs.
 
 A validator on a *model property* receives only that property's value. It
 runs on every action that takes the model as an argument. Use it for
-self-contained rules that must always hold: ``$title`` must not be empty,
-``$contactEmail`` must be a valid address.
+self-contained rules that must always hold: `$title` must not be empty,
+`$contactEmail` must be a valid address.
 
 A validator on an *action parameter* receives the whole object and runs only
 for that specific action. This makes it the right choice for two distinct
 situations: rules that only apply in a particular context (a seat count check
-that matters for ``registerAction()`` but not for ``showAction()``), and
+that matters for `registerAction()` but not for `showAction()`), and
 rules that span multiple properties. For example: if a conference starts more
 than four weeks from now, a speaker assignment is optional — but if it starts
 sooner, a speaker is required. That rule cannot be expressed on any single
-property; it needs both ``$startDate`` and ``$speaker`` at the same time:
+property; it needs both `$startDate` and `$speaker` at the same time:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Validation/Validator/ConferenceSpeakerValidator.php
@@ -96,7 +96,7 @@ Key points:
     extension. Using the Unix timestamp at the time of writing is a convenient
     way to generate a unique number.
 *   Translation keys use the domain syntax introduced in TYPO3 v14:
-    ``my_extension.messages:some.key`` resolves to
+    `my_extension.messages:some.key` resolves to
     :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. See
     :ref:`extbase-upgrading-translation-domain-syntax` for the full syntax
     including non-default language files.
@@ -133,13 +133,13 @@ Supporting options and substitution values in messages
 
 If your validator needs to be configured, for example, there needs to be a
 minimum seat count, declare the options in :php:`$supportedOptions`. Each option contains
-an array with values ``[default, description, type]``. Access resolved values using
+an array with values `[default, description, type]`. Access resolved values using
 :php:`$this->options`:
 
 ..  literalinclude:: _snippets/_SeatCountValidator.php
     :caption: EXT:my_extension/Classes/Validation/Validator/SeatCountValidator.php
 
-The error message in :file:`locallang.xlf` uses a ``%s`` placeholder:
+The error message in :file:`locallang.xlf` uses a `%s` placeholder:
 
 ..  code-block:: xml
     :caption: EXT:my_extension/Resources/Private/Language/locallang.xlf (excerpt)
@@ -184,7 +184,7 @@ Attach the validator with its option on the action parameter:
 Making the error message overridable
 ====================================
 
-To allow callers to override the message text via the ``options`` array
+To allow callers to override the message text via the `options` array
 without having to subclass (the same mechanism used by built-in validators) declare
 a :php:`protected string $message` property, add it to
 :php:`$translationOptions`, and list it in :php:`$supportedOptions`. The
