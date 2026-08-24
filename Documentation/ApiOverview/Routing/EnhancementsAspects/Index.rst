@@ -140,8 +140,8 @@ configuration:
     URL generation receives the argument :yaml:`category`. It is mapped to that
     name (so you can access/use it as :php:`category` in your custom code).
 
-TYPO3 will add the parameter ``cHash`` to URLs when necessary, see :ref:`chash`.
-The ``cHash`` can be removed by converting dynamic arguments into static
+TYPO3 will add the parameter `cHash` to URLs when necessary, see :ref:`chash`.
+The `cHash` can be removed by converting dynamic arguments into static
 arguments. All captured arguments are dynamic by default. They can be converted
 to static arguments by defining the possible expected values for these
 arguments. This is done by adding :ref:`aspects

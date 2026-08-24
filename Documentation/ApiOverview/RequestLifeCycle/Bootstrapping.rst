@@ -216,12 +216,12 @@ Each request, no matter if it runs from the command line or through HTTP,
 runs in a specific *application context*. TYPO3 provides exactly three built-in
 contexts:
 
-* ``Production`` (default) - should be used for a live site
-* ``Development`` - used for development
-* ``Testing`` - is only used internally when executing TYPO3 **Core** tests. It must not be used otherwise.
+* `Production` (default) - should be used for a live site
+* `Development` - used for development
+* `Testing` - is only used internally when executing TYPO3 **Core** tests. It must not be used otherwise.
 
 The context TYPO3 runs in is specified through the environment variable
-``TYPO3_CONTEXT``. It can be set on the command line:
+`TYPO3_CONTEXT`. It can be set on the command line:
 
 .. code-block:: bash
 
@@ -282,23 +282,23 @@ more specific configuration sets can be realized.
 
 While it is not possible to add new "top-level" contexts at the same level like
 *Production* and *Testing*, you can create arbitrary *sub-contexts*, just by
-specifying them like ``<MainContext>/<SubContext>``.
+specifying them like `<MainContext>/<SubContext>`.
 
-For a staging environment a custom context ``Production/Staging`` may provide the
-necessary settings while the ``Production/Live`` context is used on the live instance.
+For a staging environment a custom context `Production/Staging` may provide the
+necessary settings while the `Production/Live` context is used on the live instance.
 
 .. note::
 
    This even works recursively, so if you have a multiple-server staging
-   setup, you could use the context ``Production/Staging/Server1`` and
-   ``Production/Staging/Server2`` if both staging servers needed different
+   setup, you could use the context `Production/Staging/Server1` and
+   `Production/Staging/Server2` if both staging servers needed different
    configuration.
 
 .. attention::
 
-   ``Testing`` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
+   `Testing` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
    It must not be used otherwise. Instead sub-contexts must be used:
-   ``Production/Testing`` or ``Development/Testing``
+   `Production/Testing` or `Development/Testing`
 
 
 .. _bootstrapping-context-example:

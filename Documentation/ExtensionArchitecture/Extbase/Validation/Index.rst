@@ -116,13 +116,13 @@ without having to repeat the attribute on every parameter.
     Validators do not have to live on the persisted domain model. A base model
     can carry no validators at all, while separate
     :abbr:`DTO (Data Transfer Object)` classes carry different validator sets
-    for different use cases — for example a ``ConferenceRegistrationForm`` DTO
-    with strict seat-count validation and a ``ConferenceDraftForm`` DTO with
+    for different use cases — for example a `ConferenceRegistrationForm` DTO
+    with strict seat-count validation and a `ConferenceDraftForm` DTO with
     only a title requirement. Each DTO is mapped by property mapping just like
     a domain model and can have its own independent validation rules.
 
 When a form submission fails validation, Extbase re-calls the originating
-action (typically ``newAction()`` or ``editAction()``). If that action has the
+action (typically `newAction()` or `editAction()`). If that action has the
 model as a typed parameter and declares :php:`#[IgnoreValidation]` on it,
 the :ref:`t3viewhelper:typo3-fluid-form` view helper can read the submitted
 values from the object and :ref:`t3viewhelper:typo3-fluid-form-validationresults`
@@ -164,7 +164,7 @@ Validation still runs — :php:`#[IgnoreValidation]` does not skip it. It
 instructs Extbase to call the action even when the argument is invalid.
 This is what allows :php:`newAction()` to receive a partially filled
 :php:`Conference` back from a failed :php:`createAction()` and hand it to
-the template so ``f:form`` can redisplay the submitted values with inline
+the template so `f:form` can redisplay the submitted values with inline
 errors.
 
 Without :php:`#[IgnoreValidation]`, the framework would see the invalid
@@ -219,7 +219,7 @@ Displaying validation errors in Fluid templates
 ===============================================
 
 Extbase makes validation errors available in Fluid via the
-``f:form.validationResults`` view helper. Wrap form fields with it to show
+`f:form.validationResults` view helper. Wrap form fields with it to show
 per-field error messages:
 
 ..  code-block:: html
@@ -235,7 +235,7 @@ per-field error messages:
         <f:form.submit value="Save" />
     </f:form>
 
-The ``for`` attribute is the dot-notation path to the validated object or
+The `for` attribute is the dot-notation path to the validated object or
 property. Leave it empty to access all errors in the current request.
 
 

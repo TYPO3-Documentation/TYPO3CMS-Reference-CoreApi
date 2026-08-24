@@ -404,8 +404,8 @@ Properties no longer used
 
 ..  _ext-composer-json-property-not-used-replace-typo3-ter:
 
-replace with ``typo3-ter`` vendor name
---------------------------------------
+replace with `typo3-ter` vendor name
+------------------------------------
 
 ..  literalinclude:: _ComposerJson/_ReplaceTypo3Ter.json
     :language: json
@@ -417,8 +417,8 @@ within `replace` is not required.
 
 ..  _ext-composer-json-property-not-used-replace-ext-key:
 
-replace with ``"ext_key": "self.version"``
-------------------------------------------
+replace with `"ext_key": "self.version"`
+----------------------------------------
 
 ..  literalinclude:: _ComposerJson/_ReplaceExtKey.json
     :language: json

@@ -146,7 +146,7 @@ In this chapter
 
 :ref:`extbase-controller-propertymapping`
     How raw request data is converted to typed PHP objects; the
-    ``__trustedProperties`` mechanism; when manual allowlisting in
+    `__trustedProperties` mechanism; when manual allowlisting in
     :php:`initialize*Action()` is necessary.
 
 ..  seealso::

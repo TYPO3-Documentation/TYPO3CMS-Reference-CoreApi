@@ -50,7 +50,7 @@ may look like this:
     :language: xml
     :caption: Minimal SVG sprite example
 
-The fragment identifier (``#tx-myextension``) is used to reference the symbol
+The fragment identifier (`#tx-myextension`) is used to reference the symbol
 from the SVG sprite when registering the icon.
 
 ..  index:: Icon API; IconProviderInterface

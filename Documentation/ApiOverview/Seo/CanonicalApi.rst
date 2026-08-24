@@ -40,7 +40,7 @@ It is possible to include nested arguments:
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
 
-Non-vital arguments in general should be excluded from cHash and not be listed as ``additionalCanonicalizedUrlParameters``.
+Non-vital arguments in general should be excluded from cHash and not be listed as `additionalCanonicalizedUrlParameters`.
 See the possible options in :ref:`caching` regarding excluding arguments from cHash.
 
 The idea behind that is:

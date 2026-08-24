@@ -246,7 +246,7 @@ The full signature is:
      - Purpose
    * - :php:`$actionName`
      - (required)
-     - Name of the target action without the ``Action`` suffix, for example ``'list'``.
+     - Name of the target action without the `Action` suffix, for example `'list'`.
    * - :php:`$controllerName`
      - :php:`null`
      - Short class name of the target controller. :php:`null` means the current controller.
