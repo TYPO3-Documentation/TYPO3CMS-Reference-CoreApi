@@ -149,7 +149,7 @@ Examples for names that are derived from the extkey:
 Here, the *extkey* is `my_extension`:
 
 * namespace: :php:`MyVendor\MyExtension\...`
-* package name in :file:`composer.json <extension-composer-json>`: ``vendor-name/my-extension`` (the underscore is replaced by
+* package name in :file:`composer.json <extension-composer-json>`: `vendor-name/my-extension` (the underscore is replaced by
   a dash)
 
 .. index:: Vendor name
@@ -162,7 +162,7 @@ Vendor name
 The vendor name is used in:
 
 * namespaces
-* package name in :file:`composer.json <extension-composer-json>`, e.g. ``myvendor/cool-shop`` (all lowercase)
+* package name in :file:`composer.json <extension-composer-json>`, e.g. `myvendor/cool-shop` (all lowercase)
 
 .. attention::
 

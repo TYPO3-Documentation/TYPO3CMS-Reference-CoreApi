@@ -30,7 +30,7 @@ Syntax of the `#[Validate]` attribute
 =====================================
 
 The attribute takes the validator name as its first argument and an optional
-``options`` array:
+`options` array:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
@@ -68,7 +68,7 @@ Empty values and the `acceptsEmptyValues` flag
 
 Most built-in validators skip validation if the value is :php:`null` or an
 empty string. This is intentional: a blank field is different
-to a field being in the wrong format. Add ``NotEmpty`` to make sure
+to a field being in the wrong format. Add `NotEmpty` to make sure
 a field exists *and* that it is well-formed:
 
 ..  code-block:: php
@@ -78,7 +78,7 @@ a field exists *and* that it is well-formed:
     #[Validate('EmailAddress')]
     protected string $contactEmail = '';
 
-Without ``NotEmpty``, an empty string can silently pass ``EmailAddress``
+Without `NotEmpty`, an empty string can silently pass `EmailAddress`
 validation above.
 
 
@@ -111,10 +111,10 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
    * - Option
      - Default
      - Description
-   * - ``nullMessage``
+   * - `nullMessage`
      - built-in
      - Translation key or message shown when the value is :php:`null`.
-   * - ``emptyMessage``
+   * - `emptyMessage`
      - built-in
      - Translation key or message shown when the value is empty.
 
@@ -138,11 +138,11 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
    * - Option
      - Default
      - Description
-   * - ``minimum``
-     - ``0``
+   * - `minimum`
+     - `0`
      - Minimum number of characters required.
-   * - ``maximum``
-     - ``PHP_INT_MAX``
+   * - `maximum`
+     - `PHP_INT_MAX`
      - Maximum number of characters allowed.
 
 
@@ -155,7 +155,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 -------------
 
 Checks that a numeric value falls within a given range (inclusive). If
-``minimum`` is greater than ``maximum``, the values are swapped silently.
+`minimum` is greater than `maximum`, the values are swapped silently.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberRangeValidator`
 
@@ -166,11 +166,11 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberRangeValidator`
    * - Option
      - Default
      - Description
-   * - ``minimum``
-     - ``0``
+   * - `minimum`
+     - `0`
      - Minimum value accepted.
-   * - ``maximum``
-     - ``PHP_INT_MAX``
+   * - `maximum`
+     - `PHP_INT_MAX`
      - Maximum value accepted.
 
 
@@ -198,9 +198,9 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
    * - Option
      - Default
      - Description
-   * - ``regularExpression``
+   * - `regularExpression`
      - *(required)*
-     - The full PCRE pattern including delimiters, for example, ``'/^[a-z]+$/i'``.
+     - The full PCRE pattern including delimiters, for example, `'/^[a-z]+$/i'`.
 
 ..  code-block:: php
     :caption: Restricting a slug to lowercase letters and hyphens
@@ -210,9 +210,9 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
 
 ..  tip::
 
-    The default error message for ``RegularExpression`` is the generic "The
+    The default error message for `RegularExpression` is the generic "The
     given subject did not match the pattern". Consider overriding it with a
-    ``message`` option that tells the visitor what the field actually expects:
+    `message` option that tells the visitor what the field actually expects:
 
     ..  code-block:: php
         :caption: RegularExpression with a descriptive error message
@@ -235,7 +235,7 @@ Checks that the value is a syntactically valid email address using
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator`
 
-No options beyond the optional ``message`` override (see
+No options beyond the optional `message` override (see
 :ref:`extbase-validation-builtin-custom-messages`).
 
 
@@ -252,7 +252,7 @@ Checks that the value is a valid URL using :php:`GeneralUtility::isValidUrl()`.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\UrlValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-text:
@@ -268,7 +268,7 @@ markup.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\TextValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-alphanumeric:
@@ -282,7 +282,7 @@ digits). The exact character set depends on the locale.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\AlphanumericValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-integer:
@@ -295,7 +295,7 @@ Checks that a value is a valid integer (or a string that represents one).
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\IntegerValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-float:
@@ -309,7 +309,7 @@ represents one).
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FloatValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-number:
@@ -321,7 +321,7 @@ Checks that a value is numeric. It accepts both integers and floats.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-boolean:
@@ -335,7 +335,7 @@ must produce exactly :php:`true` or :php:`false`.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\BooleanValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-datetime:
@@ -350,7 +350,7 @@ to a date object.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\DateTimeValidator`
 
-No options beyond the optional ``message`` override.
+No options beyond the optional `message` override.
 
 
 ..  _extbase-validation-builtin-file:
@@ -379,9 +379,9 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
 
    * - Option
      - Description
-   * - ``allowedExtensions``
+   * - `allowedExtensions`
      - Comma-separated list of allowed file extensions without the leading dot,
-       for example ``'jpg,jpeg,png'``.
+       for example `'jpg,jpeg,png'`.
 
 
 ..  _extbase-validation-builtin-filesize:
@@ -400,10 +400,10 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator`
 
    * - Option
      - Description
-   * - ``minimum``
-     - Minimum file size as a string with unit, for example ``'0B'``.
-   * - ``maximum``
-     - Maximum file size as a string with unit, for example ``'5M'``.
+   * - `minimum`
+     - Minimum file size as a string with unit, for example `'0B'`.
+   * - `maximum`
+     - Maximum file size as a string with unit, for example `'5M'`.
 
 
 ..  _extbase-validation-builtin-mimetype:
@@ -422,9 +422,9 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
 
    * - Option
      - Description
-   * - ``allowedMimeTypes``
+   * - `allowedMimeTypes`
      - Array of allowed MIME type strings, for example
-       ``['image/jpeg', 'image/png']``.
+       `['image/jpeg', 'image/png']`.
 
 
 ..  _extbase-validation-builtin-imagedimensions:
@@ -443,13 +443,13 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
 
    * - Option
      - Description
-   * - ``minWidth``
+   * - `minWidth`
      - Minimum image width in pixels.
-   * - ``maxWidth``
+   * - `maxWidth`
      - Maximum image width in pixels.
-   * - ``minHeight``
+   * - `minHeight`
      - Minimum image height in pixels.
-   * - ``maxHeight``
+   * - `maxHeight`
      - Maximum image height in pixels.
 
 
@@ -460,7 +460,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
 
 Cross-checks that the file's extension and its detected MIME type are
 consistent with each other, guarding against disguised file uploads (for
-example, a PHP file renamed to ``image.jpg``).
+example, a PHP file renamed to `image.jpg`).
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionMimeTypeConsistencyValidator`
 
@@ -468,7 +468,7 @@ No configurable options.
 
 ..  important::
 
-    This validator is enforced automatically for every ``#[FileUpload]``
+    This validator is enforced automatically for every `#[FileUpload]`
     parameter. You do not need to declare it — and declaring it manually has
     no effect since Extbase only adds it once.
 
@@ -480,8 +480,8 @@ No configurable options.
 ----------
 
 Rejects uploaded files whose name matches dangerous executable extensions
-(such as ``.php``, ``.phar``, ``.exe``). The default pattern is derived from
-TYPO3's ``fileDenyPattern`` configuration.
+(such as `.php`, `.phar`, `.exe`). The default pattern is derived from
+TYPO3's `fileDenyPattern` configuration.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 
@@ -491,15 +491,15 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 
    * - Option
      - Description
-   * - ``regularExpression``
+   * - `regularExpression`
      - A PCRE pattern the file name must match.
 
 ..  important::
 
-    ``FileName`` is enforced automatically for every ``#[FileUpload]``
+    `FileName` is enforced automatically for every `#[FileUpload]`
     parameter — you do not need to declare it manually. If you want to
     restrict uploads to specific extensions, use
-    :ref:`extbase-validation-builtin-fileextension` (``FileExtension``)
+    :ref:`extbase-validation-builtin-fileextension` (`FileExtension`)
     instead, which is designed for that purpose.
 
 ..  seealso::
@@ -518,9 +518,9 @@ default error text. Pass a plain string or a translation key.
 
 The option key for each message is the name of the corresponding
 :php:`protected string $…Message` property in the validator class — for
-example :php:`$exceedMessage` becomes the ``exceedMessage`` option,
-:php:`$nullMessage` becomes ``nullMessage``. Validators with only one error
-condition use the generic ``message`` key. To find all available keys for a
+example :php:`$exceedMessage` becomes the `exceedMessage` option,
+:php:`$nullMessage` becomes `nullMessage`. Validators with only one error
+condition use the generic `message` key. To find all available keys for a
 given validator, check its :php:`$supportedOptions` array in the source at
 :file:`EXT:extbase/Classes/Validation/Validator/`.
 

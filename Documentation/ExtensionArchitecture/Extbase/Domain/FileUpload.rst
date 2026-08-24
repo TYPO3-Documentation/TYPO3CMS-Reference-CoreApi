@@ -195,7 +195,7 @@ both the client-supplied extension and the server-detected type:
     'mimeType' => ['allowedMimeTypes' => ['image/jpeg', 'image/png']],
 
 **fileExtension** — validates the file extension as supplied by the client.
-The ``allowedFileExtensions`` list should match ``allowedMimeTypes`` exactly:
+The `allowedFileExtensions` list should match `allowedMimeTypes` exactly:
 
 ..  code-block:: php
     :caption: fileExtension example
@@ -210,7 +210,7 @@ oversized images from reaching the server's image processing pipeline:
 
     'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096],
 
-The remaining keys — ``required``, ``minFiles``, ``maxFiles`` — control
+The remaining keys — `required`, `minFiles`, `maxFiles` — control
 upload count. For the full option reference see
 :ref:`extbase-validation-builtin-file`.
 

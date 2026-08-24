@@ -171,7 +171,7 @@ with the same attributes — useful when you need to construct the link yourself
 Why is my URL not clean?
 ========================
 
-If a URL comes out as a raw query string with ``cHash`` instead of the
+If a URL comes out as a raw query string with `cHash` instead of the
 expected clean URL, work through this list:
 
 *   **No enhancer configured** — the plugin has no entry under
@@ -185,10 +185,10 @@ expected clean URL, work through this list:
     to :php:`uriFor()` does not match any :yaml:`_controller` entry in the
     :yaml:`routes` list in
     :file:`EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml`.
-*   **Missing aspect** — a placeholder has a ``\d+`` requirement but no
+*   **Missing aspect** — a placeholder has a `\d+` requirement but no
     :ref:`StaticRangeMapper <extbase-routing-aspects-static-range>` or
     :ref:`StaticValueMapper <extbase-routing-aspects-static-value>` aspect,
-    so TYPO3 cannot treat the parameter as static and appends ``cHash``.
+    so TYPO3 cannot treat the parameter as static and appends `cHash`.
 *   **Stale cache** — after changing the site configuration, clear all caches
     via :guilabel:`Admin Tools > Maintenance`.
 

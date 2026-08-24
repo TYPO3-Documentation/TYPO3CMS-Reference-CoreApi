@@ -136,7 +136,7 @@ The key properties:
           - 99
 
     All approaches can be mixed in one array — entries are OR-combined. Use
-    ``&&`` inside a single string for AND logic.
+    `&&` inside a single string for AND logic.
 
 :yaml:`extension`
     The extension name in UpperCamelCase, without vendor prefix and without
@@ -205,28 +205,28 @@ The `cHash` parameter
 =====================
 
 When a URL contains dynamic parameters that are not fully constrained,
-TYPO3 appends a ``cHash`` signature. This prevents arbitrary URIs from being
+TYPO3 appends a `cHash` signature. This prevents arbitrary URIs from being
 cached under the same content — both stopping the cache from growing without
 bound and guarding against
 `cache poisoning <https://en.wikipedia.org/wiki/Cache_poisoning>`_, where an
 attacker fills the cache with junk variants of a page.
 
 Strict :yaml:`requirements` and :ref:`aspects <extbase-routing-aspects>` that
-define a fixed set of valid values eliminate the need for ``cHash`` — but only
+define a fixed set of valid values eliminate the need for `cHash` — but only
 when *every* placeholder in the route is covered. If even one placeholder is
-left unconstrained, TYPO3 still adds ``cHash`` to the whole URL.
+left unconstrained, TYPO3 still adds `cHash` to the whole URL.
 
 A :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper` aspect on
-a slug field removes the need for ``cHash`` for that placeholder, because the
+a slug field removes the need for `cHash` for that placeholder, because the
 mapper restricts it to a known set of database values rather than an open input.
-A ``\d+`` requirement alone does not — it still allows unbounded values — so only
+A `\d+` requirement alone does not — it still allows unbounded values — so only
 a :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` (a fixed range)
-removes ``cHash`` for a numeric placeholder.
+removes `cHash` for a numeric placeholder.
 
 ..  seealso::
 
     `cHash and routing <https://docs.typo3.org/permalink/t3coreapi:routing-advanced-routing-configuration-enhancers>`_ —
-    background on when and why ``cHash`` is added.
+    background on when and why `cHash` is added.
 
 The next step is defining the individual routes inside the enhancer — see
 :ref:`extbase-routing-routes`.
