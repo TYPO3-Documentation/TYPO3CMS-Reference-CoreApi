@@ -213,7 +213,7 @@ The following option is available:
     :name: syslog-writer-facility
     :type: string
     :Mandatory: no
-    :Default: ``USER``
+    :Default: `USER`
 
     The syslog `facility`_ to log into.
 

@@ -223,7 +223,7 @@ mbox
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = '<classname>';`
     Custom class which implements
     :php:`\Symfony\Component\Mailer\Transport\TransportInterface`.
-    The constructor receives all settings from the ``MAIL`` section to make it
+    The constructor receives all settings from the `MAIL` section to make it
     possible to add custom settings.
 
 
@@ -308,7 +308,7 @@ Additional notes about the mail spool path:
 *   If the path is relative, the public web path is prepended to the path
 *   The path must not contain symlinks (important for environments with auto
     deployment)
-*   The path must not contain ``//``, ``..`` or ``\``
+*   The path must not contain `//`, `..` or `\`
 
 ..  _mail-spooling-sending-spooled-mails:
 

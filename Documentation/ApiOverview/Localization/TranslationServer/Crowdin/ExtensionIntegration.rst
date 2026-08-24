@@ -178,15 +178,15 @@ Step-by-step instructions for GitHub
                     Then follow the instructions to configure the integration:
 
                     #.  Select the repository from the list of your GitHub repositories.
-                    #.  Select the branch to use for synchronization (usually ``main`` or
-                        ``master``). When ticking the branch, Crowdin will suggest a
-                        "Service Branch Name" ``l10n_main`` (or ``l10n_master``), which
+                    #.  Select the branch to use for synchronization (usually `main` or
+                        `master`). When ticking the branch, Crowdin will suggest a
+                        "Service Branch Name" `l10n_main` (or `l10n_master`), which
                         is the branch where Crowdin will push the translations. You can
                         keep the default value.
                     #.  Click the pencil icon next to the Service Branch Name to edit
                         configuration.
                     #.  When asked for the Configuration file name, change it from
-                        ``crowdin.yml`` to ``.crowdin.yml`` and click "Continue". This
+                        `crowdin.yml` to `.crowdin.yml` and click "Continue". This
                         will effectively use the configuration we created in Step 1 and
                         ensure that everything is properly configured for your TYPO3
                         extension.
@@ -218,7 +218,7 @@ Step-by-step instructions for GitHub
                     ..  note::
 
                         The import will work best only if the translation files contain both the
-                        ``<source>`` and ``<target>`` elements. If the ``<source>`` elements are missing,
+                        `<source>` and `<target>` elements. If the `<source>` elements are missing,
                         Crowdin will not be able to match the translations with the original English labels.
 
     ..  important::

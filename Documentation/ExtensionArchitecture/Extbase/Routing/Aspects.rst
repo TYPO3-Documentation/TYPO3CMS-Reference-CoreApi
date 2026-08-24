@@ -19,7 +19,7 @@ placeholder name they apply to.
 ..  seealso::
 
     *   `Routing aspects — full reference <https://docs.typo3.org/permalink/t3coreapi:routing-advanced-routing-configuration-aspects>`_ —
-        all aspect types including ``LocaleModifier`` and custom mapper implementations.
+        all aspect types including `LocaleModifier` and custom mapper implementations.
 
 
 ..  _extbase-routing-aspects-persisted-alias:
@@ -117,7 +117,7 @@ to the action. A URL generated for status :yaml:`3` produces
 :samp:`/conferences/status/past`.
 
 Because the full set of valid values is known, TYPO3 treats the parameter as
-static and omits ``cHash`` from the generated URL.
+static and omits `cHash` from the generated URL.
 
 For multi-language sites, add a :yaml:`localeMap` to vary the URL segments per
 language without changing the internal values:
@@ -151,9 +151,9 @@ language without changing the internal values:
 
 Implemented by :php:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper`, this
 declares that a placeholder accepts an integer within a fixed range. The
-primary use case is pagination. Unlike a bare ``\d+`` requirement, a
+primary use case is pagination. Unlike a bare `\d+` requirement, a
 :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` marks the parameter
-as static, which eliminates ``cHash`` from paginated URLs.
+as static, which eliminates `cHash` from paginated URLs.
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml

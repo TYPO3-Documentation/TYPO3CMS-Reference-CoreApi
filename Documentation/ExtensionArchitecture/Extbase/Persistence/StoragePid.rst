@@ -103,7 +103,7 @@ shorter:
     key the frontend uses for its Extbase configuration, not a
     :typoscript:`plugin` scope.
 #.  **The current page** — if nothing above sets a storagePid, Extbase falls back
-    to the **page the module is currently showing**, taken from the ``id``
+    to the **page the module is currently showing**, taken from the `id`
     request parameter (the page selected in the page tree). When no page is
     selected — or the module has no page tree at all, as many backend modules do
     not — this falls back to :sql:`0`.
@@ -126,7 +126,7 @@ is the recommended placement, see :ref:`module <t3tsref:tlo-module>` TypoScript 
 
 ..  note::
 
-    Because the current-page fallback depends on the ``id`` request parameter, a
+    Because the current-page fallback depends on the `id` request parameter, a
     module without a page tree (or with no page selected) resolves its storagePid
     to :sql:`0`. If your module is not meant to be scoped to the current page or the root,
     set an explicit storagePid in :typoscript:`module.tx_*` TypoScript, or drop

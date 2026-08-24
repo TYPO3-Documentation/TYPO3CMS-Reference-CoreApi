@@ -26,7 +26,7 @@ be used in the TYPO3 Core  and extensions. Additionally, YAML has general syntax
 These are recommendations that should be followed for TYPO3. We pointed out where things
 might break badly if not followed, by using MUST.
 
-*   File ending ``.yaml``
+*   File ending `.yaml`
 *   Indenting with 2 spaces (not tabs). Spaces MUST be used. You MUST use the correct indenting level.
 *   Use UTF-8
 *   Enclose strings with single quotes (''). You MUST properly quote strings containing special

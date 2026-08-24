@@ -77,7 +77,7 @@ Goals and non goals
 * Help extension authors quickly find code in extensions that may need attention when upgrading to
   newer Core versions.
 
-* Extend the existing reST documentation files which are shown in the ``Upgrade Analysis`` section
+* Extend the existing reST documentation files which are shown in the `Upgrade Analysis` section
   with additional information giving extension authors and site developers hints if they are affected
   by a specific change.
 
@@ -265,7 +265,7 @@ may need attention when upgrading to a newer Core version, the following points 
   as a match. In general: the cleaner the code base of a given extension is and the simpler the code lines are,
   the more useful the extension scanner will be.
 
-* If an extension is cluttered with ``@extensionScannerIgnoreLine`` or ``@extensionScannerIgnoreFile``
+* If an extension is cluttered with `@extensionScannerIgnoreLine` or `@extensionScannerIgnoreFile`
   annotations this could be an indication to the extension author to consider branching off
   an extensions to support individual Core versions instead of supporting multiple versions in the same release.
 

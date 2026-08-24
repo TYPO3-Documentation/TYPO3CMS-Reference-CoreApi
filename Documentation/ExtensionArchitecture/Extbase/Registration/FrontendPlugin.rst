@@ -47,10 +47,10 @@ dispatcher. Call it in :file:`ext_localconf.php`:
 The four arguments are:
 
 1.  **Extension name** — the extension key in UpperCamelCase
-    (``my_extension`` → ``MyExtension``).
+    (`my_extension` → `MyExtension`).
 2.  **Plugin name** — a unique UpperCamelCase identifier for this plugin inside
     the extension. Combined with the extension name, it forms the plugin
-    signature used in TypoScript and routing (``myextension_conferencelist``).
+    signature used in TypoScript and routing (`myextension_conferencelist`).
     The combined length must not exceed 32 characters. snake_case is also
     accepted and normalised internally, but UpperCamelCase is the convention.
 3.  **Allowed controller actions** — an array mapping controller class names to
@@ -62,8 +62,8 @@ The four arguments are:
 
 ..  versionchanged:: 14.0
 
-    The fifth parameter ``$pluginType`` was removed. All plugins are registered
-    as ``CType`` content elements. Omit this argument entirely.
+    The fifth parameter `$pluginType` was removed. All plugins are registered
+    as `CType` content elements. Omit this argument entirely.
 
 
 ..  _extbase-registration-frontend-plugin-register:
@@ -101,18 +101,18 @@ The arguments are:
 3.  **Plugin title** — label shown in the backend content element wizard.
     Use a translatable label reference. The example uses the
     :ref:`translation domain syntax <label-reference-domain>`
-    (``extension_key.file:label_key``), which is shorter than the
-    legacy ``LLL:EXT:`` path syntax. Both are equivalent and interchangeable.
+    (`extension_key.file:label_key`), which is shorter than the
+    legacy `LLL:EXT:` path syntax. Both are equivalent and interchangeable.
 4.  **Plugin icon** — an icon identifier registered via the Icon
     :abbr:`API (Application Programming Interface)`, or a path prefixed with
-    ``EXT:``. Optional. Defaults to the generic plugin icon.
+    `EXT:`. Optional. Defaults to the generic plugin icon.
 5.  **Group** — groups the plugin in the content element wizard. Common values
-    are ``'plugins'`` (generic plugin group) or a custom group name matching
+    are `'plugins'` (generic plugin group) or a custom group name matching
     your extension.
 6.  **Description** — optional longer text shown in the content element wizard.
 7.  **FlexForm** — path to a FlexForm XML file that adds configurable fields to
     the content element in the backend, for example
-    ``'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml'``.
+    `'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml'`.
     Optional. Omit if the plugin needs no backend configuration form.
 
 Both calls must use the same extension name and plugin name. A mismatch means

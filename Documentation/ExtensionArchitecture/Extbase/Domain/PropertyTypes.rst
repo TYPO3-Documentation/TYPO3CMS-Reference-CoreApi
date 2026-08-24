@@ -179,7 +179,7 @@ or coordinates.
 In TYPO3 v13, these are typically used with the
 `Number <https://docs.typo3.org/permalink/t3tca:columns-number>`_ TCA field type.
 To accept and display decimal numbers in the backend form, the
-:php:`format` option must be set to ``decimal``.
+:php:`format` option must be set to `decimal`.
 
 ..  tabs::
 

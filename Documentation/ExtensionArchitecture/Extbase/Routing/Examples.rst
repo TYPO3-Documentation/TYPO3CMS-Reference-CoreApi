@@ -38,7 +38,7 @@ Key points:
 *   The pagination route :yaml:`/page-{page}` uses a static prefix :yaml:`page-`
     to distinguish it from the detail route :yaml:`/{conference_slug}`. Without
     the prefix, :samp:`/conferences/page-2` would match the detail route first
-    and try to resolve ``page-2`` as a conference slug.
+    and try to resolve `page-2` as a conference slug.
 *   :yaml:`fallbackValue: null` on the :yaml:`PersistedAliasMapper` means a
     deleted or hidden conference returns :php:`null` to the action rather
     than a 404. The action must declare the argument nullable and handle it

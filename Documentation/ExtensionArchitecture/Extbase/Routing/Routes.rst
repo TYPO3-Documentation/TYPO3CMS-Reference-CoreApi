@@ -133,7 +133,7 @@ matches instead.
 
 Strict requirements also affect URL generation: combined with a
 :ref:`StaticRangeMapper <extbase-routing-aspects-static-range>` aspect, they
-allow TYPO3 to treat the parameter as static and omit ``cHash`` from the
+allow TYPO3 to treat the parameter as static and omit `cHash` from the
 generated URL.
 
 Note that :yaml:`requirements` are ignored for any placeholder that has a

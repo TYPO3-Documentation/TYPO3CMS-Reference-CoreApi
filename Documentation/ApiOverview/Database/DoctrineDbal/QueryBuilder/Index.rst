@@ -1234,7 +1234,7 @@ a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
 The above example shows the importance of using :php:`->createNamedParameter()`:
-The search word ``kl'aus`` is "tainted" and would break the query if not
+The search word `kl'aus` is "tainted" and would break the query if not
 channeled through :php:`->createNamedParameter()`, which quotes the backtick and
 makes the value SQL injection-safe.
 
@@ -1390,7 +1390,7 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 
 :php:`->quoteIdentifier()` must be used when not a value but a field name is
 handled. The quoting is different in those cases and typically ends up with
-backticks ````` instead of ticks ``'``:
+backticks ````` instead of ticks `'`:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php

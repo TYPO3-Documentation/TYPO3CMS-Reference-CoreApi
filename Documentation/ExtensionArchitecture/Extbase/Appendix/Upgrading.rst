@@ -41,15 +41,15 @@ TYPO3 v12. In TYPO3 v14 the annotation syntax was removed entirely.
 +-----------------------------------+-----------------------------------+
 | Old annotation (removed in v14)   | New PHP attribute                 |
 +===================================+===================================+
-| ``@Extbase\ORM\Lazy``             | ``#[Lazy]``                       |
+| `@Extbase\ORM\Lazy`               | `#[Lazy]`                         |
 +-----------------------------------+-----------------------------------+
-| ``@Extbase\ORM\Cascade("remove")``| ``#[Cascade('remove')]``          |
+| `@Extbase\ORM\Cascade("remove")`  | `#[Cascade('remove')]`            |
 +-----------------------------------+-----------------------------------+
-| ``@Extbase\ORM\Transient``        | ``#[Transient]``                  |
+| `@Extbase\ORM\Transient`          | `#[Transient]`                    |
 +-----------------------------------+-----------------------------------+
-| ``@Extbase\Validate(...)``        | ``#[Validate(...)]``              |
+| `@Extbase\Validate(...)`          | `#[Validate(...)]`                |
 +-----------------------------------+-----------------------------------+
-| ``@Extbase\IgnoreValidation``     | ``#[IgnoreValidation]``           |
+| `@Extbase\IgnoreValidation`       | `#[IgnoreValidation]`             |
 +-----------------------------------+-----------------------------------+
 
 ..  code-block:: diff
@@ -105,9 +105,9 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 +-------------------------------------------------+-----------------------------+
 | Old array syntax (deprecated in v14)            | New named-argument syntax   |
 +=================================================+=============================+
-| ``#[Cascade(['value' => 'remove'])]``           | ``#[Cascade('remove')]``    |
+| `#[Cascade(['value' => 'remove'])]`             | `#[Cascade('remove')]`      |
 +-------------------------------------------------+-----------------------------+
-| ``#[Validate(['validator' => 'NotEmpty'])]``    | ``#[Validate('NotEmpty')]`` |
+| `#[Validate(['validator' => 'NotEmpty'])]`      | `#[Validate('NotEmpty')]`   |
 +-------------------------------------------------+-----------------------------+
 
 ..  important::
@@ -223,11 +223,11 @@ Magic `findBy`*(), `findOneBy`*(), `countBy`*() methods removed (TYPO3 v14)
 +------------------------------+------------------------------------+
 | Old (removed in v14)         | New                                |
 +==============================+====================================+
-| ``findByTitle($value)``      | ``findBy(['title' => $value])``    |
+| `findByTitle($value)`        | `findBy(['title' => $value])`      |
 +------------------------------+------------------------------------+
-| ``findOneByTitle($value)``   | ``findOneBy(['title' => $value])`` |
+| `findOneByTitle($value)`     | `findOneBy(['title' => $value])`   |
 +------------------------------+------------------------------------+
-| ``countByTitle($value)``     | ``count(['title' => $value])``     |
+| `countByTitle($value)`       | `count(['title' => $value])`       |
 +------------------------------+------------------------------------+
 
 :php:`findByUid()` and :php:`findByIdentifier()` are not affected and remain
@@ -307,8 +307,8 @@ list_type plugin removed; fifth parameter of `configurePlugin()` restricted (TYP
     :php:`\InvalidArgumentException` (:ref:`Important #105538 <changelog:important-105538-1730752784>`).
 
 Older extensions could pass
-:php:`ExtensionUtility::PLUGIN_TYPE_PLUGIN_LIST` (``'list_type'``) as the
-fifth argument, or register their plugin as a ``list_type`` TCA entry. Both
+:php:`ExtensionUtility::PLUGIN_TYPE_PLUGIN_LIST` (`'list_type'`) as the
+fifth argument, or register their plugin as a `list_type` TCA entry. Both
 approaches no longer work in TYPO3 v14.
 
 **What to do:**
@@ -349,23 +349,23 @@ resolve to the same translation entries and can be used interchangeably:
 +----------------------------------------------------------------------+--------------------------------------+
 | Legacy syntax                                                        | Domain syntax (v14+)                 |
 +======================================================================+======================================+
-| ``LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:key``      | ``my_ext.messages:key``              |
+| `LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:key`        | `my_ext.messages:key`                |
 +----------------------------------------------------------------------+--------------------------------------+
-| ``LLL:EXT:my_ext/Resources/Private/Language/locallang_db.xlf:key``   | ``my_ext.db:key``                    |
+| `LLL:EXT:my_ext/Resources/Private/Language/locallang_db.xlf:key`     | `my_ext.db:key`                      |
 +----------------------------------------------------------------------+--------------------------------------+
-| ``LLL:EXT:my_ext/Resources/Private/Language/locallang_val.xlf:key``  | ``my_ext.val:key``                   |
+| `LLL:EXT:my_ext/Resources/Private/Language/locallang_val.xlf:key`    | `my_ext.val:key`                     |
 +----------------------------------------------------------------------+--------------------------------------+
-| ``LLL:EXT:my_ext/Resources/Private/Language/Form/locallang.xlf:key`` | ``my_ext.form.messages:key``         |
+| `LLL:EXT:my_ext/Resources/Private/Language/Form/locallang.xlf:key`   | `my_ext.form.messages:key`           |
 +----------------------------------------------------------------------+--------------------------------------+
 
 The domain syntax follows the pattern :php:`extension_key.resource:label_key`.
 The resource name is derived from the file name:
 
-*   :file:`locallang.xlf` maps to the fixed resource name ``messages``.
-*   :file:`locallang_suffix.xlf` strips the ``locallang_`` prefix, leaving
-    ``suffix`` — so :file:`locallang_db.xlf` becomes ``db``.
+*   :file:`locallang.xlf` maps to the fixed resource name `messages`.
+*   :file:`locallang_suffix.xlf` strips the `locallang_` prefix, leaving
+    `suffix` — so :file:`locallang_db.xlf` becomes `db`.
 *   Subdirectories below :file:`Resources/Private/Language/` are prepended as
-    dot-separated parts — :file:`Form/locallang.xlf` becomes ``form.messages``.
+    dot-separated parts — :file:`Form/locallang.xlf` becomes `form.messages`.
 
 ..  seealso::
 
