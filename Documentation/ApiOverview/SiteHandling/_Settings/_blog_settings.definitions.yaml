@@ -14,10 +14,10 @@ settings:
     category: BlogExample.templates # (2)
     description: 'Path to template root'  # (4)
     type: string  # (6)
-    default: 'EXT:blog_example/Resources/Private/Templates/'  # (7) + (8)
+    default: 'EXT:blog_example/Resources/Private/Templates/'  # (8), unless overridden by a set
   blogExample.partialRootPath:
     label: 'Partials'
     category: BlogExample.templates
     description: 'Path to partial root'
     type: string
-    default: 'EXT:blog_example/Resources/Private/Partials/'
+    default: 'EXT:blog_example/Resources/Private/Partials/'  # (7)

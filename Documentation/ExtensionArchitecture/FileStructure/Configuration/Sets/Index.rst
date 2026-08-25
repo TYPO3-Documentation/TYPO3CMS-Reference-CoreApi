@@ -14,7 +14,7 @@ Each set must be in its own directory and consist of at least a
 :file:`config.yaml` file.
 
 
-.. _extension-configuration-sets-config-yaml:
+..  _extension-configuration-sets-config-yaml:
 
 ..  typo3:file:: config.yaml
     :name: set-config-yaml
@@ -27,10 +27,10 @@ Each set must be in its own directory and consist of at least a
 
 Example:
 
-.. literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.yaml
-   :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
+..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.yaml
+    :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
 
-.. _extension-configuration-sets-settings-yaml:
+..  _extension-configuration-sets-settings-yaml:
 
 ..  typo3:file:: settings.yaml
     :name: set-settings-yaml
@@ -41,10 +41,13 @@ Example:
     In this file an extension can override settings defined by other sets, for
     example, :ref:`settings defined in the "Fluid Styled Content" site set <typo3/cms-fluid-styled-content:site-set-fluid-styled-content-settings>`:
 
-    ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
-        :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
+    Values in this file do not create setting definitions. Every setting must
+    be defined by an active set before code relies on it.
 
-.. _extension-configuration-sets-settings-definitions-yaml:
+    ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
+        :caption: EXT:site_package/Configuration/Sets/SitePackage/settings.yaml
+
+..  _extension-configuration-sets-settings-definitions-yaml:
 
 ..  typo3:file:: settings.definitions.yaml
     :name: set-settings-definitions-yaml
@@ -55,7 +58,7 @@ Example:
     In this file an extension can define its own settings:
     `Site settings definitions <https://docs.typo3.org/permalink/t3coreapi:site-settings-definition>`_.
 
-.. _extension-configuration-sets-setup-typoscript:
+..  _extension-configuration-sets-setup-typoscript:
 
 ..  typo3:file:: setup.typoscript
     :name: set-setup-typoscript
@@ -76,7 +79,7 @@ Example:
     # For backward compatibility reasons setup.typoscript was not moved
     @import 'EXT:my_extension/Configuration/TypoScript/setup.typoscript'
 
-.. _extension-configuration-sets-constants-typoscript:
+..  _extension-configuration-sets-constants-typoscript:
 
 ..  typo3:file:: constants.typoscript
     :name: set-constants-typoscript
@@ -88,7 +91,7 @@ Example:
     This file should be used if the extension depends on other extensions
     that still rely on TypoScript constants.
 
-.. _extension-configuration-sets-page-tsconfig:
+..  _extension-configuration-sets-page-tsconfig:
 
 ..  typo3:file:: page.tsconfig
     :name: set-page-tsconfig
@@ -98,3 +101,14 @@ Example:
 
     This file contains the :ref:`Page TSconfig <t3tsref:pagetoplevelobjects>`
     (backend TypoScript).
+
+..  _extension-configuration-sets-route-enhancers-yaml:
+
+..  typo3:file:: route-enhancers.yaml
+    :name: set-route-enhancers-yaml
+    :scope: set
+    :regex: /^.*Configuration\/Sets\/[\w\-]+\/route-enhancers\.yaml$/
+    :shortDescription: Provides route enhancers for sites depending on this set.
+
+    This file contains route enhancer presets that are merged into the site
+    configuration. See :ref:`site-sets-route-enhancers`.

@@ -1,3 +1,5 @@
+:navigation-title: Setting definitions
+
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; Settings
 
@@ -7,36 +9,49 @@
 Site settings definitions
 =========================
 
-Site settings definitions allow to define settings with a type and a guaranteed
-default value. They can be defined in :ref:`site-sets`, in a file called
-:file:`settings.definitions.yaml <set-settings-definitions-yaml>`.
+Site settings definitions define the public configuration contract for site
+settings: their identifier, type and guaranteed default value. They are defined
+in :ref:`site-sets`, in a file called
+:file:`settings.definitions.yaml`.
 
-It is recommended to use site-sets and their UI configuration in favor of
-TypoScript Constants.
+..  important::
+    An extension that introduces a setting **MUST** also own and provide its
+    definition. This keeps the description, validation rules and fallback value
+    available wherever the feature is used. Integrating sets and individual
+    sites can then override the value without copying the contract.
 
-All available settings are displayed in the :ref:`site-settings-editor`.
+A value in :file:`settings.yaml` does not create a definition. Define a setting
+before reading or overriding it; see :ref:`sitehandling-settings`.
+
+All defined settings from the active sets are displayed in the
+:ref:`site-settings-editor`.
+
+Categories, labels and descriptions mainly describe how a setting appears to
+an integrator. The setting identifier, type and default define the runtime
+contract used by application code.
 
 The site settings provided by an extension can be automatically documented in
 the extensions manual, see
 :ref:`site settings documentation <h2document:reference-site-settings>`.
 
-..  contents:: Table of contents
+..  contents:: On this page
+    :local:
 
 ..  _site-settings-definition-example:
 
 Site setting definition example
 ===============================
 
-..  literalinclude:: _Settings/_blog_settings.definitions.yaml
-    :caption: EXT:blog_example/Configuration/Sets/BlogExample/settings.definitions.yaml (Excerpt)
+The top-level `settings` section contains the contracts, keyed by setting
+identifier. Each definition provides at least a type and a default value;
+labels and descriptions make it understandable in the editor.
 
-See the complete example at
-`settings.definitions.yaml (GitHub) <https://github.com/TYPO3-Documentation/blog_example/blob/main/Configuration/Sets/BlogExample/settings.definitions.yaml>`__.
+..  literalinclude:: _Settings/_site-settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsDefinition.png
-    :alt: Screenshot demonstration the position of the categories, labels etc
-
-    The parts marked by a number can be configured, see list below
+Categories are optional and do not change how a setting is read. See
+:ref:`sitehandling-settings-editor-configuration` for a complete annotated
+example with categories and the resulting editor fields.
 
 
 ..  _site-settings-definition-properties:
@@ -54,21 +69,34 @@ Site setting definition properties
         :type: array
         :name: site-settings-definition-categories
 
+        Defines groups used to organize settings in the editor.
+
         ..  confval:: label
             :type: string
             :name: site-settings-definition-categories-label
+
+            Human-readable category label.
 
         ..  confval:: parent
             :type: :confval:`site-settings-definition-categories` key
             :name: site-settings-definition-categories-parent
 
+            Places the category below another category.
+
     ..  confval:: settings
         :type: array
         :name: site-settings-definition-settings
 
+        Defines the settings provided by the set. Each array key is the
+        setting identifier.
+
         ..  confval:: label
             :type: string
             :name: site-settings-definition-settings-label
+
+            Required unless TYPO3 can derive the label from a
+            :file:`labels.xlf` file in the set directory. See
+            :ref:`site-settings-definition-translation`.
 
         ..  confval:: description
             :type: string
@@ -94,7 +122,7 @@ Site setting definition properties
             :name: site-settings-definition-settings-default
             :required:
 
-            The default value must have the same type like defined in
+            The default value must have the same type as defined in
             :confval:`site-settings-definition-settings-type`.
 
         ..  confval:: readonly
@@ -102,12 +130,12 @@ Site setting definition properties
             :name: site-settings-definition-settings-readonly
 
             If a site setting is marked as readonly, it can be overridden only
-            by editing  the :file:`config/sites/my-site/settings.yaml` directly,
+            by editing the :file:`config/sites/my-site/settings.yaml` directly,
             but not from within the editor.
 
         ..  confval:: enum
             :type: array
-            :name: enum
+            :name: site-settings-definition-settings-enum
             :types: :confval:`site-setting-type-string`
 
             ..  versionadded:: 14.2
@@ -115,7 +143,9 @@ Site setting definition properties
                 `Feature: #106640 - Localize enum labels in site settings definitions <https://docs.typo3.org/permalink/changelog:feature-106640-1766572100>`_.
 
             Site settings can provide possible options via the `enum` specifier,
-            that will be selectable in the editor GUI.
+            which are selectable in the editor. `enum` is not a separate
+            definition type; combine it with a compatible type such as
+            :confval:`site-setting-type-string`.
 
             List-style enum declarations (a plain array of values) derive a
             translation key using `settings.<settingKey>.enum.<enumValue>`,
@@ -128,14 +158,31 @@ Site setting definition properties
             ..  literalinclude:: _Settings/_enum_settings.definitions.yaml
                 :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
+            ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeEnum.png
+                :alt: Screenshot of a site setting with selectable enum values
+
+        ..  confval:: tags
+            :type: array
+            :name: site-settings-definition-settings-tags
+
+            Optional metadata tags for the setting definition.
+
+        ..  confval:: options
+            :type: array
+            :name: site-settings-definition-settings-options
+
+            Type-specific options. For example, the
+            :confval:`site-setting-type-url` type accepts a `pattern` option
+            for an additional regular expression check.
+
 ..  note::
     The `settings.definitions.yaml` does not allow any kind of imports. All
     settings must be defined in a single file.
 
 ..  _definition-types:
 
-Definition types
-================
+Setting types
+=============
 
 ..  confval-menu::
     :display: table
@@ -173,7 +220,7 @@ Definition types
         :Path: settings.[my_val].type = bool
 
         ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeBool.png
-            :alt: Screenshot of a site setting field of type enum
+            :alt: Screenshot of a site setting field of type bool
 
         If the value is already a boolean, it is returned directly 1 to 1.
 
@@ -203,23 +250,10 @@ Definition types
         :type: string
         :Path: settings.[my_val].type = text
 
-        Exactly the same as the `string` type. Use it as an alias if someone doesn't
-        know what to do with `string`.
+        Uses the same validation and conversion as the `string` type, but
+        identifies the setting as longer text in the editor.
 
         ..  literalinclude:: _Settings/_settings.definitions.text.yaml
-
-    ..  confval:: enum
-        :name: site-setting-type-enum
-        :type: string
-        :Path: settings.[my_val].type = enum
-
-        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeEnum.png
-            :alt: Screenshot of a site setting field of type enum
-
-        Site settings can provide possible options via the `enum` specifier, that will
-        be selectable in the editor GUI.
-
-        ..  literalinclude:: _Settings/_settings.definitions.enum.yaml
 
     ..  confval:: stringlist
         :name: site-setting-type-stringlist
@@ -270,19 +304,31 @@ Definition types
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
 
+    ..  confval:: url
+        :name: site-setting-type-url
+        :type: string
+        :Path: settings.[my_val].type = url
+
+        Validates that the value is a URL. An empty value is accepted. Use the
+        type-specific `options.pattern` property to require an additional
+        regular expression match.
+
+        ..  literalinclude:: _Settings/_settings.definitions.url.yaml
+
 ..  _site-settings-definition-translation:
 
 Translating labels and descriptions for settings
 ================================================
 
-To translate the labels and descriptions for the settings you have defined in
-:file:`settings.definition.yml`, remove the `label` entry from there and create a
-:file:`labels.xlf` file in the same directory.
+To translate labels and descriptions, create a :file:`labels.xlf` file next to
+the set's :file:`config.yaml` and :file:`settings.definitions.yaml`. TYPO3 uses
+different translation unit identifiers for the set, categories, settings and
+enum values. When a matching translation exists, you can omit the corresponding
+literal label or description from the YAML file.
 
-The key of the translation unit must be the key of the setting.
-For example, the label of the setting is simply `label` in the XLF file.
+The set label uses the translation unit identifier `label`:
 
-.. rubric:: Example
+..  rubric:: Example
 
 ..  code-block:: xml
     :caption: Example label definition in labels.xlf
@@ -337,7 +383,7 @@ To translate the label and description of a specific setting, use this structure
 Translating enum labels
 -----------------------
 
-To translate the labels of :confval:`enum` options for list-style enum
+To translate the labels of :confval:`enum <site-settings-definition-settings-enum>` options for list-style enum
 declarations (a plain array of values), use this structure:
 
 ..  literalinclude:: _Settings/_enum_list_settings.definitions.yaml
