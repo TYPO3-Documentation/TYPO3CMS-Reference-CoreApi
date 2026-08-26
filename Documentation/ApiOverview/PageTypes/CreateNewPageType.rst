@@ -79,6 +79,25 @@ identifiers with specific suffixes:
 *   **Page is a root page:** `tx-examples-archive-page-root`
 *   **Page contains content from another page:** `tx-examples-archive-page-contentFromPid`
 
+..  _page-types-example-wizard-steps:
+
+Configure the page creation wizard steps
+========================================
+
+..  versionadded:: 14.2
+    See `Feature: #109271 - Add TCA configuration for dynamic page creation wizard steps <https://docs.typo3.org/permalink/changelog:feature-109271-1742217000>`_.
+
+The steps shown for a page type in the page creation wizard can be configured
+via the `wizardSteps` TCA option. Each step has a title and a list of fields
+to display, and steps can be positioned relative to each other using `before`
+or `after`. Fields required for the page type but not assigned to any step
+are automatically added to a fallback step at the end.
+
+..  literalinclude:: _pages_wizardSteps.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
+
+See :ref:`the wizardSteps TCA reference <t3tca:types-wizardSteps>` for details.
+
 ..  _page-types-example-page-wizard:
 ..  _page-types-example-dynamic-configuration:
 
