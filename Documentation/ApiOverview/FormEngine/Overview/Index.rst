@@ -56,12 +56,12 @@ is then passed onto FormEngine rendering to produce a result array containing al
 
 ..  deprecated:: 14.2
     The `outerWrapContainer` render type has been deprecated in favour of
-    `formWrapContainer`. 
-    The new container no longer renders the record
+    `formWrapContainer`. The new container no longer renders the record
     heading or the record identity footer (icon, table title, uid) — that
     responsibility has moved to the controllers. If your controller relied on
-    :php:`OuterWrapContainer` rendering those elements, you need to render them
-    in your controller code after switching.
+    :php-short:`\TYPO3\CMS\Backend\Form\Container\OuterWrapContainer` rendering
+    those elements, you need to render them in your controller code after
+    switching.
     See `Deprecation: #109192 - FormEngine OuterWrapContainer <https://docs.typo3.org/permalink/changelog:deprecation-109192-1741560000>`_.
 
 In code, the basic workflow looks like this:
