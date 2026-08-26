@@ -1,0 +1,8 @@
+settings:
+  mycustomsetting:
+    label: 'My custom setting'
+    type: string
+    enum:
+      optionA: 'LLL:EXT:my_extension/Configuration/Sets/MySet/labels.xlf:settings.custom.optionA'
+      optionB: 'Literal Option B'
+      optionC:
