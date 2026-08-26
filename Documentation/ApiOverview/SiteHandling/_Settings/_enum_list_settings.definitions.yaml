@@ -1,0 +1,7 @@
+settings:
+  mycustomsetting:
+    label: 'My custom setting'
+    type: string
+    enum:
+      - optionA
+      - optionB
