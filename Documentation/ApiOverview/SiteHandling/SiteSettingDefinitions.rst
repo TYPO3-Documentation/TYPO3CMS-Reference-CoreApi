@@ -110,8 +110,20 @@ Site setting definition properties
             :name: enum
             :types: :confval:`site-setting-type-string`
 
+            ..  versionadded:: 14.2
+                Enum labels can be localized, see
+                `Feature: #106640 - Localize enum labels in site settings definitions <https://docs.typo3.org/permalink/changelog:feature-106640-1766572100>`_.
+
             Site settings can provide possible options via the `enum` specifier,
             that will be selectable in the editor GUI.
+
+            List-style enum declarations (a plain array of values) derive a
+            translation key using `settings.<settingKey>.enum.<enumValue>`,
+            see :ref:`Translating enum labels
+            <site-settings-definition-translation-enum>`. Map-style enum
+            declarations (`value: label`) use the given label directly: it
+            can be a literal string, an explicit `LLL:` reference, or
+            omitted to fall back to the enum value itself.
 
             ..  literalinclude:: _Settings/_enum_settings.definitions.yaml
                 :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
@@ -319,6 +331,45 @@ To translate the label and description of a specific setting, use this structure
     <trans-unit id="settings.description.mycustomsetting">
         <source>My Custom Setting description</source>
     </trans-unit>
+
+..  _site-settings-definition-translation-enum:
+
+Translating enum labels
+-----------------------
+
+To translate the labels of :confval:`enum` options for list-style enum
+declarations (a plain array of values), use this structure:
+
+..  literalinclude:: _Settings/_enum_list_settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+
+..  code-block:: xml
+    :caption: Matching labels in labels.xlf
+
+    <trans-unit id="settings.mycustomsetting.enum.optionA">
+        <source>Option A</source>
+    </trans-unit>
+    <trans-unit id="settings.mycustomsetting.enum.optionB">
+        <source>Option B</source>
+    </trans-unit>
+
+Map-style enum declarations (`value: label`) are independent of this key
+schema: the given label is used as-is, unless it is an explicit `LLL:`
+reference.
+
+..  literalinclude:: _Settings/_enum_map_settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+
+..  code-block:: xml
+    :caption: Referenced label in labels.xlf
+
+    <trans-unit id="settings.custom.optionA">
+        <source>Option A (localized)</source>
+    </trans-unit>
+
+In this example, `optionA` resolves the referenced `LLL:` label, `optionB`
+keeps its literal label as-is, and `optionC` has no label and falls back to
+the enum value `optionC` itself.
 
 ..  _site-settings-definition-translation-languages:
 
