@@ -3,6 +3,12 @@
 return [
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Filelist\Event\AfterFileListRowPreparedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Filelist/AfterFileListRowPreparedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Filelist\Event\ProcessFileListActionsEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Filelist/ProcessFileListActionsEvent.rst.txt',
         'withCode' => false,
