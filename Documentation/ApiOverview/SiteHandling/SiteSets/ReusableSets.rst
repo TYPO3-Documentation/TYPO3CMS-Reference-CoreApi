@@ -98,9 +98,9 @@ Define an optional dependency on EXT:form
 -----------------------------------------
 
 Optional dependencies work similarly to `suggest` in :file:`composer.json`
-(see :ref:`Sets <t3coreapi:ext-composer-json-properties>`). An optional dependency is
-loaded only when the referenced site set is available. If it is unavailable,
-TYPO3 skips it without reporting an error.
+(see :ref:`composer.json properties <ext-composer-json-properties>`). An
+optional dependency is loaded only when the referenced site set is available.
+If it is unavailable, TYPO3 skips it without reporting an error.
 
 In this example, the `typo3/form` set is loaded when it is available:
 
