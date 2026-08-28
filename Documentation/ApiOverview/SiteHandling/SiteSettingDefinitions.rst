@@ -133,6 +133,8 @@ Site setting definition properties
             by editing the :file:`config/sites/my-site/settings.yaml` directly,
             but not from within the editor.
 
+        ..  _confval-site-setting-type-enum:
+
         ..  confval:: enum
             :type: array
             :name: site-settings-definition-settings-enum
