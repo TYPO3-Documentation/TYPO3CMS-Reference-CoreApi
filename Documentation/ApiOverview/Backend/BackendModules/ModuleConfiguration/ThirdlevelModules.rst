@@ -38,7 +38,7 @@ file of an extension:
        'path' => '/module/content/typoscript/custom-info',
        'iconIdentifier' => 'module-custom-info',
        'labels' => [
-           'title' => 'LLL:EXT:extkey/Resources/Private/Language/locallang.xlf:mod_title',
+           'title' => 'extkey.messages:mod_title',
        ],
        'routes' => [
            '_default' => [

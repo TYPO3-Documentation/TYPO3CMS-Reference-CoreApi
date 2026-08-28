@@ -18,7 +18,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
         'doktype',
         new SelectItem(
             'select',
-            label: 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
+            label: 'examples.messages:archive_page_type',
             value: $customPageDoktype,
             icon: $customIconClass,
             group: 'special',

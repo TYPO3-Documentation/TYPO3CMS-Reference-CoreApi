@@ -6,7 +6,7 @@ page.10.template.value (
   <f:translate key="onlineDocumentation" extensionName="backend" />
 
   # infer from language key
-  <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:onlineDocumentation" />
+  <f:translate key="backend.messages:onlineDocumentation" />
 
   # should not work because the locallang.xlf does not exist, but works right now
   <f:translate key="LLL:EXT:backend/Resources/locallang.xlf:onlineDocumentation" />

@@ -9,6 +9,6 @@ defined('TYPO3') or die();
 ExtensionUtility::registerPlugin(
     'MyExtension',
     'ConferenceList',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:plugin.conferencelist.title',
+    'my_extension.messages:plugin.conferencelist.title',
     'content-plugin',
 );

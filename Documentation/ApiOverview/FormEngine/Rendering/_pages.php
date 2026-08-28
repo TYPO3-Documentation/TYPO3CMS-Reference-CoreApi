@@ -3,7 +3,7 @@
 defined('TYPO3') or die();
 
 (static function (): void {
-    $langFile = 'LLL:EXT:my_extension/Ressources/Private/Language/locallang.xlf';
+    $langFile = 'my_extension.messages';
 
     $GLOBALS['TCA']['pages']['columns']['somefield'] = [
         'label' => $langFile . ':pages.somefield',

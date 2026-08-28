@@ -66,7 +66,7 @@ Register a new toplevel module in your extension:
 
    return [
        'myextension' => [
-           'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_mod_web.xlf',
+           'labels' => 'my_extension.mod_web',
            'iconIdentifier' => 'modulegroup-myextension',
            'navigationComponent' => '@typo3/backend/page-tree/page-tree-element',
        ]
