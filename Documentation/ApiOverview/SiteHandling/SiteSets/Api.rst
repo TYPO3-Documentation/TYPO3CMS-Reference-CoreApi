@@ -8,10 +8,14 @@
 Site set PHP API
 ================
 
-The API answers two different questions. Use the site object when code needs
-the effective settings of one site after defaults and overrides have been
-composed. Use :php-short:`\TYPO3\CMS\Core\Site\Set\SetRegistry` when code needs
-to inspect which set definitions are available independently of a site.
+This page answers two different questions: *what are this site's effective
+settings* and *what set definitions exist at all*. Use the site object for
+the first — it holds the effective settings of one site after defaults and
+overrides have been composed.
+
+Use :php-short:`\TYPO3\CMS\Core\Site\Set\SetRegistry` for the second — it
+lets code inspect which set definitions are available independently of any
+site.
 
 Do not use the registry to rebuild a site's configuration. The site object
 already contains the correctly resolved result.
