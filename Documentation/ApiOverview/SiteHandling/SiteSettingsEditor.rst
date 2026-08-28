@@ -25,7 +25,7 @@ Edit site settings
 ==================
 
 Open :guilabel:`Sites > Setup > Settings` to see all sites with editable
-:ref:`sitehandling-settings`:
+:ref:`site settings <sitehandling-settings>`:
 
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsOverview.png
     :alt: Screenshot of the Site Setup module in overview, button "Edit site settings" is highlighted
@@ -44,14 +44,14 @@ and subcategories to order the settings.
 
 The editor displays only settings defined by an active set, for example in
 :file:`EXT:my_sitepackage/Configuration/Sets/MySitepackage/settings.definitions.yaml`.
-See :ref:`site-settings-definition`.
+See :ref:`Site settings definitions <site-settings-definition>`.
 
 Settings that have been made directly in the :file:`settings.yaml` file without a
 corresponding entry in a :file:`settings.definitions.yaml` are not displayed in
 the editor as they have neither a type nor a label. These values are, however,
 retained for backward compatibility when the editor writes to the
 :file:`settings.yaml` file. They are not part of the supported configuration
-contract described in :ref:`sitehandling-settings`.
+contract described in :ref:`Site settings <sitehandling-settings>`.
 
 ..  _sitehandling-settings-editor-configuration:
 
@@ -90,7 +90,7 @@ appears:
     displays it in advanced mode.
 
 6.  **Type:** The `type` selects the form control and validates and converts
-    the submitted value. See :ref:`definition-types`.
+    the submitted value. See :ref:`definition types <definition-types>`.
 
 7.  **Displayed value:** The field contains the effective value. In this
     example no set or site overrides `blogExample.partialRootPath`, so TYPO3
@@ -99,7 +99,7 @@ appears:
 8.  **Reset value:** Resetting a field discards its site-specific override and
     restores the inherited value. This is the value supplied by an active set,
     or the definition's `default` when no set overrides it. See
-    :ref:`sitehandling-settings-resolution` for the complete resolution order.
+    :ref:`How a setting value is resolved <sitehandling-settings-resolution>` for the complete resolution order.
 
     ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsReset.png
         :alt: Screenshot showing the "Reset settings" button in the settings popup menu

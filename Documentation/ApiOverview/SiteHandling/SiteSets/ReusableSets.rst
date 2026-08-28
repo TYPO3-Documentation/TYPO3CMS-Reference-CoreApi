@@ -12,7 +12,7 @@ A site package usually provides one set that configures a specific project. A
 reusable extension can provide one base set and additional sets for optional
 features. Both use the same file conventions and dependency mechanism.
 
-The :ref:`site-sets` chapter provides the quickstart and file reference. This
+The :ref:`Site sets <site-sets>` chapter provides the quickstart and file reference. This
 article builds on those mechanics and focuses on design decisions using complete
 extension examples.
 
@@ -98,7 +98,7 @@ Define an optional dependency on EXT:form
 -----------------------------------------
 
 Optional dependencies work similarly to `suggest` in :file:`composer.json`
-(see :ref:`t3coreapi:ext-composer-json-properties`). An optional dependency is
+(see :ref:`Sets <t3coreapi:ext-composer-json-properties>`). An optional dependency is
 loaded only when the referenced site set is available. If it is unavailable,
 TYPO3 skips it without reporting an error.
 

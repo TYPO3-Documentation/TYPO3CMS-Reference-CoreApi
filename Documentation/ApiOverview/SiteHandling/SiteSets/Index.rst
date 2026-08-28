@@ -109,8 +109,8 @@ Supported files
 :file:`route-enhancers.yaml`
     Provides route enhancer presets.
 
-See :ref:`extension-configuration-sets` for the detailed configuration file
-reference and :ref:`site-settings-definition-translation` for
+See :ref:`Sets <extension-configuration-sets>` for the detailed configuration file
+reference and :ref:`translating labels and descriptions for settings <site-settings-definition-translation>` for
 :file:`labels.xlf`.
 
 Most sets need only some of these files. A set that exposes configurable values
@@ -179,15 +179,15 @@ following example defines a color setting:
         default: '#ffffff'
 
 The definition establishes the setting identifier, type and default value. It
-also makes the setting available in the :ref:`site-settings-editor`. See
-:ref:`site-settings-definition` for all properties and supported types.
+also makes the setting available in the :ref:`Site settings editor <site-settings-editor>`. See
+:ref:`Site settings definitions <site-settings-definition>` for all properties and supported types.
 
 ..  important::
     :file:`settings.yaml` can only override the value of a setting. It never
     defines the setting itself. Every setting that application code relies on
     must first be defined in :file:`settings.definitions.yaml` by an active set.
     Only that definition provides the type, default value, validation rules and
-    editor metadata. See :ref:`site-settings-definition` for the complete
+    editor metadata. See :ref:`Site settings definitions <site-settings-definition>` for the complete
     configuration contract.
 
 ..  _site-sets-settings:
@@ -208,7 +208,7 @@ Create :file:`settings.yaml` when the set should override a defined default:
     myExtension.backgroundColor: '#386492'
 
 A site-specific value in :file:`config/sites/my-site/settings.yaml` takes
-precedence over the value from the set. See :ref:`sitehandling-settings` for
+precedence over the value from the set. See :ref:`Site settings <sitehandling-settings>` for
 the complete loading and access rules.
 
 ..  _site-sets-providers:
@@ -351,7 +351,7 @@ Application code can read them through the site object:
     );
 
 Because the setting is defined, TYPO3 validates the value as a color and uses
-the default when no set or site override exists. See :ref:`site-sets-php-api`
+the default when no set or site override exists. See :ref:`Site set PHP API <site-sets-php-api>`
 for more PHP examples.
 
 ..  _site-sets-dependencies:
@@ -379,7 +379,7 @@ A set can declare required and optional dependencies in :file:`config.yaml`:
 
 TYPO3 resolves dependencies recursively and loads them before the current set.
 If several sets require the same dependency, TYPO3 loads it only once. See
-:ref:`site-sets-example-site-package-set-optional` for a complete example.
+:ref:`Define an optional dependency on EXT:form <site-sets-example-site-package-set-optional>` for a complete example.
 
 A set dependency describes a configuration relationship; it does not install
 the extension that provides the referenced set. Use a required dependency when
@@ -445,10 +445,10 @@ or :file:`config/sites/<my-site>/config.yaml` for that information.
 Keep going
 ==========
 
-*   :ref:`site-sets-examples` explains conventions for site packages and
+*   :ref:`Reusable site sets <site-sets-examples>` explains conventions for site packages and
     reusable extension sets.
-*   :ref:`sitehandling-settings` explains value precedence and all access
+*   :ref:`Site settings <sitehandling-settings>` explains value precedence and all access
     methods.
-*   :ref:`site-settings-definition` is the property and type reference.
-*   :ref:`site-settings-editor` explains the backend editor.
-*   :ref:`site-sets-php-api` documents the PHP API.
+*   :ref:`Site settings definitions <site-settings-definition>` is the property and type reference.
+*   :ref:`Site settings editor <site-settings-editor>` explains the backend editor.
+*   :ref:`Site set PHP API <site-sets-php-api>` documents the PHP API.

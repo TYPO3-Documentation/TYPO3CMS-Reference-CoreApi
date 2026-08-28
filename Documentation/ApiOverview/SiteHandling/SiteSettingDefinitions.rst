@@ -11,7 +11,7 @@ Site settings definitions
 
 Site settings definitions define the public configuration contract for site
 settings: their identifier, type and guaranteed default value. They are defined
-in :ref:`site-sets`, in a file called
+in :ref:`site sets <site-sets>`, in a file called
 :file:`settings.definitions.yaml`.
 
 ..  important::
@@ -21,10 +21,10 @@ in :ref:`site-sets`, in a file called
     sites can then override the value without copying the contract.
 
 A value in :file:`settings.yaml` does not create a definition. Define a setting
-before reading or overriding it; see :ref:`sitehandling-settings`.
+before reading or overriding it; see :ref:`site settings <sitehandling-settings>`.
 
 All defined settings from the active sets are displayed in the
-:ref:`site-settings-editor`.
+:ref:`site settings editor <site-settings-editor>`.
 
 Categories, labels and descriptions mainly describe how a setting appears to
 an integrator. The setting identifier, type and default define the runtime
@@ -50,7 +50,7 @@ labels and descriptions make it understandable in the editor.
     :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
 Categories are optional and do not change how a setting is read. See
-:ref:`sitehandling-settings-editor-configuration` for a complete annotated
+:ref:`Configuring the site settings editor <sitehandling-settings-editor-configuration>` for a complete annotated
 example with categories and the resulting editor fields.
 
 
@@ -96,7 +96,7 @@ Site setting definition properties
 
             Required unless TYPO3 can derive the label from a
             :file:`labels.xlf` file in the set directory. See
-            :ref:`site-settings-definition-translation`.
+            :ref:`Translating labels and descriptions for settings <site-settings-definition-translation>`.
 
         ..  confval:: description
             :type: string

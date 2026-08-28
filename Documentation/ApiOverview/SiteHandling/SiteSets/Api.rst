@@ -32,7 +32,7 @@ Read site settings through the
     $color = $site->getSettings()->get('website.background.color');
 
 For a defined setting, TYPO3 validates and converts the returned value and
-uses the default when no override exists. See :ref:`sitehandling-settings` for
+uses the default when no override exists. See :ref:`Site settings <sitehandling-settings>` for
 details, including the requirement to define settings before relying on them.
 
 The caller should depend on the setting contract provided by the active set,

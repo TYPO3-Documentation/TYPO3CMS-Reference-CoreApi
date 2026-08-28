@@ -52,7 +52,7 @@ Access defined site settings through:
 *   variables such as
     :fluid:`{site.configuration.settings.mySettingKey}` in Fluid templates when
     using the :typoscript:`SiteProcessor` data processor; see
-    :ref:`sitehandling-inTypoScript`.
+    :ref:`Using site configuration in TypoScript and Fluid templates <sitehandling-inTypoScript>`.
 
 Use them for values that vary by site, such as storage page IDs or
 feature-specific presentation options.
@@ -215,7 +215,7 @@ Site settings in page TSconfig or TypoScript
 
 TYPO3 exposes the *effective value* of a site setting, not its definition. It
 first composes the default and all applicable overrides as described in
-:ref:`sitehandling-settings-resolution`. Scalar values are then added to the
+:ref:`How a setting value is resolved <sitehandling-settings-resolution>`. Scalar values are then added to the
 TypoScript constants with exactly the same identifier as the setting.
 
 The definition remains the contract behind that value. Its metadata, such as
@@ -231,7 +231,7 @@ Pass a setting to TypoScript
 
 This example passes a page ID from a site setting to an Extbase plugin. The
 extension has already defined `myExtension.categoryPid` and the site has
-overridden it to `658` in :ref:`sitehandling-settings-add`.
+overridden it to `658` in :ref:`Defining and overriding site settings <sitehandling-settings-add>`.
 
 After TYPO3 has resolved the setting, the identifier is available as the
 TypoScript constant :typoscript:`{$myExtension.categoryPid}`. It can be assigned
@@ -358,5 +358,5 @@ one.
 
     When site sets and :sql:`sys_template` records are combined, also observe
     the :guilabel:`Clear` flags described in
-    :ref:`site-sets-typoscript`. They can clear TypoScript that was provided by
+    :ref:`Site set TypoScript <site-sets-typoscript>`. They can clear TypoScript that was provided by
     the site and its sets.

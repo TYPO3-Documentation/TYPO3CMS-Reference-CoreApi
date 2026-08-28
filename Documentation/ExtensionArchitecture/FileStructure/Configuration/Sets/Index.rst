@@ -111,4 +111,4 @@ Example:
     :shortDescription: Provides route enhancers for sites depending on this set.
 
     This file contains route enhancer presets that are merged into the site
-    configuration. See :ref:`site-sets-route-enhancers`.
+    configuration. See :ref:`Route enhancers <site-sets-route-enhancers>`.
