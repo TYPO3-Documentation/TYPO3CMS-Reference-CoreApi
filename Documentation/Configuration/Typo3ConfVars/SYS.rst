@@ -163,9 +163,19 @@ configuration.
     (default).
 
     The default value :php:`SERVER_NAME` checks if the HTTP Host header equals
-    the SERVER_NAME and SERVER_PORT. This is secure in correctly configured
-    hosting environments and does not need further configuration. If you cannot
-    change your hosting environment, you can enter a regular expression here.
+    the SERVER_NAME and SERVER_PORT. This is secure in **correctly configured
+    hosting environments** and does not need further configuration. 
+
+    Correctly configured means the web server determines SERVER_NAME from its 
+    own configuration rather than from the request. In Apache, an explicit 
+    ServerName on the virtual host together with :php:`UseCanonicalName On;`. 
+    In nginx, an explicit server_name with the SERVER_NAME parameter mapped 
+    to :php:`$server_name`. Without this, the webserver derives SERVER_NAME 
+    from the client-supplied Host header and the check compares the value 
+    against itself.
+    
+    If you cannot change your hosting environment, you can enter a regular 
+    expression here.
 
     Examples:
 
