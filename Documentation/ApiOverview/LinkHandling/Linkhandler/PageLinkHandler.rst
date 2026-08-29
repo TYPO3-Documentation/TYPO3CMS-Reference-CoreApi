@@ -20,7 +20,7 @@ The PageLinkHandler is preconfigured in the page TSconfig as:
    TCEMAIN.linkHandler {
       page {
          handler = TYPO3\CMS\Backend\LinkHandler\PageLinkHandler
-         label = LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf:page
+         label = backend.browse_links:page
       }
    }
 

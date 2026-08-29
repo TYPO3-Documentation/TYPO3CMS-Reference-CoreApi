@@ -7,7 +7,7 @@ use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask;
 
 defined('TYPO3') or die();
 
-$lll = 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:';
+$lll = 'my_extension.messages:';
 
 // Add caching framework garbage collection task
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks']

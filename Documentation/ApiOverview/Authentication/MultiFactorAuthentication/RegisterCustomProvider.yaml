@@ -5,7 +5,7 @@ services:
     tags:
       - name: mfa.provider
         identifier: 'my-provider'
-        title: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider.title'
-        description: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider.description'
-        setupInstructions: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider.setupInstructions'
+        title: 'my_extension.messages:myProvider.title'
+        description: 'my_extension.messages:myProvider.description'
+        setupInstructions: 'my_extension.messages:myProvider.setupInstructions'
         icon: 'tx-myextension-provider-icon'

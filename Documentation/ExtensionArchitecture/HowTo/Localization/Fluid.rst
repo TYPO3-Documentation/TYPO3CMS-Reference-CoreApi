@@ -47,9 +47,9 @@ the text fragment prefixed by the location file can be provided.
 .. code-block:: html
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-   <f:translate key="LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey" />
+   <f:translate key="my_extension.your_file:yourKey" />
    <!-- or as inline Fluid: -->
-   {f:translate(key: 'LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey')}
+   {f:translate(key: 'my_extension.your_file:yourKey')}
 
 
 The text fragment will now be displayed in the current frontend language
@@ -67,7 +67,7 @@ avoid no text being displayed:
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <f:translate
-       key="LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey"
+       key="my_extension.your_file:yourKey"
        default="No translation available."
    />
 

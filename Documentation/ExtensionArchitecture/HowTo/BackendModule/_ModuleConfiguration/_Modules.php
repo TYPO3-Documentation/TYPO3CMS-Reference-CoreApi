@@ -110,7 +110,7 @@ return [
         'access' => 'admin',
         'workspaces' => 'live',
         'path' => '/module/system/example',
-        'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
+        'labels' => 'examples.admin_module.mod',
         'iconIdentifier' => 'tx_examples-backend-module',
         'routes' => [
             '_default' => [
