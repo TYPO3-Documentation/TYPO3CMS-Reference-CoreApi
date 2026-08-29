@@ -308,7 +308,7 @@ Additional notes about the mail spool path:
 *   If the path is relative, the public web path is prepended to the path
 *   The path must not contain symlinks (important for environments with auto
     deployment)
-*   The path must not contain `//`, `..` or `\`
+*   The path must not contain `//`, `..` or `\\`
 
 ..  _mail-spooling-sending-spooled-mails:
 
