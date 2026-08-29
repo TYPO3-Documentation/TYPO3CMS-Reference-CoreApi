@@ -157,7 +157,7 @@ The four possible attributes on model properties are:
         :php:`#[Validate]` is repeatable — apply multiple validators to one
         property.
 
-Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
+Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM` namespace:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
