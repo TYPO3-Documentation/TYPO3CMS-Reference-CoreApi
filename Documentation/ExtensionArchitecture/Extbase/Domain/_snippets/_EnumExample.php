@@ -10,7 +10,7 @@ enum Status: string
     case IN_REVIEW = 'in-review';
     case PUBLISHED = 'published';
 
-    public const LLL_PREFIX = 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:status-';
+    public const LLL_PREFIX = 'my_extension.messages:status-';
 
     public function getLabel(): string
     {

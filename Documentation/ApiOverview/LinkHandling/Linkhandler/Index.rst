@@ -68,7 +68,7 @@ The minimal page TSconfig configuration is:
 
    TCEMAIN.linkHandler.anIdentifier {
        handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = LLL:EXT:extension/Resources/Private/Language/locallang.xlf:link.customTab
+       label = extension.messages:link.customTab
        configuration {
            table = tx_example_domain_model_item
        }

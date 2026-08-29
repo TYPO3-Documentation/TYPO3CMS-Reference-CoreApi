@@ -2,7 +2,7 @@
 
 [
     'ctrl' => [
-        'title' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_tea',
+        'title' => 'tea.db:tx_tea_domain_model_tea',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',

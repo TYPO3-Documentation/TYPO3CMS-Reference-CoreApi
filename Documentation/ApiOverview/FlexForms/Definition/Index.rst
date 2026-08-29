@@ -31,7 +31,7 @@ Select field
 
     <settings.orderBy>
         <label>
-            LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy
+            example.backend:settings.registration.orderBy
         </label>
         <config>
             <type>select</type>
@@ -39,13 +39,13 @@ Select field
             <items>
                 <numIndex index="0">
                     <label>
-                        LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.crdate
+                        example.backend:settings.registration.orderBy.crdate
                     </label>
                     <value>crdate</value>
                 </numIndex>
                 <numIndex index="1">
                     <label>
-                        LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.title
+                        example.backend:settings.registration.orderBy.title
                     </label>
                     <value>title</value>
                 </numIndex>
@@ -66,7 +66,7 @@ Populate a `select` field using a PHP function (`itemsProcFunc`)
 
     <settings.orderBy>
         <label>
-            LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy
+            example.backend:settings.registration.orderBy
         </label>
         <config>
             <type>select</type>

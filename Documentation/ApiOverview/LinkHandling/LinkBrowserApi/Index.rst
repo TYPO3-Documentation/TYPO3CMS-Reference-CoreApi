@@ -44,7 +44,7 @@ LinkBrowser tabs are registered in page TSconfig like this:
 
    TCEMAIN.linkHandler.<tabIdentifier> {
        handler = TYPO3\CMS\Backend\LinkHandler\FileLinkHandler
-       label = LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf:file
+       label = backend.browse_links:file
        displayAfter = page
        scanAfter = page
        configuration {

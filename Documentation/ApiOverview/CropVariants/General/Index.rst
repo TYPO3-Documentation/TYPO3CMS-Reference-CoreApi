@@ -34,27 +34,27 @@ Each crop variant has at least one *ratio configuration* defined under `allowedA
          'type' => 'imageManipulation',
          'cropVariants' => [
              'mobile' => [
-                 'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
+                 'title' => 'ext_key.messages:imageManipulation.mobile',
                  'allowedAspectRatios' => [
                      '4:3' => [
-                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                         'title' => 'core.wizards:imwizard.ratio.4_3',
                          'value' => 4 / 3
                      ],
                      'NaN' => [
-                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                         'title' => 'core.wizards:imwizard.ratio.free',
                          'value' => 0.0
                      ],
                  ],
              ],
              'desktop' => [
-                 'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.desktop',
+                 'title' => 'ext_key.messages:imageManipulation.desktop',
                  'allowedAspectRatios' => [
                      '4:3' => [
-                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                         'title' => 'core.wizards:imwizard.ratio.4_3',
                          'value' => 4 / 3
                      ],
                      'NaN' => [
-                         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                         'title' => 'core.wizards:imwizard.ratio.free',
                          'value' => 0.0
                      ],
                  ],
@@ -78,7 +78,7 @@ The example below has an initial crop area in the same size that the previous im
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
-                'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
+                'title' => 'ext_key.messages:imageManipulation.mobile',
                 'cropArea' => [
                     'x' => 0.1,
                     'y' => 0.1,
@@ -111,7 +111,7 @@ and centered.
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
-                'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
+                'title' => 'ext_key.messages:imageManipulation.mobile',
                 'focusArea' => [
                     'x' => 1 / 3,
                     'y' => 1 / 3,
@@ -140,7 +140,7 @@ the crop area. The focus area cannot intersect with any cover areas.
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
-                'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
+                'title' => 'ext_key.messages:imageManipulation.mobile',
                 'coverAreas' => [
                     [
                         'x' => 0.05,

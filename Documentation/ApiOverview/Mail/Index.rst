@@ -408,7 +408,7 @@ In Fluid, you can now use the defined language key ("language"):
 
 ..  code-block:: html
 
-    <f:translate languageKey="{language}" id="LLL:EXT:my_extension/Resources/Private/Language/emails.xml:subject" />
+    <f:translate languageKey="{language}" id="my_extension.emails:subject" />
 
 ..  _mail-fluid-email-set-request:
 

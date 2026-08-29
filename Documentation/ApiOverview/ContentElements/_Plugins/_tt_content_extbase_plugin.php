@@ -9,8 +9,8 @@ defined('TYPO3') or die();
 ExtensionUtility::registerPlugin(
     'MyExtension',
     'MyPlugin',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:my_plugin.title',
+    'my_extension.messages:my_plugin.title',
     'myextension_pluginicon',
     'plugins',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:my_plugin.description',
+    'my_extension.messages:my_plugin.description',
 );
