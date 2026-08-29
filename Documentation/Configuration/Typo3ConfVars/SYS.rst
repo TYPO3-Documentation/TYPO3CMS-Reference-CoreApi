@@ -168,7 +168,7 @@ configuration.
 
     Correctly configured means the web server determines SERVER_NAME from its 
     own configuration rather than from the request. In Apache, an explicit 
-    ServerName on the virtual host together with :php:`UseCanonicalName On;`. 
+    ServerName on the virtual host together with `UseCanonicalName On`.
     In nginx, an explicit server_name with the SERVER_NAME parameter mapped 
     to :php:`$server_name`. Without this, the webserver derives SERVER_NAME 
     from the client-supplied Host header and the check compares the value 
