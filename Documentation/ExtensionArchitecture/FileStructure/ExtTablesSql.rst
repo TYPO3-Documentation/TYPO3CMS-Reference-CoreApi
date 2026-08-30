@@ -255,6 +255,22 @@ auto-generated fields, if they are not manually defined in the
 :php:`['ctrl']['translationSource'] = 'my_field_name'`
     Often set to :sql:`l10n_source`.
 
+:sql:`language_identifier` and :sql:`translation_source` indexes
+    Added for every language-aware table, based on the language
+    :ref:`t3tca:ctrl` configuration alone - independent of whether the
+    fields above were added here or already declared in
+    :file:`ext_tables.sql`. The :sql:`language_identifier` index covers
+    :php:`['ctrl']['transOrigPointerField']` and
+    :php:`['ctrl']['languageField']`. If :php:`['ctrl']['translationSource']`
+    is set, the :sql:`translation_source` index additionally covers that
+    field, so that both ways of matching a translation - by translation
+    source, or by the translation origin pointer for translations saved
+    without one - resolve through a single index.
+
+    See `Important: #110454 - Translation source index covers the
+    translation lookups
+    <https://docs.typo3.org/permalink/changelog:important-110454-1786550456>`_.
+
 :sql:`l10n_state`
     Column added if :php:`['ctrl']['languageField']` and
     :php:`['ctrl']['transOrigPointerField']` are set.
