@@ -104,7 +104,7 @@ The following page TSconfig example creates a simple backend layout consisting o
                    columns {
                      1 {
                        identifier = border
-                       name = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:colPos.I.3
+                       name = frontend.ttc:colPos.I.3
                        allowedContentTypes = html, text, ...
                        colPos = 3
                        colspan = 1

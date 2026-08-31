@@ -11,14 +11,14 @@ ExtensionManagementUtility::addTcaSelectItemGroup(
     'tt_content',
     'CType',
     'myextension_myplugingroup',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_myplugin.group',
+    'my_extension.messages:myextension_myplugin.group',
 );
 
 ExtensionUtility::registerPlugin(
     'my_extension',
     'MyPlugin',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_myplugin_title',
+    'my_extension.messages:myextension_myplugin_title',
     'myextension_myplugin',
     'myextension_myplugingroup',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_myplugin_description',
+    'my_extension.messages:myextension_myplugin_description',
 );

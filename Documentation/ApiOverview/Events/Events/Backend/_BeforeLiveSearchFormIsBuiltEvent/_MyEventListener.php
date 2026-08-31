@@ -13,7 +13,7 @@ final class BeforeLiveSearchFormIsBuiltEventListener
     public function __invoke(BeforeLiveSearchFormIsBuiltEvent $event): void
     {
         $event->addHints(...[
-            'LLL:EXT:my-package/Resources/Private/Language/locallang.xlf:identifier',
+            'my_package.messages:identifier',
         ]);
         $event->setAdditionalViewData(['myVariable' => 'some data']);
     }

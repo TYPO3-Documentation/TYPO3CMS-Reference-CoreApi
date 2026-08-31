@@ -5,7 +5,7 @@
          'label' => 'Example - basic content',
          'value' => $key,
 +        'icon' => 'examples-icon-basic',
-+        'description' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:basic_content.description',
++        'description' => 'examples.db:basic_content.description',
          'group' => 'default',
      ],
      'textmedia',

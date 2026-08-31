@@ -25,7 +25,7 @@ or :file:`config/system/additional.php`  like this:
         'provider' => \MyVendor\MyExtension\LoginProvider\CustomLoginProvider::class,
         'sorting' => 50,
         'iconIdentifier' => 'actions-key',
-        'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.link'
+        'label' => 'backend.messages:login.link'
     ];
 
 The settings are defined as:

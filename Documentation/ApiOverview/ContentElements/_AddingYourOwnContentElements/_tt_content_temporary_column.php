@@ -6,7 +6,7 @@ defined('TYPO3') or die();
 $temporaryColumn = [
     'myextension_separator' => [
         'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.myextension_separator',
+        'label' => 'examples.db:tt_content.myextension_separator',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',

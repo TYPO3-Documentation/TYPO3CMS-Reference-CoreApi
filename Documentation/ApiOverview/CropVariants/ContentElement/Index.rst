@@ -19,7 +19,7 @@ your `image` field configuration of tt_content records:
                     'config' => [
                         'cropVariants' => [
                             'mobile' => [
-                                'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
+                                'title' => 'ext_key.messages:imageManipulation.mobile',
                                 'cropArea' => [
                                     'x' => 0.1,
                                     'y' => 0.1,
@@ -48,7 +48,7 @@ It is also possible to set the cropping configuration only for a **specific tt_c
                'disabled' => true,
            ],
            'mobile' => [
-               'title' => 'LLL:EXT:ext_key/Resources/Private/Language/locallang.xlf:imageManipulation.mobile',
+               'title' => 'ext_key.messages:imageManipulation.mobile',
                'cropArea' => [
                    'x' => 0.1,
                    'y' => 0.1,
@@ -57,11 +57,11 @@ It is also possible to set the cropping configuration only for a **specific tt_c
                ],
                'allowedAspectRatios' => [
                    '4:3' => [
-                       'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+                       'title' => 'core.wizards:imwizard.ratio.4_3',
                        'value' => 4 / 3
                    ],
                    'NaN' => [
-                       'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+                       'title' => 'core.wizards:imwizard.ratio.free',
                        'value' => 0.0
                    ],
                ],
