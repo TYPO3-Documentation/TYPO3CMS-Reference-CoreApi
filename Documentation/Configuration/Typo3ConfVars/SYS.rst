@@ -163,9 +163,9 @@ configuration.
     (default).
 
     The default value :php:`SERVER_NAME` checks if the HTTP Host header equals
-    the SERVER_NAME and SERVER_PORT. This is secure in **correctly configured
-    hosting environments** - meaning the web server determines :php:`SERVER_NAME`
-    and :php:`SERVER_PORT` from its own configuration rather than from the
+    the `SERVER_NAME` and `SERVER_PORT`. This is secure in **correctly configured
+    hosting environments** - meaning the web server determines `SERVER_NAME`
+    and `SERVER_PORT` from its own configuration rather than from the
     client-supplied Host header - and does not need further configuration. If you
     cannot change your hosting environment, you can enter a regular expression here.
 
