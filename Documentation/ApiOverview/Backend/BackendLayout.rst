@@ -218,7 +218,7 @@ To get the correct backend layout, the following TypoScript code can be used:
 		key.data = pagelayout
 
 		default = TEXT
-		default.value = EXT:sitepackage/Resources/Private/Templates/Home.html
+		default.value = EXT:sitepackage/Resources/Private/Templates/Home.fluid.html
 
 		3 = TEXT
 		3.value = EXT:sitepackage/Resources/Private/Templates/1-col.html

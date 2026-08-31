@@ -1,7 +1,7 @@
 errorHandling:
   - errorCode: 404
     errorHandler: Fluid
-    errorFluidTemplate: 'EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.html'
+    errorFluidTemplate: 'EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.fluid.html'
     errorFluidTemplatesRootPath: ''
     errorFluidLayoutsRootPath: ''
     errorFluidPartialsRootPath: 'EXT:my_sitepackage/Resources/Private/Partials/Sites/'

@@ -85,7 +85,7 @@ changed in our system).
 The form looks like this:
 
 ..  code-block:: html
-    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:form name="user" object="{user}" action="update">
        <f:form.textbox property="email" />
@@ -214,7 +214,7 @@ object accessors that are used in arguments of a ViewHelper. A short
 example for this:
 
 ..  code-block:: html
-    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.fluid.html
 
     {variable1}
     <f:format.crop append="{variable2}">a very long text</f:format.crop>

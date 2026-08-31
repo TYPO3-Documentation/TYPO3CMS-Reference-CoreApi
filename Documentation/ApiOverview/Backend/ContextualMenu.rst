@@ -191,13 +191,13 @@ of the standard backend container Fluid view helper (or backend page
 renderer view helper).
 
 Doing so in your layout is sufficient (see
-:file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.html`).
+:file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.fluid.html`).
 
 ..  literalinclude:: _ContextualMenu/_IncludeJS.fluid.html
 
 The second step is to activate the context menu on the icons. This kind of markup
 is required (taken from
-:file:`typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.html`):
+:file:`typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.fluid.html`):
 
 ..  code-block:: xml
     :emphasize-lines: 2

@@ -67,7 +67,7 @@ The sequence looks like the following:
         :caption: EXT:my_extension/Classes/Controller/MyController.php
 
     ..  code-block:: html
-        :caption: EXT:my_extension/Resources/Private/Templates/ShowForm.html
+        :caption: EXT:my_extension/Resources/Private/Templates/ShowForm.fluid.html
 
         <!-- Assign request token object for ViewHelper -->
         <f:form action="process" requestToken="{requestToken}">

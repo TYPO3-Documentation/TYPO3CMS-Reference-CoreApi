@@ -272,14 +272,14 @@ ViewHelper. The call to render the ViewHelper was written with tag syntax, which
 seemed obvious because it itself returns a tag:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <m:gravatar emailAddress="{post.author.emailAddress}" />
 
 Alternatively, this expression can be written using the inline notation:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     {m:gravatar(emailAddress: post.author.emailAddress)}
 
@@ -287,7 +287,7 @@ One should see the Gravatar ViewHelper as a kind of post-processor for an email
 address and would allow the following syntax:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     {post.author.emailAddress -> m:gravatar()}
 

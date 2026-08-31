@@ -116,7 +116,7 @@ This requires first a bit of TypoScript:
 
     lib.carousel = FLUIDTEMPLATE
     lib.carousel {
-      file = EXT:my_extension/Resources/Private/Templates/Carousel.html
+      file = EXT:my_extension/Resources/Private/Templates/Carousel.fluid.html
       dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
       dataProcessing.10 {
         references {
@@ -133,7 +133,7 @@ variable called :typoscript:`images`. This can then be used in the Fluid
 template:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/Carousel.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Carousel.fluid.html
 
     <f:for each="{images}" as="image">
         <div class="slide">

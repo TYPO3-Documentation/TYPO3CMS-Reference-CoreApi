@@ -46,7 +46,7 @@ configurable via:
 Common locations for Fluid templates in TYPO3 extensions with plugins:
 ======================================================================
 
-..  typo3:file:: [ActionName].html
+..  typo3:file:: [ActionName].fluid.html
     :scope: extension
     :path: /Resources/Private/Templates/[ControllerName]/
     :regex: /^.*\/Resources\/Private\/Templates(\/[A-Za-z0-9]+)?\/[A-Za-z0-9]+\.[a-z0-9]$/
@@ -56,14 +56,14 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
     plugins. In Extbase they are stored in a folder with the name of the controller
     class (without Controller ending), for example the `NewsController.php` has
     the template for action "view" in
-    :file:`/Resources/Private/Templates/News/View.html`. Non-Extbase controllers
+    :file:`/Resources/Private/Templates/News/View.fluid.html`. Non-Extbase controllers
     can decide on how to use this folder.
 
 ..  tip::
     Other file endings can be used for different formats, for example `.xml`
     for sitemaps or xml-feeds or `.txt` for plain text.
 
-..  typo3:file:: SomePartials.html
+..  typo3:file:: SomePartials.fluid.html
     :scope: extension
     :path: /Resources/Private/Partials/
     :regex: /^.*\/Resources\/Private\/Partials(\/[A-Za-z0-9]+)*\/[A-Za-z0-9]+\.[a-z0-9]$/
@@ -73,7 +73,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
     These can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
     into the main Fluid template.
 
-..  typo3:file:: SomeLayout.html
+..  typo3:file:: SomeLayout.fluid.html
     :scope: extension
     :path: /Resources/Private/Layouts/
     :regex: /^.*\/Resources\/Private\/Layouts\/[A-Za-z0-9]+\.[a-z0-9]$/
@@ -93,29 +93,29 @@ TypoScript object to display the HTML page output. They have one folder, commonl
 `PageView` or `Templates` in folder `Resources/Private` with the subfolders
 `Pages`, `Partials` and `Layouts` (they cannot be renamed).
 
-..  typo3:file:: MyPageLayout.html
+..  typo3:file:: MyPageLayout.fluid.html
     :scope: extension
     :path: /Resources/Private/PageView/Pages/
-    :regex: /^.*\/Resources\/Private\/PageView\/Pages\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/PageView\/Pages\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Templates for different page layouts
 
     This folder contains one Fluid template for each page layout defined in the
     site package. See `Site package Tutorial, the page view <https://docs.typo3.org/permalink/t3sitepackage:pageview>`_.
 
-..  typo3:file:: SomePartials.html
+..  typo3:file:: SomePartials.fluid.html
     :scope: extension
     :path: /Resources/Private/PageView/Partials/
-    :regex: /^.*\/Resources\/Private\/PageView\/Partials\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/PageView\/Partials\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Partials for the page view
 
     Folder `Partials` contains the Fluid partials used by the page view.
     These can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
     into the page view template.
 
-..  typo3:file:: SomeLayout.html
+..  typo3:file:: SomeLayout.fluid.html
     :scope: extension
     :path: /Resources/Private/PageView/Layouts/
-    :regex: /^.*\/Resources\/Private\/PageView\/Layouts\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/PageView\/Layouts\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Layouts for the page view
 
     Folder `Layouts` often contains the Fluid layout(s) used by the page view.
@@ -133,31 +133,31 @@ needs to be configured via setting
 :confval:`styles.templates.templateRootPath <typo3/cms-fluid-styled-content:fluid-styled-content-styles-templates-templaterootpath>`
 etc. to work. See also `Site Package Tutorial: Overriding the default templates of content elements <https://docs.typo3.org/permalink/t3sitepackage:content-element-rendering>`_.
 
-..  typo3:file:: SomeContentElement.html
+..  typo3:file:: SomeContentElement.fluid.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Pages/
-    :regex: /^.*\/Resources\/Private\/ContentElements\/Pages\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/ContentElements\/Pages\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Templates for different content elements
 
     This folder contains one Fluid template for each content element type defined in the
     site package.
 
-..  typo3:file:: SomePartials.html
+..  typo3:file:: SomePartials.fluid.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Partials/
-    :regex: /^.*\/Resources\/Private\/ContentElements\/Partials\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/ContentElements\/Partials\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Partials for content elements
 
     Typically overrides the Fluid-Styled Content partials.
 
-..  typo3:file:: Default.html
+..  typo3:file:: Default.fluid.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Layouts/
-    :regex: /^.*\/Resources\/Private\/ContentElements\/Layouts\/Default\.html$/
+    :regex: /^.*\/Resources\/Private\/ContentElements\/Layouts\/Default(\.fluid)?\.html$/
     :shortDescription: Overrides the default layout for Fluid-styled content elements
 
     Overrides the default layout originally defined in
-    `vendor/typo3/cms-fluid-styled-content/Resources/Private/Layouts/Default.html`.
+    `vendor/typo3/cms-fluid-styled-content/Resources/Private/Layouts/Default.fluid.html`.
     It is possible to define additional custom layouts that can be
     included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into content element templates.
