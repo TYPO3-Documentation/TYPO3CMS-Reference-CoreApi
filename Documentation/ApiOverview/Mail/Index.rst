@@ -96,7 +96,7 @@ Minimal example for a Fluid-based email template
 
                         *   MyCustomEmail.fluid.html
 
-**`MyCustomEmail.fluid.html`:**
+:file:`MyCustomEmail.fluid.html`:
 
 ..  code-block:: html
     :caption: EXT:my_site_package/Resources/Private/Templates/Email/MyCustomEmail.fluid.html
