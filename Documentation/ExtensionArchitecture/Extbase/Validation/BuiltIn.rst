@@ -358,6 +358,12 @@ No options beyond the optional `message` override.
 File upload validators
 ======================
 
+..  versionadded:: 13.3
+
+    See `Feature: #104526 - Provide validators for PSR-7 UploadedFile
+    objects in Extbase
+    <https://docs.typo3.org/permalink/changelog:feature-104526-1722603089>`_.
+
 The following validators are specifically designed for
 :php:`\TYPO3\CMS\Core\Http\UploadedFile` instances or
 :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` collections of uploaded
@@ -382,6 +388,13 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
    * - `allowedExtensions`
      - Comma-separated list of allowed file extensions without the leading dot,
        for example `'jpg,jpeg,png'`.
+   * - `useStorageDefaults`
+     - If set to `true`, also allows the file extensions configured in
+       `$GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']`,
+       `['mediafile_ext']` and `['miscfile_ext']`.
+
+At least one of ``allowedFileExtensions`` or ``useStorageDefaults`` must be
+set.
 
 
 ..  _extbase-validation-builtin-filesize:
@@ -425,6 +438,10 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
    * - `allowedMimeTypes`
      - Array of allowed MIME type strings, for example
        `['image/jpeg', 'image/png']`.
+   * - `ignoreFileExtensionCheck`
+     - If set to `true`, disables the check that the file extension
+       matches the detected MIME type. Defaults to `false`. Be aware of
+       the security implications of setting this to `true`.
 
 
 ..  _extbase-validation-builtin-imagedimensions:
@@ -443,6 +460,10 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
 
    * - Option
      - Description
+   * - `width`
+     - Exact required image width in pixels. Unset by default.
+   * - `height`
+     - Exact required image height in pixels. Unset by default.
    * - `minWidth`
      - Minimum image width in pixels.
    * - `maxWidth`
@@ -480,19 +501,23 @@ No configurable options.
 ----------
 
 Rejects uploaded files whose name matches dangerous executable extensions
-(such as `.php`, `.phar`, `.exe`). The default pattern is derived from
-TYPO3's `fileDenyPattern` configuration.
+(such as `.php`, `.phar`, `.exe`). It delegates to Core's
+:php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator`, which is
+driven by the global `fileDenyPattern` configuration and is not
+configurable per validator instance.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
+..  list-table::
+    :header-rows: 1
+    :widths: 25 75
 
-   * - Option
-     - Description
-   * - `regularExpression`
-     - A PCRE pattern the file name must match.
+    * - Option
+      - Description
+    * - `regularExpression`
+      - A PCRE pattern the file name must match.
+    * - `message`
+      - Error message to be shown if the validation fails.
 
 ..  important::
 
