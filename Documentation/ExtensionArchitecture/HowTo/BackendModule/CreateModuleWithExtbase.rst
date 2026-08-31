@@ -92,7 +92,7 @@ For example, here is an extract of the "Index" action template of
 the "beuser" extension:
 
 .. code-block:: html
-   :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.html
+   :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.fluid.html
 
    <html
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"

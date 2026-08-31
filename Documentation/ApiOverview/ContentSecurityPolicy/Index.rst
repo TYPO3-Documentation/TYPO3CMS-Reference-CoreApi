@@ -711,7 +711,7 @@ The :ref:`f:security.nonce <t3viewhelper:typo3-fluid-security-nonce>` ViewHelper
 is available, which provides the nonce in a Fluid template, for example:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <script nonce="{f:security.nonce()}">
         const inline = 'script';
@@ -726,7 +726,7 @@ or :ref:`f:asset.css <t3viewhelper:typo3-fluid-asset-css>`
 ViewHelpers with the `useNonce` attribute:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:asset.script identifier="my-inline-script" useNonce="1">
         const inline = 'script';

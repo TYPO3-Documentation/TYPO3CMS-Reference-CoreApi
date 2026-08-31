@@ -12,7 +12,7 @@ Consider you have to translate the following static texts in your Fluid
 template:
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <h3>{post.title}</h3>
    <p>By: {post.author.fullName}</p>
@@ -45,7 +45,7 @@ This ViewHelper has a property called :html:`key` where the identifier of
 the text fragment prefixed by the location file can be provided.
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <f:translate key="my_extension.your_file:yourKey" />
    <!-- or as inline Fluid: -->
@@ -64,7 +64,7 @@ You can provide a default text fragment in the property :html:`default` to
 avoid no text being displayed:
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <f:translate
        key="my_extension.your_file:yourKey"
@@ -80,7 +80,7 @@ In Extbase, the translation file can be detected automatically. It is therefore
 possible to omit the language file prefix.
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <f:translate key="commentHeader" />
    <!-- or as inline Fluid: -->
@@ -103,7 +103,7 @@ It is possible to use the translation file of another extension by supplying
 the parameter :html:`extensionName` with the UpperCamelCased extension key:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:translate key="commentHeader" extensionName="MyOtherExtension" />
 
@@ -118,7 +118,7 @@ By replacing all static texts with translation ViewHelpers the above example
 can be replaced:
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <h3>{post.title}</h3>
    <p><f:translate key="authorPrefix"> {post.author.fullName}</p>
@@ -146,7 +146,7 @@ options on how to configure the correct language file.
     the translation file, followed by a colon and then the translation key.
 
     .. code-block:: html
-       :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+       :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
        <f:translate
            key="LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey"
@@ -155,7 +155,7 @@ options on how to configure the correct language file.
 #.  Or provide the parameter :html:`extensionName`:
 
     .. code-block:: html
-       :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+       :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
        <f:translate
            key="yourKey"
@@ -272,7 +272,7 @@ syntax the ordering of the arguments can be made clear:
    </trans-unit>
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:translate
        key="author"
@@ -300,7 +300,7 @@ Generally the date or time is formatted by the
 :html:`<f:format.date>` ViewHelper:
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <f:format.date date="{dateObject}" format="d.m.Y" />
    <!-- or -->
@@ -336,7 +336,7 @@ ViewHelper with the :html:`<f:translate>` ViewHelper to supply a localized
 date format:
 
 .. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <f:format.date date="{dateObject}" format="{f:translate(key: 'dateFormat')}" />
 
