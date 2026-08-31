@@ -60,7 +60,7 @@ Any arbitrary filename ending with :file:`.xlf` can be used.
     be accessed without using the complete path:
 
     ..  code-block:: html
-        :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html
+        :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.fluid.html
 
         <f:translate key="key1" extensionName="MyExtension"/>
 
@@ -68,7 +68,7 @@ Any arbitrary filename ending with :file:`.xlf` can be used.
     :html:`LLL:EXT` path:
 
     ..  code-block:: html
-        :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html
+        :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.fluid.html
 
         <f:translate key="LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:key1" />
 

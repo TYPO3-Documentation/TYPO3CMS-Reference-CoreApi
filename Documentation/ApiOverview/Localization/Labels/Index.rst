@@ -269,7 +269,7 @@ Use the :ref:`f:translate <t3viewhelper:typo3-fluid-translate>` ViewHelper to
 insert translated strings in Fluid templates.
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:translate key="my_extension.your_file.xlf:yourKey" />
     <!-- or as inline Fluid: -->

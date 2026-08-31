@@ -191,11 +191,11 @@ The Fluid template is configured by the
 :ref:`t3tsref:cobj-fluidtemplate-properties-templatename` property as
 `NewContentElement`.
 
-This will load a :file:`BasicContent.html` template file from the path
+This will load a :file:`BasicContent.fluid.html` template file from the path
 defined at the :typoscript:`templateRootPaths`.
 
 In the example extension you can find the file at
-:file:`EXT:examples/Resources/Private/Templates/ContentElements/BasicContent.html`
+:file:`EXT:examples/Resources/Private/Templates/ContentElements/BasicContent.fluid.html`
 
 `tt_content` fields can now be used in the Fluid template by accessing them via
 the `data` variable.
@@ -376,7 +376,7 @@ parameters to be used in the data processor:
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 You can now iterate over the variable `myTable` in the Fluid template, in this
-example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.html`
+example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.fluid.html`
 
 .. literalinclude:: /CodeSnippets/CustomContentElements/DataProcCsv.fluid.html
    :caption: EXT:examples/Resources/Private/Templates/ContentElements/DataProcCsv.fluid.html

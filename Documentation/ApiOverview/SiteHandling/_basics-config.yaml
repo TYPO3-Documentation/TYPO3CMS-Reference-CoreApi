@@ -36,7 +36,7 @@ errorHandling:
     errorContentSource: 't3://page?uid=8'
   - errorCode: '403'
     errorHandler: Fluid
-    errorFluidTemplate: 'EXT:my_extension/Resources/Private/Templates/ErrorPages/403.html'
+    errorFluidTemplate: 'EXT:my_extension/Resources/Private/Templates/ErrorPages/403.fluid.html'
     errorFluidTemplatesRootPath: 'EXT:my_extension/Resources/Private/Templates/ErrorPages'
     errorFluidLayoutsRootPath: 'EXT:my_extension/Resources/Private/Layouts/ErrorPages'
     errorFluidPartialsRootPath: 'EXT:my_extension/Resources/Private/Partials/ErrorPages'

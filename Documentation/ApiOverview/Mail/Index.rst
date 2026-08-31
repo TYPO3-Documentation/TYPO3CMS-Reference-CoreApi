@@ -94,12 +94,12 @@ Minimal example for a Fluid-based email template
 
                     *   Email
 
-                        *   MyCustomEmail.html
+                        *   MyCustomEmail.fluid.html
 
-**`MyCustomEmail.html`:**
+**`MyCustomEmail.fluid.html`:**
 
 ..  code-block:: html
-    :caption: EXT:my_site_package/Resources/Private/Templates/Email/MyCustomEmail.html
+    :caption: EXT:my_site_package/Resources/Private/Templates/Email/MyCustomEmail.fluid.html
 
     <f:layout name="SystemEmail" />
 

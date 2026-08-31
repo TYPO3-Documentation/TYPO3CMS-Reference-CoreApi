@@ -163,7 +163,7 @@ In the revised template, `POST`-based form buttons are used
 instead of `GET` links for delete actions:
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.html
+    :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.fluid.html
     :linenos:
 
       <ul>
@@ -258,7 +258,7 @@ In the revised template, `POST`-based form buttons are used
 instead of `GET` action links for delete actions:
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.html
+    :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.fluid.html
     :linenos:
 
       <ul>
