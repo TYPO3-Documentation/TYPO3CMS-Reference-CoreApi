@@ -28,7 +28,7 @@ For example, in :ref:`Fluid <fluid>` all input from the RTE should be output by 
 :ref:`t3viewhelper:typo3-fluid-format-html`:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.fluid.html
 
     <f:format.html>{myContent.bodytext}</f:format.html>
 
@@ -36,7 +36,7 @@ Links provided in backend fields like the :sql:`header_link` can be used as
 input in the ViewHelper :ref:`t3viewhelper:typo3-fluid-link-typolink`:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.fluid.html
 
     <f:link.typolink parameter="{myContent.header_link}">
       {myContent.header_link}

@@ -21,7 +21,7 @@ The Fluid-based error handler has the properties
 ..  option:: errorFluidTemplate
 
     :type: string
-    :Example: `EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.html`
+    :Example: `EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.fluid.html`
 
     The path to the Fluid template file. Path may be
 
