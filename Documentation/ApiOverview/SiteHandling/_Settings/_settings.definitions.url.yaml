@@ -1,0 +1,7 @@
+settings:
+  example.types.url:
+    type: url
+    default: 'https://example.com/'
+    category: Example.types
+    label: 'Type URL'
+    description: 'Validates that the value is a URL.'

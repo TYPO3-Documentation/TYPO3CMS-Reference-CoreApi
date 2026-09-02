@@ -1,0 +1,6 @@
+settings:
+  myExtension.categoryPid:
+    label: 'Category storage page'
+    description: 'Page that stores the category records.'
+    type: page
+    default: 0

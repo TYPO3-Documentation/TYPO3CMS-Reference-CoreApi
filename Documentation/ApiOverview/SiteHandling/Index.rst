@@ -24,10 +24,7 @@ through the features of the module and goes into API and programming details.
     UseSiteInTypoScript
     UseSiteInConditions
     UseSiteInTCA
-    SiteSets
-    SiteSettings
-    SiteSettingDefinitions
-    SiteSettingsEditor
+    SiteSets/Index
     CliTools
     AccessingSiteConfiguration
     ExtendingSiteConfig
