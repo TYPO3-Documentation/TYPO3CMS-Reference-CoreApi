@@ -4,5 +4,5 @@ settings:
     default: 'EXT:example/Resources/Private/Templates/'
     category: Example.types
     label: 'Type text'
-    description: 'Exactly the same as the `string` type. Use it as an alias if
-    someone doesn''t know what to do with `string`.'
+    description: 'Uses the same validation and conversion as the `string` type,
+    but identifies the setting as longer text in the editor.'

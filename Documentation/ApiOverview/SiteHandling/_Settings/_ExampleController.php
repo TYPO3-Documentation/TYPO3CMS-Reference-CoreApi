@@ -13,9 +13,10 @@ class ExampleController extends ActionController
             'site' => $this->request->getAttribute('site'),
         ]);
     }
+
     public function indexAction(): ResponseInterface
     {
-        // Variable '{site}' is automatically available
+        // Variable '{site}' was assigned in initializeView().
         return $this->htmlResponse();
     }
 }
