@@ -1,12 +1,7 @@
-styles:
-  templates:
-    layoutRootPath: EXT:site_package/Resources/Private/ContentElements/Layouts
-    partialRootPath: EXT:site_package/Resources/Private/ContentElements/Partials
-    templateRootPath: EXT:site_package/Resources/Private/ContentElements/Templates
-  content:
-    textmedia:
-      maxW: 1200
-      maxWInText: 600
-      linkWrap:
-        lightboxEnabled: true
-        lightboxCssClass: lightbox
+styles.templates.layoutRootPath: EXT:site_package/Resources/Private/ContentElements/Layouts
+styles.templates.partialRootPath: EXT:site_package/Resources/Private/ContentElements/Partials
+styles.templates.templateRootPath: EXT:site_package/Resources/Private/ContentElements/Templates
+styles.content.textmedia.maxW: 1200
+styles.content.textmedia.maxWInText: 600
+styles.content.textmedia.linkWrap.lightboxEnabled: true
+styles.content.textmedia.linkWrap.lightboxCssClass: lightbox
