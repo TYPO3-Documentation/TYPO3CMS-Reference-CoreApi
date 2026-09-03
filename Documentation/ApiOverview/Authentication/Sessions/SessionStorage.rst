@@ -78,7 +78,8 @@ A sample configuration will look like this:
                     'hostname' => 'redis.myhost.example',
                     'password' => 'passw0rd',
                     'database' => 0,
-                    'port' => 6379
+                    'port' => 6379,
+                    'keyPrefix' => 'be_sessions_'
                 ]
             ],
             'FE' => [
@@ -87,7 +88,8 @@ A sample configuration will look like this:
                     'hostname' => 'redis.myhost.example',
                     'password' => 'passw0rd',
                     'database' => 0,
-                    'port' => 6379
+                    'port' => 6379,
+                    'keyPrefix' => 'fe_sessions_'
                 ]
             ],
         ],
@@ -107,6 +109,16 @@ The available options are:
 
 `password`
     The password to use when connecting to the specified database. Optional.
+
+`keyPrefix`
+    Prefix added to all Redis keys used by this session backend. Allows the
+    same Redis database to be shared by multiple applications or TYPO3
+    instances, as long as the prefix is unique. Optional, default: empty.
+
+    ..  versionadded:: 13.3
+
+        See `Feature: #104451 - Redis backends support for key prefixing
+        <https://docs.typo3.org/permalink/changelog:feature-104451-1721646565>`_.
 
 .. tip::
     If a Redis instance is running on the same machine as the webserver
