@@ -363,6 +363,21 @@ Options for the redis caching backend
     is issued to one of them. Database numbers 0 and 1 are used and flushed by the Core unit tests
     and should not be used if possible.
 
+..  confval:: keyPrefix
+    :name: caching-backend-redis-keyPrefix
+    :type: string
+    :default: (empty)
+
+    ..  versionadded:: 13.3
+
+        See `Feature: #104451 - Redis backends support for key prefixing
+        <https://docs.typo3.org/permalink/changelog:feature-104451-1721646565>`_.
+
+    Prefix added to all keys this backend writes to Redis. Allows the same
+    Redis database to be shared by multiple caches or TYPO3 instances, as
+    long as the prefix is unique. If only one cache sharing the database has
+    no prefix set, flushing it flushes the whole database.
+
 ..  confval:: username
     :name: caching-backend-redis-username
     :type: string
