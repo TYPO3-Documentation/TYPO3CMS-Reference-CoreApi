@@ -84,11 +84,19 @@ Description of keywords in syntax:
     Name of the database table. It must be configured in the
     :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
 
+
+uid
+---
+
 ..  confval:: uid
     :name: datahandler-cmd-uid
     :Data type: integer
 
     The UID of the record that is manipulated. This is always an integer.
+
+
+command
+-------
 
 ..  confval:: command
     :name: datahandler-cmd-command
@@ -101,6 +109,10 @@ Description of keywords in syntax:
         record! The first command in the array will be taken.
 
     See :ref:`command keywords and values <datahandler-command-keywords>`
+
+
+value
+-----
 
 ..  confval:: value
     :name: datahandler-cmd-value
@@ -154,6 +166,10 @@ Command keywords and values
             ]
 
 
+
+move
+~~~~
+
 ..  confval:: move
     :name: datahandler-cmd-move
     :DataType: integer
@@ -161,6 +177,10 @@ Command keywords and values
     Works like :confval:`datahandler-cmd-copy` but moves the record instead of
     making a copy.
 
+
+
+delete
+~~~~~~
 
 ..  confval:: delete
     :name: datahandler-cmd-delete
@@ -173,6 +193,10 @@ Command keywords and values
     :ref:`$GLOBALS['TCA'][$table]['ctrl']['delete'] <t3tca:ctrl-reference-delete>`).
 
 
+
+undelete
+~~~~~~~~
+
 ..  confval:: undelete
     :name: datahandler-cmd-undelete
     :Data Type: integer (1)
@@ -181,6 +205,10 @@ Command keywords and values
 
     This action will set the "deleted" flag back to 0.
 
+
+
+localize
+~~~~~~~~
 
 ..  confval:: localize
     :name: datahandler-cmd-localize
@@ -218,6 +246,10 @@ Command keywords and values
     translation wizard.
 
 
+
+copyToLanguage
+~~~~~~~~~~~~~~
+
 ..  confval:: copyToLanguage
     :name: datahandler-cmd-copyToLanguage
     :Data type: integer
@@ -232,6 +264,10 @@ Command keywords and values
     command is used when localizing content elements using translation wizard's
     "Copy" strategy.
 
+
+
+inlineLocalizeSynchronize
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  confval:: inlineLocalizeSynchronize
     :name: datahandler-cmd-inlineLocalizeSynchronize
@@ -250,6 +286,10 @@ Command keywords and values
             'ids' =>  [1, 2, 3],         // array of child IDs to be localized
         ];
 
+
+
+version
+~~~~~~~
 
 ..  confval:: version
     :name: datahandler-cmd-version
@@ -411,6 +451,10 @@ Description of keywords in syntax:
     :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
 
 
+
+uid
+---
+
 ..  confval:: uid
     :name: datahandler-data-uid
     :Data type: string|int
@@ -429,6 +473,10 @@ Description of keywords in syntax:
     The occurance of an underscore implies a reference to a record in a table.
 
 
+
+fieldname
+---------
+
 ..  confval:: fieldname
     :name: datahandler-data-fieldname
     :Data type: string
@@ -437,6 +485,10 @@ Description of keywords in syntax:
     table must be configured in
     :ref:`$GLOBALS['TCA'][$table]['columns'] <t3tca:columns>`.
 
+
+
+value
+-----
 
 ..  confval:: value
     :name: datahandler-data-value
@@ -567,6 +619,10 @@ Values for the :php:`$cacheCmd` argument:
     Clear the cache for the page ID given.
 
 
+
+"all"
+-----
+
 ..  confval:: "all"
     :name: datahandler-clear-cachecmd-all
 
@@ -576,6 +632,10 @@ Values for the :php:`$cacheCmd` argument:
     Only available for admin-users unless explicitly allowed by User
     TSconfig "options.clearCache.all".
 
+
+
+"pages"
+-------
 
 ..  confval:: "pages"
     :name: datahandler-clear-cachecmd-pages
@@ -662,6 +722,10 @@ Flags in the DataHandler
 
 There are a few internal variables you can set prior to executing
 commands or data submission.
+
+
+->reverseOrder
+--------------
 
 ..  confval:: ->reverseOrder
     :name: datahandler-flags-reverseOrder
