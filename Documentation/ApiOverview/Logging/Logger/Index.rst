@@ -56,11 +56,19 @@ which takes three parameters:
     One of the defined log levels, see the section
     :ref:`logging-logger-shortcuts`.
 
+
+$message
+--------
+
 ..  confval:: $message
     :name: logger-log-message
     :Type: string | :php:`\Stringable`
 
     The log message itself.
+
+
+$data
+-----
 
 ..  confval:: $data
     :name: logger-log-data
@@ -113,6 +121,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     development of PHP code.
 
 ..  _label-Informational:
+
+Informational
+-------------
+
 ..  confval:: Informational
     :name: logger-info
     :Class constant: :php:`\Psr\Log\LogLevel::INFO`
@@ -125,6 +137,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Logging of SQL statements.
 
 ..  _label-notice:
+
+Notice
+------
+
 ..  confval:: Notice
     :name: logger-notice
     :Class constant: :php:`\Psr\Log\LogLevel::NOTICE`
@@ -137,6 +153,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Logging of SQL statements.
 
 ..  _label-warning:
+
+Warning
+-------
+
 ..  confval:: Warning
     :name: logger-warning
     :Class constant: :php:`\Psr\Log\LogLevel::WARNING`
@@ -148,6 +168,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Undesirable events that are not necessarily wrong.
 
 ..  _label-error:
+
+Error
+-----
+
 ..  confval:: Error
     :name: logger-error
     :Class constant: :php:`\Psr\Log\LogLevel::ERROR`
@@ -160,6 +184,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   A white screen is shown.
 
 ..  _label-critical:
+
+Critical
+--------
+
 ..  confval:: Critical
     :name: logger-critical
     :Class constant: :php:`\Psr\Log\LogLevel::CRITICAL`
@@ -172,6 +200,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Data is corrupt or outdated.
 
 ..  _label-alert:
+
+Alert
+-----
+
 ..  confval:: Alert
     :name: logger-alert
     :Class constant: :php:`\Psr\Log\LogLevel::ALERT`
@@ -183,6 +215,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   The database is unavailable.
 
 .. _label-emergency:
+
+Emergency
+---------
+
 ..  confval:: Emergency
     :name: logger-emergency
     :Class constant: :php:`\Psr\Log\LogLevel::EMERGENCY`

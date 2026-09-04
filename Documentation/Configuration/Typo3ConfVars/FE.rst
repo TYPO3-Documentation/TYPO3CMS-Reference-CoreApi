@@ -27,6 +27,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_addAllowedPaths:
 
+
+addAllowedPaths
+---------------
+
 ..  confval:: addAllowedPaths
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths']
     :name: typo3-conf-vars-fe-addAllowedPaths
@@ -45,6 +49,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_debug:
 
+
+debug
+-----
+
 ..  confval:: debug
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['debug']
     :name: typo3-conf-vars-fe-debug
@@ -56,6 +64,10 @@ the TYPO3 frontend:
     TypoScript option :php:`config.debug = 0`.
 
 ..  _typo3ConfVars_fe_compressionLevel:
+
+
+compressionLevel
+----------------
 
 ..  confval:: compressionLevel
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
@@ -78,6 +90,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_pageNotFoundOnCHashError:
 
+
+pageNotFoundOnCHashError
+------------------------
+
 ..  confval:: pageNotFoundOnCHashError
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFoundOnCHashError']
     :name: typo3-conf-vars-fe-pageNotFoundOnCHashError
@@ -88,6 +104,10 @@ the TYPO3 frontend:
     otherwise caching is disabled and page output is displayed.
 
 ..  _typo3ConfVars_fe_pageUnavailable_force:
+
+
+pageUnavailable_force
+---------------------
 
 ..  confval:: pageUnavailable_force
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageUnavailable_force']
@@ -114,6 +134,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_checkFeUserPid:
 
+
+checkFeUserPid
+--------------
+
 ..  confval:: checkFeUserPid
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['checkFeUserPid']
     :name: typo3-conf-vars-fe-checkFeUserPid
@@ -128,6 +152,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_loginRateLimit:
 
+
+loginRateLimit
+--------------
+
 ..  confval:: loginRateLimit
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimit']
     :name: typo3-conf-vars-fe-loginRateLimit
@@ -140,6 +168,10 @@ the TYPO3 frontend:
     :php:`"0"` will disable login rate limiting.
 
 ..  _typo3ConfVars_fe_loginRateLimitInterval:
+
+
+loginRateLimitInterval
+----------------------
 
 ..  confval:: loginRateLimitInterval
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
@@ -155,6 +187,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_loginRateLimitIpExcludeList:
 
+
+loginRateLimitIpExcludeList
+---------------------------
+
 ..  confval:: loginRateLimitIpExcludeList
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
     :name: typo3-conf-vars-fe-loginRateLimitIpExcludeList
@@ -167,6 +203,10 @@ the TYPO3 frontend:
     An empty value disables the exclude list check.
 
 ..  _typo3ConfVars_fe_lockIP:
+
+
+lockIP
+------
 
 ..  confval:: lockIP
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']
@@ -199,6 +239,10 @@ the TYPO3 frontend:
     <security-global-typo3-options-lockIP>`.
 
 ..  _typo3ConfVars_fe_lockIPv6:
+
+
+lockIPv6
+--------
 
 ..  confval:: lockIPv6
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIPv6']
@@ -246,6 +290,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_lifetime:
 
+
+lifetime
+--------
+
 ..  confval:: lifetime
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['lifetime']
     :name: typo3-conf-vars-fe-lifetime
@@ -261,6 +309,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_sessionTimeout:
 
+
+sessionTimeout
+--------------
+
 ..  confval:: sessionTimeout
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionTimeout']
     :name: typo3-conf-vars-fe-sessionTimeout
@@ -271,6 +323,10 @@ the TYPO3 frontend:
     be overwritten by the lifetime property if the lifetime is longer.
 
 ..  _typo3ConfVars_fe_sessionDataLifetime:
+
+
+sessionDataLifetime
+-------------------
 
 ..  confval:: sessionDataLifetime
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionDataLifetime']
@@ -283,6 +339,10 @@ the TYPO3 frontend:
     (86400 seconds represents 24 hours).
 
 ..  _typo3ConfVars_fe_permalogin:
+
+
+permalogin
+----------
 
 ..  confval:: permalogin
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['permalogin']
@@ -309,6 +369,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_cookieDomain:
 
+
+cookieDomain
+------------
+
 ..  confval:: cookieDomain
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieDomain']
     :name: typo3-conf-vars-fe-cookieDomain
@@ -321,6 +385,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_cookieName:
 
+
+cookieName
+----------
+
 ..  confval:: cookieName
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieName']
     :name: typo3-conf-vars-fe-cookieName
@@ -330,6 +398,10 @@ the TYPO3 frontend:
     Sets the name for the cookie used for the front-end user session
 
 ..  _typo3ConfVars_fe_cookieSameSite:
+
+
+cookieSameSite
+--------------
 
 ..  confval:: cookieSameSite
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieSameSite']
@@ -352,6 +424,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_defaultTypoScript_constants:
 
+
+defaultTypoScript_constants
+---------------------------
+
 ..  confval:: defaultTypoScript_constants
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
     :name: typo3-conf-vars-fe-defaultTypoScript-constants
@@ -361,6 +437,10 @@ the TYPO3 frontend:
     Enter lines of default TypoScript, constants-field.
 
 ..  _typo3ConfVars_fe_defaultTypoScript_setup:
+
+
+defaultTypoScript_setup
+-----------------------
 
 ..  confval:: defaultTypoScript_setup
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_setup']
@@ -388,6 +468,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_enable_mount_pids:
 
+
+enable_mount_pids
+-----------------
+
 ..  confval:: enable_mount_pids
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['enable_mount_pids']
     :name: typo3-conf-vars-fe-enable-mount-pids
@@ -398,6 +482,10 @@ the TYPO3 frontend:
     (for frontend operation) is allowed.
 
 ..  _typo3ConfVars_fe_hidePagesIfNotTranslatedByDefault:
+
+
+hidePagesIfNotTranslatedByDefault
+---------------------------------
 
 ..  confval:: hidePagesIfNotTranslatedByDefault
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['hidePagesIfNotTranslatedByDefault']
@@ -411,6 +499,10 @@ the TYPO3 frontend:
     "Show page even if no translation exists"
 
 ..  _typo3ConfVars_fe_eID_include:
+
+
+eID_include
+-----------
 
 ..  confval:: eID_include
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']
@@ -428,6 +520,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_disableNoCacheParameter:
 
+
+disableNoCacheParameter
+-----------------------
+
 ..  confval:: disableNoCacheParameter
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['disableNoCacheParameter']
     :name: typo3-conf-vars-fe-disableNoCacheParameter
@@ -443,6 +539,10 @@ the TYPO3 frontend:
 
 ..  _typo3ConfVars_fe_additionalCanonicalizedUrlParameters:
 
+
+additionalCanonicalizedUrlParameters
+------------------------------------
+
 ..  confval:: additionalCanonicalizedUrlParameters
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters']
     :name: typo3-conf-vars-fe-additionalCanonicalizedUrlParameters
@@ -453,6 +553,10 @@ the TYPO3 frontend:
     See :ref:`canonicalapi-additionalparameters` for details.
 
 ..  _typo3ConfVars_fe_cacheHash:
+
+
+cacheHash
+---------
 
 ..  confval:: cacheHash
     :name: typo3-conf-vars-fe-cacheHash
@@ -564,6 +668,10 @@ the TYPO3 frontend:
     TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
 ..  _typo3ConfVars_fe_workspacePreviewLogoutTemplate:
 
+
+workspacePreviewLogoutTemplate
+------------------------------
+
 ..  confval:: workspacePreviewLogoutTemplate
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['workspacePreviewLogoutTemplate']
     :name: typo3-conf-vars-fe-workspacePreviewLogoutTemplate
@@ -580,6 +688,10 @@ the TYPO3 frontend:
 ..  index::
     TYPO3_CONF_VARS FE; versionNumberInFilename
 ..  _typo3ConfVars_fe_versionNumberInFilename:
+
+
+versionNumberInFilename
+-----------------------
 
 ..  confval:: versionNumberInFilename
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
@@ -605,6 +717,10 @@ the TYPO3 frontend:
     TYPO3_CONF_VARS FE; contentRenderingTemplates
 ..  _typo3ConfVars_fe_contentRenderingTemplates:
 
+
+contentRenderingTemplates
+-------------------------
+
 ..  confval:: contentRenderingTemplates
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates']
     :name: typo3-conf-vars-fe-contentRenderingTemplates
@@ -624,6 +740,10 @@ the TYPO3 frontend:
 ..  index::
     TYPO3_CONF_VARS FE; typolinkBuilder
 ..  _typo3ConfVars_fe_typolinkBuilder:
+
+
+typolinkBuilder
+---------------
 
 ..  confval:: typolinkBuilder
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
@@ -653,12 +773,20 @@ the TYPO3 frontend:
     TYPO3_CONF_VARS FE; passwordHashing
 ..  _typo3ConfVars_fe_passwordHashing:
 
+
+passwordHashing
+---------------
+
 ..  confval:: passwordHashing
 
 
 ..  index::
     TYPO3_CONF_VARS FE; passwordHashing className
 ..  _typo3ConfVars_fe_passwordHashing_className:
+
+
+className
+---------
 
 ..  confval:: className
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className']
@@ -682,6 +810,10 @@ the TYPO3 frontend:
     TYPO3_CONF_VARS FE; passwordHashing options
 ..  _typo3ConfVars_fe_passwordHashing_options:
 
+
+options
+-------
+
 ..  confval:: options
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options']
     :name: typo3-conf-vars-fe-options
@@ -694,6 +826,10 @@ the TYPO3 frontend:
 ..  index::
     TYPO3_CONF_VARS FE; passwordPolicy
 ..  _typo3ConfVars_fe_passwordPolicy:
+
+
+passwordPolicy
+--------------
 
 ..  confval:: passwordPolicy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy']
@@ -708,6 +844,10 @@ the TYPO3 frontend:
     TYPO3_CONF_VARS FE; exposeRedirectInformation
 ..  _typo3ConfVars_fe_exposeRedirectInformation:
 
+
+exposeRedirectInformation
+-------------------------
+
 ..  confval:: exposeRedirectInformation
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['exposeRedirectInformation']
     :name: typo3-conf-vars-fe-exposeRedirectInformation
@@ -721,6 +861,10 @@ the TYPO3 frontend:
 ..  index::
     TYPO3_CONF_VARS FE; contentSecurityPolicyReportingUrl
 ..  _typo3ConfVars_fe_contentSecurityPolicyReportingUrl:
+
+
+contentSecurityPolicyReportingUrl
+---------------------------------
 
 ..  confval:: contentSecurityPolicyReportingUrl
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
