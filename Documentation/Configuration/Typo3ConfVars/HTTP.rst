@@ -29,6 +29,10 @@ for more background information on many of those settings.
 
 ..  _typo3ConfVars_http_allow_redirects:
 
+
+allow_redirects
+---------------
+
 ..  confval:: allow_redirects
     :name: globals-typo3-conf-vars-sys-http-allow_redirects
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
@@ -68,6 +72,10 @@ for more background information on many of those settings.
 ..  _typo3ConfVars_http_allowed_hosts:
 
 
+
+allowed_hosts
+-------------
+
 ..  confval:: allowed_hosts
     :name: globals-typo3-conf-vars-sys-http-allowed_hosts
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']
@@ -98,6 +106,10 @@ for more background information on many of those settings.
 
 ..  _typo3ConfVars_http_cert:
 
+
+cert
+----
+
 ..  confval:: cert
     :name: globals-typo3-conf-vars-sys-http-cert
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
@@ -110,6 +122,10 @@ for more background information on many of those settings.
 
 ..  _typo3ConfVars_http_connect_timeout:
 
+
+connect_timeout
+---------------
+
 ..  confval:: connect_timeout
     :name: globals-typo3-conf-vars-sys-http-connect_timeout
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
@@ -120,6 +136,10 @@ for more background information on many of those settings.
     connecting to a remote host
 
 ..  _typo3ConfVars_http_proxy:
+
+
+proxy
+-----
 
 ..  confval:: proxy
     :name: globals-typo3-conf-vars-sys-http-proxy
@@ -140,6 +160,10 @@ for more background information on many of those settings.
 
 ..  _typo3ConfVars_http_ssl_key:
 
+
+ssl_key
+-------
+
 ..  confval:: ssl_key
     :name: globals-typo3-conf-vars-sys-http-ssl_key
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
@@ -150,6 +174,10 @@ for more background information on many of those settings.
     `Guzzle option ssl-key <https://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
 
 ..  _typo3ConfVars_http_timeout:
+
+
+timeout
+-------
 
 ..  confval:: timeout
     :name: globals-typo3-conf-vars-sys-http-timeout
@@ -166,6 +194,10 @@ for more background information on many of those settings.
 
 ..  _typo3ConfVars_http_verify:
 
+
+verify
+------
+
 ..  confval:: verify
     :name: globals-typo3-conf-vars-sys-http-verify
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
@@ -176,6 +208,10 @@ for more background information on many of those settings.
     `Guzzle option verify <https://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
 
 ..  _typo3ConfVars_http_version:
+
+
+version
+-------
 
 ..  confval:: version
     :name: globals-typo3-conf-vars-sys-http-version

@@ -32,6 +32,10 @@ configuration.
     :display: tree
     :type:
 
+
+caching
+-------
+
 ..  confval:: caching
     :name: globals-typo3-conf-vars-sys-caching
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']
@@ -53,6 +57,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_fileCreateMask:
 
+
+fileCreateMask
+--------------
+
 ..  confval:: fileCreateMask
     :name: globals-typo3-conf-vars-sys-fileCreateMask
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
@@ -63,6 +71,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_folderCreateMask:
 
+
+folderCreateMask
+----------------
+
 ..  confval:: folderCreateMask
     :name: globals-typo3-conf-vars-sys-folderCreateMask
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
@@ -72,6 +84,10 @@ configuration.
     As above, but for folders.
 
 ..  _typo3ConfVars_sys_createGroup:
+
+
+createGroup
+-----------
 
 ..  confval:: createGroup
     :name: globals-typo3-conf-vars-sys-createGroup
@@ -92,6 +108,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_sitename:
 
+
+sitename
+--------
+
 ..  confval:: sitename
     :name: globals-typo3-conf-vars-sys-sitename
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
@@ -101,6 +121,10 @@ configuration.
     Name of the base site.
 
 ..  _typo3ConfVars_sys_defaultScheme:
+
+
+defaultScheme
+-------------
 
 ..  confval:: defaultScheme
     :name: globals-typo3-conf-vars-sys-defaultScheme
@@ -112,6 +136,10 @@ configuration.
     It can be set to :php:`'https'` for the default setting.
 
 ..  _typo3ConfVars_sys_encryptionKey:
+
+
+encryptionKey
+-------------
 
 ..  confval:: encryptionKey
     :name: globals-typo3-conf-vars-sys-encryptionKey
@@ -128,6 +156,10 @@ configuration.
 
 
 ..  _typo3ConfVars_sys_cookieDomain:
+
+
+cookieDomain
+------------
 
 ..  confval:: cookieDomain
     :name: globals-typo3-conf-vars-sys-cookieDomain
@@ -151,6 +183,10 @@ configuration.
     respectively.
 
 ..  _typo3ConfVars_sys_trustedHostsPattern:
+
+
+trustedHostsPattern
+-------------------
 
 ..  confval:: trustedHostsPattern
     :name: globals-typo3-conf-vars-sys-trustedHostsPattern
@@ -188,6 +224,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_devIPmask:
 
+
+devIPmask
+---------
+
 ..  confval:: devIPmask
     :name: globals-typo3-conf-vars-sys-devIPmask
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
@@ -205,6 +245,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_ddmmyy:
 
+
+ddmmyy
+------
+
 ..  confval:: ddmmyy
     :name: globals-typo3-conf-vars-sys-ddmmyy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
@@ -216,6 +260,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_hhmm:
 
+
+hhmm
+----
+
 ..  confval:: hhmm
     :name: globals-typo3-conf-vars-sys-hhmm
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
@@ -225,6 +273,10 @@ configuration.
     Format of Hours-Minutes - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
 
 ..  _typo3ConfVars_sys_loginCopyrightWarrantyProvider:
+
+
+loginCopyrightWarrantyProvider
+------------------------------
 
 ..  confval:: loginCopyrightWarrantyProvider
     :name: globals-typo3-conf-vars-sys-loginCopyrightWarrantyProvider
@@ -237,6 +289,10 @@ configuration.
     (You must also set URL below).
 
 ..  _typo3ConfVars_sys_loginCopyrightWarrantyURL:
+
+
+loginCopyrightWarrantyURL
+-------------------------
 
 ..  confval:: loginCopyrightWarrantyURL
     :name: globals-typo3-conf-vars-sys-loginCopyrightWarrantyURL
@@ -253,6 +309,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_textfile_ext:
 
+
+textfile_ext
+------------
+
 ..  confval:: textfile_ext
     :name: globals-typo3-conf-vars-sys-textfile_ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']
@@ -263,6 +323,10 @@ configuration.
     be editable if disallowed!
 
 ..  _typo3ConfVars_sys_mediafile_ext:
+
+
+mediafile_ext
+-------------
 
 ..  confval:: mediafile_ext
     :name: globals-typo3-conf-vars-sys-mediafile_ext
@@ -280,6 +344,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_miscfile_ext:
 
+
+miscfile_ext
+------------
+
 ..  confval:: miscfile_ext
     :name: globals-typo3-conf-vars-sys-miscfile-ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['miscfile_ext']
@@ -290,6 +358,10 @@ configuration.
     or `mediafile_ext`, such as `zip` or `xz`.
 
 ..  _typo3ConfVars_sys_binPath:
+
+
+binPath
+-------
 
 ..  confval:: binPath
     :name: globals-typo3-conf-vars-sys-binPath
@@ -304,6 +376,10 @@ configuration.
 ..  index::
     TYPO3_CONF_VARS SYS; binSetup
 ..  _typo3ConfVars_sys_binSetup:
+
+
+binSetup
+--------
 
 ..  confval:: binSetup
     :name: globals-typo3-conf-vars-sys-binSetup
@@ -320,6 +396,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_setMemoryLimit:
 
+
+setMemoryLimit
+--------------
+
 ..  confval:: setMemoryLimit
     :name: globals-typo3-conf-vars-sys-setMemoryLimit
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['setMemoryLimit']
@@ -331,6 +411,10 @@ configuration.
     :php:`ini_set()` is not disabled by your sysadmin.
 
 ..  _typo3ConfVars_sys_phpTimeZone:
+
+
+phpTimeZone
+-----------
 
 ..  confval:: phpTimeZone
     :name: globals-typo3-conf-vars-sys-phpTimeZone
@@ -348,6 +432,10 @@ configuration.
     "UTC" is used instead.
 
 ..  _typo3ConfVars_sys_UTF8filesystem:
+
+
+UTF8filesystem
+--------------
 
 ..  confval:: UTF8filesystem
     :name: globals-typo3-conf-vars-sys-UTF8filesystem
@@ -371,6 +459,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_systemLocale:
 
+
+systemLocale
+------------
+
 ..  confval:: systemLocale
     :name: globals-typo3-conf-vars-sys-systemLocale
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
@@ -383,6 +475,10 @@ configuration.
     `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
 
 ..  _typo3ConfVars_sys_reverseProxyIP:
+
+
+reverseProxyIP
+--------------
 
 ..  confval:: reverseProxyIP
     :name: globals-typo3-conf-vars-sys-reverseProxyIP
@@ -410,6 +506,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_reverseProxyHeaderMultiValue:
 
+
+reverseProxyHeaderMultiValue
+----------------------------
+
 ..  confval:: reverseProxyHeaderMultiValue
     :name: globals-typo3-conf-vars-sys-reverseProxyHeaderMultiValue
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
@@ -432,6 +532,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_reverseProxyPrefix:
 
+
+reverseProxyPrefix
+------------------
+
 ..  confval:: reverseProxyPrefix
     :name: globals-typo3-conf-vars-sys-reverseProxyPrefix
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
@@ -445,6 +549,10 @@ configuration.
     be set to :php:`prefix`
 
 ..  _typo3ConfVars_sys_reverseProxySSL:
+
+
+reverseProxySSL
+---------------
 
 ..  confval:: reverseProxySSL
     :name: globals-typo3-conf-vars-sys-reverseProxySSL
@@ -470,6 +578,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_reverseProxyPrefixSSL:
 
+
+reverseProxyPrefixSSL
+---------------------
+
 ..  confval:: reverseProxyPrefixSSL
     :name: globals-typo3-conf-vars-sys-reverseProxyPrefixSSL
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
@@ -481,6 +593,10 @@ configuration.
     :ref:`[SYS][reverseProxyPrefix]<typo3ConfVars_sys_reverseProxyPrefix>`.
 
 ..  _typo3ConfVars_sys_displayErrors:
+
+
+displayErrors
+-------------
 
 ..  confval:: displayErrors
     :name: globals-typo3-conf-vars-sys-displayErrors
@@ -522,6 +638,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_productionExceptionHandler:
 
+
+productionExceptionHandler
+--------------------------
+
 ..  confval:: productionExceptionHandler
     :name: globals-typo3-conf-vars-sys-productionExceptionHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
@@ -539,6 +659,10 @@ configuration.
     :ref:`[SYS][devIPmask]<typo3ConfVars_sys_devIPmask>` does not match the user's IP.
 
 ..  _typo3ConfVars_sys_debugExceptionHandler:
+
+
+debugExceptionHandler
+---------------------
 
 ..  confval:: debugExceptionHandler
     :name: globals-typo3-conf-vars-sys-debugExceptionHandler
@@ -558,6 +682,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_errorHandler:
 
+
+errorHandler
+------------
+
 ..  confval:: errorHandler
     :name: globals-typo3-conf-vars-sys-errorHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
@@ -576,6 +704,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_errorHandlerErrors:
 
+
+errorHandlerErrors
+------------------
+
 ..  confval:: errorHandlerErrors
     :name: globals-typo3-conf-vars-sys-errorHandlerErrors
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
@@ -593,6 +725,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_exceptionalErrors:
 
+
+exceptionalErrors
+-----------------
+
 ..  confval:: exceptionalErrors
     :name: globals-typo3-conf-vars-sys-exceptionalErrors
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
@@ -608,6 +744,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_belogErrorReporting:
 
+
+belogErrorReporting
+-------------------
+
 ..  confval:: belogErrorReporting
     :name: globals-typo3-conf-vars-sys-belogErrorReporting
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
@@ -621,6 +761,10 @@ configuration.
     (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
 ..  _typo3ConfVars_sys_generateApacheHtaccess:
+
+
+generateApacheHtaccess
+----------------------
 
 ..  confval:: generateApacheHtaccess
     :name: globals-typo3-conf-vars-sys-generateApacheHtaccess
@@ -636,6 +780,10 @@ configuration.
     want to use your own rule sets.
 
 ..  _typo3ConfVars_sys_ipAnonymization:
+
+
+ipAnonymization
+---------------
 
 ..  confval:: ipAnonymization
     :name: globals-typo3-conf-vars-sys-ipAnonymization
@@ -658,6 +806,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_systemMaintainers:
 
+
+systemMaintainers
+-----------------
+
 ..  confval:: systemMaintainers
     :name: globals-typo3-conf-vars-sys-systemMaintainers
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']
@@ -667,6 +819,10 @@ configuration.
     A list of backend user IDs that are allowed to access the Install Tool
 
 ..  _typo3ConfVars_sys_features:
+
+
+features
+--------
 
 ..  confval:: features
    :name: globals-typo3-conf-vars-sys-features
@@ -786,6 +942,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_availablePasswordHashAlgorithms:
 
+
+availablePasswordHashAlgorithms
+-------------------------------
+
 ..  confval:: availablePasswordHashAlgorithms
    :name: globals-typo3-conf-vars-sys-availablePasswordHashAlgorithms
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
@@ -796,6 +956,10 @@ configuration.
    additional mechanisms here.
 
 ..  _typo3ConfVars_sys_linkHandler:
+
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
+-------------------------------------------------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
     :name: globals-typo3-conf-vars-sys-linkHandler
@@ -824,6 +988,10 @@ configuration.
 
 ..  _typo3ConfVars_sys_passwordPolicies:
 
+
+passwordPolicies
+----------------
+
 ..  confval::passwordPolicies
     :name: globals-typo3-conf-vars-sys-passwordPolicies
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
@@ -843,6 +1011,10 @@ configuration.
     https://github.com/TYPO3/typo3/blob/main/typo3/sysext/core/Configuration/DefaultConfiguration.php
 
 ..  _typo3ConfVars_sys_messenger:
+
+
+messenger
+---------
 
 ..  confval:: messenger
     :name: globals-typo3-conf-vars-sys-messenger
@@ -875,6 +1047,10 @@ configuration.
             :ref:`message-bus-routing`
 
 ..  _typo3ConfVars_sys_localization:
+
+
+localization
+------------
 
 ..  confval:: localization
     :name: globals-typo3-conf-vars-sys-localization
@@ -918,6 +1094,10 @@ configuration.
 
         *   `Adding custom languages <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-languages>`_
         *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
+
+
+FileInfo
+--------
 
 ..  confval:: FileInfo
     :name: globals-typo3-conf-vars-sys-FileInfo
@@ -970,6 +1150,10 @@ configuration.
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['text/plain']['foo'] =
                 'text/x-foo';
 
+
+allowedPhpDisableFunctions
+--------------------------
+
 ..  confval:: allowedPhpDisableFunctions
     :name: globals-typo3-conf-vars-sys-allowedPhpDisableFunctions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['allowedPhpDisableFunctions']
@@ -992,6 +1176,10 @@ configuration.
 
     You can also define this manually in your :file:`settings.php` file
     or via :guilabel:`System > Settings > Configure options`.
+
+
+rateLimiter
+-----------
 
 ..  confval:: rateLimiter
     :name: globals-typo3-conf-vars-sys-rateLimiter

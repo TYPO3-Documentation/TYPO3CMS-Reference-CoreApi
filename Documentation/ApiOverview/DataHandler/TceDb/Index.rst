@@ -26,6 +26,10 @@ takes precedence. The variable names you can use are:
     headline">`.
 
 
+
+cmd
+---
+
 ..  confval:: cmd
     :name: datahandler-commit-cmd
     :Data type: array
@@ -39,12 +43,20 @@ takes precedence. The variable names you can use are:
     element with UID 123.
 
 
+
+cacheCmd
+--------
+
 ..  confval:: cacheCmd
     :name: datahandler-commit-cacheCmd
     :Data type: string
 
     Cache command sent to :php:`DataHandler->clear_cacheCmd()`.
 
+
+
+redirect
+--------
 
 ..  confval:: redirect
     :name: datahandler-commit-redirect
@@ -54,6 +66,10 @@ takes precedence. The variable names you can use are:
     operations (unless errors has occurred).
 
 
+
+flags
+-----
+
 ..  confval:: flags
     :name: datahandler-commit-flags
     :Data type: array
@@ -61,6 +77,10 @@ takes precedence. The variable names you can use are:
     Accepts options to be set in DataHandler object. Currently, it supports
     "reverseOrder" (boolean).
 
+
+
+mirror
+------
 
 ..  confval:: mirror
     :name: datahandler-commit-mirror
@@ -71,12 +91,20 @@ takes precedence. The variable names you can use are:
     `[data][table][33]`.
 
 
+
+CB
+--
+
 ..  confval:: CB
     :name: datahandler-commit-cb
     :Data type: array
 
     Clipboard command array. May trigger changes in "cmd".
 
+
+
+vC
+--
 
 ..  confval:: vC
     :name: datahandler-commit-vc

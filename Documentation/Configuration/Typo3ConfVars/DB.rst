@@ -28,6 +28,10 @@ the connection to the database:
 
 ..  _typo3ConfVars_db_additionalQueryRestrictions:
 
+
+additionalQueryRestrictions
+---------------------------
+
 ..  confval:: additionalQueryRestrictions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
     :name: typo3-conf-vars-db-additionalQueryRestrictions
@@ -39,6 +43,10 @@ the connection to the database:
     Have a look into the chapter :ref:`database-custom-restrictions` for details.
 
 ..  _typo3ConfVars_db_connections:
+
+
+Connections
+-----------
 
 ..  confval:: Connections
     :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
@@ -249,6 +257,10 @@ the connection to the database:
         For example, database session options.
 
 ..  _typo3ConfVars_db_tablemapping:
+
+
+TableMapping
+------------
 
 ..  confval:: TableMapping
     :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
