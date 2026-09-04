@@ -130,6 +130,10 @@ Options of database backends
     This can reduce the size of the cache data table, but incurs CPU overhead
     for compression and decompression.
 
+
+compressionLevel
+~~~~~~~~~~~~~~~~
+
 ..  confval:: compressionLevel
     :name: caching-backend-compressionLevel
     :type: integer from -1 to 9
@@ -230,6 +234,10 @@ Options for the memcached backend
         Same as above
     `unix:///path/to/memcached.sock`
         Connect to memcached server using unix sockets
+
+
+compression
+~~~~~~~~~~~
 
 ..  confval:: compression
     :name: caching-backend-memcached-compression
@@ -338,12 +346,20 @@ Options for the redis caching backend
 
     IP address or name of redis server to connect to.
 
+
+port
+~~~~
+
 ..  confval:: port
     :name: caching-backend-redis-port
     :type: integer
     :default: `6379`
 
     Port of the redis daemon.
+
+
+persistentConnection
+~~~~~~~~~~~~~~~~~~~~
 
 ..  confval:: persistentConnection
     :name: caching-backend-redis-persistentConnection
@@ -352,6 +368,10 @@ Options for the redis caching backend
 
     Activate a persistent connection to a redis server. This is a good idea
     in high load cloud setups.
+
+
+database
+~~~~~~~~
 
 ..  confval:: database
     :name: caching-backend-redis-database
@@ -362,6 +382,10 @@ Options for the redis caching backend
     otherwise caches sharing a database are all flushed if the flush operation
     is issued to one of them. Database numbers 0 and 1 are used and flushed by the Core unit tests
     and should not be used if possible.
+
+
+keyPrefix
+~~~~~~~~~
 
 ..  confval:: keyPrefix
     :name: caching-backend-redis-keyPrefix
@@ -378,6 +402,10 @@ Options for the redis caching backend
     long as the prefix is unique. If only one cache sharing the database has
     no prefix set, flushing it flushes the whole database.
 
+
+username
+~~~~~~~~
+
 ..  confval:: username
     :name: caching-backend-redis-username
     :type: string
@@ -389,6 +417,10 @@ Options for the redis caching backend
 
     ..  literalinclude:: _redis_password.php
         :caption: config/system/additional.php
+
+
+password
+~~~~~~~~
 
 ..  confval:: password
     :name: caching-backend-redis-password
@@ -405,6 +437,10 @@ Options for the redis caching backend
 
         The password is sent to the redis server as plain text.
 
+
+compression
+~~~~~~~~~~~
+
 ..  confval:: compression
     :name: caching-backend-redis-compression
     :type: boolean
@@ -413,6 +449,10 @@ Options for the redis caching backend
     Whether or not data compression with gzip should be enabled.
     This can reduce cache size, but adds some CPU overhead for the compression
     and decompression operations in PHP.
+
+
+compressionLevel
+~~~~~~~~~~~~~~~~
 
 ..  confval:: compressionLevel
     :name: caching-backend-redis-compressionLevel
@@ -584,12 +624,20 @@ Options for the PDO backend
     -   `sqlite:/path/to/sqlite.db`
     -   `sqlite::memory`
 
+
+username
+~~~~~~~~
+
 ..  confval:: username
     :name: caching-backend-pdo-username
     :type: string
 
     Username for the database connection.
 
+
+
+password
+~~~~~~~~
 
 ..  confval:: password
     :name: caching-backend-pdo-password

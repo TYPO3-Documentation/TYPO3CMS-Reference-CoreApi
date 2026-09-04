@@ -99,6 +99,10 @@ Various configuration options exist to configure the cHash behavior via
 :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] <typo3ConfVars_fe_cacheHash>`
 in the file :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
+
+cachedParametersWhiteList
+-------------------------
+
 ..  confval:: cachedParametersWhiteList
 
     **Only** the given parameters will be evaluated in the cHash calculation.
@@ -109,16 +113,28 @@ in the file :file:`config/system/settings.php` or :file:`config/system/additiona
         parameters except the ones listed here. Caching of pages will not be
         influenced by other parameters beyond the initial caching anymore.
 
+
+requireCacheHashPresenceParameters
+----------------------------------
+
 ..  confval:: requireCacheHashPresenceParameters
 
     Configure parameters that require a cHash. If no cHash is given, but one of
     the parameters are set, then TYPO3 triggers the configured cHash error
     behavior
 
+
+excludedParameters
+------------------
+
 ..  confval:: excludedParameters
 
     The given parameters will be ignored in the cHash calculation.
     Example: `L,tx_search_pi1[query]`
+
+
+excludedParametersIfEmpty
+-------------------------
 
 ..  confval:: excludedParametersIfEmpty
 
@@ -126,10 +142,18 @@ in the file :file:`config/system/settings.php` or :file:`config/system/additiona
     associated value available. Set excludeAllEmptyParameters to true to skip
     all empty parameters.
 
+
+excludeAllEmptyParameters
+-------------------------
+
 ..  confval:: excludeAllEmptyParameters
 
     If true, all parameters relevant to cHash are only considered when they are
     not empty.
+
+
+enforceValidation
+-----------------
 
 ..  confval:: enforceValidation
 

@@ -27,6 +27,10 @@ $GLOBALS
     :guilabel:`System > Settings > Configure Installation-Wide Options`.
 
 
+
+TCA
+---
+
 ..  confval:: TCA
     :name: globals-tca
     :Path: $GLOBALS
@@ -37,6 +41,10 @@ $GLOBALS
     See :ref:`TCA Reference <t3tca:start>`
 
 
+
+T3_SERVICES
+-----------
+
 ..  confval:: T3_SERVICES
     :name: globals-t3-services
     :Path: $GLOBALS
@@ -45,6 +53,10 @@ $GLOBALS
     :Frontend: Yes
 
     Global registration of :ref:`services <services-introduction>`.
+
+
+TYPO3_USER_SETTINGS
+-------------------
 
 ..  confval:: TYPO3_USER_SETTINGS
     :name: globals-typo3-user-settings
@@ -56,6 +68,10 @@ $GLOBALS
 
         See: `Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_
 
+
+BE_USER
+-------
+
 ..  confval:: BE_USER
     :name: globals-be-users
     :Path: $GLOBALS
@@ -65,6 +81,10 @@ $GLOBALS
 
     Backend user object. See :ref:`be-user`.
 
+
+
+EXEC_TIME
+---------
 
 ..  confval:: EXEC_TIME
     :name: globals-exec-time
@@ -82,6 +102,10 @@ $GLOBALS
         :ref:`DateTime Aspect <context_api_aspects_datetime>`.
 
 
+
+SIM_EXEC_TIME
+-------------
+
 ..  confval:: SIM_EXEC_TIME
     :name: globals-sim-exec-time
     :Path: $GLOBALS
@@ -97,6 +121,10 @@ $GLOBALS
 
         Should not be used anymore, rather use the
         :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+
+
+LANG
+----
 
 ..  confval:: LANG
     :name: globals-lang

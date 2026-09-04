@@ -77,12 +77,20 @@ The cache action array element consists of the following keys and values:
     Contains an existing cache id like `pages` or `all` or one registered via
     the :ref:`addCacheActionIdentifier <ModifyClearCacheActionsEvent-api-add-cache-identifier>`.
 
+
+title
+~~~~~
+
 ..  confval:: title
     :name: ModifyClearCacheActionsEvent-api-add-cache-action-title
     :required: true
     :type: string or LLL reference
 
     The title displayed in the clear cache menu.
+
+
+endpoint
+~~~~~~~~
 
 ..  confval:: endpoint
     :name: ModifyClearCacheActionsEvent-api-add-cache-action-endpoint
@@ -99,6 +107,10 @@ The cache action array element consists of the following keys and values:
     however, gives users meaningful, context-specific feedback and ensures error
     conditions are surfaced correctly.
 
+
+iconIdentifier
+~~~~~~~~~~~~~~
+
 ..  confval:: iconIdentifier
     :name: ModifyClearCacheActionsEvent-api-add-cache-action-iconIdentifier
     :required: true
@@ -106,11 +118,19 @@ The cache action array element consists of the following keys and values:
 
     An icon to be displayed in the clear cache menu
 
+
+description
+~~~~~~~~~~~
+
 ..  confval:: description
     :name: ModifyClearCacheActionsEvent-api-add-cache-action-description
     :type: string or LLL reference
 
     The description displayed in the clear cache menu.
+
+
+severity
+~~~~~~~~
 
 ..  confval:: severity
     :name: ModifyClearCacheActionsEvent-api-add-cache-action-severity
