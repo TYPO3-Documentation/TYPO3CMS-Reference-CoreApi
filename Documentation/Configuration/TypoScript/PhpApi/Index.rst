@@ -126,55 +126,53 @@ This is an example TypoScript Configuration Manager:
 .. code-block:: php
     :caption: EXT:my_extension/Classes/Backend/TypoScriptConfigurationManager.php
 
-<?php
-
-declare(strict_types=1);
-
-namespace MyDomain\MyExtension\Backend;
-
-use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Core\Site\Entity\NullSite;
-use TYPO3\CMS\Core\Site\Entity\Site;
-use TYPO3\CMS\Core\TypoScript\TypoScriptFactory;
-use TYPO3\CMS\Core\TypoScript\TypoScriptService;
-
-final readonly class TypoScriptConfigurationManager
-{
-    public function __construct(
-        private TypoScriptFactory $typoScriptFactory,
-        private TypoScriptService $typoScriptService,
-    ) {}
-
-    /**
-     * Returns TypoScript Setup array from the current environment.
-     *
-     * @param ServerRequestInterface $request The current server request
-     * @return array The clean, nested TypoScript setup array
-     */
-    public function getTypoScriptSetup(ServerRequestInterface $request): array
+    declare(strict_types=1);
+    
+    namespace MyDomain\MyExtension\Backend;
+    
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Site\Entity\NullSite;
+    use TYPO3\CMS\Core\Site\Entity\Site;
+    use TYPO3\CMS\Core\TypoScript\TypoScriptFactory;
+    use TYPO3\CMS\Core\TypoScript\TypoScriptService;
+    
+    final readonly class TypoScriptConfigurationManager
     {
-        // 1. Try to get TypoScript from the request attribute (works if rendered via frontend/preview)
-        $typoScript = $request->getAttribute('frontend.typoscript');
-
-        if ($typoScript !== null) {
-            return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
-        }
-
-        // 2. Fallback for the pure Backend context (FormEngine) using the public TypoScriptFactory
-        $site = $request->getAttribute('site');
-        if ($site === null || $site instanceof NullSite) {
+        public function __construct(
+            private TypoScriptFactory $typoScriptFactory,
+            private TypoScriptService $typoScriptService,
+        ) {}
+    
+        /**
+         * Returns TypoScript Setup array from the current environment.
+         *
+         * @param ServerRequestInterface $request The current server request
+         * @return array The clean, nested TypoScript setup array
+         */
+        public function getTypoScriptSetup(ServerRequestInterface $request): array
+        {
+            // 1. Try to get TypoScript from the request attribute (works if rendered via frontend/preview)
+            $typoScript = $request->getAttribute('frontend.typoscript');
+    
+            if ($typoScript !== null) {
+                return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
+            }
+    
+            // 2. Fallback for the pure Backend context (FormEngine) using the public TypoScriptFactory
+            $site = $request->getAttribute('site');
+            if ($site === null || $site instanceof NullSite) {
+                return [];
+            }
+    
+            if ($site instanceof Site) {
+                // Build the TypoScript registry object based on the current active Site and its Site Sets
+                $typoScript = $this->typoScriptFactory->createFromSite($site);
+                return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
+            }
+    
             return [];
         }
-
-        if ($site instanceof Site) {
-            // Build the TypoScript registry object based on the current active Site and its Site Sets
-            $typoScript = $this->typoScriptFactory->createFromSite($site);
-            return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
-        }
-
-        return [];
     }
-}
 
 Example for :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
 
