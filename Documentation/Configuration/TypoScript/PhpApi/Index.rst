@@ -195,20 +195,24 @@ Example for :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
         public function __construct(
             private SiteFinder $siteFinder
         ) {}
+    }
     
-        public function getMyGeneralWarningText(int $pageId): string
-        {
+    public function getMyGeneralWarningText(int $pageId): string
+    {
+        $warningText = 'Warning!';
+        
+        try {
             // Find the site object by traversing the rootline upwards from the given page ID
             $site = $this->siteFinder->getSiteByPageId($pageId);
-            $warningText = 'Warning!';
             
-            // Ensure $site is not null before proceeding
             if ($site instanceof Site) {
-                // Access configuration attributes or custom site settings
+                // Safely access the attribute and catch potential InvalidArgumentException if the key does not exist
                 $warningText = $site->getAttribute('myGeneralWarningText') ?? $warningText;
             }
-
-            return warningText;
+        } catch (SiteNotFoundException|\InvalidArgumentException) {
+            // Fallback to the default warning text if the site is missing or the attribute key is invalid
         }
+
+        return $warningText;
     }
 
