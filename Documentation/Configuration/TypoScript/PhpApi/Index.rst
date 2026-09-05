@@ -125,148 +125,58 @@ This is an example TypoScript Configuration Manager:
 
 .. code-block:: php
     :caption: EXT:my_extension/Classes/Backend/TypoScriptConfigurationManager.php
-    namespace MyDomain\MyExtension\Backend;
 
-    use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
-    use TYPO3\CMS\Core\Cache\Frontend\PhpFrontend;
-    use TYPO3\CMS\Core\Database\ConnectionPool;
-    use TYPO3\CMS\Core\Site\Entity\NullSite;
-    use TYPO3\CMS\Core\Site\Set\SetRegistry;
-    use TYPO3\CMS\Core\Site\SiteFinder;
-    use TYPO3\CMS\Core\TypoScript\IncludeTree\SysTemplateRepository;
-    use TYPO3\CMS\Core\TypoScript\FrontendTypoScriptFactory;
-    use TYPO3\CMS\Core\TypoScript\TypoScriptService;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Utility\RootlineUtility;
+<?php
 
+declare(strict_types=1);
 
-    final readonly class TypoScriptConfigurationManager
+namespace MyDomain\MyExtension\Backend;
+
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Site\Entity\NullSite;
+use TYPO3\CMS\Core\Site\Entity\Site;
+use TYPO3\CMS\Core\TypoScript\TypoScriptFactory;
+use TYPO3\CMS\Core\TypoScript\TypoScriptService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
+
+final readonly class TypoScriptConfigurationManager
+{
+    public function __construct(
+        private TypoScriptFactory $typoScriptFactory,
+        private TypoScriptService $typoScriptService,
+    ) {}
+
+    /**
+     * Returns TypoScript Setup array from the current environment.
+     *
+     * @param ServerRequestInterface $request The current server request
+     * @return array The clean, nested TypoScript setup array
+     */
+    public function getTypoScriptSetup(ServerRequestInterface $request): array
     {
-        public function __construct(
-            #[Autowire(service: 'cache.typoscript')]
-            private PhpFrontend $typoScriptCache,
-            #[Autowire(service: 'cache.runtime')]
-            private FrontendInterface $runtimeCache,
-            private SysTemplateRepository $sysTemplateRepository,
-            private SiteFinder $siteFinder,
-            private FrontendTypoScriptFactory $frontendTypoScriptFactory,
-            private ConnectionPool $connectionPool,
-            private SetRegistry $setRegistry,
-        ) {}
+        // 1. Try to get TypoScript from the request attribute (works if rendered via frontend/preview)
+        $typoScript = $request->getAttribute('frontend.typoscript');
 
-
-        /**
-        * Returns TypoScript Setup array from current Environment.
-        *
-        * @return array the raw TypoScript setup
-        */
-        public function getTypoScriptSetup(ServerRequestInterface $request): array
-        {
-            $currentPageId = $this->getCurrentPageId($request);
-
-            $cacheIdentifier = 'mydomain-backend-typoscript-pageIda-' . $currentPageId;
-            $setupArray = $this->runtimeCache->get($cacheIdentifier);
-            if (is_array($setupArray)) {
-                return $setupArray;
-            }
-
-            $site = $request->getAttribute('site');
-            if (($site === null || $site instanceof NullSite) && $currentPageId > 0) {
-                try {
-                    $site = $this->siteFinder->getSiteByPageId($currentPageId);
-                } catch (SiteNotFoundException) {
-                    // Keep null / NullSite when no site could be determined for whatever reason.
-                }
-            }
-            if ($site === null) {
-                // If still no site object, have NullSite (usually pid 0).
-                $site = new NullSite();
-            }
-
-            $rootLine = [];
-            $sysTemplateRows = [];
-            if ($currentPageId > 0) {
-                $rootLine = GeneralUtility::makeInstance(RootlineUtility::class, $currentPageId)->get();
-                // When the site acts as a TypoScript root, limit sys_template lookup to
-                // pages within this site by truncating the rootline at the site root page.
-                // This mirrors the frontend behavior and prevents sys_template records from
-                // parent sites from leaking into the backend TypoScript evaluation.
-                // @see \TYPO3\CMS\Frontend\Page\PageInformationFactory::setSysTemplateRows()
-                $rootLineForSysTemplates = $rootLine;
-                if ($site instanceof Site && $site->isTypoScriptRoot()) {
-                    $rootLineForSysTemplates = [];
-                    foreach ($rootLine as $index => $rootlinePage) {
-                        $rootLineForSysTemplates[$index] = $rootlinePage;
-                        if ((int)($rootlinePage['uid'] ?? 0) === $site->getRootPageId()) {
-                            break;
-                        }
-                    }
-                }
-                $sysTemplateRows = $this->sysTemplateRepository->getSysTemplateRowsByRootline($rootLineForSysTemplates, $request);
-                ksort($rootLine);
-            }
-            $sets = $site instanceof Site ? $this->setRegistry->getSets(...$site->getSets()) : [];
-            if (empty($sysTemplateRows) && $sets === []) {
-                // If no page with sys_template rows or site sets could be derived, we
-                // "fake" a row to trigger inclusion of 'global' TypoScript only.
-                $sysTemplateFakeRow = [
-                    'uid' => 0,
-                    'pid' => 0,
-                    'title' => 'Fake sys_template row to force global TypoScript loading',
-                    'root' => 1,
-                    'clear' => 3,
-                    'include_static_file' => '',
-                    'basedOn' => '',
-                    'includeStaticAfterBasedOn' => 0,
-                    'static_file_mode' => false,
-                    'constants' => '',
-                    'config' => '',
-                    'deleted' => 0,
-                    'hidden' => 0,
-                    'starttime' => 0,
-                    'endtime' => 0,
-                    'sorting' => 0,
-                ];
-                $sysTemplateRows[] = $sysTemplateFakeRow;
-            }
-
-            $expressionMatcherVariables = [
-                'request' => $request,
-                'pageId' => $currentPageId,
-                'page' => !empty($rootLine) ? $rootLine[array_key_first($rootLine)] : [],
-                'fullRootLine' => $rootLine,
-                'site' => $site,
-            ];
-
-            $typoScript = $this->frontendTypoScriptFactory->createSettingsAndSetupConditions($site, $sysTemplateRows, $expressionMatcherVariables, $this->typoScriptCache);
-            $typoScript = $this->frontendTypoScriptFactory->createSetupConfigOrFullSetup(true, $typoScript, $site, $sysTemplateRows, $expressionMatcherVariables, '0', $this->typoScriptCache, null);
-            // Retrieve the TypoScript setup array containing trailing dots
-            $setupArray = $typoScript->getSetupArray();
-            $this->runtimeCache->set($cacheIdentifier, $setupArray);
-            
-            // Instantiate the TypoScriptService
-            $typoScriptService = GeneralUtility::makeInstance(TypoScriptService::class);
-
-            // Convert the TypoScript array to a plain nested array (removing trailing dots)
-            $plainArray = $typoScriptService->convertTypoScriptArrayToPlainArray($setupArray);
-
-            return $plainArray;
+        if ($typoScript !== null) {
+            return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
         }
 
-        /**
-        * Get page id from the request, accessing POST / GET 'id'
-        */
-        private function getCurrentPageId(ServerRequestInterface $request): int
-        {
-            $id = 0;
-            $potentialId = $request->getParsedBody()['id'] ?? $request->getQueryParams()['id'] ?? 0;
-            if (MathUtility::canBeInterpretedAsInteger($potentialId) && $potentialId > 0) {
-                $id = (int)$potentialId;
-            }
-            return $id;
+        // 2. Fallback for the pure Backend context (FormEngine) using the public TypoScriptFactory
+        $site = $request->getAttribute('site');
+        if ($site === null || $site instanceof NullSite) {
+            return [];
         }
+
+        if ($site instanceof Site) {
+            // Build the TypoScript registry object based on the current active Site and its Site Sets
+            $typoScript = $this->typoScriptFactory->createFromSite($site);
+            return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
+        }
+
+        return [];
     }
-
+}
 
 Example for :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
 
