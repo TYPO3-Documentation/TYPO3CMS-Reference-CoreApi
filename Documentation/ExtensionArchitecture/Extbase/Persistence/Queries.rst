@@ -311,9 +311,20 @@ The remaining settings control language and visibility:
         :type: `bool`
         :default: `true`
 
-        When :php:`true`, results are filtered and overlaid according to the
-        current language. When :php:`false`, records of all languages are
-        returned without overlay.
+        Controls whether the query is restricted to the current language.
+
+        When :php:`true`, a request in language 2 returns the Polish records.
+        Whether records without a Polish translation are included depends on
+        the site's language configuration.
+
+        When :php:`false`, the language restriction is dropped and records of
+        every language are returned side by side. A conference that exists in
+        English, Polish and German is returned three times — once per
+        language.
+
+        Use :php:`false` for deliberate cross-language listings, such as a
+        backend overview showing every translation of a record. In a frontend
+        list it produces apparent duplicates.
 
     ..  confval:: setIgnoreEnableFields(bool)
         :name: qs-ignoreEnableFields
