@@ -21,7 +21,6 @@ Example
 =======
 
 ..  literalinclude:: _LoginAttemptFailedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
 ..  _login-attempt-failed-event-api:

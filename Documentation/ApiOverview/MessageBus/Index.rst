@@ -76,7 +76,6 @@ A :file:`Services.yaml` entry is needed to use :yaml:`before`/:yaml:`after`
 for registration if you need to define an order:
 
 ..  literalinclude:: _demo-handler.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 ..  _message-bus-routing:
@@ -212,7 +211,6 @@ name used in the settings is resolved to a service that has been tagged with
     ];
 
 ..  literalinclude:: _custom-transport.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
 The TYPO3 Core has been tested with three transports:
@@ -244,7 +242,6 @@ Use the following configuration to limit the process of messages to
 max. 100 each 60 seconds:
 
 ..  literalinclude:: _add-rate-limiter.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
 ..  hint::
@@ -260,7 +257,6 @@ The :php:`InMemoryTransport` is a transport that should only be used while
 testing.
 
 ..  literalinclude:: _in-memory-transport.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
 
@@ -279,7 +275,6 @@ To add your own middleware, tag it as :yaml:`messenger.middleware` and set the
 order using TYPO3's :yaml:`before` and :yaml:`after` ordering mechanism:
 
 ..  literalinclude:: _custom-middleware.yaml
-    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
 

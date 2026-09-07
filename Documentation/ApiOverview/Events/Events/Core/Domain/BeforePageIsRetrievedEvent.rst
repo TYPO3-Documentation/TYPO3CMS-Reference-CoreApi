@@ -20,7 +20,6 @@ Example
 =======
 
 ..  literalinclude:: _BeforePageIsRetrievedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
 
 ..  _before-page-is-retrieved-event-api:

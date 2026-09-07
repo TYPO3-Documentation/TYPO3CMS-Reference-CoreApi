@@ -24,7 +24,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyQueryForLiveSearchEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 

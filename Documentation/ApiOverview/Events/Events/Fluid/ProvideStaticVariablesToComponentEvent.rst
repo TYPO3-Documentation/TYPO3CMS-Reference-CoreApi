@@ -30,7 +30,6 @@ Example
 =======
 
 ..  literalinclude:: _ProvideStaticVariablesToComponentEvent/_ProvideStaticVariablesToComponentListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/EventListener/ProvideStaticVariablesToComponentListener.php
 
 ..  _provide-static-variables-to-component-event-api:

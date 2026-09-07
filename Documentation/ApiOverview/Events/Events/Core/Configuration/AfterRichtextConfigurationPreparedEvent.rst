@@ -21,7 +21,6 @@ Example: enable debugging in the rich text editor
 The following event listener enables debugging in the rich text editor:
 
 ..  literalinclude:: _AfterRichtextConfigurationPreparedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/EnableDebugRichTextEditorEventListener.php
 
 ..  _AfterRichtextConfigurationPreparedEvent-api:

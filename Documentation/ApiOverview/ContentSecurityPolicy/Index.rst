@@ -70,7 +70,6 @@ needs to be enabled, **or** the site-specific :file:`csp.yaml` configuration
 file needs to set the `enforce` or `report` disposition like this:
 
 ..  literalinclude:: _csp_enforce.yaml
-    :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 Within the TYPO3 backend, a specific backend module is available to inspect policy
@@ -251,15 +250,12 @@ Resulting configuration example:
 And this is how you would do that with a CSP YAML configuration file, one per site:
 
 ..  literalinclude:: _csp_example_com.yaml
-    :language: yaml
     :caption: config/sites/example-com/csp.yaml | typo3conf/sites/example-com/csp.yaml
 
 ..  literalinclude:: _csp_example_org.yaml
-    :language: yaml
     :caption: config/sites/example-org/csp.yaml | typo3conf/sites/example-org/csp.yaml
 
 ..  literalinclude:: _ContentSecurityPolicies_example.php
-    :language: yaml
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
 This is really just a simple demo, that has room for improvements. For example,
@@ -378,7 +374,6 @@ In frontend, a dedicated :file:`sites/<my_site>/csp.yaml` can be
 used to declare policies for a specific site, for example:
 
 ..  literalinclude:: _csp.yaml
-    :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 
@@ -391,7 +386,6 @@ The Content Security Policy for a particular site can be disabled with the
 :yaml:`active` key set to :yaml:`false`:
 
 ..  literalinclude:: _csp_active.yaml
-    :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 
@@ -465,12 +459,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_append.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 12-15
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_append.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 27-31
 
@@ -492,12 +484,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_extend.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 7-10
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_extend.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 22-26
 
@@ -518,12 +508,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_inherit_again.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 8-9,21-22
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_inherit_again.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 23-26,37-40
 
@@ -547,12 +535,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_inherit_once.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 8-9,21-22
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_inherit_once.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 23-26,37-40
 
@@ -576,12 +562,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_reduce.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 9-12
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_reduce.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 24-28
 
@@ -601,12 +585,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_remove.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 12-13
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_remove.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 27-30
 
@@ -626,12 +608,10 @@ via the following modes:
         Example:
 
         ..  literalinclude:: _csp_mode_set.yaml
-            :language: yaml
             :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
             :emphasize-lines: 2-5
 
         ..  literalinclude:: _ContentSecurityPolicies_mode_set.php
-            :language: php
             :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
             :emphasize-lines: 16-20
 

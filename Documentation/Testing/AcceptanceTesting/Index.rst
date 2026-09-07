@@ -64,14 +64,12 @@ The suite file (for instance :file:`Backend.suite.yml`) should contain a line
 to load and configure the backend login module:
 
 ..  literalinclude:: _AcceptanceTests/_Backend.suite.yml
-    :language: yaml
     :caption: EXT:some_extension/Tests/Acceptance/Backend.suite.yml
 
 This allows an editor and an admin user to easily log into the TYPO3 backend
 without further fuzz. An acceptance test can use it like this:
 
 ..  literalinclude:: _AcceptanceTests/_ModuleCest.php
-    :language: php
     :caption: EXT:styleguide/Tests/Acceptance/Backend/ModuleCest.php
 
 The call :php:`$I->useExistingSession('admin')` logs in an admin user into the TYPO3
@@ -89,7 +87,6 @@ methods takes care the according frames are fully loaded before proceeding with
 further tests:
 
 ..  literalinclude:: _AcceptanceTests/_SomeCest.php
-    :language: php
     :caption: EXT:styleguide/Tests/Acceptance/Backend/SomeCest.php
 
 ..  _testing-writing-acceptance-pagetree:
@@ -101,7 +98,6 @@ An abstract class of `typo3/testing-framework` can be extended and used to open 
 select specific pages in the page tree. A typical class looks like this:
 
 ..  literalinclude:: _AcceptanceTests/_PageTree.php
-    :language: php
     :caption: typo3/sysext/core/Tests/Acceptance/Support/Helper/PageTree.php
 
 This example is taken from the Core extension, other extensions should use their own
@@ -109,7 +105,6 @@ instance in an own extension based namespace. If this is done, the PageTree supp
 class can be injected into a test:
 
 ..  literalinclude:: _AcceptanceTests/_ElementsBasicInputDateCest.php
-    :language: php
     :caption: EXT:some_extension/Tests/Acceptance/Backend/SomeCest.php
 
 The example above (adapt to your namespaces!) instructs the PageTree helper to find

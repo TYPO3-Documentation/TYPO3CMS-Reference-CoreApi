@@ -46,7 +46,6 @@ custom source type for the same task, and instead providing a custom event
 listener to build sources for non-zero page types.
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_PageTypeSource/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 ..  _slug-redirect-change-item-created-event-examples-custom-source:
@@ -55,13 +54,11 @@ With a custom source implementation
 -----------------------------------
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 Example of a :php:`CustomSource` implementation:
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_CustomSource.php
-    :language: php
     :caption: EXT:my_extension/Classes/Redirects/CustomSource.php
 
 ..  _slug-redirect-change-item-created-event-default-event-listeners:
@@ -101,7 +98,6 @@ Remove plain slug source, if page type 0 differs
 ------------------------------------------------
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
 
 ..  _slug-redirect-change-item-created-event-api:

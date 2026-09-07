@@ -17,7 +17,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterDefaultUploadFolderWasResolvedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 ..  _after-default-upload-folder-was-resolved-event-api:

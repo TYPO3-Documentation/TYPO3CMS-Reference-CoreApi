@@ -13,7 +13,6 @@ overridden in any extension's :file:`ext_localconf.php` file. Example:
 
 
 ..  literalinclude:: _RegistrationChanges/_ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 The general syntax is:

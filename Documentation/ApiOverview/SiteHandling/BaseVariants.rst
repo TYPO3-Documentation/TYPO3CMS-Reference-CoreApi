@@ -59,7 +59,6 @@ Example
 =======
 
 ..  literalinclude:: _base-variants.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 

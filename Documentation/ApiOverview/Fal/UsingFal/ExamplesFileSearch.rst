@@ -21,7 +21,6 @@ Searching for files in a folder
 ===============================
 
 ..  literalinclude:: _ExamplesFileSearch/_SearchInFolder.php
-    :language: php
     :caption: EXT:my_extension/Classes/SearchInFolderExample.php
 
 
@@ -31,7 +30,6 @@ Searching for files in a storage
 ================================
 
 ..  literalinclude:: _ExamplesFileSearch/_SearchInStorage.php
-    :language: php
     :caption: EXT:my_extension/Classes/SearchInStorageExample.php
 
 ..  seealso::
@@ -49,7 +47,6 @@ restrictions to the :php:`FileSearchDemand`. Please note, that
 methods for ease of use:
 
 ..  literalinclude:: _ExamplesFileSearch/_SearchInStorageWithRestrictions.php
-    :language: php
     :caption: EXT:my_extension/Classes/SearchInStorageWithRestrictionsExample.php
 
 

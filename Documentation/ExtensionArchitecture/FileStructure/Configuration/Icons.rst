@@ -20,5 +20,4 @@
     See the :ref:`Icon API <icon>` for details.
 
 ..  literalinclude:: /ApiOverview/Icon/_Icons.php
-    :language: php
     :caption: EXT:my_extension/Configuration/Icons.php

@@ -38,7 +38,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyLinkExplanationEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  _modify-link-explanation-event-api:

@@ -72,4 +72,3 @@ Example for EXT:form
 Translate options via :yaml:`siteLanguage` condition:
 
 ..  literalinclude:: _form-condition.yaml
-    :language: yaml

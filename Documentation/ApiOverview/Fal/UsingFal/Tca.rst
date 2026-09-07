@@ -13,7 +13,6 @@ The TCA field type :ref:`t3tca:columns-file` can be used to provide a field
 in which files can be referenced and/or uploaded:
 
 ..  literalinclude:: _Tca/_my_table.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/my_table.php
 
 The property :ref:`appearance <t3tca:columns-file-properties-appearance>` can be
@@ -23,7 +22,6 @@ should be displayed.
 Example:
 
 ..  literalinclude:: _Tca/_overrides_my_table.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/my_table.php
 
 This will suppress two buttons for upload and external URL and only leave

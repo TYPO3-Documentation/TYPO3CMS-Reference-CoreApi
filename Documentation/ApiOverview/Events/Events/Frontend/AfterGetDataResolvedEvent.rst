@@ -17,7 +17,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterGetDataResolvedEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  _after-get-data-resolved-event-api:

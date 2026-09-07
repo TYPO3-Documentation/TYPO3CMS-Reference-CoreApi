@@ -21,7 +21,6 @@ The following example adds an additional item to the scheduler task wizard,
 removes an existing item and modifies one.
 
 ..  literalinclude:: _ModifyNewSchedulerTaskWizardItemsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Seo/EventListener/MyEventListener.php
 
 ..  _ModifyNewSchedulerTaskWizardItemsEvent-api:

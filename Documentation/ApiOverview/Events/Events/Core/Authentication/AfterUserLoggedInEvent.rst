@@ -22,7 +22,6 @@ Example
 =======
 
 ..  literalinclude:: _AfterUserLoggedInEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
 ..  _after-user-logged-in-event-api:

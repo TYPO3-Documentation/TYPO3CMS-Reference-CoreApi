@@ -111,7 +111,6 @@ Method :php:`getPrerequisites()`
     :yaml:`install.upgradewizard`:
 
     ..  literalinclude:: _tagUpgradeWizard.yaml
-        :language: yaml
         :caption: EXT:my_extension/Configuration/Services.yaml
 
 After creating the new upgrade wizard, delete all caches in

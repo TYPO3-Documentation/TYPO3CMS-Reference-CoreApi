@@ -38,7 +38,6 @@ process. The best place for this is inside :file:`system/additional.php` (see
 :ref:`t3coreapi:configuration-files`). The PHP code for this could look like:
 
 ..  literalinclude:: _codesnippets/_additional.php
-    :language: php
     :caption: config/system/additional.php
 
 Each environment would have its own :file:`.env` file, which is only stored on
@@ -91,13 +90,11 @@ You can require these libraries through Packagist/Composer.
 Example for `symfony/dotenv`:
 
 ..  literalinclude:: _codesnippets/_dotenv-symfony.php
-    :language: php
     :caption: config/system/additional.php
 
 Example for `vlucas/phpdotenv`:
 
 ..  literalinclude:: _codesnippets/_dotenv-vlucas.php
-    :language: php
     :caption: config/system/additional.php
 
 Once this code has loaded the content from the :file:`.env` file into :php:`$_ENV`
@@ -137,14 +134,12 @@ will only be placed on your specific target server (and not be kept in your vers
 control system).
 
 ..  literalinclude:: _codesnippets/_environment.php
-    :language: php
     :caption: config/system/environment.php
 
 This file would also need to be loaded through the additional configuration
 workflow (which can be kept in your versioning control system):
 
 ..  literalinclude:: _codesnippets/_additional-native.php
-    :language: php
     :caption: config/system/additional.php
 
 Of course, you can move such a file to a special :file:`Shared/Data/` directory

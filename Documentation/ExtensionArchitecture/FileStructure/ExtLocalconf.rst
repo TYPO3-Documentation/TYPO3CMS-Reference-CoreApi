@@ -97,7 +97,6 @@ automatically as soon as the extension is installed.
 The skeleton of the :file:`ext_localconf.php` looks like this:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.

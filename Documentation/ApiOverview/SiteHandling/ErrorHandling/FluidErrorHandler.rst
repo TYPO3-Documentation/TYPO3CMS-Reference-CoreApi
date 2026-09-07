@@ -59,5 +59,4 @@ Example
 Show the content of a Fluid template in case of an error with HTTP status 404:
 
 ..  literalinclude:: _fluid-error-handler.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml

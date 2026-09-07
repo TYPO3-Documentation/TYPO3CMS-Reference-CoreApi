@@ -18,7 +18,6 @@ The :php:`\TYPO3\CMS\Core\Context\Context` object can be retrieved via
 :ref:`dependency injection <DependencyInjection>`:
 
 ..  literalinclude:: _MyController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 This information is separated in so-called
@@ -82,7 +81,6 @@ Example
 ~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingDateAspect.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
@@ -189,7 +187,6 @@ Example
 ~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingLanguageAspect.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
@@ -273,7 +270,6 @@ Example
 ~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingUserAspect.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
@@ -316,7 +312,6 @@ Example
 ~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingVisibilityAspect.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
@@ -358,5 +353,4 @@ Example
 ~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingWorkspaceAspect.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php

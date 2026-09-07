@@ -61,7 +61,6 @@ Internal error page
 Show the internal page with uid `145` on all errors with HTML status code `404`.
 
 ..  literalinclude:: _page-error-handler-internal.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 ..  _sitehandling-error-handling-page-examples-external-error:
@@ -73,5 +72,4 @@ Shows an external page on all errors with a HTTP status code not defined
 otherwise.
 
 ..  literalinclude:: _page-error-handler-external.yaml
-    :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml

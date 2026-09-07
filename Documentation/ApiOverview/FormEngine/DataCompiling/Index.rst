@@ -173,7 +173,6 @@ from the extension "news" hooks in between these two to add some own preparation
 code in :file:`ext_localconf.php`:
 
 ..  literalinclude:: _ext_localconf.php
-    :language: php
     :caption: EXT:news/ext_localconf.php
 
 This is pretty powerful since it allows extensions to hook in additional stuff at any point of the processing chain, and
@@ -226,7 +225,6 @@ As an example, if editing a full database record, the default `TcaCheckboxItems`
 :php:`disabled` in the :php:`tcaDatabaseRecord` group in an extension's :file:`ext_localconf.php` file:
 
 ..  literalinclude:: _ext_localconf_disable.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 Extension authors can then add an own data provider, which :php:`depends`

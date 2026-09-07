@@ -20,7 +20,6 @@ Example
 =======
 
 ..  literalinclude:: _ProcessFileListActionsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
 
 ..  _process-file-list-actions-event-api:

@@ -27,7 +27,6 @@ Example
 =======
 
 ..  literalinclude:: _ModifyBlindedConfigurationOptionsEvent/_MyEventListener.php
-    :language: php
     :caption: EXT:my_extension/Classes/Lowlevel/EventListener/MyEventListener.php
 
 

@@ -51,7 +51,6 @@ one argument.
 Example: finding :sql:`tt_content` records:
 
 ..  literalinclude:: _RepositoryWithJunctions.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
@@ -162,7 +161,6 @@ with field name), the second argument is an optional alias.
 Examples:
 
 ..  literalinclude:: _RepositoryAgregate.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
@@ -208,7 +206,6 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryConcat.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  _database-expression-builder-castInt:
@@ -227,7 +224,6 @@ except PostgreSQL. For PostgreSQL :sql:`"value"::INTEGER` cast notation
 is used.
 
 ..  literalinclude:: _RepositoryCastInt.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  _database-expression-builder-castText:
@@ -247,7 +243,6 @@ or similar methods based on the database engine.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryCastText.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  _database-expression-builder-castVarchar:
@@ -268,7 +263,6 @@ where :sql:`"value"::INTEGER` cast notation is used.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryCastVarChar.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
@@ -354,7 +348,6 @@ more complex compatible replacement expression construct is created.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryLeftPad.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
@@ -369,7 +362,6 @@ The :php:`length()` string function can be used to return the length of a
 string in bytes.
 
 ..  literalinclude:: _RepositoryLength.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
@@ -395,7 +387,6 @@ vendors except SQLite which uses
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRepeat.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  _database-expression-builder-right:
@@ -413,7 +404,6 @@ database vendors except SQLite, which uses :sql:`substring("value", start_of_str
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRight.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
@@ -433,7 +423,6 @@ more complex compatible replacement expression construct is created.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRightPad.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  _database-expression-builder-space:
@@ -452,7 +441,6 @@ and SQLite.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositorySpace.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 ..  _database-expression-builder-trim:
@@ -466,7 +454,6 @@ Using the :php:`->trim()` expression ensures that fields are trimmed at the
 database level. The following examples give a better idea of what is possible:
 
 ..  literalinclude:: _RepositoryWithTrim.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
