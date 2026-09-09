@@ -21,9 +21,10 @@ Makefile                    # local install/build/test commands
   a different Core version under `.Build/vendor`) — otherwise you're
   checking facts against the wrong version.
 - `make docs` — render the manual locally with Docker.
-- `make docs-test` — render with strict validation (CI mode); use this to
-  validate any change before committing. Note this repo's target is named
-  `docs-test`, not `test-docs` like the central how-to-document repo.
+- `make test-docs` — render in minimal-test mode (the same validation CI
+  runs); use this to validate any change before committing. `docs-test`
+  still works as a deprecated alias for the target's former name.
+- `make test` — full test suite (docs, lint, cgl, yaml).
 
 ## Rules
 
