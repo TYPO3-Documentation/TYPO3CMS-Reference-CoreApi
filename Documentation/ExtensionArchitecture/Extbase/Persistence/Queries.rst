@@ -18,7 +18,7 @@ cover the simplest cases and are documented with the repository itself:
 
 ..  seealso::
 
-    `The Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — what a repository is, the built-in find methods, and injecting it into a controller.
+    `The Extbase repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_ — what a repository is, the built-in find methods, and injecting it into a controller.
 
 This page covers everything beyond those: writing your own query methods with
 :php:`createQuery()`, constraining and ordering the result, and then the parts
@@ -230,7 +230,7 @@ property-versus-column rule are documented with the repository:
 
 ..  seealso::
 
-    `Ordering results in Extbase repositories <https://docs.typo3.org/permalink/extbase-domain-repository-ordering>`_ — :php:`$defaultOrderings`, :php:`setOrderings()`, :php:`orderBy()`, and why an unordered query has no guaranteed order.
+    `Ordering results in Extbase repositories <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-ordering>`_ — :php:`$defaultOrderings`, :php:`setOrderings()`, :php:`orderBy()`, and why an unordered query has no guaranteed order.
 
 To return a slice of the result, combine :php:`setLimit()` and
 :php:`setOffset()`:
@@ -277,7 +277,7 @@ than what you expect, and it has its own page:
 
 ..  seealso::
 
-    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why `storagePid = 0` does not disable the restriction, and how to override or drop the restriction for a single query.
+    `The storagePid <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why `storagePid = 0` does not disable the restriction, and how to override or drop the restriction for a single query.
 
 
 ..  _extbase-persistence-queries-querysettings:
@@ -485,11 +485,11 @@ the Extbase debugger:
 
 ..  seealso::
 
-    `Persistence and the Extbase ORM <https://docs.typo3.org/permalink/extbase-concepts-persistence>`_ — the ORM mental model and object lifecycle.
+    `Persistence and the Extbase ORM <https://docs.typo3.org/permalink/t3coreapi:extbase-concepts-persistence>`_ — the ORM mental model and object lifecycle.
 
-    `Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — find methods, constraints and the DBAL escape hatch.
+    `Extbase repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_ — find methods, constraints and the DBAL escape hatch.
 
-    `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — how related objects are loaded and the lazy-loading trade-off.
+    `Object relations in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_ — how related objects are loaded and the lazy-loading trade-off.
 
 Once you can query confidently, the next step is understanding how Extbase loads
 *related* objects — and the performance trade-off that comes with them. That is

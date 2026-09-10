@@ -96,12 +96,12 @@ follow this convention, override the mapping in
 
 ..  seealso::
 
-    `Private properties silently ignored <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-private-properties>`_ for why
+    `Private properties silently ignored <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-private-properties>`_ for why
     private properties are silently ignored, with the full technical
     explanation.
 
     Field and table mapping overrides are covered in the mapping reference
-    (coming soon) and in `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/extbase-domain-repository-storagepid>`_.
+    (coming soon) and in `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-storagepid>`_.
 
 
 ..  _extbase-domain-model-attributes:
@@ -190,7 +190,7 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM` namespace:
 
 ..  seealso::
 
-    `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ for all Extbase PHP attributes
+    `Extbase PHP attributes <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_ for all Extbase PHP attributes
     with parameters and usage examples
 
 
@@ -250,9 +250,9 @@ A few things to note in the example above:
 
 ..  seealso::
 
-    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — explains the two relation types, how they are stored, unidirectional and bidirectional relations, lazy loading, and the N+1 query problem.
+    *   `Object relations in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_ — explains the two relation types, how they are stored, unidirectional and bidirectional relations, lazy loading, and the N+1 query problem.
 
-    *   `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ — all Extbase PHP attributes, with parameters and usage examples.
+    *   `Extbase PHP attributes <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_ — all Extbase PHP attributes, with parameters and usage examples.
 
 
 ..  _extbase-domain-model-filereference:
@@ -543,7 +543,7 @@ a value object — use :php:`AbstractEntity` instead.
 
 ..  seealso::
 
-    `Enum properties in Extbase domain models <https://docs.typo3.org/permalink/extbase-domain-model-enums>`_ for backed
+    `Enum properties in Extbase domain models <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-enums>`_ for backed
     enums as model properties, including automatic conversion by Extbase.
 
 ..  _extbase-domain-model-hydration:

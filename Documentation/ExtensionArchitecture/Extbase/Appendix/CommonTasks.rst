@@ -57,7 +57,7 @@ silently overwritten by the original.
 
 ..  seealso::
 
-    `Table and field mapping <https://docs.typo3.org/permalink/extbase-domain-model-mapping>`_ for the
+    `Table and field mapping <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-mapping>`_ for the
     :file:`Configuration/Extbase/Persistence/Classes.php` mapping file.
 
 ..  Detailed walkthrough coming in the extending third-party extensions chapter (planned, placement TBD).
@@ -78,8 +78,8 @@ build constraints with :php:`$query->matching()`, and return
 
 ..  seealso::
 
-    * `Custom query methods <https://docs.typo3.org/permalink/extbase-domain-repository-custom-queries>`_ for the basic knowledge.
-    * `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ for the full query API
+    * `Custom query methods <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-custom-queries>`_ for the basic knowledge.
+    * `Persistence queries <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ for the full query API
        including ordering, limits, and storagePid settings.
 
 
@@ -107,8 +107,8 @@ annotation, no factory call needed.
 
 ..  seealso::
 
-    * `Dependency injection <https://docs.typo3.org/permalink/extbase-domain-repository-di>`_.
-    * `Extbase controller actions <https://docs.typo3.org/permalink/extbase-controller-action>`_ for the full controller setup.
+    * `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-di>`_.
+    * `Extbase controller actions <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action>`_ for the full controller setup.
 
 
 ..  _extbase-appendix-tasks-default-ordering:
@@ -138,7 +138,7 @@ repository. It applies automatically to all queries from that repository.
 
 ..  seealso::
 
-    `Ordering <https://docs.typo3.org/permalink/extbase-domain-repository-ordering>`_.
+    `Ordering <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-ordering>`_.
 
 
 ..  _extbase-appendix-tasks-lazy-relation:
@@ -156,11 +156,11 @@ single object, the getter must also handle the :php:`LazyLoadingProxy` intermedi
 
 ..  seealso::
 
-    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_ for the full pattern
+    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_ for the full pattern
       including the proxy-aware getter.
-    * `#[Lazy] <https://docs.typo3.org/permalink/extbase-appendix-attributes-lazy>`_ for the attribute
+    * `#[Lazy] <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes-lazy>`_ for the attribute
       reference.
-    * `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for the N+1 query trap
+    * `Persistence relations <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_ for the N+1 query trap
       this prevents.
 
 
@@ -178,8 +178,8 @@ repository when the parent is deleted.
 
 ..  seealso::
 
-    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_.
-    * `#[Cascade] <https://docs.typo3.org/permalink/extbase-appendix-attributes-cascade>`_.
+    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_.
+    * `#[Cascade] <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes-cascade>`_.
 
 
 ..  _extbase-appendix-tasks-enum-property:
@@ -199,7 +199,7 @@ configuration needed.
 
 ..  seealso::
 
-    `Enum properties <https://docs.typo3.org/permalink/extbase-domain-model-enums>`_.
+    `Enum properties <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-enums>`_.
 
 
 ..  _extbase-appendix-tasks-non-persisted-property:
@@ -216,8 +216,8 @@ entirely during read and write operations.
 
 ..  seealso::
 
-    * `Non-persisted properties <https://docs.typo3.org/permalink/extbase-domain-model-transient>`_.
-    * `#[Transient] <https://docs.typo3.org/permalink/extbase-appendix-attributes-transient>`_.
+    * `Non-persisted properties <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-transient>`_.
+    * `#[Transient] <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes-transient>`_.
 
 
 ..  _extbase-appendix-tasks-contentblock-settings:
@@ -240,7 +240,7 @@ more relevant as Content Block technology moves into the Core.
 
 ..  seealso::
 
-    *   `Feeding settings from a Content Block FlexForm <https://docs.typo3.org/permalink/extbase-configuration-typoscript-settings-contentblocks>`_
+    *   `Feeding settings from a Content Block FlexForm <https://docs.typo3.org/permalink/t3coreapi:extbase-configuration-typoscript-settings-contentblocks>`_
         for the full example and how the wiring works.
 
     *   `Create Extbase plugins (Content Blocks documentation) <https://docs.typo3.org/permalink/friendsoftypo3-content-blocks:create-extbase-plugin>`_.

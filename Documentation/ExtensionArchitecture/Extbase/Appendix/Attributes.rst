@@ -89,10 +89,10 @@ the proxy in any way triggers resolution automatically.
 
 ..  seealso::
 
-    `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_ — relations and ObjectStorage
+    `Relations and ObjectStorage <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_ — relations and ObjectStorage
     on the model page.
 
-    `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — full lazy loading reference
+    `Persistence relations <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_ — full lazy loading reference
     and the N+1 query trap.
 
 
@@ -214,10 +214,10 @@ and control validation behaviour on model properties and controller action param
 
 ..  seealso::
 
-    `Built-in validators <https://docs.typo3.org/permalink/extbase-validation-builtin>`_ — all built-in validators and
+    `Built-in validators <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-builtin>`_ — all built-in validators and
     their options.
 
-    `Custom validators <https://docs.typo3.org/permalink/extbase-validation-custom>`_ — writing a custom validator.
+    `Custom validators <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-custom>`_ — writing a custom validator.
 
 
 ..  _extbase-appendix-attributes-ignorevalidation:

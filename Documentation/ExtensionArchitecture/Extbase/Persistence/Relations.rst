@@ -32,7 +32,7 @@ How to **declare** relations in a model — the attributes, the
 
 ..  seealso::
 
-    `Modelling relations in Extbase <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_ — declaring relation properties, lazy and cascade attributes, ObjectStorage accessors.
+    `Modelling relations in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_ — declaring relation properties, lazy and cascade attributes, ObjectStorage accessors.
 
 ..  contents:: On this page
     :local:
@@ -236,7 +236,7 @@ part of the parent. Child ordering comes from the TCA of the relation
 
 ..  seealso::
 
-    `Ordering in Extbase relations <https://docs.typo3.org/permalink/extbase-domain-repository-ordering-relations>`_ — why repository sort orders do not affect relation children.
+    `Ordering in Extbase relations <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-ordering-relations>`_ — why repository sort orders do not affect relation children.
 
 
 ..  _extbase-persistence-relations-lazy:
@@ -283,18 +283,18 @@ The rule of thumb:
 
 ..  seealso::
 
-    `When to drop out of the ORM <https://docs.typo3.org/permalink/extbase-domain-repository-dbal>`_ — using raw DBAL from a repository when relation loading creates a performance problem.
+    `When to drop out of the ORM <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-dbal>`_ — using raw DBAL from a repository when relation loading creates a performance problem.
 
 The lazy-versus-eager decision is per relation and reversible — it is a property
 attribute, not a schema change — so measure with real data before optimising.
 
 ..  seealso::
 
-    *   `Persistence and the Extbase ORM <https://docs.typo3.org/permalink/extbase-concepts-persistence>`_ — the ORM mental model.
+    *   `Persistence and the Extbase ORM <https://docs.typo3.org/permalink/t3coreapi:extbase-concepts-persistence>`_ — the ORM mental model.
 
-    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — storagePid, query settings, and debugging.
+    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ — storagePid, query settings, and debugging.
 
-    *   `Modelling relations in Extbase <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_ — declaring relations in the model.
+    *   `Modelling relations in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_ — declaring relations in the model.
 
 With relations and queries understood, you have the full persistence picture of
 an Extbase extension. For everything the ORM does not do — aggregates, bulk
