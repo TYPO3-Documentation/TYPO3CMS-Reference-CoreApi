@@ -32,4 +32,4 @@ Example:
 
 ..  tip::
     The frontend user id and groups are available from the
-    `User aspect <https://docs.typo3.org/permalink/t3coreapi:context_api_aspects_user>`_.
+    `User aspect <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-user>`_.
