@@ -238,9 +238,9 @@ Two cases require an earlier flush:
 
 ..  seealso::
 
-    `Extbase domain model <https://docs.typo3.org/permalink/extbase-domain-model>`_ — defining models and their properties.
+    `Extbase domain model <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model>`_ — defining models and their properties.
 
-    `Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — writing custom repository queries.
+    `Extbase repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_ — writing custom repository queries.
 
-    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — the full query API, storagePid
+    `Persistence queries <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ — the full query API, storagePid
     deep-dive, and when to use DBAL instead.

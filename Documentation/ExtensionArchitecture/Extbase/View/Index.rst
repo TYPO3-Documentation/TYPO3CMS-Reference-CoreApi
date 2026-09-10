@@ -148,7 +148,7 @@ transparently in templates — :html:`{conference.title}` calls
     exception. A typo in a property name, a missing getter, or a :php:`private`
     property (which is never accessible to Fluid) will produce silent blank
     output. See
-    `Template variable renders empty <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-template-empty>`_
+    `Template variable renders empty <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-template-empty>`_
     in the common pitfalls list.
 
 Property paths can be chained: :html:`{conference.mainSpeaker.name}` resolves
@@ -291,7 +291,7 @@ installed, but not because load order influences template resolution:
 
 ..  seealso::
 
-    *   `Template file not found, or wrong template rendered <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-template-not-found>`_
+    *   `Template file not found, or wrong template rendered <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-template-not-found>`_
         for common causes and how to debug them.
 
 
@@ -447,5 +447,5 @@ to :php:`jsonResponse()` directly:
 
 ..  seealso::
 
-    `Registration: frontend plugin <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin>`_
+    `Registration: frontend plugin <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin>`_
     for how to register a controller action as a cacheable or non-cacheable plugin.

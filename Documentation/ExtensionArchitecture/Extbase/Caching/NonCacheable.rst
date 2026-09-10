@@ -62,7 +62,7 @@ actions, it only flags which of the registered actions are non-cacheable.
 
 ..  seealso::
 
-    `Registering a frontend plugin <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin-configure>`_ — the full
+    `Registering a frontend plugin <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin-configure>`_ — the full
     :php:`configurePlugin()` signature and the other arguments.
 
 
@@ -353,5 +353,5 @@ register yourself, exactly as in the list example.
     *   `Caching framework: register your own cache <https://docs.typo3.org/permalink/t3coreapi:caching-quickstart>`_
         — how to add a persistent cache in :php:`ext_localconf.php`.
 
-    *   `Extbase cache tags and automatic clearing <https://docs.typo3.org/permalink/extbase-caching-cachetags>`_
+    *   `Extbase cache tags and automatic clearing <https://docs.typo3.org/permalink/t3coreapi:extbase-caching-cachetags>`_
         — tagging cache entries and flushing them when records change.

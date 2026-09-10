@@ -20,11 +20,11 @@ start with the domain chapter:
 
 ..  seealso::
 
-    *   `Persistence and the Extbase ORM <https://docs.typo3.org/permalink/extbase-concepts-persistence>`_ — the mental model: what the ORM does, how objects map to tables, the object lifecycle.
+    *   `Persistence and the Extbase ORM <https://docs.typo3.org/permalink/t3coreapi:extbase-concepts-persistence>`_ — the mental model: what the ORM does, how objects map to tables, the object lifecycle.
 
-    *   `Extbase domain model <https://docs.typo3.org/permalink/extbase-domain-model>`_ — defining models, properties and relation declarations.
+    *   `Extbase domain model <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model>`_ — defining models, properties and relation declarations.
 
-    *   `Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — the repository, its find methods and the constraint API.
+    *   `Extbase repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_ — the repository, its find methods and the constraint API.
 
 The pages in this chapter cover:
 
