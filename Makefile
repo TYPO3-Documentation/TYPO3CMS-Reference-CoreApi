@@ -51,10 +51,14 @@ docs: ## Build documentation locally
 	mkdir -p $(DOCS_OUTPUT)
 	docker run --user $(DOCKER_USER) --rm --pull always -v "$(shell pwd)":/project -t $(DOCKER_IMAGE) --config=$(DOCS_DIR)
 
-.PHONY: docs-test
-docs-test: ## Build documentation with strict validation (CI mode)
+.PHONY: test-docs
+test-docs: ## Test the documentation rendering
 	mkdir -p $(DOCS_OUTPUT)
-	docker run --user $(DOCKER_USER) --rm --pull always -v "$(shell pwd)":/project -t $(DOCKER_IMAGE) --config=$(DOCS_DIR) --no-progress --fail-on-log
+	docker run --user $(DOCKER_USER) --rm --pull always -v "$(shell pwd)":/project -t $(DOCKER_IMAGE) --config=$(DOCS_DIR) --no-progress --minimal-test
+
+# Deprecated alias for the former name of this target; use test-docs instead.
+.PHONY: docs-test
+docs-test: test-docs
 
 docs-hot: ## Generate projects documentation with hot reloading
 	docker run --rm -it --pull always \
@@ -103,7 +107,7 @@ setup-typo3: check-dependencies ## Initialize TYPO3 for documentation generation
 # Testing
 # ------------------------------------------------------------------------------
 .PHONY: test
-test: docs-test test-lint test-cgl test-yaml ## Run all tests
+test: test-docs test-lint test-cgl test-yaml ## Run all tests
 
 .PHONY: test-lint
 test-lint: ## Check PHP syntax
