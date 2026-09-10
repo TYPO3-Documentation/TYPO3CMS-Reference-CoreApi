@@ -151,11 +151,11 @@ In this chapter
 
 ..  seealso::
 
-    *   `Extbase validation <https://docs.typo3.org/permalink/extbase-validation-overview>`_
+    *   `Extbase validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-overview>`_
         for validation rules on action arguments and model properties; how
         validation failure feeds into :php:`errorAction`.
 
-    *   `Extbase view layer <https://docs.typo3.org/permalink/extbase-view-overview>`_
+    *   `Extbase view layer <https://docs.typo3.org/permalink/t3coreapi:extbase-view-overview>`_
         for Fluid integration, template resolution, and response types.
 
 ..  toctree::

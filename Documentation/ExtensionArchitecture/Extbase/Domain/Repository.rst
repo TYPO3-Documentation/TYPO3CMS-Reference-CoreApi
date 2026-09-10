@@ -123,9 +123,9 @@ chapter:
 
 ..  seealso::
 
-    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — storagePid resolution, query settings, limits, pagination, persisting and debugging.
+    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ — storagePid resolution, query settings, limits, pagination, persisting and debugging.
 
-    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — relation cardinalities, lazy loading and the N+1 query trap.
+    *   `Object relations in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_ — relation cardinalities, lazy loading and the N+1 query trap.
 
 
 ..  _extbase-domain-repository-ordering:
@@ -219,7 +219,7 @@ persistence query page:
 
 ..  seealso::
 
-    `Querying the database with Extbase <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — building a query with :php:`createQuery()`, the constraint methods, ordering, limits, offsets, and the storagePid deep-dive.
+    `Querying the database with Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ — building a query with :php:`createQuery()`, the constraint methods, ordering, limits, offsets, and the storagePid deep-dive.
 
 
 ..  _extbase-domain-repository-storagepid:
@@ -246,7 +246,7 @@ story lives on its own page:
 
 ..  seealso::
 
-    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why `storagePid = 0` does not disable the restriction, and how to override or drop it for a single query.
+    `The storagePid <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why `storagePid = 0` does not disable the restriction, and how to override or drop it for a single query.
 
 
 ..  _extbase-domain-repository-di:
@@ -286,10 +286,10 @@ inject methods are an alternative to use.
 
 ..  seealso::
 
-    * `Extbase controller actions <https://docs.typo3.org/permalink/extbase-controller-action>`_ — full controller reference
+    * `Extbase controller actions <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action>`_ — full controller reference
     including how DI works in controllers.
 
-    * `Dependency injection in TYPO3 <https://docs.typo3.org/permalink/dependency-injection>`_ — How TYPO3 handles Dependency injection
+    * `Dependency injection in TYPO3 <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_ — How TYPO3 handles Dependency injection
 
 
 ..  _extbase-domain-repository-dbal:
@@ -337,4 +337,4 @@ Access :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` from within the repo
 
 ..  seealso::
 
-    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_.
+    `Persistence queries <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_.

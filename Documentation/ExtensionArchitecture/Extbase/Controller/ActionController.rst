@@ -111,7 +111,7 @@ calls :php:`errorAction()` instead. See
 
 ..  seealso::
 
-    `Property mapping: request arguments to objects <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_
+    `Property mapping: request arguments to objects <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-propertymapping>`_
     for how type conversion turns raw strings and arrays into PHP objects.
 
 
@@ -469,7 +469,7 @@ which lets event listeners return a custom response instead of the default 403.
 
 ..  seealso::
 
-    `Extbase PHP attributes reference <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_
+    `Extbase PHP attributes reference <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_
     for the full attribute reference including the event for custom denial responses.
 
 
@@ -558,9 +558,9 @@ is the same as for normal actions.
 
 ..  seealso::
 
-    *   `Extbase validation <https://docs.typo3.org/permalink/extbase-validation-overview>`_
+    *   `Extbase validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-overview>`_
         for how validation rules are configured on model properties and action parameters via
         :php:`#[Validate]` attributes.
 
-    *   `Property mapping: request arguments to objects <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_
+    *   `Property mapping: request arguments to objects <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-propertymapping>`_
         for how to allow properties on action arguments and configure type converters.

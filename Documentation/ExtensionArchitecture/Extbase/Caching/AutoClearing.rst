@@ -182,6 +182,6 @@ and refreshed automatically when records change.
 
 ..  seealso::
 
-    *   `Caching for Extbase plugins <https://docs.typo3.org/permalink/extbase-caching-overview>`_ — the chapter overview.
+    *   `Caching for Extbase plugins <https://docs.typo3.org/permalink/t3coreapi:extbase-caching-overview>`_ — the chapter overview.
 
-    *   `Cache tags for Extbase plugins <https://docs.typo3.org/permalink/extbase-caching-cachetags>`_ — the read-side counterpart: tagging pages so they can be invalidated.
+    *   `Cache tags for Extbase plugins <https://docs.typo3.org/permalink/t3coreapi:extbase-caching-cachetags>`_ — the read-side counterpart: tagging pages so they can be invalidated.

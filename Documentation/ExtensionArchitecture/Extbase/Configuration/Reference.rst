@@ -453,7 +453,7 @@ Output format, language overrides and FlexForm handling
 
 ..  seealso::
 
-    `A blank FlexForm field silently overrides the TypoScript default <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-flexform-empty-overrides>`_
+    `A blank FlexForm field silently overrides the TypoScript default <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-flexform-empty-overrides>`_
     — the pitfall that this setting prevents with a worked example.
 
 ..  _extbase-configuration-feature-toggles:

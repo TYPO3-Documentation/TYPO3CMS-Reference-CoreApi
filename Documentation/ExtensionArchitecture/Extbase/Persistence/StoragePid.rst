@@ -205,7 +205,7 @@ records, which are independent of the storagePid:
 
 ..  seealso::
 
-    `Overriding query behaviour with query settings <https://docs.typo3.org/permalink/extbase-persistence-queries-querysettings>`_ — the language, enable-field and deleted-record settings on the same query settings object.
+    `Overriding query behaviour with query settings <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries-querysettings>`_ — the language, enable-field and deleted-record settings on the same query settings object.
 
 
 ..  _extbase-persistence-storagepid-zero:
@@ -246,6 +246,6 @@ applies internally.
 
 ..  seealso::
 
-    *   `The Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — where the storagePid constraint applies to the built-in find methods.
+    *   `The Extbase repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_ — where the storagePid constraint applies to the built-in find methods.
 
-    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — building queries, constraints, ordering and the other query settings.
+    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ — building queries, constraints, ordering and the other query settings.

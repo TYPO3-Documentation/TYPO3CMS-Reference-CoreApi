@@ -187,13 +187,13 @@ computed TypoScript tree in :guilabel:`Site Management > TypoScript`.
 
 ..  seealso::
 
-    *   `Non-cacheable actions <https://docs.typo3.org/permalink/extbase-caching-noncacheable>`_
+    *   `Non-cacheable actions <https://docs.typo3.org/permalink/t3coreapi:extbase-caching-noncacheable>`_
         for the consequences of marking actions non-cacheable and developer
         responsibilities.
 
-    *   `View layer in Extbase <https://docs.typo3.org/permalink/extbase-view-overview>`_
+    *   `View layer in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-view-overview>`_
         for template path configuration via TypoScript.
 
-    *   `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/extbase-domain-repository-storagepid>`_
+    *   `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-storagepid>`_
         for how the persistence storagePid setting limits which records are
         returned.

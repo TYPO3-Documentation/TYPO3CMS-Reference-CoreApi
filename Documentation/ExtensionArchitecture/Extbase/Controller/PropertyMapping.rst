@@ -125,10 +125,10 @@ converters.
 
 ..  seealso::
 
-    *   `Built-in type converters reference <https://docs.typo3.org/permalink/extbase-appendix-typeconverters>`_
+    *   `Built-in type converters reference <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-typeconverters>`_
         for all converters, their source/target types, and configuration constants.
 
-    *   `Writing a custom type converter <https://docs.typo3.org/permalink/extbase-appendix-typeconverters-custom>`_
+    *   `Writing a custom type converter <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-typeconverters-custom>`_
         for how to implement and register a converter for your own types.
 
 
@@ -220,9 +220,9 @@ fields (modification), you must explicitly unlock those operations on the
 
 ..  seealso::
 
-    *   `Extbase validation <https://docs.typo3.org/permalink/extbase-validation-overview>`_
+    *   `Extbase validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-overview>`_
         for how to add validation rules to action parameters and model properties via
         :php:`#[Validate]` attributes.
 
-    *   `errorAction: Extbase validation and argument-mapping errors <https://docs.typo3.org/permalink/extbase-controller-action-error>`_
+    *   `errorAction: Extbase validation and argument-mapping errors <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action-error>`_
         for what happens when property mapping or validation fails.

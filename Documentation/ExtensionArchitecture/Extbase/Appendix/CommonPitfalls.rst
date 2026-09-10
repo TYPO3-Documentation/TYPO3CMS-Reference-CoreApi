@@ -46,7 +46,7 @@ lazy-loading proxies and dirty-state tracking, which can matter for relations.
 
 ..  seealso::
 
-    `Defining properties <https://docs.typo3.org/permalink/extbase-domain-model-properties>`_.
+    `Defining properties <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-properties>`_.
 
 
 ..  _extbase-appendix-pitfalls-storagepid:
@@ -64,7 +64,7 @@ records live on a different page than expected, the query returns nothing.
 
 ..  seealso::
 
-    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the page restriction explained in full: the resolution chain, the recursive setting, and how to override or drop it.
+    `The storagePid <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-storagepid>`_ — the page restriction explained in full: the resolution chain, the recursive setting, and how to override or drop it.
 
 
 ..  _extbase-appendix-pitfalls-annotations:
@@ -84,8 +84,8 @@ ignores them. The replacement is native PHP attributes.
     + :ref:`extbase-upgrading-annotations-to-attributes` — migration steps and
     the full before/after example.
 
-    + `PHP attributes — the v14 way <https://docs.typo3.org/permalink/extbase-domain-model-attributes>`_
-    + `Extbase PHP attributes reference <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_.
+    + `PHP attributes — the v14 way <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-attributes>`_
+    + `Extbase PHP attributes reference <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_.
 
 
 ..  _extbase-appendix-pitfalls-magic-findby:
@@ -105,7 +105,7 @@ in v14. The replacements use an explicit array signature.
     :ref:`extbase-upgrading-magic-findby` — migration table with before/after
     examples.
 
-    `Built-in find methods <https://docs.typo3.org/permalink/extbase-domain-repository-find-methods>`_ — the current find method reference.
+    `Built-in find methods <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-find-methods>`_ — the current find method reference.
 
 
 ..  _extbase-appendix-pitfalls-list-type:
@@ -122,7 +122,7 @@ in v13.4 and removed in v14. Plugins must now be registered as dedicated
 
 ..  seealso::
 
-    `Frontend plugin registration <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin>`_ — covers the v14
+    `Frontend plugin registration <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin>`_ — covers the v14
     registration approach and the upgrade wizard required for existing records.
 
 
@@ -144,7 +144,7 @@ concept is valid; the base class is not.
 
 ..  seealso::
 
-    `Value objects <https://docs.typo3.org/permalink/extbase-domain-model-value-objects>`_.
+    `Value objects <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-value-objects>`_.
 
 
 ..  _extbase-appendix-pitfalls-frontend-forms-relations:
@@ -201,7 +201,7 @@ argument's property mapping configuration.
 
 ..  seealso::
 
-    `Manually allowing properties on Extbase action arguments <https://docs.typo3.org/permalink/extbase-controller-propertymapping-allowproperties>`_
+    `Manually allowing properties on Extbase action arguments <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-propertymapping-allowproperties>`_
     — how to write the initializer and which methods to use.
 
 
@@ -299,7 +299,7 @@ nothing appears on the page.
 
 ..  seealso::
 
-    `How Fluid accesses object properties <https://docs.typo3.org/permalink/extbase-view-property-access>`_
+    `How Fluid accesses object properties <https://docs.typo3.org/permalink/t3coreapi:extbase-view-property-access>`_
     for the full resolution order and why :php:`private` properties are
     never accessible.
 
@@ -340,10 +340,10 @@ original in :file:`composer.json`.
 
 ..  seealso::
 
-    *   `Fluid template file resolution in Extbase <https://docs.typo3.org/permalink/extbase-view-templates>`_
+    *   `Fluid template file resolution in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-view-templates>`_
         — naming convention, default paths, and key ordering.
 
-    *   `Overriding Fluid templates from a third-party extension <https://docs.typo3.org/permalink/extbase-view-third-party-override>`_
+    *   `Overriding Fluid templates from a third-party extension <https://docs.typo3.org/permalink/t3coreapi:extbase-view-third-party-override>`_
         — extension loading order and path registration.
 
 
@@ -385,7 +385,7 @@ mapped to models and persisted.
 
 ..  seealso::
 
-    `Validation in Extbase <https://docs.typo3.org/permalink/extbase-validation-overview>`_
+    `Validation in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-overview>`_
     — lifecycle, :php:`#[Validate]` placement, and how :php:`errorAction()` is triggered.
 
 ..  A working example of the DTO pattern for form validation belongs in the
@@ -435,7 +435,7 @@ precedence over the global one.
 
 ..  seealso::
 
-    `The global scope: config.tx_extbase <https://docs.typo3.org/permalink/extbase-configuration-typoscript-global-scope>`_
+    `The global scope: config.tx_extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-configuration-typoscript-global-scope>`_
     — what the global scope is for and why it should be used sparingly.
 
 
@@ -474,5 +474,5 @@ TypoScript default the editor may legitimately leave blank.
 
 ..  seealso::
 
-    `Output format, language overrides and FlexForm handling <https://docs.typo3.org/permalink/extbase-configuration-typoscript-other>`_
+    `Output format, language overrides and FlexForm handling <https://docs.typo3.org/permalink/t3coreapi:extbase-configuration-typoscript-other>`_
     — the :typoscript:`ignoreFlexFormSettingsIfEmpty` reference.
