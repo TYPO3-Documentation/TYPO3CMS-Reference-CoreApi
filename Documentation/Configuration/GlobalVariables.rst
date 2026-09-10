@@ -27,6 +27,10 @@ $GLOBALS
     :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`.
 
 
+
+TCA
+---
+
 ..  confval:: TCA
     :name: globals-tca
     :Path: $GLOBALS
@@ -37,6 +41,10 @@ $GLOBALS
     See :ref:`TCA Reference <t3tca:start>`
 
 
+
+T3_SERVICES
+-----------
+
 ..  confval:: T3_SERVICES
     :name: globals-t3-services
     :Path: $GLOBALS
@@ -46,6 +54,10 @@ $GLOBALS
 
     Global registration of :ref:`services <services-introduction>`.
 
+
+TYPO3_USER_SETTINGS
+-------------------
+
 ..  confval:: TYPO3_USER_SETTINGS
     :name: globals-typo3-user-settings
     :Path: $GLOBALS
@@ -53,6 +65,10 @@ $GLOBALS
     :Defined: :file:`typo3/sysext/setup/ext_tables.php`
 
     Defines the form in the :guilabel:`User Settings`.
+
+
+BE_USER
+-------
 
 ..  confval:: BE_USER
     :name: globals-be-users
@@ -63,6 +79,10 @@ $GLOBALS
 
     Backend user object. See :ref:`be-user`.
 
+
+
+EXEC_TIME
+---------
 
 ..  confval:: EXEC_TIME
     :name: globals-exec-time
@@ -80,6 +100,10 @@ $GLOBALS
         :ref:`DateTime Aspect <context_api_aspects_datetime>`.
 
 
+
+SIM_EXEC_TIME
+-------------
+
 ..  confval:: SIM_EXEC_TIME
     :name: globals-sim-exec-time
     :Path: $GLOBALS
@@ -95,6 +119,10 @@ $GLOBALS
 
         Should not be used anymore, rather use the
         :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+
+
+LANG
+----
 
 ..  confval:: LANG
     :name: globals-lang

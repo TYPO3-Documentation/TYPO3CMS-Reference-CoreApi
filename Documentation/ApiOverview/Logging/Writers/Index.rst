@@ -108,6 +108,10 @@ set, TYPO3 will use a filename containing a random hash, like
 
 The following options are available:
 
+
+logFile
+~~~~~~~
+
 ..  confval:: logFile
     :name: file-writer-logFile
     :type: string
@@ -116,6 +120,10 @@ The following options are available:
               (for example, like :file:`typo3temp/logs/typo3_7ac500bce5.log`)
 
     The path to the log file.
+
+
+logFileInfix
+~~~~~~~~~~~~
 
 ..  confval:: logFileInfix
     :name: file-writer-logFileInfix
@@ -173,6 +181,10 @@ The file writer :php:`\TYPO3\CMS\Core\Log\Writer\RotatingFileWriter` extends the
 :ref:`FileWriter <logging-writers-FileWriter>` class. The :php:`RotatingFileWriter`
 accepts all options of :php:`FileWriter` in addition of the following:
 
+
+interval
+~~~~~~~~
+
 ..  confval:: interval
     :name: rotating-file-writer-interval
     :type: :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval`, string
@@ -186,6 +198,10 @@ accepts all options of :php:`FileWriter` in addition of the following:
     *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::WEEKLY` or :php:`weekly`
     *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::MONTHLY` or :php:`monthly`
     *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::YEARLY` or :php:`yearly`
+
+
+maxFiles
+~~~~~~~~
 
 ..  confval:: maxFiles
     :name: rotating-file-writer-maxFiles

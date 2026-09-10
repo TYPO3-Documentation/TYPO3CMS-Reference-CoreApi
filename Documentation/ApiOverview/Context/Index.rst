@@ -53,11 +53,19 @@ the following properties:
 
     Returns the Unix timestamp as an integer value.
 
+
+timezone
+~~~~~~~~
+
 ..  confval:: timezone
     :name: datetime-aspect-timezone
     :Call: :php:`$this->context->getPropertyFromAspect('date', 'timezone');`
 
     Returns the timezone name, for example, "Germany/Berlin".
+
+
+iso
+~~~
 
 ..  confval:: iso
     :name: datetime-aspect-iso
@@ -66,6 +74,10 @@ the following properties:
     Returns the datetime as string in
     `ISO 8601 <https://en.wikipedia.org/wiki/ISO_8601>`__ format, for example,
     "2004-02-12T15:19:21+00:00".
+
+
+full
+~~~~
 
 ..  confval:: full
     :name: datetime-aspect-full
@@ -105,6 +117,10 @@ following properties:
 
     Returns the requested language of the current page as integer (uid).
 
+
+contentId
+~~~~~~~~~
+
 ..  confval:: contentId
     :name: language-aspect-contentId
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'contentId');`
@@ -112,11 +128,19 @@ following properties:
     Returns the language ID of records to be fetched in translation scenarios as
     integer (uid).
 
+
+fallbackChain
+~~~~~~~~~~~~~
+
 ..  confval:: fallbackChain
     :name: language-aspect-fallbackChain
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'fallbackChain');`
 
     Returns the fallback steps as array.
+
+
+overlayType
+~~~~~~~~~~~
 
 ..  confval:: overlayType
     :name: language-aspect-overlayType
@@ -131,6 +155,10 @@ following properties:
 
     See :ref:`context_api_aspects_language_overlay-types` for more details.
 
+
+legacyLanguageMode
+~~~~~~~~~~~~~~~~~~
+
 ..  confval:: legacyLanguageMode
     :name: language-aspect-legacyLanguageMode
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'legacyLanguageMode');`
@@ -143,6 +171,10 @@ following properties:
 
     This property is kept for compatibility reasons. Do not use, if not really
     necessary, the option will be removed rather sooner than later.
+
+
+legacyOverlayType
+~~~~~~~~~~~~~~~~~
 
 ..  confval:: legacyOverlayType
     :name: language-aspect-legacyOverlayType
@@ -235,6 +267,10 @@ following properties:
     Returns the uid of the currently logged in user, `0` if no user is logged
     in.
 
+
+username
+~~~~~~~~
+
 ..  confval:: username
     :name: user-aspect-username
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'username');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'username');`
@@ -242,11 +278,19 @@ following properties:
     Returns the username of the currently authenticated user. Empty string, if
     no user is logged in.
 
+
+isLoggedIn
+~~~~~~~~~~
+
 ..  confval:: isLoggedIn
     :name: user-aspect-isLoggedIn
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'isLoggedIn');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'isLoggedIn');`
 
     Returns, whether a user is logged in, as boolean.
+
+
+isAdmin
+~~~~~~~
 
 ..  confval:: isAdmin
     :name: user-aspect-isAdmin
@@ -255,11 +299,19 @@ following properties:
     Returns, whether the user is an administrator, as boolean. It is only useful
     for backend users.
 
+
+groupIds
+~~~~~~~~
+
 ..  confval:: groupIds
     :name: user-aspect-groupIds
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'groupIds');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'groupIds');`
 
     Returns the groups the user is a member of, as array.
+
+
+groupNames
+~~~~~~~~~~
 
 ..  confval:: groupNames
     :name: user-aspect-groupNames
@@ -297,11 +349,19 @@ the following properties:
 
     Returns, whether hidden pages should be displayed, as boolean.
 
+
+includeHiddenContent
+~~~~~~~~~~~~~~~~~~~~
+
 ..  confval:: includeHiddenContent
     :name: visibility-aspect-includeHiddenContent
     :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeHiddenContent');`
 
     Returns, whether hidden content should be displayed, as boolean.
+
+
+includeDeletedRecords
+~~~~~~~~~~~~~~~~~~~~~
 
 ..  confval:: includeDeletedRecords
     :name: visibility-aspect-includeDeletedRecords
@@ -339,12 +399,20 @@ the following properties:
 
     Returns the UID of the currently accessed workspace, as integer.
 
+
+isLive
+~~~~~~
+
 ..  confval:: isLive
     :name: workspace-aspect-isLive
     :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'isLive');`
 
     Returns whether the current workspace is live, or a custom offline
     workspace, as boolean.
+
+
+isOffline
+~~~~~~~~~
 
 ..  confval:: isOffline
     :name: workspace-aspect-isOffline

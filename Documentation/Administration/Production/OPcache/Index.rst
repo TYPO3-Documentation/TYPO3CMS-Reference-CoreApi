@@ -40,6 +40,10 @@ Below is list a of OPcache features with information on how they can impact TYPO
     Setting this to 0 may improve performance but some parts of TYPO3 (including Extbase)
     rely on information stored in phpDoc comments to function correctly.
 
+
+opcache.use_cwd
+---------------
+
 ..  confval:: opcache.use_cwd
 
     :Default: 1
@@ -49,6 +53,10 @@ Below is list a of OPcache features with information on how they can impact TYPO
     that have the same name may get mixed up due to the complete path of the file not
     being stored as a key. TYPO3 works with absolute paths so this would
     return no improvements to performance.
+
+
+opcache.validate_timestamps
+---------------------------
 
 ..  confval:: opcache.validate_timestamps
 
@@ -60,6 +68,10 @@ Below is list a of OPcache features with information on how they can impact TYPO
     be updated in OPcache. This can be achieved by using a proper deployment
     pipeline. Additionally, some files can be added to the blacklist, see `opcache.blacklist_filename` for more information.
 
+
+opcache.revalidate_freq
+-----------------------
+
 ..  confval:: opcache.revalidate_freq
 
     :Default: 2
@@ -67,6 +79,10 @@ Below is list a of OPcache features with information on how they can impact TYPO
 
     Setting this to a high value can improve performance but shares the same issue
     when setting `validate_timestamps` to 0.
+
+
+opcache.revalidate_path
+-----------------------
 
 ..  confval:: opcache.revalidate_path
 
@@ -76,6 +92,10 @@ Below is list a of OPcache features with information on how they can impact TYPO
     Setting this value to 0 should be safe with TYPO3. This may be a problem if
     relative path names are used to load scripts and if the same file exists several
     times in the include path.
+
+
+opcache.max_accelerated_files
+-----------------------------
 
 ..  confval:: opcache.max_accelerated_files
 

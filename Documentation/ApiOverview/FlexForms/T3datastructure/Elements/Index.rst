@@ -35,12 +35,20 @@ must be arrays.)
     This is the root element of a T3DataStructure. It may contain tags
     `<meta>` and `<ROOT>` or `<sheets>`
 
+
+<meta>
+------
+
 ..  confval:: <meta>
     :name: t3datastructure-meta
     :type: array
 
     Can contain application specific meta settings. Interpretation depends on
     the application using the T3DataStructure. Each setting goes to a XML tag.
+
+
+<ROOT>
+------
 
 ..  confval:: <ROOT>
     :name: t3datastructure-root
@@ -55,6 +63,10 @@ must be arrays.)
     Can have the following child tags: `<type>`, `<section>`, `<el>`
     `<[application tag]>`.
 
+
+<[field name]>
+--------------
+
 ..  confval:: <[field name]>
     :name: t3datastructure-field-name
     :type: array
@@ -63,6 +75,10 @@ must be arrays.)
     objects name.
 
     Can have the same child tags like `<ROOT>`.
+
+
+<sheets>
+--------
 
 ..  confval:: <sheets>
     :name: t3datastructure-sheets
@@ -73,6 +89,10 @@ must be arrays.)
 
     Contains `<[sheet name]>` tags for the actual sheets.
 
+
+<sheetTitle>
+------------
+
 ..  confval:: <sheetTitle>
     :name: t3datastructure-sheet-title
     :type: string or LLL reference
@@ -81,6 +101,10 @@ must be arrays.)
     gets "General" in this case). Can be a plain string or a reference to
     a language file using standard LLL syntax. Ignored if sheets are not
     defined for the FlexForm.
+
+
+<displayCond>
+-------------
 
 ..  confval:: <displayCond>
     :name: t3datastructure-display-cond
@@ -92,6 +116,10 @@ must be arrays.)
     For more details refer to the description of the "displayCond" property
     in the :ref:`TCA Reference <t3tca:columns>`.
 
+
+<[sheet ident]>
+---------------
+
 ..  confval:: <[sheet ident]>
     :name: t3datastructure-sheet-ident
     :type: array
@@ -100,6 +128,10 @@ must be arrays.)
 
     Alternatively, it can be a plain value referring to another
     XML file which contains the <ROOT> structure. See example later.
+
+
+<el>
+----
 
 ..  confval:: <el>
     :name: t3datastructure-el
@@ -145,6 +177,10 @@ must be strings or integers.)
         data structure. For FlexForms this object would draw a form element.
 
     If the parent is `<ROOT>` this tag must have the value `"array"`.
+
+
+<section>
+---------
 
 ..  confval:: <section>
     :name: t3datastructure-section

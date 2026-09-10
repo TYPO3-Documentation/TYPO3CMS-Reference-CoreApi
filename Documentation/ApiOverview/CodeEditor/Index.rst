@@ -126,6 +126,10 @@ The following configuration options are available:
     Represents the unique identifier of the module (:php:`my/addon` in this
     example).
 
+
+module
+~~~~~~
+
 ..  confval:: module
     :name: code-editor-register-addon-module
     :type: string
@@ -133,17 +137,29 @@ The following configuration options are available:
 
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
+
+cssFiles
+~~~~~~~~
+
 ..  confval:: cssFiles
     :name: code-editor-register-addon-cssFiles
     :type: array
 
     Holds all CSS files that must be loaded for the module.
 
+
+options
+~~~~~~~
+
 ..  confval:: options
     :name: code-editor-register-addon-options
     :type: array
 
     Options that are used by the addon.
+
+
+modes
+~~~~~
 
 ..  confval:: modes
     :name: code-editor-register-addon-modes
@@ -180,6 +196,10 @@ The following configuration options are available:
 
         $GLOBALS['TCA']['tt_content']['types']['css']['columnsOverrides']['bodytext']['config']['format'] = 'css';
 
+
+module
+~~~~~~
+
 ..  confval:: module
     :name: code-editor-register-mode-module
     :type: string
@@ -187,12 +207,20 @@ The following configuration options are available:
 
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
+
+extensions
+~~~~~~~~~~
+
 ..  confval:: extensions
     :name: code-editor-register-mode-extensions
     :type: array
 
     Binds the mode to specific file extensions. This is important for using
     the code editor in the module :guilabel:`File > Filelist`.
+
+
+default
+~~~~~~~
 
 ..  confval:: default
     :name: code-editor-register-mode-default

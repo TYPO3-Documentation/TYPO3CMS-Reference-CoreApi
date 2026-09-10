@@ -31,6 +31,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_thumbnails:
 
+
+thumbnails
+----------
+
 ..  confval:: thumbnails
     :name: globals-typo3-conf-vars-sys-gfx-thumbnails
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails']
@@ -42,6 +46,10 @@ This variable can be set in one of the following files:
 ..  index::
     TYPO3_CONF_VARS GFX; imagefile_ext
 ..  _typo3ConfVars_gfx_imagefile_ext:
+
+
+imagefile_ext
+-------------
 
 ..  confval:: imagefile_ext
     :name: globals-typo3-conf-vars-sys-gfx-imagefile_ext
@@ -66,6 +74,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_processor_enabled:
 
+
+processor_enabled
+-----------------
+
 ..  confval:: processor_enabled
     :name: globals-typo3-conf-vars-sys-gfx-processor_enabled
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_enabled']
@@ -76,6 +88,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_processor_path:
 
+
+processor_path
+--------------
+
 ..  confval:: processor_path
     :name: globals-typo3-conf-vars-sys-gfx-processor_path
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path']
@@ -85,6 +101,10 @@ This variable can be set in one of the following files:
     Path to the IM tools convert, combine, identify.
 
 ..  _typo3ConfVars_gfx_processor:
+
+
+processor
+---------
 
 ..  confval:: processor
     :name: globals-typo3-conf-vars-sys-gfx-processor
@@ -102,6 +122,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_processor_effects:
 
+
+processor_effects
+-----------------
+
 ..  confval:: processor_effects
     :name: globals-typo3-conf-vars-sys-gfx-processor_effects
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_effects']
@@ -111,6 +135,10 @@ This variable can be set in one of the following files:
     If enabled, apply blur and sharpening in ImageMagick/GraphicsMagick functions
 
 ..  _typo3ConfVars_gfx_processor_allowUpscaling:
+
+
+processor_allowUpscaling
+------------------------
 
 ..  confval:: processor_allowUpscaling
     :name: globals-typo3-conf-vars-sys-gfx-processor_allowUpscaling
@@ -122,6 +150,10 @@ This variable can be set in one of the following files:
     :php:`\TYPO3\CMS\Core\Imaging\GraphicalFunctions`)
 
 ..  _typo3ConfVars_gfx_processor_allowFrameSelection:
+
+
+processor_allowFrameSelection
+-----------------------------
 
 ..  confval:: processor_allowFrameSelection
     :name: globals-typo3-conf-vars-sys-gfx-processor_allowFrameSelection
@@ -136,6 +168,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_processor_stripColorProfileByDefault:
 
+
+processor_stripColorProfileByDefault
+------------------------------------
+
 ..  confval:: processor_stripColorProfileByDefault
     :name: globals-typo3-conf-vars-sys-gfx-processor_stripColorProfileByDefault
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileByDefault']
@@ -147,6 +183,10 @@ This variable can be set in one of the following files:
     for IMAGE generation.
 
 ..  _typo3ConfVars_gfx_processor_stripColorProfileCommand:
+
+
+processor_stripColorProfileCommand
+----------------------------------
 
 ..  confval:: processor_stripColorProfileCommand
     :name: globals-typo3-conf-vars-sys-gfx-processor_stripColorProfileCommand
@@ -180,6 +220,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_processor_stripColorProfileParameters:
 
+
+processor_stripColorProfileParameters
+-------------------------------------
+
 ..  confval:: processor_stripColorProfileParameters
     :name: globals-typo3-conf-vars-sys-gfx-processor_stripColorProfileParameters
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters']
@@ -193,6 +237,10 @@ This variable can be set in one of the following files:
     for details.
 
 ..  _typo3ConfVars_gfx_processor_colorspace:
+
+
+processor_colorspace
+--------------------
 
 ..  confval:: processor_colorspace
     :name: globals-typo3-conf-vars-sys-gfx-processor_colorspace
@@ -219,6 +267,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_processor_interlace:
 
+
+processor_interlace
+-------------------
+
 ..  confval:: processor_interlace
     :name: globals-typo3-conf-vars-sys-gfx-processor_interlace
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_interlace']
@@ -233,6 +285,10 @@ This variable can be set in one of the following files:
 
 ..  _typo3ConfVars_gfx_jpg_quality:
 
+
+jpg_quality
+-----------
+
 ..  confval:: jpg_quality
     :name: globals-typo3-conf-vars-sys-gfx-jpg_quality
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
@@ -246,6 +302,10 @@ This variable can be set in one of the following files:
     Default JPEG generation quality
 
 ..  _typo3ConfVars_gfx_webp_quality:
+
+
+webp_quality
+------------
 
 ..  confval:: webp_quality
     :name: globals-typo3-conf-vars-sys-gfx-webp_quality
