@@ -11,7 +11,7 @@ Post-upgrade tasks for major TYPO3 Core updates
 #.  `Flush TYPO3 and PHP Cache <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-flush-cache>`_
 #.  Create missing tables and columns in the
     `Database Analyzer <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-database-analyzer>`_
-#.  Run all `Upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:run_upgrade_wizard>`_
+#.  Run all `Upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:run-upgrade-wizard>`_
 #.  `Change or remove columns and tables in the database analyzer <https://docs.typo3.org/permalink/t3coreapi:database-analyser-remove>`_
 #.  `Flush TYPO3 and PHP Cache <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-flush-cache>`_
     (again)

@@ -304,7 +304,7 @@ if they are not met.
 
 ..  versionadded:: 14.0
 
-    Introduced in Feature `#108982 <https://docs.typo3.org/permalink/changelog:_feature-108982-1771078311>`_.
+    Introduced in Feature `#108982 <https://docs.typo3.org/permalink/changelog:feature-108982-1771078311>`_.
 
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.
