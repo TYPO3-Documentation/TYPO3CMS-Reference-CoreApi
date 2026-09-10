@@ -26,7 +26,7 @@ repository refreshes exactly the pages that display it.
 
     This page covers only how Extbase produces and uses cache tags. For the
     tagging mechanism itself — how the page cache stores tags and how flushing by
-    tag works — see `Working with cache tags <https://docs.typo3.org/permalink/caching-developer-cache-tags>`_.
+    tag works — see `Working with cache tags <https://docs.typo3.org/permalink/t3coreapi:caching-developer-cache-tags>`_.
 
 
 ..  _extbase-caching-cachetags-autotagging:
@@ -184,6 +184,6 @@ page.
 
 ..  seealso::
 
-    *   `Automatic cache clearing on record changes <https://docs.typo3.org/permalink/extbase-caching-autoclearing>`_ — how repository writes flush the tagged pages.
+    *   `Automatic cache clearing on record changes <https://docs.typo3.org/permalink/t3coreapi:extbase-caching-autoclearing>`_ — how repository writes flush the tagged pages.
 
-    *   `Non-cacheable actions <https://docs.typo3.org/permalink/extbase-caching-noncacheable>`_ — the alternative you usually do not want; cache tags let you keep the cache instead.
+    *   `Non-cacheable actions <https://docs.typo3.org/permalink/t3coreapi:extbase-caching-noncacheable>`_ — the alternative you usually do not want; cache tags let you keep the cache instead.

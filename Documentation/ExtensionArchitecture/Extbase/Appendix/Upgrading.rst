@@ -325,10 +325,10 @@ approaches no longer work in TYPO3 v14.
 
 ..  seealso::
 
-    *   `Registering an Extbase frontend plugin <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin>`_
+    *   `Registering an Extbase frontend plugin <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin>`_
         for the current registration approach.
 
-    *   `Plugin registered with list_type no longer works <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-list-type>`_
+    *   `Plugin registered with list_type no longer works <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-list-type>`_
         for common pitfalls.
 
 
