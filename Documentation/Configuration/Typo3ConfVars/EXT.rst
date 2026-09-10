@@ -34,6 +34,10 @@ the Extension manager:
     TYPO3_CONF_VARS SYS; excludeForPackaging
 ..  _typo3ConfVars_ext_excludeForPackaging:
 
+
+excludeForPackaging
+-------------------
+
 ..  confval:: excludeForPackaging
     :name: globals-typo3-conf-vars-excludeForPackaging
     :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']

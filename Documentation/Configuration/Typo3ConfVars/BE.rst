@@ -26,6 +26,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_fileadminDir:
 
+
+fileadminDir
+------------
+
 ..  confval:: fileadminDir
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
     :name: globals-typo3-conf-vars-be-fileadminDir
@@ -39,6 +43,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_lockBackendFile:
 
+
+lockBackendFile
+---------------
+
 ..  confval:: lockBackendFile
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']
     :name: globals-typo3-conf-vars-be-lockBackendFile
@@ -50,6 +58,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     changes or during critical updates.
 
 ..  _typo3ConfVars_be_lockRootPath:
+
+
+lockRootPath
+------------
 
 ..  confval:: lockRootPath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
@@ -72,6 +84,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_userHomePath:
 
+
+userHomePath
+------------
+
 ..  confval:: userHomePath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
     :name: globals-typo3-conf-vars-be-userHomePath
@@ -84,6 +100,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     The home directory identifier of backend user 2 would be: :php:`2:users/2/`. End slash required!
 
 ..  _typo3ConfVars_be_groupHomePath:
+
+
+groupHomePath
+-------------
 
 ..  confval:: groupHomePath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
@@ -98,6 +118,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_userUploadDir:
 
+
+userUploadDir
+-------------
+
 ..  confval:: userUploadDir
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']
     :name: globals-typo3-conf-vars-be-userUploadDir
@@ -109,6 +133,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     is :file:`/upload`  then :file:`../123_user/upload` will be mounted.
 
 ..  _typo3ConfVars_be_warning_email_addr:
+
+
+warning_email_addr
+------------------
 
 ..  confval:: warning_email_addr
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
@@ -125,6 +153,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     <security-global-typo3-options-warning-email-addr>`.
 
 ..  _typo3ConfVars_be_warning_mode:
+
+
+warning_mode
+------------
 
 ..  confval:: warning_mode
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']
@@ -146,6 +178,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_passwordReset:
 
+
+passwordReset
+-------------
+
 ..  confval:: passwordReset
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordReset']
     :name: globals-typo3-conf-vars-be-passwordReset
@@ -159,6 +195,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_passwordResetForAdmins:
 
+
+passwordResetForAdmins
+----------------------
+
 ..  confval:: passwordResetForAdmins
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']
     :name: globals-typo3-conf-vars-be-passwordResetForAdmins
@@ -170,6 +210,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     increased security.
 
 ..  _typo3ConfVars_be_requireMfa:
+
+
+requireMfa
+----------
 
 ..  confval:: requireMfa
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']
@@ -194,6 +238,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_recommendedMfaProvider:
 
+
+recommendedMfaProvider
+----------------------
+
 ..  confval:: recommendedMfaProvider
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider']
     :name: globals-typo3-conf-vars-be-recommendedMfaProvider
@@ -205,6 +253,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     Recommended for all users.
 
 ..  _typo3ConfVars_be_loginRateLimit:
+
+
+loginRateLimit
+--------------
 
 ..  confval:: loginRateLimit
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit']
@@ -218,6 +270,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     :php:`"0"` will disable login rate limiting.
 
 ..  _typo3ConfVars_be_loginRateLimitInterval:
+
+
+loginRateLimitInterval
+----------------------
 
 ..  confval:: loginRateLimitInterval
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
@@ -233,6 +289,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_loginRateLimitIpExcludeList:
 
+
+loginRateLimitIpExcludeList
+---------------------------
+
 ..  confval:: loginRateLimitIpExcludeList
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitIpExcludeList']
     :name: globals-typo3-conf-vars-be-loginRateLimitIpExcludeList
@@ -244,6 +304,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     An empty value disables the exclude list check.
 
 ..  _typo3ConfVars_be_lockIP:
+
+
+lockIP
+------
 
 ..  confval:: lockIP
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']
@@ -269,6 +333,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     <security-global-typo3-options-lockIP>`.
 
 ..  _typo3ConfVars_be_lockIPv6:
+
+
+lockIPv6
+--------
 
 ..  confval:: lockIPv6
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']
@@ -300,6 +368,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_sessionTimeout:
 
+
+sessionTimeout
+--------------
+
 ..  confval:: sessionTimeout
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['sessionTimeout']
     :name: globals-typo3-conf-vars-be-sessionTimeout
@@ -310,6 +382,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     180 to avoid side effects. The default is 28800 seconds = 8 hours.
 
 ..  _typo3ConfVars_be_IPmaskList:
+
+
+IPmaskList
+----------
 
 ..  confval:: IPmaskList
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']
@@ -330,6 +406,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_lockSSL:
 
+
+lockSSL
+-------
+
 ..  confval:: lockSSL
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']
     :name: globals-typo3-conf-vars-be-lockSSL
@@ -345,6 +425,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_lockSSLPort:
 
+
+lockSSLPort
+-----------
+
 ..  confval:: lockSSLPort
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSLPort']
     :name: globals-typo3-conf-vars-be-lockSSLPort
@@ -355,6 +439,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     lockSSL and the HTTPS port of your webserver is not 443.
 
 ..  _typo3ConfVars_be_cookieDomain:
+
+
+cookieDomain
+------------
 
 ..  confval:: cookieDomain
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieDomain']
@@ -368,6 +456,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_cookieName:
 
+
+cookieName
+----------
+
 ..  confval:: cookieName
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieName']
     :name: globals-typo3-conf-vars-be-cookieName
@@ -377,6 +469,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     Set the cookie name for the back-end user session.
 
 ..  _typo3ConfVars_be_cookieSameSite:
+
+
+cookieSameSite
+--------------
 
 ..  confval:: cookieSameSite
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieSameSite']
@@ -401,6 +497,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_showRefreshLoginPopup:
 
+
+showRefreshLoginPopup
+---------------------
+
 ..  confval:: showRefreshLoginPopup
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['showRefreshLoginPopup']
     :name: globals-typo3-conf-vars-be-showRefreshLoginPopup
@@ -413,6 +513,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     relogin window.
 
 ..  _typo3ConfVars_be_adminOnly:
+
+
+adminOnly
+---------
 
 ..  confval:: adminOnly
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly']
@@ -435,6 +539,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_disable_exec_function:
 
+
+disable_exec_function
+---------------------
+
 ..  confval:: disable_exec_function
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['disable_exec_function']
     :name: globals-typo3-conf-vars-be-disable_exec_function
@@ -447,6 +555,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     system commands using exec() can be used, unless this is disabled.
 
 ..  _typo3ConfVars_be_compressionLevel:
+
+
+compressionLevel
+----------------
 
 ..  confval:: compressionLevel
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel']
@@ -461,6 +573,10 @@ The following configuration variables can be used to configure the TYPO3 backend
         compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
 
 ..  _typo3ConfVars_be_installToolPassword:
+
+
+installToolPassword
+-------------------
 
 ..  confval:: installToolPassword
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']
@@ -478,6 +594,10 @@ The following configuration variables can be used to configure the TYPO3 backend
         to change the install tool password.
 
 ..  _typo3ConfVars_be_defaultPermissions:
+
+
+defaultPermissions
+------------------
 
 ..  confval:: defaultPermissions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
@@ -515,6 +635,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_defaultUC:
 
+
+defaultUC
+---------
+
 ..  confval:: defaultUC
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
     :name: globals-typo3-conf-vars-be-defaultUC
@@ -544,6 +668,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_customPermOptions:
 
+
+customPermOptions
+-----------------
+
 ..  confval:: customPermOptions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
     :name: globals-typo3-conf-vars-be-customPermOptions
@@ -566,6 +694,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     Keys cannot contain any of the following characters: :php:`:|,`.
 
 ..  _typo3ConfVars_be_fileDenyPattern:
+
+
+fileDenyPattern
+---------------
 
 ..  confval:: fileDenyPattern
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
@@ -590,6 +722,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_versionNumberInFilename:
 
+
+versionNumberInFilename
+-----------------------
+
 ..  confval:: versionNumberInFilename
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
     :name: globals-typo3-conf-vars-be-versionNumberInFilename
@@ -610,6 +746,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_debug:
 
+
+debug
+-----
+
 ..  confval:: debug
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
     :name: globals-typo3-conf-vars-be-debug
@@ -621,6 +761,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     this to debug the backend only!
 
 ..  _typo3ConfVars_be_HTTP:
+
+
+HTTP
+----
 
 ..  confval:: HTTP
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
@@ -650,6 +794,10 @@ The following configuration variables can be used to configure the TYPO3 backend
         :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][lockSSL] <typo3ConfVars_be_lockSSL>`
         is enabled.
 
+
+
+passwordHashing
+---------------
 
 ..  confval:: passwordHashing
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']
@@ -689,6 +837,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_passwordPolicy:
 
+
+passwordPolicy
+--------------
+
 ..  confval:: passwordPolicy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy']
     :name: globals-typo3-conf-vars-be-passwordPolicy
@@ -698,6 +850,10 @@ The following configuration variables can be used to configure the TYPO3 backend
     Defines the :ref:`password policy <password-policies>` in the backend context.
 
 ..  _typo3ConfVars_be_stylesheets:
+
+
+stylesheets
+-----------
 
 ..  confval:: stylesheets
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']
@@ -725,6 +881,10 @@ The following configuration variables can be used to configure the TYPO3 backend
             = 'EXT:my_extension/Resources/Public/Css/';
 
 ..  _typo3ConfVars_be_contentSecurityPolicyReportingUrl:
+
+
+contentSecurityPolicyReportingUrl
+---------------------------------
 
 ..  confval:: contentSecurityPolicyReportingUrl
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
@@ -761,6 +921,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
 ..  _typo3ConfVars_be_entryPoint:
 
+
+entryPoint
+----------
+
 ..  confval:: entryPoint
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint']
     :name: globals-typo3-conf-vars-be-entryPoint
@@ -778,6 +942,10 @@ The following configuration variables can be used to configure the TYPO3 backend
 
     ..  seealso::
         :ref:`backend-entry-point`
+
+
+installToolSessionHandler
+-------------------------
 
 ..  confval:: installToolSessionHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolSessionHandler']

@@ -100,6 +100,10 @@ table:
 
     Primary key, needed for replication and also useful as an index.
 
+
+entry_namespace
+---------------
+
 ..  confval:: entry_namespace
     :name: sys-registry-entry-namespace
     :type: varchar(128)
@@ -111,6 +115,10 @@ table:
     The purpose of namespaces is that entries with the same key can exist
     within different namespaces.
 
+
+entry_key
+---------
+
 ..  confval:: entry_key
     :name: sys-registry-entry-key
     :type: varchar(128)
@@ -119,6 +127,10 @@ table:
     whole table. The key can be any string to identify the entry. It is
     recommended to use dots as dividers, if necessary. In this way, the
     naming is similar to the syntax already known in TypoScript.
+
+
+entry_value
+-----------
 
 ..  confval:: entry_value
     :name: sys-registry-entry-value

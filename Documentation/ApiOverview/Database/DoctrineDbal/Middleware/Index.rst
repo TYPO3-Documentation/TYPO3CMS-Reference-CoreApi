@@ -120,6 +120,10 @@ structure for a middleware configuration is:
 
     The fully-qualified class name of the driver middleware.
 
+
+before
+------
+
 ..  confval:: before
 
     :Data type: list of strings
@@ -128,6 +132,10 @@ structure for a middleware configuration is:
 
     A list of middleware identifiers the current middleware should be registered
     before.
+
+
+after
+-----
 
 ..  confval:: after
 
@@ -143,6 +151,10 @@ structure for a middleware configuration is:
         placed after the `'typo3/core/custom-platform-driver-middleware'` and
         `'typo3/core/custom-pdo-driver-result-middleware'` driver middlewares to
         ensure essential Core driver middlewares have been processed first.
+
+
+disabled
+--------
 
 ..  confval:: disabled
 

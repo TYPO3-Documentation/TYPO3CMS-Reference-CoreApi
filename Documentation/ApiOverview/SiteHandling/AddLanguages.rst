@@ -54,6 +54,10 @@ Configuration properties
     Defines, if the language is visible on the frontend. Editors in the TYPO3
     backend will still be able to translate content for the language.
 
+
+languageId
+----------
+
 ..  confval:: languageId
     :name: sitehandling-addingLanguages-languageId
     :type: integer
@@ -67,6 +71,10 @@ Configuration properties
         Once pages, content or records are created in a specific language, the
         :yaml:`languageId` must not be changed anymore.
 
+
+title
+-----
+
 ..  confval:: title
     :name: sitehandling-addingLanguages-title
     :type: string
@@ -74,12 +82,20 @@ Configuration properties
 
     The internal human-readable name for this language.
 
+
+websiteTitle
+------------
+
 ..  confval:: websiteTitle
     :name: sitehandling-addingLanguages-websiteTitle
     :type: string
     :Example: :yaml:`My custom very British title`
 
     Overrides the global website title for this language.
+
+
+navigationTitle
+---------------
 
 ..  confval:: navigationTitle
     :name: sitehandling-addingLanguages-navigationTitle
@@ -89,12 +105,20 @@ Configuration properties
     Optional navigation title which is used in
     :typoscript:`HMENU.special = language`.
 
+
+base
+----
+
 ..  confval:: base
     :name: sitehandling-addingLanguages-base
     :type: string / URL
     :Example: :yaml:`/uk/`
 
     The language base accepts either a URL or a path segment like :yaml:`/en/`.
+
+
+baseVariants
+------------
 
 ..  confval:: baseVariants
     :name: sitehandling-addingLanguages-baseVariants
@@ -133,6 +157,10 @@ Configuration properties
     iterate through the locales from left to right until it finds a locale that
     is installed on the server.
 
+
+hreflang
+~~~~~~~~
+
 ..  confval:: hreflang
     :name: sitehandling-addingLanguages-hreflang
     :type: string
@@ -153,6 +181,10 @@ Configuration properties
     *   You want to explicitly set :yaml:`x-default` for a specific language,
         which is clearly not a valid language key.
 
+
+flag
+~~~~
+
 ..  confval:: flag
     :name: sitehandling-addingLanguages-flag
     :type: string
@@ -160,6 +192,10 @@ Configuration properties
 
     The flag identifier. For example, the flag is displayed in the backend page
     module.
+
+
+fallbackType
+~~~~~~~~~~~~
 
 ..  confval:: fallbackType
     :name: sitehandling-addingLanguages-fallbackType
@@ -190,6 +226,10 @@ Configuration properties
         (available) language.
 
         It behaves like old :typoscript:`config.sys_language_overlay = 0`.
+
+
+fallbacks
+~~~~~~~~~
 
 ..  confval:: fallbacks
     :name: sitehandling-addingLanguages-fallbacks

@@ -55,6 +55,10 @@ Transformation filters
    nowadays outdated markup like :code:`<font>` tag style rendering in the
    frontend.
 
+
+ts_links
+--------
+
 .. confval:: ts_links
 
    :Scope: RTE Transformation filter
