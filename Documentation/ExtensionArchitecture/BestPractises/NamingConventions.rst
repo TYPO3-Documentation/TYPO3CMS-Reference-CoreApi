@@ -361,7 +361,7 @@ Plugin signature
 ..  versionchanged:: 14.0
     Adding frontend plugins as a "General Plugin", setting the content
     record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
-    is not possible anymore. See `Migration <https://docs.typo3.org/permalink/t3coreapi:plugins-list_type-migration@13.4>`__.
+    is not possible anymore. See `Migration <https://docs.typo3.org/permalink/t3coreapi:plugins-list-type-migration@13.4>`__.
 
 The plugin signature of non-Extbase plugins, registered via
 :php:`ExtensionManagementUtility::addPlugin()`, is an arbitrary string.
