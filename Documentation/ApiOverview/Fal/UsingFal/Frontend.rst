@@ -112,7 +112,7 @@ load all media referenced for the current database record being processed.
 This requires first a bit of TypoScript:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     lib.carousel = FLUIDTEMPLATE
     lib.carousel {

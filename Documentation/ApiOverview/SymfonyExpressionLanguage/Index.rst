@@ -101,4 +101,4 @@ The (artificial) implementation below calls some external URL based on given var
 A usage example in TypoScript could be this:
 
 ..  literalinclude:: _codesnippets/_conditions.typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript

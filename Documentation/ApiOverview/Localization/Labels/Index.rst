@@ -87,7 +87,7 @@ The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be used to
 fetch translations from a language file and render them in the current language.
 
 ..  code-block:: typoscript
-    :caption: EXT:site_package/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
 
     lib.blogListTitle = TEXT
     lib.blogListTitle {

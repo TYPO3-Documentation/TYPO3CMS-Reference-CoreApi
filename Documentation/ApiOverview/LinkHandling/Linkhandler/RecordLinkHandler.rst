@@ -122,7 +122,7 @@ LinkHandler TypoScript options
 A configuration could look like this:
 
 .. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
+   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
    config.recordLinks.anIdentifier {
        forceLink = 0
