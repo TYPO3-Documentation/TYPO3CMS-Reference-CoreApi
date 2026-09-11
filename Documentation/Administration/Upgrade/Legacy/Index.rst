@@ -48,7 +48,7 @@ that your update is finished.
 Major upgrades - symlink the Core
 =================================
 
-Go to https://typo3.org/download/ and download
+Go to https://get.typo3.org and download
 the source package of the new TYPO3 version.
 
 Extract the package on your web server and, in your TYPO3 document root,
