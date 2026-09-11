@@ -19,7 +19,7 @@ Example
 A simple TypoScript example looks like this:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     someIdentifier = originalValue
     someIdentifier := myModifierFunction(myFunctionArgument)

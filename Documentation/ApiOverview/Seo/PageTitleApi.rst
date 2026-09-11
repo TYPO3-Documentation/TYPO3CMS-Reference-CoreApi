@@ -117,7 +117,7 @@ Usage example in an :ref:`Extbase <extbase-extension-framework>` controller:
 Configure the new page title provider in your TypoScript setup:
 
 ..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_setup.typoscript
-    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
 ..  _page-title-provider-custom-site-config:
 
@@ -140,7 +140,7 @@ and PHP Cache`.
 Configure the new page title provider to be used in your TypoScript setup:
 
 ..  literalinclude:: _PageTitleProvider/_website.typoscript
-    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
 The registered page title providers are called after each other in the
 configured order. The first provider that returns a non-empty value is used,
