@@ -137,7 +137,7 @@ LinkHandler TypoScript options
 A configuration could look like this:
 
 .. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
+   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
    config.recordLinks.anIdentifier {
        forceLink = 0
@@ -160,7 +160,7 @@ Example: news records displayed on fixed detail page
 The following displays the link to the news on a detail page:
 
 .. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
+   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
    config.recordLinks.news {
       typolink {
@@ -174,7 +174,7 @@ Once more if the book reports that are also saved as `tx_news_domain_model_news`
 detail page you can do it like this:
 
 .. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
+   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
    config.recordLinks.bookreports  {
       typolink {
