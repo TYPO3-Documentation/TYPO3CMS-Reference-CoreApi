@@ -72,9 +72,9 @@ errors — is a separate topic:
 
 ..  seealso::
 
-    -   :ref:`Localization in Extbase <extension-localization-extbase>` — how to
-        translate labels in controllers and services
-    -   :ref:`LocalizationUtility API reference <extbase-localization-utility-api>` —
-        all parameters of :php:`translate()`
-    -   :ref:`Localization in Fluid <extension-localization-fluid>` — the
-        `<f:translate>` ViewHelper
+    -   :ref:`Translating labels in Extbase <extension-localization-extbase>` —
+        in controllers and other PHP code
+    -   :ref:`LocalizationUtility API reference <extbase-localization-utility-api>`
+        — all parameters of :php:`translate()`
+    -   :ref:`Translating labels in Fluid <extension-localization-fluid>` —
+        the `<f:translate>` ViewHelper
