@@ -94,7 +94,7 @@ Configure the new page title provider in your TypoScript setup:
 
 ..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_setup.typoscript
     :language: typoscript
-    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
 ..  _page-title-provider-custom-site-config:
 
@@ -122,7 +122,7 @@ Configure the new page title provider to be used in your TypoScript setup:
 
 ..  literalinclude:: _PageTitleProvider/_website.typoscript
     :language: typoscript
-    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
 The registered page title providers are called after each other in the
 configured order. The first provider that returns a non-empty value is used,

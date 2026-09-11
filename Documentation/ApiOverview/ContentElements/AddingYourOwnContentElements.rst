@@ -174,7 +174,7 @@ extension. Therefore we need to add the path to the
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup.typoscript
     :language: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 You can use any index (`200` in this example), just make sure it is unique.
 If needed you can also add paths for partials and layouts.
@@ -183,7 +183,7 @@ Now you can register the rendering of your custom content element:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup_2.typoscript
     :language: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 The :typoscript:`lib.contentElement` path is defined in file
 :t3src:`typo3/sysext/fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
@@ -384,7 +384,7 @@ parameters to be used in the data processor:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup_myextension_newcontentcsv.typoscript
     :language: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 You can now iterate over the variable `myTable` in the Fluid template, in this
 example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.html`

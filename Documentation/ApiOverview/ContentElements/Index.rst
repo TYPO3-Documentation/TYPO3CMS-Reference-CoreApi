@@ -176,7 +176,7 @@ In this case you have to define the TypoScript configuration yourself. A
 to delegate the rendering to your controller:
 
 ..  literalinclude:: _Plugins/_plugin.typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 To register such a plugin as content element you can use function
 :php:`ExtensionManagementUtility::addPlugin()` in the TCA overrides, for example
