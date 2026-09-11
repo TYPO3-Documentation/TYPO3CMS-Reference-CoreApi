@@ -64,7 +64,7 @@ Example: prevent "Oops, an error occurred!" messages for logged-in admins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     [backend.user.isAdmin]
         config.contentObjectExceptionHandler = 0
