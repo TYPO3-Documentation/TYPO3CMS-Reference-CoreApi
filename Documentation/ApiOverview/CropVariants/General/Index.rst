@@ -104,7 +104,6 @@ The example below adds a focus area which is initially one third of the size of 
 and centered.
 
 .. code-block:: php
-
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
     $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
@@ -133,7 +132,6 @@ when selecting a crop area it is possible to define multiple "cover areas". Thes
 the crop area. The focus area cannot intersect with any cover areas.
 
 .. code-block:: php
-
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
     $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
