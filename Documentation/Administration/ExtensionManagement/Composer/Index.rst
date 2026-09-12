@@ -44,6 +44,7 @@ For example, to install the extension :composer:`georgringer/news`:
 If necessary you can also require the extension by adding a version requirement:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # Install the news extension in version 12.3.0 or any minor level above
     composer require georgringer/news:"^12.3"
@@ -79,6 +80,7 @@ you do not need to run `composer require` again. Instead, use
 
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     git update
 
@@ -123,6 +125,7 @@ database tables in the TCA or require static data to be imported.
 You can run the following command to set up specific or all extensions:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # Setup the extension with key "news"
     vendor/bin/typo3 extension:setup --extension=news
@@ -180,6 +183,7 @@ like any other package.
 #.  Require the extension using Composer and specifying the `@dev` version:
 
     ..  code-block:: bash
+        :caption: typo3_root$
 
         # Require a custom site package
         composer require myvendor/my-site-package:"@dev"
@@ -285,6 +289,7 @@ As a last resort you can revert any changes you have made by restoring the files
 `composer install`:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # restore composer.json and composer.lock
     git stash
@@ -366,6 +371,7 @@ your requirements from your :file:`composer.json`. Deleting the Composer cache
 first might also help.
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     composer clear-cache
     rm -rf vendor/
