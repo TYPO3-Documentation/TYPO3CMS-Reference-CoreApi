@@ -118,6 +118,7 @@ notes "root-only" of the `Composer documentation <https://getcomposer.org/doc/04
 This is the composer.json file before adding a test setup:
 
 .. code-block:: json
+    :caption: composer.json of EXT:enetcache, before the test setup
 
     {
       "name": "lolli/enetcache",
@@ -184,6 +185,7 @@ to :file:`composer.json <extension-composer-json>`
 which are root :file:`composer.json` properties, turning the extension into a project:
 
 .. code-block:: json
+    :caption: composer.json of EXT:enetcache, after the test setup
     :linenos:
     :emphasize-lines: 18-24, 30-34, 42
 
@@ -261,6 +263,7 @@ compatible in our `composer.json` file.
 Let's clone the repository and run `composer install` (stripped):
 
 .. code-block:: shell
+    :caption: Cloning the extension and running composer install
     :emphasize-lines: 1, 10, 11
 
     lolli@apoc /var/www/local/git $ git clone git@github.com:lolli42/enetcache.git
@@ -292,6 +295,7 @@ call `composer install` again. In our `.Build/` folder we now have a basic
 TYPO3 instance to execute our tests in:
 
 .. code-block:: shell
+    :caption: The test instance created under .Build/
 
     lolli@apoc /var/www/local/git/enetcache $ cd .Build/
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls
@@ -374,6 +378,7 @@ Use -h to see all the options:
 On some versions of MacOS :file:`runTests.sh` might produce the following error:
 
 .. code-block:: shell
+    :caption: runTests.sh failing on some macOS versions
 
     $ ./Build/Scripts/runTests.sh
     readlink: illegal option -- f
@@ -422,6 +427,7 @@ source projects. In order to tell the CI what to do, create a new workflow file
 in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
 
 .. code-block:: yaml
+    :caption: .github/workflows/ci.yml of EXT:enetcache
 
    name: CI
 
@@ -513,6 +519,7 @@ longer than that for enetcache (to handle the functional and acceptance tests se
 Now that this is in place we can run unit tests:
 
 .. code-block:: shell
+    :caption: ~$
 
     git clone git@github.com:TYPO3/styleguide.git
     cd styleguide
@@ -613,6 +620,7 @@ call :php:`$generator->create();` and verify it created at least one record in o
 That's it. It executes fine using :file:`runTests.sh`:
 
 .. code-block:: shell
+    :caption: Output of a functional test run
 
     lolli@apoc /var/www/local/git/styleguide $ Build/Scripts/runTests.sh -s functional
     Creating network "local_default" with the default driver
@@ -646,6 +654,7 @@ setup creates instances for the single tests cases. The code that is actually ex
 `typo3temp/` in `.Build/`. In this test case it is `functional-9ad521a`:
 
 .. code-block:: shell
+    :caption: The instance a functional test case creates
 
     lolli@apoc /var/www/local/git/styleguide $ ls -l .Build/Web/typo3temp/var/tests/functional-9ad521a/
     total 16
@@ -762,6 +771,7 @@ some database fixtures to easily log in to the backend. In addition, the :file:`
 server to execute the tests:
 
 .. code-block:: shell
+    :caption: Output of an acceptance test run
 
     lolli@apoc /var/www/local/git/styleguide $ Build/Scripts/runTests.sh -s acceptance
     Creating network "local_default" with the default driver
@@ -814,6 +824,7 @@ Now we want all of this checked automatically by Github Actions. As before, we
 define the jobs in `.github/workflows/tests.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
 
 .. code-block:: yaml
+    :caption: .github/workflows/tests.yml of EXT:styleguide
 
     name: tests
 
