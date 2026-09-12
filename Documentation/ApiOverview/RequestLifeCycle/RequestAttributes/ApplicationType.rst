@@ -20,6 +20,7 @@ backend context.
 Example:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     $applicationType = $request->getAttribute('applicationType');
     if ($applicationType === 1) {

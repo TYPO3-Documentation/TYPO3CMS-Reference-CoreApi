@@ -70,6 +70,7 @@ event, the method :js:`release()` must be used. This method takes no arguments.
 Example:
 
 ..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
     // AnyEventStrategy is a placeholder, concrete implementations are handled in the following chapters
     const event = new AnyEventStrategy('click', callbackFn);

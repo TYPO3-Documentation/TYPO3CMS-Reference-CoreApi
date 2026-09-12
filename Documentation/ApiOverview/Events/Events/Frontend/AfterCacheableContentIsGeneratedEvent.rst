@@ -54,6 +54,7 @@ The event has been changed by removing :php:`getController()` and adding
 :php:`getContent()` and :php:`setContent()` instead.
 
 ..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php (migration)
 
      #[AsEventListener('my-extension')]
      public function indexPageContent(AfterCacheableContentIsGeneratedEvent $event): void
@@ -70,6 +71,7 @@ Extensions aiming for TYPO3 v13 and v14 compatibility in a single version can us
 check gate:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php (excerpt)
 
     #[AsEventListener('my-extension')]
     public function indexPageContent(AfterCacheableContentIsGeneratedEvent $event): void
