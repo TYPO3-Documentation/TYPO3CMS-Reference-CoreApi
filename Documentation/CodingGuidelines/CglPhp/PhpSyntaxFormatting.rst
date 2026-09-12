@@ -99,6 +99,7 @@ the same number of spaces as the commented line.
 Example:
 
 ..  code-block:: php
+    :caption: Example: an inline comment above the line it describes
 
     protected function processSubmission()
     {
@@ -118,6 +119,7 @@ non–trivial types and is optional for trivial types. Example:
 
 
 ..  code-block:: php
+    :caption: Example: doc comments on constants and properties
 
     /** Number of images submitted by user */
     protected $numberOfImages;
@@ -169,6 +171,7 @@ the same level as the construct with the opening brace. Example:
 
 
 ..  code-block:: php
+    :caption: Example: the closing brace on a line of its own
 
     protected function getForm()
     {
@@ -183,6 +186,7 @@ The following is not allowed:
 
 
 ..  code-block:: php
+    :caption: Not allowed: the opening brace on the same line
 
     protected function getForm() {
         if ($this->extendedForm) { // generate extended form here
@@ -204,6 +208,7 @@ The following is the correct layout for conditions:
 
 
 ..  code-block:: php
+    :caption: Example: the layout of a condition
 
     if ($this->processSubmission) {
         // Process submission here
@@ -217,6 +222,7 @@ Here is an example of the incorrect layout:
 
 
 ..  code-block:: php
+    :caption: Not allowed: elseif on a line of its own
 
     if ($this->processSubmission) {
         // Process submission here
@@ -232,6 +238,7 @@ code goes first. For example:
 
 
 ..  code-block:: php
+    :caption: Example: the shorter block first
 
     if (!$this->processSubmission) {
         // Generate error message, 2 lines
@@ -246,6 +253,7 @@ The closing round and opening curly bracket after the last condition
 should be on a new line, indented to the same level as the :php:`if`:
 
 ..  code-block:: php
+    :caption: Example: a condition spanning several lines
 
     if ($this->getSomeCondition($this->getSomeVariable())
         && $this->getAnotherCondition()
@@ -288,6 +296,7 @@ in the code.
 Examples:
 
 ..  code-block:: php
+    :caption: Example: a switch statement
 
     switch ($useType) {
         case 'extended':
@@ -322,6 +331,7 @@ The use of :php:`each` is not allowed in loops.
 calls). The following is correct:
 
 ..  code-block:: php
+    :caption: Example: a for loop over a precomputed size
 
     $size = count($dataArray);
     for ($element = 0; $element < $size; $element++) {
@@ -449,6 +459,7 @@ This may be omitted if there are no further elements, at the
 developer's choice. Example:
 
 ..  code-block:: php
+    :caption: Example: an array declaration
 
     $thisIsAnArray = [
         'foo' => 'bar',
@@ -487,6 +498,7 @@ Type hinting must be used when the function expects an :php:`array` or
 an :php:`instance` of a certain class. Example:
 
 ..  code-block:: php
+    :caption: Example: type hinting
 
     protected function executeAction(MyAction &$action, array $extraParameters)
     {
@@ -498,6 +510,7 @@ be after the visibility declaration in the function definition:
 
 
 ..  code-block:: php
+    :caption: Example: a static method declaration
 
     public static function executeAction(MyAction &$action, array $extraParameters)
     {
@@ -539,6 +552,7 @@ If a function is declared to return a value, all code paths must *always* return
 
 
 ..  code-block:: php
+    :caption: Not allowed: a code path that returns nothing
 
     /**
      * @param bool $enabled
@@ -555,6 +569,7 @@ The following is the correct behavior:
 
 
 ..  code-block:: php
+    :caption: Example: a single return statement
 
     /**
      * @param bool $enabled
@@ -575,6 +590,7 @@ during parameter validation (guards) before it starts its main logic. Example:
 
 
 ..  code-block:: php
+    :caption: Example: an early return for parameter validation
 
     /**
      * @param bool $enabled
