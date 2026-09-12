@@ -23,6 +23,7 @@ The constructor accepts the following arguments:
 *   :js:`callback` (function) - the executed event listener when the event is triggered
 
 ..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
     import RequestAnimationFrameEvent from '@typo3/core/event/request-animation-frame-event.js';
 

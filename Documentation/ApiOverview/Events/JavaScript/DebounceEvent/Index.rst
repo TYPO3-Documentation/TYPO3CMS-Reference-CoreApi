@@ -23,6 +23,7 @@ accepts the following arguments:
 *   :js:`immediate` (boolean) - defined whether the event listener is executed before or after the waiting time
 
 ..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
     import DebounceEvent from '@typo3/core/event/debounce-event.js';
 

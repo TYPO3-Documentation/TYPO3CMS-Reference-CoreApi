@@ -365,6 +365,7 @@ To be effective, this setting requires:
 Example:
 
 ..  code-block:: yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
     routeEnhancers:
       Verification:
