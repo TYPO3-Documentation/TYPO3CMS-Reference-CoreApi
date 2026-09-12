@@ -115,6 +115,7 @@ Typical strategies include:
 Example `mysqldump` commands:
 
 ..  code-block:: bash
+    :caption: Run on the source server
 
     # Export the database structure only
     mysqldump --no-data -u user -p database > structure.sql

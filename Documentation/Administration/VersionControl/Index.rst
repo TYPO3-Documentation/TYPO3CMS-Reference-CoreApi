@@ -82,6 +82,7 @@ below to identify what to include in version control.
         #.  Add the relevant project files
 
             ..  code-block:: bash
+                :caption: typo3_root$ (Composer mode)
 
                 git add .gitignore
                 git add composer.json composer.lock
@@ -119,6 +120,7 @@ below to identify what to include in version control.
         #.  Add the selected project files
 
             ..  code-block:: bash
+                :caption: typo3_root$ (Classic mode)
 
                 git add .gitignore
                 git add typo3conf/ext/my_sitepackage

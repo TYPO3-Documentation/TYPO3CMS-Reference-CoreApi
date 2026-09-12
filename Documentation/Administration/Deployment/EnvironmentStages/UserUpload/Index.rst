@@ -98,6 +98,7 @@ Manual / rsync copying
 Example `rsync` command:
 
 ..  code-block:: bash
+    :caption: Run on the target server
 
     rsync -avz \
         --exclude='*.bak' \
