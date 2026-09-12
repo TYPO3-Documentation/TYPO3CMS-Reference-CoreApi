@@ -31,6 +31,7 @@ Format
 * The quotes on a trivial string value (a single word or similar) may be omitted.
 
 .. code-block:: yaml
+    :caption: Example: string formatting in YAML
 
    trivial: aValue
    simple: 'This is a "salt" used for various kinds of encryption ...'

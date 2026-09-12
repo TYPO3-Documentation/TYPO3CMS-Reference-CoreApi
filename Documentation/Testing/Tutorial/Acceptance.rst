@@ -45,6 +45,7 @@ The quick start for an own site based on this repository boils down to these com
 more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/main/README.md>`_:
 
 .. code-block:: shell
+    :caption: Setting up the site-introduction project
 
     lolli@apoc /var/www/local $ git clone git@github.com:TYPO3-Documentation/site-introduction.git
     lolli@apoc /var/www/local $ cd site-introduction
@@ -78,6 +79,7 @@ Let's have a look at some more details: ddev allows to add further containers to
 that for the selenium-chrome container that pilots the acceptance tests as :file:`.ddev/docker-compose.chrome.yaml`:
 
 .. code-block:: yaml
+    :caption: .ddev/docker-compose.chrome.yaml
 
     version: '3.6'
     services:
@@ -104,6 +106,7 @@ Next, after adding codeception as require-dev dependency in :file:`composer.json
 basic :file:`Tests/codeception.yml` file:
 
 .. code-block:: yaml
+    :caption: Tests/codeception.yml
 
     namespace: Bk2k\SiteIntroduction\Tests\Acceptance\Support
     suites:
@@ -172,6 +175,7 @@ That's it. We can now execute the acceptance test suite by executing a command i
 ddev PHP container:
 
 .. code-block:: shell
+    :caption: Running the acceptance test suite
 
     lolli@apoc /var/www/local/site-introduction $ ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
     Codeception PHP Testing Framework v2.5.6
@@ -222,6 +226,7 @@ To tell the CI what to do, create a new workflow file in
 `.github/workflows/tests.yml <https://github.com/TYPO3-Documentation/site-introduction/blob/master/.github/workflows/tests.yml>`__
 
 .. code-block:: yaml
+    :caption: .github/workflows/tests.yml of the site-introduction project
 
    name: tests
 
