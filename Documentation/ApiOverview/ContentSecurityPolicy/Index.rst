@@ -637,6 +637,7 @@ Nonce
 It may look like this in your HTML code:
 
 ..  code-block:: html
+    :caption: HTML output
 
     <link
         rel="stylesheet"
@@ -690,6 +691,7 @@ The nonce can be retrieved via the
 :ref:`nonce request attribute <typo3-request-attribute-nonce>`:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce
     // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive
