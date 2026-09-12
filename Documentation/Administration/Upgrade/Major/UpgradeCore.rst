@@ -118,6 +118,7 @@ Assuming that the packages below are installed locally, the following example
 would upgrade each of them to version 14.3.
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     composer require --update-with-all-dependencies "typo3/cms-adminpanel:^14.3" \
     "typo3/cms-backend:^14.3" "typo3/cms-belog:^14.3" "typo3/cms-beuser:^14.3" \

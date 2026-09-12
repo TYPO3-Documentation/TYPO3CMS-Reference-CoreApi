@@ -218,6 +218,7 @@ Commands to debug permission issues in TYPO3 Docker containers
 The following commands may help identify and resolve permission issues:
 
 ..  code-block:: bash
+    :caption: Run inside the TYPO3 container
 
     # Inspect file ownership and permissions
     ls -l /var/www/html
