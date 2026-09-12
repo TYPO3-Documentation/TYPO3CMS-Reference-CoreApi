@@ -72,6 +72,7 @@ contents of different files.
 Example:
 
 ..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/RTE/MyConfiguration.yaml (excerpt)
 
     imports:
         - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }

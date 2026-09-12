@@ -144,6 +144,7 @@ file is emptied.
 Example of the :file:`var/log/` folder with rotated log files:
 
 ..  code-block:: console
+    :caption: typo3_root$
 
     $ ls -1 var/log
     typo3_<hash>.log

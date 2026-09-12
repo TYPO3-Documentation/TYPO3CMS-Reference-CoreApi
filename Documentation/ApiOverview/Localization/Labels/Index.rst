@@ -23,6 +23,7 @@ interchangeably.
 Examples:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // Legacy file-based syntax
     $myLabel = $this->getTranslator()->label('LLL:EXT:my_extension/Resources/Private/Language/locallang_forms.xlf:submit');
@@ -72,6 +73,7 @@ readability while remaining fully compatible with existing `LLL:EXT:` references
 Example:
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     // Domain-based reference
     <f:translate
@@ -117,6 +119,7 @@ The command :bash:`vendor/bin/typo3 language:domain:list` lists all available
 translation domains with their translations and label counts:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # List domains in active extensions
     vendor/bin/typo3 language:domain:list
@@ -328,6 +331,7 @@ For more details, see
 Once you have the correct translator instance, you can resolve labels as follows:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
@@ -372,6 +376,7 @@ For example, if you used the now deprecated label reference
 Use the following command:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     vendor/bin/typo3 language:domain:search --search starttime
 
