@@ -252,6 +252,7 @@ The same constant is available in page TSconfig. This makes one defined setting
 usable by both frontend rendering and backend form configuration:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
     TCAdefaults.tx_ext_data.pid = {$myExtension.categoryPid}
@@ -268,6 +269,7 @@ In frontend TypoScript, a content object can read the setting directly from the
 current site instead of using constant substitution:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     lib.categoryPid = TEXT
     lib.categoryPid {

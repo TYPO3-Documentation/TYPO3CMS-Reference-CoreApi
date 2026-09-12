@@ -76,6 +76,7 @@ For Composer-based installations, it returns :ref:`directory-var`, in Classic mo
 installations :ref:`classic-directory-typo3temp-var`.
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Core\Environment;
 
@@ -103,6 +104,7 @@ containing the :ref:`configuration files <configuration-files>`
 :file:`sites/` containing the :ref:`site configurations <sitehandling>`.
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Core\Environment;
 
@@ -129,6 +131,7 @@ Composer-based installations, respective :ref:`classic-directory-typo3conf-l10n`
 folder in Classic mode installations. This folder contains downloaded translation files.
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Core\Environment;
 

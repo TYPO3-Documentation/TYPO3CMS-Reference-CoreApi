@@ -98,6 +98,7 @@ Example (my_extension2 depends on my_extension1):
 This results in namespace definition:
 
 ..  code-block:: php
+    :caption: The resulting namespace definition
 
     [
         'myext' => [
@@ -187,6 +188,7 @@ Depending on the use case, it might also make sense to pass the output of one co
 to another component via a slot:
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <html
         xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
