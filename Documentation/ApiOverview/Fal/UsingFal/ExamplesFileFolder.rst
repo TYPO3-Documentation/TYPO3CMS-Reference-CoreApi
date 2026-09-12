@@ -168,6 +168,7 @@ Feature flags controlling this behavior:
 For controlled or low-level operations, consistency checks can be bypassed temporarily:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Command/ImportCommand.php
 
     <?php
     class ImportCommand

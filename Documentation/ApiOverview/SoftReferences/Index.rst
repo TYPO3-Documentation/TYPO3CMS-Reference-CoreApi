@@ -147,6 +147,7 @@ Property :php:`$elements`
 -------------------------
 
 ..  code-block:: php
+    :caption: Structure of the $elements property
 
     [
         [
