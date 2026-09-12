@@ -79,6 +79,7 @@ Backend layout simple example
 The following page TSconfig example creates a simple backend layout consisting of two rows and just one column.
 
 .. code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
    mod {
      web_layout {
@@ -128,6 +129,7 @@ The following page TSconfig example creates a 3x3 backend layout with 5 column p
 row (here called "header") spans all 3 columns. There is an "aside" spanning two rows on the right.
 
 .. code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
    mod.web_layout.BackendLayouts {
      exampleKey {
@@ -199,6 +201,7 @@ been simplified for the frontend.
 To get the correct backend layout, the following TypoScript code can be used:
 
 .. code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 	page.10 = FLUIDTEMPLATE
 	page.10 {

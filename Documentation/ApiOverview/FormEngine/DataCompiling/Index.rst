@@ -12,6 +12,7 @@ the rendering needs to come up with a result.
 A basic call looks like this:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
     $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class);

@@ -30,6 +30,7 @@ Navigate to a URL on change of a drop-down, including the selected value in the
 URL:
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html (excerpt)
 
     <select
         value="0"
@@ -55,6 +56,7 @@ Invoke the :js:`TYPO3.InfoWindow.showItem` module function to display details
 for a given record:
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html (excerpt)
 
     <a
         class="btn btn-default"
@@ -68,6 +70,7 @@ for a given record:
 or (using JSON arguments)
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html (excerpt)
 
     <a
         class="btn btn-default"

@@ -157,6 +157,7 @@ attribute to :html:`inline`. By default, the icon will pick up the font color of
 its surrounding element if you use this option.
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html (excerpt)
 
     {namespace core = TYPO3\CMS\Core\ViewHelpers}
     <core:icon

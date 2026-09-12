@@ -12,6 +12,7 @@ Empty checkbox handling
 =======================
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html (excerpt)
 
     <input
         type="checkbox"
