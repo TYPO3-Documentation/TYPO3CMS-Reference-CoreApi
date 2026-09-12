@@ -82,6 +82,7 @@ the :php:`ext_localconf.php` of installed extensions into account.
 Example of bootstrapping the TYPO3 Backend:
 
 .. code-block:: php
+    :caption: An entry script bootstrapping the backend
 
    // Set up the application for the backend
    call_user_func(function () {
@@ -232,6 +233,7 @@ The context TYPO3 runs in is specified through the environment variable
 or be part of the web server configuration:
 
 .. code-block:: apacheconf
+    :caption: .htaccess or Apache vhost configuration
 
    # In your Apache configuration (either .htaccess or vhost)
    # you can either set context to static value with:
@@ -255,6 +257,7 @@ or be part of the web server configuration:
 
 
 .. code-block:: nginx
+    :caption: nginx-site-typo3.conf
 
    # In your Nginx configuration, you can pass the context as a fastcgi parameter
    location ~ \.php$ {
@@ -313,6 +316,7 @@ different configuration for different contexts.
 In file :file:`config/system/additional.php`:
 
 .. code-block:: php
+    :caption: config/system/additional.php
 
    switch (\TYPO3\CMS\Core\Core\Environment::getContext()) {
       case 'Development':

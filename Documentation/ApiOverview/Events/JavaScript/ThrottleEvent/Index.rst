@@ -21,6 +21,7 @@ accepts the following arguments:
     the event listener gets called up to 20 times in total (:math:`20=\frac{2000}{100}`).
 
 ..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
     import ThrottleEvent from '@typo3/core/event/throttle-event.js';
 

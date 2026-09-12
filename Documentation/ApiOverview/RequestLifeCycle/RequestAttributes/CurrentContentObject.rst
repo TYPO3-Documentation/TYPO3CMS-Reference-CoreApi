@@ -18,6 +18,7 @@ Extbase request object.
 Example:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     /**
      * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $currentContentObject

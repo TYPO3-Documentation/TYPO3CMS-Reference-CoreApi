@@ -37,6 +37,7 @@ Example
 The response returned by the AJAX endpoint should look like this:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php (excerpt)
 
    use TYPO3\CMS\Core\Http\JsonResponse;
 
