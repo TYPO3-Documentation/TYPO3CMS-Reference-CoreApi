@@ -171,6 +171,7 @@ The key properties:
     :yaml:`conference_slug` placeholder above to a database slug field:
 
     ..  code-block:: yaml
+        :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
 
         aspects:
           conference_slug:

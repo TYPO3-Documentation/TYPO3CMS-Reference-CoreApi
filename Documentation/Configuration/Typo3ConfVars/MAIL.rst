@@ -59,6 +59,7 @@ This variable can be set in one of the following files:
         ..  rubric:: Default values
 
         ..  code-block:: php
+            :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']
 
             [
                 0 => 'EXT:core/Resources/Private/Layouts/',
@@ -78,6 +79,7 @@ This variable can be set in one of the following files:
         ..  rubric:: Default values
 
         ..  code-block:: php
+            :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']
 
             [
                 0 => 'EXT:core/Resources/Private/Partials/',
@@ -97,6 +99,7 @@ This variable can be set in one of the following files:
         ..  rubric:: Default values
 
         ..  code-block:: php
+            :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']
 
             [
                 0 => 'EXT:core/Resources/Private/Templates/Email/',

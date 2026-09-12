@@ -41,6 +41,7 @@ the `RTE`. The :ref:`page TSconfig <t3tsref:pageTsRte>` enables you to
 list all buttons visible in the RTE by using the following TypoScript:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_sitepackage/Configuration/page.tsconfig
 
     RTE.default {
       showButtons = ...

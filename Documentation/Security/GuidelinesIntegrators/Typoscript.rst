@@ -38,6 +38,7 @@ the SQL query with values from the GET/POST request.
 The following code snippet gives an example:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript — insecure example
 
     page = PAGE
     page.10 = CONTENT
@@ -76,6 +77,7 @@ Similar applies for XSS placed in `TypoScript` code. The following code
 snippet gives an example:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript — insecure example
 
     page = PAGE
     page.10 = COA
@@ -169,6 +171,7 @@ The TypoScript property can be used for the following :ref:`PAGE <t3tsref:page>`
 A typical example in TypoScript looks like:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
     page {
       includeJS {
