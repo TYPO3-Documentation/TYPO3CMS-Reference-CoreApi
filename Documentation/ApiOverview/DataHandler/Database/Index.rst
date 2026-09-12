@@ -158,6 +158,7 @@ Command keywords and values
         like:
 
         ..  code-block:: php
+            :caption: Structure of the DataHandler command array
 
             [
                 'action' => 'paste', // 'paste' is used for both move and copy commands
@@ -277,6 +278,7 @@ inlineLocalizeSynchronize
     The command structure is like:
 
     ..  code-block:: php
+        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
 
         $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
             'field' => 'tx_myfieldname', // field we want to synchronize
