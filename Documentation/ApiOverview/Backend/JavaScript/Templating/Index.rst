@@ -45,6 +45,7 @@ Variable assignment
 -------------------
 
 .. code-block:: ts
+    :caption: EXT:my_extension/Build/Sources/TypeScript/my-module.ts
 
    import {html, render} from 'lit-html';
 
@@ -68,6 +69,7 @@ Conditions and iteration
 ------------------------
 
 .. code-block:: ts
+    :caption: EXT:my_extension/Build/Sources/TypeScript/my-module.ts
 
    import {html, render} from 'lit-html';
    import {classMap} from 'lit-html/directives/class-map.js';
@@ -85,6 +87,7 @@ Conditions and iteration
    render(template, target);
 
 .. code-block:: html
+    :caption: HTML output
 
    <ul class="list">
       <li>#1: a</li>
@@ -109,6 +112,7 @@ Events
 Events can be bound using the `@` attribute prefix.
 
 .. code-block:: ts
+    :caption: EXT:my_extension/Build/Sources/TypeScript/my-module.ts
 
    import {html, render} from 'lit-html';
 
@@ -135,6 +139,7 @@ A web component based on the W3C custom elements ("web-components_") specificati
 can be implemented using `lit-element`.
 
 .. code-block:: ts
+    :caption: EXT:my_extension/Build/Sources/TypeScript/my-element.ts
 
    import {LitElement, html, customElement, property} from 'lit-element';
 

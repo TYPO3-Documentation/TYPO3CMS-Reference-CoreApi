@@ -58,6 +58,7 @@ Backend routes can enforce the existence of an HTTP referrer header by adding a
 :php:`referrer` to routes to mitigate the described scenario.
 
 ..  code-block:: php
+    :caption: EXT:backend/Configuration/Backend/Routes.php (excerpt)
 
     'main' => [
         'path' => '/main',
@@ -145,6 +146,7 @@ To generate a backend URL in Fluid you can simply use html:`<f:be.link>` (which
 is using :php:`UriBuilder` internally).
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:be.link route="web_layout" parameters="{id:42}">go to page 42</f:be.link>
     <f:be.link route="web_ExtkeyExample">go to custom BE module</f:be.link>

@@ -145,6 +145,7 @@ The result array for container and element nodes looks like this.
 :php:`$resultArray = $this->initializeResultArray()` takes care of basic keys:
 
 ..  code-block:: php
+    :caption: Structure of the result array
 
     [
         'html' => '',
