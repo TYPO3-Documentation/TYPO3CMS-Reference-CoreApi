@@ -9,7 +9,7 @@ Making the extension installable
 
 To make your TYPO3 extension installable, follow these steps:
 
-Add `example-extension/composer.json`:
+Add `my_extension/composer.json`:
 
 Your `composer.json` file should contain the following essential information
 (for more information see :ref:`composer.json <t3coreapi:files-composer-json>`):
@@ -23,9 +23,10 @@ Your `composer.json` file should contain the following essential information
 A minimal example:
 
 ..  code-block:: json
+    :caption: EXT:my_extension/composer.json
 
     {
-      "name": "vendor/example-extension",
+      "name": "myvendor/my-extension",
       "description": "description for example extension",
       "type": "typo3-cms-extension",
       "require": {
@@ -37,9 +38,9 @@ A minimal example:
       },
       "extra": {
         "typo3/cms": {
-          "extension-key": "example_extension"
+          "extension-key": "my_extension"
         }
       }
     }
 
-Add `example-extension/Resources/Public/Icons/Extension.svg`
+Add `my_extension/Resources/Public/Icons/Extension.svg`

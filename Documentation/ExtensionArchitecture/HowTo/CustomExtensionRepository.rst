@@ -29,6 +29,7 @@ Custom remote configuration can be added in the
 :file:`Configuration/Services.yaml` of the corresponding extension.
 
 .. code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
   extension.remote.myremote:
     class: 'TYPO3\CMS\Extensionmanager\Remote\TerExtensionRemote'
@@ -50,6 +51,7 @@ Please note that :php:`Vendor\SitePackage\Remote\MyRemote` must implement
 To disable an already registered remote, :yaml:`enabled: false` can be set.
 
 .. code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
   extension.remote.ter:
     tags:
