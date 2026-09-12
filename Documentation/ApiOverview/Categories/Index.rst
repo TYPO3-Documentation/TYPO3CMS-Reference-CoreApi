@@ -102,6 +102,7 @@ traversable list of items related to the given category.
 Here is an example usage, taken from the RECORDS content object:
 
 .. code-block:: php
+    :caption: EXT:frontend/Classes/ContentObject/RecordsContentObject.php (excerpt)
 
    $collection = \TYPO3\CMS\Frontend\Category\Collection\CategoryCollection::load(
       $aCategory,

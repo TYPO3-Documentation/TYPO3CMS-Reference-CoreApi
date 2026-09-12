@@ -59,6 +59,7 @@ This is how the content in the database could look for a hybrid mode
 (such as :code:`css_transform`):
 
 .. code-block:: html
+    :caption: Content of tt_content.bodytext in the database
 
    This is line number 1 with a <a href="t3://page?uid=123">link</a> inside
    This is line number 2 with a <b>bold part</b> in the text
@@ -95,6 +96,7 @@ every line is not wrapped in a :code:`<p>` tag!
 This is what eventually goes into the RTE:
 
 .. code-block:: xml
+    :caption: The same content as it goes into the RTE
 
    <p>This is line number 1 with a <a href="t3://page?uid=123">link</a> inside</p>
    <p>This is line number 2 with a <strong>bold part</strong> in the text</p>

@@ -33,6 +33,7 @@ Migration from `ExtensionManagementUtility::getFileFieldTCAConfig`
 ==================================================================
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/my_table.php (before and after)
 
     // Before
     'columns' => [

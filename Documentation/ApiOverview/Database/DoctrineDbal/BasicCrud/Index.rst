@@ -67,6 +67,7 @@ The engine encloses field names in quotes, adds default TCA restrictions such as
 :sql:`deleted=0`, and prepares a query to be executed with this final statement:
 
 ..  code-block:: sql
+    :caption: Resulting SQL query
 
     SELECT `uid`, `pid`, `bodytext`
         FROM `tt_content`
@@ -111,6 +112,7 @@ Result in :php:`$rows`:
 The executed query looks like this:
 
 ..  code-block:: sql
+    :caption: Resulting SQL query
 
     SELECT `uid`, `pid`, `bodytext`
         FROM `tt_content`

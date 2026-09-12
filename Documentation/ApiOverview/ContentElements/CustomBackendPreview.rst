@@ -57,6 +57,7 @@ In the Fluid template, the following variables are available:
 ..  rubric:: Migration
 
 ..  code-block:: diff
+    :caption: EXT:my_extension/Resources/Private/Templates/Preview/MyCType.fluid.html (migration)
 
     -<h2>{header}</h2>
     +<h2>{record.header}</h2>

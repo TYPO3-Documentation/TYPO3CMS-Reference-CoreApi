@@ -309,6 +309,7 @@ a query builder with the connection pool.
 Which results in:
 
 ..  code-block:: sql
+    :caption: Resulting SQL query
 
     SELECT "c1".*
       FROM "tt_content" "c1"

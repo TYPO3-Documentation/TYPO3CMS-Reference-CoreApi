@@ -28,6 +28,7 @@ Select field
 ------------
 
 ..  code-block:: xml
+    :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml (excerpt)
 
     <settings.orderBy>
         <label>
@@ -63,6 +64,7 @@ Populate a `select` field using a PHP function (`itemsProcFunc`)
 ----------------------------------------------------------------
 
 ..  code-block:: xml
+    :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml (excerpt)
 
     <settings.orderBy>
         <label>
@@ -83,6 +85,7 @@ The function :php:`user_orderBy` populates the select field in
 :file:`Backend/ItemsProcFunc.php`:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/ItemsProcFunc.php
 
     class ItemsProcFunc
     {
@@ -127,6 +130,7 @@ It can depend on one or more settings in the FlexForm,
 on database fields in the current record or be defined by a user function.
 
 ..  code-block:: xml
+    :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml (excerpt)
 
     <config>
         <type>select</type>
@@ -135,6 +139,7 @@ on database fields in the current record or be defined by a user function.
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
 
 ..  code-block:: xml
+    :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml (excerpt)
 
     <sheets>
         <sheetA>
@@ -177,6 +182,7 @@ When displaying settings using
 a form reload when some settings are changed. You can do that with:
 
 ..  code-block:: xml
+    :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml (excerpt)
 
     <onChange>reload</onChange>
     <config>
