@@ -74,6 +74,7 @@ IP address), the :php:`createLimiter()` method accepts an explicit configuration
 array and key:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/RateLimiting/MyService.php (excerpt)
 
     $limiter = $this->rateLimiterFactory->createLimiter(
         [

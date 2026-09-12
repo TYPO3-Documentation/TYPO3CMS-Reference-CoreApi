@@ -34,6 +34,7 @@ configuration key(s) to access.
 To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type-siteLanguage>` prefix:
 
 .. code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
      page.10 = TEXT
      page.10.data = siteLanguage:navigationTitle
@@ -68,6 +69,7 @@ You can use the SiteProcessor in the :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemp
 to fetch data from the site entity:
 
 .. code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
    tt_content.mycontent.20 = FLUIDTEMPLATE
    tt_content.mycontent.20 {

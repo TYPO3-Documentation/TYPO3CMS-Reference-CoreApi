@@ -93,6 +93,7 @@ It is possible to override earlier set meta tags by TypoScript if you explicitly
 * :typoscript:`0`: (default) If the meta tag is not set before, the meta tag will be created. If it is already set, it will ignore the meta tag set by TypoScript.
 
 .. code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     page.meta {
         og:site_name = TYPO3
