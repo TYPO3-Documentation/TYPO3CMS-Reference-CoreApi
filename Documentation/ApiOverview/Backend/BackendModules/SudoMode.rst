@@ -45,6 +45,7 @@ Custom backend modules requiring the sudo mode
 In general, the configuration for a particular route or module looks like this:
 
 ..  code-block:: diff
+    :caption: EXT:my_extension/Configuration/Backend/Routes.php (excerpt)
 
     + 'sudoMode' => [
     +     'group' => 'individual-group-name',

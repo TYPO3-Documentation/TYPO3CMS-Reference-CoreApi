@@ -43,6 +43,7 @@ The messages are then displayed by Fluid with the
 `FlashMessages ViewHelper <f:flashMessages> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_:
 
 .. code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
    <div id="typo3-docbody">
       <div id="typo3-inner-docbody">
@@ -74,6 +75,7 @@ If you need distinct queues, you can use a custom identifier to fetch
 and operate on that queue:
 
 ..  code-block:: php
+    :caption: EXT:examples/Classes/Controller/ModuleController.php (excerpt)
 
     $customQueue = $this->getFlashMessageQueue('tx_myvendor_customqueue');
     // Instead of using $this->addFlashMessage() you will instead directly
