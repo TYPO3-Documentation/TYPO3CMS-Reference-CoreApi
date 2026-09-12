@@ -30,6 +30,7 @@ Example:
 --------
 
 .. code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/my_table.php (excerpt)
 
     // ...
     'fieldConfiguration' => [

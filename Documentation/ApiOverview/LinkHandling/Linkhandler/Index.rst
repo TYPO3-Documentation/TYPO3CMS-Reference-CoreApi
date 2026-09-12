@@ -45,6 +45,7 @@ The links are now stored in the database with the syntax
 #. TypoScript is used to generate the actual link in the frontend.
 
    .. code-block:: typoscript
+       :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
       config.recordLinks.anIdentifier {
           // Do not force link generation when the record is hidden

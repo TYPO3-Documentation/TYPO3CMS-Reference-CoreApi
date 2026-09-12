@@ -52,6 +52,7 @@ When using this attribute there is no need to register the command in
 :file:`Services.yaml`.
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Command/MyImportCommand.php (excerpt)
 
     #[AsCommand(
         name: 'examples:dosomething',

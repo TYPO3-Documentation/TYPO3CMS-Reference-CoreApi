@@ -680,6 +680,7 @@ framework. The most common ones are:
     They are additionally declared :php:`shared: false`:
 
     .. code-block:: php
+        :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
 
         use TYPO3\CMS\Backend\Attribute\AsController;
 
