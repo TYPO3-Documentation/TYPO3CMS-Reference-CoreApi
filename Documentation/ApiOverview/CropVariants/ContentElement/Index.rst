@@ -11,6 +11,7 @@ cropping configuration for tt_content images, then you can add the following to
 your `image` field configuration of tt_content records:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
 
     'config' => [
         'overrideChildTca' => [
@@ -41,6 +42,7 @@ It is also possible to set the cropping configuration only for a **specific tt_c
 `columnsOverrides` feature:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
     $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config'] = [
         'cropVariants' => [
