@@ -33,6 +33,7 @@ Example: Add a single cache tag
 ===============================
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use TYPO3\CMS\Core\Cache\CacheTag;
 
@@ -48,6 +49,7 @@ Example: Add multiple cache tags with different lifetimes
 =========================================================
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use TYPO3\CMS\Core\Cache\CacheTag;
 
@@ -64,6 +66,7 @@ Example: Remove a single cache tag
 ==================================
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use TYPO3\CMS\Core\Cache\CacheTag;
 
@@ -79,6 +82,7 @@ Example: Remove multiple cache tags
 ===================================
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use TYPO3\CMS\Core\Cache\CacheTag;
 

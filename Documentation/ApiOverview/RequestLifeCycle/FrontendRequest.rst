@@ -66,6 +66,7 @@ The following example demonstrates how to set up a basic frontend request with
 `applicationType` and `site` attributes:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Core\Bootstrap;
     use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;

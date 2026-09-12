@@ -180,6 +180,7 @@ by now.
 When using the global variable, it should be wrapped into a getter method:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use Psr\Http\Message\ServerRequestInterface;
 
@@ -203,6 +204,7 @@ attributes which can be used in custom implementations.
 The attributes can be retrieved via
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // Get all available attributes
     $allAttributes = $request->getAttributes();

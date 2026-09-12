@@ -20,6 +20,7 @@ is enabled.
 One can retrieve the nonce like this:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce
 

@@ -19,6 +19,7 @@ frontend request by the :ref:`middleware <request-handling>`
 of that attribute.
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Middleware/MyMiddleware.php (excerpt)
 
     /** @var \TYPO3\CMS\Frontend\Page\PageInformation $pageInformation */
     $pageInformation = $request->getAttribute('frontend.page.information');
