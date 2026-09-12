@@ -14,7 +14,8 @@ This model has the following properties:
 
 requestId
     A unique identifier for each request which is created by the
-    :ref:`TYPO3 bootstrap <bootstrapping>`.
+    :ref:`TYPO3 bootstrap <bootstrapping>` and added to the log record by
+    the :ref:`RequestIdProcessor <logging-processors-requestid>`.
 
 created
     The timestamp with microseconds when the record is created.
