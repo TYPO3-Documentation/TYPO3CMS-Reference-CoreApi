@@ -124,6 +124,7 @@ $info
         **Examples:**
 
         ..  code-block:: php
+            :caption: EXT:my_extension/ext_localconf.php (excerpt)
 
             // runs only on UNIX
             'os' => 'UNIX',

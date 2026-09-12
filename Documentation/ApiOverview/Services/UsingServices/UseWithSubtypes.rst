@@ -10,6 +10,7 @@ A service can also be requested for not just a type, but a subtype
 too:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
    // Find a service for a file type
    if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('metaExtract', $fileType))) {

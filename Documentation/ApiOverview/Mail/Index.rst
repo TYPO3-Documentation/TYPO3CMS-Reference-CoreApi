@@ -365,6 +365,7 @@ This sends an email using a Fluid template :file:`TipsAndTricks.html`, make
 sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use Symfony\Component\Mime\Address;
     use TYPO3\CMS\Core\Mail\FluidEmail;
@@ -398,6 +399,7 @@ Building templated emails with Fluid also allows to define the language key,
 and use this within the Fluid template:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     $email = new FluidEmail();
     $email
