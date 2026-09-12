@@ -50,6 +50,7 @@ Datastructure used in the `ModifyNewRecordCreationLinksEvent`
 The event works with a nested array structure representing grouped creation links:
 
 ..  code-block:: php
+    :caption: Structure of the creation links array
 
     [
         'content' => [

@@ -110,6 +110,7 @@ field name, for example `slug`.
 The method then receives a parameter array with the following values:
 
 ..  code-block:: php
+    :caption: Structure of the parameter array
 
     [
         'slug' ...  the slug to be used
