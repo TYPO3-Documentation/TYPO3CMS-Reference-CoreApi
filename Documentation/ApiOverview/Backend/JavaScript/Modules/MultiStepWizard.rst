@@ -111,6 +111,7 @@ to navigate to the slides are deactivated by default. Please use following
 methods to lock or unlock them:
 
 ..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/HelloWorldModule.js
 
     MultiStepWizard.lockNextStep();
     MultiStepWizard.unlockNextStep();

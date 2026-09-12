@@ -156,6 +156,7 @@ Module configuration options
         ..  rubric:: Migration
 
         ..  code-block:: diff
+            :caption: EXT:my_extension/Configuration/Backend/Modules.php (excerpt)
 
             'mymodule' => [
                 'parent' => 'web',

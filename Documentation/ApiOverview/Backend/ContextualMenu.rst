@@ -136,6 +136,7 @@ or other modules defined in the JSON as :js:`additionalAttributes['data-callback
 Example of the JSON response:
 
 .. code-block:: javascript
+    :caption: Example of the JSON response
 
     {
        "view":{
@@ -228,9 +229,10 @@ Doing so in your layout is sufficient (see
 
 The second step is to activate the context menu on the icons. This kind of markup
 is required (taken from
-:file:`typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.html`):
+:file:`typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.html`):
 
 ..  code-block:: xml
+    :caption: EXT:beuser/Resources/Private/Templates/BackendUser/List.html (excerpt)
     :emphasize-lines: 2
 
     <td>
