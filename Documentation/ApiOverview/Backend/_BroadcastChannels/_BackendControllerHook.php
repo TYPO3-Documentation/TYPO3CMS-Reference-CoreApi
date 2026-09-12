@@ -17,8 +17,5 @@ final class BackendControllerHook
         $this->pageRenderer->loadJavaScriptModule(
             '@myvendor/my-extension/event-handler.js',
         );
-        $this->pageRenderer->addInlineLanguageDomain(
-            'my_extension.slug_service',
-        );
     }
 }
