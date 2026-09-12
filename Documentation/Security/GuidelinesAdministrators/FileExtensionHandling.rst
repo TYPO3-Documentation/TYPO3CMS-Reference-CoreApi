@@ -32,6 +32,7 @@ are matching `.html` and `.html.wrong` file extension
 and have to be limited with `<FilesMatch>`:
 
 ..  code-block:: apacheconf
+    :caption: .htaccess
 
     <FilesMatch ".+\.html?$">
         AddType text/html     .html .htm

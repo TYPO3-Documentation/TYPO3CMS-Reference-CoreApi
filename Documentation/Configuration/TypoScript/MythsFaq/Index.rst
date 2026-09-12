@@ -117,6 +117,7 @@ structure could also have been implemented in "TSML" (our fictitious
 name for the non-existing TypoScript Mark-Up Language):
 
 .. code-block:: typoscript
+    :caption: A data structure in TypoScript
 
    styles.content.bulletlist = TEXT
    styles.content.bulletlist {
@@ -139,6 +140,7 @@ That was 17 lines of TypoScript code and converting this information
 into an XML structure could look like this:
 
 .. code-block:: xml
+    :caption: The same structure in the fictitious TSML syntax
 
    <TSML syntax="3">
      <styles>

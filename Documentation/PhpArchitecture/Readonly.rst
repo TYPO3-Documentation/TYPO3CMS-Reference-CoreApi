@@ -30,6 +30,7 @@ Readonly properties align seamlessly with services using
 :ref:`constructor injection <Constructor-injection>`, e.g.:
 
 ..  code-block:: php
+    :caption: A service with an injected dependency
 
     final class UserController
     {
@@ -47,6 +48,7 @@ Well designed stateless services with no properties apart from those declared us
 can be declared :php:`readonly` on class level:
 
 ..  code-block:: php
+    :caption: The same service declared readonly on class level
 
     final readonly class UserController
     {

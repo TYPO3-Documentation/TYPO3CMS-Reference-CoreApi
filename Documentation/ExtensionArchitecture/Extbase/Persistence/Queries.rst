@@ -135,6 +135,7 @@ differ — most visibly PostgreSQL, which uses :sql:`ILIKE` for :php:`like()`.
             $query->contains('speakers', $speaker)
 
         ..  code-block:: sql
+            :caption: Resulting SQL query
 
             `uid` IN (
                 SELECT `uid_local` FROM `tx_myextension_conference_speaker_mm`

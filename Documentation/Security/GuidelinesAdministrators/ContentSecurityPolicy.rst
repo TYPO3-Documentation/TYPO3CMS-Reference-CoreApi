@@ -44,6 +44,7 @@ The following example sends a corresponding CSP_ header for any file
 accessed via :samp:`https://example.org/fileadmin/...`:
 
 ..  code-block:: apacheconf
+    :caption: fileadmin/.htaccess
 
     # placed in fileadmin/.htaccess on Apache 2.x webserver
     <IfModule mod_headers.c>
@@ -54,6 +55,7 @@ For nginx webservers, the following configuration example can be used to send
 a CSP_ header for any file accessed via :samp:`https://example.org/fileadmin/...`:
 
 ..  code-block:: nginx
+    :caption: nginx-site-typo3.conf
 
     map $request_uri $csp_header {
         ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";

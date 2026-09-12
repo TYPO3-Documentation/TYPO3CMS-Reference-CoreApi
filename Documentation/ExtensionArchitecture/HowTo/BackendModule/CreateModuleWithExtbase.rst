@@ -30,6 +30,7 @@ To access these resources, inject the
 controller:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
     use TYPO3\CMS\Backend\Attribute\AsController;
     use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
@@ -55,6 +56,7 @@ controller:
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php (excerpt)
 
     // use Psr\Http\Message\ResponseInterface
     public function myAction(): ResponseInterface

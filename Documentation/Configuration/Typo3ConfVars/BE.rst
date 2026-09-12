@@ -777,6 +777,7 @@ HTTP
     Default configuration:
 
     ..  code-block:: php
+        :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
 
         [
             'Response' => [

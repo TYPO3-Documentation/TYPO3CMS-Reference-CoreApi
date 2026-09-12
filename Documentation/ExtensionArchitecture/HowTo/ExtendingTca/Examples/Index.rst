@@ -22,6 +22,7 @@ Here is the complete code, taken from file
 :file:`Configuration/TCA/Overrides/fe_users.php`:
 
 .. code-block:: php
+    :caption: EXT:examples/Configuration/TCA/Overrides/fe_users.php
 
    <?php
    defined('TYPO3') or die();
