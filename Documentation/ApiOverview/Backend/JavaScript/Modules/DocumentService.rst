@@ -24,6 +24,7 @@ waiting for stylesheets, images, and sub-frames to finish loading.
 Above jQuery code can be transformed into the following using :js:`DocumentService`:
 
 .. code-block:: javascript
+    :caption: EXT:my_extension/Resources/Public/JavaScript/my-module.js
 
     import DocumentService from '@typo3/core/document-service.js';
 

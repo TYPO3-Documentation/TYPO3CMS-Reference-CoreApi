@@ -154,6 +154,7 @@ The `before` and `after` options of the
 :php:`#[AsModuleAccessGate]` attribute define the evaluation order.
 
 ..  code-block:: php
+    :caption: EXT:examples/Classes/Module/AccessGate/ExampleGate.php (excerpt)
 
     use TYPO3\CMS\Backend\Module\ModuleAccessGateInterface;
     use TYPO3\CMS\Core\Attribute\AsModuleAccessGate;
