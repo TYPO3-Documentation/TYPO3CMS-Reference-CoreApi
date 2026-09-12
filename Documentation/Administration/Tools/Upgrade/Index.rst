@@ -64,6 +64,7 @@ Use console commands to list and run the upgrade wizards:
     ..  group-tab:: Composer-based installation
 
         ..  code-block:: bash
+            :caption: typo3_root$ (Composer mode)
 
             # List upgrade wizards that need to be run
             vendor/bin/typo3 upgrade:list
@@ -77,6 +78,7 @@ Use console commands to list and run the upgrade wizards:
     .. group-tab:: Classic mode installation (no Composer)
 
         .. code-block:: bash
+            :caption: typo3_root$ (Classic mode)
 
             # List upgrade wizards that need to be run
             typo3/sysext/core/bin/typo3 upgrade:list

@@ -79,6 +79,7 @@ Docker images.
 2.  Tag and push your image
 
     ..  code-block:: bash
+        :caption: Run on the Docker host
 
         # Tag your Docker image:
         docker tag your-image ghcr.io/yourusername/your-image:tag
@@ -102,6 +103,7 @@ allowing you to build, tag, and push images during your deployment pipeline.
 **Steps to distribute a TYPO3 image via GitLab Registry:**
 
 ..  code-block:: bash
+    :caption: Run on the Docker host
 
     # Authenticate with GitLab
     docker login registry.gitlab.com
@@ -125,6 +127,7 @@ Running your own Docker registry gives you full control over where and how
 images are stored and accessed.
 
 ..  code-block:: bash
+    :caption: Run on the Docker host
 
     # Start a local registry
     docker run -d -p 5000:5000 --name registry registry:2

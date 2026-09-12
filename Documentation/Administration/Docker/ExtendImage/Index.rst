@@ -152,6 +152,7 @@ Before doing so, stop and remove the previously started container that used
 your image:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # Stop previous example
     docker stop typo3-nodejs
@@ -184,6 +185,7 @@ Make sure your `Dockerfile` and `docker-compose.yml` are in the same
 directory, then start the services:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # Run this to force a rebuild of your local image:
     docker compose build --no-cache
@@ -194,6 +196,7 @@ directory, then start the services:
 To verify that Node.js is available inside the container:
 
 ..  code-block:: bash
+    :caption: typo3_root$
 
     # Verify that Node.js is available:
     docker exec -it compose-demo-typo3 node -v
