@@ -215,7 +215,9 @@ Run Functional tests using sqlite and DDEV
 
 Run Functional tests using mysqli and DDEV
 ------------------------------------------
+
 ..  code-block:: bash
+    :caption: typo3_root$
 
     ddev exec \
         typo3DatabaseDriver='mysqli' \
