@@ -28,6 +28,7 @@ Execute the following in the folder into which your project was originally
 contain the :path:`.git` directory.
 
 ..  code-block:: bash
+    :caption: typo3_root$ (on the server)
 
     cd /var/www/your-project
     git pull

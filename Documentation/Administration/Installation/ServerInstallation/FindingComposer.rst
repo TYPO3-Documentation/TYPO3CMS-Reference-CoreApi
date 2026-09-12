@@ -13,6 +13,7 @@ install it manually.
 **Try finding the PHP and Composer paths** using `which`:
 
 ..  code-block:: bash
+    :caption: Run on the web server via SSH
 
     $ which php
     /opt/php-8.3/bin/php

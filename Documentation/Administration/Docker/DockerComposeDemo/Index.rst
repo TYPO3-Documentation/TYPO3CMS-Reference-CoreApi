@@ -36,6 +36,7 @@ Create a project directory
 --------------------------
 
 ..  code-block:: bash
+    :caption: ~$
 
     mkdir compose_demo_typo3
     cd compose_demo_typo3

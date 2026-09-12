@@ -61,6 +61,7 @@ At the root level of your web server, execute the following command:
     ..  group-tab:: ddev
 
         ..  code-block:: bash
+            :caption: ~$
 
             # Create a directory for your project
             mkdir example-project-directory

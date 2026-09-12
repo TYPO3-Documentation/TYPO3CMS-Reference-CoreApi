@@ -334,6 +334,7 @@ Linux containers often run with a web server user like `www-data` (UID 33).
 Your local files may need matching ownership or permissions:
 
 ..  code-block:: bash
+    :caption: typo3_root$ (Linux/WSL)
 
     # Quick fix for local development (not recommended for production)
     # chmod -R 777 fileadmin typo3conf typo3temp

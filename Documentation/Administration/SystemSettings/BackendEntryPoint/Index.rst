@@ -145,6 +145,7 @@ entry point `/typo3/index.php`.
 Apache configuration before:
 
 ..  code-block:: apache
+    :caption: typo3_root/public/.htaccess (before)
     :emphasize-lines: 2-4
 
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -160,6 +161,7 @@ Apache configuration before:
 Apache configuration after:
 
 ..  code-block:: apache
+    :caption: typo3_root/public/.htaccess (after)
     :emphasize-lines: 2
 
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -178,6 +180,7 @@ NGINX configuration
 NGINX configuration before:
 
 .. code-block:: nginx
+    :caption: nginx-site-typo3.conf (before)
    :emphasize-lines: 3
 
     location /typo3/ {
@@ -188,6 +191,7 @@ NGINX configuration before:
 NGINX configuration after:
 
 .. code-block:: nginx
+    :caption: nginx-site-typo3.conf (after)
    :emphasize-lines: 3
 
     location /typo3/ {
