@@ -288,6 +288,7 @@ Remarks:
     be used, for example:
 
     ..  code-block:: php
+        :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php (excerpt)
 
         // Equivalent to:
         // SELECT DISTINCT some_field, another_field FROM my_table
@@ -801,6 +802,7 @@ Further remarks:
 *   Multiple join condition expressions can be resolved as strings like:
 
     ..  code-block:: php
+        :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php (excerpt)
 
         $joinConditionExpression = $queryBuilder->expr()->and(
             $queryBuilder->expr()->eq(

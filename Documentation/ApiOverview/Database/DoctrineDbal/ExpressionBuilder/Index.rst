@@ -287,6 +287,7 @@ database engine in use.
 Example:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php (excerpt)
 
     // use TYPO3\CMS\Core\Database\Connection;
 
