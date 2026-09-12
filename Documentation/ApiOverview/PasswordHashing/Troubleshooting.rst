@@ -88,6 +88,7 @@ this encryption type.
 Add or edit the following in your :file:`config/system/settings.php`.
 
 .. code-block:: php
+    :caption: config/system/settings.php
 
    <?php
    return [

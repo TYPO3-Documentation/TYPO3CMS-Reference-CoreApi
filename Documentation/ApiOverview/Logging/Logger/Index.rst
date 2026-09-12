@@ -330,6 +330,7 @@ necessary in order to use proper PSR-3 logging.
 Bad example:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php — what not to do
 
     $this->logger->alert(
         'Password reset requested for email "'
@@ -339,6 +340,7 @@ Bad example:
 Good example:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php
 
     $this->logger->alert(
         'Password reset requested for email "{email}" but was requested too many times.',

@@ -234,6 +234,7 @@ If you want to release your file locking strategy extension, make sure to make t
 as is done in the TYPO3 Core:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Classes/Locking/MyLockingStrategy.php (excerpt)
 
    public static function getPriority()
    {

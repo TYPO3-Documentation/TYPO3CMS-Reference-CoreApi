@@ -126,6 +126,7 @@ For more details, see
 Once you have the correct LanguageService instance, you can resolve labels as follows:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Localization\LanguageService;
 

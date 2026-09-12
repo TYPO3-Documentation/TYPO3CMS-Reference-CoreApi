@@ -118,6 +118,7 @@ Accessing site settings in page TSconfig or TypoScript
 ------------------------------------------------------
 
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
     TCAdefaults.tx_ext_data.pid = {$categoryPid}

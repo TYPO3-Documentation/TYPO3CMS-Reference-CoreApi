@@ -35,6 +35,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
    be able to select records.
 
    .. code-block:: typoscript
+       :caption: EXT:some_extension/Configuration/page.tsconfig
 
       TCEMAIN.linkHandler.anIdentifier {
           handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
@@ -53,6 +54,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 #. TypoScript configures how the link will be displayed in the frontend.
 
    .. code-block:: typoscript
+       :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
       config.recordLinks.anIdentifier {
           // Do not force link generation when the record is hidden

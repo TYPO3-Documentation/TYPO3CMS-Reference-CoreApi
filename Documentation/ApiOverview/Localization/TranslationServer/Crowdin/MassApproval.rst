@@ -79,6 +79,7 @@ Usage
 -----
 
 ..  code-block:: bash
+    :caption: Run in the directory holding crowdin_mass_approve.php
 
     # Set API token (leading space prevents saving to shell history)
      export CROWDIN_TOKEN="your_api_token_here"
