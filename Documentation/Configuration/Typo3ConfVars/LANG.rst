@@ -108,6 +108,7 @@ resourceOverrides
     The syntax is as follows:
 
     ..  code-block:: php
+        :caption: config/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']
             ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][]

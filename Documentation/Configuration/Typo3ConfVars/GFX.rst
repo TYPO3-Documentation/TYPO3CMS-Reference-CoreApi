@@ -239,6 +239,7 @@ processor_stripColorProfileCommand
     adapted to allow modification of the new configuration option only:
 
     ..  code-block:: php
+        :caption: config/system/settings.php (before and after)
 
         // Before
         $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand'] = '+profile \'*\'';

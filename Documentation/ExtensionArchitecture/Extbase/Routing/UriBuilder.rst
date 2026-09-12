@@ -36,6 +36,7 @@ Use :php:`uriFor()` to generate a URL for any action. It is available as
 :php:`uriFor()` signature:
 
 ..  code-block:: php
+    :caption: Signature of UriBuilder::uriFor()
 
     uriFor(
         ?string $actionName = null,

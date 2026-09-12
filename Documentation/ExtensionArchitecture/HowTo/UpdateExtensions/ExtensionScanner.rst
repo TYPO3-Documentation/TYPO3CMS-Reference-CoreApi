@@ -113,6 +113,7 @@ some additional analysis to reduce false positives/negatives.
 Let's explain this by example. Suppose a static method was deprecated:
 
 .. code-block:: php
+    :caption: EXT:core/Classes/Utility/SomeUtility.php (fictitious example)
 
     <?php
     namespace TYPO3\CMS\Core\Utility;
@@ -131,6 +132,7 @@ This method is registered in the matcher class
 :php:`TYPO3\CMS\Install\ExtensionScanner\Php\Matcher\MethodCallStaticMatcher` like this:
 
 .. code-block:: php
+    :caption: EXT:install/Classes/ExtensionScanner/Php/Matcher/MethodCallStaticMatcher.php (excerpt)
 
     'TYPO3\CMS\Core\Utility\SomeUtility::someMethod' => [
         'numberOfMandatoryArguments' => 0,
@@ -148,6 +150,7 @@ number of arguments the method accepts. The :php:`restFiles` array contains file
 Now let's look at a theoretical class of an extension that uses this deprecated method:
 
 .. code-block:: php
+    :caption: EXT:my_extension/Classes/Consumer/SomeClass.php
 
     <?php
     namespace My\Extension\Consumer;
@@ -240,6 +243,7 @@ may need attention when upgrading to a newer Core version, the following points 
     dedicated classes which act as proxies for Core API:
 
     .. code-block:: php
+        :caption: EXT:my_extension/Classes/SomeClassIgnoredByExtensionScanner.php
 
         <?php
 
