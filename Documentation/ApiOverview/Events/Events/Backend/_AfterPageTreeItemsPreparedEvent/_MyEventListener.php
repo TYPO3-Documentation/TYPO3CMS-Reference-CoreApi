@@ -17,6 +17,8 @@ final readonly class MyEventListener
 {
     public function __invoke(AfterPageTreeItemsPreparedEvent $event): void
     {
+        $searchQuery = $event->getSearchQuery();
+
         $items = $event->getItems();
         foreach ($items as &$item) {
             if (($item['_page']['pid'] ?? null) === 123) {
@@ -36,6 +38,17 @@ final readonly class MyEventListener
                     severity: ContextualFeedbackSeverity::WARNING,
                     priority: 0,
                     icon: 'actions-dot',
+                    overlayIcon: '',
+                );
+            }
+
+            // Indicate which items matched an active page tree search
+            if ($searchQuery !== null) {
+                $item['statusInformation'][] = new StatusInformation(
+                    label: sprintf('Matched search "%s"', $searchQuery),
+                    severity: ContextualFeedbackSeverity::INFO,
+                    priority: 0,
+                    icon: 'actions-search',
                     overlayIcon: '',
                 );
             }
