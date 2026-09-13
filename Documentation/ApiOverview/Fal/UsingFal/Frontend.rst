@@ -35,7 +35,7 @@ If you have the uid of a file reference, you can use it directly in the
 
 ..  code-block:: html
 
-	<f:image image="{image}" />
+    <f:image image="{image}" />
 
 Here :html:`{image}` is an object of one of the following types:
 
@@ -52,9 +52,9 @@ Example:
 
 ..  code-block:: html
 
-	{fileReference.title}
-	{fileReference.description}
-	{fileReference.publicUrl}
+    {fileReference.title}
+    {fileReference.description}
+    {fileReference.publicUrl}
 
 ..  tip::
     If you are in :ref:`Extbase <extbase-extension-framework>` context, you usually have a
@@ -66,9 +66,9 @@ Example:
 
 ..  code-block:: html
 
-	{fileReference.originalResource.title}
-	{fileReference.originalResource.description}
-	{fileReference.originalResource.publicUrl}
+    {fileReference.originalResource.title}
+    {fileReference.originalResource.description}
+    {fileReference.originalResource.publicUrl}
 
 ..  note::
     The system extension `filemetadata`_ (if installed) provides some additional
@@ -82,8 +82,8 @@ Example:
 
 ..  code-block:: html
 
-	{fileReference.properties.copyright}
-	{fileReference.properties.creator}
+    {fileReference.properties.copyright}
+    {fileReference.properties.creator}
 
 ..  hint::
     The additional fields provided by the "filemetadata" extension are not
