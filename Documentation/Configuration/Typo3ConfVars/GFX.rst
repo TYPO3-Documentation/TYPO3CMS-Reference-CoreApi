@@ -92,16 +92,8 @@ imageFileConversionFormats
     Convert all JPEGs and GIFs to WebP by default,
     keep SVGs untouched, and use PNG as fallback for all others.
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_GfxImageFileConversionFormats.php
         :caption: config/system/additional.php
-
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
-            'jpg' => 'webp',
-            'jpeg' => 'webp',
-            'gif' => 'webp',
-            'svg' => 'svg',
-            'default' => 'png',
-        ];
 
 ..  _typo3ConfVars_gfx_processor_enabled:
 
@@ -238,17 +230,8 @@ processor_stripColorProfileCommand
     suggested to use the new configuration format, as the Install Tool is
     adapted to allow modification of the new configuration option only:
 
-    ..  code-block:: php
-        :caption: config/system/settings.php (before and after)
-
-        // Before
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand'] = '+profile \'*\'';
-
-        // After
-        $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] = [
-            '+profile',
-            '*'
-        ];
+    ..  literalinclude:: _codesnippets/_GfxStripColorProfile.php
+        :caption: config/system/additional.php (before and after)
 
 ..  _typo3ConfVars_gfx_processor_stripColorProfileParameters:
 

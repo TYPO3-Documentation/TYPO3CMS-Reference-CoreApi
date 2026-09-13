@@ -614,14 +614,8 @@ defaultPermissions
 
     Example (with default permissions):
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_BeDefaultPermissions.php
         :caption: config/system/additional.php | typo3conf/system/additional.php
-
-        $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
-            'user' => 'show,edit,delete,new,editcontent',
-            'group' => 'show,edit,new,editcontent',
-            'everybody' => '',
-        ];
 
     If you want to deviate from the default permissions, for example, by changing the 'everybody' key,
     just modify that key:
@@ -653,15 +647,8 @@ defaultUC
 
     Example (with default user settings):
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_BeDefaultUc.php
         :caption: config/system/additional.php | typo3conf/system/additional.php
-
-        $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC'] = [
-            'emailMeAtLogin' => 0,
-            'titleLen' => 50,
-            'edit_RTE' => '1',
-            'edit_docModuleUpload' => '1',
-        ];
 
     Visit the :ref:`setup <t3tsref:usersetup>` chapter of the User TSconfig guide for
     a list of available options.
@@ -681,15 +668,8 @@ customPermOptions
     Array with sets of custom permission options. The syntax is:
 
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_BeCustomPermOptions.php
         :caption: config/system/additional.php | typo3conf/system/additional.php
-
-        'key' => array(
-            'header' => 'header string, language split',
-            'items' => array(
-               'key' => array('label, language split','icon reference', 'Description text, language split')
-            )
-        )
 
     Keys cannot contain any of the following characters: :php:`:|,`.
 
@@ -977,40 +957,11 @@ installToolSessionHandler
         For the :php-short:`\TYPO3\CMS\Install\Service\Session\FileSessionHandler`
         you can configure the `sessionPath`.
 
-        ..  code-block:: php
+        ..  literalinclude:: _codesnippets/_BeInstallToolSessionHandlerFile.php
             :caption: File-based session handler in config/system/settings.php
-
-            return [
-                // ...
-                'BE' => [
-                    'installToolSessionHandler' => [
-                        'className' => \TYPO3\CMS\Install\Service\Session\FileSessionHandler::class,
-                        'options' => [
-                            'sessionPath' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/session',
-                        ]
-                    ]
-                ]
-            ];
 
         For the :php-short:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
         you can configure `host`, `port`, `database` and `authentification`:
 
-        ..  code-block:: php
+        ..  literalinclude:: _codesnippets/_BeInstallToolSessionHandlerRedis.php
             :caption: Redis session handler in config/system/settings.php
-
-            return [
-                'BE' => [
-                    'installToolSessionHandler' => [
-                        'className' => \TYPO3\CMS\Install\Service\Session\RedisSessionHandler::class,
-                        'options' => [
-                            'host' => '127.0.0.1',
-                            'port' => 6379,
-                            'database' => 0,
-                            'authentication' => [
-                                'user' => 'redis',
-                                'pass' => 'redis'
-                            ]
-                        ]
-                    ]
-                ]
-            ];
