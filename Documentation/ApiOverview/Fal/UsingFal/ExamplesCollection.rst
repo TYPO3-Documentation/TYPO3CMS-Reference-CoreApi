@@ -22,4 +22,5 @@ if the above code passed the :php:`$collection` variable to
 a :ref:`Fluid <fluid>` view, you could do the following:
 
 ..  literalinclude:: _ExamplesCollection/_Iteration.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
     :language: html

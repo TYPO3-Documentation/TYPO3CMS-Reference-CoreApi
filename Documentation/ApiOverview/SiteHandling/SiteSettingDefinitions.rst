@@ -149,6 +149,7 @@ Definition types
         integer. If yes, the string is converted into an integer.
 
         ..  literalinclude:: _Settings/_settings.definitions.int.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: number
         :name: site-setting-type-number
@@ -160,6 +161,7 @@ Definition types
         converted to an integer or float.
 
         ..  literalinclude:: _Settings/_settings.definitions.number.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: bool
         :name: site-setting-type-bool
@@ -177,6 +179,7 @@ Definition types
         `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
         ..  literalinclude:: _Settings/_settings.definitions.bool.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: string
         :name: site-setting-type-string
@@ -191,6 +194,7 @@ Definition types
         Boolean values are converted to `true` and `false`.
 
         ..  literalinclude:: _Settings/_settings.definitions.string.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: text
         :name: site-setting-type-text
@@ -201,6 +205,7 @@ Definition types
         know what to do with `string`.
 
         ..  literalinclude:: _Settings/_settings.definitions.text.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: enum
         :name: site-setting-type-enum
@@ -230,6 +235,7 @@ Definition types
         The `string` type is executed for each array entry.
 
         ..  literalinclude:: _Settings/_settings.definitions.stringlist.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: color
         :name: site-setting-type-color
@@ -246,6 +252,7 @@ Definition types
         have 3, 6 or 8 digits.
 
         ..  literalinclude:: _Settings/_settings.definitions.color.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: page
         :name: site-setting-type-page
@@ -270,6 +277,7 @@ Definition types
         UID in the field.
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
 ..  _site-settings-definition-translation:
 
@@ -280,7 +288,7 @@ To translate the labels and descriptions for the settings you have defined in
 :file:`settings.definition.yml`, remove the `label` entry from there and create a
 :file:`labels.xlf` file in the same directory.
 
-The key of the translation unit must be the key of the setting.  
+The key of the translation unit must be the key of the setting.
 For example, the label of the setting is simply `label` in the XLF file.
 
 .. rubric:: Example

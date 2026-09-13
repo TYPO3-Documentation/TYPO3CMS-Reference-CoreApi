@@ -226,6 +226,7 @@ Doing so in your layout is sufficient (see
 :file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.html`).
 
 ..  literalinclude:: _ContextualMenu/_IncludeJS.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
 The second step is to activate the context menu on the icons. This kind of markup
 is required (taken from

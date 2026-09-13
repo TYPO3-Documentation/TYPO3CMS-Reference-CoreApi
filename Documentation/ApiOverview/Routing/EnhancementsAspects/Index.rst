@@ -172,6 +172,7 @@ results in
 The configuration looks like this:
 
 ..  literalinclude:: _codesnippets/_routeEnhancers.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 :yaml:`routePath`
     defines the static keyword and the placeholders.
@@ -277,6 +278,7 @@ And generate the following URLs:
     https://example.org/path-to/my-page/tag/future
 
 ..  literalinclude:: _codesnippets/_extbasePluginEnhancer.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 In this example, the :yaml:`_arguments` parameter is used to set sub-properties
 of an array, which is typically used within demand objects for filtering
@@ -421,6 +423,7 @@ create human-readable segments for all available months.
 The configuration could look like this:
 
 ..  literalinclude:: _codesnippets/_StaticValueMapper.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 You see the placeholder :yaml:`month` where the aspect replaces the value to a
 human-readable URL path segment.
@@ -429,6 +432,7 @@ It is possible to add an optional :yaml:`localeMap` to that aspect to use the
 locale of a value to use in multi-language setups:
 
 ..  literalinclude:: _codesnippets/_localeMap.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 ..  _routing-aspect-LocaleModifier:
 ..  index:: Routing; LocaleModifier
@@ -444,6 +448,7 @@ good example where a route path is modified, but not affected by arguments.
 The configuration could look like this:
 
 ..  literalinclude:: _codesnippets/_LocaleModifier.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 This aspect replaces the placeholder :yaml:`localized_archive` depending on the
 locale of the language of that page.
@@ -459,6 +464,7 @@ possibilities for a placeholder. It explicitly defines a range for a value,
 which is recommended for all kinds of pagination functionality.
 
 ..  literalinclude:: _codesnippets/_StaticRangeMapper.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 This limits down the pagination to a maximum of 100 pages. If a user calls the
 news list with page 101, the route enhancer does not match and would not apply
@@ -477,6 +483,7 @@ If an extension ships with a slug field or a different field used for the
 speaking URL path, this database field can be used to build the URL:
 
 ..  literalinclude:: _codesnippets/_PersistedAliasMapper.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 The persisted alias mapper looks up the table and the field to map the given
 value to a URL. The property :yaml:`tableName` points to the database table,
@@ -505,6 +512,7 @@ one variable, ensuring a unique value, for example by adding the UID to the
 field without having the need of adding a custom slug field to the system.
 
 ..  literalinclude:: _codesnippets/_PersistedPatternMapper.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 The :yaml:`routeFieldPattern` option builds the title and uid fields from the
 database, the :yaml:`routeFieldResult` shows how the placeholder will be output.
@@ -529,6 +537,7 @@ The following example illustrates the mentioned dilemma between route generation
 and resolving:
 
 ..  literalinclude:: _codesnippets/_AspectPrecedence.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 The :yaml:`map` in the previous example is already defining all valid values.
 That is why :yaml:`aspects` take precedence over :yaml:`requirements` for a
@@ -562,6 +571,7 @@ scenario better than a "404" HTTP status code.
 ..  rubric:: Examples
 
 ..  literalinclude:: _codesnippets/_NewsPlugin.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
 
 Custom mapper implementations can incorporate this behavior by implementing
 the :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueInterface` which is

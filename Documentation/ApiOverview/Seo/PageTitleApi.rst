@@ -148,6 +148,7 @@ the priorities for their project and can even have conditions in place.
 By default, the Core has the following setup:
 
 ..  literalinclude:: _PageTitleProvider/_core.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 The sorting of the providers is based on the :typoscript:`before` and
 :typoscript:`after` parameters. If you want a provider to be handled before a
@@ -158,6 +159,7 @@ If you have installed the system extension SEO, you will also get a second
 provider. The configuration will be:
 
 ..  literalinclude:: _PageTitleProvider/_pageTitleProviders.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
 :typoscript:`record`) and, if this providers did not provide a title, the
