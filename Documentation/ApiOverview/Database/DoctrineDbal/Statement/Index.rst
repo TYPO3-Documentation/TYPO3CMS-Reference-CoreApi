@@ -43,26 +43,8 @@ most use cases.
 
 Typical example:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection
-    // Fetch all records from tt_content on page 42
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $result = $queryBuilder
-        ->select('uid', 'bodytext')
-        ->from('tt_content')
-        ->where(
-            $queryBuilder->expr()->eq(
-                'pid',
-                $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)
-            )
-        )
-      ->executeQuery();
-
-    while ($row = $result->fetchAssociative()) {
-        // Do something useful with that single $row
-    }
+..  literalinclude:: _FetchAssociative.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -82,23 +64,8 @@ implementing the same while loop as above. Using that method saves some precious
 code characters, but is more memory intensive if the result set is large and
 contains many rows and data, since large arrays are carried around in PHP:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    // Fetch all records from tt_content on page 42
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $rows = $queryBuilder
-        ->select('uid', 'bodytext')
-        ->from('tt_content')
-        ->where(
-            $queryBuilder->expr()->eq(
-                'pid',
-                $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)
-            )
-        )
-        ->executeQuery()
-        ->fetchAllAssociative();
+..  literalinclude:: _FetchAllAssociative.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -113,23 +80,8 @@ The method returns a single column from the next row of a result set, other
 columns from this result row are discarded. It is especially handy for
 :ref:`QueryBuilder->count() <database-query-builder-count>` queries:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    // Get the number of tt_content records on pid 42 into variable $numberOfRecords
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $numberOfRecords = $queryBuilder
-        ->count('uid')
-        ->from('tt_content')
-        ->where(
-            $queryBuilder->expr()->eq(
-                'pid',
-                $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)
-            )
-        )
-        ->executeQuery()
-        ->fetchOne();
+..  literalinclude:: _FetchOne.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -171,30 +123,8 @@ handy when the same query is executed over and over again with different
 arguments. The example below prepares a statement for the :sql:`pages` table
 and executes it twice with different arguments.
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('pages');
-    $statement = $queryBuilder
-        ->select('uid')
-        ->from('pages')
-        ->where(
-            $queryBuilder->expr()->eq(
-                'uid',
-                $queryBuilder->createPositionalParameter(0, Connection::PARAM_INT)
-            )
-        )
-        ->prepare();
-
-    $pages = [];
-    foreach ([24, 25] as $pageId) {
-        // Bind $pageId value to the first (and in this case only) positional parameter
-        $statement->bindValue(1, $pageId, Connection::PARAM_INT);
-        $result = $statement->executeQuery();
-        $pages[] = $result->fetchAssociative();
-        $result->free(); // free the resources for this result
-    }
+..  literalinclude:: _PreparedStatement.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.

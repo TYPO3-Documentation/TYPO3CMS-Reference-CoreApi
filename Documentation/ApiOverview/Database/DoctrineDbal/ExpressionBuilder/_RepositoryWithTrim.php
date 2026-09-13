@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
-final class MyTableRepository
+final class MyTableDbalRepository
 {
     private const TABLE_NAME = 'tt_content';
     public function __construct(private readonly ConnectionPool $connectionPool) {}
