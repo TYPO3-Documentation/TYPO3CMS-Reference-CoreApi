@@ -8,5 +8,5 @@ use OriginalVendor\OriginalExtension\Domain\Repository\SomeModelRepository;
 
 class MyExtendedModelRepository extends SomeModelRepository
 {
-    /* Unless you need additional methods you can leave the class body empty */
+  /* Unless you need additional methods you can leave the class body empty */
 }

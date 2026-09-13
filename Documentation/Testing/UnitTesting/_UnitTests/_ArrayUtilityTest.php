@@ -9,16 +9,16 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 final class ArrayUtilityTest extends UnitTestCase
 {
-    #[DataProvider('filterByValueRecursive')]
-    #[Test]
-    public function filterByValueRecursiveCorrectlyFiltersArray(
-        $needle,
-        $haystack,
-        $expectedResult,
-    ): void {
-        self::assertEquals(
-            $expectedResult,
-            ArrayUtility::filterByValueRecursive($needle, $haystack),
-        );
-    }
+  #[DataProvider('filterByValueRecursive')]
+  #[Test]
+  public function filterByValueRecursiveCorrectlyFiltersArray(
+    $needle,
+    $haystack,
+    $expectedResult,
+  ): void {
+    self::assertEquals(
+      $expectedResult,
+      ArrayUtility::filterByValueRecursive($needle, $haystack),
+    );
+  }
 }

@@ -8,15 +8,15 @@ use TYPO3\CMS\Backend\ElementBrowser\Event\IsFileSelectableEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-file-is-selectable',
+  identifier: 'my-extension/backend/modify-file-is-selectable',
 )]
 final readonly class MyEventListener
 {
-    public function __invoke(IsFileSelectableEvent $event): void
-    {
-        // Deny selection of "png" images
-        if ($event->getFile()->getExtension() === 'png') {
-            $event->denyFileSelection();
-        }
+  public function __invoke(IsFileSelectableEvent $event): void
+  {
+    // Deny selection of "png" images
+    if ($event->getFile()->getExtension() === 'png') {
+      $event->denyFileSelection();
     }
+  }
 }

@@ -9,17 +9,17 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 
 final class SearchInStorageExample
 {
-    public function __construct(
-        private readonly StorageRepository $storageRepository,
-    ) {}
+  public function __construct(
+    private readonly StorageRepository $storageRepository,
+  ) {}
 
-    public function search($searchWord): void
-    {
-        $storage = $this->storageRepository->getDefaultStorage();
+  public function search($searchWord): void
+  {
+    $storage = $this->storageRepository->getDefaultStorage();
 
-        $searchDemand = FileSearchDemand::createForSearchTerm($searchWord)->withRecursive();
-        $files = $storage->searchFiles($searchDemand);
+    $searchDemand = FileSearchDemand::createForSearchTerm($searchWord)->withRecursive();
+    $files = $storage->searchFiles($searchDemand);
 
-        // ... more logic
-    }
+    // ... more logic
+  }
 }

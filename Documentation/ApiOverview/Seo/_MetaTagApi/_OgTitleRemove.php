@@ -8,13 +8,13 @@ use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
 
 final class MyController
 {
-    public function __construct(
-        private readonly MetaTagManagerRegistry $metaTagManagerRegistry,
-    ) {}
+  public function __construct(
+    private readonly MetaTagManagerRegistry $metaTagManagerRegistry,
+  ) {}
 
-    public function removeOgTitle(): void
-    {
-        $metaTagManager = $this->metaTagManagerRegistry->getManagerForProperty('og:title');
-        $metaTagManager->removeProperty('og:title');
-    }
+  public function removeOgTitle(): void
+  {
+    $metaTagManager = $this->metaTagManagerRegistry->getManagerForProperty('og:title');
+    $metaTagManager->removeProperty('og:title');
+  }
 }

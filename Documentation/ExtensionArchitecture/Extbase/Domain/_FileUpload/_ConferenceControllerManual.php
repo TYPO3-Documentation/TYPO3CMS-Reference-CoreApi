@@ -12,27 +12,27 @@ use TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration;
 
 class ConferenceController extends ActionController
 {
-    public function __construct(
-        protected readonly ConferenceRepository $conferenceRepository,
-    ) {}
+  public function __construct(
+    protected readonly ConferenceRepository $conferenceRepository,
+  ) {}
 
-    public function initializeCreateAction(): void
-    {
-        $logoValidator = GeneralUtility::makeInstance(LogoDimensionsValidator::class);
+  public function initializeCreateAction(): void
+  {
+    $logoValidator = GeneralUtility::makeInstance(LogoDimensionsValidator::class);
 
-        $fileHandlingServiceConfiguration = $this->arguments
-            ->getArgument('conference')
-            ->getFileHandlingServiceConfiguration();
+    $fileHandlingServiceConfiguration = $this->arguments
+        ->getArgument('conference')
+        ->getFileHandlingServiceConfiguration();
 
-        $fileHandlingServiceConfiguration->addFileUploadConfiguration(
-            (new FileUploadConfiguration('logo'))
-                ->setMaxFiles(1)
-                ->addValidator($logoValidator)
-                ->setUploadFolder('1:/user_upload/conference_logos/'),
-        );
+    $fileHandlingServiceConfiguration->addFileUploadConfiguration(
+      (new FileUploadConfiguration('logo'))
+            ->setMaxFiles(1)
+            ->addValidator($logoValidator)
+            ->setUploadFolder('1:/user_upload/conference_logos/'),
+    );
 
-        $this->arguments->getArgument('conference')
-            ->getPropertyMappingConfiguration()
-            ->skipProperties('logo');
-    }
+    $this->arguments->getArgument('conference')
+        ->getPropertyMappingConfiguration()
+        ->skipProperties('logo');
+  }
 }

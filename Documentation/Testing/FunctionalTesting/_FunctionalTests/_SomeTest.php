@@ -9,13 +9,13 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class SomeTest extends FunctionalTestCase
 {
-    protected array $coreExtensionsToLoad = [
-        'workspaces',
-    ];
+  protected array $coreExtensionsToLoad = [
+    'workspaces',
+  ];
 
-    #[Test]
-    public function somethingWithWorkspaces(): void
-    {
-        //...
-    }
+  #[Test]
+  public function somethingWithWorkspaces(): void
+  {
+    //...
+  }
 }

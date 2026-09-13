@@ -11,12 +11,12 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceKeyword;
 use TYPO3\CMS\Core\Type\Map;
 
 return Map::fromEntries([
-    Scope::frontend(),
-    new MutationCollection(
-        new Mutation(
-            MutationMode::Set,
-            Directive::ImgSrc,
-            SourceKeyword::self,
-        ),
+  Scope::frontend(),
+  new MutationCollection(
+    new Mutation(
+      MutationMode::Set,
+      Directive::ImgSrc,
+      SourceKeyword::self,
     ),
+  ),
 ]);

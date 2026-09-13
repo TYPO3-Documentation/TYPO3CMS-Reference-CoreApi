@@ -12,12 +12,12 @@ $subContexts   = explode('/', strtolower($context));
 // or system/staging.php - depending on the TYPO3_CONTEXT application
 // context that is currently active.
 if (file_exists($baseDirectory . '/system/' . $subContexts[0] . '.php')) {
-    include $baseDirectory . '/system/' . $subContexts[0] . '.php';
+  include $baseDirectory . '/system/' . $subContexts[0] . '.php';
 }
 
 // ALSO overload an environment-specific configuration, to allow more
 // specific environment configuration on top of the "global" application
 // context.
 if (file_exists($baseDirectory . '/system/environment.php')) {
-    include $baseDirectory . '/system/environment.php';
+  include $baseDirectory . '/system/environment.php';
 }

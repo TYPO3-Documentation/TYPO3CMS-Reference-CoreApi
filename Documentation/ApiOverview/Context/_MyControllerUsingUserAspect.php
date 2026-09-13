@@ -8,17 +8,17 @@ use TYPO3\CMS\Core\Context\Context;
 
 final class MyController
 {
-    public function __construct(
-        private readonly Context $context,
-    ) {}
+  public function __construct(
+    private readonly Context $context,
+  ) {}
 
-    public function doSomething(): void
-    {
-        $userIsLoggedIn = $this->context->getPropertyFromAspect(
-            'frontend.user',
-            'isLoggedIn',
-        );
+  public function doSomething(): void
+  {
+    $userIsLoggedIn = $this->context->getPropertyFromAspect(
+      'frontend.user',
+      'isLoggedIn',
+    );
 
-        // ... do something with $userIsLoggedIn
-    }
+    // ... do something with $userIsLoggedIn
+  }
 }

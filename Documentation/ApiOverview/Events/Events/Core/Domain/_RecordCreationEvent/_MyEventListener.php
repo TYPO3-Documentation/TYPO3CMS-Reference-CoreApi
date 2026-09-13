@@ -10,22 +10,22 @@ use TYPO3\CMS\Core\Domain\Event\RecordCreationEvent;
 
 final readonly class MyEventListener
 {
-    #[AsEventListener]
-    public function __invoke(RecordCreationEvent $event): void
-    {
-        $rawRecord = $event->getRawRecord();
-        if ($rawRecord->getMainType() !== 'tt_content') {
-            return;
-        }
-        if ($rawRecord->getRecordType() !== 'maps') {
-            return;
-        }
-        if (!$event->hasProperty('coordinates')) {
-            return;
-        }
-        $event->setProperty(
-            'coordinates',
-            new Coordinates($event->getProperty('coordinates')),
-        );
+  #[AsEventListener]
+  public function __invoke(RecordCreationEvent $event): void
+  {
+    $rawRecord = $event->getRawRecord();
+    if ($rawRecord->getMainType() !== 'tt_content') {
+      return;
     }
+    if ($rawRecord->getRecordType() !== 'maps') {
+      return;
+    }
+    if (!$event->hasProperty('coordinates')) {
+      return;
+    }
+    $event->setProperty(
+      'coordinates',
+      new Coordinates($event->getProperty('coordinates')),
+    );
+  }
 }

@@ -9,13 +9,13 @@ use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
 class MyServiceGettingRuntimeCacheInjected
 {
-    public function __construct(
-        #[Autowire(service: 'cache.runtime')]
-        private readonly FrontendInterface $runtimeCache,
-    ) {}
+  public function __construct(
+    #[Autowire(service: 'cache.runtime')]
+    private readonly FrontendInterface $runtimeCache,
+  ) {}
 
-    public function calculateSomethingExpensive()
-    {
-        // do something using runtime cache
-    }
+  public function calculateSomethingExpensive()
+  {
+    // do something using runtime cache
+  }
 }

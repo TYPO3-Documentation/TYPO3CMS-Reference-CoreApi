@@ -10,25 +10,25 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    public function useAlternativeUser(BackendUserAuthentication $alternativeBackendUser): void
-    {
-        // Prepare the data array
-        $data = [
-            // ... the data ...
-        ];
+  public function useAlternativeUser(BackendUserAuthentication $alternativeBackendUser): void
+  {
+    // Prepare the data array
+    $data = [
+      // ... the data ...
+    ];
 
-        // Prepare the cmd array
-        $cmd = [
-            // ... the cmd structure ...
-        ];
+    // Prepare the cmd array
+    $cmd = [
+      // ... the cmd structure ...
+    ];
 
-        /** @var DataHandler $dataHandler */
-        // Do not inject or reuse the DataHander as it holds state!
-        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
-        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+    /** @var DataHandler $dataHandler */
+    // Do not inject or reuse the DataHander as it holds state!
+    // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
 
-        $dataHandler->start($data, $cmd, $alternativeBackendUser);
-        $dataHandler->process_datamap();
-        $dataHandler->process_cmdmap();
-    }
+    $dataHandler->start($data, $cmd, $alternativeBackendUser);
+    $dataHandler->process_datamap();
+    $dataHandler->process_cmdmap();
+  }
 }

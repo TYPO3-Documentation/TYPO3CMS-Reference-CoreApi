@@ -7,11 +7,11 @@ use TYPO3\CMS\Core\Imaging\IconFactory;
 
 final readonly class AdminModuleController
 {
-    public function __construct(
-        private ModuleTemplateFactory $moduleTemplateFactory,
-        private IconFactory $iconFactory,
-        private UriBuilder $uriBuilder,
-        private ComponentFactory $componentFactory,
-        // ...
-    ) {}
+  public function __construct(
+    private ModuleTemplateFactory $moduleTemplateFactory,
+    private IconFactory $iconFactory,
+    private UriBuilder $uriBuilder,
+    private ComponentFactory $componentFactory,
+    // ...
+  ) {}
 }

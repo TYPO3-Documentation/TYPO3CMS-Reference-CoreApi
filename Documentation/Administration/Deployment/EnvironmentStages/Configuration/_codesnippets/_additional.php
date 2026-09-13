@@ -21,5 +21,5 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['user']
     = $_ENV['TYPO3_DB_USER'];
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = [
-    $_ENV['TYPO3_BE_LOCKROOTPATH'],
+  $_ENV['TYPO3_BE_LOCKROOTPATH'],
 ];

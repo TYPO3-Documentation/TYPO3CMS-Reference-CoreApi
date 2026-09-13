@@ -8,22 +8,22 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Conference extends AbstractEntity
 {
-    protected string $title = '';
-    protected string $description = '';
-    protected ?\DateTimeImmutable $conferenceDate = null;
+  protected string $title = '';
+  protected string $description = '';
+  protected ?\DateTimeImmutable $conferenceDate = null;
 
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
+  public function getTitle(): string
+  {
+    return $this->title;
+  }
 
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
+  public function getDescription(): string
+  {
+    return $this->description;
+  }
 
-    public function getEventDate(): ?\DateTimeImmutable
-    {
-        return $this->conferenceDate;
-    }
+  public function getEventDate(): ?\DateTimeImmutable
+  {
+    return $this->conferenceDate;
+  }
 }

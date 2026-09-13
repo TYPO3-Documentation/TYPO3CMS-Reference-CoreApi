@@ -6,6 +6,8 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 return (new Config())
+    // Documentation code examples indent two spaces, see .editorconfig
+    ->setIndent('  ')
     ->setFinder(
         (new Finder())
             ->in(__DIR__.'/../Documentation')

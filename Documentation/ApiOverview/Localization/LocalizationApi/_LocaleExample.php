@@ -9,13 +9,13 @@ use TYPO3\CMS\Core\Localization\Locale;
 
 final class LocaleExample
 {
-    public function __construct(
-        private readonly LanguageServiceFactory $languageServiceFactory,
-    ) {}
+  public function __construct(
+    private readonly LanguageServiceFactory $languageServiceFactory,
+  ) {}
 
-    public function doSomething(): string
-    {
-        $translation = $this->languageServiceFactory->create(new Locale('de-CH'));
-        return $translation->translate('my-label', 'my_extension.myfile');
-    }
+  public function doSomething(): string
+  {
+    $translation = $this->languageServiceFactory->create(new Locale('de-CH'));
+    return $translation->translate('my-label', 'my_extension.myfile');
+  }
 }

@@ -10,25 +10,25 @@ use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
 final class MyBackendClass
 {
-    public function __construct(
-        private readonly LanguageServiceFactory $languageServiceFactory,
-    ) {}
+  public function __construct(
+    private readonly LanguageServiceFactory $languageServiceFactory,
+  ) {}
 
-    private function translateSomething(string $input): string
-    {
-        return $this->getTranslator()->label($input);
-    }
+  private function translateSomething(string $input): string
+  {
+    return $this->getTranslator()->label($input);
+  }
 
-    private function getTranslator(): TranslatorInterface
-    {
-        return $this->languageServiceFactory
-            ->createFromUserPreferences($this->getBackendUserAuthentication());
-    }
+  private function getTranslator(): TranslatorInterface
+  {
+    return $this->languageServiceFactory
+        ->createFromUserPreferences($this->getBackendUserAuthentication());
+  }
 
-    private function getBackendUserAuthentication(): BackendUserAuthentication
-    {
-        return $GLOBALS['BE_USER'];
-    }
+  private function getBackendUserAuthentication(): BackendUserAuthentication
+  {
+    return $GLOBALS['BE_USER'];
+  }
 
-    // ...
+  // ...
 }

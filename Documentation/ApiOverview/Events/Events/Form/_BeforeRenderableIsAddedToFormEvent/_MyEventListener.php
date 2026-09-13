@@ -9,11 +9,11 @@ use TYPO3\CMS\Form\Event\BeforeRenderableIsAddedToFormEvent;
 
 final readonly class MyEventListener
 {
-    #[AsEventListener(
-        identifier: 'my-extension/before-renderable-is-added-to-form-event',
-    )]
-    public function __invoke(BeforeRenderableIsAddedToFormEvent $event): void
-    {
-        $event->renderable->setLabel('foo');
-    }
+  #[AsEventListener(
+    identifier: 'my-extension/before-renderable-is-added-to-form-event',
+  )]
+  public function __invoke(BeforeRenderableIsAddedToFormEvent $event): void
+  {
+    $event->renderable->setLabel('foo');
+  }
 }

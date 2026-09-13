@@ -5,16 +5,16 @@ use TTN\Tea\Domain\Repository\Product\TeaRepository;
 
 class TeaController extends ActionController
 {
-    private TeaRepository $teaRepository;
+  private TeaRepository $teaRepository;
 
-    public function __construct(TeaRepository $teaRepository)
-    {
-        $this->teaRepository = $teaRepository;
-    }
+  public function __construct(TeaRepository $teaRepository)
+  {
+    $this->teaRepository = $teaRepository;
+  }
 
-    public function indexAction(): ResponseInterface
-    {
-        $this->view->assign('teas', $this->teaRepository->findAll());
-        return $this->htmlResponse();
-    }
+  public function indexAction(): ResponseInterface
+  {
+    $this->view->assign('teas', $this->teaRepository->findAll());
+    return $this->htmlResponse();
+  }
 }

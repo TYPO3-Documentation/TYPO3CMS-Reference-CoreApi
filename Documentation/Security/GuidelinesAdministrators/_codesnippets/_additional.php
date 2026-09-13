@@ -7,9 +7,9 @@ use TYPO3\CMS\Core\Log\Writer\FileWriter;
 // Other settings
 
 $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
-    LogLevel::INFO => [
-        FileWriter::class => [
-            'logFile' => Environment::getVarPath() . '/log/typo3_auth.log',
-        ],
+  LogLevel::INFO => [
+    FileWriter::class => [
+      'logFile' => Environment::getVarPath() . '/log/typo3_auth.log',
     ],
+  ],
 ];

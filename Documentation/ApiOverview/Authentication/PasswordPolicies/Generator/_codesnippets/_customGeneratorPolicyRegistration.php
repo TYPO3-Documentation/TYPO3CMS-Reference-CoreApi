@@ -3,15 +3,15 @@
 use MyVendor\MyExtension\PasswordPolicy\Generator\MyPasswordGenerator;
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['customGeneratorPolicy'] = [
-    'generator' => [
-        'className' => MyPasswordGenerator::class,
-        'options' => [
-            'length' => 32,
-        ],
+  'generator' => [
+    'className' => MyPasswordGenerator::class,
+    'options' => [
+      'length' => 32,
     ],
-    'validators' => [
-        // Your custom validators
-    ],
+  ],
+  'validators' => [
+    // Your custom validators
+  ],
 ];
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy'] = 'customPolicy';

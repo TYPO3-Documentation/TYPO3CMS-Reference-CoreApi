@@ -6,8 +6,8 @@ namespace MyVendor\MyExtension\Service;
 
 class MyOtherServiceImplementation implements MyServiceInterface
 {
-    public function foo()
-    {
-        // do something
-    }
+  public function foo()
+  {
+    // do something
+  }
 }

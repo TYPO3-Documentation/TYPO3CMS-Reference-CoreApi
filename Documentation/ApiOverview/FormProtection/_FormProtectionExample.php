@@ -10,18 +10,18 @@ use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
 
 final class FormProtectionExample
 {
-    public function __construct(
-        private readonly FormProtectionFactory $formProtectionFactory,
-    ) {}
+  public function __construct(
+    private readonly FormProtectionFactory $formProtectionFactory,
+  ) {}
 
-    public function handleRequest(ServerRequestInterface $request): ResponseInterface
-    {
-        $formProtection = $this->formProtectionFactory->createFromRequest($request);
+  public function handleRequest(ServerRequestInterface $request): ResponseInterface
+  {
+    $formProtection = $this->formProtectionFactory->createFromRequest($request);
 
-        $formToken = $formProtection->generateToken('BE user setup', 'edit');
+    $formToken = $formProtection->generateToken('BE user setup', 'edit');
 
-        $content = '<input type="hidden" name="formToken" value="' . $formToken . '">';
+    $content = '<input type="hidden" name="formToken" value="' . $formToken . '">';
 
-        // ... some more logic ...
-    }
+    // ... some more logic ...
+  }
 }

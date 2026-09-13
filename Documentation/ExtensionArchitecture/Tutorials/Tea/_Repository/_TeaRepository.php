@@ -14,14 +14,14 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class TeaRepository extends Repository
 {
-    protected $defaultOrderings = ['title' => QueryInterface::ORDER_ASCENDING];
+  protected $defaultOrderings = ['title' => QueryInterface::ORDER_ASCENDING];
 
-    public function findByOwnerUid(int $ownerUid): QueryResultInterface
-    {
-        $query = $this->createQuery();
-        $query->setQuerySettings($query->getQuerySettings()->setRespectStoragePage(false));
-        $query->matching($query->equals('ownerUid', $ownerUid));
+  public function findByOwnerUid(int $ownerUid): QueryResultInterface
+  {
+    $query = $this->createQuery();
+    $query->setQuerySettings($query->getQuerySettings()->setRespectStoragePage(false));
+    $query->matching($query->equals('ownerUid', $ownerUid));
 
-        return $query->execute();
-    }
+    return $query->execute();
+  }
 }

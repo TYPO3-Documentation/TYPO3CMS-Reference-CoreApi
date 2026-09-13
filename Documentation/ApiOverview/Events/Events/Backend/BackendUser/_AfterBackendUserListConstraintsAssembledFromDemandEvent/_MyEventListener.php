@@ -9,9 +9,9 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 final readonly class MyEventListener
 {
-    #[AsEventListener]
-    public function __invoke(AfterBackendUserListConstraintsAssembledFromDemandEvent $event): void
-    {
-        $event->constraints[] = $event->query->eq('admin', 1);
-    }
+  #[AsEventListener]
+  public function __invoke(AfterBackendUserListConstraintsAssembledFromDemandEvent $event): void
+  {
+    $event->constraints[] = $event->query->eq('admin', 1);
+  }
 }

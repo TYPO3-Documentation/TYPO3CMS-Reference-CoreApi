@@ -5,18 +5,18 @@
  */
 class GitHubLinkHandling implements LinkHandlingInterface
 {
-    protected string $baseUrn = 't3://github';
+  protected string $baseUrn = 't3://github';
 
-    public function asString(array $parameters): string
-    {
-        $githubIssue = (int)$parameters['issue'];
-        return $this->baseUrn . '?issue=' . $githubIssue;
-    }
+  public function asString(array $parameters): string
+  {
+    $githubIssue = (int)$parameters['issue'];
+    return $this->baseUrn . '?issue=' . $githubIssue;
+  }
 
-    public function resolveHandlerData(array $data): array
-    {
-        return [
-            'issue' => (int)$data['issue'],
-        ];
-    }
+  public function resolveHandlerData(array $data): array
+  {
+    return [
+      'issue' => (int)$data['issue'],
+    ];
+  }
 }

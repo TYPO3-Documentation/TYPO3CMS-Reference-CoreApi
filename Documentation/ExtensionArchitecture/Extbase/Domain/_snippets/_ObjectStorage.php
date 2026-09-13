@@ -10,11 +10,11 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Entity extends AbstractEntity
 {
-    #[Lazy]
-    protected ObjectStorage $property;
+  #[Lazy]
+  protected ObjectStorage $property;
 
-    public function initializeObject(): void
-    {
-        $this->property = new ObjectStorage();
-    }
+  public function initializeObject(): void
+  {
+    $this->property = new ObjectStorage();
+  }
 }

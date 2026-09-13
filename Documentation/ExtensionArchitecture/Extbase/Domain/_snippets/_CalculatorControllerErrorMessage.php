@@ -8,9 +8,9 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class CalculatorController extends ActionController
 {
-    // ...
-    protected function getErrorFlashMessage(): bool|string
-    {
-        return 'Check your measurements. ';
-    }
+  // ...
+  protected function getErrorFlashMessage(): bool|string
+  {
+    return 'Check your measurements. ';
+  }
 }

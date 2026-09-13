@@ -10,26 +10,26 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class MyController extends ActionController
 {
-    public function __construct(
-        private readonly FileCollectionRepository $collectionRepository,
-    ) {}
+  public function __construct(
+    private readonly FileCollectionRepository $collectionRepository,
+  ) {}
 
-    /**
-     * Renders the list of all existing collections and their content
-     */
-    public function listAction(): ResponseInterface
-    {
-        // Get all existing collections
-        $collections = $this->collectionRepository->findAll() ?? [];
+  /**
+   * Renders the list of all existing collections and their content
+   */
+  public function listAction(): ResponseInterface
+  {
+    // Get all existing collections
+    $collections = $this->collectionRepository->findAll() ?? [];
 
-        // Load the records in each collection
-        foreach ($collections as $aCollection) {
-            $aCollection->loadContents();
-        }
-
-        // Assign the "loaded" collections to the view
-        $this->view->assign('collections', $collections);
-
-        return $this->htmlResponse();
+    // Load the records in each collection
+    foreach ($collections as $aCollection) {
+      $aCollection->loadContents();
     }
+
+    // Assign the "loaded" collections to the view
+    $this->view->assign('collections', $collections);
+
+    return $this->htmlResponse();
+  }
 }

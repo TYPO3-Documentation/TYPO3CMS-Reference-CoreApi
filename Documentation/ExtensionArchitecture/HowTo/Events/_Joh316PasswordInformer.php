@@ -18,17 +18,17 @@ use TYPO3\CMS\FrontendLogin\Event\PasswordChangeEvent;
 #[AsEventListener]
 final class Joh316PasswordInvalidator
 {
-    public function __construct(
-        private readonly LoggerInterface $logger,
-    ) {}
+  public function __construct(
+    private readonly LoggerInterface $logger,
+  ) {}
 
-    public function __invoke(PasswordChangeEvent $event): void
-    {
-        if ($event->getRawPassword() === 'joh316') {
-            $this->logger->warning(sprintf(
-                'User %s uses the default password "joh316".',
-                $event->getUser()['username'],
-            ));
-        }
+  public function __invoke(PasswordChangeEvent $event): void
+  {
+    if ($event->getRawPassword() === 'joh316') {
+      $this->logger->warning(sprintf(
+        'User %s uses the default password "joh316".',
+        $event->getUser()['username'],
+      ));
     }
+  }
 }

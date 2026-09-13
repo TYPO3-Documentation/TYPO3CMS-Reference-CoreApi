@@ -10,8 +10,8 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 #[AsMessageHandler]
 final class DemoHandler
 {
-    public function __invoke(DemoMessage $message): void
-    {
-        // do something with $message
-    }
+  public function __invoke(DemoMessage $message): void
+  {
+    // do something with $message
+  }
 }

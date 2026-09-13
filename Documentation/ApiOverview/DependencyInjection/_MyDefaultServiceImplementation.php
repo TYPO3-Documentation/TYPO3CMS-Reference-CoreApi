@@ -9,8 +9,8 @@ use Symfony\Component\DependencyInjection\Attribute\AsAlias;
 #[AsAlias(MyServiceInterface::class)]
 class MyDefaultServiceImplementation implements MyServiceInterface
 {
-    public function foo()
-    {
-        // do something
-    }
+  public function foo()
+  {
+    // do something
+  }
 }
