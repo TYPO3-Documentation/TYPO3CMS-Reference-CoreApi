@@ -131,7 +131,7 @@ respectively. Let's say we define the following:
 
 .. code-block:: php
 
-	$GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath'] = '1:user_homes/';
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath'] = '1:user_homes/';
 
 
 The first part of the definition (before the colon :code:`:`) is
@@ -156,7 +156,7 @@ and:
 
 .. code-block:: php
 
-	$GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath'] = '1:groups/';
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath'] = '1:groups/';
 
 we have to create a directory :file:`/path/to/web/root/fileadmin/groups/1/`.
 
