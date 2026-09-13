@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\Domain\Repository;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
-final class MyTableRepository
+final class MyTableDbalRepository
 {
     private const TABLE_NAME = 'pages';
     public function __construct(private readonly ConnectionPool $connectionPool) {}
