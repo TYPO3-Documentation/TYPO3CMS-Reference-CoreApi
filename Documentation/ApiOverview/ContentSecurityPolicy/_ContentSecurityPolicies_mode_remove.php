@@ -12,21 +12,21 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceScheme;
 use TYPO3\CMS\Core\Type\Map;
 
 return Map::fromEntries([
-    Scope::frontend(),
-    new MutationCollection(
-        new Mutation(
-            MutationMode::Set,
-            Directive::DefaultSrc,
-            SourceKeyword::self,
-        ),
-        new Mutation(
-            MutationMode::Set,
-            Directive::ImgSrc,
-            SourceScheme::data,
-        ),
-        new Mutation(
-            MutationMode::Remove,
-            Directive::ImgSrc,
-        ),
+  Scope::frontend(),
+  new MutationCollection(
+    new Mutation(
+      MutationMode::Set,
+      Directive::DefaultSrc,
+      SourceKeyword::self,
     ),
+    new Mutation(
+      MutationMode::Set,
+      Directive::ImgSrc,
+      SourceScheme::data,
+    ),
+    new Mutation(
+      MutationMode::Remove,
+      Directive::ImgSrc,
+    ),
+  ),
 ]);

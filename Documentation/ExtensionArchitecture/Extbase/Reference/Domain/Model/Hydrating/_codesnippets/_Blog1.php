@@ -9,12 +9,12 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Blog extends AbstractEntity
 {
-    protected ObjectStorage $posts;
+  protected ObjectStorage $posts;
 
-    public function __construct(protected string $title)
-    {
-        // Property "posts" is not initialized on thawing / fetching from database!!
-        // Must be initialized in initializeObject()!!
-        $this->posts = new ObjectStorage();
-    }
+  public function __construct(protected string $title)
+  {
+    // Property "posts" is not initialized on thawing / fetching from database!!
+    // Must be initialized in initializeObject()!!
+    $this->posts = new ObjectStorage();
+  }
 }

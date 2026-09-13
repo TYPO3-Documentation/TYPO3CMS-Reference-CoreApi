@@ -2,9 +2,9 @@
 
 class Person extends AbstractEntity
 {
-    protected string $email = '';
+  protected string $email = '';
 
-    protected string $firstname = '';
+  protected string $firstname = '';
 
-    protected string $lastname = '';
+  protected string $lastname = '';
 }

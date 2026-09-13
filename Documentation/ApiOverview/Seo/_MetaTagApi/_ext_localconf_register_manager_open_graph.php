@@ -10,7 +10,7 @@ defined('TYPO3') or die();
 
 $metaTagManagerRegistry = GeneralUtility::makeInstance(MetaTagManagerRegistry::class);
 $metaTagManagerRegistry->registerManager(
-    'myOwnOpenGraphManager',
-    MyOpenGraphMetaTagManager::class,
-    ['opengraph'],
+  'myOwnOpenGraphManager',
+  MyOpenGraphMetaTagManager::class,
+  ['opengraph'],
 );

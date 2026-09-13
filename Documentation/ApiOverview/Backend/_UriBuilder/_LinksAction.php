@@ -15,56 +15,56 @@ use TYPO3\CMS\Core\Resource\ResourceFactory;
 
 class ModuleController extends ActionController
 {
-    public function linksAction(): ResponseInterface
-    {
-        $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
-        $returnUrl = (string)$this->backendUriBuilder->buildUriFromRoute(
-            'web_examples',
-            ['id' => $pageUid, 'action' => 'links'],
-        );
+  public function linksAction(): ResponseInterface
+  {
+    $pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
+    $returnUrl = (string)$this->backendUriBuilder->buildUriFromRoute(
+      'web_examples',
+      ['id' => $pageUid, 'action' => 'links'],
+    );
 
-        $editPage1Link = $this->getEditPageLink(1, $returnUrl);
-        $editPagesDoktypeLink = $this->getEditDoktypeLink($returnUrl);
-        $createHaikuLink = $this->getCreateHaikuLink($returnUrl);
+    $editPage1Link = $this->getEditPageLink(1, $returnUrl);
+    $editPagesDoktypeLink = $this->getEditDoktypeLink($returnUrl);
+    $createHaikuLink = $this->getCreateHaikuLink($returnUrl);
 
-        $view = $this->initializeModuleTemplate($this->request);
-        $view->assignMultiple(
-            [
-                'editPage1Link' => $editPage1Link,
-                'editPagesDoktypeLink' => $editPagesDoktypeLink,
-                'createHaikuLink' => $createHaikuLink,
-                'returnUrl' => $returnUrl,
-            ],
-        );
-        return $view->renderResponse('Module/Links');
-    }
+    $view = $this->initializeModuleTemplate($this->request);
+    $view->assignMultiple(
+      [
+        'editPage1Link' => $editPage1Link,
+        'editPagesDoktypeLink' => $editPagesDoktypeLink,
+        'createHaikuLink' => $createHaikuLink,
+        'returnUrl' => $returnUrl,
+      ],
+    );
+    return $view->renderResponse('Module/Links');
+  }
 
-    private function getEditPageLink(int $uid, string $returnUrl): UriInterface
-    {
-        $uriParameters = [
-            'edit' => [
-                'pages' => [
-                    $uid => 'edit',
-                ],
-            ],
-            'returnUrl' => $returnUrl,
-        ];
-        return $this->backendUriBuilder->buildUriFromRoute(
-            'record_edit',
-            $uriParameters,
-        );
-    }
+  private function getEditPageLink(int $uid, string $returnUrl): UriInterface
+  {
+    $uriParameters = [
+      'edit' => [
+        'pages' => [
+          $uid => 'edit',
+        ],
+      ],
+      'returnUrl' => $returnUrl,
+    ];
+    return $this->backendUriBuilder->buildUriFromRoute(
+      'record_edit',
+      $uriParameters,
+    );
+  }
 
-    public function __construct(
-        protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-        protected readonly IconFactory $iconFactory,
-        protected readonly ExtensionConfiguration $extensionConfiguration,
-        protected readonly PasswordHashFactory $passwordHashFactory,
-        protected readonly ResourceFactory $resourceFactory,
-        protected readonly FileRepository $fileRepository,
-        protected readonly ConnectionPool $connectionPool,
-        protected readonly TableInformationService $tableInformationService,
-        protected readonly LoggerInterface $logger,
-        protected readonly UriBuilder $backendUriBuilder,
-    ) {}
+  public function __construct(
+    protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+    protected readonly IconFactory $iconFactory,
+    protected readonly ExtensionConfiguration $extensionConfiguration,
+    protected readonly PasswordHashFactory $passwordHashFactory,
+    protected readonly ResourceFactory $resourceFactory,
+    protected readonly FileRepository $fileRepository,
+    protected readonly ConnectionPool $connectionPool,
+    protected readonly TableInformationService $tableInformationService,
+    protected readonly LoggerInterface $logger,
+    protected readonly UriBuilder $backendUriBuilder,
+  ) {}
 }

@@ -8,5 +8,5 @@ use OriginalVendor\OriginalExtension\Domain\Repository\SomeRepository;
 defined('TYPO3') or die('Access denied.');
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][SomeRepository::class] = [
-    'className' => MyExtendedRepository::class,
+  'className' => MyExtendedRepository::class,
 ];

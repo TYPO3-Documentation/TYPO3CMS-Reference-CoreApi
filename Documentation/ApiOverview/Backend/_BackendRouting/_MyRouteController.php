@@ -9,11 +9,11 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class MyRouteController
 {
-    public function handle(ServerRequestInterface $request): ResponseInterface
-    {
-        $routing = $request->getAttribute('routing');
-        $myIdentifier = $routing['identifier'];
-        $route = $routing->getRoute();
-        // ...
-    }
+  public function handle(ServerRequestInterface $request): ResponseInterface
+  {
+    $routing = $request->getAttribute('routing');
+    $myIdentifier = $routing['identifier'];
+    $route = $routing->getRoute();
+    // ...
+  }
 }

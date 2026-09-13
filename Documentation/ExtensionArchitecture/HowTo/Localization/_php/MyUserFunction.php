@@ -10,29 +10,29 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
 final class MyUserFunction
 {
-    private LanguageService $languageService;
+  private LanguageService $languageService;
 
-    public function __construct(
-        private readonly LanguageServiceFactory $languageServiceFactory,
-    ) {}
+  public function __construct(
+    private readonly LanguageServiceFactory $languageServiceFactory,
+  ) {}
 
-    private function getLanguageService(
-        ServerRequestInterface $request,
-    ): LanguageService {
-        return $this->languageServiceFactory->createFromSiteLanguage(
-            $request->getAttribute('language')
-            ?? $request->getAttribute('site')->getDefaultLanguage(),
-        );
-    }
+  private function getLanguageService(
+    ServerRequestInterface $request,
+  ): LanguageService {
+    return $this->languageServiceFactory->createFromSiteLanguage(
+      $request->getAttribute('language')
+        ?? $request->getAttribute('site')->getDefaultLanguage(),
+    );
+  }
 
-    public function main(
-        string $content,
-        array $conf,
-        ServerRequestInterface $request,
-    ): string {
-        $this->languageService = $this->getLanguageService($request);
-        return $this->languageService->sL(
-            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something',
-        );
-    }
+  public function main(
+    string $content,
+    array $conf,
+    ServerRequestInterface $request,
+  ): string {
+    $this->languageService = $this->getLanguageService($request);
+    return $this->languageService->sL(
+      'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something',
+    );
+  }
 }

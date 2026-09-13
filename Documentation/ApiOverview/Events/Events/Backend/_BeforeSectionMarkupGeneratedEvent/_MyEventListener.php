@@ -8,23 +8,23 @@ use TYPO3\CMS\Backend\View\Event\BeforeSectionMarkupGeneratedEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/before-section-markup-generated',
+  identifier: 'my-extension/before-section-markup-generated',
 )]
 final readonly class MyEventListener
 {
-    public function __invoke(BeforeSectionMarkupGeneratedEvent $event): void
-    {
-        // Check for relevant backend layout
-        if ($event->getPageLayoutContext()->getBackendLayout()->getIdentifier() !== 'someBackendLayout') {
-            return;
-        }
+  public function __invoke(BeforeSectionMarkupGeneratedEvent $event): void
+  {
+    // Check for relevant backend layout
+    if ($event->getPageLayoutContext()->getBackendLayout()->getIdentifier() !== 'someBackendLayout') {
+      return;
+    }
 
-        // Check for relevant column
-        if ($event->getColumnConfig()['identifier'] !== 'someColumn') {
-            return;
-        }
+    // Check for relevant column
+    if ($event->getColumnConfig()['identifier'] !== 'someColumn') {
+      return;
+    }
 
-        $event->setContent('
+    $event->setContent('
             <div class="t3-page-ce">
                 <div class="t3-page-ce-element">
                     <div class="t3-page-ce-header">
@@ -35,5 +35,5 @@ final readonly class MyEventListener
                 </div>
             </div>
         ');
-    }
+  }
 }

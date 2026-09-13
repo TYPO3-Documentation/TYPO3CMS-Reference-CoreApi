@@ -14,9 +14,9 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
  */
 final readonly class HaikuSeasonList implements MiddlewareInterface
 {
-    public function __construct(
-        private LanguageServiceFactory $languageServiceFactory,
-        private ResponseFactoryInterface $responseFactory,
-        private StreamFactoryInterface $streamFactory,
-    ) {}
+  public function __construct(
+    private LanguageServiceFactory $languageServiceFactory,
+    private ResponseFactoryInterface $responseFactory,
+    private StreamFactoryInterface $streamFactory,
+  ) {}
 }

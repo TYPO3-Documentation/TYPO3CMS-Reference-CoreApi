@@ -10,9 +10,9 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 final class Blog extends AbstractEntity
 {
-    /**
-     * @var ObjectStorage<Post>
-     */
-    #[Cascade(['value' => 'remove'])]
-    public $posts;
+  /**
+   * @var ObjectStorage<Post>
+   */
+  #[Cascade(['value' => 'remove'])]
+  public $posts;
 }

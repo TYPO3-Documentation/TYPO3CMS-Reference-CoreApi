@@ -2,10 +2,10 @@
 
 class Post extends AbstractEntity implements \Stringable
 {
-    /**
-     * @var Person
-     */
-    protected ?Person $author = null;
+  /**
+   * @var Person
+   */
+  protected ?Person $author = null;
 
-    protected ?Person $secondAuthor = null;
+  protected ?Person $secondAuthor = null;
 }

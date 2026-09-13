@@ -9,11 +9,11 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class BoolExample extends AbstractEntity
 {
-    public bool $wantsNewsletter = false;
+  public bool $wantsNewsletter = false;
 
-    #[Validate([
-        'validator' => 'Boolean',
-        'options' => ['is' => true],
-    ])]
-    public bool $acceptedPrivacyPolicy = false;
+  #[Validate([
+    'validator' => 'Boolean',
+    'options' => ['is' => true],
+  ])]
+  public bool $acceptedPrivacyPolicy = false;
 }

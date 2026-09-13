@@ -5,33 +5,33 @@ use TYPO3\CMS\Backend\Template\ModuleTemplate;
 
 class BackendController extends ActionController
 {
-    private function modifyDocHeaderComponent(ModuleTemplate $view, string &$context): void
-    {
-        $menu = $this->buildMenu($view, $context);
-        $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
+  private function modifyDocHeaderComponent(ModuleTemplate $view, string &$context): void
+  {
+    $menu = $this->buildMenu($view, $context);
+    $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
 
-        $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
-        $this->addButtons($buttonBar);
+    $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
+    $this->addButtons($buttonBar);
 
-        $metaInformation = $this->getMetaInformation();
-        if (is_array($metaInformation)) {
-            $view->getDocHeaderComponent()->setMetaInformation($metaInformation);
-        }
+    $metaInformation = $this->getMetaInformation();
+    if (is_array($metaInformation)) {
+      $view->getDocHeaderComponent()->setMetaInformation($metaInformation);
     }
+  }
 
-    protected function initializeModuleTemplate(
-        ServerRequestInterface $request,
-    ): ModuleTemplate {
-        $view = $this->moduleTemplateFactory->create($request);
+  protected function initializeModuleTemplate(
+    ServerRequestInterface $request,
+  ): ModuleTemplate {
+    $view = $this->moduleTemplateFactory->create($request);
 
-        $context = '';
-        $this->modifyDocHeaderComponent($view, $context);
-        $view->setFlashMessageQueue($this->getFlashMessageQueue());
-        $view->setTitle(
-            $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
-            $context,
-        );
+    $context = '';
+    $this->modifyDocHeaderComponent($view, $context);
+    $view->setFlashMessageQueue($this->getFlashMessageQueue());
+    $view->setTitle(
+      $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
+      $context,
+    );
 
-        return $view;
-    }
+    return $view;
+  }
 }

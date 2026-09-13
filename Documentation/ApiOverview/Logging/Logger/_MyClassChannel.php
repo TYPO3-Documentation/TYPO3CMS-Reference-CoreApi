@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Log\Channel;
 #[Channel('security')]
 class MyClass
 {
-    public function __construct(
-        private readonly LoggerInterface $logger,
-    ) {}
+  public function __construct(
+    private readonly LoggerInterface $logger,
+  ) {}
 }

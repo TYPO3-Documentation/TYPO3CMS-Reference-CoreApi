@@ -11,24 +11,24 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 
 final class SearchInFolderExample
 {
-    public function __construct(
-        private readonly StorageRepository $storageRepository,
-    ) {}
+  public function __construct(
+    private readonly StorageRepository $storageRepository,
+  ) {}
 
-    public function search($searchWord): void
-    {
-        $folder = $this->getFolderFromDefaultStorage('/some/path/in/storage/');
+  public function search($searchWord): void
+  {
+    $folder = $this->getFolderFromDefaultStorage('/some/path/in/storage/');
 
-        $searchDemand = FileSearchDemand::createForSearchTerm($searchWord)->withRecursive();
-        $files = $folder->searchFiles($searchDemand);
+    $searchDemand = FileSearchDemand::createForSearchTerm($searchWord)->withRecursive();
+    $files = $folder->searchFiles($searchDemand);
 
-        // ... more logic
-    }
+    // ... more logic
+  }
 
-    private function getFolderFromDefaultStorage(string $path): Folder|InaccessibleFolder
-    {
-        $defaultStorage = $this->storageRepository->getDefaultStorage();
+  private function getFolderFromDefaultStorage(string $path): Folder|InaccessibleFolder
+  {
+    $defaultStorage = $this->storageRepository->getDefaultStorage();
 
-        return $defaultStorage->getFolder($path);
-    }
+    return $defaultStorage->getFolder($path);
+  }
 }

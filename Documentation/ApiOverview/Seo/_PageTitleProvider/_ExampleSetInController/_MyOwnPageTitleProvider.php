@@ -8,8 +8,8 @@ use TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider;
 
 final class MyOwnPageTitleProvider extends AbstractPageTitleProvider
 {
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
+  public function setTitle(string $title): void
+  {
+    $this->title = $title;
+  }
 }

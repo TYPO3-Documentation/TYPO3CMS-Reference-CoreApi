@@ -10,9 +10,9 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Post extends AbstractEntity
 {
-    /**
-     * @var ObjectStorage<Post>
-     */
-    #[Lazy()]
-    public ObjectStorage $relatedPosts;
+  /**
+   * @var ObjectStorage<Post>
+   */
+  #[Lazy()]
+  public ObjectStorage $relatedPosts;
 }

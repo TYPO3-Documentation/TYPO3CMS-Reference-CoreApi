@@ -9,18 +9,18 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 final class MyEventListener
 {
-    #[AsEventListener]
-    public function __invoke(AfterRawPageRowPreparedEvent $event): void
-    {
-        $rawPage = $event->getRawPage();
-        if ((int)$rawPage['uid'] === 123) {
-            // Sort pages alphabetically in the page tree
-            $rawPage['_children'] = usort(
-                $rawPage['_children'],
-                static fn(array $a, array $b) => strcmp($a['title'], $b['title']),
-            );
-            $rawPage['title'] = 'Some special title';
-            $event->setRawPage($rawPage);
-        }
+  #[AsEventListener]
+  public function __invoke(AfterRawPageRowPreparedEvent $event): void
+  {
+    $rawPage = $event->getRawPage();
+    if ((int)$rawPage['uid'] === 123) {
+      // Sort pages alphabetically in the page tree
+      $rawPage['_children'] = usort(
+        $rawPage['_children'],
+        static fn(array $a, array $b) => strcmp($a['title'], $b['title']),
+      );
+      $rawPage['title'] = 'Some special title';
+      $event->setRawPage($rawPage);
     }
+  }
 }

@@ -8,25 +8,25 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 defined('TYPO3') or die();
 
 ExtensionManagementUtility::addService(
-    // Extension Key
-    'babelfish',
-    // Service type
-    'translator',
-    // Service key
-    'tx_babelfish_translator',
-    [
-        'title' => 'Babelfish',
-        'description' => 'Guess alien languages by using a babelfish',
+  // Extension Key
+  'babelfish',
+  // Service type
+  'translator',
+  // Service key
+  'tx_babelfish_translator',
+  [
+    'title' => 'Babelfish',
+    'description' => 'Guess alien languages by using a babelfish',
 
-        'subtype' => '',
+    'subtype' => '',
 
-        'available' => true,
-        'priority' => 60,
-        'quality' => 80,
+    'available' => true,
+    'priority' => 60,
+    'quality' => 80,
 
-        'os' => '',
-        'exec' => '',
+    'os' => '',
+    'exec' => '',
 
-        'className' => Translator::class,
-    ],
+    'className' => Translator::class,
+  ],
 );

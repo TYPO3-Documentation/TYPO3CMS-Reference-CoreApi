@@ -12,24 +12,24 @@ use Symfony\Component\Console\Output\OutputInterface;
 use T3docs\Examples\Http\MeowInformationRequester;
 
 #[AsCommand(
-    name: 'myextension:dosomething',
+  name: 'myextension:dosomething',
 )]
 final class MeowInformationCommand extends Command
 {
-    public function __construct(
-        private readonly MeowInformationRequester $requester,
-        private readonly LoggerInterface $logger,
-    ) {
-        parent::__construct();
-    }
+  public function __construct(
+    private readonly MeowInformationRequester $requester,
+    private readonly LoggerInterface $logger,
+  ) {
+    parent::__construct();
+  }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        if (!$this->requester->isReady()) {
-            $this->logger->error('MeowInformationRequester was not ready! ');
-            return Command::SUCCESS;
-        }
-        // Do awesome stuff
-        return Command::SUCCESS;
+  protected function execute(InputInterface $input, OutputInterface $output): int
+  {
+    if (!$this->requester->isReady()) {
+      $this->logger->error('MeowInformationRequester was not ready! ');
+      return Command::SUCCESS;
     }
+    // Do awesome stuff
+    return Command::SUCCESS;
+  }
 }

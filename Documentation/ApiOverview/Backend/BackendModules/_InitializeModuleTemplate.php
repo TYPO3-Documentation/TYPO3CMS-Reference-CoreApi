@@ -7,26 +7,26 @@ use TYPO3\CMS\Backend\Template\ModuleTemplate;
 
 class BackendController extends ActionController
 {
-    protected function initializeModuleTemplate(
-        ServerRequestInterface $request,
-    ): ModuleTemplate {
-        $view = $this->moduleTemplateFactory->create($request);
+  protected function initializeModuleTemplate(
+    ServerRequestInterface $request,
+  ): ModuleTemplate {
+    $view = $this->moduleTemplateFactory->create($request);
 
-        $context = '';
-        $this->modifyDocHeaderComponent($view, $context);
-        $view->setFlashMessageQueue($this->getFlashMessageQueue());
-        $view->setTitle(
-            $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
-            $context,
-        );
+    $context = '';
+    $this->modifyDocHeaderComponent($view, $context);
+    $view->setFlashMessageQueue($this->getFlashMessageQueue());
+    $view->setTitle(
+      $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
+      $context,
+    );
 
-        return $view;
-    }
+    return $view;
+  }
 
-    public function showPostAction(Post $post): ResponseInterface
-    {
-        $view = $this->initializeModuleTemplate($this->request);
-        $view->assign('post', $post);
-        return $view->renderResponse('ShowPost');
-    }
+  public function showPostAction(Post $post): ResponseInterface
+  {
+    $view = $this->initializeModuleTemplate($this->request);
+    $view->assign('post', $post);
+    return $view->renderResponse('ShowPost');
+  }
 }

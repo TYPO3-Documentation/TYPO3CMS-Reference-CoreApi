@@ -9,16 +9,16 @@ use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
 use TYPO3\CMS\Core\Mail\MailMessage;
 
 #[AsEventListener(
-    identifier: 'my-extension/add-mail-message-bcc',
+  identifier: 'my-extension/add-mail-message-bcc',
 )]
 final readonly class AddMailMessageBcc
 {
-    public function __invoke(BeforeMailerSentMessageEvent $event): void
-    {
-        $message = $event->getMessage();
-        if ($message instanceof MailMessage) {
-            $message->addBcc('me@example.com');
-        }
-        $event->setMessage($message);
+  public function __invoke(BeforeMailerSentMessageEvent $event): void
+  {
+    $message = $event->getMessage();
+    if ($message instanceof MailMessage) {
+      $message->addBcc('me@example.com');
     }
+    $event->setMessage($message);
+  }
 }

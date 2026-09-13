@@ -10,41 +10,41 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 final class MyLinkViewHelper extends AbstractViewHelper
 {
-    public function __construct(private UriBuilder $uriBuilder) {}
+  public function __construct(private UriBuilder $uriBuilder) {}
 
-    public function render(): string
-    {
-        if (method_exists($this->renderingContext, 'getRequest')) {
-            // TYPO3 v12 compatibility
-            $request = $this->renderingContext->getRequest();
-        } elseif ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
-            // TYPO3 v13+ compatibility
-            $request = $this->renderingContext->getAttribute(ServerRequestInterface::class);
-        } else {
-            throw new \RuntimeException(
-                'The rendering context of this ViewHelper is missing a valid request object, probably because it is used outside of Extbase context.',
-                1730537505,
-            );
-        }
-
-        // Request context is needed before $this->uriBuilder is first used for returning links.
-        // Note: this will not be reset on calling $this->uriBuilder->reset()!
-        $this->uriBuilder->setRequest($request);
-
-        $url = $this->uriBuilder
-            ->reset()
-            ->setTargetPageUid(2751)
-            ->uriFor(
-                'another', // only action name, not `myAction`
-                [
-                    'myRecord' => 21,
-                ],
-                'My', // only controller name, not `MyController`
-                'myextension',
-                'myplugin',
-            );
-
-        // do something with $url, for example:
-        return 'Link: ' . $url . '</a>';
+  public function render(): string
+  {
+    if (method_exists($this->renderingContext, 'getRequest')) {
+      // TYPO3 v12 compatibility
+      $request = $this->renderingContext->getRequest();
+    } elseif ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
+      // TYPO3 v13+ compatibility
+      $request = $this->renderingContext->getAttribute(ServerRequestInterface::class);
+    } else {
+      throw new \RuntimeException(
+        'The rendering context of this ViewHelper is missing a valid request object, probably because it is used outside of Extbase context.',
+        1730537505,
+      );
     }
+
+    // Request context is needed before $this->uriBuilder is first used for returning links.
+    // Note: this will not be reset on calling $this->uriBuilder->reset()!
+    $this->uriBuilder->setRequest($request);
+
+    $url = $this->uriBuilder
+        ->reset()
+        ->setTargetPageUid(2751)
+        ->uriFor(
+          'another', // only action name, not `myAction`
+          [
+            'myRecord' => 21,
+          ],
+          'My', // only controller name, not `MyController`
+          'myextension',
+          'myplugin',
+        );
+
+    // do something with $url, for example:
+    return 'Link: ' . $url . '</a>';
+  }
 }

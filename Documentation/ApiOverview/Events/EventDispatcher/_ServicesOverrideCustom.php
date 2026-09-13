@@ -9,14 +9,14 @@ use TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent;
 
 // Important: Use the 'identifier' of the original event here to be replaced!
 #[AsEventListener(
-    identifier: 'ext-some-extension/modify-hreflang',
-    after: 'typo3-seo/hreflangGenerator',
+  identifier: 'ext-some-extension/modify-hreflang',
+  after: 'typo3-seo/hreflangGenerator',
 )]
 final readonly class MySeoEventListener
 {
-    public function __invoke(ModifyHrefLangTagsEvent $event): void
-    {
-        // ... custom code which overrides the
-        // original EXT:some-extension listener ...
-    }
+  public function __invoke(ModifyHrefLangTagsEvent $event): void
+  {
+    // ... custom code which overrides the
+    // original EXT:some-extension listener ...
+  }
 }

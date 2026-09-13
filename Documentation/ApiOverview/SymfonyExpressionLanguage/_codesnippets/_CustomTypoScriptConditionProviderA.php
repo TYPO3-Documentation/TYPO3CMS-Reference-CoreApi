@@ -8,10 +8,10 @@ use TYPO3\CMS\Core\ExpressionLanguage\AbstractProvider;
 
 class CustomTypoScriptConditionProvider extends AbstractProvider
 {
-    public function __construct()
-    {
-        $this->expressionLanguageVariables = [
-            'variableA' => 'valueB',
-        ];
-    }
+  public function __construct()
+  {
+    $this->expressionLanguageVariables = [
+      'variableA' => 'valueB',
+    ];
+  }
 }

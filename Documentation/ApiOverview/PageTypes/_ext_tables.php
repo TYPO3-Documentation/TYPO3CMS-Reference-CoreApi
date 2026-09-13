@@ -10,8 +10,8 @@ $customPageDoktype = 116;
 // Add page type to system
 $dokTypeRegistry = GeneralUtility::makeInstance(PageDoktypeRegistry::class);
 $dokTypeRegistry->add(
-    $customPageDoktype,
-    [
-        'allowedTables' => '*',
-    ],
+  $customPageDoktype,
+  [
+    'allowedTables' => '*',
+  ],
 );

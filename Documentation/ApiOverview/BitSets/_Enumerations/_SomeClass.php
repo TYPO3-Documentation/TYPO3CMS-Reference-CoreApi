@@ -8,25 +8,25 @@ use MyVendor\MyExtension\Enumerations\LikeWildcard;
 
 final class SomeClass
 {
-    public function doSomething()
-    {
-        // ...
+  public function doSomething()
+  {
+    // ...
 
-        $likeWildcardLeft = LikeWildcard::cast(LikeWildcard::LEFT);
+    $likeWildcardLeft = LikeWildcard::cast(LikeWildcard::LEFT);
 
-        $valueFromDatabase = 1;
+    $valueFromDatabase = 1;
 
-        // will cast the value automatically to an enumeration.
-        // Result is true.
-        $likeWildcardLeft->equals($valueFromDatabase);
+    // will cast the value automatically to an enumeration.
+    // Result is true.
+    $likeWildcardLeft->equals($valueFromDatabase);
 
-        $enumerationWithValueFromDb = LikeWildcard::cast($valueFromDatabase);
+    $enumerationWithValueFromDb = LikeWildcard::cast($valueFromDatabase);
 
-        // Remember to always use ::cast and never use the constant directly
-        $enumerationWithValueFromDb->equals(LikeWildcard::cast(LikeWildcard::RIGHT));
-
-        // ...
-    }
+    // Remember to always use ::cast and never use the constant directly
+    $enumerationWithValueFromDb->equals(LikeWildcard::cast(LikeWildcard::RIGHT));
 
     // ...
+  }
+
+  // ...
 }

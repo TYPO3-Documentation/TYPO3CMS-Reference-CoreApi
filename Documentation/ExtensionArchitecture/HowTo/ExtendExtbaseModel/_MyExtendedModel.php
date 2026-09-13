@@ -8,15 +8,15 @@ use OriginalVendor\OriginalExtension\Domain\Model\SomeModel;
 
 class MyExtendedModel extends SomeModel
 {
-    protected string $txMyExtensionAdditionalField;
+  protected string $txMyExtensionAdditionalField;
 
-    public function getTxMyExtensionAdditionalField(): string
-    {
-        return $this->txMyExtensionAdditionalField;
-    }
+  public function getTxMyExtensionAdditionalField(): string
+  {
+    return $this->txMyExtensionAdditionalField;
+  }
 
-    public function setTxMyExtensionAdditionalField(string $txMyExtensionAdditionalField): void
-    {
-        $this->txMyExtensionAdditionalField = $txMyExtensionAdditionalField;
-    }
+  public function setTxMyExtensionAdditionalField(string $txMyExtensionAdditionalField): void
+  {
+    $this->txMyExtensionAdditionalField = $txMyExtensionAdditionalField;
+  }
 }

@@ -9,6 +9,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 final class Person extends AbstractEntity
 {
-    #[Transient()]
-    protected string $fullname = '';
+  #[Transient()]
+  protected string $fullname = '';
 }

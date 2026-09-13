@@ -15,37 +15,37 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyBackendController
 {
-    private ModuleTemplate $moduleTemplate;
+  private ModuleTemplate $moduleTemplate;
 
-    public function __construct(
-        protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-        protected readonly IconFactory $iconFactory,
-        // ...
-    ) {}
+  public function __construct(
+    protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+    protected readonly IconFactory $iconFactory,
+    // ...
+  ) {}
 
-    public function handleRequest(ServerRequestInterface $request): ResponseInterface
-    {
-        $this->moduleTemplate = $this->moduleTemplateFactory->create($request);
-        $this->setDocHeader();
-        // ... some more logic
-    }
+  public function handleRequest(ServerRequestInterface $request): ResponseInterface
+  {
+    $this->moduleTemplate = $this->moduleTemplateFactory->create($request);
+    $this->setDocHeader();
+    // ... some more logic
+  }
 
-    private function setDocHeader(): void
-    {
-        $buttonBar = $this->moduleTemplate->getDocHeaderComponent()->getButtonBar();
-        $dropDownButton = $buttonBar->makeDropDownButton()
-            ->setLabel('Dropdown')
-            ->setTitle('Save')
-            ->setIcon($this->iconFactory->getIcon('actions-heart'))
-            ->addItem(
-                GeneralUtility::makeInstance(DropDownItem::class)
-                    ->setLabel('Item')
-                    ->setHref('#'),
-            );
-        $buttonBar->addButton(
-            $dropDownButton,
-            ButtonBar::BUTTON_POSITION_RIGHT,
-            2,
+  private function setDocHeader(): void
+  {
+    $buttonBar = $this->moduleTemplate->getDocHeaderComponent()->getButtonBar();
+    $dropDownButton = $buttonBar->makeDropDownButton()
+        ->setLabel('Dropdown')
+        ->setTitle('Save')
+        ->setIcon($this->iconFactory->getIcon('actions-heart'))
+        ->addItem(
+          GeneralUtility::makeInstance(DropDownItem::class)
+                ->setLabel('Item')
+                ->setHref('#'),
         );
-    }
+    $buttonBar->addButton(
+      $dropDownButton,
+      ButtonBar::BUTTON_POSITION_RIGHT,
+      2,
+    );
+  }
 }

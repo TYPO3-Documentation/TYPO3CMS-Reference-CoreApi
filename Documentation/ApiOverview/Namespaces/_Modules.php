@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'example_module' => [
-        'extensionName' => 'MyExtension',
-        // ...
-    ],
+  'example_module' => [
+    'extensionName' => 'MyExtension',
+    // ...
+  ],
 ];

@@ -8,32 +8,32 @@ use T3docs\BlogExample\Domain\Model\FrontendUserGroup;
 use T3docs\BlogExample\Domain\Model\Post;
 
 return [
-    Administrator::class => [
-        'tableName' => 'fe_users',
-        'recordType' => Administrator::class,
-        'properties' => [
-            'administratorName' => [
-                'fieldName' => 'username',
-            ],
-        ],
+  Administrator::class => [
+    'tableName' => 'fe_users',
+    'recordType' => Administrator::class,
+    'properties' => [
+      'administratorName' => [
+        'fieldName' => 'username',
+      ],
     ],
-    FrontendUserGroup::class => [
-        'tableName' => 'fe_groups',
+  ],
+  FrontendUserGroup::class => [
+    'tableName' => 'fe_groups',
+  ],
+  Blog::class => [
+    'tableName' => 'tx_blogexample_domain_model_blog',
+    'properties' => [
+      'categories' => [
+        'fieldName' => 'category',
+      ],
     ],
-    Blog::class => [
-        'tableName' => 'tx_blogexample_domain_model_blog',
-        'properties' => [
-            'categories' => [
-                'fieldName' => 'category',
-            ],
-        ],
+  ],
+  Post::class => [
+    'tableName' => 'tx_blogexample_domain_model_post',
+    'properties' => [
+      'categories' => [
+        'fieldName' => 'category',
+      ],
     ],
-    Post::class => [
-        'tableName' => 'tx_blogexample_domain_model_post',
-        'properties' => [
-            'categories' => [
-                'fieldName' => 'category',
-            ],
-        ],
-    ],
+  ],
 ];

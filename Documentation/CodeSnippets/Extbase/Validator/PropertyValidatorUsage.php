@@ -2,5 +2,5 @@
 
 class Blog extends AbstractEntity
 {
-    public string $title = '';
+  public string $title = '';
 }

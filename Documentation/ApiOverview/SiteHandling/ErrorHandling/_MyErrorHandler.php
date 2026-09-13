@@ -11,22 +11,22 @@ use TYPO3\CMS\Core\Http\HtmlResponse;
 
 final class ErrorHandler implements PageErrorHandlerInterface
 {
-    private int $statusCode;
-    private array $errorHandlerConfiguration;
+  private int $statusCode;
+  private array $errorHandlerConfiguration;
 
-    public function __construct(int $statusCode, array $configuration)
-    {
-        $this->statusCode = $statusCode;
-        // This contains the configuration of the error handler which is
-        // set in site configuration - this example does not use it.
-        $this->errorHandlerConfiguration = $configuration;
-    }
+  public function __construct(int $statusCode, array $configuration)
+  {
+    $this->statusCode = $statusCode;
+    // This contains the configuration of the error handler which is
+    // set in site configuration - this example does not use it.
+    $this->errorHandlerConfiguration = $configuration;
+  }
 
-    public function handlePageError(
-        ServerRequestInterface $request,
-        string $message,
-        array $reasons = [],
-    ): ResponseInterface {
-        return new HtmlResponse('<h1>Not found, sorry</h1>', $this->statusCode);
-    }
+  public function handlePageError(
+    ServerRequestInterface $request,
+    string $message,
+    array $reasons = [],
+  ): ResponseInterface {
+    return new HtmlResponse('<h1>Not found, sorry</h1>', $this->statusCode);
+  }
 }

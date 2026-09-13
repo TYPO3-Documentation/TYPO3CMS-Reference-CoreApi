@@ -9,18 +9,18 @@ use Psr\Log\LoggerAwareTrait;
 
 final class MyClass implements LoggerAwareInterface
 {
-    use LoggerAwareTrait;
+  use LoggerAwareTrait;
 
-    public function doSomething()
-    {
-        $this->logger->info('My class is executed.');
+  public function doSomething()
+  {
+    $this->logger->info('My class is executed.');
 
-        $error = false;
+    $error = false;
 
-        // ... something is done ...
+    // ... something is done ...
 
-        if ($error) {
-            $this->logger->error('Error in class MyClass');
-        }
+    if ($error) {
+      $this->logger->error('Error in class MyClass');
     }
+  }
 }
