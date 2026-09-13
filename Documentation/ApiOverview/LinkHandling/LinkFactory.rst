@@ -51,9 +51,9 @@ methods, both returning a
 
         Creates a link from a link text and a TypoLink configuration array. The
         :php:`$linkConfiguration` uses the same keys as a TypoScript
-        :ref:`typolink <t3tsref:typolink>`, most importantly :php:`parameter`,
-        and optionally :php:`target`, :php:`class`, :php:`title` and
-        :php:`additionalParams`. Throws an
+        :ref:`typolink <t3tsref:typolink>`, most importantly `parameter`, and
+        optionally `target`, `class`, `title`, `additionalParams` and
+        :ref:`queryParameters <link-factory-query-parameters>`. Throws an
         :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException` if the link
         cannot be built.
 
@@ -121,9 +121,9 @@ for the complete list of available methods.
 Examples per link type
 ======================
 
-The link type is determined by the :php:`parameter` value. The following
+The link type is determined by the `parameter` value. The following
 examples show the configuration for each type. They all use
-:php:`create()`; the same :php:`parameter` values work with
+:php:`create()`; the same `parameter` values work with
 :php:`createUri()` as the first part of the parameter string.
 
 ..  _link-factory-example-page:
@@ -195,6 +195,40 @@ Link to a record
         ['parameter' => 't3://record?identifier=tx_news&uid=1'],
         $contentObjectRenderer,
     );
+
+..  _link-factory-query-parameters:
+
+Adding query parameters to a page link
+======================================
+
+..  versionadded:: 14.2
+    The `queryParameters` configuration key has been added. See `Feature:
+    #109370 - Array-based queryParameters for page links
+    <https://docs.typo3.org/permalink/changelog:feature-109370-1742911200>`_.
+
+Query parameters are appended to a page link either as a URL-encoded string
+via `additionalParams` or as an array via `queryParameters`. The array form
+also accepts nested arrays and saves the manual encoding:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Service/MyLinkService.php
+
+    $linkResult = $this->linkFactory->create(
+        'Read the article',
+        [
+            'parameter' => 't3://page?uid=42',
+            'queryParameters' => [
+                'tx_news' => [
+                    'action' => 'show',
+                    'id' => 123,
+                ],
+            ],
+        ],
+        $contentObjectRenderer,
+    );
+
+If both keys are set, they are merged with :php:`array_replace_recursive()`,
+so the values of `queryParameters` take precedence.
 
 ..  _link-factory-how-it-works:
 
