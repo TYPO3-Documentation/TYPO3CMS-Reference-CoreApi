@@ -12,8 +12,10 @@ too:
 .. code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+
    // Find a service for a file type
-   if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('metaExtract', $fileType))) {
+   if (is_object($serviceObject = GeneralUtility::makeInstanceService('metaExtract', $fileType))) {
            $serviceObj->setInputFile($absFile, $fileType);
            if ($serviceObj->process('', '', array('meta' => $meta)) > 0 && (is_array($svmeta = $serviceObj->getOutput()))) {
                    $meta = $svmeta;
