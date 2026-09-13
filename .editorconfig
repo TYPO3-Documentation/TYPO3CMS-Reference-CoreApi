@@ -1,44 +1,32 @@
 # EditorConfig is awesome: https://EditorConfig.org
-# Use as master: https://github.com/TYPO3-Documentation/T3DocTeam/blob/main/.editorconfig
 
-# top-most EditorConfig file? false = no!
+# Master copy, used unchanged by every TYPO3 documentation repository:
+# https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-HowToDocument
+
 root = true
 
+# Code examples indent two spaces, whatever the language, so that a nested
+# example still fits the line length the prose around it is wrapped to
 [*]
-indent_style = space
-indent_size = 4
-end_of_line = lf
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
 charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
 
+# reStructuredText is the exception: one indentation level is four spaces
 [{*.rst,*.rst.txt}]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
-indent_style = space
 indent_size = 4
 max_line_length = 80
 
-# MD-Files
 [*.md]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
-indent_style = space
-indent_size = 4
 max_line_length = 80
 
-# JS-Files
-[*.js]
-indent_size = 2
+# Makefiles do not work without real tabs
+[{Makefile,_Makefile,**.mk}]
+indent_style = tab
 
-# YAML-Files
-[*.{yaml,yml}]
-indent_size = 2
-
-[*.{typoscript,tsconfig}]
-indent_size = 2
+# In a patch a leading or trailing space is content, not whitespace
+[*.diff]
+trim_trailing_whitespace = false
