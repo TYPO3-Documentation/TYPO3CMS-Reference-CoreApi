@@ -7,7 +7,7 @@ namespace MyVendor\MyExtension\Domain\Repository;
 use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
-final class MyTableRepository
+final class MyTableDbalRepository
 {
     private const TABLE_NAME = 'tt_content';
     public function __construct(private readonly ConnectionPool $connectionPool) {}

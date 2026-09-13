@@ -31,24 +31,8 @@ Example: one connection
 A typical basic example using only the `Default` connection with a single
 database endpoint:
 
-..  code-block:: php
-    :caption: config/system/settings.php
-
-    // [...]
-    'DB' => [
-        'Connections' => [
-            'Default' => [
-                'charset' => 'utf8',
-                'dbname' => 'theDatabaseName',
-                'driver' => 'mysqli',
-                'host' => 'theHost',
-                'password' => 'theConnectionPassword',
-                'port' => 3306,
-                'user' => 'theUser',
-            ],
-        ],
-    ],
-    // [...]
+..  literalinclude:: _settings_one_connection.php
+    :caption: config/system/settings.php (excerpt)
 
 
 Remarks:
@@ -96,36 +80,8 @@ Example: two connections
 Another example with two connections, where the :sql:`be_sessions` table is
 mapped to a different endpoint:
 
-..  code-block:: php
-    :caption: config/system/settings.php
-
-    // [...]
-    'DB' => [
-        'Connections' => [
-            'Default' => [
-                'charset' => 'utf8',
-                'dbname' => 'default_dbname',
-                'driver' => 'mysqli',
-                'host' => 'default_host',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'default_user',
-            ],
-            'Sessions' => [
-                'charset' => 'utf8mb4',
-                'driver' => 'mysqli',
-                'dbname' => 'sessions_dbname',
-                'host' => 'sessions_host',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'some_user',
-            ],
-        ],
-        'TableMapping' => [
-            'be_sessions' => 'Sessions',
-        ]
-    ],
-    // [...]
+..  literalinclude:: _settings_two_connections.php
+    :caption: config/system/settings.php (excerpt)
 
 
 Remarks:

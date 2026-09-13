@@ -25,22 +25,8 @@ Various tips and tricks
     :ref:`executeStatement() <database-query-builder-execute-statement>` can be
     used after each other during development to simplify debugging:
 
-    ..  code-block:: php
-        :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
-
-        $queryBuilder
-            ->select('uid')
-            ->from('tt_content')
-            ->where(
-                $queryBuilder->expr()->eq(
-                    'bodytext',
-                    $queryBuilder->createNamedParameter('lorem')
-                )
-            );
-
-        debug($queryBuilder->getSql());
-
-        $result = $queryBuilder->executeQuery();
+    ..  literalinclude:: _DebugSql.php
+        :caption: EXT:my_extension/Classes/Domain/Repository/MyDbalRepository.php
 
 *   Doctrine DBAL throws exceptions if something goes wrong when calling API methods.
     The exception type is :php:`\Doctrine\DBAL\Exception`. Typical extensions should

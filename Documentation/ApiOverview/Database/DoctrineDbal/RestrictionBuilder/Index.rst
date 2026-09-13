@@ -244,36 +244,8 @@ categories except those that are hidden. In this case, the hidden restriction
 should apply only to the :sql:`tt_content` table, not to the :sql:`sys_category`
 or :sql:`sys_category_*_mm` table.
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/Domain/Repository/ContentRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder->getRestrictions()
-        ->removeByType(HiddenRestriction::class)
-        ->add(
-            GeneralUtility::makeInstance(LimitToTablesRestrictionContainer::class)
-                ->addForTables(GeneralUtility::makeInstance(HiddenRestriction::class), ['tt'])
-        );
-    $queryBuilder->select('tt.uid', 'tt.header', 'sc.title')
-        ->from('tt_content', 'tt')
-        ->from('sys_category', 'sc')
-        ->from('sys_category_record_mm', 'scmm')
-        ->where(
-            $queryBuilder->expr()->eq(
-                'scmm.uid_foreign',
-                $queryBuilder->quoteIdentifier('tt.uid')
-            ),
-            $queryBuilder->expr()->eq(
-                'scmm.uid_local',
-                $queryBuilder->quoteIdentifier('sc.uid')
-            ),
-            $queryBuilder->expr()->eq(
-                'tt.uid',
-                $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)
-            )
-        );
+..  literalinclude:: _LimitHiddenRestrictionToTable.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ContentDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -281,27 +253,8 @@ a query builder with the connection pool.
 In addition, it is possible to restrict the complete set of restrictions of a
 query builder to a given set of table aliases:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/Domain/Repository/ContentRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder->getRestrictions()
-        ->removeAll()
-        ->add(GeneralUtility::makeInstance(HiddenRestriction::class));
-    $queryBuilder->getRestrictions()->limitRestrictionsToTables(['c2']);
-    $queryBuilder
-        ->select('c1.*')
-        ->from('tt_content', 'c1')
-        ->leftJoin('c1', 'tt_content', 'c2', 'c1.parent_field = c2.uid')
-        ->orWhere(
-            $queryBuilder->expr()->isNull('c2.uid'),
-            $queryBuilder->expr()->eq(
-                'c2.pid',
-                $queryBuilder->createNamedParameter(1, Connection::PARAM_INT)
-            )
-        );
+..  literalinclude:: _LimitRestrictionsToTableAliases.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ContentDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -373,29 +326,8 @@ However, many backend modules still want to show disabled records and remove the
 start time and end time restrictions to allow administration of those records
 for an editor. A typical setup from within a backend module:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\Connection;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
-    // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
-    // SELECT `uid`, `bodytext` FROM `tt_content` WHERE (`pid` = 42) AND (`tt_content`.`deleted` = 0)
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    // Remove all restrictions but add DeletedRestriction again
-    $queryBuilder
-        ->getRestrictions()
-        ->removeAll()
-        ->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-    $result = $queryBuilder
-        ->select('uid', 'bodytext')
-        ->from('tt_content')
-        ->where($queryBuilder->expr()->eq(
-            'pid',
-            $queryBuilder->createNamedParameter($pid, Connection::PARAM_INT)
-        ))
-        ->executeQuery()
-        ->fetchAllAssociative(();
+..  literalinclude:: _RemoveAllRestrictions.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -410,19 +342,8 @@ An alternative to the recommended way of first removing all restrictions and
 then adding needed ones again (using :php:`->removeAll()`, then :php:`->add()`)
 is to kick specific restrictions with a call to :php:`->removeByType()`:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
-    // use TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction
-    // use TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction
-    // Remove starttime and endtime, but keep hidden and deleted
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder
-        ->getRestrictions()
-        ->removeByType(StartTimeRestriction::class)
-        ->removeByType(EndTimeRestriction::class);
+..  literalinclude:: _RemoveRestrictionsByType.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -431,7 +352,7 @@ In the frontend it is often needed to swap the :php:`DefaultRestrictionContainer
 with the :php:`FrontendRestrictionContainer`:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer
     // Remove default restrictions and add list of default frontend restrictions
