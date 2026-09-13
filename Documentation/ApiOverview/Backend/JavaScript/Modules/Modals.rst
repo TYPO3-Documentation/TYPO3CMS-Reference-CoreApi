@@ -163,6 +163,7 @@ for example on an anchor element, which prevents the default behavior.
 Example:
 
 ..  literalinclude:: _Modals/_DataModal.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
 ..  _modules-modals-examples:
 
@@ -178,6 +179,7 @@ A basic modal (without anything special) can be created this way:
 A modal as warning with button:
 
 ..  literalinclude:: _Modals/_warning.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 A modal as warning:
 
@@ -193,6 +195,7 @@ As an alternative to the existing :js:`trigger` option, the option
 :js:`action` may be used with an instance of the previously mentioned modules.
 
 ..  literalinclude:: _Modals/_deferred-action.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 Activating any action disables all buttons in the modal. Once the action is
 done, the modal disappears automatically.
@@ -203,6 +206,7 @@ into the button.
 A modal with static backdrop:
 
 ..  literalinclude:: _Modals/_static_backdrop.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
     :language: js
 
 Templates, using the HTML class :html:`.t3js-modal-trigger` to initialize
@@ -210,6 +214,7 @@ a modal dialog are also able to use the new option by adding the
 :html:`data-static-backdrop` attribute to the corresponding element.
 
 ..  literalinclude:: _Modals/_StaticBackdrop.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
     :language: html
 
 .. _modules-modals-migration:
@@ -223,6 +228,7 @@ from :js:`JQuery` to :js:`ModalElement` usage.
 
 Existing code:
 
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 ..  code-block:: javascript
 
     var configuration = {
@@ -250,6 +256,7 @@ Existing code:
 
 Should be adapted to:
 
+    :caption: EXT:my_extension/Classes/Controller/MyController.php (excerpt)
 ..  code-block:: javascript
 
     const modal = Modal.advanced({

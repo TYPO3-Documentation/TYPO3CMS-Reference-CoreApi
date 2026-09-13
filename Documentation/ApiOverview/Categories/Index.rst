@@ -47,6 +47,7 @@ the database column automatically. Developers only have to configure the
 TCA column and add it to the desired record types:
 
 .. literalinclude:: /CodeSnippets/Manual/Categoy/CategorySimple.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/my_table.php
 
 This is the result of the above code:
 
@@ -67,6 +68,7 @@ Due to some limitations in FlexForm, the property
 is `oneToMany`.
 
 .. literalinclude:: /CodeSnippets/Manual/Categoy/CategoryFlexform.xml
+    :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml
 
 .. _categories-api:
 

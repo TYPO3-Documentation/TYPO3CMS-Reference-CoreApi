@@ -292,6 +292,7 @@ Policy builder approach
 The following approach illustrates how a policy is build:
 
 ..  literalinclude:: _Policy.php
+    :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
 The result of the compiled and serialized result as HTTP header would look
 similar to this (the following sections are using the same example, but utilize
