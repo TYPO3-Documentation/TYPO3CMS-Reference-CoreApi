@@ -57,52 +57,16 @@ Connections
     :php:`Connections` key. There must be at least one configuration with the
     :php:`Default` key, in which the default database is configured, for example:
 
-    .. code-block:: php
+    ..  literalinclude:: _codesnippets/_DbDefaultConnection.php
         :caption: config/system/settings.php | typo3conf/system/settings.php
-
-        'Connections' => [
-            'Default' => [
-                'charset' => 'utf8mb4',
-                'driver' => 'mysqli',
-                'dbname' => 'typo3_database',
-                'host' => '127.0.0.1',
-                'password' => 'typo3',
-                'port' => 3306,
-                'user' => 'typo3',
-            ],
-        ]
 
     It is possible to swap out tables from the default database and use a specific
     setup (for instance, for caching). For example, the following snippet could
     be used to swap the :sql:`be_sessions` table to another database or even another
     database server:
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_DbSessionsConnection.php
         :caption: config/system/settings.php | typo3conf/system/settings.php
-
-        'Connections' => [
-            'Default' => [
-                'charset' => 'utf8mb4',
-                'driver' => 'mysqli',
-                'dbname' => 'typo3_database',
-                'host' => '127.0.0.1',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'typo3',
-            ],
-            'Sessions' => [
-                'charset' => 'utf8mb4',
-                'driver' => 'mysqli',
-                'dbname' => 'sessions_dbname',
-                'host' => 'sessions_host',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'some_user',
-            ],
-        ],
-        'TableMapping' => [
-            'be_sessions' => 'Sessions',
-        ]
 
     ..  attention::
 
@@ -152,20 +116,8 @@ Connections
 
         Defines the charset and collation options when new tables are created (MySQL/MariaDB only):
 
-        .. code-block:: php
+        ..  literalinclude:: _codesnippets/_DbDefaultTableOptions.php
             :caption: config/system/settings.php | typo3conf/system/settings.php
-
-            'Connections' => [
-                'Default' => [
-                    'driver' => 'mysqli',
-                    // ...
-                    'charset' => 'utf8mb4',
-                    'defaultTableOptions' => [
-                        'charset' => 'utf8mb4',
-                        'collation' => 'utf8mb4_unicode_ci',
-                    ],
-                ],
-            ]
 
         For new installations the above is the default.
 
@@ -274,23 +226,5 @@ TableMapping
     For example, the :sql:`be_sessions` table should be swapped to another
     database:
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_DbSessionsTableMapping.php
         :caption: config/system/settings.php | typo3conf/system/settings.php
-
-        'Connections' => [
-            'Default' => [
-                // ...
-            ],
-            'Sessions' => [
-                'charset' => 'utf8mb4',
-                'driver' => 'mysqli',
-                'dbname' => 'sessions_dbname',
-                'host' => 'sessions_host',
-                'password' => '***',
-                'port' => 3306,
-                'user' => 'some_user',
-            ],
-        ],
-        'TableMapping' => [
-            'be_sessions' => 'Sessions',
-        ]
