@@ -110,7 +110,9 @@ The key properties:
     ..  code-block:: php
         :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
 
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+        use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+        ExtensionManagementUtility::addTcaSelectItem(
             'pages',
             'module',
             [

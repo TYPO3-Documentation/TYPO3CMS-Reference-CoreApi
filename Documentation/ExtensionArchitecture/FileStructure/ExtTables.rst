@@ -45,11 +45,13 @@ Before:
 ..  code-block:: php
     :caption: ext_tables.php
 
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
     $GLOBALS['TYPO3_USER_SETTINGS']['columns']['myCustomSetting'] = [
         'type' => 'check',
         'label' => 'my_ext.messages:myCustomSetting',
     ];
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
+    ExtensionManagementUtility::addFieldsToUserSettings(
         'myCustomSetting',
         'after:emailMeAtLogin'
     );
@@ -59,7 +61,9 @@ After:
 ..  code-block:: php
     :caption: Configuration/TCA/Overrides/be_users.php
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserSetting(
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+    ExtensionManagementUtility::addUserSetting(
         'myCustomSetting',
         [
             'label' => 'my_ext.messages:myCustomSetting',
@@ -84,9 +88,10 @@ Before:
 ..  code-block:: php
     :caption: ext_tables.php
 
-    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry::class
-    )->add(116, [
+    use TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+    GeneralUtility::makeInstance(PageDoktypeRegistry::class)->add(116, [
         'allowedTables' => ['tt_content', 'my_custom_record'],
     ]);
 

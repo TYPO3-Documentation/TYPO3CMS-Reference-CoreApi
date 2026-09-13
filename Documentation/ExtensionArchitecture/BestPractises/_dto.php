@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 // The actual "plain" DTO, just setters and getters
 class PersonDTO
 {
@@ -74,7 +76,7 @@ class DtoController extends TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         // Transfer all data to a proper Extbase entity.
         // Create an empty entity first:
-        $person = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(Person::class);
+        $person = GeneralUtility::makeInstance(Person::class);
 
         // Use setters/getters for propagation
         $person->setFirstName($personDTO->getFirstName());
