@@ -11,9 +11,11 @@ given service type:
 
 .. code-block:: php
 
-	if (is_object($serviceObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService('textLang'))) {
-		$language = $serviceObject->guessLanguage($text);
-	}
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+    if (is_object($serviceObject = GeneralUtility::makeInstanceService('textLang'))) {
+        $language = $serviceObject->guessLanguage($text);
+    }
 
 In this example a service of type "textLang" is requested. If such a
 service is indeed available an object will be returned. Then the

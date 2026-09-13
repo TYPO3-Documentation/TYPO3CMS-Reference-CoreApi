@@ -39,7 +39,9 @@ this:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Command/MyCommand.php
 
-    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
+    use TYPO3\CMS\Core\Core\Bootstrap;
+
+    Bootstrap::initializeBackendAuthentication();
 
 If you forget to add the backend user authentication, an error similar to this
 will occur:
