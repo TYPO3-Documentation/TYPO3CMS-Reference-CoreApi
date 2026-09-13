@@ -32,31 +32,25 @@ the button :guilabel:`Create new relation`.
 Migration from `ExtensionManagementUtility::getFileFieldTCAConfig`
 ==================================================================
 
-..  code-block:: php
-    :caption: EXT:my_extension/Configuration/TCA/my_table.php (before and after)
+..  code-block:: diff
+    :caption: EXT:my_extension/Configuration/TCA/my_table.php (migration)
 
-    // Before
-    'columns' => [
-        'image' => [
-            'label' => 'My image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'image',
-                [
-                    'maxitems' => 6,
-                ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
-        ],
-    ],
-
-    // After
-    'columns' => [
-        'image' => [
-            'label' => 'My image',
-            'config' => [
-                'type' => 'file',
-                'maxitems' => 6,
-                'allowed' => 'common-image-types'
-            ],
-        ],
-    ],
+    -use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+    -
+     'columns' => [
+         'image' => [
+             'label' => 'My image',
+    -        'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
+    -            'image',
+    -            [
+    -                'maxitems' => 6,
+    -            ],
+    -            $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+    -        ),
+    +        'config' => [
+    +            'type' => 'file',
+    +            'maxitems' => 6,
+    +            'allowed' => 'common-image-types'
+    +        ],
+         ],
+     ],
