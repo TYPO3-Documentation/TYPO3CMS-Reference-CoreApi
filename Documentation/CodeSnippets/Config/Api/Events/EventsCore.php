@@ -362,4 +362,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/ModifyLanguagePacksEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Routing\Event\AfterPageUriGeneratedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/AfterPageUriGeneratedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
