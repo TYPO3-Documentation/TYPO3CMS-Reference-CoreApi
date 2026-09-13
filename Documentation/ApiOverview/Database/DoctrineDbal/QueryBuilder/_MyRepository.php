@@ -8,13 +8,13 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 
 final class MyRepository
 {
-    public function __construct(
-        private readonly ConnectionPool $connectionPool,
-    ) {}
+  public function __construct(
+    private readonly ConnectionPool $connectionPool,
+  ) {}
 
-    public function findSomething()
-    {
-        $queryBuilder = $this->connectionPool
-            ->getQueryBuilderForTable('aTable');
-    }
+  public function findSomething()
+  {
+    $queryBuilder = $this->connectionPool
+        ->getQueryBuilderForTable('aTable');
+  }
 }

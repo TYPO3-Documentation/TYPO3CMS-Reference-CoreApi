@@ -9,14 +9,14 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly MessageBusInterface $bus,
-    ) {}
+  public function __construct(
+    private readonly MessageBusInterface $bus,
+  ) {}
 
-    public function doSomething(): void
-    {
-        // ...
-        $this->bus->dispatch(new DemoMessage('test'));
-        // ...
-    }
+  public function doSomething(): void
+  {
+    // ...
+    $this->bus->dispatch(new DemoMessage('test'));
+    // ...
+  }
 }

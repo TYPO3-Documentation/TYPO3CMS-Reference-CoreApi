@@ -18,38 +18,38 @@ use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
  */
 class CustomCategoryProcessor implements DataProcessorInterface
 {
-    /**
-     * Process data for the content element "My new content element"
-     *
-     * @param ContentObjectRenderer $cObj The data of the content element or page
-     * @param array<string, mixed> $contentObjectConfiguration The configuration of Content Object
-     * @param array<string, mixed> $processorConfiguration The configuration of this processor
-     * @param array<string, mixed> $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
-     * @return array<mixed> the processed data as key/value store
-     */
-    public function process(
-        ContentObjectRenderer $cObj,
-        array $contentObjectConfiguration,
-        array $processorConfiguration,
-        array $processedData,
-    ) {
-        if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
-            return $processedData;
-        }
-        // categories by comma separated list
-        $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration);
-        $categories = [];
-        if ($categoryIdList) {
-            $categoryIdList = GeneralUtility::intExplode(',', (string)$categoryIdList, true);
-            /** @var CategoryRepository $categoryRepository */
-            $categoryRepository = GeneralUtility::makeInstance(CategoryRepository::class);
-            foreach ($categoryIdList as $categoryId) {
-                $categories[] = $categoryRepository->findByUid($categoryId);
-            }
-            // set the categories into a variable, default "categories"
-            $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'categories');
-            $processedData[$targetVariableName] = $categories;
-        }
-        return $processedData;
+  /**
+   * Process data for the content element "My new content element"
+   *
+   * @param ContentObjectRenderer $cObj The data of the content element or page
+   * @param array<string, mixed> $contentObjectConfiguration The configuration of Content Object
+   * @param array<string, mixed> $processorConfiguration The configuration of this processor
+   * @param array<string, mixed> $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
+   * @return array<mixed> the processed data as key/value store
+   */
+  public function process(
+    ContentObjectRenderer $cObj,
+    array $contentObjectConfiguration,
+    array $processorConfiguration,
+    array $processedData,
+  ) {
+    if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
+      return $processedData;
     }
+    // categories by comma separated list
+    $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration);
+    $categories = [];
+    if ($categoryIdList) {
+      $categoryIdList = GeneralUtility::intExplode(',', (string)$categoryIdList, true);
+      /** @var CategoryRepository $categoryRepository */
+      $categoryRepository = GeneralUtility::makeInstance(CategoryRepository::class);
+      foreach ($categoryIdList as $categoryId) {
+        $categories[] = $categoryRepository->findByUid($categoryId);
+      }
+      // set the categories into a variable, default "categories"
+      $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'categories');
+      $processedData[$targetVariableName] = $categories;
+    }
+    return $processedData;
+  }
 }

@@ -9,23 +9,23 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class _FlexformModificationService
 {
-    public function __construct(
-        protected readonly FlexFormTools $flexFormTools,
-    ) {}
+  public function __construct(
+    protected readonly FlexFormTools $flexFormTools,
+  ) {}
 
-    public function modifyFlexForm(string $flexFormString): string
-    {
-        $flexFormArray = GeneralUtility::xml2array($flexFormString);
-        $changedFlexFormArray = $this->doSomething($flexFormArray);
+  public function modifyFlexForm(string $flexFormString): string
+  {
+    $flexFormArray = GeneralUtility::xml2array($flexFormString);
+    $changedFlexFormArray = $this->doSomething($flexFormArray);
 
-        // Attention: flexArray2Xml is internal and subject to
-        // be changed without notice. Use at your own risk!
-        return $this->flexFormTools->flexArray2Xml($changedFlexFormArray, addPrologue: true);
-    }
+    // Attention: flexArray2Xml is internal and subject to
+    // be changed without notice. Use at your own risk!
+    return $this->flexFormTools->flexArray2Xml($changedFlexFormArray, addPrologue: true);
+  }
 
-    private function doSomething(array $flexFormArray): array
-    {
-        // do something to the array
-        return $flexFormArray;
-    }
+  private function doSomething(array $flexFormArray): array
+  {
+    // do something to the array
+    return $flexFormArray;
+  }
 }

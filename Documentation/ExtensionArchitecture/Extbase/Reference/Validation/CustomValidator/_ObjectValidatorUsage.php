@@ -13,21 +13,21 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BlogController extends ActionController
 {
-    /**
-     * Updates an existing blog
-     *
-     * $blog is a not yet persisted clone of the original blog containing
-     * the modifications
-     *
-     * @throws NoBlogAdminAccessException
-     */
-    #[Validate([
-        'param' => 'blog',
-        'validator' => BlogValidator::class,
-    ])]
-    public function updateAction(Blog $blog): ResponseInterface
-    {
-        // do something
-        return $this->htmlResponse();
-    }
+  /**
+   * Updates an existing blog
+   *
+   * $blog is a not yet persisted clone of the original blog containing
+   * the modifications
+   *
+   * @throws NoBlogAdminAccessException
+   */
+  #[Validate([
+    'param' => 'blog',
+    'validator' => BlogValidator::class,
+  ])]
+  public function updateAction(Blog $blog): ResponseInterface
+  {
+    // do something
+    return $this->htmlResponse();
+  }
 }

@@ -11,17 +11,17 @@ use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
 final class MyTableRepository
 {
-    private const TABLE_NAME = 'tt_content';
-    public function __construct(private readonly ConnectionPool $connectionPool) {}
+  private const TABLE_NAME = 'tt_content';
+  public function __construct(private readonly ConnectionPool $connectionPool) {}
 
-    public function findFieldThatIsEmptyWhenTrimmed(string $fieldName): QueryBuilder
-    {
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-        $queryBuilder->expr()->comparison(
-            $queryBuilder->expr()->trim($fieldName),
-            ExpressionBuilder::EQ,
-            $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
-        );
-        return $queryBuilder;
-    }
+  public function findFieldThatIsEmptyWhenTrimmed(string $fieldName): QueryBuilder
+  {
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+    $queryBuilder->expr()->comparison(
+      $queryBuilder->expr()->trim($fieldName),
+      ExpressionBuilder::EQ,
+      $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
+    );
+    return $queryBuilder;
+  }
 }

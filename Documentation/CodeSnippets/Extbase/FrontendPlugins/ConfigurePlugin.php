@@ -7,8 +7,8 @@ use FriendsOfTYPO3\BlogExample\Controller\PostController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 ExtensionUtility::configurePlugin(
-    'BlogExample',
-    'PostSingle',
-    [PostController::class => 'show', CommentController::class => 'create'],
-    [CommentController::class => 'create'],
+  'BlogExample',
+  'PostSingle',
+  [PostController::class => 'show', CommentController::class => 'create'],
+  [CommentController::class => 'create'],
 );

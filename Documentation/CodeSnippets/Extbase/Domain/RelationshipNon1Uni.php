@@ -2,10 +2,10 @@
 
 class Post extends AbstractEntity
 {
-    /**
-     * @var Person
-     */
-    protected Person $author;
+  /**
+   * @var Person
+   */
+  protected Person $author;
 
-    protected Person|null $secondAuthor;
+  protected Person|null $secondAuthor;
 }

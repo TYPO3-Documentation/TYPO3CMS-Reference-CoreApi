@@ -6,6 +6,6 @@ namespace MyVendor\MyExtension\Enumeration;
 
 enum State: string
 {
-    case STATE_DEFAULT = 'somestate';
-    case STATE_DISABLED = 'disabled';
+  case STATE_DEFAULT = 'somestate';
+  case STATE_DISABLED = 'disabled';
 }

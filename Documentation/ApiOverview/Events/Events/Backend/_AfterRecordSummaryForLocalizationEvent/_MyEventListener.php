@@ -8,26 +8,26 @@ use TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/after-record-summary-for-localization',
+  identifier: 'my-extension/backend/after-record-summary-for-localization',
 )]
 final readonly class MyEventListener
 {
-    public function __invoke(AfterRecordSummaryForLocalizationEvent $event): void
-    {
-        // Get current records
-        $records = $event->getRecords();
+  public function __invoke(AfterRecordSummaryForLocalizationEvent $event): void
+  {
+    // Get current records
+    $records = $event->getRecords();
 
-        // ... do something with $records
+    // ... do something with $records
 
-        // Set new records
-        $event->setRecords($records);
+    // Set new records
+    $event->setRecords($records);
 
-        // Get current columns
-        $columns = $event->getColumns();
+    // Get current columns
+    $columns = $event->getColumns();
 
-        // ... do something with $columns
+    // ... do something with $columns
 
-        // Set new columns
-        $event->setColumns($columns);
-    }
+    // Set new columns
+    $event->setColumns($columns);
+  }
 }

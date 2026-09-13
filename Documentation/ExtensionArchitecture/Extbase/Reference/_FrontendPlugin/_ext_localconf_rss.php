@@ -9,9 +9,9 @@ defined('TYPO3') or die();
 
 // RSS feed
 ExtensionUtility::configurePlugin(
-    'BlogExample',
-    'PostListRss',
-    [PostController::class => 'displayRssList'],
-    [],
-    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+  'BlogExample',
+  'PostListRss',
+  [PostController::class => 'displayRssList'],
+  [],
+  ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );

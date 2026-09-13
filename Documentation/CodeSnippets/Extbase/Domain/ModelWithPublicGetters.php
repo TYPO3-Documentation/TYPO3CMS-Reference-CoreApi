@@ -2,22 +2,22 @@
 
 class Info extends AbstractEntity implements \Stringable
 {
-    protected string $name = '';
+  protected string $name = '';
 
-    protected string $bodytext = '';
+  protected string $bodytext = '';
 
-    public function getName(): string
-    {
-        return $this->name;
-    }
+  public function getName(): string
+  {
+    return $this->name;
+  }
 
-    public function getBodytext(): string
-    {
-        return $this->bodytext;
-    }
+  public function getBodytext(): string
+  {
+    return $this->bodytext;
+  }
 
-    public function setBodytext(string $bodytext): void
-    {
-        $this->bodytext = $bodytext;
-    }
+  public function setBodytext(string $bodytext): void
+  {
+    $this->bodytext = $bodytext;
+  }
 }

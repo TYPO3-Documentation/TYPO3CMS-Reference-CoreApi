@@ -12,24 +12,24 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly StorageRepository $storageRepository,
-    ) {}
+  public function __construct(
+    private readonly StorageRepository $storageRepository,
+  ) {}
 
-    public function doSomething(): void
-    {
-        $defaultStorage = $this->storageRepository->getDefaultStorage();
+  public function doSomething(): void
+  {
+    $defaultStorage = $this->storageRepository->getDefaultStorage();
 
-        try {
-            /** @var Folder|InaccessibleFolder $folder */
-            $folder = $defaultStorage->getFolder('/some/path/in/storage/');
+    try {
+      /** @var Folder|InaccessibleFolder $folder */
+      $folder = $defaultStorage->getFolder('/some/path/in/storage/');
 
-            /** @var File[] $files */
-            $files = $defaultStorage->getFilesInFolder($folder);
-        } catch (InsufficientFolderAccessPermissionsException $e) {
-            // ... do some exception handling
-        }
-
-        // ... more logic
+      /** @var File[] $files */
+      $files = $defaultStorage->getFilesInFolder($folder);
+    } catch (InsufficientFolderAccessPermissionsException $e) {
+      // ... do some exception handling
     }
+
+    // ... more logic
+  }
 }

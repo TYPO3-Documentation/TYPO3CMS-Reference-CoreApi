@@ -16,27 +16,27 @@ defined('TYPO3') or die();
 $pluginSignature = 'examples_haiku_list';
 
 ExtensionManagementUtility::addPlugin(
-    new SelectItem(
-        'select',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title',
-        $pluginSignature,
-        'tx_examples-haiku',
-        'plugins',
-        'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
-    ),
-    'CType',
-    'examples',
+  new SelectItem(
+    'select',
+    'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title',
+    $pluginSignature,
+    'tx_examples-haiku',
+    'plugins',
+    'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
+  ),
+  'CType',
+  'examples',
 );
 
 ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Configuration,pi_flexform,',
-    $pluginSignature,
-    'after:subheader',
+  'tt_content',
+  '--div--;Configuration,pi_flexform,',
+  $pluginSignature,
+  'after:subheader',
 );
 
 ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
-    $pluginSignature,
+  '*',
+  'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
+  $pluginSignature,
 );

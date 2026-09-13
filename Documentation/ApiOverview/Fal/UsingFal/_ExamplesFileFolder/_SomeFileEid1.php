@@ -12,19 +12,19 @@ use TYPO3\CMS\Core\Utility\PathUtility;
 
 class SomeClass
 {
-    public function __construct(private readonly HashService $hashService) {}
+  public function __construct(private readonly HashService $hashService) {}
 
-    public function getPublicUrl(SomeModel $resourceObject): string
-    {
-        $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
-        $queryParameterArray['f'] = $resourceObject->getUid();
-        $queryParameterArray['s'] = '320c:280c';
-        $queryParameterArray['token'] = $this->hashService->hmac(
-            implode('|', $queryParameterArray),
-            'resourceStorageDumpFile',
-        );
-        $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
-        $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
-        return $publicUrl;
-    }
+  public function getPublicUrl(SomeModel $resourceObject): string
+  {
+    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
+    $queryParameterArray['f'] = $resourceObject->getUid();
+    $queryParameterArray['s'] = '320c:280c';
+    $queryParameterArray['token'] = $this->hashService->hmac(
+      implode('|', $queryParameterArray),
+      'resourceStorageDumpFile',
+    );
+    $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
+    $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
+    return $publicUrl;
+  }
 }

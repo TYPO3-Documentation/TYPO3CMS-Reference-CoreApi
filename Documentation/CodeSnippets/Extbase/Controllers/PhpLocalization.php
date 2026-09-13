@@ -6,24 +6,24 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 class ModuleController extends ActionController
 {
-    /**
-     * Adds a count of entries to the flash message
-     */
-    public function countAction(string $tablename = 'pages'): ResponseInterface
-    {
-        $count = $this->tableInformationService->countRecords($tablename);
+  /**
+   * Adds a count of entries to the flash message
+   */
+  public function countAction(string $tablename = 'pages'): ResponseInterface
+  {
+    $count = $this->tableInformationService->countRecords($tablename);
 
-        $message = LocalizationUtility::translate(
-            'record_count_message',
-            'examples',
-            [$count, $tablename],
-        );
+    $message = LocalizationUtility::translate(
+      'record_count_message',
+      'examples',
+      [$count, $tablename],
+    );
 
-        $this->addFlashMessage(
-            $message ?? '',
-            'Information',
-            ContextualFeedbackSeverity::INFO,
-        );
-        return $this->redirect('flash');
-    }
+    $this->addFlashMessage(
+      $message ?? '',
+      'Information',
+      ContextualFeedbackSeverity::INFO,
+    );
+    return $this->redirect('flash');
+  }
 }

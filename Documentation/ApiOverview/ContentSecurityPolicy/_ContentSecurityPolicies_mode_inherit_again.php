@@ -13,30 +13,30 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
 use TYPO3\CMS\Core\Type\Map;
 
 return Map::fromEntries([
-    Scope::frontend(),
-    new MutationCollection(
-        new Mutation(
-            MutationMode::Set,
-            Directive::DefaultSrc,
-            SourceKeyword::self,
-        ),
-        new Mutation(
-            MutationMode::InheritAgain,
-            Directive::ImgSrc,
-        ),
-        new Mutation(
-            MutationMode::Append,
-            Directive::ImgSrc,
-            new UriValue('example.com'),
-        ),
-        new Mutation(
-            MutationMode::Set,
-            Directive::DefaultSrc,
-            SourceScheme::data,
-        ),
-        new Mutation(
-            MutationMode::InheritAgain,
-            Directive::ScriptSrc,
-        ),
+  Scope::frontend(),
+  new MutationCollection(
+    new Mutation(
+      MutationMode::Set,
+      Directive::DefaultSrc,
+      SourceKeyword::self,
     ),
+    new Mutation(
+      MutationMode::InheritAgain,
+      Directive::ImgSrc,
+    ),
+    new Mutation(
+      MutationMode::Append,
+      Directive::ImgSrc,
+      new UriValue('example.com'),
+    ),
+    new Mutation(
+      MutationMode::Set,
+      Directive::DefaultSrc,
+      SourceScheme::data,
+    ),
+    new Mutation(
+      MutationMode::InheritAgain,
+      Directive::ScriptSrc,
+    ),
+  ),
 ]);

@@ -11,10 +11,10 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Post extends AbstractEntity
 {
-    #[Lazy()]
-    #[Cascade(['value' => 'remove'])]
-    /**
-     * @var ObjectStorage<Comment>
-     */
-    public ObjectStorage $comments;
+  #[Lazy()]
+  #[Cascade(['value' => 'remove'])]
+  /**
+   * @var ObjectStorage<Comment>
+   */
+  public ObjectStorage $comments;
 }

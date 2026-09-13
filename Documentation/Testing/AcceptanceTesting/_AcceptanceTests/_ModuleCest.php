@@ -8,11 +8,11 @@ use TYPO3\CMS\Styleguide\Tests\Acceptance\Support\BackendTester;
 
 class ModuleCest
 {
-    /**
-     * @param BackendTester $I
-     */
-    public function _before(BackendTester $I)
-    {
-        $I->useExistingSession('admin');
-    }
+  /**
+   * @param BackendTester $I
+   */
+  public function _before(BackendTester $I)
+  {
+    $I->useExistingSession('admin');
+  }
 }

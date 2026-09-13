@@ -8,20 +8,20 @@ use Psr\Log\LoggerInterface;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly LoggerInterface $logger,
-    ) {}
+  public function __construct(
+    private readonly LoggerInterface $logger,
+  ) {}
 
-    public function doSomething()
-    {
-        $this->logger->info('My class is executed.');
+  public function doSomething()
+  {
+    $this->logger->info('My class is executed.');
 
-        $error = false;
+    $error = false;
 
-        // ... something is done ...
+    // ... something is done ...
 
-        if ($error) {
-            $this->logger->error('Error in class MyClass');
-        }
+    if ($error) {
+      $this->logger->error('Error in class MyClass');
     }
+  }
 }

@@ -8,19 +8,19 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Blog extends AbstractEntity
 {
-    /**
-     * Typed property (preferred)
-     *
-     * @var string
-     */
-    protected string $title = '';
+  /**
+   * Typed property (preferred)
+   *
+   * @var string
+   */
+  protected string $title = '';
 
-    /**
-     * Untyped property (legacy-compatible)
-     *
-     * @var bool
-     */
-    protected $published = false;
+  /**
+   * Untyped property (legacy-compatible)
+   *
+   * @var bool
+   */
+  protected $published = false;
 
-    // Getters and Setters
+  // Getters and Setters
 }

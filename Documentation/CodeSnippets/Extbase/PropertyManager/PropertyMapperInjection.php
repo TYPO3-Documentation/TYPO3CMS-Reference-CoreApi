@@ -8,16 +8,16 @@ use TYPO3\CMS\Extbase\Property\PropertyMapper;
 
 class PostController extends AbstractController
 {
-    /**
-     * PostController constructor.
-     *
-     * Takes care of dependency injection
-     */
-    public function __construct(
-        protected readonly BlogRepository $blogRepository,
-        protected readonly PersonRepository $personRepository,
-        protected readonly PostRepository $postRepository,
-        protected readonly PropertyMapper $propertyMapper,
-        protected readonly BlogPageTitleProvider $blogPageTitleProvider,
-    ) {}
+  /**
+   * PostController constructor.
+   *
+   * Takes care of dependency injection
+   */
+  public function __construct(
+    protected readonly BlogRepository $blogRepository,
+    protected readonly PersonRepository $personRepository,
+    protected readonly PostRepository $postRepository,
+    protected readonly PropertyMapper $propertyMapper,
+    protected readonly BlogPageTitleProvider $blogPageTitleProvider,
+  ) {}
 }

@@ -12,19 +12,19 @@ use TYPO3\CMS\Core\Routing\SiteMatcher;
 
 class RequestEnrichingMiddleware implements MiddlewareInterface
 {
-    public function __construct(
-        private readonly SiteMatcher $matcher,
-    ) {}
+  public function __construct(
+    private readonly SiteMatcher $matcher,
+  ) {}
 
-    public function process(
-        ServerRequestInterface $request,
-        RequestHandlerInterface $handler,
-    ): ResponseInterface {
-        $routeResult = $this->matcher->matchRequest($request);
+  public function process(
+    ServerRequestInterface $request,
+    RequestHandlerInterface $handler,
+  ): ResponseInterface {
+    $routeResult = $this->matcher->matchRequest($request);
 
-        $request = $request->withAttribute('site', $routeResult->getSite());
-        $request = $request->withAttribute('language', $routeResult->getLanguage());
+    $request = $request->withAttribute('site', $routeResult->getSite());
+    $request = $request->withAttribute('language', $routeResult->getLanguage());
 
-        return $handler->handle($request);
-    }
+    return $handler->handle($request);
+  }
 }

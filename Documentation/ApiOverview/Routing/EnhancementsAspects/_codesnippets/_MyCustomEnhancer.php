@@ -10,15 +10,15 @@ use TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait;
 
 final class MyCustomEnhancer implements MappableAspectInterface, UnresolvedValueInterface
 {
-    use UnresolvedValueTrait;
+  use UnresolvedValueTrait;
 
-    public function generate(string $value): ?string
-    {
-        // TODO: Implement generate() method.
-    }
+  public function generate(string $value): ?string
+  {
+    // TODO: Implement generate() method.
+  }
 
-    public function resolve(string $value): ?string
-    {
-        // TODO: Implement resolve() method.
-    }
+  public function resolve(string $value): ?string
+  {
+    // TODO: Implement resolve() method.
+  }
 }

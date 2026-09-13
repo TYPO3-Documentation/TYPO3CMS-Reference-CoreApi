@@ -8,5 +8,5 @@ use OriginalVendor\OriginalExtension\Domain\Model\SomeModel;
 defined('TYPO3') or die('Access denied.');
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][SomeModel::class] = [
-    'className' => MyExtendedModel::class,
+  'className' => MyExtendedModel::class,
 ];

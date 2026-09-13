@@ -6,17 +6,17 @@ namespace MyVendor\MyExtension;
 
 final class SomeClass
 {
-    public function doSomething()
-    {
-        // ...
+  public function doSomething()
+  {
+    // ...
 
-        $myVersionState = VersionState::cast($versionStateValue);
-        if ($myVersionState->indicatesPlaceholder()) {
-            echo 'The state indicates that this is a placeholder';
-        }
-
-        // ...
+    $myVersionState = VersionState::cast($versionStateValue);
+    if ($myVersionState->indicatesPlaceholder()) {
+      echo 'The state indicates that this is a placeholder';
     }
 
     // ...
+  }
+
+  // ...
 }

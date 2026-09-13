@@ -2,8 +2,8 @@
 
 class BackendController extends ActionController
 {
-    protected function initializeAction(): void
-    {
-        $this->pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
-    }
+  protected function initializeAction(): void
+  {
+    $this->pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
+  }
 }

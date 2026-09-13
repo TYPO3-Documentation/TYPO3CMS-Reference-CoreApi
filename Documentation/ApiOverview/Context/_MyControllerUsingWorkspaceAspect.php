@@ -8,17 +8,17 @@ use TYPO3\CMS\Core\Context\Context;
 
 final class MyController
 {
-    public function __construct(
-        private readonly Context $context,
-    ) {}
+  public function __construct(
+    private readonly Context $context,
+  ) {}
 
-    public function doSomething(): void
-    {
-        $showHiddenPages = $this->context->getPropertyFromAspect(
-            'workspace',
-            'id',
-        );
+  public function doSomething(): void
+  {
+    $showHiddenPages = $this->context->getPropertyFromAspect(
+      'workspace',
+      'id',
+    );
 
-        // ... do something with $showHiddenPages
-    }
+    // ... do something with $showHiddenPages
+  }
 }

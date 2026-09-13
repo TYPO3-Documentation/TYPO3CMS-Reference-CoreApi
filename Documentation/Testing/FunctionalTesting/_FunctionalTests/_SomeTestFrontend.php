@@ -9,12 +9,12 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class SomeTest extends FunctionalTestCase
 {
-    #[Test]
-    public function somethingWithWorkspaces(): void
-    {
-        $this->setUpFrontendRootPage(
-            1,
-            ['EXT:fluid_test/Configuration/TypoScript/Basic.typoscript'],
-        );
-    }
+  #[Test]
+  public function somethingWithWorkspaces(): void
+  {
+    $this->setUpFrontendRootPage(
+      1,
+      ['EXT:fluid_test/Configuration/TypoScript/Basic.typoscript'],
+    );
+  }
 }

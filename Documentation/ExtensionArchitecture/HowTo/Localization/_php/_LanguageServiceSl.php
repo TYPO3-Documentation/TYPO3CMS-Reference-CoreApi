@@ -4,23 +4,23 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final readonly class HaikuSeasonList implements MiddlewareInterface
 {
-    private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
-    private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
+  private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
+  private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
 
-    /**
-     * @return array<string, string>
-     */
-    private function getSeasons(ServerRequestInterface $request): array
-    {
-        $languageService = $this->languageServiceFactory->createFromSiteLanguage(
-            $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage(),
-        );
+  /**
+   * @return array<string, string>
+   */
+  private function getSeasons(ServerRequestInterface $request): array
+  {
+    $languageService = $this->languageServiceFactory->createFromSiteLanguage(
+      $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage(),
+    );
 
-        $translatedSeasons = [];
-        foreach (self::SEASONS as $season) {
-            $translatedSeasons[$season] = $languageService->sL(self::TRANSLATION_PATH . $season);
-        }
-
-        return $translatedSeasons;
+    $translatedSeasons = [];
+    foreach (self::SEASONS as $season) {
+      $translatedSeasons[$season] = $languageService->sL(self::TRANSLATION_PATH . $season);
     }
+
+    return $translatedSeasons;
+  }
 }

@@ -9,18 +9,18 @@ use TYPO3\CMS\Core\Type\Exception\InvalidEnumerationValueException;
 
 final class SomeClass
 {
-    public function doSomething()
-    {
-        // ...
+  public function doSomething()
+  {
+    // ...
 
-        try {
-            $foo = LikeWildcard::cast($valueFromPageTs);
-        } catch (InvalidEnumerationValueException $exception) {
-            $foo = LikeWildcard::cast(LikeWildcard::NONE);
-        }
-
-        // ...
+    try {
+      $foo = LikeWildcard::cast($valueFromPageTs);
+    } catch (InvalidEnumerationValueException $exception) {
+      $foo = LikeWildcard::cast(LikeWildcard::NONE);
     }
 
     // ...
+  }
+
+  // ...
 }

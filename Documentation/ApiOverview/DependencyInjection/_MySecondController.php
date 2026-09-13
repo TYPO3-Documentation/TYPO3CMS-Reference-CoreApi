@@ -8,7 +8,7 @@ use MyVendor\MyExtension\Service\MyServiceInterface;
 
 class MySecondController
 {
-    public function __construct(
-        private readonly MyServiceInterface $myService,
-    ) {}
+  public function __construct(
+    private readonly MyServiceInterface $myService,
+  ) {}
 }

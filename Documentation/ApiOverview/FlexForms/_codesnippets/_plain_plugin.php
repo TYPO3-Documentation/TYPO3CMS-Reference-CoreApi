@@ -6,22 +6,22 @@ $ctypeKey = 'my_plugin';
 
 // Plain plugin without Extbase controller
 ExtensionManagementUtility::addPlugin(
-    [
-        'My Plugin Title',
-        $ctypeKey,
-        'my-extension-icon',
-    ],
+  [
+    'My Plugin Title',
+    $ctypeKey,
+    'my-extension-icon',
+  ],
 );
 
 ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Configuration,pi_flexform,',
-    $ctypeKey,
-    'after:subheader',
+  'tt_content',
+  '--div--;Configuration,pi_flexform,',
+  $ctypeKey,
+  'after:subheader',
 );
 
 ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:myext/Configuration/FlexForms/MyFlexform.xml',
-    $ctypeKey,
+  '*',
+  'FILE:EXT:myext/Configuration/FlexForms/MyFlexform.xml',
+  $ctypeKey,
 );
