@@ -100,6 +100,13 @@ resourceOverrides
     ..  versionchanged:: 14.0
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']`.
 
+    ..  versionchanged:: 14.3
+        The overridden file can also be addressed by its
+        :ref:`translation domain <label-reference-domain>` instead of its path.
+        See `Important: #109672 - Translation domain syntax supported in
+        resourceOverrides
+        <https://docs.typo3.org/permalink/changelog:important-109672-1745000000>`_.
+
     Allows overriding XLIFF files. This applies not only to translations but
     also to default language files.
 
@@ -117,3 +124,13 @@ resourceOverrides
         $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']
             ['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][]
                 = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
+
+    The same overrides can be expressed with the translation domain as key:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['core.common'][]
+            = 'EXT:examples/Resources/Private/Language/custom.xlf';
+        // Override a German ("de") translation
+        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['core.common'][]
+            = 'EXT:examples/Resources/Private/Language/Overrides/de.custom.xlf';
