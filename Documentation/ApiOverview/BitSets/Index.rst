@@ -20,6 +20,7 @@ recommend creating specific bitset classes that extend the TYPO3
 The functionality is best described by an example:
 
 ..  literalinclude:: _BitSet/_PlainExample.php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
 The example above uses global constants. Implementing that via an
 extended bitset class makes it clearer and easier to use:
@@ -30,3 +31,4 @@ extended bitset class makes it clearer and easier to use:
 Then use your custom bitset class:
 
 ..  literalinclude:: _BitSet/_PlainExample2.php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
