@@ -19,6 +19,7 @@ Example
 =======
 
 ..  literalinclude:: _SessionStorageWrapper/_storage.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 ..  _modules-sessionstorage-api-methods:
 

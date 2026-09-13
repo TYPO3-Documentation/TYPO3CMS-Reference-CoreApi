@@ -204,6 +204,7 @@ Setting types
         integer. If yes, the string is converted into an integer.
 
         ..  literalinclude:: _Settings/_settings.definitions.int.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: number
         :name: site-setting-type-number
@@ -215,6 +216,7 @@ Setting types
         converted to an integer or float.
 
         ..  literalinclude:: _Settings/_settings.definitions.number.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: bool
         :name: site-setting-type-bool
@@ -232,6 +234,7 @@ Setting types
         `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
         ..  literalinclude:: _Settings/_settings.definitions.bool.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: string
         :name: site-setting-type-string
@@ -246,6 +249,7 @@ Setting types
         Boolean values are converted to `true` and `false`.
 
         ..  literalinclude:: _Settings/_settings.definitions.string.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: text
         :name: site-setting-type-text
@@ -256,6 +260,7 @@ Setting types
         identifies the setting as longer text in the editor.
 
         ..  literalinclude:: _Settings/_settings.definitions.text.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: stringlist
         :name: site-setting-type-stringlist
@@ -272,6 +277,7 @@ Setting types
         The `string` type is executed for each array entry.
 
         ..  literalinclude:: _Settings/_settings.definitions.stringlist.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: color
         :name: site-setting-type-color
@@ -288,6 +294,7 @@ Setting types
         have 3, 6 or 8 digits.
 
         ..  literalinclude:: _Settings/_settings.definitions.color.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: page
         :name: site-setting-type-page
@@ -305,6 +312,7 @@ Setting types
         UID in the field.
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     ..  confval:: url
         :name: site-setting-type-url
@@ -316,6 +324,7 @@ Setting types
         regular expression match.
 
         ..  literalinclude:: _Settings/_settings.definitions.url.yaml
+            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
 ..  _site-settings-definition-translation:
 
