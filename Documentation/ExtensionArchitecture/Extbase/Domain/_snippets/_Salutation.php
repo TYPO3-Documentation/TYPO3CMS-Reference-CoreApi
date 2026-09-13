@@ -6,8 +6,8 @@ namespace MyVendor\MyExtension\Domain\Model\Enum;
 
 enum Salutation: string
 {
-    case None = '';
-    case Mr = 'mr';
-    case Ms = 'ms';
-    case Mx = 'mx';
+  case None = '';
+  case Mr = 'mr';
+  case Ms = 'ms';
+  case Mx = 'mx';
 }

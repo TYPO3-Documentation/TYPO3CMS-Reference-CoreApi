@@ -10,27 +10,27 @@ use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
 final class MyUserFunction
 {
-    private TranslatorInterface $translator;
+  private TranslatorInterface $translator;
 
-    public function __construct(
-        private readonly LanguageServiceFactory $languageServiceFactory,
-    ) {}
+  public function __construct(
+    private readonly LanguageServiceFactory $languageServiceFactory,
+  ) {}
 
-    private function getTranslator(
-        ServerRequestInterface $request,
-    ): TranslatorInterface {
-        return $this->languageServiceFactory->createFromSiteLanguage(
-            $request->getAttribute('language')
-            ?? $request->getAttribute('site')->getDefaultLanguage(),
-        );
-    }
+  private function getTranslator(
+    ServerRequestInterface $request,
+  ): TranslatorInterface {
+    return $this->languageServiceFactory->createFromSiteLanguage(
+      $request->getAttribute('language')
+        ?? $request->getAttribute('site')->getDefaultLanguage(),
+    );
+  }
 
-    public function main(
-        string $content,
-        array $conf,
-        ServerRequestInterface $request,
-    ): string {
-        $this->translator = $this->getTranslator($request);
-        return $this->translator->label('my_extension.messages:something');
-    }
+  public function main(
+    string $content,
+    array $conf,
+    ServerRequestInterface $request,
+  ): string {
+    $this->translator = $this->getTranslator($request);
+    return $this->translator->label('my_extension.messages:something');
+  }
 }

@@ -9,18 +9,18 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 
 final readonly class MyDbalRepository
 {
-    public function __construct(
-        private ConnectionPool $connectionPool,
-    ) {}
+  public function __construct(
+    private ConnectionPool $connectionPool,
+  ) {}
 
-    public function findAllLanguages(): Result
-    {
-        $queryBuilder = $this->connectionPool
-            ->getQueryBuilderForTable('sys_language');
-        $queryBuilder
-            ->select('*')
-            ->from('sys_language');
-        debug($queryBuilder->getSQL());
-        return $queryBuilder->executeQuery();
-    }
+  public function findAllLanguages(): Result
+  {
+    $queryBuilder = $this->connectionPool
+        ->getQueryBuilderForTable('sys_language');
+    $queryBuilder
+        ->select('*')
+        ->from('sys_language');
+    debug($queryBuilder->getSQL());
+    return $queryBuilder->executeQuery();
+  }
 }

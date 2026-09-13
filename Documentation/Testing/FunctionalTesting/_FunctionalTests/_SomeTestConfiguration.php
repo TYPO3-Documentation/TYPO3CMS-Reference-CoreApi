@@ -10,15 +10,15 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class SomeTest extends FunctionalTestCase
 {
-    protected array $configurationToUseInTestInstance = [
-        'MAIL' => [
-            'transport' => NullTransport::class,
-        ],
-    ];
+  protected array $configurationToUseInTestInstance = [
+    'MAIL' => [
+      'transport' => NullTransport::class,
+    ],
+  ];
 
-    #[Test]
-    public function something(): void
-    {
-        //...
-    }
+  #[Test]
+  public function something(): void
+  {
+    //...
+  }
 }

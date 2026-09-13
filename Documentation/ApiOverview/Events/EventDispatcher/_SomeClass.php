@@ -8,7 +8,7 @@ use Psr\EventDispatcher\EventDispatcherInterface;
 
 final class SomeClass
 {
-    public function __construct(
-        private readonly EventDispatcherInterface $eventDispatcher,
-    ) {}
+  public function __construct(
+    private readonly EventDispatcherInterface $eventDispatcher,
+  ) {}
 }

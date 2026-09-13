@@ -9,16 +9,16 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class ExampleController
 {
-    public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
-    {
-        $input = $request->getQueryParams()['input']
-            ?? throw new \InvalidArgumentException(
-                'Please provide a number',
-                1580585107,
-            );
+  public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
+  {
+    $input = $request->getQueryParams()['input']
+        ?? throw new \InvalidArgumentException(
+          'Please provide a number',
+          1580585107,
+        );
 
-        $result = $input ** 2;
+    $result = $input ** 2;
 
-        // TODO: return ResponseInterface
-    }
+    // TODO: return ResponseInterface
+  }
 }

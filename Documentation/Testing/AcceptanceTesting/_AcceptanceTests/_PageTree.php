@@ -12,13 +12,13 @@ use TYPO3\TestingFramework\Core\Acceptance\Helper\AbstractPageTree;
  */
 class PageTree extends AbstractPageTree
 {
-    /**
-     * Inject our Core AcceptanceTester actor into PageTree
-     *
-     * @param BackendTester $I
-     */
-    public function __construct(BackendTester $I)
-    {
-        $this->tester = $I;
-    }
+  /**
+   * Inject our Core AcceptanceTester actor into PageTree
+   *
+   * @param BackendTester $I
+   */
+  public function __construct(BackendTester $I)
+  {
+    $this->tester = $I;
+  }
 }

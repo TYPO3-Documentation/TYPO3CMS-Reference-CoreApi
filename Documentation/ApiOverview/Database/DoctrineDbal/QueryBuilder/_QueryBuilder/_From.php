@@ -8,12 +8,12 @@ use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
 final class MyDbalRepository
 {
-    public function selectFrom(QueryBuilder $queryBuilder): void
-    {
-        // FROM `myTable`
-        $queryBuilder->from('myTable');
+  public function selectFrom(QueryBuilder $queryBuilder): void
+  {
+    // FROM `myTable`
+    $queryBuilder->from('myTable');
 
-        // FROM `myTable` AS `anAlias`
-        $queryBuilder->from('myTable', 'anAlias');
-    }
+    // FROM `myTable` AS `anAlias`
+    $queryBuilder->from('myTable', 'anAlias');
+  }
 }

@@ -8,7 +8,7 @@ use MyVendor\MyExtension\Repository\UserRepository;
 
 final class UserController
 {
-    public function __construct(
-        private readonly UserRepository $userRepository,
-    ) {}
+  public function __construct(
+    private readonly UserRepository $userRepository,
+  ) {}
 }

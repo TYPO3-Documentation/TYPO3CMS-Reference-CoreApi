@@ -21,5 +21,5 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['user']
     = 'typo3';
 
 $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = [
-    '/var/www/shared/files/',
+  '/var/www/shared/files/',
 ];

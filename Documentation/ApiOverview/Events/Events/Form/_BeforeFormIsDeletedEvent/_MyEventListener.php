@@ -8,14 +8,14 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Form\Event\BeforeFormIsDeletedEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/before-form-is-deleted',
+  identifier: 'my-extension/before-form-is-deleted',
 )]
 final readonly class MyEventListener
 {
-    public function __invoke(BeforeFormIsDeletedEvent $event): void
-    {
-        if ($event->formPersistenceIdentifier === 'some-identifier') {
-            $event->preventDeletion = true;
-        }
+  public function __invoke(BeforeFormIsDeletedEvent $event): void
+  {
+    if ($event->formPersistenceIdentifier === 'some-identifier') {
+      $event->preventDeletion = true;
     }
+  }
 }

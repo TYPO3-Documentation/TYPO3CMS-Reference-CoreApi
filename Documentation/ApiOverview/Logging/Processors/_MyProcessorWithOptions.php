@@ -6,17 +6,17 @@ use TYPO3\CMS\Core\Log\LogRecord;
 
 class MyProcessor extends \TYPO3\CMS\Core\Log\Processor\AbstractProcessor
 {
-    protected bool $option = true;
+  protected bool $option = true;
 
-    public function setOption(bool $option): void
-    {
-        $this->option = $option;
-    }
+  public function setOption(bool $option): void
+  {
+    $this->option = $option;
+  }
 
-    public function processLogRecord(LogRecord $logRecord): LogRecord
-    {
-        // add magic
+  public function processLogRecord(LogRecord $logRecord): LogRecord
+  {
+    // add magic
 
-        return $logRecord;
-    }
+    return $logRecord;
+  }
 }

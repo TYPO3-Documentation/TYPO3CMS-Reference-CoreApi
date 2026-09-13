@@ -7,16 +7,16 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ExampleController extends ActionController
 {
-    public function initializeView(): void
-    {
-        $this->view->assignMultiple([
-            'site' => $this->request->getAttribute('site'),
-        ]);
-    }
+  public function initializeView(): void
+  {
+    $this->view->assignMultiple([
+      'site' => $this->request->getAttribute('site'),
+    ]);
+  }
 
-    public function indexAction(): ResponseInterface
-    {
-        // Variable '{site}' was assigned in initializeView().
-        return $this->htmlResponse();
-    }
+  public function indexAction(): ResponseInterface
+  {
+    // Variable '{site}' was assigned in initializeView().
+    return $this->htmlResponse();
+  }
 }

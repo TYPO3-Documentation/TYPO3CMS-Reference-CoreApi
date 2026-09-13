@@ -13,18 +13,18 @@ use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 #[AsModuleAccessGate(identifier: 'exampleUser')]
 class ExampleGate implements ModuleAccessGateInterface
 {
-    public function decide(
-        ModuleInterface $module,
-        BackendUserAuthentication $user,
-    ): ModuleAccessResult {
-        if ($module->getAccess() !== 'exampleUser') {
-            return ModuleAccessResult::Abstain;
-        }
-        $userTsConfig = $user->getTSConfig();
-        $exampleUserGroupId = (int)($userTsConfig['options.']['example.']['userGroup'] ?? 0);
-        $permission = $user->isAdmin() || in_array($exampleUserGroupId, $user->userGroupsUID);
-        return $permission
-            ? ModuleAccessResult::Granted
-            : ModuleAccessResult::Denied;
+  public function decide(
+    ModuleInterface $module,
+    BackendUserAuthentication $user,
+  ): ModuleAccessResult {
+    if ($module->getAccess() !== 'exampleUser') {
+      return ModuleAccessResult::Abstain;
     }
+    $userTsConfig = $user->getTSConfig();
+    $exampleUserGroupId = (int)($userTsConfig['options.']['example.']['userGroup'] ?? 0);
+    $permission = $user->isAdmin() || in_array($exampleUserGroupId, $user->userGroupsUID);
+    return $permission
+        ? ModuleAccessResult::Granted
+        : ModuleAccessResult::Denied;
+  }
 }

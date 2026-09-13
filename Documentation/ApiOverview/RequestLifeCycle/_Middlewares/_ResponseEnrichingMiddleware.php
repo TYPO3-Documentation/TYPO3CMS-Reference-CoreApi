@@ -11,19 +11,19 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class RequestEnrichingMiddleware implements MiddlewareInterface
 {
-    public function process(
-        ServerRequestInterface $request,
-        RequestHandlerInterface $handler,
-    ): ResponseInterface {
-        $response = $handler->handle($request);
+  public function process(
+    ServerRequestInterface $request,
+    RequestHandlerInterface $handler,
+  ): ResponseInterface {
+    $response = $handler->handle($request);
 
-        if ($request->getRequestTarget() === 'foo/bar') {
-            $response = $response->withHeader(
-                'Content-Length',
-                (string)$response->getBody()->getSize(),
-            );
-        }
-
-        return $response;
+    if ($request->getRequestTarget() === 'foo/bar') {
+      $response = $response->withHeader(
+        'Content-Length',
+        (string)$response->getBody()->getSize(),
+      );
     }
+
+    return $response;
+  }
 }

@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 
 class MyClass
 {
-    public function __construct(
-        private readonly LoggerInterface $logger,
-    ) {}
+  public function __construct(
+    private readonly LoggerInterface $logger,
+  ) {}
 }

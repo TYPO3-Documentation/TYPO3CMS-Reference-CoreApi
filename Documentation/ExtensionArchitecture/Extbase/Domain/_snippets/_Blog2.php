@@ -9,15 +9,15 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Blog extends AbstractEntity
 {
-    protected ObjectStorage $posts;
+  protected ObjectStorage $posts;
 
-    public function __construct(protected string $title)
-    {
-        $this->initializeObject();
-    }
+  public function __construct(protected string $title)
+  {
+    $this->initializeObject();
+  }
 
-    public function initializeObject(): void
-    {
-        $this->posts = new ObjectStorage();
-    }
+  public function initializeObject(): void
+  {
+    $this->posts = new ObjectStorage();
+  }
 }

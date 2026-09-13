@@ -15,27 +15,27 @@ use TYPO3\CMS\Frontend\Typolink\UnableToLinkException;
  */
 class GithubLinkBuilder implements TypolinkBuilderInterface
 {
-    private const TYPE_GITHUB = 'github';
+  private const TYPE_GITHUB = 'github';
 
-    public function buildLink(array $linkDetails, array $configuration, ServerRequestInterface $request, string $linkText = ''): LinkResultInterface
-    {
-        // Access ContentObjectRenderer from request
-        $contentObjectRenderer = $request->getAttribute('currentContentObject');
+  public function buildLink(array $linkDetails, array $configuration, ServerRequestInterface $request, string $linkText = ''): LinkResultInterface
+  {
+    // Access ContentObjectRenderer from request
+    $contentObjectRenderer = $request->getAttribute('currentContentObject');
 
-        $issueId = (int)$linkDetails['issue'];
-        if ($issueId < 1) {
-            throw new UnableToLinkException(
-                '"' . $issueId . '" is not a valid GitHub issue number.',
-                // Use the Unix timestamp of the time of creation of this message
-                1665304602,
-                null,
-                $linkText,
-            );
-        }
-        $url = 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/' . $issueId;
-
-        return (new LinkResult(self::TYPE_GITHUB, $url))
-            ->withLinkConfiguration($configuration)
-            ->withLinkText($linkText);
+    $issueId = (int)$linkDetails['issue'];
+    if ($issueId < 1) {
+      throw new UnableToLinkException(
+        '"' . $issueId . '" is not a valid GitHub issue number.',
+        // Use the Unix timestamp of the time of creation of this message
+        1665304602,
+        null,
+        $linkText,
+      );
     }
+    $url = 'https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/' . $issueId;
+
+    return (new LinkResult(self::TYPE_GITHUB, $url))
+        ->withLinkConfiguration($configuration)
+        ->withLinkText($linkText);
+  }
 }

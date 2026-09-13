@@ -11,24 +11,24 @@ use TYPO3\CMS\Frontend\Cache\CacheInstruction;
 
 final class MyEarlyMiddleware implements MiddlewareInterface
 {
-    public function process(
-        ServerRequestInterface $request,
-        RequestHandlerInterface $handler,
-    ): ResponseInterface {
-        // Get the attribute, if not available, use a new CacheInstruction object
-        $cacheInstruction = $request->getAttribute(
-            'frontend.cache.instruction',
-            new CacheInstruction(),
-        );
+  public function process(
+    ServerRequestInterface $request,
+    RequestHandlerInterface $handler,
+  ): ResponseInterface {
+    // Get the attribute, if not available, use a new CacheInstruction object
+    $cacheInstruction = $request->getAttribute(
+      'frontend.cache.instruction',
+      new CacheInstruction(),
+    );
 
-        // Disable the cache and give a reason
-        $cacheInstruction->disableCache('EXT:my-extension: My-reason disables caches.');
+    // Disable the cache and give a reason
+    $cacheInstruction->disableCache('EXT:my-extension: My-reason disables caches.');
 
-        // Write back the cache instruction to the attribute
-        $request = $request->withAttribute('frontend.cache.instruction', $cacheInstruction);
+    // Write back the cache instruction to the attribute
+    $request = $request->withAttribute('frontend.cache.instruction', $cacheInstruction);
 
-        // ... more logic
+    // ... more logic
 
-        return $handler->handle($request);
-    }
+    return $handler->handle($request);
+  }
 }

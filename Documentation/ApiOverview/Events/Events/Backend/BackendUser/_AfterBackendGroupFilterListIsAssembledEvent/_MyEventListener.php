@@ -9,9 +9,9 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 final readonly class MyEventListener
 {
-    #[AsEventListener]
-    public function __invoke(AfterBackendGroupFilterListIsAssembledEvent $event): void
-    {
-        array_pop($event->backendGroups);
-    }
+  #[AsEventListener]
+  public function __invoke(AfterBackendGroupFilterListIsAssembledEvent $event): void
+  {
+    array_pop($event->backendGroups);
+  }
 }

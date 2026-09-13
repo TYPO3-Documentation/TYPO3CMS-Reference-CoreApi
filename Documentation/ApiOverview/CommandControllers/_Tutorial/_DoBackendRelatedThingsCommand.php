@@ -11,15 +11,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Core\Bootstrap;
 
 #[AsCommand(
-    name: 'myextension:dosomething',
+  name: 'myextension:dosomething',
 )]
 final class DoBackendRelatedThingsCommand extends Command
 {
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        Bootstrap::initializeBackendAuthentication();
-        // Do backend related stuff
+  protected function execute(InputInterface $input, OutputInterface $output): int
+  {
+    Bootstrap::initializeBackendAuthentication();
+    // Do backend related stuff
 
-        return Command::SUCCESS;
-    }
+    return Command::SUCCESS;
+  }
 }

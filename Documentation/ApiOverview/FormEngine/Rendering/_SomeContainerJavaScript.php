@@ -9,12 +9,12 @@ use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 
 final class SomeContainer extends AbstractContainer
 {
-    public function render(): array
-    {
-        $resultArray = $this->initializeResultArray();
-        $resultArray['javaScriptModules'][] =
-            JavaScriptModuleInstruction::create('@myvendor/my_extension/my-javascript.js');
-        // ...
-        return $resultArray;
-    }
+  public function render(): array
+  {
+    $resultArray = $this->initializeResultArray();
+    $resultArray['javaScriptModules'][] =
+        JavaScriptModuleInstruction::create('@myvendor/my_extension/my-javascript.js');
+    // ...
+    return $resultArray;
+  }
 }

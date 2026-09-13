@@ -3,12 +3,12 @@
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $GLOBALS['TCA'][$myTable]['columns']['categories'] = [
-    'config' => [
-        'type' => 'category',
-    ],
+  'config' => [
+    'type' => 'category',
+  ],
 ];
 
 ExtensionManagementUtility::addToAllTCAtypes(
-    $myTable,
-    'categories',
+  $myTable,
+  'categories',
 );

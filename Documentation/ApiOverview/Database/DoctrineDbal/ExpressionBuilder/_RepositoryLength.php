@@ -11,17 +11,17 @@ use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
 final class MyTableDbalRepository
 {
-    private const TABLE_NAME = 'tt_content';
-    public function __construct(private readonly ConnectionPool $connectionPool) {}
+  private const TABLE_NAME = 'tt_content';
+  public function __construct(private readonly ConnectionPool $connectionPool) {}
 
-    public function findFieldLongerThenZero(string $fieldName): QueryBuilder
-    {
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_NAME);
-        $queryBuilder->expr()->comparison(
-            $queryBuilder->expr()->length($fieldName),
-            ExpressionBuilder::GT,
-            $queryBuilder->createNamedParameter(0, Connection::PARAM_INT),
-        );
-        return $queryBuilder;
-    }
+  public function findFieldLongerThenZero(string $fieldName): QueryBuilder
+  {
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_NAME);
+    $queryBuilder->expr()->comparison(
+      $queryBuilder->expr()->length($fieldName),
+      ExpressionBuilder::GT,
+      $queryBuilder->createNamedParameter(0, Connection::PARAM_INT),
+    );
+    return $queryBuilder;
+  }
 }

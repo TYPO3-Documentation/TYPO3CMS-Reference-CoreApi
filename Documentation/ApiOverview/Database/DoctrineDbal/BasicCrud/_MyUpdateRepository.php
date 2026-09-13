@@ -8,17 +8,17 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 
 final class MyUpdateRepository
 {
-    public function __construct(
-        private readonly ConnectionPool $connectionPool,
-    ) {}
+  public function __construct(
+    private readonly ConnectionPool $connectionPool,
+  ) {}
 
-    public function updateSomeData()
-    {
-        $this->connectionPool->getConnectionForTable('tt_content')
-            ->update(
-                'tt_content',
-                [ 'bodytext' => 'ipsum' ], // set
-                [ 'bodytext' => 'lorem' ], // where
-            );
-    }
+  public function updateSomeData()
+  {
+    $this->connectionPool->getConnectionForTable('tt_content')
+        ->update(
+          'tt_content',
+          [ 'bodytext' => 'ipsum' ], // set
+          [ 'bodytext' => 'lorem' ], // where
+        );
+  }
 }

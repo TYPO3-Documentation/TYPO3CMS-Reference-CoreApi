@@ -10,19 +10,19 @@ use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
 
 class ConferenceController extends ActionController
 {
-    public function __construct(
-        protected readonly ConferenceRepository $conferenceRepository,
-        protected readonly PersistenceManagerInterface $persistenceManager,
-    ) {}
+  public function __construct(
+    protected readonly ConferenceRepository $conferenceRepository,
+    protected readonly PersistenceManagerInterface $persistenceManager,
+  ) {}
 
-    public function saveAction(Conference $conference): ResponseInterface
-    {
-        if ($this->persistenceManager->isNewObject($conference)) {
-            $this->conferenceRepository->add($conference);
-        } else {
-            $this->conferenceRepository->update($conference);
-        }
-
-        return $this->redirect('list');
+  public function saveAction(Conference $conference): ResponseInterface
+  {
+    if ($this->persistenceManager->isNewObject($conference)) {
+      $this->conferenceRepository->add($conference);
+    } else {
+      $this->conferenceRepository->update($conference);
     }
+
+    return $this->redirect('list');
+  }
 }

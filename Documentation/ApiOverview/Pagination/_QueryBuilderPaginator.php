@@ -6,9 +6,9 @@ use TYPO3\CMS\Core\Pagination\QueryBuilderPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 
 $paginator = new QueryBuilderPaginator(
-    queryBuilder: $queryBuilder,
-    currentPageNumber: $currentPage,
-    itemsPerPage: 10,
+  queryBuilder: $queryBuilder,
+  currentPageNumber: $currentPage,
+  itemsPerPage: 10,
 );
 $pagination = new SimplePagination($paginator);
 

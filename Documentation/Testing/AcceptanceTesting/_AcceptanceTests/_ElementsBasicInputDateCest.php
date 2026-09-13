@@ -9,13 +9,13 @@ use TYPO3\CMS\Core\Tests\Acceptance\Support\Helper\PageTree;
 
 class ElementsBasicInputDateCest extends AbstractElementsBasicCest
 {
-    public function _before(BackendTester $I, PageTree $pageTree)
-    {
-        $I->useExistingSession('admin');
+  public function _before(BackendTester $I, PageTree $pageTree)
+  {
+    $I->useExistingSession('admin');
 
-        $I->click('List');
-        $pageTree->openPath(['styleguide TCA demo', 'elements basic']);
+    $I->click('List');
+    $pageTree->openPath(['styleguide TCA demo', 'elements basic']);
 
-        // ...
-    }
+    // ...
+  }
 }

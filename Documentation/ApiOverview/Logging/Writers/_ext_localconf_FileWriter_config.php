@@ -10,12 +10,12 @@ defined('TYPO3') or die();
 
 // Add example configuration for the logging API
 $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyVendor']['MyExtension']['MyClass']['writerConfiguration'] = [
-    // Configuration for ERROR level log entries
-    LogLevel::ERROR => [
-        // Add a FileWriter
-        FileWriter::class => [
-            // Configuration for the writer
-            'logFile' => Environment::getVarPath() . '/log/my_extension.log',
-        ],
+  // Configuration for ERROR level log entries
+  LogLevel::ERROR => [
+    // Add a FileWriter
+    FileWriter::class => [
+      // Configuration for the writer
+      'logFile' => Environment::getVarPath() . '/log/my_extension.log',
     ],
+  ],
 ];

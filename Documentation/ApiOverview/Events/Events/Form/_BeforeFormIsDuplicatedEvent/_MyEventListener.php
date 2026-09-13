@@ -8,12 +8,12 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Form\Event\BeforeFormIsDuplicatedEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/before-form-is-duplicated',
+  identifier: 'my-extension/before-form-is-duplicated',
 )]
 final readonly class MyEventListener
 {
-    public function __invoke(BeforeFormIsDuplicatedEvent $event): void
-    {
-        $event->form['label'] = 'foo';
-    }
+  public function __invoke(BeforeFormIsDuplicatedEvent $event): void
+  {
+    $event->form['label'] = 'foo';
+  }
 }
