@@ -20,7 +20,7 @@ An instance of the :php:class:`ExpressionBuilder <TYPO3\CMS\Core\Database\Query\
 :php:`QueryBuilder` object:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
     $expressionBuilder = $queryBuilder->expr();
 
@@ -28,8 +28,8 @@ It is good practice not to assign an instance of the :php:class:`ExpressionBuild
 a variable, but to use it directly within the code flow of the query builder
 context:
 
-..  literalinclude:: _MyTableRepository.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+..  literalinclude:: _MyTableDbalRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
@@ -51,7 +51,7 @@ one argument.
 Example: finding :sql:`tt_content` records:
 
 ..  literalinclude:: _RepositoryWithJunctions.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -87,7 +87,7 @@ Remarks and warnings:
 Examples:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
     // use TYPO3\CMS\Core\Database\Connection;
 
@@ -161,7 +161,7 @@ with field name), the second argument is an optional alias.
 Examples:
 
 ..  literalinclude:: _RepositoryAgregate.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -187,7 +187,7 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
     custom expressions and avoids recurring conditional quoting and alias appending.
 
 ..  literalinclude:: _RepositoryAs.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-concat:
 
@@ -206,7 +206,7 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryConcat.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-castInt:
 
@@ -224,7 +224,7 @@ except PostgreSQL. For PostgreSQL :sql:`"value"::INTEGER` cast notation
 is used.
 
 ..  literalinclude:: _RepositoryCastInt.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-castText:
 
@@ -243,7 +243,7 @@ or similar methods based on the database engine.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryCastText.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-castVarchar:
 
@@ -263,7 +263,7 @@ where :sql:`"value"::INTEGER` cast notation is used.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryCastVarChar.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 
 ..  _database-expression-builder-if:
@@ -286,24 +286,8 @@ database engine in use.
 
 Example:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php (excerpt)
-
-    // use TYPO3\CMS\Core\Database\Connection;
-
-    $queryBuilder
-        ->selectLiteral(
-            $queryBuilder->expr()->if(
-                $queryBuilder->expr()->eq(
-                    'hidden',
-                    $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
-                ),
-                $queryBuilder->quote('page-is-visible'),
-                $queryBuilder->quote('page-is-not-visible'),
-                'result_field_name'
-            ),
-        )
-        ->from('pages');
+..  literalinclude:: _RepositoryIf.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 Result with MySQL/MariaDB:
 
@@ -349,7 +333,7 @@ more complex compatible replacement expression construct is created.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryLeftPad.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 
 ..  _database-expression-builder-length:
@@ -363,7 +347,7 @@ The :php:`length()` string function can be used to return the length of a
 string in bytes.
 
 ..  literalinclude:: _RepositoryLength.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -388,7 +372,7 @@ vendors except SQLite which uses
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRepeat.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-right:
 
@@ -405,7 +389,7 @@ database vendors except SQLite, which uses :sql:`substring("value", start_of_str
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRight.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 
 ..  _database-expression-builder-rightPad:
@@ -424,7 +408,7 @@ more complex compatible replacement expression construct is created.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRightPad.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-space:
 
@@ -442,7 +426,7 @@ and SQLite.
 ..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositorySpace.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 ..  _database-expression-builder-trim:
 
@@ -455,7 +439,7 @@ Using the :php:`->trim()` expression ensures that fields are trimmed at the
 database level. The following examples give a better idea of what is possible:
 
 ..  literalinclude:: _RepositoryWithTrim.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.

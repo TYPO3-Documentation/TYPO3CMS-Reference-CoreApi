@@ -7,7 +7,7 @@ namespace MyVendor\MyExtension\Domain\Repository;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
-final class MyTableRepository
+final class MyTableDbalRepository
 {
     private const TABLE_NAME = 'tt_content';
 
