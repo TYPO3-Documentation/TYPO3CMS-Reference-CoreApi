@@ -41,19 +41,8 @@ Writer configuration
 The :ref:`log writer <logging-writers>` configuration is read from the sub-key
 :php:`writerConfiguration` of the configuration array:
 
-..  code-block:: php
+..  literalinclude:: _WriterConfigurationFileWriter.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = [
-        // Configuration for ERROR level log entries
-        \Psr\Log\LogLevel::ERROR => [
-            // Add a FileWriter
-            \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-                // Configuration for the writer
-                'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_7ac500bce5.log'
-            ],
-        ],
-    ];
 
 The above configuration applies to **all** log entries of level "ERROR" or above.
 
@@ -65,39 +54,16 @@ The above configuration applies to **all** log entries of level "ERROR" or above
 To apply a special configuration for the controllers of the *examples* extension,
 use the following configuration:
 
-..  code-block:: php
+..  literalinclude:: _WriterConfigurationComponent.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
-        // Configuration for WARNING severity, including all
-        // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-        \Psr\Log\LogLevel::WARNING => [
-            // Add a SyslogWriter
-            \TYPO3\CMS\Core\Log\Writer\SyslogWriter::class => [],
-        ],
-    ];
 
 This overwrites the default configuration shown in the first example for classes
 located in the namespace :php:`\T3docs\Examples\Controller`.
 
 One more example:
 
-..  code-block:: php
+..  literalinclude:: _WriterConfigurationClassAndChannel.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    // Configure logging ...
-
-    // For class \T3docs\Examples\Controller\FalExampleController
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']
-        ['T3docs']['Examples']['Controller']['FalExampleController']
-        ['writerConfiguration'] = [
-            // ...
-        ];
-
-    // For channel "security"
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['security']['writerConfiguration'] = [
-        // ...
-    ];
 
 For more information about channels, see :ref:`logging-channels`.
 
@@ -133,18 +99,8 @@ Similar to the writer configuration, :ref:`log record processors <logging-proces
 can be configured on a per-class and per-namespace basis with the sub-key
 :php:`processorConfiguration`:
 
-..  code-block:: php
+..  literalinclude:: _ProcessorConfiguration.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processorConfiguration'] = [
-        // Configuration for ERROR level log entries
-        \Psr\Log\LogLevel::ERROR => [
-            // Add a MemoryUsageProcessor
-            \TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor::class => [
-                'formatSize' => TRUE
-            ],
-        ],
-    ];
 
 For a list of processors shipped with the TYPO3 Core, see the section about
 :ref:`logging-processors`.

@@ -66,13 +66,8 @@ where TYPO3 reserves all array keys below `100` for internal purposes.
 If you want to provide custom templates or layouts, set this in your
 :file:`config/system/settings.php` / :file:`config/system/additional.php` file:
 
-..  code-block:: php
+..  literalinclude:: _codesnippets/_MailTemplatePaths.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths'][700]
-        = 'EXT:my_site_package/Resources/Private/Templates/Email';
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths'][700]
-        = 'EXT:my_site_extension/Resources/Private/Layouts';
 
 ..  _mail-configuration-fluid-example:
 
@@ -146,16 +141,8 @@ smtp
 
 Example:
 
-..  code-block:: php
+..  literalinclude:: _codesnippets/_MailSmtpTransport.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt'] = true;
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username'] = 'johndoe';
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password'] = 'cooLSecret';
-    // Fetches all 'returning' emails:
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'bounces@example.org';
 
 
 
@@ -248,13 +235,8 @@ If multiple validators are provided, each validator must return :php:`true`.
 
 Example:
 
-..  code-block:: php
+..  literalinclude:: _codesnippets/_MailValidators.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] = [
-        \Egulias\EmailValidator\Validation\RFCValidation::class,
-        \Egulias\EmailValidator\Validation\DNSCheckValidation::class
-    ];
 
 
 ..  index::
@@ -364,22 +346,8 @@ Send email with `FluidEmail`
 This sends an email using a Fluid template :file:`TipsAndTricks.html`, make
 sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
-
-    use Symfony\Component\Mime\Address;
-    use TYPO3\CMS\Core\Mail\FluidEmail;
-    use TYPO3\CMS\Core\Mail\MailerInterface;
-
-    $email = new FluidEmail();
-    $email
-        ->to('contact@example.org')
-        ->from(new Address('jeremy@example.org', 'Jeremy'))
-        ->subject('TYPO3 loves you - here is why')
-        ->format(FluidEmail::FORMAT_BOTH) // send HTML and plaintext mail
-        ->setTemplate('TipsAndTricks')
-        ->assign('mySecretIngredient', 'Tomato and TypoScript');
-    GeneralUtility::makeInstance(MailerInterface::class)->send($email);
+..  literalinclude:: _codesnippets/_MyClassWithFluidEmail.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 It is recommended to use the :php:`\TYPO3\CMS\Core\Mail\MailerInterface`
 to be able to use :ref:`custom mailer implementations <register-custom-mailer>`.
