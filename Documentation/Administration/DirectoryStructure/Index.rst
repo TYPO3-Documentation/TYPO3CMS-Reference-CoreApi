@@ -367,8 +367,9 @@ Module "Directory Status" in the "Environment" module
 -----------------------------------------------------
 
 ..  versionchanged:: 14.0
-    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
-	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`.
+    See also: `Feature: #107628 - Improved backend module naming and structure
+    <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Alternatively, a system maintainer can go to :guilabel:`System > Environment > Directory Status`
 and recreate the missing folders with the necessary permissions
