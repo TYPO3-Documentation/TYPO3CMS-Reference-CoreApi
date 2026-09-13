@@ -1,6 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') or die();
 
 $temporaryColumn = [
@@ -24,4 +27,4 @@ $temporaryColumn = [
         ],
     ],
 ];
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
+ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);

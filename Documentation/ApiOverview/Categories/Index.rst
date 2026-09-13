@@ -106,7 +106,9 @@ Here is an example usage, taken from the RECORDS content object:
 .. code-block:: php
     :caption: EXT:frontend/Classes/ContentObject/RecordsContentObject.php (excerpt)
 
-   $collection = \TYPO3\CMS\Frontend\Category\Collection\CategoryCollection::load(
+   use TYPO3\CMS\Frontend\Category\Collection\CategoryCollection;
+
+   $collection = CategoryCollection::load(
       $aCategory,
       true,
       $table,

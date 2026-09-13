@@ -23,6 +23,9 @@ Consider the following code:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
+   use TYPO3\CMS\Core\Html\HtmlParser;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+
    $testHTML = '
       <DIV>
          <IMG src="welcome.gif">
@@ -46,7 +49,7 @@ Consider the following code:
    ';
 
       // Splitting HTML into blocks defined by <div> and <table> tags
-   $parseObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Html\HtmlParser::class);
+   $parseObj = GeneralUtility::makeInstance(HtmlParser::class);
    $result = $parseObj->splitIntoBlock('div,table', $testHTML);
 
 After loading some dummy HTML code into a variable, we create an instance of

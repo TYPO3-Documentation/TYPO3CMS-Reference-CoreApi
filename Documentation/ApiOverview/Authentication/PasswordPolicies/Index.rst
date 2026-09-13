@@ -123,7 +123,9 @@ string has to be supplied as password policy for frontend and backend context:
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    if (\TYPO3\CMS\Core\Core\Environment::getContext()->isDevelopment()) {
+    use TYPO3\CMS\Core\Core\Environment;
+
+    if (Environment::getContext()->isDevelopment()) {
         $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy'] = '';
         $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] = '';
     }

@@ -84,11 +84,15 @@ Example of bootstrapping the TYPO3 Backend:
 .. code-block:: php
     :caption: An entry script bootstrapping the backend
 
+   use TYPO3\CMS\Backend\Http\Application;
+   use TYPO3\CMS\Core\Core\Bootstrap;
+   use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
+
    // Set up the application for the backend
    call_user_func(function () {
        $classLoader = require dirname(__DIR__) . '/vendor/autoload.php';
-       \TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::run(1, \TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::REQUESTTYPE_BE);
-       \TYPO3\CMS\Core\Core\Bootstrap::init($classLoader)->get(\TYPO3\CMS\Backend\Http\Application::class)->run();
+       SystemEnvironmentBuilder::run(1, SystemEnvironmentBuilder::REQUESTTYPE_BE);
+       Bootstrap::init($classLoader)->get(Application::class)->run();
    });
 
 
@@ -318,7 +322,9 @@ In file :file:`config/system/additional.php`:
 .. code-block:: php
     :caption: config/system/additional.php
 
-   switch (\TYPO3\CMS\Core\Core\Environment::getContext()) {
+   use TYPO3\CMS\Core\Core\Environment;
+
+   switch (Environment::getContext()) {
       case 'Development':
          $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
          $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '*';
