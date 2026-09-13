@@ -1,5 +1,7 @@
 <?php
 
+use TYPO3\CMS\Core\Cache\Backend\RedisBackend;
+
 $redisHost = '127.0.0.1';
 $redisPort = 6379;
 $redisCaches = [
@@ -17,7 +19,7 @@ $redisCaches = [
 $redisDatabase = 0;
 foreach ($redisCaches as $name => $values) {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['backend']
-        = \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class;
+        = RedisBackend::class;
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options'] = [
         'database' => $redisDatabase++,
         'hostname' => $redisHost,
