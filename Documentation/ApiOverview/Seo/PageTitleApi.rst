@@ -166,6 +166,7 @@ the priorities for their project and can even have conditions in place.
 By default, the Core has the following setup:
 
 ..  literalinclude:: _PageTitleProvider/_core.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 The sorting of the providers is based on the :typoscript:`before` and
 :typoscript:`after` parameters. If you want a provider to be handled before a
@@ -177,6 +178,7 @@ to take priority over the :php-short:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitle
 you can change the order via TypoScript:
 
 ..  literalinclude:: _PageTitleProvider/_pageTitleProviders.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
 :typoscript:`record`) and, if this providers did not provide a title, the

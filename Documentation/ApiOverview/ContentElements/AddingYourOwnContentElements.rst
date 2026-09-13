@@ -105,6 +105,7 @@ You can use an existing `icon from the TYPO3 core
 own icon using the :ref:`Icon API <icon>`.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_icon.diff
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
 
 .. index:: Content element; Wizard
 .. _AddingCE-PageTSconfig:
@@ -126,6 +127,7 @@ display in the :guilabel:`New Content Element` wizard.
 It is also possible to define a description and an :ref:`icon <AddingCE-Icon>`:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_description.diff
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
 
 The content element wizard configuration is described in detail in
 :ref:`content-element-wizard`.

@@ -122,6 +122,7 @@ will be translated:
 The string in the translation file is defined like this:
 
 ..  literalinclude:: _php/locallang.xlf
+    :caption: EXT:my_extension/Resources/Private/Language/locallang.xlf
     :language: xml
     :emphasize-lines: 8
 
