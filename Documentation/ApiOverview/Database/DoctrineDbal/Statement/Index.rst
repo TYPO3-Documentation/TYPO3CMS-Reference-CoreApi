@@ -190,8 +190,8 @@ and executes it twice with different arguments.
     $pages = [];
     foreach ([24, 25] as $pageId) {
         // Bind $pageId value to the first (and in this case only) positional parameter
-	    $statement->bindValue(1, $pageId, Connection::PARAM_INT);
-	    $result = $statement->executeQuery();
+        $statement->bindValue(1, $pageId, Connection::PARAM_INT);
+        $result = $statement->executeQuery();
         $pages[] = $result->fetchAssociative();
         $result->free(); // free the resources for this result
     }

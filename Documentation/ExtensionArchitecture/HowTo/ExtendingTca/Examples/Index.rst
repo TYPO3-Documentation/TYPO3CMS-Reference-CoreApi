@@ -116,10 +116,10 @@ this, the new fields must be defined in the :file:`ext_tables.sql` file of the e
 .. code-block:: sql
    :caption: EXT:some_extension/ext_tables.sql
 
-	CREATE TABLE fe_users (
-		tx_examples_options int(11) DEFAULT '0' NOT NULL,
-		tx_examples_special varchar(255) DEFAULT '' NOT NULL
-	);
+   CREATE TABLE fe_users (
+       tx_examples_options int(11) DEFAULT '0' NOT NULL,
+       tx_examples_special varchar(255) DEFAULT '' NOT NULL
+   );
 
 
 .. note::
@@ -153,9 +153,9 @@ element types. First of all, we add its SQL definition in
 .. code-block:: sql
    :caption: EXT:some_extension/ext_tables.sql
 
-	CREATE TABLE tt_content (
-		tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
-	);
+   CREATE TABLE tt_content (
+       tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
+   );
 
 Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrides/tt_content.php`:
 
