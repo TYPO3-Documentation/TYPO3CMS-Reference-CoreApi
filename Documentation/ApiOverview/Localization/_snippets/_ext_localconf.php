@@ -12,3 +12,6 @@ $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']
 $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']
     ['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][]
         = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
+// The translation domain can be used as key instead of the file path
+$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['core.common'][]
+    = 'EXT:examples/Resources/Private/Language/custom.xlf';

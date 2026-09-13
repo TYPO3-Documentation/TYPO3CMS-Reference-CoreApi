@@ -109,6 +109,13 @@ Overriding or extending translations
     `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` has been moved
     to `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_.
 
+..  versionchanged:: 14.3
+    The overridden file can also be addressed by its
+    :ref:`translation domain <label-reference-domain>` instead of its path.
+    See `Important: #109672 - Translation domain syntax supported in
+    resourceOverrides
+    <https://docs.typo3.org/permalink/changelog:important-109672-1745000000>`_.
+
 Option `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_
 allows overriding XLIFF files. This applies to both translations and default
 (language = English) files.
@@ -133,8 +140,10 @@ The result can be seen in the backend:
 
 ..  attention::
     -   You only need to include the labels you want to override.
-    -   The path to the file to be overridden must be specified as
-        :file:`EXT:my_extension/...` and must end with `.xlf`.
+    -   The file to be overridden is addressed either by its
+        :ref:`translation domain <label-reference-domain>`, for example
+        `core.common`, or by a path that starts with
+        :file:`EXT:my_extension/...` and ends with `.xlf`.
 
 ..  attention::
     The following is a **known limitation**:
