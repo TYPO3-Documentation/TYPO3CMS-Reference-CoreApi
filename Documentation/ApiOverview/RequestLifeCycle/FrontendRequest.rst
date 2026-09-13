@@ -65,18 +65,8 @@ to find one.
 The following example demonstrates how to set up a basic frontend request with
 `applicationType` and `site` attributes:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Service/MyClass.php (excerpt)
-
-    use TYPO3\CMS\Core\Core\Bootstrap;
-    use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
-    use TYPO3\CMS\Core\Http\ServerRequest;
-    use TYPO3\CMS\Core\Site\SiteFinder;
-
-    $site = $this->siteFinder->getSiteByPageId(1);
-    $request = (new ServerRequest())
-        ->withAttribute('applicationType', SystemEnvironmentBuilder::REQUESTTYPE_FE)
-        ->withAttribute('site', $site);
+..  literalinclude:: _CodeSnippets/_MyClassCreatingARequest.php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 For a complete example on how to send a FluidEmail with a console command see
 `Example: Sending a FluidEmail via console command <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request-example>`_.
