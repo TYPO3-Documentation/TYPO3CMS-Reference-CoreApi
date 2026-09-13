@@ -37,4 +37,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Workspaces/AfterRecordPublishedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Workspaces\Event\IsReferenceConsideredForDependencyEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Workspaces/IsReferenceConsideredForDependencyEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
