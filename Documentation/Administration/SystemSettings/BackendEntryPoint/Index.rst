@@ -106,64 +106,39 @@ If you use a custom web server configuration you may adapt as follows.
 Apache configuration
 --------------------
 
-It is most important to rewrite all `typo3/*` requests to `/index.php`, but also
-`RewriteCond %{REQUEST_FILENAME} !-d` should be removed in order for a request
-to `/typo3/` to be directly served via `/index.php` instead of the removed
-entry point `/typo3/index.php`.
+It is most important to rewrite all `typo3/*` requests to `/index.php`. The
+conditions `RewriteCond %{REQUEST_FILENAME} !-d` and
+`RewriteCond %{REQUEST_FILENAME} !-l` should be removed as well, in order for a
+request to `/typo3/` to be directly served via `/index.php` instead of the
+removed entry point `/typo3/index.php`.
 
-Apache configuration before:
+..  code-block:: diff
+    :caption: typo3_root/public/.htaccess (migration)
 
-..  code-block:: apache
-    :caption: typo3_root/public/.htaccess (before)
-    :emphasize-lines: 2-4
+     RewriteCond %{REQUEST_FILENAME} !-f
+    -RewriteCond %{REQUEST_FILENAME} !-d
+    -RewriteCond %{REQUEST_FILENAME} !-l
+    -RewriteRule ^typo3/(.*)$ %{ENV:CWD}typo3/index.php [QSA,L]
+    +RewriteRule ^typo3/(.*)$ %{ENV:CWD}index.php [QSA,L]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule ^typo3/(.*)$ %{ENV:CWD}typo3/index.php [QSA,L]
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
-
-Apache configuration after:
-
-..  code-block:: apache
-    :caption: typo3_root/public/.htaccess (after)
-    :emphasize-lines: 2
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^typo3/(.*)$ %{ENV:CWD}index.php [QSA,L]
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
+     RewriteCond %{REQUEST_FILENAME} !-f
+     RewriteCond %{REQUEST_FILENAME} !-d
+     RewriteCond %{REQUEST_FILENAME} !-l
+     RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
 
 ..  _backend-entry-point-migration-nginx:
 
 NGINX configuration
 -------------------
 
-NGINX configuration before:
+The `try_files` directive of the `/typo3/` location has to point to the root
+entry point:
 
-.. code-block:: nginx
-    :caption: nginx-site-typo3.conf (before)
-   :emphasize-lines: 3
+..  code-block:: diff
+    :caption: nginx-site-typo3.conf (migration)
 
-    location /typo3/ {
-        absolute_redirect off;
-        try_files $uri /typo3/index.php$is_args$args;
-    }
-
-NGINX configuration after:
-
-.. code-block:: nginx
-    :caption: nginx-site-typo3.conf (after)
-   :emphasize-lines: 3
-
-    location /typo3/ {
-        absolute_redirect off;
-        try_files $uri /index.php$is_args$args;
-    }
+     location /typo3/ {
+         absolute_redirect off;
+    -    try_files $uri /typo3/index.php$is_args$args;
+    +    try_files $uri /index.php$is_args$args;
+     }
