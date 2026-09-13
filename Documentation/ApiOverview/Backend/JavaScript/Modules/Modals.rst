@@ -149,6 +149,7 @@ for example on an anchor element, which prevents the default behavior.
 Example:
 
 ..  literalinclude:: _Modals/_DataModal.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
 ..  _modules-modals-examples:
 
@@ -164,6 +165,7 @@ A basic modal (without anything special) can be created this way:
 A modal as warning with button:
 
 ..  literalinclude:: _Modals/_warning.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 A modal as warning:
 
@@ -179,6 +181,7 @@ As an alternative to the existing :js:`trigger` option, the option
 :js:`action` may be used with an instance of the previously mentioned modules.
 
 ..  literalinclude:: _Modals/_deferred-action.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 Activating any action disables all buttons in the modal. Once the action is
 done, the modal disappears automatically.
@@ -189,12 +192,14 @@ into the button.
 A modal with static backdrop:
 
 ..  literalinclude:: _Modals/_static_backdrop.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 Templates, using the HTML class :html:`.t3js-modal-trigger` to initialize
 a modal dialog are also able to use the new option by adding the
 :html:`data-static-backdrop` attribute to the corresponding element.
 
 ..  literalinclude:: _Modals/_StaticBackdrop.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
 ..  _modules-modals-html-content:
 
@@ -208,6 +213,7 @@ To render real HTML, pass a `lit` `html` template result
 as `content` instead of a string:
 
 ..  literalinclude:: _Modals/_html-content.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 ..  warning::
     `lit` only auto-escapes values inside `${}` expressions of the `html`
@@ -222,5 +228,7 @@ from `@typo3/core/lit-helper.js`. The label itself must first be made
 available to JavaScript via :php:`PageRenderer->addInlineLanguageLabel()`:
 
 ..  literalinclude:: _Modals/_HtmlContentLabel.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php (excerpt)
 
 ..  literalinclude:: _Modals/_html-content-translated.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js

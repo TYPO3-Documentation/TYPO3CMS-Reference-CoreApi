@@ -161,6 +161,7 @@ an unavailable response in that case. Otherwise the next middleware will be
 called, and its response is returned instead.
 
 ..  literalinclude:: _Middlewares/_NotAvailableMiddleware.php
+    :caption: EXT:my_extension/Classes/Middleware/NotAvailableMiddleware.php
 
 ..  index:: Request handling; Enriched request
 ..  _request-handling-enriching-request:
@@ -175,6 +176,7 @@ In order to do so, a new request is built with additional attributes, before
 calling the next request handler with the enhanced request.
 
 ..  literalinclude:: _Middlewares/_RequestEnrichingMiddleware.php
+    :caption: EXT:my_extension/Classes/Middleware/RequestEnrichingMiddleware.php
 
 ..  index:: Request handling; Enriched response
 ..  _request-handling-enriching-response:
@@ -194,6 +196,7 @@ Order of processing middlewares when enriching response is opposite
 to when middlewares are modifying the request.
 
 ..  literalinclude:: _Middlewares/_ResponseEnrichingMiddleware.php
+    :caption: EXT:my_extension/Classes/Middleware/ResponseEnrichingMiddleware.php
 
 ..  index:: Request handling; Configuration
 ..  _request-handling-configuring-middlewares:
