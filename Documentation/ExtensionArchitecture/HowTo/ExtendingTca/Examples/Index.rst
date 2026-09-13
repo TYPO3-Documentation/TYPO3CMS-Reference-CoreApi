@@ -25,10 +25,13 @@ Here is the complete code, taken from file
     :caption: EXT:examples/Configuration/TCA/Overrides/fe_users.php
 
    <?php
+
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
    defined('TYPO3') or die();
 
    // Add some fields to fe_users table to show TCA fields definitions
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users',
+   ExtensionManagementUtility::addTCAcolumns('fe_users',
       [
          'tx_examples_options' => [
             'exclude' => 0,
@@ -62,7 +65,7 @@ Here is the complete code, taken from file
          ],
       ]
    );
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+   ExtensionManagementUtility::addToAllTCAtypes(
       'fe_users',
       'tx_examples_options, tx_examples_special'
    );
@@ -159,7 +162,9 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
 .. code-block:: php
    :caption: EXT:some_extension/Configuration/TCA/Overrides/tt_content.php
 
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns(
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+   ExtensionManagementUtility::addTCAcolumns(
       'tt_content',
       [
          'tx_examples_noprint' => [
@@ -178,7 +183,7 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
          ],
       ]
    );
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+   ExtensionManagementUtility::addFieldsToPalette(
       'tt_content',
       'access',
       'tx_examples_noprint',
