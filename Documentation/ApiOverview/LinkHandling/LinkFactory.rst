@@ -210,22 +210,8 @@ Query parameters are appended to a page link either as a URL-encoded string
 via `additionalParams` or as an array via `queryParameters`. The array form
 also accepts nested arrays and saves the manual encoding:
 
-..  code-block:: php
+..  literalinclude:: _LinkFactory/_MyLinkServiceQueryParameters.php
     :caption: EXT:my_extension/Classes/Service/MyLinkService.php
-
-    $linkResult = $this->linkFactory->create(
-        'Read the article',
-        [
-            'parameter' => 't3://page?uid=42',
-            'queryParameters' => [
-                'tx_news' => [
-                    'action' => 'show',
-                    'id' => 123,
-                ],
-            ],
-        ],
-        $contentObjectRenderer,
-    );
 
 If both keys are set, they are merged with :php:`array_replace_recursive()`,
 so the values of `queryParameters` take precedence.
