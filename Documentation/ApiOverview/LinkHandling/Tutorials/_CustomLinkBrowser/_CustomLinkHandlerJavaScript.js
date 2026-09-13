@@ -12,7 +12,7 @@
  */
 
 import LinkBrowser
-	from "@typo3/backend/link-browser.js";
+  from "@typo3/backend/link-browser.js";
 
 /**
  * Module: @t3docs/examples/github_link_handler.js
@@ -20,20 +20,20 @@ import LinkBrowser
  */
 
 class GitHubLinkHandler {
-	constructor() {
-		var form_el = document.getElementById("lgithubform");
-		form_el.addEventListener("submit", function(event) {
-			event.preventDefault();
-			var value = document.getElementById('lgithub').value;
-			if (value === 't3://github?issue=') {
-				return;
-			}
-			if (value.indexOf('t3://github?issue=') === 0) {
-				value = value.substring(18);
-			}
-			LinkBrowser.finalizeFunction('t3://github?issue=' + value);
-		});
-	}
+  constructor() {
+    var form_el = document.getElementById("lgithubform");
+    form_el.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var value = document.getElementById('lgithub').value;
+      if (value === 't3://github?issue=') {
+        return;
+      }
+      if (value.indexOf('t3://github?issue=') === 0) {
+        value = value.substring(18);
+      }
+      LinkBrowser.finalizeFunction('t3://github?issue=' + value);
+    });
+  }
 }
 
 export default new GitHubLinkHandler();
