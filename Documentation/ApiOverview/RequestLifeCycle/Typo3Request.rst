@@ -36,26 +36,8 @@ The request object compatible with the PSR-7
 :ref:`Extbase controller <extbase-controller-action>` via the class property
 :php:`$this->request`:
 
-..  code-block:: php
+..  literalinclude:: _CodeSnippets/_MyController.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    final class MyController extends ActionController
-    {
-        // ...
-
-        public function myAction(): ResponseInterface
-        {
-            // ...
-
-            // Retrieve the language attribute via the request object
-            $language = $this->request->getAttribute('language');
-
-            // ...
-        }
-    }
 
 ..  _typo3-request-extbase-validator:
 
@@ -94,26 +76,8 @@ User function
 In a :ref:`TypoScript user function <t3tsref:cobj-user>` the request object
 is available as third parameter of the called class method:
 
-..  code-block:: php
+..  literalinclude:: _CodeSnippets/_MyUserFunction.php
     :caption: EXT:my_extension/Classes/UserFunction/MyUserFunction.php
-
-    use Psr\Http\Message\ServerRequestInterface;
-
-    final class MyUserFunction
-    {
-        public function doSomething(
-            string $content,
-            array $conf,
-            ServerRequestInterface $request
-        ): string {
-            // ...
-
-            // Retrieve the language attribute via the request object
-            $language = $request->getAttribute('language');
-
-            // ...
-        }
-    }
 
 ..  _typo3-request-data-processor:
 
@@ -125,25 +89,8 @@ reference to the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
 as first argument for the :php:`process()` method. This object provides a
 :php:`getRequest()` method:
 
-..  code-block:: php
+..  literalinclude:: _CodeSnippets/_MyProcessor.php
     :caption: EXT:my_extension/Classes/DataProcessing/MyProcessor.php
-
-    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-
-    final class MyProcessor implements DataProcessorInterface
-    {
-        public function process(
-            ContentObjectRenderer $cObj,
-            array $contentObjectConfiguration,
-            array $processorConfiguration,
-            array $processedData
-        ): array {
-            $request = $cObj->getRequest();
-
-            // ...
-        }
-    }
 
 ..  hint::
 
