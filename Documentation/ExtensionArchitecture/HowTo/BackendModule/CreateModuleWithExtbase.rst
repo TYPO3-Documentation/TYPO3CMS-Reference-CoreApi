@@ -50,8 +50,8 @@ controller:
     :php:`\TYPO3\CMS\Backend\Attribute\AsController` (php:`#[AsController]`) attribute.
 
 ..  versionchanged:: 14.0
-	The class alias for :php:`\TYPO3\CMS\Backend\Attribute\Controller` has been
-	removed. :php:`\TYPO3\CMS\Backend\Attribute\AsController` is still in place.
+    The class alias for :php:`\TYPO3\CMS\Backend\Attribute\Controller` has been
+    removed. :php:`\TYPO3\CMS\Backend\Attribute\AsController` is still in place.
 
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
@@ -87,7 +87,7 @@ TYPO3 even comes with a default Fluid layout, that can easily be used:
 
 .. code-block:: html
 
-	<f:layout name="Module" />
+    <f:layout name="Module" />
 
 and the actual Template needs to render the title and the content only.
 For example, here is an extract of the "Index" action template of
