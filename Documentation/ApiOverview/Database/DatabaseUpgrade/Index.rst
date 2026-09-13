@@ -50,6 +50,22 @@ and columns defined by installed or updated extensions:
 
             typo3/sysext/core/bin/typo3 extension:setup
 
+..  _database-upgrade-views:
+
+Tables that exist as views are ignored
+======================================
+
+..  versionchanged:: 13.4
+    Tables that exist as views are excluded from the comparison.
+    See `Important: #106546 - Tables that exist as views are ignored <https://docs.typo3.org/permalink/changelog:important-106546-1786385411>`_.
+
+A table declared in :file:`ext_tables.sql` or through TCA may exist as a view
+on the connection it is mapped to, which is a common way to make data from
+another system available to TYPO3. Such tables are excluded from the
+comparison on both sides: the database analyzer neither proposes to alter or
+drop the view, since TYPO3 does not own it, nor to create it, since the name
+is already taken.
+
 ..  _database-upgrade-add:
 
 Adding columns and tables is safe
