@@ -127,6 +127,9 @@ translation domains with their translations and label counts:
     # Filter by extension
     vendor/bin/typo3 language:domain:list --extension=backend
 
+    # Also list the files configured via resourceOverrides for each domain
+    vendor/bin/typo3 language:domain:list --show-overrides
+
 .. _translation-domain-mapping:
 
 Deterministic file-based translation domain mapping
