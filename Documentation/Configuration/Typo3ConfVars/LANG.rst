@@ -114,23 +114,10 @@ resourceOverrides
 
     The syntax is as follows:
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_LangResourceOverridesPath.php
         :caption: config/system/additional.php
-
-        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']
-            ['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][]
-                = 'EXT:examples/Resources/Private/Language/custom.xlf';
-        // Override a German ("de") translation
-        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']
-            ['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][]
-                = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
 
     The same overrides can be expressed with the translation domain as key:
 
-    ..  code-block:: php
-
-        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['core.common'][]
-            = 'EXT:examples/Resources/Private/Language/custom.xlf';
-        // Override a German ("de") translation
-        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['core.common'][]
-            = 'EXT:examples/Resources/Private/Language/Overrides/de.custom.xlf';
+    ..  literalinclude:: _codesnippets/_LangResourceOverridesDomain.php
+        :caption: config/system/additional.php

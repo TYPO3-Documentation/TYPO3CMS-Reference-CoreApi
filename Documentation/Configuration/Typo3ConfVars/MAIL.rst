@@ -201,23 +201,8 @@ This variable can be set in one of the following files:
 
             **Configuration Example for GSuite:**
 
-            ..  code-block:: php
-                :caption: `config/system/settings.php`
-
-                 return [
-                      //....
-                      'MAIL' => [
-                            'defaultMailFromAddress' => 'webserver@example.org',
-                            'defaultMailFromName' => 'SYSTEMMAIL',
-                            'transport' => 'smtp',
-                            'transport_smtp_domain' => 'example.org',
-                            'transport_smtp_encrypt' => '',
-                            'transport_smtp_password' => '',
-                            'transport_smtp_server' => 'smtp-relay.gmail.com:587',
-                            'transport_smtp_username' => '',
-                      ],
-                      //....
-                 ];
+            ..  literalinclude:: _codesnippets/_MailSmtpGsuite.php
+                :caption: config/system/settings.php
 
         ..  _typo3ConfVars_mail_transport_smtp_stream_options:
 
@@ -231,23 +216,8 @@ This variable can be set in one of the following files:
 
             Configuration Example:
 
-            ..  code-block:: php
-                :caption: config/system/additional.php | typo3conf/system/additional.php
-
-                 return [
-                      //....
-                      'MAIL' => [
-                            'transport' => 'smtp',
-                            'transport_smtp_server' => 'localhost:1025',
-                            'transport_smtp_stream_options' => [
-                                 'ssl' => [
-                                      'verify_peer' => false,
-                                      'verify_peer_name' => false,
-                                 ]
-                            ],
-                      ],
-                      //....
-                 ];
+            ..  literalinclude:: _codesnippets/_MailSmtpStreamOptions.php
+                :caption: config/system/settings.php
 
         ..  _typo3ConfVars_mail_transport_smtp_encrypt:
 

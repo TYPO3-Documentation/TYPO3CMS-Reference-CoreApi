@@ -1190,18 +1190,8 @@ allowedPhpDisableFunctions
 
     Examples:
 
-    ..  code-block:: php
+    ..  literalinclude:: _codesnippets/_SysRateLimiter.php
         :caption: config/system/additional.php | typo3conf/system/additional.php
-
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter']['login-be'] = [
-            'limit' => 3,
-            'interval' => '5 minutes',
-        ];
-
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter']['backend-password-recovery'] = [
-            'limit' => 1,
-            'interval' => '1 hour',
-        ];
 
     Known limiter IDs:
 
