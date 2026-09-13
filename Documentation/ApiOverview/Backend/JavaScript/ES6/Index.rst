@@ -60,6 +60,54 @@ In a Fluid template the `includeJavaScriptModules` property of the
 ..  literalinclude:: _BackendFluidTemplate.fluid.html
     :caption: EXT:my_extension/Resources/Private/Backend/Templates/SomeTemplate.fluid.html
 
+..  index:: JavaScript (Backend); Labels
+..  _backend-javascript-es6-labels:
+
+Importing language labels
+=========================
+
+..  versionadded:: 14.2
+    Language labels are available as virtual JavaScript modules. See
+    `Feature: #108941 - Provide language labels as virtual JavaScript modules
+    <https://docs.typo3.org/permalink/changelog:feature-108941-1770902109>`_.
+
+A JavaScript module imports the labels of a
+:ref:`translation domain <label-reference-domain>` directly, by using the
+virtual module prefix `~labels/` followed by the domain name. The imported
+object provides a `get()` method that resolves a label by its key:
+
+..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/my-module.js
+
+    import { html } from 'lit';
+    // Import the labels of the language domain "my_extension.messages"
+    import labels from '~labels/my_extension.messages';
+
+    html`<p>${labels.get('comment.saved')}</p>`
+
+Placeholders are substituted following the `ICU message format
+<https://unicode-org.github.io/icu/userguide/format_parse/messages/>`_. They
+are passed as the second argument, and a callback may be used to render a
+pseudo XML tag contained in the label:
+
+..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/my-module.js
+
+    // Label: File "{filename}" deleted
+    html`<p>${labels.get('file.deleted', { filename: 'my-file.txt' })}</p>`
+
+    // Label: File <bold>{filename}</bold> deleted
+    html`<p>${labels.get('file.deleted', {
+        filename: 'my-file.txt',
+        bold: chunks => html`<strong>${chunks}</strong>`,
+    })}</p>`
+
+Labels imported this way do not have to be pushed into the global
+:javascript:`TYPO3.lang` object by a controller beforehand, which makes it
+possible to write generic web components. The generated URLs are version and
+locale specific, so the labels can be cached by the user agent without
+explicit cache invalidation.
+
 ..  _backend-javascript-es6-tips-es6:
 
 Some tips on ES6
