@@ -423,12 +423,13 @@ password
 
 ..  confval:: password
     :name: caching-backend-redis-password
-    :type: string | array (deprecated)
+    :type: string
 
-    ..  deprecated:: 14.0
-        Setting this configuration option with an array is deprecated
-        and will be removed in 15.0. See `Deprecation: #107725 - Deprecate
-        usage of array in password for authentication in Redis cache backend <https://docs.typo3.org/permalink/changelog:deprecation-107725-1760807740>`_
+    ..  versionchanged:: 15.0
+        Setting this configuration option with an array is no longer
+        supported. Use the separate `username` and `password` options
+        instead. See `Breaking: #109783 - Deprecated functionality removed
+        <https://docs.typo3.org/permalink/changelog:breaking-109783-1776735296>`_
 
     Password used to connect to the redis instance if the redis server needs authentication.
 
