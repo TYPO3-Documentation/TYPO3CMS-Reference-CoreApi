@@ -150,6 +150,35 @@ formatSize
     Whether the size is formatted with :php:`GeneralUtility::formatSize()`.
 
 
+..  index:: Logging; RequestIdProcessor
+..  _logging-processors-requestid:
+
+`RequestIdProcessor`
+--------------------
+
+..  versionadded:: 15.0
+    The request ID is added to the log record by this processor instead of
+    being passed through the logger. See `Breaking: #110219 - Log request ID
+    provided by log processor
+    <https://docs.typo3.org/permalink/changelog:breaking-110219-1784306184>`_.
+
+The request ID processor
+:php:`\TYPO3\CMS\Core\Log\Processor\RequestIdProcessor` adds the unique ID of
+the current request to the log record, so that all entries written during a
+single request can be correlated.
+
+:php-short:`\TYPO3\CMS\Core\Log\LogManager` attaches this processor to every
+logger it creates, for all severity levels covered by the configured log
+writers. It is registered internally rather than through the
+:ref:`processor configuration <logging-configuration-processor>`, so
+overriding that configuration cannot remove the request ID from the log
+output.
+
+A logger that is instantiated manually, bypassing
+:php-short:`\TYPO3\CMS\Core\Log\LogManager`, writes log records without a
+request ID unless the processor is attached explicitly.
+
+
 ..  index:: Logging; Processors
 ..  _logging-processors-web:
 
