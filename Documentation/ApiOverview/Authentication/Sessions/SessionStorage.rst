@@ -109,8 +109,26 @@ The available options are:
 `database`
     The redis database number to use. Default: 0
 
+`username`
+    The username to use when connecting to the specified database. Requires
+    Redis 6.0 or later. Optional.
+
+    ..  versionadded:: 14.2
+
+        See `Feature: #107802 - Support username and password in Redis session
+        backend
+        <https://docs.typo3.org/permalink/changelog:feature-107802-1770827507>`_.
+
 `password`
     The password to use when connecting to the specified database. Optional.
+
+    ..  deprecated:: 14.2
+
+        Setting this option to an array with `user` and `pass` keys is
+        deprecated and will be removed in 15.0. Use the separate `username`
+        and `password` options instead. See `Deprecation: #107802 - Deprecate
+        usage of array in password for authentication in Redis session backend
+        <https://docs.typo3.org/permalink/changelog:deprecation-107802-1770827443>`_.
 
 `keyPrefix`
     Prefix added to all Redis keys used by this session backend. Allows the
