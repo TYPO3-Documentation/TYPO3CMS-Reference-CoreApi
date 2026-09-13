@@ -9,5 +9,5 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 class Entity extends AbstractEntity
 {
-    protected ChildEntity|LazyLoadingProxy $property;
+  protected ChildEntity|LazyLoadingProxy $property;
 }

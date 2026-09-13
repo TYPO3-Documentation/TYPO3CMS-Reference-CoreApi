@@ -9,17 +9,17 @@ use MyVendor\MyExtension\Repository\UserRepository;
 
 abstract class AbstractController
 {
-    protected ?Logger $logger = null;
+  protected ?Logger $logger = null;
 
-    public function injectLogger(Logger $logger)
-    {
-        $this->logger = $logger;
-    }
+  public function injectLogger(Logger $logger)
+  {
+    $this->logger = $logger;
+  }
 }
 
 final class UserController extends AbstractController
 {
-    public function __construct(
-        private readonly UserRepository $userRepository,
-    ) {}
+  public function __construct(
+    private readonly UserRepository $userRepository,
+  ) {}
 }

@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 #[Autoconfigure(public: true)]
 readonly class MyServiceUsingAutoconfigurePublicTrue
 {
-    public function __construct(
-        private SomeDependency $someDependency,
-    ) {}
+  public function __construct(
+    private SomeDependency $someDependency,
+  ) {}
 }

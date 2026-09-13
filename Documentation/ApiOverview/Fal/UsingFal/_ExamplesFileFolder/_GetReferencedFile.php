@@ -9,15 +9,15 @@ use TYPO3\CMS\Core\Resource\FileRepository;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly FileRepository $fileRepository,
-    ) {}
+  public function __construct(
+    private readonly FileRepository $fileRepository,
+  ) {}
 
-    public function doSomething(): void
-    {
-        /** @var FileReference[] $fileObjects */
-        $fileObjects = $this->fileRepository->findByRelation('pages', 'media', 42);
+  public function doSomething(): void
+  {
+    /** @var FileReference[] $fileObjects */
+    $fileObjects = $this->fileRepository->findByRelation('pages', 'media', 42);
 
-        // ... more logic
-    }
+    // ... more logic
+  }
 }

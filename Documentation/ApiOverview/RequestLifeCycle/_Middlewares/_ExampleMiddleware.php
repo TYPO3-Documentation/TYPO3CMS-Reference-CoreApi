@@ -14,27 +14,27 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final readonly class ExampleMiddleware implements MiddlewareInterface
 {
-    public function __construct(
-        private ResponseFactoryInterface $responseFactory,
-        private RequestFactoryInterface $requestFactory,
-        private ClientInterface $client,
-    ) {}
+  public function __construct(
+    private ResponseFactoryInterface $responseFactory,
+    private RequestFactoryInterface $requestFactory,
+    private ClientInterface $client,
+  ) {}
 
-    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
-    {
-        if ($request->getRequestTarget() === '/example') {
-            $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json');
-            // Perform HTTP request
-            $res = $this->client->sendRequest($req);
-            // Process data
-            $data = [
-                'content' => json_decode((string)$res->getBody()),
-            ];
-            $response = $this->responseFactory->createResponse()
-                ->withHeader('Content-Type', 'application/json; charset=utf-8');
-            $response->getBody()->write(json_encode($data));
-            return $response;
-        }
-        return $handler->handle($request);
+  public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+  {
+    if ($request->getRequestTarget() === '/example') {
+      $req = $this->requestFactory->createRequest('GET', 'https://api.external.app/endpoint.json');
+      // Perform HTTP request
+      $res = $this->client->sendRequest($req);
+      // Process data
+      $data = [
+        'content' => json_decode((string)$res->getBody()),
+      ];
+      $response = $this->responseFactory->createResponse()
+          ->withHeader('Content-Type', 'application/json; charset=utf-8');
+      $response->getBody()->write(json_encode($data));
+      return $response;
     }
+    return $handler->handle($request);
+  }
 }

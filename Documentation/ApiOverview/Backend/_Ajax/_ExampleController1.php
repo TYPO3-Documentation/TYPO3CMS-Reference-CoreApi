@@ -9,8 +9,8 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class ExampleController
 {
-    public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
-    {
-        // TODO: return ResponseInterface
-    }
+  public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
+  {
+    // TODO: return ResponseInterface
+  }
 }

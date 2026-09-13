@@ -6,6 +6,6 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
 
 // After
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] = [
-    '+profile',
-    '*',
+  '+profile',
+  '*',
 ];

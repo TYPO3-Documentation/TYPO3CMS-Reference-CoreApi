@@ -11,27 +11,27 @@ use TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface;
 
 final class MyLayoutDataProvider implements DataProviderInterface
 {
-    public function getIdentifier(): string
-    {
-        return 'my_provider';
-    }
+  public function getIdentifier(): string
+  {
+    return 'my_provider';
+  }
 
-    public function addBackendLayouts(
-        DataProviderContext $dataProviderContext,
-        BackendLayoutCollection $backendLayoutCollection,
-    ) {
-        // TODO implement
-    }
+  public function addBackendLayouts(
+    DataProviderContext $dataProviderContext,
+    BackendLayoutCollection $backendLayoutCollection,
+  ) {
+    // TODO implement
+  }
 
-    /**
-     * Gets a backend layout by (regular) identifier.
-     *
-     * @param string $identifier
-     * @param int $pageId
-     * @return BackendLayout|null
-     */
-    public function getBackendLayout($identifier, $pageId)
-    {
-        // TODO implement
-    }
+  /**
+   * Gets a backend layout by (regular) identifier.
+   *
+   * @param string $identifier
+   * @param int $pageId
+   * @return BackendLayout|null
+   */
+  public function getBackendLayout($identifier, $pageId)
+  {
+    // TODO implement
+  }
 }

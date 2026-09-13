@@ -12,16 +12,16 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class SomeController extends ActionController
 {
-    public function showAction(ExampleModel $example): ResponseInterface
-    {
-        // ...
+  public function showAction(ExampleModel $example): ResponseInterface
+  {
+    // ...
 
-        /** @var CacheDataCollector $cacheDataCollector */
-        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheDataCollector->addCacheTags(
-            new CacheTag(sprintf('tx_myextension_example_%d', $example->getUid())),
-        );
+    /** @var CacheDataCollector $cacheDataCollector */
+    $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+    $cacheDataCollector->addCacheTags(
+      new CacheTag(sprintf('tx_myextension_example_%d', $example->getUid())),
+    );
 
-        // ...
-    }
+    // ...
+  }
 }

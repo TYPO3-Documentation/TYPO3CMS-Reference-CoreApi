@@ -11,32 +11,32 @@ use TYPO3\CMS\Core\Registry;
 
 final class MyCommand extends Command
 {
-    private int $startTime;
+  private int $startTime;
 
-    public function __construct(
-        private readonly Registry $registry,
-    ) {
-        parent::__construct();
-    }
+  public function __construct(
+    private readonly Registry $registry,
+  ) {
+    parent::__construct();
+  }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $this->startTime = \time();
+  protected function execute(InputInterface $input, OutputInterface $output): int
+  {
+    $this->startTime = \time();
 
-        // ... some logic
+    // ... some logic
 
-        $this->writeIntoRegistry();
+    $this->writeIntoRegistry();
 
-        return Command::SUCCESS;
-    }
+    return Command::SUCCESS;
+  }
 
-    private function writeIntoRegistry(): void
-    {
-        $runInformation = [
-            'startTime' => $this->startTime,
-            'endTime' => time(),
-        ];
+  private function writeIntoRegistry(): void
+  {
+    $runInformation = [
+      'startTime' => $this->startTime,
+      'endTime' => time(),
+    ];
 
-        $this->registry->set('tx_myextension', 'lastRun', $runInformation);
-    }
+    $this->registry->set('tx_myextension', 'lastRun', $runInformation);
+  }
 }

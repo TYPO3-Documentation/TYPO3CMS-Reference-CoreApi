@@ -8,10 +8,10 @@ use MyVendor\MyExtension\Repository\UserRepository;
 
 final class UserController
 {
-    private ?UserRepository $userRepository = null;
+  private ?UserRepository $userRepository = null;
 
-    public function injectUserRepository(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
+  public function injectUserRepository(UserRepository $userRepository)
+  {
+    $this->userRepository = $userRepository;
+  }
 }

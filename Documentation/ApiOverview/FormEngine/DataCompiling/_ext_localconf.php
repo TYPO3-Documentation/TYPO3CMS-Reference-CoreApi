@@ -10,10 +10,10 @@ defined('TYPO3') or die();
 
 // Inject a data provider between TcaFlexPrepare and TcaFlexProcess
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['formDataGroup']['tcaDatabaseRecord'][NewsFlexFormManipulation::class] = [
-    'depends' => [
-        TcaFlexPrepare::class,
-    ],
-    'before' => [
-        TcaFlexProcess::class,
-    ],
+  'depends' => [
+    TcaFlexPrepare::class,
+  ],
+  'before' => [
+    TcaFlexProcess::class,
+  ],
 ];

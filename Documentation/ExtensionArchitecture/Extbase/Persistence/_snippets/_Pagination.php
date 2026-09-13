@@ -10,20 +10,20 @@ use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 
 class ConferenceController extends ActionController
 {
-    public function __construct(
-        protected readonly ConferenceRepository $conferenceRepository,
-    ) {}
+  public function __construct(
+    protected readonly ConferenceRepository $conferenceRepository,
+  ) {}
 
-    public function listAction(int $currentPage = 1): ResponseInterface
-    {
-        $conferences = $this->conferenceRepository->findAll();
-        $paginator = new QueryResultPaginator($conferences, $currentPage, 10);
-        $pagination = new SimplePagination($paginator);
+  public function listAction(int $currentPage = 1): ResponseInterface
+  {
+    $conferences = $this->conferenceRepository->findAll();
+    $paginator = new QueryResultPaginator($conferences, $currentPage, 10);
+    $pagination = new SimplePagination($paginator);
 
-        $this->view->assignMultiple([
-            'paginator' => $paginator,
-            'pagination' => $pagination,
-        ]);
-        return $this->htmlResponse();
-    }
+    $this->view->assignMultiple([
+      'paginator' => $paginator,
+      'pagination' => $pagination,
+    ]);
+    return $this->htmlResponse();
+  }
 }

@@ -6,14 +6,14 @@ namespace MyVendor\MyExtension\Enum;
 
 enum Status: string
 {
-    case DRAFT = 'draft';
-    case IN_REVIEW = 'in-review';
-    case PUBLISHED = 'published';
+  case DRAFT = 'draft';
+  case IN_REVIEW = 'in-review';
+  case PUBLISHED = 'published';
 
-    public const LLL_PREFIX = 'my_extension.messages:status-';
+  public const LLL_PREFIX = 'my_extension.messages:status-';
 
-    public function getLabel(): string
-    {
-        return self::LLL_PREFIX . $this->value;
-    }
+  public function getLabel(): string
+  {
+    return self::LLL_PREFIX . $this->value;
+  }
 }

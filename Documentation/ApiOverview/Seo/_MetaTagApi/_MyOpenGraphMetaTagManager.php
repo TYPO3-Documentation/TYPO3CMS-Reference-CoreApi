@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\MetaTag\AbstractMetaTagManager;
 #[AsMetaTagManager(identifier: 'myOwnOpenGraphManager', before: ['opengraph'])]
 final class MyOpenGraphMetaTagManager extends AbstractMetaTagManager
 {
-    protected $handledProperties = [
-        'og:title' => [],
-    ];
+  protected $handledProperties = [
+    'og:title' => [],
+  ];
 }

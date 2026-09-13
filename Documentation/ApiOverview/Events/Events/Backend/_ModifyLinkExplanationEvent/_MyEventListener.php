@@ -10,25 +10,25 @@ use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Imaging\IconSize;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-link-explanation',
+  identifier: 'my-extension/backend/modify-link-explanation',
 )]
 final readonly class MyEventListener
 {
-    public function __construct(
-        private IconFactory $iconFactory,
-    ) {}
+  public function __construct(
+    private IconFactory $iconFactory,
+  ) {}
 
-    public function __invoke(ModifyLinkExplanationEvent $event): void
-    {
-        // Use a custom icon for a custom link type
-        if ($event->getLinkData()['type'] === 'myCustomLinkType') {
-            $event->setLinkExplanationValue(
-                'icon',
-                $this->iconFactory->getIcon(
-                    'my-custom-link-icon',
-                    IconSize::SMALL,
-                )->render(),
-            );
-        }
+  public function __invoke(ModifyLinkExplanationEvent $event): void
+  {
+    // Use a custom icon for a custom link type
+    if ($event->getLinkData()['type'] === 'myCustomLinkType') {
+      $event->setLinkExplanationValue(
+        'icon',
+        $this->iconFactory->getIcon(
+          'my-custom-link-icon',
+          IconSize::SMALL,
+        )->render(),
+      );
     }
+  }
 }

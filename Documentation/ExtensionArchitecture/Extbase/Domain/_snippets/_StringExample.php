@@ -9,29 +9,29 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class StringExample extends AbstractEntity
 {
-    #[Validate(
-        validator: 'StringLength',
-        options: ['maximum' => 255],
-    )]
-    protected string $title = '';
+  #[Validate(
+    validator: 'StringLength',
+    options: ['maximum' => 255],
+  )]
+  protected string $title = '';
 
-    public ?string $subtitle = null;
+  public ?string $subtitle = null;
 
-    protected string $description = '';
+  protected string $description = '';
 
-    protected string $icon = 'fa-solid fa-star';
+  protected string $icon = 'fa-solid fa-star';
 
-    #[Validate(validator: 'MyColorValidator')]
-    protected string $color = '#ffffff';
+  #[Validate(validator: 'MyColorValidator')]
+  protected string $color = '#ffffff';
 
-    #[Validate(validator: 'EmailAddress')]
-    protected string $email = '';
+  #[Validate(validator: 'EmailAddress')]
+  protected string $email = '';
 
-    protected string $passwordHash = '';
+  protected string $passwordHash = '';
 
-    #[Validate(
-        validator: 'StringLength',
-        options: ['maximum' => 255],
-    )]
-    protected string $virtualValue = '';
+  #[Validate(
+    validator: 'StringLength',
+    options: ['maximum' => 255],
+  )]
+  protected string $virtualValue = '';
 }

@@ -12,31 +12,31 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly StorageRepository $storageRepository,
-    ) {}
+  public function __construct(
+    private readonly StorageRepository $storageRepository,
+  ) {}
 
-    public function doSomething(): void
-    {
-        $storageUid = 17;
-        $someFileIdentifier = 'templates/images/banner.jpg';
-        $someFolderIdentifier = 'website/images/';
+  public function doSomething(): void
+  {
+    $storageUid = 17;
+    $someFileIdentifier = 'templates/images/banner.jpg';
+    $someFolderIdentifier = 'website/images/';
 
-        $storage = $this->storageRepository->getStorageObject($storageUid);
+    $storage = $this->storageRepository->getStorageObject($storageUid);
 
-        /** @var File $file */
-        $file = $storage->getFile($someFileIdentifier);
+    /** @var File $file */
+    $file = $storage->getFile($someFileIdentifier);
 
-        try {
-            /** @var Folder|InaccessibleFolder $folder */
-            $folder = $storage->getFolder($someFolderIdentifier);
+    try {
+      /** @var Folder|InaccessibleFolder $folder */
+      $folder = $storage->getFolder($someFolderIdentifier);
 
-            /** @var File $copiedFile The new, copied file */
-            $copiedFile = $file->copyTo($folder);
-        } catch (InsufficientFolderAccessPermissionsException|\RuntimeException $e) {
-            // ... do some exception handling
-        }
-
-        // ... more logic
+      /** @var File $copiedFile The new, copied file */
+      $copiedFile = $file->copyTo($folder);
+    } catch (InsufficientFolderAccessPermissionsException|\RuntimeException $e) {
+      // ... do some exception handling
     }
+
+    // ... more logic
+  }
 }

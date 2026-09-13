@@ -8,9 +8,9 @@ use Psr\Clock\ClockInterface;
 
 final class MyServiceUsingClockInterface
 {
-    public function __construct(
-        private readonly ClockInterface $clock,
-    ) {}
+  public function __construct(
+    private readonly ClockInterface $clock,
+  ) {}
 
-    // ...
+  // ...
 }

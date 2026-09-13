@@ -8,17 +8,17 @@ use TYPO3\CMS\Core\Context\Context;
 
 final class MyController
 {
-    public function __construct(
-        private readonly Context $context,
-    ) {}
+  public function __construct(
+    private readonly Context $context,
+  ) {}
 
-    public function doSomething(): void
-    {
-        $currentTimestamp = $this->context->getPropertyFromAspect(
-            'date',
-            'timestamp',
-        );
+  public function doSomething(): void
+  {
+    $currentTimestamp = $this->context->getPropertyFromAspect(
+      'date',
+      'timestamp',
+    );
 
-        // ... do something with $currentTimestamp
-    }
+    // ... do something with $currentTimestamp
+  }
 }

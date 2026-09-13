@@ -3,20 +3,20 @@
 use TYPO3\CMS\Core\Cache\Backend\RedisBackend;
 
 return [
+  // ...
+  'SYS' => [
     // ...
-    'SYS' => [
+    'caching' => [
+      // ...
+      'cacheConfigurations' => [
         // ...
-        'caching' => [
-            // ...
-            'cacheConfigurations' => [
-                // ...
-                'pages' => [
-                    'backend' => RedisBackend::class,
-                    'options' => [
-                        'database' => 42,
-                    ],
-                ],
-            ],
+        'pages' => [
+          'backend' => RedisBackend::class,
+          'options' => [
+            'database' => 42,
+          ],
         ],
+      ],
     ],
+  ],
 ];

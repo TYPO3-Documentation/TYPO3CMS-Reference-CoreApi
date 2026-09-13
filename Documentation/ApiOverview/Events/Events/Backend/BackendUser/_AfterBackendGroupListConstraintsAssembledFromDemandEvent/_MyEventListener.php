@@ -9,9 +9,9 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 final readonly class MyEventListener
 {
-    #[AsEventListener]
-    public function __invoke(AfterBackendGroupListConstraintsAssembledFromDemandEvent $event): void
-    {
-        $event->constraints[] = $event->query->eq('workspace_perms', 1);
-    }
+  #[AsEventListener]
+  public function __invoke(AfterBackendGroupListConstraintsAssembledFromDemandEvent $event): void
+  {
+    $event->constraints[] = $event->query->eq('workspace_perms', 1);
+  }
 }

@@ -7,29 +7,29 @@ use TYPO3\CMS\Backend\Template\ModuleTemplate;
 
 class BackendController extends ActionController
 {
-    protected function initializeModuleTemplate(
-        ServerRequestInterface $request,
-    ): ModuleTemplate {
-        $view = $this->moduleTemplateFactory->create($request);
+  protected function initializeModuleTemplate(
+    ServerRequestInterface $request,
+  ): ModuleTemplate {
+    $view = $this->moduleTemplateFactory->create($request);
 
-        $context = '';
-        $this->modifyDocHeaderComponent($view, $context);
-        $view->setFlashMessageQueue($this->getFlashMessageQueue());
-        $view->setTitle(
-            $this->getLanguageService()->sL('blog_example.module.mod:mlang_tabs_tab'),
-            $context,
-        );
+    $context = '';
+    $this->modifyDocHeaderComponent($view, $context);
+    $view->setFlashMessageQueue($this->getFlashMessageQueue());
+    $view->setTitle(
+      $this->getLanguageService()->sL('blog_example.module.mod:mlang_tabs_tab'),
+      $context,
+    );
 
-        return $view;
+    return $view;
+  }
+
+  public function showPostAction(Post $post): ResponseInterface
+  {
+    if (!$this->isCurrentPageSysfolder()) {
+      return $this->redirect('index');
     }
-
-    public function showPostAction(Post $post): ResponseInterface
-    {
-        if (!$this->isCurrentPageSysfolder()) {
-            return $this->redirect('index');
-        }
-        $view = $this->initializeModuleTemplate($this->request);
-        $view->assign('post', $post);
-        return $view->renderResponse('ShowPost');
-    }
+    $view = $this->initializeModuleTemplate($this->request);
+    $view->assign('post', $post);
+    return $view->renderResponse('ShowPost');
+  }
 }

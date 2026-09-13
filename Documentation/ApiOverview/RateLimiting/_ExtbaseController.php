@@ -10,13 +10,13 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class MyController extends ActionController
 {
-    #[RateLimit(
-        limit: 5,
-        interval: '10 minutes',
-        message: 'ratelimit.dosomething',
-    )]
-    public function doSomethingAction(): ResponseInterface
-    {
-        return $this->redirect('index');
-    }
+  #[RateLimit(
+    limit: 5,
+    interval: '10 minutes',
+    message: 'ratelimit.dosomething',
+  )]
+  public function doSomethingAction(): ResponseInterface
+  {
+    return $this->redirect('index');
+  }
 }

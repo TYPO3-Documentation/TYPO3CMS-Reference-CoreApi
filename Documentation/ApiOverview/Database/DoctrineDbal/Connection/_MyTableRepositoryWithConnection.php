@@ -8,12 +8,12 @@ use TYPO3\CMS\Core\Database\Connection;
 
 final class MyTableRepository
 {
-    public function __construct(
-        private readonly Connection $connection,
-    ) {}
+  public function __construct(
+    private readonly Connection $connection,
+  ) {}
 
-    public function findSomething()
-    {
-        // Here you can use $this->connection directly
-    }
+  public function findSomething()
+  {
+    // Here you can use $this->connection directly
+  }
 }
