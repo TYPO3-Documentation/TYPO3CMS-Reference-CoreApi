@@ -8,10 +8,10 @@ use MyVendor\MyExtension\Service\MyServiceInterface;
 
 class MyThirdController
 {
-    private MyServiceInterface $myService;
+  private MyServiceInterface $myService;
 
-    public function injectMyService(MyServiceInterface $myService): void
-    {
-        $this->myService = $myService;
-    }
+  public function injectMyService(MyServiceInterface $myService): void
+  {
+    $this->myService = $myService;
+  }
 }

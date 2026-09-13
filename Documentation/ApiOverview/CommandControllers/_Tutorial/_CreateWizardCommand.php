@@ -15,44 +15,44 @@ use T3docs\Examples\Exception\InvalidWizardException;
 use TYPO3\CMS\Core\Attribute\AsNonSchedulableCommand;
 
 #[AsCommand(
-    name: 'myextension:createwizard',
+  name: 'myextension:createwizard',
 )]
 #[AsNonSchedulableCommand]
 final class CreateWizardCommand extends Command
 {
-    protected function configure(): void
-    {
-        $this
-            ->setHelp('This command accepts arguments')
-            ->addArgument(
-                'wizardName',
-                InputArgument::OPTIONAL,
-                'The wizard\'s name',
-            )
-            ->addOption(
-                'brute-force',
-                'b',
-                InputOption::VALUE_NONE,
-                'Allow the "Wizard of Oz". You can use --brute-force or -b when running command',
-            );
+  protected function configure(): void
+  {
+    $this
+        ->setHelp('This command accepts arguments')
+        ->addArgument(
+          'wizardName',
+          InputArgument::OPTIONAL,
+          'The wizard\'s name',
+        )
+        ->addOption(
+          'brute-force',
+          'b',
+          InputOption::VALUE_NONE,
+          'Allow the "Wizard of Oz". You can use --brute-force or -b when running command',
+        );
+  }
+  protected function execute(
+    InputInterface $input,
+    OutputInterface $output,
+  ): int {
+    $io = new SymfonyStyle($input, $output);
+    $wizardName = $input->getArgument('wizardName');
+    $bruteForce = (bool)$input->getOption('brute-force');
+    try {
+      $this->doMagic($io, $wizardName, $bruteForce);
+    } catch (InvalidWizardException) {
+      return Command::FAILURE;
     }
-    protected function execute(
-        InputInterface $input,
-        OutputInterface $output,
-    ): int {
-        $io = new SymfonyStyle($input, $output);
-        $wizardName = $input->getArgument('wizardName');
-        $bruteForce = (bool)$input->getOption('brute-force');
-        try {
-            $this->doMagic($io, $wizardName, $bruteForce);
-        } catch (InvalidWizardException) {
-            return Command::FAILURE;
-        }
-        return Command::SUCCESS;
-    }
+    return Command::SUCCESS;
+  }
 
-    private function doMagic(SymfonyStyle $io, mixed $wizardName, bool $bruteForce): void
-    {
-        // do your magic here
-    }
+  private function doMagic(SymfonyStyle $io, mixed $wizardName, bool $bruteForce): void
+  {
+    // do your magic here
+  }
 }

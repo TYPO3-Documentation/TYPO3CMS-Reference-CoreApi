@@ -9,25 +9,25 @@ use TYPO3\CMS\Core\RateLimiter\RateLimiterFactoryInterface;
 
 final readonly class MyService
 {
-    public function __construct(
-        private RateLimiterFactoryInterface $rateLimiterFactory,
-    ) {}
+  public function __construct(
+    private RateLimiterFactoryInterface $rateLimiterFactory,
+  ) {}
 
-    public function doSomething(ServerRequestInterface $request): void
-    {
-        $limiter = $this->rateLimiterFactory->createRequestBasedLimiter(
-            $request,
-            [
-                'id' => 'my-extension-action',
-                'policy' => 'sliding_window',
-                'limit' => 10,
-                'interval' => '1 hour',
-            ],
-        );
+  public function doSomething(ServerRequestInterface $request): void
+  {
+    $limiter = $this->rateLimiterFactory->createRequestBasedLimiter(
+      $request,
+      [
+        'id' => 'my-extension-action',
+        'policy' => 'sliding_window',
+        'limit' => 10,
+        'interval' => '1 hour',
+      ],
+    );
 
-        $limit = $limiter->consume();
-        if (!$limit->isAccepted()) {
-            // handle rate limit exceeded
-        }
+    $limit = $limiter->consume();
+    if (!$limit->isAccepted()) {
+      // handle rate limit exceeded
     }
+  }
 }

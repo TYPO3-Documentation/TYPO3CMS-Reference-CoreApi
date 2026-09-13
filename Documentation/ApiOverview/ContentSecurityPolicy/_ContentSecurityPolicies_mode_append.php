@@ -12,22 +12,22 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
 use TYPO3\CMS\Core\Type\Map;
 
 return Map::fromEntries([
-    Scope::frontend(),
-    new MutationCollection(
-        new Mutation(
-            MutationMode::Set,
-            Directive::DefaultSrc,
-            SourceKeyword::self,
-        ),
-        new Mutation(
-            MutationMode::Set,
-            Directive::ImgSrc,
-            new UriValue('example.org'),
-        ),
-        new Mutation(
-            MutationMode::Append,
-            Directive::ImgSrc,
-            new UriValue('example.com'),
-        ),
+  Scope::frontend(),
+  new MutationCollection(
+    new Mutation(
+      MutationMode::Set,
+      Directive::DefaultSrc,
+      SourceKeyword::self,
     ),
+    new Mutation(
+      MutationMode::Set,
+      Directive::ImgSrc,
+      new UriValue('example.org'),
+    ),
+    new Mutation(
+      MutationMode::Append,
+      Directive::ImgSrc,
+      new UriValue('example.com'),
+    ),
+  ),
 ]);

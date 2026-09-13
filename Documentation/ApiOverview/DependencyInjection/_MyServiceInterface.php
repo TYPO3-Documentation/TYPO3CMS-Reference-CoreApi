@@ -6,5 +6,5 @@ namespace MyVendor\MyExtension\Service;
 
 interface MyServiceInterface
 {
-    public function foo();
+  public function foo();
 }

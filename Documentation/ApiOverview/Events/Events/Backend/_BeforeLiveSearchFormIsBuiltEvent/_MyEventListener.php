@@ -9,12 +9,12 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 final class BeforeLiveSearchFormIsBuiltEventListener
 {
-    #[AsEventListener('my-package/backend/search/modify-live-search-form-data')]
-    public function __invoke(BeforeLiveSearchFormIsBuiltEvent $event): void
-    {
-        $event->addHints(...[
-            'my_package.messages:identifier',
-        ]);
-        $event->setAdditionalViewData(['myVariable' => 'some data']);
-    }
+  #[AsEventListener('my-package/backend/search/modify-live-search-form-data')]
+  public function __invoke(BeforeLiveSearchFormIsBuiltEvent $event): void
+  {
+    $event->addHints(...[
+      'my_package.messages:identifier',
+    ]);
+    $event->setAdditionalViewData(['myVariable' => 'some data']);
+  }
 }

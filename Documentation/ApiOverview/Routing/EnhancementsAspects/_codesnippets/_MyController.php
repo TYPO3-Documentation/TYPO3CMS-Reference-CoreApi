@@ -10,12 +10,12 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class MyController extends ActionController
 {
-    public function showAction(?MyModel $myModel = null): ResponseInterface
-    {
-        if ($myModel === null) {
-            return $this->redirect('somethingElse');
-        }
-
-        return $this->htmlResponse();
+  public function showAction(?MyModel $myModel = null): ResponseInterface
+  {
+    if ($myModel === null) {
+      return $this->redirect('somethingElse');
     }
+
+    return $this->htmlResponse();
+  }
 }

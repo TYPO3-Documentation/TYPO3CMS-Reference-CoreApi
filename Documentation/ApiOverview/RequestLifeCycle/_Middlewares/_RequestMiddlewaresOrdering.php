@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'frontend' => [
-        'middleware-identifier' => [
-            'after' => [
-                'another-middleware-identifier',
-            ],
-            'before' => [
-                '3rd-middleware-identifier',
-            ],
-        ],
+  'frontend' => [
+    'middleware-identifier' => [
+      'after' => [
+        'another-middleware-identifier',
+      ],
+      'before' => [
+        '3rd-middleware-identifier',
+      ],
     ],
+  ],
 ];

@@ -12,13 +12,13 @@ use Doctrine\DBAL\Driver\Middleware\AbstractDriverMiddleware;
 
 final class CustomDriver extends AbstractDriverMiddleware
 {
-    public function connect(#[\SensitiveParameter] array $params): DriverConnection
-    {
-        $connection = parent::connect($params);
+  public function connect(#[\SensitiveParameter] array $params): DriverConnection
+  {
+    $connection = parent::connect($params);
 
-        // Do something custom on connect, for example wrapping the driver
-        // connection class or executing some queries on connect.
+    // Do something custom on connect, for example wrapping the driver
+    // connection class or executing some queries on connect.
 
-        return $connection;
-    }
+    return $connection;
+  }
 }

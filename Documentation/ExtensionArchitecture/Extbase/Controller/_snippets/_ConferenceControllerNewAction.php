@@ -12,20 +12,20 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ConferenceController extends ActionController
 {
-    public function __construct(
-        protected readonly ConferenceRepository $conferenceRepository,
-    ) {}
+  public function __construct(
+    protected readonly ConferenceRepository $conferenceRepository,
+  ) {}
 
-    public function newAction(?Conference $conference = null): ResponseInterface
-    {
-        $this->view->assign('conference', $conference ?? new Conference());
-        return $this->htmlResponse();
-    }
+  public function newAction(?Conference $conference = null): ResponseInterface
+  {
+    $this->view->assign('conference', $conference ?? new Conference());
+    return $this->htmlResponse();
+  }
 
-    public function createAction(Conference $conference): ResponseInterface
-    {
-        $this->conferenceRepository->add($conference);
-        $this->addFlashMessage('Conference created.', severity: ContextualFeedbackSeverity::OK);
-        return $this->redirect('list');
-    }
+  public function createAction(Conference $conference): ResponseInterface
+  {
+    $this->conferenceRepository->add($conference);
+    $this->addFlashMessage('Conference created.', severity: ContextualFeedbackSeverity::OK);
+    return $this->redirect('list');
+  }
 }

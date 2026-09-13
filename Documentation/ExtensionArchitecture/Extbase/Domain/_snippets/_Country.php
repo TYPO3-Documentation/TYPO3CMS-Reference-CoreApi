@@ -9,15 +9,15 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Tea extends AbstractEntity
 {
-    protected ?Country $countryOfOrigin = null;
+  protected ?Country $countryOfOrigin = null;
 
-    public function getCountryOfOrigin(): ?Country
-    {
-        return $this->countryOfOrigin;
-    }
+  public function getCountryOfOrigin(): ?Country
+  {
+    return $this->countryOfOrigin;
+  }
 
-    public function setCountryOfOrigin(?Country $countryOfOrigin): void
-    {
-        $this->countryOfOrigin = $countryOfOrigin;
-    }
+  public function setCountryOfOrigin(?Country $countryOfOrigin): void
+  {
+    $this->countryOfOrigin = $countryOfOrigin;
+  }
 }

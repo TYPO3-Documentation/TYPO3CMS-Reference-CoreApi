@@ -11,7 +11,7 @@ defined('TYPO3') or die();
 
 // Register language-aware FlexForm handling in FormEngine
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1443361297] = [
-    'nodeName' => 'flex',
-    'priority' => 40,
-    'class' => FlexFormEntryContainer::class,
+  'nodeName' => 'flex',
+  'priority' => 40,
+  'class' => FlexFormEntryContainer::class,
 ];

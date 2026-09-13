@@ -9,24 +9,24 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class FormInlineAjaxControllerTest extends UnitTestCase
 {
-    #[Test]
-    public function getInlineExpandCollapseStateArraySwitchesToFallbackIfTheBackendUserDoesNotHaveAnUCInlineViewProperty(): void
-    {
-        $backendUser =
-            $this->createMock(BackendUserAuthentication::class);
+  #[Test]
+  public function getInlineExpandCollapseStateArraySwitchesToFallbackIfTheBackendUserDoesNotHaveAnUCInlineViewProperty(): void
+  {
+    $backendUser =
+        $this->createMock(BackendUserAuthentication::class);
 
-        $mockObject = $this->getAccessibleMock(
-            FormInlineAjaxController::class,
-            ['getBackendUserAuthentication'],
-            [],
-            '',
-            false,
-        );
-        $mockObject->method('getBackendUserAuthentication')
-            ->willReturn($backendUser);
-        $result = $mockObject
-            ->_call('getInlineExpandCollapseStateArray');
+    $mockObject = $this->getAccessibleMock(
+      FormInlineAjaxController::class,
+      ['getBackendUserAuthentication'],
+      [],
+      '',
+      false,
+    );
+    $mockObject->method('getBackendUserAuthentication')
+        ->willReturn($backendUser);
+    $result = $mockObject
+        ->_call('getInlineExpandCollapseStateArray');
 
-        self::assertEmpty($result);
-    }
+    self::assertEmpty($result);
+  }
 }

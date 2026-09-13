@@ -10,18 +10,18 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class MyLaterMiddleware implements MiddlewareInterface
 {
-    public function process(
-        ServerRequestInterface $request,
-        RequestHandlerInterface $handler,
-    ): ResponseInterface {
-        // Get the attribute
-        $cacheInstruction = $request->getAttribute('frontend.cache.instruction');
+  public function process(
+    ServerRequestInterface $request,
+    RequestHandlerInterface $handler,
+  ): ResponseInterface {
+    // Get the attribute
+    $cacheInstruction = $request->getAttribute('frontend.cache.instruction');
 
-        // Disable the cache and give a reason
-        $cacheInstruction->disableCache('EXT:my-extension: My-reason disables caches.');
+    // Disable the cache and give a reason
+    $cacheInstruction->disableCache('EXT:my-extension: My-reason disables caches.');
 
-        // ... more logic
+    // ... more logic
 
-        return $handler->handle($request);
-    }
+    return $handler->handle($request);
+  }
 }

@@ -9,7 +9,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Paper extends AbstractEntity
 {
-    protected Status $status = Status::DRAFT;
+  protected Status $status = Status::DRAFT;
 
-    // ... more properties
+  // ... more properties
 }

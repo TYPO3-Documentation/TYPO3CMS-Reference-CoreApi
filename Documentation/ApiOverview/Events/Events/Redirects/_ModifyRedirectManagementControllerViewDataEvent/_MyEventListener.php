@@ -8,18 +8,18 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Redirects\Event\ModifyRedirectManagementControllerViewDataEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-redirect-management-controller-view-data',
+  identifier: 'my-extension/modify-redirect-management-controller-view-data',
 )]
 final readonly class MyEventListener
 {
-    public function __invoke(ModifyRedirectManagementControllerViewDataEvent $event): void
-    {
-        $hosts = $event->getHosts();
+  public function __invoke(ModifyRedirectManagementControllerViewDataEvent $event): void
+  {
+    $hosts = $event->getHosts();
 
-        // Remove wildcard host from list
-        $hosts = array_filter($hosts, static fn($host) => $host['name'] !== '*');
+    // Remove wildcard host from list
+    $hosts = array_filter($hosts, static fn($host) => $host['name'] !== '*');
 
-        // Update changed hosts list
-        $event->setHosts($hosts);
-    }
+    // Update changed hosts list
+    $event->setHosts($hosts);
+  }
 }

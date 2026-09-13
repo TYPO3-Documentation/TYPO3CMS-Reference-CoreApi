@@ -10,29 +10,29 @@ use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 #[AsEventListener(
-    identifier: 'my-extension/import-routes-into-site-configuration',
+  identifier: 'my-extension/import-routes-into-site-configuration',
 )]
 final readonly class ImportRoutesIntoSiteConfiguration
 {
-    private const ROUTES = 'EXT:my_extension/Configuration/Routes/Routes.yaml';
+  private const ROUTES = 'EXT:my_extension/Configuration/Routes/Routes.yaml';
 
-    public function __construct(
-        private YamlFileLoader $yamlFileLoader,
-    ) {}
+  public function __construct(
+    private YamlFileLoader $yamlFileLoader,
+  ) {}
 
-    public function __invoke(SiteConfigurationLoadedEvent $event): void
-    {
-        $routeConfiguration = $this->yamlFileLoader->load(self::ROUTES);
-        $siteConfiguration = $event->getConfiguration();
+  public function __invoke(SiteConfigurationLoadedEvent $event): void
+  {
+    $routeConfiguration = $this->yamlFileLoader->load(self::ROUTES);
+    $siteConfiguration = $event->getConfiguration();
 
-        // Using this method instead of array_merge_recursive will
-        // prevent duplicate keys, and also allow to use the special
-        // "_UNSET" handling properly.
-        ArrayUtility::mergeRecursiveWithOverrule(
-            $siteConfiguration,
-            $routeConfiguration,
-        );
+    // Using this method instead of array_merge_recursive will
+    // prevent duplicate keys, and also allow to use the special
+    // "_UNSET" handling properly.
+    ArrayUtility::mergeRecursiveWithOverrule(
+      $siteConfiguration,
+      $routeConfiguration,
+    );
 
-        $event->setConfiguration($siteConfiguration);
-    }
+    $event->setConfiguration($siteConfiguration);
+  }
 }

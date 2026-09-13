@@ -8,17 +8,17 @@ use TYPO3\CMS\Core\Context\Context;
 
 final class MyController
 {
-    public function __construct(
-        private readonly Context $context,
-    ) {}
+  public function __construct(
+    private readonly Context $context,
+  ) {}
 
-    public function doSomething(): void
-    {
-        $fallbackChain = $this->context->getPropertyFromAspect(
-            'language',
-            'fallbackChain',
-        );
+  public function doSomething(): void
+  {
+    $fallbackChain = $this->context->getPropertyFromAspect(
+      'language',
+      'fallbackChain',
+    );
 
-        // ... do something with $fallbackChain
-    }
+    // ... do something with $fallbackChain
+  }
 }

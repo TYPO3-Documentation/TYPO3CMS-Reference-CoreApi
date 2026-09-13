@@ -9,9 +9,9 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 final readonly class MyEventListener
 {
-    #[AsEventListener]
-    public function __invoke(AfterFilemountsListIsAssembledEvent $event): void
-    {
-        array_pop($event->filemounts);
-    }
+  #[AsEventListener]
+  public function __invoke(AfterFilemountsListIsAssembledEvent $event): void
+  {
+    array_pop($event->filemounts);
+  }
 }

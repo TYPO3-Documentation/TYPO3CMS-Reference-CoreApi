@@ -9,14 +9,14 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class SomeTest extends FunctionalTestCase
 {
-    protected array $testExtensionsToLoad = [
-        'typo3conf/ext/some_extension/Tests/Functional/Fixtures/Extensions/test_extension',
-        'typo3conf/ext/base_extension',
-    ];
+  protected array $testExtensionsToLoad = [
+    'typo3conf/ext/some_extension/Tests/Functional/Fixtures/Extensions/test_extension',
+    'typo3conf/ext/base_extension',
+  ];
 
-    #[Test]
-    public function somethingWithExtensions(): void
-    {
-        //...
-    }
+  #[Test]
+  public function somethingWithExtensions(): void
+  {
+    //...
+  }
 }

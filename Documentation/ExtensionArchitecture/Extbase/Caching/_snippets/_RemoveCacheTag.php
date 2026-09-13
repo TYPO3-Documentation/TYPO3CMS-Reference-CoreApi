@@ -8,13 +8,13 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ConferenceController extends ActionController
 {
-    public function listAction(): ResponseInterface
-    {
-        $cacheCollector = $this->request->getAttribute('frontend.cache.collector');
-        $cacheCollector->removeCacheTags(
-            new CacheTag('tx_myextension_domain_model_location_5'),
-        );
+  public function listAction(): ResponseInterface
+  {
+    $cacheCollector = $this->request->getAttribute('frontend.cache.collector');
+    $cacheCollector->removeCacheTags(
+      new CacheTag('tx_myextension_domain_model_location_5'),
+    );
 
-        return $this->htmlResponse();
-    }
+    return $this->htmlResponse();
+  }
 }

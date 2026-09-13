@@ -8,7 +8,7 @@ defined('TYPO3') or die();
 
 // Register FormEngine node type resolver hook to render RTE in FormEngine if enabled
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeResolver'][1480314091] = [
-    'nodeName' => 'text',
-    'priority' => 50,
-    'class' => RichTextNodeResolver::class,
+  'nodeName' => 'text',
+  'priority' => 50,
+  'class' => RichTextNodeResolver::class,
 ];

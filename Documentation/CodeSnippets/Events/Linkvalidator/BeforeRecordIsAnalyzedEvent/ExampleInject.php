@@ -5,8 +5,8 @@ use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 
 final readonly class CheckExternalLinksToLocalPagesEventListener
 {
-    public function __construct(
-        private BrokenLinkRepository $brokenLinkRepository,
-        private SoftReferenceParserFactory $softReferenceParserFactory,
-    ) {}
+  public function __construct(
+    private BrokenLinkRepository $brokenLinkRepository,
+    private SoftReferenceParserFactory $softReferenceParserFactory,
+  ) {}
 }
