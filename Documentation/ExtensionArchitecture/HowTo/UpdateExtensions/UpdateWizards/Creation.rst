@@ -191,7 +191,7 @@ implemented.
 Generating output
 =================
 
-The :php:`\TYPO3\CMS\Install\Updates\ChattyInterface` can be implemented for
+The :php:`\TYPO3\CMS\Core\Upgrades\ChattyInterface` can be implemented for
 wizards which should generate
 output. It uses the Symfony interface
 :php:`\Symfony\Component\Console\Output\OutputInterface`.
@@ -199,26 +199,26 @@ output. It uses the Symfony interface
 Classes using this interface must implement the following method:
 
 ..  code-block:: php
-    :caption: vendor/symfony/console/Output/OutputInterface.php
+    :caption: EXT:core/Classes/Upgrades/ChattyInterface.php (excerpt)
 
     use Symfony\Component\Console\Output\OutputInterface;
 
     /**
      * Setter injection for output into upgrade wizards
      */
-     public function setOutput(OutputInterface $output): void;
+    public function setOutput(OutputInterface $output): void;
 
 The class :php:`\TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite`
 implements this interface. We are showing a simplified example here, based on
 this class:
 
 ..  code-block:: php
-    :caption: EXT:install/Classes/Updates/DatabaseUpdatedPrerequisite.php
-    :emphasize-lines: 8,10-13,20
+    :caption: EXT:core/Classes/Upgrades/DatabaseUpdatedPrerequisite.php (simplified)
+    :emphasize-lines: 8,10,12-15,22
 
     use Symfony\Component\Console\Output\OutputInterface;
-    use TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite;
     use TYPO3\CMS\Core\Upgrades\ChattyInterface;
+    use TYPO3\CMS\Core\Upgrades\PrerequisiteInterface;
 
     class DatabaseUpdatedPrerequisite implements PrerequisiteInterface, ChattyInterface
     {
