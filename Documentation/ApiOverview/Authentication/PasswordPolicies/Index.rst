@@ -72,7 +72,7 @@ to the backend and/or frontend context. By default, TYPO3 uses the
 password policy `default`:
 
 ..  code-block:: php
-    :caption: config/system/settings.php | typo3conf/system/settings.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy'] = 'default';
     $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] = 'default';

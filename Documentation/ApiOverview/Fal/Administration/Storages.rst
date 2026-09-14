@@ -73,13 +73,13 @@ Is online?
     Example:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: config/system/additional.php
 
         // Configure additional directories outside of the project's folder
         // as absolute paths
         $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = [
-            ‘/var/shared/documents/’,
-            ‘/var/shared/images/’,
+            '/var/shared/documents/',
+            '/var/shared/images/',
         ];
 
     Storages that reference directories not explicitly granted will be marked as

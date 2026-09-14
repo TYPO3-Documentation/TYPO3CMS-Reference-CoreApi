@@ -407,7 +407,7 @@ may not match what your code now expects.
     :php:`\DateTime` handling:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: config/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
 
@@ -426,7 +426,7 @@ may not match what your code now expects.
     verified your caches invalidate as expected:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: config/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['frontend.cache.autoTagging'] = true;
 

@@ -98,10 +98,10 @@ Custom placeholder processing
 
 It is possible to register custom placeholder processors to allow fetching data
 from different sources. To do so, register a custom processor via
-:file:`config/system/settings.php`:
+:file:`config/system/additional.php`:
 
 ..  code-block:: php
-    :caption: config/system/settings.php | typo3conf/system/settings.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']
         [\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [];
@@ -110,7 +110,7 @@ There are some options available to sort or disable placeholder processors, if
 necessary:
 
 ..  code-block:: php
-    :caption: config/system/settings.php | typo3conf/system/settings.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']
         [\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [
