@@ -81,19 +81,8 @@ the :php:`ext_localconf.php` of installed extensions into account.
 
 Example of bootstrapping the TYPO3 Backend:
 
-.. code-block:: php
+..  literalinclude:: _CodeSnippets/_BackendEntryScript.php
     :caption: An entry script bootstrapping the backend
-
-   use TYPO3\CMS\Backend\Http\Application;
-   use TYPO3\CMS\Core\Core\Bootstrap;
-   use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
-
-   // Set up the application for the backend
-   call_user_func(function () {
-       $classLoader = require dirname(__DIR__) . '/vendor/autoload.php';
-       SystemEnvironmentBuilder::run(1, SystemEnvironmentBuilder::REQUESTTYPE_BE);
-       Bootstrap::init($classLoader)->get(Application::class)->run();
-   });
 
 
 .. _backend-initialization:
@@ -319,21 +308,5 @@ different configuration for different contexts.
 
 In file :file:`config/system/additional.php`:
 
-.. code-block:: php
+..  literalinclude:: _CodeSnippets/_additional.php
     :caption: config/system/additional.php
-
-   use TYPO3\CMS\Core\Core\Environment;
-
-   switch (Environment::getContext()) {
-      case 'Development':
-         $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
-         $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '*';
-         break;
-      case 'Production/Staging':
-         $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
-         $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '192.168.1.*';
-         break;
-      default:
-         $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 0;
-         $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] = '127.0.0.1';
-   }
