@@ -112,21 +112,8 @@ some additional analysis to reduce false positives/negatives.
 
 Let's explain this by example. Suppose a static method was deprecated:
 
-.. code-block:: php
+..  literalinclude:: _SomeUtility.php
     :caption: EXT:core/Classes/Utility/SomeUtility.php (fictitious example)
-
-    <?php
-    namespace TYPO3\CMS\Core\Utility;
-
-    class SomeUtility
-    {
-        /**
-         * @deprecated since ...
-         */
-        public static function someMethod($foo = '') {
-            // do something deprecated
-        }
-    }
 
 This method is registered in the matcher class
 :php:`TYPO3\CMS\Install\ExtensionScanner\Php\Matcher\MethodCallStaticMatcher` like this:
@@ -149,41 +136,8 @@ number of arguments the method accepts. The :php:`restFiles` array contains file
 
 Now let's look at a theoretical class of an extension that uses this deprecated method:
 
-.. code-block:: php
+..  literalinclude:: _SomeConsumerClass.php
     :caption: EXT:my_extension/Classes/Consumer/SomeClass.php
-
-    <?php
-    namespace My\Extension\Consumer;
-
-    use TYPO3\CMS\Core\Utility\SomeUtility;
-
-    class SomeClass
-    {
-        public function someMethod()
-        {
-            // "Strong" match: Full class combination and method call matches
-            \TYPO3\CMS\Core\Utility\SomeUtility::someMethod();
-
-            // "Strong" match: Full class combination and method call matches
-            \TYPO3\CMS\Core\Utility\SomeUtility::someMethod('foo');
-
-            // "Strong" match: Use statements are resolved
-            SomeUtility::someMethod('foo');
-
-            // "Weak" match: Scanner does not know if $foo is class "SomeUtility", but method name matches
-            $foo = '\TYPO3\CMS\Core\Utility\SomeOtherUtility';
-            $foo::someMethod();
-
-            // No match: The method is static but called dynamically
-            $foo->someMethod();
-
-            // No match: The method is called with too many arguments
-            SomeUtility::someMethod('foo', 'bar');
-
-            // No match: A different method is called
-            SomeUtility::someOtherMethod();
-        }
-    }
 
 The first three method calls are classified as strong matches: the full class name is used
 and the method name matches including the argument restrictions.

@@ -53,19 +53,8 @@ The :php:`RequestFactory` class can be used like this:
 
 A POST request can be achieved with:
 
-..  code-block:: php
+..  literalinclude:: _SomeClass.php
     :caption: EXT:my_extension/Classes/SomeClass.php
-
-    $additionalOptions = [
-        'body' => 'Your raw post data',
-        // OR form data:
-        'form_params' => [
-            'first_name' => 'Jane',
-            'last_name' => 'Doe',
-        ]
-    ];
-
-    $response = $this->requestFactory->request($url, 'POST', $additionalOptions);
 
 Extension authors are advised to use the :php:`RequestFactory` class instead of
 using the Guzzle API directly in order to ensure a clear upgrade path when
@@ -83,18 +72,8 @@ in :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler']` as an array. If a
 custom configuration is specified, the default handler stack will be extended
 and not overwritten.
 
-..  code-block:: php
+..  literalinclude:: _additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    use MyVendor\MyExtension\Middleware\Guzzle\CustomMiddleware;
-    use MyVendor\MyExtension\Middleware\Guzzle\SecondCustomMiddleware;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    // Add custom middlewares to default Guzzle handler stack
-    $GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
-        (GeneralUtility::makeInstance(CustomMiddleware::class))->handler();
-    $GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
-        (GeneralUtility::makeInstance(SecondCustomMiddleware::class))->handler();
 
 
 .. index:: HTTP request; HttpUtility
