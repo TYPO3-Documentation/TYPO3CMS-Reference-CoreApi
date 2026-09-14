@@ -11,6 +11,13 @@ PHP syntax formatting
     You may also want to read `PHP architecture <https://docs.typo3.org/permalink/t3coreapi:cgl-best-practices>`_
     for best practices in PHP beyond pure code formatting.
 
+..  note::
+
+    Four spaces per indentation level are the rule for TYPO3 Core and
+    extension code, and the examples on this page follow it. Examples
+    elsewhere in this manual are indented with two spaces, so that they
+    stay narrow enough to read next to the surrounding text.
+
 ..  _cgl-php-syntax-formatting-identifiers:
 
 Identifiers
