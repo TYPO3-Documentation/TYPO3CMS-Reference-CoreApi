@@ -169,13 +169,8 @@ This stores the input variable :php:`$compareFlags` (an array!, retrieved from
 the :ref:`request object <typo3-request>`) with the key
 "tools\_beuser/index.php/compare":
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
-
-    $compareFlags = $request->getParsedBody()['compareFlags'])
-        ?? $request->getQueryParams()['compareFlags'])
-        ?? null;
-    $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
+..  literalinclude:: _BackendUserObject/_SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
 
 .. index:: Backend user; pushModuleData

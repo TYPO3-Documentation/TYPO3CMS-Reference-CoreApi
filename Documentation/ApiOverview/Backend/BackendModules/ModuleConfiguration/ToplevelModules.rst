@@ -62,13 +62,5 @@ Example:
 
 Register a new toplevel module in your extension:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Configuration/Backend/Modules.php
-
-   return [
-       'myextension' => [
-           'labels' => 'my_extension.mod_web',
-           'iconIdentifier' => 'modulegroup-myextension',
-           'navigationComponent' => '@typo3/backend/page-tree/page-tree-element',
-       ]
-   ];
+..  literalinclude:: _ModuleConfiguration/_ToplevelModule.php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php

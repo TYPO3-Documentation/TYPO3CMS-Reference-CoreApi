@@ -129,7 +129,7 @@ Example:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
 
-    use TYPO3\CMS\Backend\Template\Components\Buttons\DropDown\DropDownHeader:
+    use TYPO3\CMS\Backend\Template\Components\Buttons\DropDown\DropDownHeader;
 
     $item = GeneralUtility::makeInstance(DropDownHeader::class)
         ->setLabel('My label');
@@ -149,7 +149,7 @@ Example:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
 
-    use TYPO3\CMS\Backend\Template\Components\Buttons\DropDown\DropDownHeader:
+    use TYPO3\CMS\Backend\Template\Components\Buttons\DropDown\DropDownItem;
 
     $item = GeneralUtility::makeInstance(DropDownItem::class)
         ->setTag('a')

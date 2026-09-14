@@ -132,16 +132,8 @@ backend user properties.
 
 After registering the gate, use its identifier in the module configuration.
 
-..  code-block:: php
+..  literalinclude:: _AccessGate/_Modules.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
-
-    return [
-        'my_module' => [
-            'access' => 'exampleUser',
-            'labels' => 'examples.module.content_examples_clipboard',
-            // ...
-        ],
-    ];
 
 ..  _backend-module-access-gates-evaluation-order:
 
