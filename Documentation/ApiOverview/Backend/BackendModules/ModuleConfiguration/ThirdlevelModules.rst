@@ -29,23 +29,5 @@ Registration of an additional third-level module for the
 :guilabel:`Content > Status` module in the :file:`Configuration/Backend/Modules.php`
 file of an extension:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Configuration/Backend/Modules.php
-
-   'web_ts_customts' => [
-       'parent' => 'content_status',
-       'access' => 'user',
-       'path' => '/module/content/typoscript/custom-info',
-       'iconIdentifier' => 'module-custom-info',
-       'labels' => [
-           'title' => 'extkey.messages:mod_title',
-       ],
-       'routes' => [
-           '_default' => [
-               'target' => CustomInfoController::class . '::handleRequest',
-           ],
-       ],
-       'moduleData' => [
-           'someOption' => false,
-       ],
-   ],
+..  literalinclude:: _ModuleConfiguration/_ThirdlevelModule.php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php

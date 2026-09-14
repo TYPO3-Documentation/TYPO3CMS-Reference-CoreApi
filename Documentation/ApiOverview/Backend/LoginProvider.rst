@@ -18,15 +18,8 @@ The concept of the backend login is based on "login providers".
 A login provider can be registered within your :file:`config/system/settings.php`
 or :file:`config/system/additional.php`  like this:
 
-..  code-block:: php
+..  literalinclude:: _LoginProvider/_additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020] = [
-        'provider' => \MyVendor\MyExtension\LoginProvider\CustomLoginProvider::class,
-        'sorting' => 50,
-        'iconIdentifier' => 'actions-key',
-        'label' => 'backend.messages:login.link'
-    ];
 
 The settings are defined as:
 
