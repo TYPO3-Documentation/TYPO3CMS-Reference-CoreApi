@@ -57,14 +57,8 @@ potential security implications are still the same.
 Backend routes can enforce the existence of an HTTP referrer header by adding a
 :php:`referrer` to routes to mitigate the described scenario.
 
-..  code-block:: php
-    :caption: EXT:backend/Configuration/Backend/Routes.php (excerpt)
-
-    'main' => [
-        'path' => '/main',
-        'referrer' => 'required,refresh-empty',
-        'target' => Controller\BackendController::class . '::mainAction'
-    ],
+..  literalinclude:: _BackendRouting/_RoutesReferrer.php
+    :caption: EXT:my_extension/Configuration/Backend/Routes.php
 
 Values for :php:`referrer` are declared as a comma-separated list:
 
