@@ -29,21 +29,8 @@ To access these resources, inject the
 :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` into your backend module
 controller:
 
-..  code-block:: php
+..  literalinclude:: _MyController.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-    use TYPO3\CMS\Backend\Attribute\AsController;
-    use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    #[AsController]
-    final class MyController extends ActionController
-    {
-        public function __construct(
-            protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-        ) {
-        }
-   }
 
 ..  note::
     A backend controller should be tagged with the
