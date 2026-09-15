@@ -290,13 +290,8 @@ complete — only the templates you actually want to change need to exist.
 explicitly under a key of your choice. An explicitly listed default keeps the
 position you give it instead of being prepended:
 
-..  code-block:: typoscript
+..  literalinclude:: _templateRootPathsOverride.typoscript
     :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
-
-    plugin.tx_myextension.view.templateRootPaths {
-        10 = EXT:my_extension/Resources/Private/Templates/
-        20 = EXT:my_sitepackage/Resources/Private/Extensions/MyExtension/Templates/
-    }
 
 ..  code-block:: text
     :caption: Paths Fluid searches (highest key first)
@@ -405,16 +400,8 @@ default implementation is in
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`; copy its
 signature and inspect the passed :php:`\Exception` to decide what to do.
 
-..  code-block:: typoscript
+..  literalinclude:: _mvcErrorHandling.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    plugin.tx_myextension {
-        mvc {
-            throwPageNotFoundExceptionIfActionCantBeResolved = 1
-            showPageNotFoundIfTargetNotFoundException = 1
-            showPageNotFoundIfRequiredArgumentIsMissingException = 1
-        }
-    }
 
 ..  _extbase-configuration-typoscript-other:
 

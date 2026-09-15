@@ -140,20 +140,8 @@ Both parts are lowercase; underscores are removed from the extension key. For
 the example above that is :typoscript:`plugin.tx_myextension_conferencelist`.
 A full example covering all three configuration keys:
 
-..  code-block:: typoscript
+..  literalinclude:: _pluginConfiguration.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    plugin.tx_myextension_conferencelist {
-        view {
-            templateRootPaths.10 = EXT:my_extension/Resources/Private/Templates/
-        }
-        persistence {
-            storagePid = {$plugin.tx_myextension_conferencelist.persistence.storagePid}
-        }
-        settings {
-            itemsPerPage = 10
-        }
-    }
 
 To find the exact TypoScript path of a plugin, open the TYPO3 backend,
 navigate to a site or page containing the plugin, and inspect the

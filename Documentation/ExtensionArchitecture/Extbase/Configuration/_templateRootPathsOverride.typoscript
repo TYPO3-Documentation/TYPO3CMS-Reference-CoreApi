@@ -1,0 +1,4 @@
+plugin.tx_myextension.view.templateRootPaths {
+  10 = EXT:my_extension/Resources/Private/Templates/
+  20 = EXT:my_sitepackage/Resources/Private/Extensions/MyExtension/Templates/
+}

@@ -1,0 +1,5 @@
+plugin.tx_myextension_conferencelist.view {
+  templateRootPaths.10 = EXT:my_extension/Resources/Private/Templates/
+  layoutRootPaths.10 = EXT:my_extension/Resources/Private/Layouts/
+  partialRootPaths.10 = EXT:my_extension/Resources/Private/Partials/
+}
