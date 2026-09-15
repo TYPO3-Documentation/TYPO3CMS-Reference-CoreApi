@@ -1,0 +1,6 @@
+base: 'https://www.example.org/'
+
+# ...
+
+solr_host_read: '%env("SOLR_USER")%'
+solr_password_read: '%env("SOLR_PASSWORD")%'

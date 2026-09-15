@@ -72,13 +72,8 @@ Enable the field with the following page TSConfig:
 
 or by configuring the link button in your ckeditor configuration
 
-.. code-block:: yaml
-   :caption: EXT:some_extension/Configuration/RTE/Default.yaml
-
-   buttons:
-     link:
-       pageIdSelector:
-         enabled: true
+..  literalinclude:: _rtePageIdSelector.yaml
+    :caption: EXT:some_extension/Configuration/RTE/Default.yaml
 
 .. note::
 

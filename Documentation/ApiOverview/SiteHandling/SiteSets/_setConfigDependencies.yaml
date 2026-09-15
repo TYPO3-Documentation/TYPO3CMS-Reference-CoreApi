@@ -1,0 +1,6 @@
+name: my-vendor/my-set
+label: 'My site set'
+dependencies:
+  - my-vendor/my-required-set
+optionalDependencies:
+  - other-vendor/optional-set

@@ -78,19 +78,8 @@ file. Tests are then executed within the container to the locally running ddev s
 Let's have a look at some more details: ddev allows to add further containers to the setup. We did
 that for the selenium-chrome container that pilots the acceptance tests as :file:`.ddev/docker-compose.chrome.yaml`:
 
-.. code-block:: yaml
+..  literalinclude:: _dockerComposeChrome.yaml
     :caption: .ddev/docker-compose.chrome.yaml
-
-    version: '3.6'
-    services:
-      selenium:
-        container_name: ddev-${DDEV_SITENAME}-chrome
-        image: selenium/standalone-chrome:3.12
-        environment:
-          - VIRTUAL_HOST=$DDEV_HOSTNAME
-          - HTTP_EXPOSE=4444
-        external_links:
-          - ddev-router:$DDEV_HOSTNAME
 
 With this in place and calling `ddev start`, another container with name `ddev-introduction-chrome`
 is added to the other containers, running in the same docker network. More information about
@@ -105,38 +94,8 @@ By default acceptance tests are disabled because they slow down other tests sign
 Next, after adding codeception as require-dev dependency in :file:`composer.json <extension-composer-json>`, we need a
 basic :file:`Tests/codeception.yml` file:
 
-.. code-block:: yaml
+..  literalinclude:: _codeception.yaml
     :caption: Tests/codeception.yml
-
-    namespace: Bk2k\SiteIntroduction\Tests\Acceptance\Support
-    suites:
-      acceptance:
-        actor: AcceptanceTester
-        path: .
-        modules:
-          enabled:
-            - Asserts
-            - WebDriver:
-                url: https://introduction.ddev.site
-                browser: chrome
-                host: ddev-introduction-chrome
-                wait: 1
-                window_size: 1280x1024
-    extensions:
-      enabled:
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\Recorder
-
-    paths:
-      tests: Acceptance
-      output: ../var/log/_output
-      data: .
-      support: Acceptance/Support
-
-    settings:
-      shuffle: false
-      lint: true
-      colors: true
 
 This tells codeception there is a selenium instance at `ddev-introduction-chrome` with chrome,
 the website is reachable as :samp:`https://introduction.ddev.site`, it enables some codeception plugins

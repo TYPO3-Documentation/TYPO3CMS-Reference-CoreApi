@@ -1,0 +1,5 @@
+routeEnhancers:
+  ConferencesPlugin:
+    type: Extbase
+    namespace: tx_myextension_conferences
+    # … routes …
