@@ -334,13 +334,8 @@ configuration. For example, in the provided code, the baseVariant hosted at
 TypoScript
 ----------
 
-..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    if {
-       value.data = applicationcontext
-       equals = Development/Dev1
-    }
+..  literalinclude:: _applicationContextInIf.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
 ..  code-block:: typoscript
 
