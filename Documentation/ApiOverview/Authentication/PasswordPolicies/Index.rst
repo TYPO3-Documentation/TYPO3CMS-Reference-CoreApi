@@ -83,20 +83,8 @@ password policy `default`:
 
 A custom password policy with the identifier `simple` can be configured like:
 
-..  code-block:: php
+..  literalinclude:: _PasswordPolicies.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    use TYPO3\CMS\Core\PasswordPolicy\Generator\PasswordGenerator;
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['simple'] = [
-        'validators' => [
-            CorePasswordValidator::class => [
-                'options' => [
-                    'minimumLength' => 6,
-                ],
-            ],
-        ],
-    ];
 
 Then assign the custom password policy `simple` to frontend and/or backend
 context:
@@ -120,15 +108,8 @@ Disable password policies globally
 To disable the password policy globally (e.g. for local development) an empty
 string has to be supplied as password policy for frontend and backend context:
 
-..  code-block:: php
+..  literalinclude:: _DisablePasswordPolicies.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    use TYPO3\CMS\Core\Core\Environment;
-
-    if (Environment::getContext()->isDevelopment()) {
-        $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy'] = '';
-        $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] = '';
-    }
 
 ..  warning::
     Do **not** deactivate the password policies on a production server as this

@@ -30,13 +30,8 @@ Register the file processor
 
 To register a new processor, add the following code to :file:`ext_localconf.php`
 
-.. code-block:: php
+..  literalinclude:: _ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php
-
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['fal']['processors']['MyNewImageProcessor'] = [
-       'className' => \MyVendor\ExtensionName\Resource\Processing\MyNewImageProcessor::class,
-       'before' => ['LocalImageProcessor'],
-   ];
 
 With the `before` and `after` options, priority can be defined.
 

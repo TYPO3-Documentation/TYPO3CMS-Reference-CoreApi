@@ -185,13 +185,8 @@ headers and IP addresses.
 
 For example, add the following lines to :file:`config/system/additional.php`:
 
-..  code-block:: php
+..  literalinclude:: _additional.php
     :caption: config/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP'] = '192.0.2.1,192.168.0.0/16';
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL'] = '192.0.2.1,192.168.0.0/16';
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue'] = 'first';
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern'] = '^(www\.)?example\.com$';
 
 If you deploy the :file:`config/system/additional.php` or have it container in a custom
 Docker image you can, for example, use the

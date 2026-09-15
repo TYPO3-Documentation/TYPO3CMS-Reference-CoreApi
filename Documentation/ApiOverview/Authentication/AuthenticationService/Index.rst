@@ -322,14 +322,8 @@ authentication process for **every** request no matter any
 existing session. By setting the following local configuration
 either for the FE or the BE:
 
-..  code-block:: php
+..  literalinclude:: _additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = true;
-    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysAuthUser'] = true;
-
-    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_alwaysFetchUser'] = true;
-    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_alwaysAuthUser'] = true;
 
 the authentication process will be fully run on each request. Both flags
 may not be necessary depending on what your service does exactly.

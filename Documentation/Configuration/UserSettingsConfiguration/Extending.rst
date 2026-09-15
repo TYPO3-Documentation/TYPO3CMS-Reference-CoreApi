@@ -78,19 +78,8 @@ Note that the new method uses TCA-style configuration and should be called from
 
 Before:
 
-..  code-block:: php
+..  literalinclude:: _ext_tables_before.php
     :caption: ext_tables.php (before)
-
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-    $GLOBALS['TYPO3_USER_SETTINGS']['columns']['myCustomSetting'] = [
-        'type' => 'check',
-        'label' => 'my_extension.messages:myCustomSetting',
-    ];
-    ExtensionManagementUtility::addFieldsToUserSettings(
-        'myCustomSetting',
-        'after:emailMeAtLogin'
-    );
 
 After:
 

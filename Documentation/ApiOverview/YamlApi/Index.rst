@@ -109,19 +109,8 @@ from different sources. To do so, register a custom processor via
 There are some options available to sort or disable placeholder processors, if
 necessary:
 
-..  code-block:: php
+..  literalinclude:: _additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']
-        [\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [
-            'before' => [
-                \TYPO3\CMS\Core\Configuration\Processor\Placeholder\ValueFromReferenceArrayProcessor::class
-            ],
-            'after' => [
-                \TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor::class
-            ],
-            'disabled' => false,
-        ];
 
 New placeholder processors must implement the
 :php:`\TYPO3\CMS\Core\Configuration\Processor\Placeholder\PlaceholderProcessorInterface`.

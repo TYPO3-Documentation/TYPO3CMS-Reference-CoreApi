@@ -82,16 +82,8 @@ The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
 in the global configuration file :file:`config/system/settings.php`:
 
-..  code-block:: php
+..  literalinclude:: _settings_installToolPassword.php
     :caption: config/system/settings.php
-
-    <?php
-    return [
-        'BE' => [
-            'installToolPassword' => '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.',
-            // ...
-        ],
-    ];
 
 The Install Tool password is initially set during the
 installation process. This means that if a system administrator
@@ -190,17 +182,8 @@ Users can be assigned the role in the :guilabel:`System > Settings` section of
 It is also possible to manually modify the list by adding or removing the
 user's UID (:sql:`be_users.uid`) in :file:`config/system/settings.php`:
 
-..  code-block:: php
+..  literalinclude:: _settings_backendAccess.php
     :caption: config/system/settings.php
-
-    <?php
-    return [
-        // ...
-        'SYS' => [
-            'systemMaintainers' => [1, 7, 36],
-            // ...
-        ],
-    ];
 
 
 For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`

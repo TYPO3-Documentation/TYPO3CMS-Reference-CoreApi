@@ -87,31 +87,8 @@ this encryption type.
 
 Add or edit the following in your :file:`config/system/settings.php`.
 
-.. code-block:: php
+..  literalinclude:: _settings.php
     :caption: config/system/settings.php
-
-   <?php
-   return [
-      'BE' => [
-         // ...
-         // This pseudo password enables you to load the standalone install
-         // tool to be able to generate a new hash value. Change the password
-         // at once!
-         'installToolPassword' => '$2y$12$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-         'passwordHashing' => [
-            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\BcryptPasswordHash',
-            'options' => [],
-         ],
-      ],
-      'FE' => [
-         // ...
-         'passwordHashing' => [
-            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\BcryptPasswordHash',
-            'options' => [],
-         ],
-      ],
-      // ...
-   ];
 
 If this doesn't work then check file :file:`config/system/additional.php` which
 overrides :file:`config/system/settings.php`.
