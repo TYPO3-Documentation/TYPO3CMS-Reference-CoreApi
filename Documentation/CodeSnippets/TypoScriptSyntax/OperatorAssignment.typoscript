@@ -23,4 +23,4 @@ myIdentifier.mySubIdentifier = foo // not a comment
 # Value assignment using a constant:
 # Ends up as "foo myConstantValue bar" if constant "myConstant" is set to "myConstantValue"
 # Ends up as "foo {$myConstantValue} bar" if constant "myConstant" is not set
-myIdentifier. mySubIdentifier = foo {$myConstantValue} bar
+myIdentifier.mySubIdentifier = foo {$myConstantValue} bar

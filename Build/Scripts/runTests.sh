@@ -53,6 +53,7 @@ Options:
             - renderDocumentation
             - testRenderDocumentation
             - yamlLint: YAML linting
+            - typoscriptLint: TypoScript syntax linting
 
     -b <docker|podman>
         Container environment:
@@ -338,6 +339,11 @@ case ${TEST_SUITE} in
     yamlLint)
         COMMAND=(php -dxdebug.mode=off .Build/bin/yaml-lint Documentation/ "$@")
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name yamlLint-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    typoscriptLint)
+        COMMAND=(php -dxdebug.mode=off Build/Scripts/typoscriptLint.php Documentation/ "$@")
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name typoscriptLint-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     *)
