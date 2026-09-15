@@ -66,6 +66,17 @@ Makefile                    # local install/build/test commands
     requirement tracked elsewhere in this repo — it's an observed
     convention from merged commit history, so follow the trailer order
     above rather than only the `Releases:`/label rules in 4.
+6.  **Merging the bot's backport PRs**: once a labelled PR is merged,
+    `typo3-docs-backport-bot` opens the `[Backport <version>]` PRs.
+    Merge each with `gh pr merge <number> --squash --auto` instead of
+    watching the checks and merging by hand — `allow_auto_merge` is
+    enabled here, so GitHub merges it the moment its checks pass. That
+    also covers the minute or two in which a PR reports
+    `mergeable_state=unknown` because another merge moved its base.
+    Afterwards confirm the commit actually reached the release branch
+    (`git log origin/14.3 --grep=...`): a `backport-done` label is not
+    proof, and a backport can fail silently, leaving the branch behind
+    but no PR to notice.
 
 ## References
 
