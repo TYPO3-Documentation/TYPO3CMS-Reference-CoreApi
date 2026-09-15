@@ -51,22 +51,8 @@ The simplest relation points from one object to a single other one — a
 :php:`Conference` is held at a :php:`Location`. In the model this is a single,
 typed, usually nullable property:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceWithLocation.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-
-    class Conference extends AbstractEntity
-    {
-
-        protected ?Location $location = null;
-
-        protected function getLocation(): ?Location
-        {
-            return $this->location;
-        }
-
-    }
 
 The property is nullable because, from this object's side, the relation is
 optional: a conference may or may not have a location set. Reading it is a plain

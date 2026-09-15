@@ -32,27 +32,8 @@ Create or extend :file:`Configuration/Backend/Modules.php` in your extension.
 Return an array where each key is a unique module identifier and the values are
 the module configuration:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_Modules.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
-
-    use MyVendor\MyExtension\Controller\ConferenceController;
-
-    return [
-        'my_extension_conferences' => [
-            'parent' => 'web',
-            'position' => ['after' => '*'],
-            'access' => 'user',
-            'path' => '/module/web/my-extension-conferences',
-            'iconIdentifier' => 'my-extension-conference-module',
-            'labels' => 'my_extension.modules.conferences',
-            'extensionName' => 'MyExtension',
-            'controllerActions' => [
-                ConferenceController::class => [
-                    'index', 'show', 'new', 'create', 'edit', 'update', 'delete',
-                ],
-            ],
-        ],
-    ];
 
 The Extbase-specific keys are:
 
@@ -130,28 +111,8 @@ the controller uses a
 :php:`assign()` and :php:`renderResponse()` methods and wraps the rendered
 output in the backend page frame:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerBackendModule.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-
-        public function indexAction(): ResponseInterface
-        {
-            $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-            $moduleTemplate->assign('conferences', $this->conferenceRepository->findAll());
-            return $moduleTemplate->renderResponse('Conference/Index');
-        }
-    }
 
 Do not use :php:`$this->view` in a backend module controller. The
 :php:`$this->view` object operates in a frontend context — it lacks the backend

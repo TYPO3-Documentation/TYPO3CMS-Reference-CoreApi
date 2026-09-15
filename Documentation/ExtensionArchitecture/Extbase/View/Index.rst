@@ -35,35 +35,8 @@ Assigning variables to the Extbase view
 Use :php:`$this->view->assign()` to make a value available under the variable name in the
 template. :php:`assignMultiple()` assigns several values at once:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerAssign.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-
-        public function listAction(): ResponseInterface
-        {
-            $this->view->assign('conferences', $this->conferenceRepository->findAll());
-            $this->view->assign('title', 'Upcoming conferences');
-            return $this->htmlResponse();
-        }
-
-        public function showAction(Conference $conference): ResponseInterface
-        {
-            $this->view->assignMultiple([
-                'conference' => $conference,
-                'speakers' => $conference->getSpeakers(),
-            ]);
-            return $this->htmlResponse();
-        }
-    }
 
 The name passed to :php:`assign()` becomes the variable name in the template, for example
 :html:`{conferences}`, :html:`{title}`, and :html:`{conference}` above.
@@ -86,40 +59,8 @@ the current site object or a global configuration value — override
 :php:`initializeAction()` and assign it once there instead of repeating the
 call in each action method:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerInitializeAction.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Core\Site\Entity\Site;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-
-        #[\Override]
-        protected function initializeAction(): void
-        {
-            /** @var Site $site */
-            $site = $this->request->getAttribute('site');
-            $this->view->assign('siteSettings', $site->getSettings()->all());
-        }
-
-        public function listAction(): ResponseInterface
-        {
-            $this->view->assign('conferences', $this->conferenceRepository->findAll());
-            return $this->htmlResponse();
-        }
-
-        public function showAction(Conference $conference): ResponseInterface
-        {
-            $this->view->assign('conference', $conference);
-            return $this->htmlResponse();
-        }
-    }
 
 If a variable is only needed in one or two actions, assign it directly inside
 those action methods — :php:`initializeAction()` is not required.
@@ -396,31 +337,8 @@ variables by default. Declare which variables to include with
 :php:`setVariablesToRender()`, and set which properties of each object are
 exposed with :php:`setConfiguration()`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerJsonView.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-    use TYPO3\CMS\Extbase\Mvc\View\JsonView;
-
-    class ConferenceController extends ActionController
-    {
-        protected ?string $defaultViewObjectName = JsonView::class;
-
-        public function listAction(): ResponseInterface
-        {
-            $this->view->assign('conferences', $this->conferenceRepository->findAll());
-            $this->view->setVariablesToRender(['conferences']);
-            $this->view->setConfiguration([
-                'conferences' => [
-                    '_descendAll' => [
-                        '_only' => ['title', 'conferenceDate', 'uid'],
-                    ],
-                ],
-            ]);
-            return $this->jsonResponse();
-        }
-    }
 
 The configuration keys are:
 
