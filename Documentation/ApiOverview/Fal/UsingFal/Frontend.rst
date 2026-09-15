@@ -111,21 +111,8 @@ load all media referenced for the current database record being processed.
 
 This requires first a bit of TypoScript:
 
-..  code-block:: typoscript
+..  literalinclude:: _carouselFluidTemplate.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    lib.carousel = FLUIDTEMPLATE
-    lib.carousel {
-      file = EXT:my_extension/Resources/Private/Templates/Carousel.fluid.html
-      dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-      dataProcessing.10 {
-        references {
-          table = tt_content
-          fieldName = image
-        }
-        as = images
-      }
-    }
 
 This will fetch all files related to the content element being rendered
 (referenced in the :typoscript:`image` field) and make them available in a

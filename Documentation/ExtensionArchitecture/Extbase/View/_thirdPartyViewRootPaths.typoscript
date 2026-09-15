@@ -1,0 +1,4 @@
+plugin.tx_thirdpartyextension.view {
+  templateRootPaths.20 = EXT:my_sitepackage/Resources/Private/ThirdParty/Templates/
+  partialRootPaths.20 = EXT:my_sitepackage/Resources/Private/ThirdParty/Partials/
+}

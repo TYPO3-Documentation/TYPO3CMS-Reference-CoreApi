@@ -116,25 +116,8 @@ modeled in XML. Let's present this fictitious example of how a TypoScript
 structure could also have been implemented in "TSML" (our fictitious
 name for the non-existing TypoScript Mark-Up Language):
 
-.. code-block:: typoscript
+..  literalinclude:: _bulletListDataStructure.typoscript
     :caption: A data structure in TypoScript
-
-   styles.content.bulletlist = TEXT
-   styles.content.bulletlist {
-     stdWrap.current = 1
-     stdWrap.trim = 1
-     stdWrap.if.isTrue.current = 1
-     # Copying the object "styles.content.parseFunc" to this position
-     stdWrap.parseFunc < styles.content.parseFunc
-     stdWrap.split {
-       token.char = 10
-       cObjNum = 1
-       1.current < .cObjNum
-       1.wrap = <li>
-     }
-     # Setting wrapping value:
-     stdWrap.textStyle.altWrap = {$styles.content.bulletlist.altWrap}
-   }
 
 That was 17 lines of TypoScript code and converting this information
 into an XML structure could look like this:

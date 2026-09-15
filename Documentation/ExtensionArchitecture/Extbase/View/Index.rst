@@ -179,14 +179,8 @@ plugin-specific path :typoscript:`plugin.tx_myextension_myplugin` to target one
 plugin, or :typoscript:`plugin.tx_myextension` (no plugin suffix) to set
 defaults for every plugin of the extension:
 
-..  code-block:: typoscript
+..  literalinclude:: _viewRootPaths.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    plugin.tx_myextension_conferencelist.view {
-        templateRootPaths.10 = EXT:my_extension/Resources/Private/Templates/
-        layoutRootPaths.10 = EXT:my_extension/Resources/Private/Layouts/
-        partialRootPaths.10 = EXT:my_extension/Resources/Private/Partials/
-    }
 
 Fluid searches from the highest key downward, so the path at key
 :typoscript:`10` above takes precedence over a default at key :typoscript:`0`.
@@ -212,13 +206,8 @@ original extension. Most extensions register their paths at key
 :typoscript:`20` in your sitepackage is therefore safe in the majority of
 cases:
 
-..  code-block:: typoscript
+..  literalinclude:: _thirdPartyViewRootPaths.typoscript
     :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
-
-    plugin.tx_thirdpartyextension.view {
-        templateRootPaths.20 = EXT:my_sitepackage/Resources/Private/ThirdParty/Templates/
-        partialRootPaths.20 = EXT:my_sitepackage/Resources/Private/ThirdParty/Partials/
-    }
 
 Place your overriding template in the same relative path as in the original.
 :file:`Conference/List.fluid.html` overrides :file:`Conference/List.fluid.html`

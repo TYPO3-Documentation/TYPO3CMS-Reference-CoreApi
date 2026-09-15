@@ -262,13 +262,8 @@ Read a setting with the TypoScript data function
 In frontend TypoScript, a content object can read the setting directly from the
 current site instead of using constant substitution:
 
-..  code-block:: typoscript
+..  literalinclude:: _readSiteSettingInTypoScript.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    lib.categoryPid = TEXT
-    lib.categoryPid {
-        data = siteSettings:myExtension.categoryPid
-    }
 
 Use :typoscript:`{$myExtension.categoryPid}` when a value must be inserted into
 the TypoScript configuration while it is parsed, or when it is needed in page

@@ -1,0 +1,11 @@
+plugin.tx_myextension_conferencelist {
+  view {
+    templateRootPaths.10 = EXT:my_extension/Resources/Private/Templates/
+  }
+  persistence {
+    storagePid = {$plugin.tx_myextension_conferencelist.persistence.storagePid}
+  }
+  settings {
+    itemsPerPage = 10
+  }
+}
