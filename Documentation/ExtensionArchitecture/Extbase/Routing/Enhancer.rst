@@ -107,19 +107,8 @@ The key properties:
     :guilabel:`Contains Plugin` page property (the :sql:`module` field) in
     :file:`EXT:my_extension/Configuration/TCA/Overrides/pages.php`:
 
-    ..  code-block:: php
+    ..  literalinclude:: _snippets/_pages.php
         :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
-
-        use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-        ExtensionManagementUtility::addTcaSelectItem(
-            'pages',
-            'module',
-            [
-                'label' => 'Conference plugin',
-                'value' => 'conferences',
-            ],
-        );
 
     Editors set this field on the plugin page in the backend, then the enhancer
     targets those pages without any hardcoded UIDs:
