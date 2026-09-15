@@ -657,16 +657,8 @@ framework. The most common ones are:
 *   Backend controllers with :php-short:`TYPO3\CMS\Backend\Attribute\AsController` class attribute.
     They are additionally declared :php:`shared: false`:
 
-    .. code-block:: php
+    ..  literalinclude:: _MyBackendController.php
         :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
-
-        use TYPO3\CMS\Backend\Attribute\AsController;
-
-        #[AsController]
-        final readonly class MyBackendController
-        {
-            // implementation
-        }
 
 *   Classes implementing :php-short:`TYPO3\CMS\Core\SingletonInterface`
 
