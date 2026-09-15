@@ -259,24 +259,8 @@ Do not use :php:`GeneralUtility::makeInstance()` as this bypasses the
 Bootstrap procedure applied by Extbase - any query settings configured in the
 shared instance will be lost and the repository will not be wired with its own injected dependencies:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerUsingRepository.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-
-        public function listAction(): ResponseInterface
-        {
-            $this->view->assign('conferences', $this->conferenceRepository->findAll());
-            return $this->htmlResponse();
-        }
-    }
 
 
 TYPO3's :abbr:`DI (Dependency Injection)` container resolves the repository automatically without needing
@@ -314,26 +298,8 @@ makes it harder to change the underlying query, and harder to enforce consistent
 
 Access :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` from within the repository:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceRepositoryWithConnection.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-    use TYPO3\CMS\Core\Database\ConnectionPool;
-    use TYPO3\CMS\Extbase\Persistence\Repository;
-
-    class ConferenceRepository extends Repository
-    {
-        public function __construct(
-            protected readonly ConnectionPool $connectionPool,
-        ) {
-            parent::__construct();
-        }
-
-        public function countByYear(int $year): array
-        {
-            $connection = $this->connectionPool->getConnectionForTable('tx_myextension_domain_model_conference');
-            // ... build and execute raw query
-        }
-    }
 
 ..  seealso::
 
