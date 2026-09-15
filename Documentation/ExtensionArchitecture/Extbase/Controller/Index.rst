@@ -70,18 +70,8 @@ available:
 :php:`protected readonly` constructor parameters and the
 :abbr:`DI (Dependency Injection)` container will provide them automatically:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerConstructorInjection.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-    }
 
 **Inject methods** should be used when a controller extends a parent
 class that already has a constructor. As PHP only allows one
@@ -93,36 +83,11 @@ A typical case is a child controller that extends a base controller from your
 own extension or a third-party package. The base controller already owns the
 constructor, so the child uses inject methods for its own dependencies:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerConstructorInjection.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use MyVendor\MyExtension\Service\ConferenceService;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-    }
-
-..  code-block:: php
+..  literalinclude:: _snippets/_SpecialConferenceController.php
     :caption: EXT:my_extension/Classes/Controller/SpecialConferenceController.php
-
-    use MyVendor\MyExtension\Controller\ConferenceController;
-    use MyVendor\MyExtension\Service\ConferenceService;
-
-    class SpecialConferenceController extends ConferenceController
-    {
-        protected ConferenceService $conferenceService;
-
-        public function injectConferenceService(
-            ConferenceService $conferenceService,
-        ): void {
-            $this->conferenceService = $conferenceService;
-        }
-    }
 
 Inject methods are a fully supported DI pattern, not a fallback. Constructor
 injection is the recommended best practice — dependencies are declared in one
