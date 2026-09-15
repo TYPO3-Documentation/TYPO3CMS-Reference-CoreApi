@@ -2,4 +2,4 @@
 # A closing brace on a value line does not close the block.
 myIdentifier = TEXT
 myIdentifier {
-   value = bar }
+  value = bar }

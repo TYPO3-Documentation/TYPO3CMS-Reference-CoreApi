@@ -1,7 +1,7 @@
 lib.myIdentifier = TEXT
 lib.myIdentifier {
-   value = Hello world
-   stdWrap.wrap = <p>|</p>
+  value = Hello world
+  stdWrap.wrap = <p>|</p>
 }
 tt_content.text =< lib.myIdentifier
 tt_content.textpic =< lib.myIdentifier
