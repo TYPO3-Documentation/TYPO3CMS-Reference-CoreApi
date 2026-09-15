@@ -124,7 +124,7 @@ This can be done by removing the extensions configuration from the file
 #.  Search for your ext_key in the array.
 
     ..  literalinclude:: _PackageStates.php
-        :caption: typo3conf/PackageStates.php
+        :caption: typo3conf/PackageStates.php (excerpt)
 
 #. Remove the entry.
 
