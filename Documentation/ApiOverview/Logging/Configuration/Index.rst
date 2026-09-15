@@ -63,7 +63,7 @@ located in the namespace :php:`\T3docs\Examples\Controller`.
 One more example:
 
 ..  literalinclude:: _WriterConfigurationClassAndChannel.php
-    :caption: config/system/additional.php | typo3conf/system/additional.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php (excerpt)
 
 For more information about channels, see :ref:`logging-channels`.
 
