@@ -356,17 +356,8 @@ To be effective, this setting requires:
 
 Example:
 
-..  code-block:: yaml
+..  literalinclude:: _codesnippets/_staticRouteVariable.yaml
     :caption: config/sites/my-site/config.yaml (excerpt)
-
-    routeEnhancers:
-      Verification:
-        type: Simple
-        routePath: '/verify/{code}'
-        static:
-          code: true
-        requirements:
-          code: '[a-f0-9]{40}'
 
 In this case, `code` is considered static, and no `cHash` is appended when
 generating URLs like `/verify/11f6ad8ec52a2984abaafd7c3b516503785c2072`.

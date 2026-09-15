@@ -1,0 +1,5 @@
+imports:
+  - { resource: 'route-enhancers/*.yaml' }
+
+routeEnhancers:
+  # Additional enhancers can be defined here

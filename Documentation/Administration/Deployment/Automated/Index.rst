@@ -136,43 +136,8 @@ a deployment workflow with GitHub Actions might look like.
 For a more life like example see `the .github-ci.yml of Stefan Frömken's
 TYPO3 Lexicon <https://github.com/froemken/typo3lexikon/blob/main/.github/workflows/.github-ci.yml>`_.
 
-..  code-block:: yaml
+..  literalinclude:: _githubCiWorkflow.yaml
     :caption: .github/workflows/.github-ci.yml
-
-    name: TYPO3 CI/CD Pipeline
-
-    on:
-      push:
-        branches: [ "main" ]
-
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-
-        steps:
-          - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-
-          - name: Set up PHP
-            uses: shivammathur/setup-php@v2
-            with:
-              php-version: '8.3'
-
-          - name: Install Dependencies
-            run: composer install --prefer-dist
-
-          - name: Lint PHP
-            run: find . -name "*.php" -exec php -l {} \;
-
-          - name: Run PHPStan
-            run: vendor/bin/phpstan analyse
-
-          - name: Run PHPUnit Tests
-            run: vendor/bin/phpunit
-
-          - name: Deploy (Example)
-            run: |
-              ssh user@server 'cd /var/www/html && git pull && composer install \
-              --no-dev && ./vendor/bin/typo3 cache:flush'
 
 
 ..  _ci-cd-best-practices:

@@ -1,0 +1,10 @@
+routeEnhancers:
+  Verification:
+    type: Simple
+    routePath: '/verify/{code}'
+    static:
+      code: true
+    requirements:
+      code: '[a-f0-9]{40}'
+
+# ...

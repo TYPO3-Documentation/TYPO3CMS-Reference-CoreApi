@@ -120,14 +120,8 @@ extension, they will also show up as files to be translated.
 You need to exclude them in your :file:`.crowdin.yml` configuration, which is
 located in the extension root directory.
 
-..  code-block:: yaml
+..  literalinclude:: _codesnippets/_crowdinIgnoreSource.yaml
     :caption: EXT:my_extension/.crowdin.yml
-
-    files:
-      - source: /Resources/Private/Language/
-        translation: /Resources/Private/Language/%two_letters_code%.%original_file_name%
-        ignore:
-          - /Resources/Private/Language/de.*
 
 ..  attention::
     You should remove the translations from your extension as those will be

@@ -1,0 +1,6 @@
+settings:
+  myExtension.backgroundColor:
+    label: 'Background color'
+    description: 'Default background color of the site.'
+    type: color
+    default: '#ffffff'

@@ -199,13 +199,8 @@ Manual service configuration
 If autoconfiguration is disabled, manually tag the service in
 :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _servicesLayoutDataProvider.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-     services:
-       MyVendor\MyExtension\View\BackendLayout\MyLayoutDataProvider:
-         tags:
-           - name: page_layout.data_provider
 
 ..  _backend-layout-providers-ordering:
 
@@ -215,11 +210,5 @@ Backend layout provider ordering
 If you need to control the order in which providers are processed, use service
 priorities in your :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _servicesLayoutDataProviderPriority.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    services:
-      MyVendor\MyExtension\View\BackendLayout\MyLayoutDataProvider:
-        tags:
-          - name: page_layout.data_provider
-            priority: 100

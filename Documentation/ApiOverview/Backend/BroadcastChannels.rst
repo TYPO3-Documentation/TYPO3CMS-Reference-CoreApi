@@ -91,16 +91,7 @@ Example code:
     :php:`\TYPO3\CMS\Core\Page\PageRenderer->addInlineLanguageLabelFile()`
     is still valid for legacy, file-based labels.
 
-..  code-block:: yaml
+..  literalinclude:: _servicesBackendControllerHook.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-      MyVendor\MyExtension\Hooks\BackendControllerHook:
-        public: true
 
 See also: :ref:`knowing-what-to-make-public`

@@ -1,0 +1,4 @@
+services:
+  MyVendor\MyExtension\View\BackendLayout\MyLayoutDataProvider:
+    tags:
+      - name: page_layout.data_provider

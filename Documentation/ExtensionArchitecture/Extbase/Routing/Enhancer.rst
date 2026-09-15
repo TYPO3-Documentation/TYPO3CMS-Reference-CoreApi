@@ -43,14 +43,8 @@ Alternatively, set :yaml:`namespace` directly if you need an exact string (for
 example, when the auto-derived name would be wrong for a multi-word extension
 key):
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
-
-    routeEnhancers:
-      ConferencesPlugin:
-        type: Extbase
-        namespace: tx_myextension_conferences
-        # … routes …
+..  literalinclude:: _extbaseEnhancerNamespace.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml (excerpt)
 
 The key directly under :yaml:`routeEnhancers` — :yaml:`ConferencesPlugin` here — is
 an arbitrary identifier you choose. It only has to be unique across all enhancers on
