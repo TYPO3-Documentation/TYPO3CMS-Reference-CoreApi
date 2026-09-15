@@ -55,5 +55,8 @@ jobs:
       - name: Lint YAML
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s yamlLint
 
+      - name: Lint editorconfig
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s editorconfigLint
+
       - name: Lint TypoScript
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s typoscriptLint

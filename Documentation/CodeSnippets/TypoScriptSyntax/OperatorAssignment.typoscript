@@ -12,7 +12,7 @@ myIdentifier.mySubIdentifier = bar
 # Same as above, value of "myIdentifier.mySubIdentifier" is "bar"
 myIdentifier.mySubIdentifier = foo
 myIdentifier {
-   mySubIdentifier = bar
+  mySubIdentifier = bar
 }
 
 # Value assignments are not comment-aware, "#", "//" and "/*" after a

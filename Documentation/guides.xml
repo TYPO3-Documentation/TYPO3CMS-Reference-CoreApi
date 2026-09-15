@@ -14,12 +14,15 @@
         typo3-core-preferred="14.3"
         interlink-shortcode="t3coreapi"
     />
-    <project title="TYPO3 Explained"
-             release="14.3"
-             version="14.3"
-             copyright="since 2012 by the TYPO3 contributors"
+    <project
+        title="TYPO3 Explained"
+        release="14.3"
+        version="14.3"
+        copyright="since 2012 by the TYPO3 contributors"
     />
-    <inventory id="tailor"
-               url="https://docs.typo3.org/other/typo3/tailor/main/en-us/"/>
+    <inventory
+        id="tailor"
+        url="https://docs.typo3.org/other/typo3/tailor/main/en-us/"
+    />
     <inventory id="ext_surf" url="https://docs.typo3.org/other/typo3/surf/main/en-us/" />
 </guides>
