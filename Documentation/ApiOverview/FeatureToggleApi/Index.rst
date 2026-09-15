@@ -133,28 +133,9 @@ request forgery attacks.
     entities but can be disabled for individual extbase storage tables in
     their TCA:
 
-..  code-block:: php
-    :emphasize-lines: 11-13
-    :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_blog.php
-
-    <?php
-    declare(strict_types=1);
-    return [
-        'ctrl' => [
-            'title' => 'my_extension.messages:my_title',
-            'label' => 'uid',
-            'tstamp' => 'tstamp',
-            'crdate' => 'crdate',
-            'delete' => 'deleted',
-            // ...
-            'extbase' => [
-                'enableHistoryTracking' => false
-            ],
-        ],
-        'columns' => [
-            // ...
-        ],
-    ];
+..  literalinclude:: _tx_myextension_domain_model_blog.php
+    :emphasize-lines: 13-15
+    :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_blog.php (excerpt)
 
 ..  note::
 

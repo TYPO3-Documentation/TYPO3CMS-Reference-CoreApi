@@ -27,40 +27,8 @@ Each crop variant has at least one *ratio configuration* defined under `allowedA
    *  `title`: should be a string (or preferably an LLL reference)
    *  `value`: should be a **float** (not a string)
 
-..  code-block:: php
+..  literalinclude:: _sys_file_reference.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
-
-    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
-         'type' => 'imageManipulation',
-         'cropVariants' => [
-             'mobile' => [
-                 'title' => 'ext_key.messages:imageManipulation.mobile',
-                 'allowedAspectRatios' => [
-                     '4:3' => [
-                         'title' => 'core.wizards:imwizard.ratio.4_3',
-                         'value' => 4 / 3
-                     ],
-                     'NaN' => [
-                         'title' => 'core.wizards:imwizard.ratio.free',
-                         'value' => 0.0
-                     ],
-                 ],
-             ],
-             'desktop' => [
-                 'title' => 'ext_key.messages:imageManipulation.desktop',
-                 'allowedAspectRatios' => [
-                     '4:3' => [
-                         'title' => 'core.wizards:imwizard.ratio.4_3',
-                         'value' => 4 / 3
-                     ],
-                     'NaN' => [
-                         'title' => 'core.wizards:imwizard.ratio.free',
-                         'value' => 0.0
-                     ],
-                 ],
-             ],
-         ]
-    ]
 
 ..  _cropvariants-general-cropArea:
 
@@ -71,23 +39,8 @@ An initial crop area can be defined. If it is not defined, the default crop area
 Crop areas are defined relatively with floating point numbers: x and y coordinates and width and height must be specified.
 The example below has an initial crop area in the same size that the previous image cropper provided by default.
 
-.. code-block:: php
+..  literalinclude:: _sys_file_reference_cropArea.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
-
-    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
-        'type' => 'imageManipulation',
-        'cropVariants' => [
-            'mobile' => [
-                'title' => 'ext_key.messages:imageManipulation.mobile',
-                'cropArea' => [
-                    'x' => 0.1,
-                    'y' => 0.1,
-                    'width' => 0.8,
-                    'height' => 0.8,
-                ],
-            ],
-        ],
-    ]
 
 ..  _cropvariants-general-focusArea:
 
@@ -103,23 +56,8 @@ can be used by Javascript libraries.
 The example below adds a focus area which is initially one third of the size of the image
 and centered.
 
-.. code-block:: php
+..  literalinclude:: _sys_file_reference_focusArea.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
-
-    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
-        'type' => 'imageManipulation',
-        'cropVariants' => [
-            'mobile' => [
-                'title' => 'ext_key.messages:imageManipulation.mobile',
-                'focusArea' => [
-                    'x' => 1 / 3,
-                    'y' => 1 / 3,
-                    'width' => 1 / 3,
-                    'height' => 1 / 3,
-                ],
-            ],
-        ],
-    ]
 
 ..  _cropvariants-general-coverAreas:
 
@@ -131,25 +69,8 @@ like a headline. To give editors a hint about which area of an image is affected
 when selecting a crop area it is possible to define multiple "cover areas". These areas are shown inside
 the crop area. The focus area cannot intersect with any cover areas.
 
-.. code-block:: php
+..  literalinclude:: _sys_file_reference_coverAreas.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
-
-    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
-        'type' => 'imageManipulation',
-        'cropVariants' => [
-            'mobile' => [
-                'title' => 'ext_key.messages:imageManipulation.mobile',
-                'coverAreas' => [
-                    [
-                        'x' => 0.05,
-                        'y' => 0.85,
-                        'width' => 0.9,
-                        'height' => 0.1,
-                    ]
-                ],
-            ],
-        ],
-    ]
 
 ..  _cropvariants-general-rendering:
 

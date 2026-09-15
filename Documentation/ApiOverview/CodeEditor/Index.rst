@@ -44,23 +44,8 @@ the mode for syntax highlighting can be chosen. Allowed values:
 Example
 -------
 
-..  code-block:: php
-    :caption: Excerpt of TCA definition (EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_mytable.php)
-
-    [
-        'columns' => [
-            'codeeditor1' => [
-                'label' => 'codeEditor_1 format=html, rows=7',
-                'description' => 'field description',
-                'config' => [
-                    'type' => 'text',
-                    'renderType' => 'codeEditor',
-                    'format' => 'html',
-                    'rows' => 7,
-                ],
-            ],
-        ],
-    ]
+..  literalinclude:: _tx_myextension_domain_model_mytable.php
+    :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_mytable.php (excerpt)
 
 Displays an editor like the following:
 
