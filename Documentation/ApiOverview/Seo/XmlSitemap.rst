@@ -88,25 +88,8 @@ exclude page subtrees from the sitemap (e.g internal pages). This can be
 configured using TypoScript (example below) or using the :ref:`constants editor <t3tsref:typoscript-syntax-constant-editor>` in the
 backend.
 
-..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    plugin.tx_seo {
-        config {
-            xmlSitemap {
-                sitemaps {
-                    pages {
-                        config {
-                            excludedDoktypes = 3, 4, 6, 7, 199, 254, 255, 137, 138
-                            additionalWhere = AND ({#no_index} = 0 OR {#no_follow} = 0)
-                            #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
-                            excludePagesRecursive = <comma-separated list of page IDs>
-                        }
-                    }
-                }
-            }
-        }
-    }
+..  literalinclude:: _sitemapPagesConfig.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
 
 .. note::
    The doktypes 137 and 138 in the example above are custom doktypes.
@@ -159,39 +142,8 @@ following example shows how to add a sitemap for news records:
 You can add multiple sitemaps and they will be added to the sitemap index
 automatically. Use different types to have multiple, independent sitemaps:
 
-..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    seo_googlenews < seo_sitemap
-    seo_googlenews.typeNum = 1571859552
-    seo_googlenews.10.sitemapType = googleNewsSitemap
-
-    plugin.tx_seo {
-        config {
-            xmlSitemap {
-                sitemaps {
-                    news {
-                        provider = GeorgRinger\News\Seo\NewsXmlSitemapDataProvider
-                        config {
-                            # ...
-                        }
-                    }
-                }
-            }
-            googleNewsSitemap {
-                sitemaps {
-                    news {
-                        provider = GeorgRinger\News\Seo\NewsXmlSitemapDataProvider
-                        config {
-                            googleNews = 1
-                            # ...
-                            template = GoogleNewsXmlSitemap.xml
-                        }
-                    }
-                }
-            }
-        }
-    }
+..  literalinclude:: _sitemapGoogleNews.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
 
 ..  _xmlsitemap-changefreq-priority:
 

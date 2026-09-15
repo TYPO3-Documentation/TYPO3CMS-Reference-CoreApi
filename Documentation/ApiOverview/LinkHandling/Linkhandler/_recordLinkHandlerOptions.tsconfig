@@ -5,3 +5,5 @@ TCEMAIN.linkHandler.anIdentifier {
     table = tx_example_domain_model_item
   }
 }
+
+# ...
