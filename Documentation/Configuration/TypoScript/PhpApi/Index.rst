@@ -62,11 +62,153 @@ the frontend parsing chain, this part will evolve in the future and further API 
 evolve allowing extensions to parse TypoScript more easily.
 
 However, extension controllers that need the parsed TypoScript can access the parsed
-setup as array:
+setup as array (including trailing dots):
 
 .. code-block:: php
 
-        $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
+    $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
 
 Read more about :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`
 from different contexts.
+
+.. _typoscript-backend-access_frontend_typoscript:
+
+Backend TypoScript
+==================
+
+Another means needs to be used to read the Frontend TypoScript of the currently selected page in the backend page module.
+This is needed in the case some Frontend classes need to be called as well from the Backend. E.g. a shop administrator
+is allowed to resend an order email with a new modified bill after the customer has cancelled one item from his order.
+The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
+Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider using the
+`SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_ 
+and site configuration attributes instead of this solution. 
+For backend module configuration you should use 
+`Backend TypoScript / TSconfig <https://docs.typo3.org/permalink/t3tsref:about-tsconfig>`_ instead of Frontend TypoScript. 
+
+.. code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/OrderController.php
+
+    namespace MyDomain\MyExtension\Backend;
+
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Backend\Attribute\AsController;
+    use TYPO3\CMS\Core\Database\ConnectionPool;
+    use TYPO3\CMS\Core\Http\HtmlResponse;
+    use MyDomain\MyExtension\Backend\TypoScriptConfigurationManager;
+
+    #[AsController]
+    final readonly class OrderController
+    {    
+        public function __construct(
+            private ConnectionPool $connectionPool,
+            private TypoScriptConfigurationManager $concreteConfigurationManager
+        ) {}
+
+        public function handleRequest(ServerRequestInterface $request): ResponseInterface
+        {
+            $setup = $this->getTypoScript($request);
+            $foo = $setup['my_extension']['bar'] ?? '';
+            return new HtmlResponse('<div>Foo Setup: ' . $foo . '</div>');
+        }
+
+        public function getTypoScript(ServerRequestInterface $request): array
+        {
+             $setup = $this->concreteConfigurationManager->getTypoScriptSetup($request);
+             return $setup;
+        }
+    }
+
+
+This is an example TypoScript Configuration Manager:
+
+.. code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/TypoScriptConfigurationManager.php
+
+    declare(strict_types=1);
+    
+    namespace MyDomain\MyExtension\Backend;
+    
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Site\Entity\NullSite;
+    use TYPO3\CMS\Core\Site\Entity\Site;
+    use TYPO3\CMS\Core\TypoScript\TypoScriptFactory;
+    use TYPO3\CMS\Core\TypoScript\TypoScriptService;
+    
+    final readonly class TypoScriptConfigurationManager
+    {
+        public function __construct(
+            private TypoScriptFactory $typoScriptFactory,
+            private TypoScriptService $typoScriptService,
+        ) {}
+    
+        /**
+         * Returns TypoScript Setup array from the current environment.
+         *
+         * @param ServerRequestInterface $request The current server request
+         * @return array The clean, nested TypoScript setup array
+         */
+        public function getTypoScriptSetup(ServerRequestInterface $request): array
+        {
+            // 1. Try to get TypoScript from the request attribute (works if rendered via frontend/preview)
+            $typoScript = $request->getAttribute('frontend.typoscript');
+    
+            if ($typoScript !== null) {
+                return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
+            }
+    
+            // 2. Fallback for the pure Backend context (FormEngine) using the public TypoScriptFactory
+            $site = $request->getAttribute('site');
+            if ($site === null || $site instanceof NullSite) {
+                return [];
+            }
+    
+            if ($site instanceof Site) {
+                // Build the TypoScript registry object based on the current active Site and its Site Sets
+                $typoScript = $this->typoScriptFactory->createFromSite($site);
+                return $this->typoScriptService->convertTypoScriptArrayToPlainArray($typoScript->getSetupArray());
+            }
+    
+            return [];
+        }
+    }
+
+Example for :php-short:`\TYPO3\CMS\Core\Site\SiteFinder` :
+
+.. code-block:: php
+    :caption: EXT:my_extension/Classes/Service/SiteConfigurationService.php
+
+    namespace MyVendor\MyExtension\Service;
+
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Site\SiteFinder;
+    use TYPO3\CMS\Core\Site\Entity\Site;
+    
+    readonly class SiteConfigurationService
+    {
+        // Inject the SiteFinder via constructor injection
+        public function __construct(
+            private SiteFinder $siteFinder
+        ) {}
+    }
+    
+    public function getMyGeneralWarningText(int $pageId): string
+    {
+        $warningText = 'Warning!';
+        
+        try {
+            // Find the site object by traversing the rootline upwards from the given page ID
+            $site = $this->siteFinder->getSiteByPageId($pageId);
+            
+            if ($site instanceof Site) {
+                // Safely access the attribute and catch potential InvalidArgumentException if the key does not exist
+                $warningText = $site->getAttribute('myGeneralWarningText') ?? $warningText;
+            }
+        } catch (SiteNotFoundException|\InvalidArgumentException) {
+            // Fallback to the default warning text if the site is missing or the attribute key is invalid
+        }
+
+        return $warningText;
+    }
+
