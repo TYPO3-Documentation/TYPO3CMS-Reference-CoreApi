@@ -63,26 +63,8 @@ When applied to a relation to a single object, the property type must include
 needs an :php:`instanceof` check only so PHPStan and your IDE can narrow the
 return type to :php:`?Location`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceLazy.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
-    use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
-
-    class Conference extends AbstractEntity
-    {
-        #[Lazy]
-        protected Location|LazyLoadingProxy|null $location = null;
-
-        public function getLocation(): ?Location
-        {
-            // the check is only needed to keep phpstan happy. Remove it if not needed.
-            if ($this->location instanceof LazyLoadingProxy) {
-                $this->location = $this->location->_loadRealInstance();
-            }
-            return $this->location;
-        }
-    }
 
 If you do not need a narrowly typed getter, the check is unnecessary — accessing
 the proxy in any way triggers resolution automatically.
@@ -111,18 +93,8 @@ the proxy in any way triggers resolution automatically.
 Controls what happens to related objects when the parent object is deleted.
 Currently only :php:`'remove'` is supported:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceCascade.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
-    use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
-
-    class Conference extends AbstractEntity
-    {
-        #[Lazy]
-        #[Cascade('remove')]
-        protected ObjectStorage $comments;
-    }
 
 Without :php:`#[Cascade('remove')]`, deleting the parent object leaves related
 records in the database as orphans. With it, Extbase deletes the related
@@ -159,16 +131,8 @@ objects automatically via the repository.
 Excludes a property from persistence entirely. Extbase never reads or writes
 the corresponding column. Use for computed values or temporary state:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceTransient.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
-
-    class Conference extends AbstractEntity
-    {
-        #[Transient]
-        protected ?string $displayLabel = null;
-    }
 
 ..  _extbase-appendix-attributes-validation:
 
@@ -200,17 +164,8 @@ and control validation behaviour on model properties and controller action param
         Options passed to the validator constructor. The available options
         depend on the validator.
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceValidate.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Attribute\Validate;
-
-    class Conference extends AbstractEntity
-    {
-        #[Validate(validator: 'NotEmpty')]
-        #[Validate(validator: 'StringLength', options: ['minimum' => 3, 'maximum' => 50])]
-        protected string $title = '';
-    }
 
 ..  seealso::
 
@@ -234,22 +189,8 @@ and control validation behaviour on model properties and controller action param
 Suppresses validation for one action parameter. Useful in multi-step forms
 where partial state is forwarded between actions:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerIgnoreValidation.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-    use Psr\Http\Message\ResponseInterface;
-
-    class ConferenceController extends ActionController
-    {
-        public function previewAction(
-            #[IgnoreValidation]
-            Conference $conference,
-        ): ResponseInterface {
-            // validation skipped for $conference
-        }
-    }
 
 Place :php:`#[IgnoreValidation]` directly on the parameter — method-level
 placement with :php:`argumentName` is deprecated in TYPO3 v14 and removed in

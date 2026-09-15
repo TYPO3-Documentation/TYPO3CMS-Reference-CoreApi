@@ -334,25 +334,8 @@ Implement
 :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\AbstractTypeConverter`).
 Then register it via a service tag in :file:`Configuration/Services.yaml`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_IsbnConverter.php
     :caption: EXT:my_extension/Classes/Property/TypeConverter/IsbnConverter.php
-
-    namespace MyVendor\MyExtension\Property\TypeConverter;
-
-    use TYPO3\CMS\Extbase\Property\PropertyMappingConfigurationInterface;
-    use TYPO3\CMS\Extbase\Property\TypeConverter\AbstractTypeConverter;
-
-    class IsbnConverter extends AbstractTypeConverter
-    {
-        public function convertFrom(
-            $source,
-            string $targetType,
-            array $convertedChildProperties = [],
-            ?PropertyMappingConfigurationInterface $configuration = null,
-        ): mixed {
-            // return the converted value or a \TYPO3\CMS\Extbase\Error\Error instance
-        }
-    }
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml

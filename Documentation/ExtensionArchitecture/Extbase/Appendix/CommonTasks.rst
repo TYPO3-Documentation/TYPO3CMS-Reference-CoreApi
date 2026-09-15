@@ -95,15 +95,8 @@ using :php:`GeneralUtility::makeInstance()`.
 :php:`protected readonly`. TYPO3's DI container injects it automatically — no
 annotation, no factory call needed.
 
-..  code-block:: php
+..  literalinclude:: _snippets/_BlogPostController.php
     :caption: EXT:my_extension/Classes/Controller/BlogPostController.php
-
-    class BlogPostController extends ActionController
-    {
-        public function __construct(
-            protected readonly BlogPostRepository $blogPostRepository,
-        ) {}
-    }
 
 ..  seealso::
 
@@ -123,18 +116,8 @@ ordering in every call.
 **Short answer:** Set the :php:`$defaultOrderings` class property on your
 repository. It applies automatically to all queries from that repository.
 
-..  code-block:: php
+..  literalinclude:: _snippets/_BlogPostRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/BlogPostRepository.php
-
-    use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-    use TYPO3\CMS\Extbase\Persistence\Repository;
-
-    class BlogPostRepository extends Repository
-    {
-        protected $defaultOrderings = [
-            'publishDate' => QueryInterface::ORDER_ASCENDING,
-        ];
-    }
 
 ..  seealso::
 

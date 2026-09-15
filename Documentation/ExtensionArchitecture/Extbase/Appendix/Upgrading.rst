@@ -259,30 +259,8 @@ The new way injects :php-short:`\TYPO3\CMS\Core\View\ViewFactoryInterface`
 and creates a view by passing a
 :php-short:`\TYPO3\CMS\Core\View\ViewFactoryData` value object:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_MailService.php
     :caption: EXT:my_extension/Classes/Service/MailService.php
-
-    use TYPO3\CMS\Core\View\ViewFactoryData;
-    use TYPO3\CMS\Core\View\ViewFactoryInterface;
-
-    readonly class MailService
-    {
-        public function __construct(
-            protected ViewFactoryInterface $viewFactory,
-        ) {}
-
-        public function renderTemplate(ServerRequestInterface $request): string
-        {
-            $view = $this->viewFactory->create(new ViewFactoryData(
-                templateRootPaths: ['EXT:my_extension/Resources/Private/Templates/'],
-                partialRootPaths: ['EXT:my_extension/Resources/Private/Partials/'],
-                layoutRootPaths: ['EXT:my_extension/Resources/Private/Layouts/'],
-                request: $request,
-            ));
-            $view->assign('data', $this->loadData());
-            return $view->render('Mail/Notification');
-        }
-    }
 
 Pass the current :php:`ServerRequestInterface` wherever possible. The view
 factory uses it for request-aware rendering (language, base URI, etc.).
