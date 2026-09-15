@@ -1,0 +1,29 @@
+namespace: Bk2k\SiteIntroduction\Tests\Acceptance\Support
+suites:
+  acceptance:
+    actor: AcceptanceTester
+    path: .
+    modules:
+      enabled:
+        - Asserts
+        - WebDriver:
+            url: https://introduction.ddev.site
+            browser: chrome
+            host: ddev-introduction-chrome
+            wait: 1
+            window_size: 1280x1024
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed
+    - Codeception\Extension\Recorder
+
+paths:
+  tests: Acceptance
+  output: ../var/log/_output
+  data: .
+  support: Acceptance/Support
+
+settings:
+  shuffle: false
+  lint: true
+  colors: true

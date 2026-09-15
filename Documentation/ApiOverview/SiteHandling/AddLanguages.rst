@@ -130,19 +130,8 @@ baseVariants
 
     Example:
 
-    ..  code-block:: yaml
+    ..  literalinclude:: _baseVariants.yaml
         :caption: config/sites/my-site/config.yaml (excerpt)
-
-        baseVariants:
-          -
-            base: 'https://example.localhost/'
-            condition: 'applicationContext == "Development"'
-          -
-            base: 'https://staging.example.com/'
-            condition: 'applicationContext == "Production/Sydney"'
-          -
-            base: 'https://testing.example.com/'
-            condition: 'applicationContext == "Testing/Paris"'
 
 ..  _sitehandling-addingLanguages-locale:
 

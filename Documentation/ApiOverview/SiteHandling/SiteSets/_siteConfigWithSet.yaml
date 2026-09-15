@@ -1,0 +1,4 @@
+base: 'https://example.com/'
+rootPageId: 1
+dependencies:
+  - my-vendor/my-set

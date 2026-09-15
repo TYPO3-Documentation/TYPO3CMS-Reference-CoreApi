@@ -71,15 +71,8 @@ contents of different files.
 
 Example:
 
-..  code-block:: yaml
+..  literalinclude:: _imports.yaml
     :caption: EXT:my_extension/Configuration/RTE/MyConfiguration.yaml (excerpt)
-
-    imports:
-        - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
-        - { resource: "misc/my_options.yaml" }
-        - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
-        - { resource: "./**/*.yaml", glob: true }
-        - { resource: "EXT:core/Tests/**/Configuration/**/SiteConfigs/*.yaml", glob: true }
 
 The YAML file loader supports importing of files with `glob`_ patterns.
 To enable globbing, set the option :yaml:`glob: true` on the import level.

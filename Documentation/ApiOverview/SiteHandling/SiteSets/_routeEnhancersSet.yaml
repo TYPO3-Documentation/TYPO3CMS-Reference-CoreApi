@@ -1,0 +1,10 @@
+routeEnhancers:
+  MyEnhancer:
+    type: Simple
+    routePath: '/my-path/{param}'
+    aspects:
+      param:
+        type: StaticValueMapper
+        map:
+          value1: '1'
+          value2: '2'

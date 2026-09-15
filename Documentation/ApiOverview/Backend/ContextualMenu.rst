@@ -321,15 +321,9 @@ If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.
 classes implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
 get registered as context menu items automatically:
 
-..  code-block:: yaml
+..  literalinclude:: _servicesAutoconfigure.yaml
     :caption: EXT:examples/Configuration/Services.yaml
     :emphasize-lines: 4
-
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
 
 If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
 by adding the tag :yaml:`backend.contextmenu.itemprovider`:

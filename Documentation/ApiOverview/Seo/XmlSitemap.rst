@@ -62,25 +62,8 @@ readable URL, for example :samp:`https://example.org/sitemap.xml`.
 Additionally, you can map the parameter `sitemap`, so that the links to the different
 sitemap types (`pages` and additional ones, for example, from the news extension) are also mapped.
 
-..  code-block:: yaml
-    :caption: config/sites/<your_site>/config.yaml
-
-    routeEnhancers:
-      PageTypeSuffix:
-        type: PageType
-        map:
-          /: 0
-          sitemap.xml: 1533906435
-      Sitemap:
-        type: Simple
-        routePath: 'sitemap-type/{sitemap}'
-        aspects:
-          sitemap:
-            type: StaticValueMapper
-            map:
-              pages: pages
-              news: news
-              my_other_sitemap: my_other_sitemap
+..  literalinclude:: _sitemapRouteEnhancers.yaml
+    :caption: config/sites/<your_site>/config.yaml (excerpt)
 
 .. index:: XmlSitemapDataProviders
 

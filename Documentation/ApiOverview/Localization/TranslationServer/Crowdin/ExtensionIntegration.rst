@@ -57,33 +57,15 @@ Step-by-step instructions for GitHub
     Within your TYPO3 extension repository, create a :file:`.crowdin.yml` file at root
     with the following content:
 
-    ..  code-block:: yaml
+    ..  literalinclude:: _codesnippets/_crowdinLanguageFiles.yaml
         :caption: EXT:my_extension/.crowdin.yml
-
-        preserve_hierarchy: 1
-        files:
-          - source: /Resources/Private/Language/*.xlf
-            translation: /%original_path%/%two_letters_code%.%original_file_name%
-            ignore:
-              - /**/%two_letters_code%.%original_file_name%
 
     If you provide a :file:`labels.xlf` file for the
     :ref:`site settings <site-settings-definition-translation>`,
     the `/Configuration/Sets/` folder should be added:
 
-    ..  code-block:: yaml
+    ..  literalinclude:: _codesnippets/_crowdinWithSets.yaml
         :caption: EXT:my_extension/.crowdin.yml
-
-        preserve_hierarchy: 1
-        files:
-          - source: /Configuration/Sets/*/*.xlf
-            translation: /%original_path%/%two_letters_code%.%original_file_name%
-            ignore:
-              - /**/%two_letters_code%.%original_file_name%
-          - source: /Resources/Private/Language/*.xlf
-            translation: /%original_path%/%two_letters_code%.%original_file_name%
-            ignore:
-              - /**/%two_letters_code%.%original_file_name%
 
     ..  note::
         If you use the configuration with the :file:`/Configuration/Sets/*/*.xlf`

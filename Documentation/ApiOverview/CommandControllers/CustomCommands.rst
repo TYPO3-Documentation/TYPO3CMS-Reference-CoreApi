@@ -89,23 +89,8 @@ Tag `console.command` in the `Services.yaml`
 You can register the command in :file:`Configuration/Services.yaml` by adding the service
 definition of your class as a tag :yaml:`console.command`:
 
-..  code-block:: yaml
-    :caption: packages/my_extension/Configuration/Services.yaml
-
-    services:
-      # ...
-
-      MyVendor\MyExtension\Command\DoSomethingCommand:
-        tags:
-          - name: console.command
-            command: 'examples:dosomething'
-            description: 'A command that does nothing and always succeeds.'
-            // To hide it from the scheduler:
-            schedulable: false
-          # Also an alias for the command can be configured
-          - name: console.command
-            command: 'examples:dosomethingalias'
-            alias: true
+..  literalinclude:: _servicesConsoleCommand.yaml
+    :caption: packages/my_extension/Configuration/Services.yaml (excerpt)
 
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
