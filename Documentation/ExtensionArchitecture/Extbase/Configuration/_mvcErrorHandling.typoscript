@@ -1,0 +1,7 @@
+plugin.tx_myextension {
+  mvc {
+    throwPageNotFoundExceptionIfActionCantBeResolved = 1
+    showPageNotFoundIfTargetNotFoundException = 1
+    showPageNotFoundIfRequiredArgumentIsMissingException = 1
+  }
+}

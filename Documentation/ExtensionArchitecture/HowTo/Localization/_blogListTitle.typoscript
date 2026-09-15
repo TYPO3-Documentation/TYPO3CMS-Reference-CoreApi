@@ -1,0 +1,4 @@
+lib.blogListTitle = TEXT
+lib.blogListTitle {
+  data = LLL : EXT:blog_example/Resources/Private/Language/locallang.xlf:blog.list
+}

@@ -1,0 +1,5 @@
+page.meta {
+  og:site_name = TYPO3
+  og:site_name.attribute = property
+  og:site_name.replace = 1
+}

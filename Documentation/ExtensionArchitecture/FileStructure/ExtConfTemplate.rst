@@ -123,15 +123,8 @@ Nested structure
 
 You can also define nested options using the TypoScript notation:
 
-..  code-block:: typoscript
+..  literalinclude:: _extConfTemplateNested.typoscript
     :caption: EXT:some_extension/ext_conf_template.txt
-
-    directories {
-       # cat=basic/enable; type=string; label=Path to the temporary directory
-       tmp =
-       # cat=basic/enable; type=string; label=Path to the cache directory
-       cache =
-    }
 
 This will result in a multidimensional array:
 
