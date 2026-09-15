@@ -251,14 +251,8 @@ defined setting already supplies a value and overrides typoscript constants.
 The same constant is available in page TSconfig. This makes one defined setting
 usable by both frontend rendering and backend form configuration:
 
-..  code-block:: typoscript
+..  literalinclude:: _siteSettingsInPageTsconfig.tsconfig
     :caption: EXT:my_extension/Configuration/page.tsconfig
-
-    // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
-    TCAdefaults.tx_ext_data.pid = {$myExtension.categoryPid}
-
-    // load category selection for plugin from our dedicated storage page
-    TCEFORM.tt_content.pi_flexform.ext_pi1.sDEF.categories.PAGE_TSCONFIG_ID = {$myExtension.categoryPid}
 
 ..  _sitehandling-settings-access-typoscript-data:
 

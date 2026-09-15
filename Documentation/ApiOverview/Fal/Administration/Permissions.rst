@@ -57,26 +57,8 @@ in the user TSconfig reference.
 The default permissions for backend users and backend user groups
 are **read-only**:
 
-..  code-block:: typoscript
+..  literalinclude:: _filePermissionsDefault.tsconfig
     :caption: EXT:my_extension/Configuration/user.tsconfig
-
-    permissions.file.default {
-      addFile      = 0
-      readFile     = 1
-      writeFile    = 0
-      copyFile     = 0
-      moveFile     = 0
-      renameFile   = 0
-      deleteFile   = 0
-      addFolder    = 0
-      readFolder   = 1
-      writeFolder  = 0
-      copyFolder   = 0
-      moveFolder   = 0
-      renameFolder = 0
-      deleteFolder = 0
-      recursivedeleteFolder = 0
-    }
 
 If no permissions are defined in TSconfig, the settings in the backend user
 and in the backend user group record are taken into account and treated as
@@ -95,26 +77,8 @@ of the targeted storage record.
 
 The following example grants all permission for the storage with uid "1":
 
-..  code-block:: typoscript
+..  literalinclude:: _filePermissionsStorage.tsconfig
     :caption: EXT:my_extension/Configuration/user.tsconfig
-
-    permissions.file.storage.1 {
-      addFile      = 1
-      readFile     = 1
-      writeFile    = 1
-      copyFile     = 1
-      moveFile     = 1
-      renameFile   = 1
-      deleteFile   = 1
-      addFolder    = 1
-      readFolder   = 1
-      writeFolder  = 1
-      copyFolder   = 1
-      moveFolder   = 1
-      renameFolder = 1
-      deleteFolder = 1
-      recursivedeleteFolder = 1
-    }
 
 ..  note::
     Configured permissions for a *specific* storage take precedence over
@@ -207,13 +171,8 @@ It is also possible to modify default upload folder per page
 (or subtree) using page TSConfig property :typoscript:`options.defaultUploadFolder`,
 for example:
 
-..  code-block:: typoscript
+..  literalinclude:: _defaultUploadFolder.tsconfig
     :caption: EXT:my_extension/Configuration/page.tsconfig
-
-    # Set default upload folder to "fileadmin/page_upload" on PID 1
-    [page["uid"] == 1]
-        options.defaultUploadFolder = 1:/page_upload/
-    [end]
 
 There are a number of circumstances where it might be convenient
 to change the default upload folder. The PSR-14 event

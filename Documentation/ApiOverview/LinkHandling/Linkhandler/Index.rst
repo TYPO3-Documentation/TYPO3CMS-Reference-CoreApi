@@ -64,16 +64,8 @@ LinkHandler page TSconfig options
 
 The minimal page TSconfig configuration is:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.anIdentifier {
-       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = extension.messages:link.customTab
-       configuration {
-           table = tx_example_domain_model_item
-       }
-   }
+..  literalinclude:: _recordLinkHandlerOptions.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
 See :ref:`link-handler-configuration` for all available options.
 
@@ -85,38 +77,16 @@ Example: news records from one storage pid
 The following configuration hides the page tree and shows news records only
 from the defined storage page:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.news {
-       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = News
-       configuration {
-           table = tx_news_domain_model_news
-           storagePid = 123
-           hidePageTree = 1
-       }
-       displayAfter = email
-   }
+..  literalinclude:: _newsLinkHandler.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
 It is possible to have another configuration using another storagePid which
 also contains news records.
 
 This configuration shows a reduced page tree starting at page with uid 42:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.bookreports {
-       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = Book Reports
-       configuration {
-           table = tx_news_domain_model_news
-           storagePid = 42
-           pageTreeMountPoints = 42
-           hidePageTree = 0
-       }
-   }
+..  literalinclude:: _bookReportsLinkHandler.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
 The page TSconfig of the LinkHandler is being used in sysext `backend`
 in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`

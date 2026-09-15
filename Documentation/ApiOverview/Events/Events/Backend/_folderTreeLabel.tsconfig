@@ -1,0 +1,4 @@
+options.folderTree.label.1:/campaigns {
+  label = Main Storage
+  color = #ff8700
+}

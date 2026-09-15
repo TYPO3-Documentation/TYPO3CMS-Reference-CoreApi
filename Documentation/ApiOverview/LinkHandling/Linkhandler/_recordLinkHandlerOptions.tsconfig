@@ -1,0 +1,7 @@
+TCEMAIN.linkHandler.anIdentifier {
+  handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
+  label = extension.messages:link.customTab
+  configuration {
+    table = tx_example_domain_model_item
+  }
+}

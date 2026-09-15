@@ -14,15 +14,8 @@ of the system extension :file:`backend`. The class is marked as
 
 The PageLinkHandler is preconfigured in the page TSconfig as:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler {
-      page {
-         handler = TYPO3\CMS\Backend\LinkHandler\PageLinkHandler
-         label = backend.browse_links:page
-      }
-   }
+..  literalinclude:: _pageLinkHandler.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
 
 ..  _pagelinkhandler-enable-direct-input:
