@@ -37,22 +37,9 @@ If the controller is not tagged with the :php:`\TYPO3\CMS\Backend\Attribute\AsCo
 attribute, it must be registered in :file:`Configuration/Services.yaml`
 with the `backend.controller` tag for dependency injection to work:
 
-..  code-block:: yaml
+..  literalinclude:: _servicesBackendModule.yaml
     :caption: EXT:examples/Configuration/Services.yaml
     :emphasize-lines: 11-12
-
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-      T3docs\Examples\:
-        resource: '../Classes/*'
-        exclude: '../Classes/Domain/Model/*'
-
-      T3docs\Examples\Controller\AdminModuleController:
-        tags: ['backend.controller']
 
 
 ..  _backend-modules-template-without-extbase-main-entry:

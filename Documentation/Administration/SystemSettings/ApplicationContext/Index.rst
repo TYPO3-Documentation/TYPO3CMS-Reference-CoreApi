@@ -321,13 +321,8 @@ configuration. For example, in the provided code, the baseVariant hosted at
 'https://dev-1.example.com/' is used when the
 'applicationContext == "Development/Dev1"' condition is fulfilled.
 
-..  code-block:: yaml
+..  literalinclude:: _configBaseVariant.yaml
     :caption: config/sites/my_site/config.yaml (excerpt)
-
-    baseVariants:
-    -
-      base: 'https://dev-1.example.com/'
-      condition: 'applicationContext == "Development/Dev1"'
 
 ..  _read-application-context-typoscript:
 

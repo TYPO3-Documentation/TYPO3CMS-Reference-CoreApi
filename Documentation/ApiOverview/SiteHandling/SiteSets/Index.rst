@@ -168,15 +168,8 @@ field in the site settings editor.
 Define each setting in :file:`settings.definitions.yaml` before using it. The
 following example defines a color setting:
 
-..  code-block:: yaml
+..  literalinclude:: _settingsDefinitions.yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
-
-    settings:
-      myExtension.backgroundColor:
-        label: 'Background color'
-        description: 'Default background color of the site.'
-        type: color
-        default: '#ffffff'
 
 The definition establishes the setting identifier, type and default value. It
 also makes the setting available in the :ref:`Site settings editor <site-settings-editor>`. See
@@ -285,19 +278,8 @@ Route enhancers
 Put route enhancer presets below the `routeEnhancers` key in
 :file:`route-enhancers.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _routeEnhancersSet.yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
-
-    routeEnhancers:
-      MyEnhancer:
-        type: Simple
-        routePath: '/my-path/{param}'
-        aspects:
-          param:
-            type: StaticValueMapper
-            map:
-              value1: '1'
-              value2: '2'
 
 TYPO3 merges route enhancers in dependency order. Later sets can override
 earlier sets, and the site configuration takes precedence over all set-defined
@@ -305,14 +287,8 @@ enhancers.
 
 The file supports YAML imports:
 
-..  code-block:: yaml
+..  literalinclude:: _routeEnhancersImports.yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
-
-    imports:
-      - { resource: 'route-enhancers/*.yaml' }
-
-    routeEnhancers:
-      # Additional enhancers can be defined here
 
 See also:
 
@@ -327,13 +303,8 @@ Using a site set
 
 Add the set identifier to the site's `dependencies` array:
 
-..  code-block:: yaml
+..  literalinclude:: _siteConfigWithSet.yaml
     :caption: config/sites/my-site/config.yaml
-
-    base: 'https://example.com/'
-    rootPageId: 1
-    dependencies:
-      - my-vendor/my-set
 
 Alternatively, select the set in :guilabel:`Sites > Setup`.
 
@@ -361,15 +332,8 @@ Depending on other site sets
 
 A set can declare required and optional dependencies in :file:`config.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _setConfigDependencies.yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/config.yaml
-
-    name: my-vendor/my-set
-    label: 'My site set'
-    dependencies:
-      - my-vendor/my-required-set
-    optionalDependencies:
-      - other-vendor/optional-set
 
 `dependencies`
     Required sets. TYPO3 reports an error when one is unavailable.

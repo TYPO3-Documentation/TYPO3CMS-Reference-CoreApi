@@ -465,15 +465,8 @@ It is also possible that the `site configuration <https://docs.typo3.org/permali
 files contain credentials (for example Solr credentials). You can use
 environment variables directly in YAML files:
 
-..  code-block:: yaml
-    :caption: project_root/config/sites/example/config.yaml
-
-    base: 'https://www.example.org/'
-
-    # ...
-
-    solr_host_read: '%env("SOLR_USER")%'
-    solr_password_read: '%env("SOLR_PASSWORD")%'
+..  literalinclude:: _codesnippets/_configWithEnvVars.yaml
+    :caption: project_root/config/sites/example/config.yaml (excerpt)
 
 ..  code-block:: bash
     :caption: project_root/.env  (Add to `.gitignore`, Do not commit to Git!!!)

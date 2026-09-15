@@ -1,0 +1,12 @@
+baseVariants:
+  -
+    base: 'https://example.localhost/'
+    condition: 'applicationContext == "Development"'
+  -
+    base: 'https://staging.example.com/'
+    condition: 'applicationContext == "Production/Sydney"'
+  -
+    base: 'https://testing.example.com/'
+    condition: 'applicationContext == "Testing/Paris"'
+
+# ...

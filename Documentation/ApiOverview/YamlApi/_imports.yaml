@@ -1,0 +1,8 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "misc/my_options.yaml" }
+  - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+  - { resource: "./**/*.yaml", glob: true }
+  - { resource: "EXT:core/Tests/**/Configuration/**/SiteConfigs/*.yaml", glob: true }
+
+# ...

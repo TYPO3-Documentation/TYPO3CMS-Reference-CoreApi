@@ -1,0 +1,6 @@
+baseVariants:
+-
+  base: 'https://dev-1.example.com/'
+  condition: 'applicationContext == "Development/Dev1"'
+
+# ...
