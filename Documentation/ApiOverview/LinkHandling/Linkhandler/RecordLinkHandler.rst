@@ -25,17 +25,8 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 #. Page TSconfig is used to create a new tab in the LinkBrowser to
    be able to select records.
 
-   .. code-block:: typoscript
+   ..  literalinclude:: _recordLinkHandler.tsconfig
        :caption: EXT:some_extension/Configuration/page.tsconfig
-
-      TCEMAIN.linkHandler.anIdentifier {
-          handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-          label = extension.messages:link.customTab
-          configuration {
-              table = tx_example_domain_model_item
-          }
-          scanAfter = page
-      }
 
    You can position your own handlers in order as defined in the :ref:`linkbrowser-api`.
 
@@ -74,16 +65,8 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 
 The minimal page TSconfig configuration is:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.anIdentifier {
-       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = extension.messages:link.customTab
-       configuration {
-           table = tx_example_domain_model_item
-       }
-   }
+..  literalinclude:: _recordLinkHandlerOptions.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
 The following optional configuration is available:
 

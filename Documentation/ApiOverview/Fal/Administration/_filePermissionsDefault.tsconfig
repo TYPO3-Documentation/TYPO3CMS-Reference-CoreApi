@@ -1,0 +1,17 @@
+permissions.file.default {
+  addFile      = 0
+  readFile     = 1
+  writeFile    = 0
+  copyFile     = 0
+  moveFile     = 0
+  renameFile   = 0
+  deleteFile   = 0
+  addFolder    = 0
+  readFolder   = 1
+  writeFolder  = 0
+  copyFolder   = 0
+  moveFolder   = 0
+  renameFolder = 0
+  deleteFolder = 0
+  recursivedeleteFolder = 0
+}

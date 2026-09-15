@@ -30,13 +30,8 @@ the node.
 
 A label can be assigned to a node in user TSconfig using a folder identifier path:
 
-..  code-block:: typoscript
+..  literalinclude:: _folderTreeLabel.tsconfig
     :caption: EXT:my_extension/Configuration/user.tsconfig
-
-    options.folderTree.label.1:/campaigns {
-        label = Main Storage
-        color = #ff8700
-    }
 
 
 ..  _AfterFileStorageTreeItemsPreparedEvent-status:
