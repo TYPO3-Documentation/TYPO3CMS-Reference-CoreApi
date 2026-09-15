@@ -65,30 +65,8 @@ Use :php:`setTargetPageUid()` before calling :php:`uriFor()`. :php:`reset()`
 clears all previously set options — call it before each URL generation inside
 a loop:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceController-targetPage.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Model\Conference;
-    use Psr\Http\Message\ResponseInterface;
-
-    class ConferenceController extends ActionController
-    {
-        public function listAction(): ResponseInterface
-        {
-            $conferences = $this->conferenceRepository->findAll();
-
-            foreach ($conferences as $conference) {
-                $uri = $this->uriBuilder
-                    ->reset()
-                    ->setTargetPageUid(42)   // UID of the detail page
-                    ->uriFor('show', ['conference' => $conference], 'Conference');
-
-                // …
-            }
-
-            return $this->htmlResponse();
-        }
-    }
 
 The detail page UID is typically stored in TypoScript settings (or site set
 settings) so it does not need to be hardcoded:

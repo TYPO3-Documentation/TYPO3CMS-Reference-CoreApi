@@ -42,26 +42,8 @@ an :sql:`INSERT` or :sql:`UPDATE` statement yourself. With the Extbase ORM:
 
 A controller action that creates and stores a new conference looks like this:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerCreate.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Model\Conference;
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-        ) {}
-
-        public function createAction(Conference $conference): ResponseInterface
-        {
-            $this->conferenceRepository->add($conference);
-            return $this->redirect('list');
-        }
-    }
 
 No SQL, no :sql:`INSERT`, no result-set iteration. The ORM handles the mapping.
 
@@ -211,30 +193,8 @@ Two cases require an earlier flush:
     it is persisted. Call :php:`persistAll()` and then read
     :php:`$object->getUid()`.
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerPersistAll.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Model\Conference;
-    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-    use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
-
-    class ConferenceController extends ActionController
-    {
-        public function __construct(
-            protected readonly ConferenceRepository $conferenceRepository,
-            protected readonly PersistenceManagerInterface $persistenceManager,
-        ) {}
-
-        public function createAction(Conference $conference): ResponseInterface
-        {
-            $this->conferenceRepository->add($conference);
-            $this->persistenceManager->persistAll();
-            $uid = $conference->getUid();
-            return $this->redirect('show', null, null, ['conference' => $uid]);
-        }
-    }
 
 ..  seealso::
 

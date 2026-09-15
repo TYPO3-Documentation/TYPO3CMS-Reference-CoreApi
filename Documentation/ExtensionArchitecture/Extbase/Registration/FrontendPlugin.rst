@@ -29,20 +29,8 @@ Configuring the plugin dispatcher
 actions are allowed and generates the TypoScript to route requests to the Extbase
 dispatcher. Call it in :file:`ext_localconf.php`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php
-
-    use MyVendor\MyExtension\Controller\ConferenceController;
-    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-    defined('TYPO3') or die();
-
-    ExtensionUtility::configurePlugin(
-        'MyExtension',
-        'ConferenceList',
-        [ConferenceController::class => 'list, show, create'],
-        [ConferenceController::class => 'create'],
-    );
 
 The four arguments are:
 
@@ -76,22 +64,8 @@ Registering the plugin in the backend
 available content element types in the backend. Call it in
 :file:`Configuration/TCA/Overrides/tt_content.php`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
-
-    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-    defined('TYPO3') or die();
-
-    ExtensionUtility::registerPlugin(
-        'MyExtension',
-        'ConferenceList',
-        'my_extension.db:plugin.conferencelist.title',
-        'my-extension-conference-list',
-        'plugins',
-        'my_extension.db:plugin.conferencelist.description',
-        'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml',
-    );
 
 The arguments are:
 

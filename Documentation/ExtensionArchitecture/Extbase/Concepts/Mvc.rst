@@ -179,23 +179,8 @@ potential action. The action name in the URL is the method name without the
 Actions can declare typed parameters. Extbase's property mapping resolves them
 automatically from the request:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerShow.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    namespace MyVendor\MyExtension\Controller;
-
-    use MyVendor\MyExtension\Domain\Model\Conference;
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function showAction(Conference $event): ResponseInterface
-        {
-            $this->view->assign('event', $event);
-            return $this->htmlResponse();
-        }
-    }
 
 When the URL contains :samp:`event=42`, Extbase loads the :php:`Conference` object
 with UID 42 from the repository and passes it directly to the action. You never
