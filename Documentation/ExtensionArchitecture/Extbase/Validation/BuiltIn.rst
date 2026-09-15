@@ -32,21 +32,8 @@ Syntax of the `#[Validate]` attribute
 The attribute takes the validator name as its first argument and an optional
 `options` array:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceWithValidators.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Attribute\Validate;
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-
-    class Conference extends AbstractEntity
-    {
-        #[Validate('NotEmpty')]
-        #[Validate('StringLength', options: ['minimum' => 3, 'maximum' => 255])]
-        protected string $title = '';
-
-        #[Validate('EmailAddress')]
-        protected string $contactEmail = '';
-    }
 
 The validator name can be either a short name (for built-in validators listed
 below) or a fully qualified class name for :ref:`custom validators

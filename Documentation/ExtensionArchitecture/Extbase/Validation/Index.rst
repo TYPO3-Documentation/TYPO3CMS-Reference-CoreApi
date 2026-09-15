@@ -74,38 +74,14 @@ or both.
 **On an action parameter** — validates the value passed to an
 action before the action runs:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerValidatedArgument.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use TYPO3\CMS\Extbase\Attribute\Validate;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function createAction(
-            #[Validate('NotEmpty')]
-            #[Validate('StringLength', options: ['maximum' => 255])]
-            string $title,
-        ): ResponseInterface {
-            // $title is guaranteed non-empty and at most 255 characters
-        }
-    }
 
 **On a domain model property** — validates the property every time the model
 is used as an action argument:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceWithTitleValidation.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Attribute\Validate;
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-
-    class Conference extends AbstractEntity
-    {
-        #[Validate('NotEmpty')]
-        #[Validate('StringLength', options: ['maximum' => 255])]
-        protected string $title = '';
-    }
 
 Placing validators on the model above means that every action that receives a
 :php:`Conference` argument benefits from the same rules,
@@ -143,22 +119,8 @@ model.
 Place :php:`#[IgnoreValidation]` on the parameter to tell Extbase to ignore
 the validation result for that argument and dispatch the action regardless:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerIgnoreValidation.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
-    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-
-    class ConferenceController extends ActionController
-    {
-        public function newAction(
-            #[IgnoreValidation]
-            Conference $conference = null,
-        ): ResponseInterface {
-            $this->view->assign('conference', $conference ?? new Conference());
-            return $this->htmlResponse();
-        }
-    }
 
 Validation still runs — :php:`#[IgnoreValidation]` does not skip it. It
 instructs Extbase to call the action even when the argument is invalid.
@@ -198,19 +160,8 @@ To completely change how validation errors are handled — for example to return
 a :abbr:`JSON (JavaScript Object Notation)` response — override
 :php:`errorAction()` itself:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerErrorAction.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Extbase\Error\Result;
-
-    protected function errorAction(): ResponseInterface
-    {
-        $errors = $this->arguments->validate();
-        return $this->jsonResponse(json_encode([
-            'errors' => $this->flattenErrors($errors),
-        ]))->withStatus(422); // choose the status code appropriate for your API; 422 or 400 are common choices
-    }
 
 
 ..  _extbase-validation-fluid:
