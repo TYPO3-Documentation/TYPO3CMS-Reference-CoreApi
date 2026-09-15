@@ -24,7 +24,13 @@ Makefile                    # local install/build/test commands
 - `make test-docs` — render in minimal-test mode (the same validation CI
   runs); use this to validate any change before committing. `docs-test`
   still works as a deprecated alias for the target's former name.
-- `make test` — full test suite (docs, lint, cgl, yaml).
+- `make test-typoscript` — check the `.typoscript` and `.tsconfig` snippets
+  for syntax errors. TypoScript drops whatever it cannot parse without
+  complaining, so a broken example stays invisible until somebody copies
+  it; the check round trips each file through the Core tokenizer and
+  counts the block braces. A file that demonstrates invalid syntax on
+  purpose opts out with `# typoscript-lint: ignore-file` in its first line.
+- `make test` — full test suite (docs, lint, cgl, yaml, typoscript).
 
 ## Rules
 
