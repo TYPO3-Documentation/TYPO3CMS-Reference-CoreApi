@@ -58,22 +58,8 @@ Before:
 
 After:
 
-..  code-block:: php
+..  literalinclude:: _be_users.php
     :caption: Configuration/TCA/Overrides/be_users.php
-
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-    ExtensionManagementUtility::addUserSetting(
-        'myCustomSetting',
-        [
-            'label' => 'my_ext.messages:myCustomSetting',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-            ],
-        ],
-        'after:emailMeAtLogin'
-    );
 
 ..  rubric:: Page type allowed record types:
 
@@ -97,13 +83,8 @@ Before:
 
 After:
 
-..  code-block:: php
+..  literalinclude:: _pages.php
     :caption: Configuration/TCA/Overrides/pages.php
-
-    $GLOBALS['TCA']['pages']['types']['116']['allowedRecordTypes'] = [
-        'tt_content',
-        'my_custom_record',
-    ];
 
 Once all registrations have been moved and TYPO3 V13 support is dropped, the
 :file:`ext_tables.php` file can be removed from the extension.

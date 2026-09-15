@@ -90,13 +90,5 @@ Any arbitrary filename ending with :file:`.xlf` can be used.
     These labels need to be always accessed by their complete path in the TCA
     configuration:
 
-    ..  code-block:: php
-        :caption: EXT:examples/Configuration/TCA/tx_examples_dummy.php
-
-        return [
-           'ctrl' => [
-               'title' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tx_examples_dummy',
-               // ...
-           ],
-           // ...
-        ];
+    ..  literalinclude:: _tx_examples_dummy.php
+        :caption: EXT:examples/Configuration/TCA/tx_examples_dummy.php (excerpt)

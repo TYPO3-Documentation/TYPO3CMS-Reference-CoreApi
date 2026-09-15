@@ -94,19 +94,5 @@ Before:
 
 After:
 
-..  code-block:: php
+..  literalinclude:: _be_users_after.php
     :caption: Configuration/TCA/Overrides/be_users.php (after)
-
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-    ExtensionManagementUtility::addUserSetting(
-        'myCustomSetting',
-        [
-            'label' => 'my_extension.messages:myCustomSetting',
-            'config' => [
-                'type' => 'check',
-                'renderType' => 'checkboxToggle',
-            ],
-        ],
-        'after:emailMeAtLogin'
-    );
