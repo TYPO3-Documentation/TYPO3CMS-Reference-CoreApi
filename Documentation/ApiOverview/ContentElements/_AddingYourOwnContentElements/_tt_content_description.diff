@@ -1,13 +1,13 @@
- ExtensionManagementUtility::addTcaSelectItem(
-     'tt_content',
-     'CType',
-     [
-         'label' => 'Example - basic content',
-         'value' => $key,
-+        'icon' => 'examples-icon-basic',
-+        'description' => 'examples.db:basic_content.description',
-         'group' => 'default',
-     ],
-     'textmedia',
-     'after',
+ ExtensionManagementUtility::addRecordType(
+   new SelectItem(
+     type: 'select',
+     label: 'Example - basic content',
+     value: 'myextension_basiccontent',
++    icon: 'examples-icon-basic',
+     group: 'default',
++    description: 'examples.db:basic_content.description'
+   ),
+   $showItemList,
+   [],
+   'after:textmedia',
  );
