@@ -46,15 +46,8 @@ was used.
 For example, we can define two global namespaces with the identifiers
 'myext' and 'mycmp':
 
-..  code-block:: php
+..  literalinclude:: _Namespaces.php
     :caption: EXT:my_extension/Configuration/Fluid/Namespaces.php
-
-    <?php
-
-    return [
-        'myext' => ['MyVendor\\MyExtension\\ViewHelpers'],
-        'mycmp' => ['MyVendor\\MyExtension\\Components'],
-    ];
 
 Assuming you have defined a Fluid component in
 `EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`
@@ -75,23 +68,11 @@ the namespaces.
 
 Example (my_extension2 depends on my_extension1):
 
-..  code-block:: php
+..  literalinclude:: _Namespaces_extension1.php
     :caption: EXT:my_extension1/Configuration/Fluid/Namespaces.php
 
-    <?php
-
-    return [
-        'myext' => ['MyVendor\\MyExtension1\\ViewHelpers'],
-    ];
-
-..  code-block:: php
+..  literalinclude:: _Namespaces_extension2.php
     :caption: EXT:my_extension2/Configuration/Fluid/Namespaces.php
-
-    <?php
-
-    return [
-        'myext' => ['MyVendor\\MyExtension2\\ViewHelpers'],
-    ];
 
 This results in namespace definition:
 

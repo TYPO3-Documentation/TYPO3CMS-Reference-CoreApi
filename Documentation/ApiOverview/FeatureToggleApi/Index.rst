@@ -77,26 +77,8 @@ To register a feature and set the default state, add the following to the
 
 To check if a feature is enabled, use this code:
 
-..  code-block:: php
+..  literalinclude:: _SomeClass.php
     :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Configuration\Features;
-
-    final class SomeClass {
-        public function __construct(
-            private readonly Features $features,
-        ) {
-        }
-
-        public function doSomething(): void
-        {
-            if ($this->features->isFeatureEnabled('myFeatureName') {
-                // do custom processing
-            }
-
-            // ...
-        }
-    }
 
 ..  attention::
     Currently, only the Core features can be (de-)activated in the Install Tool.

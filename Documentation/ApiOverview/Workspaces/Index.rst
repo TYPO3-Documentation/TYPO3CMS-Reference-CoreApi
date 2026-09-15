@@ -341,17 +341,8 @@ You can restrict access to backend modules by setting the value of the
 :php:`workspaces` key in the
 :ref:`backend module configuration <backend-modules-configuration>`:
 
-..  code-block:: php
+..  literalinclude:: _Modules.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
-
-    return [
-        'content_examples' => [
-            'parent' => 'content',
-            // Only available in live workspace
-            'workspaces' => 'live',
-            // ... other configuration
-        ],
-    ];
 
 The value can be one of:
 
