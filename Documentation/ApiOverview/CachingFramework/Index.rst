@@ -184,19 +184,8 @@ all parameters.
 Example (excerpt of `config/system/additional.php`)
 ===================================================
 
-..  code-block:: php
+..  literalinclude:: _additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] = [
-        'excludedParameters' => [
-            'utm_source',
-            'utm_medium',
-        ],
-        'excludedParametersIfEmpty' => [
-            '^tx_my_plugin[aspects]',
-            'tx_my_plugin[filter]',
-        ],
-    ];
 
 For instance instead of having exclude items like
 

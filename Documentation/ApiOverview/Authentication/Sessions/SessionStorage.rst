@@ -69,33 +69,8 @@ The Redis session storage can be configured with :file:`config/system/settings.p
 
 A sample configuration will look like this:
 
-.. code-block:: php
+..  literalinclude:: _settings_redis.php
     :caption: config/system/settings.php (excerpt)
-
-    'SYS' => [
-        'session' => [
-            'BE' => [
-                'backend' => \TYPO3\CMS\Core\Session\Backend\RedisSessionBackend::class,
-                'options' => [
-                    'hostname' => 'redis.myhost.example',
-                    'password' => 'passw0rd',
-                    'database' => 0,
-                    'port' => 6379,
-                    'keyPrefix' => 'be_sessions_'
-                ]
-            ],
-            'FE' => [
-                'backend' => \TYPO3\CMS\Core\Session\Backend\RedisSessionBackend::class,
-                'options' => [
-                    'hostname' => 'redis.myhost.example',
-                    'password' => 'passw0rd',
-                    'database' => 0,
-                    'port' => 6379,
-                    'keyPrefix' => 'fe_sessions_'
-                ]
-            ],
-        ],
-    ],
 
 The available options are:
 
@@ -158,19 +133,8 @@ of options can be passed to the session backend.
 A custom session storage backend can be used like this (similarly to
 the Redis backend):
 
-.. code-block:: php
+..  literalinclude:: _settings_custom.php
     :caption: config/system/settings.php (excerpt)
-
-    'SYS' => [
-        'session' => [
-            'FE' => [
-                'backend' => \Vendor\Sessions\MyCustomSessionBackend::class,
-                'options' => [
-                    'foo' => 'bar',
-                ]
-            ],
-        ],
-    ],
 
 .. _sessions-manager:
 

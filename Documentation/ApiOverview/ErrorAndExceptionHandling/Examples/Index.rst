@@ -25,20 +25,8 @@ exceptions.
 
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $changeSettings['SYS'] = [
-      'displayErrors' => 1,
-      'devIPmask' => '*',
-      'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
-      'errorHandlerErrors' => E_ALL ^ E_NOTICE,
-      'exceptionalErrors' => E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER_ERROR ^ E_USER_NOTICE ^ E_USER_WARNING,
-      'debugExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
-      'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
-   ];
-
-   $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
+..  literalinclude:: _DevelopmentSetup.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 You can also use the "Debug" preset in the Settings module "Configuration presets".
 
@@ -84,17 +72,8 @@ matches. Errors and exceptions are only logged, if their
 
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $changeSettings['SYS'] = [
-      'displayErrors' => -1,
-      'devIPmask' => '[your.IP.address]',
-      'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
-      'belogErrorReporting' => '0',
-   ];
-
-   $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
+..  literalinclude:: _ProductionSetup.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 You can also use the "Live" preset in the Settings module "Configuration presets".
 
@@ -120,19 +99,8 @@ handling completely.
 
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
-
-    $changeSettings['SYS'] = [
-      'displayErrors' => 0,
-      'devIPmask' => '',
-      'errorHandler' => '',
-      'debugExceptionHandler' => '',
-      'productionExceptionHandler' => '',
-      'belogErrorReporting' => '0',
-   ];
-
-   $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
+..  literalinclude:: _PerformanceSetup.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 ..  note::
     PHP warnings, among other things, are added to the TYPO3 log via
