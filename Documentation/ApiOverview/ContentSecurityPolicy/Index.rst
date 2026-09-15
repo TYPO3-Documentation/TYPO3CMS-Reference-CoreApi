@@ -840,16 +840,8 @@ Using a third-party service
 As an alternative to the built-in reporting module, an external reporting URL
 can be configured to use a third-party service as well:
 
-..  code-block:: php
+..  literalinclude:: _ThirdPartyService.php
     :caption: config/system/additional.php
-
-    // For backend
-    $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
-        = 'https://csp-violation.example.org/';
-
-    // For frontend
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
-        = 'https://csp-violation.example.org/';
 
 Violations are then sent to the third-party service instead of the TYPO3
 endpoint. Resolutions would then not be applied dynamically.
@@ -871,14 +863,8 @@ server-side process responds with a 403 HTTP error message.
 The global scope-specific setting `contentSecurityPolicyReportingUrl` can
 be set to zero ('0') to disable the CSP reporting endpoint:
 
-..  code-block:: php
+..  literalinclude:: _DisableReporting.php
     :caption: config/system/additional.php
-
-    // For backend
-    $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl'] = '0';
-
-    // For frontend
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl'] = '0';
 
 ..  _content-security-policy-backend-rules:
 

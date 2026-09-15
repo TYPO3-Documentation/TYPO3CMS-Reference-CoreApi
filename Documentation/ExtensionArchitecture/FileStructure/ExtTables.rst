@@ -42,19 +42,8 @@ User settings previously registered via
 
 Before:
 
-..  code-block:: php
+..  literalinclude:: _ext_tables.php
     :caption: ext_tables.php
-
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-    $GLOBALS['TYPO3_USER_SETTINGS']['columns']['myCustomSetting'] = [
-        'type' => 'check',
-        'label' => 'my_ext.messages:myCustomSetting',
-    ];
-    ExtensionManagementUtility::addFieldsToUserSettings(
-        'myCustomSetting',
-        'after:emailMeAtLogin'
-    );
 
 After:
 
@@ -85,15 +74,8 @@ Page doktypes previously registered via :php:`PageDoktypeRegistry->add()` in
 
 Before:
 
-..  code-block:: php
+..  literalinclude:: _ext_tables_registration.php
     :caption: ext_tables.php
-
-    use TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    GeneralUtility::makeInstance(PageDoktypeRegistry::class)->add(116, [
-        'allowedTables' => ['tt_content', 'my_custom_record'],
-    ]);
 
 After:
 

@@ -72,15 +72,8 @@ Is online?
 
     Example:
 
-    ..  code-block:: php
+    ..  literalinclude:: _additional.php
         :caption: config/system/additional.php
-
-        // Configure additional directories outside of the project's folder
-        // as absolute paths
-        $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = [
-            '/var/shared/documents/',
-            '/var/shared/images/',
-        ];
 
     Storages that reference directories not explicitly granted will be marked as
     "offline" internally - no resources can be used in the website's frontend

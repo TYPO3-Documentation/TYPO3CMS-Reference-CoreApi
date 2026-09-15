@@ -103,17 +103,8 @@ file with all configuration of other extensions.
     since this code in global scope should not be executed through the web
     server directly as entry point.
 
-    ..  code-block:: php
+    ..  literalinclude:: _snippets/_ext_localconf_definedCheck.php
         :caption: EXT:my_extension/ext_localconf.php
-
-        <?php
-        declare(strict_types=1);
-
-        use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-        // put this at top of every ext_tables.php and ext_localconf.php right after
-        // the use statements
-        defined('TYPO3') or die();
 
 -   You **must** use the extension name (for example, "tt_address") instead of
     :php:`$_EXTKEY` within the two configuration files as this variable is no
