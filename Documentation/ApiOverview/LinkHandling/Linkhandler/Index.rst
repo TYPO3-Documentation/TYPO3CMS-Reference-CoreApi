@@ -35,18 +35,8 @@ The links are now stored in the database with the syntax
 
 #. TypoScript is used to generate the actual link in the frontend.
 
-   .. code-block:: typoscript
-       :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
-
-      config.recordLinks.anIdentifier {
-          // Do not force link generation when the record is hidden
-          forceLink = 0
-          typolink {
-              parameter = 123
-              additionalParams.data = field:uid
-              additionalParams.wrap = &tx_example_pi1[item]=|&tx_example_pi1[controller]=Item&tx_example_pi1[action]=show
-          }
-      }
+   ..  literalinclude:: _recordLinkFrontend.typoscript
+       :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
 
    .. attention::
 
@@ -65,7 +55,7 @@ LinkHandler page TSconfig options
 The minimal page TSconfig configuration is:
 
 ..  literalinclude:: _recordLinkHandlerOptions.tsconfig
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
 
 See :ref:`link-handler-configuration` for all available options.
 
@@ -78,7 +68,7 @@ The following configuration hides the page tree and shows news records only
 from the defined storage page:
 
 ..  literalinclude:: _newsLinkHandler.tsconfig
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
 
 It is possible to have another configuration using another storagePid which
 also contains news records.
@@ -86,7 +76,7 @@ also contains news records.
 This configuration shows a reduced page tree starting at page with uid 42:
 
 ..  literalinclude:: _bookReportsLinkHandler.tsconfig
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
 
 The page TSconfig of the LinkHandler is being used in sysext `backend`
 in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
@@ -107,18 +97,8 @@ LinkHandler TypoScript options
 
 A configuration could look like this:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
-
-   config.recordLinks.anIdentifier {
-       forceLink = 0
-
-       typolink {
-           parameter = 123
-           additionalParams.data = field:uid
-           additionalParams.wrap = &tx_example_pi1[item]=|
-       }
-   }
+..  literalinclude:: _recordLinkOptions.typoscript
+    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
 
 The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
@@ -130,30 +110,14 @@ Example: news records displayed on fixed detail page
 
 The following displays the link to the news on a detail page:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
-
-   config.recordLinks.news {
-      typolink {
-         parameter = 123
-         additionalParams.data = field:uid
-         additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
-      }
-   }
+..  literalinclude:: _newsRecordLink.typoscript
+    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
 
 Once more if the book reports that are also saved as `tx_news_domain_model_news` record should be displayed on their own
 detail page you can do it like this:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
-
-   config.recordLinks.bookreports  {
-      typolink {
-         parameter = 987
-         additionalParams.data = field:uid
-         additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
-      }
-   }
+..  literalinclude:: _bookReportsRecordLink.typoscript
+    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
 
 
 ..  toctree::

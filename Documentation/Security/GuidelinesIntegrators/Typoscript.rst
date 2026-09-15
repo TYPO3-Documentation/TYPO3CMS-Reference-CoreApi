@@ -170,16 +170,8 @@ The TypoScript property can be used for the following :ref:`PAGE <t3tsref:page>`
 
 A typical example in TypoScript looks like:
 
-..  code-block:: typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
-
-    page {
-      includeJS {
-        jQuery = https://code.jquery.com/jquery-1.11.3.min.js
-        jQuery.external = 1
-        jQuery.integrity = sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=
-      }
-    }
+..  literalinclude:: _externalJsIntegrity.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript (excerpt)
 
 
 ..  index:: Security guidelines; External JavaScript libraries
