@@ -1,0 +1,12 @@
+lib.carousel = FLUIDTEMPLATE
+lib.carousel {
+  file = EXT:my_extension/Resources/Private/Templates/Carousel.fluid.html
+  dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+  dataProcessing.10 {
+    references {
+      table = tt_content
+      fieldName = image
+    }
+    as = images
+  }
+}

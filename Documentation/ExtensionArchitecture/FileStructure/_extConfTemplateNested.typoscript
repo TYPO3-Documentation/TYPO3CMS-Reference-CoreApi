@@ -1,0 +1,6 @@
+directories {
+  # cat=basic/enable; type=string; label=Path to the temporary directory
+  tmp =
+  # cat=basic/enable; type=string; label=Path to the cache directory
+  cache =
+}

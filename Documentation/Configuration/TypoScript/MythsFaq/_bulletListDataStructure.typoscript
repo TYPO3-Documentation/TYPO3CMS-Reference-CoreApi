@@ -1,0 +1,16 @@
+styles.content.bulletlist = TEXT
+styles.content.bulletlist {
+  stdWrap.current = 1
+  stdWrap.trim = 1
+  stdWrap.if.isTrue.current = 1
+  # Copying the object "styles.content.parseFunc" to this position
+  stdWrap.parseFunc < styles.content.parseFunc
+  stdWrap.split {
+    token.char = 10
+    cObjNum = 1
+    1.current < .cObjNum
+    1.wrap = <li>
+  }
+  # Setting wrapping value:
+  stdWrap.textStyle.altWrap = {$styles.content.bulletlist.altWrap}
+}

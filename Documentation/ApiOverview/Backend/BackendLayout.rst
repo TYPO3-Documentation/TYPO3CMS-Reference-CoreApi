@@ -116,25 +116,8 @@ been simplified for the frontend.
 
 To get the correct backend layout, the following TypoScript code can be used:
 
-.. code-block:: typoscript
+..  literalinclude:: _backendLayoutFluidTemplate.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-    page.10 = FLUIDTEMPLATE
-    page.10 {
-        file.stdWrap.cObject = CASE
-        file.stdWrap.cObject {
-            key.data = pagelayout
-
-            default = TEXT
-            default.value = EXT:sitepackage/Resources/Private/Templates/Home.fluid.html
-
-            3 = TEXT
-            3.value = EXT:sitepackage/Resources/Private/Templates/1-col.html
-
-            4 = TEXT
-            4.value = EXT:sitepackage/Resources/Private/Templates/2-col.html
-        }
-    }
 
 Using  `data = pagelayout` is the same as using as
 

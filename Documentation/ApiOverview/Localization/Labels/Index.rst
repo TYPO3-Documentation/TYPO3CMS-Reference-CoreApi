@@ -292,13 +292,8 @@ TypoScript: using the `getText` property
 The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be used to
 fetch translations from a language file and render them in the current language.
 
-..  code-block:: typoscript
+..  literalinclude:: _blogListTitleGetText.typoscript
     :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
-
-    lib.blogListTitle = TEXT
-    lib.blogListTitle {
-        data = LLL : my_extension.your_file.xlf:yourKey
-    }
 
 Make sure to leave spaces around the colon following `LLL` (as required by
 general getText syntax).

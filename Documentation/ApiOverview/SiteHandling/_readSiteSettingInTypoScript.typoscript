@@ -1,0 +1,4 @@
+lib.categoryPid = TEXT
+lib.categoryPid {
+  data = siteSettings:myExtension.categoryPid
+}
