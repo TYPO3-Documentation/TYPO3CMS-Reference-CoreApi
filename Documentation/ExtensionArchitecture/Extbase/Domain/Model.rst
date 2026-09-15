@@ -332,31 +332,8 @@ Extbase will never read or write the corresponding column. The property should t
 populated by your own code, which is typically a getter that computes a value using
 other properties:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceWithTransient.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    namespace MyVendor\MyExtension\Domain\Model;
-
-    use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-
-    class Conference extends AbstractEntity
-    {
-        protected string $title = '';
-
-        protected ?\DateTimeImmutable $conferenceDate = null;
-
-        #[Transient]
-        protected ?string $displayLabel = null;
-
-        public function getDisplayLabel(): string
-        {
-            if ($this->displayLabel === null) {
-                $this->displayLabel = $this->title . ' (' . $this->conferenceDate?->format('Y') . ')';
-            }
-            return $this->displayLabel;
-        }
-    }
 
 
 ..  _extbase-domain-model-mapping:
@@ -378,18 +355,8 @@ If a table or column does not match the convention, for example,
 a table like :sql:`fe_users` which already exists in the system, override the mapping
 in :file:`Configuration/Extbase/Persistence/Classes.php`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_Classes.php
     :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
-
-    // Configuration/Extbase/Persistence/Classes.php
-    return [
-        \MyVendor\MyExtension\Domain\Model\FrontendUser::class => [
-            'tableName' => 'fe_users',
-            'properties' => [
-                'firstName' => ['fieldName' => 'first_name'],
-            ],
-        ],
-    ];
 
 ..  Full mapping reference including class hierarchy and multi-model tables — placement TBD.
 
@@ -475,30 +442,8 @@ just replace it with a new one.
 is marked :php:`@internal`. It is not public API and must not be extended in
 extension code.
 
-..  code-block:: php
+..  literalinclude:: _snippets/_Color.php
     :caption: EXT:my_extension/Classes/Domain/Model/Color.php
-
-    final class Color
-    {
-        public function __construct(
-            public readonly string $name,
-            public readonly string $hex,
-        ) {
-            if (!preg_match('/^#[0-9a-fA-F]{6}$/', $hex)) {
-                throw new \InvalidArgumentException('Invalid hex color: ' . $hex);
-            }
-        }
-
-        public function equals(self $other): bool
-        {
-            return $this->hex === $other->hex;
-        }
-
-        public function withName(string $name): self
-        {
-            return new self($name, $this->hex);
-        }
-    }
 
 Note that :php:`withName()` returns a new :php:`Color` instance rather than
 modifying :php:`$this` — that is the immutability principle in practice. The
@@ -509,25 +454,8 @@ can never exist.
 Store them as scalar columns on the owning entity and reconstruct the object in
 a getter:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_Product.php
     :caption: EXT:my_extension/Classes/Domain/Model/Product.php
-
-    class Product extends AbstractEntity
-    {
-        protected string $colorName = '';
-        protected string $colorHex = '#000000';
-
-        public function getColor(): Color
-        {
-            return new Color($this->colorName, $this->colorHex);
-        }
-
-        public function setColor(Color $color): void
-        {
-            $this->colorName = $color->name;
-            $this->colorHex = $color->hex;
-        }
-    }
 
 If the value object genuinely needs its own table and identity, it is no longer
 a value object — use :php:`AbstractEntity` instead.
