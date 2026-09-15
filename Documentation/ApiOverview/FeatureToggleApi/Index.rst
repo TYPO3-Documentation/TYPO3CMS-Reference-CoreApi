@@ -184,14 +184,8 @@ Features can be toggled in the :guilabel:`System > Settings` module via
 
 Internally, the changes are written to :file:`config/system/settings.php`:
 
-..  code-block:: php
+..  literalinclude:: _settings.php
     :caption: config/system/settings.php
-
-    'SYS' => [
-        'features' => [
-            'redirects.hitCount' => true,
-        ],
-    ]
 
 ..  note::
     If the :file:`config/system/settings.php` file is write-protected an info

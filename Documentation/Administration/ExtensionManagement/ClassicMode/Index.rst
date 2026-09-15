@@ -123,13 +123,8 @@ This can be done by removing the extensions configuration from the file
 #.  Open the file :file:`typo3conf/PackageStates.php`
 #.  Search for your ext_key in the array.
 
-    ..  code-block:: php
+    ..  literalinclude:: _PackageStates.php
         :caption: typo3conf/PackageStates.php
-
-        'ext_key' => [
-              'packagePath' => 'typo3conf/ext/ext_key/',
-        ],
-        //...
 
 #. Remove the entry.
 

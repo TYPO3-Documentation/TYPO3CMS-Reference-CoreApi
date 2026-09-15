@@ -197,18 +197,8 @@ configuration of a transport per message, the TYPO3 configuration
 name used in the settings is resolved to a service that has been tagged with
 :yaml:`message.sender` and the respective identifier.
 
-..  code-block:: php
+..  literalinclude:: _CustomTransport.php
     :caption: config/settings.php | config/additional.php | EXT:my_extension/ext_localconf.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger'] = [
-        'routing' => [
-            // Use "messenger.transport.demo" as transport for DemoMessage
-            \MyVendor\MyExtension\Queue\Message\DemoMessage::class => 'demo',
-
-            // Use "messenger.transport.default" as transport for all other messages
-            '*' => 'default',
-        ]
-    ];
 
 ..  literalinclude:: _custom-transport.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
