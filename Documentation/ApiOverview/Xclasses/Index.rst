@@ -135,22 +135,8 @@ XCLASS breaking after a code update.
 The example below extends the new record wizard screen. It first calls the original
 method and then adds its own content:
 
-..  code-block:: php
+..  literalinclude:: _NewRecordController.php
     :caption: EXT:my_extension/Classes/Xclass/NewRecordController.php
-
-    class NewRecordController extends \TYPO3\CMS\Backend\Controller\NewRecordController
-    {
-        protected function renderNewRecordControls(ServerRequestInterface $request): void
-        {
-            parent::renderNewRecordControls($request);
-            $languageDomain = 'my_extension:messages'
-            $label = $GLOBALS['LANG']->translate('help', $languageDomain);
-            $text = $GLOBALS['LANG']->label('make_choice', $languageDomain);
-            $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label)
-                . '</h2>' . $text . '</div>';
-            $this->code .= $str;
-        }
-    }
 
 The result can be seen here:
 
