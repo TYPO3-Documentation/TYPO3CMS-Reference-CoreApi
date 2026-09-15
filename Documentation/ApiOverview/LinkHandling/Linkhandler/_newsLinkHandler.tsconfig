@@ -1,0 +1,10 @@
+TCEMAIN.linkHandler.news {
+  handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
+  label = News
+  configuration {
+    table = tx_news_domain_model_news
+    storagePid = 123
+    hidePageTree = 1
+  }
+  displayAfter = email
+}

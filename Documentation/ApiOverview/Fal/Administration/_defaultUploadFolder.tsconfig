@@ -1,0 +1,4 @@
+# Set default upload folder to "fileadmin/page_upload" on PID 1
+[page["uid"] == 1]
+  options.defaultUploadFolder = 1:/page_upload/
+[end]

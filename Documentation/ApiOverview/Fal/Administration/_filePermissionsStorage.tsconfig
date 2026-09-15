@@ -1,0 +1,17 @@
+permissions.file.storage.1 {
+  addFile      = 1
+  readFile     = 1
+  writeFile    = 1
+  copyFile     = 1
+  moveFile     = 1
+  renameFile   = 1
+  deleteFile   = 1
+  addFolder    = 1
+  readFolder   = 1
+  writeFolder  = 1
+  copyFolder   = 1
+  moveFolder   = 1
+  renameFolder = 1
+  deleteFolder = 1
+  recursivedeleteFolder = 1
+}

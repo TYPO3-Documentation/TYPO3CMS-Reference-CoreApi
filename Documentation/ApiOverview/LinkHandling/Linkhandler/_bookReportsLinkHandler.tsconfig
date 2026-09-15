@@ -1,0 +1,10 @@
+TCEMAIN.linkHandler.bookreports {
+  handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
+  label = Book Reports
+  configuration {
+    table = tx_news_domain_model_news
+    storagePid = 42
+    pageTreeMountPoints = 42
+    hidePageTree = 0
+  }
+}

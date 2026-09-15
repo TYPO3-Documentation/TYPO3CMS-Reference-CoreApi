@@ -1,0 +1,54 @@
+mod.web_layout.BackendLayouts {
+  exampleKey {
+    title = Example
+    icon = EXT:example_extension/Resources/Public/Images/BackendLayouts/default.gif
+    config {
+      backend_layout {
+        colCount = 3
+        rowCount = 3
+        rows {
+          1 {
+            columns {
+              1 {
+                identifier = header
+                name = Header
+                colspan = 3
+                colPos = 1
+              }
+            }
+          }
+          2 {
+            columns {
+              1 {
+                identifier = main
+                name = Main
+                colspan = 2
+                colPos = 0
+              }
+              2 {
+                identifier = aside
+                name = Aside
+                rowspan = 2
+                colPos = 2
+              }
+            }
+          }
+          3 {
+            columns {
+              1 {
+                identifier = left
+                name = Main Left
+                colPos = 5
+              }
+              2 {
+                identifier = right
+                name = Main Right
+                colPos = 6
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

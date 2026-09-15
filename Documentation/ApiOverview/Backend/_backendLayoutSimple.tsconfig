@@ -1,0 +1,39 @@
+mod {
+  web_layout {
+    BackendLayouts {
+      exampleKey {
+        title = Example
+        config {
+          backend_layout {
+            colCount = 1
+            rowCount = 2
+            rows {
+              1 {
+                columns {
+                  1 {
+                    identifier = border
+                    name = frontend.ttc:colPos.I.3
+                    allowedContentTypes = html, text, ...
+                    colPos = 3
+                    colspan = 1
+                  }
+                }
+              }
+              2 {
+                columns {
+                  1 {
+                    identifier = main
+                    name = Main
+                    colPos = 0
+                    colspan = 1
+                  }
+                }
+              }
+            }
+          }
+        }
+        icon = EXT:example_extension/Resources/Public/Images/BackendLayouts/default.gif
+      }
+    }
+  }
+}
