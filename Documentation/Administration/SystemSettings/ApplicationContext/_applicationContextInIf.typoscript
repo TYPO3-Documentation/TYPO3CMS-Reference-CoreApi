@@ -1,0 +1,8 @@
+page.10 = TEXT
+page.10 {
+  value = This page is rendered on the Dev1 development system
+  if {
+    value.data = applicationcontext
+    equals = Development/Dev1
+  }
+}

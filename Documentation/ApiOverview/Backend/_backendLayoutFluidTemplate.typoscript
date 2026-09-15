@@ -5,12 +5,12 @@ page.10 {
     key.data = pagelayout
 
     default = TEXT
-    default.value = EXT:sitepackage/Resources/Private/Templates/Home.fluid.html
+    default.value = EXT:my_sitepackage/Resources/Private/Templates/Home.fluid.html
 
     3 = TEXT
-    3.value = EXT:sitepackage/Resources/Private/Templates/1-col.html
+    3.value = EXT:my_sitepackage/Resources/Private/Templates/1-col.fluid.html
 
     4 = TEXT
-    4.value = EXT:sitepackage/Resources/Private/Templates/2-col.html
+    4.value = EXT:my_sitepackage/Resources/Private/Templates/2-col.fluid.html
   }
 }
