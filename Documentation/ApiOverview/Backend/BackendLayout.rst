@@ -88,48 +88,8 @@ Backend layout simple example
 
 The following page TSconfig example creates a simple backend layout consisting of two rows and just one column.
 
-.. code-block:: typoscript
+..  literalinclude:: _backendLayoutSimple.tsconfig
     :caption: EXT:my_extension/Configuration/page.tsconfig
-
-   mod {
-     web_layout {
-       BackendLayouts {
-         exampleKey {
-           title = Example
-           config {
-             backend_layout {
-               colCount = 1
-               rowCount = 2
-               rows {
-                 1 {
-                   columns {
-                     1 {
-                       identifier = border
-                       name = frontend.ttc:colPos.I.3
-                       allowedContentTypes = html, text, ...
-                       colPos = 3
-                       colspan = 1
-                     }
-                   }
-                 }
-                 2 {
-                   columns {
-                     1 {
-                       identifier = main
-                       name = Main
-                       colPos = 0
-                       colspan = 1
-                     }
-                   }
-                 }
-               }
-             }
-           }
-           icon = EXT:example_extension/Resources/Public/Images/BackendLayouts/default.gif
-         }
-       }
-     }
-   }
 
 .. _be-layout-advanced-example:
 
@@ -139,63 +99,8 @@ Backend layout advanced example
 The following page TSconfig example creates a 3x3 backend layout with 5 column position sections in total. The topmost
 row (here called "header") spans all 3 columns. There is an "aside" spanning two rows on the right.
 
-.. code-block:: typoscript
+..  literalinclude:: _backendLayoutAdvanced.tsconfig
     :caption: EXT:my_extension/Configuration/page.tsconfig
-
-   mod.web_layout.BackendLayouts {
-     exampleKey {
-       title = Example
-       icon = EXT:example_extension/Resources/Public/Images/BackendLayouts/default.gif
-       config {
-         backend_layout {
-           colCount = 3
-           rowCount = 3
-           rows {
-             1 {
-               columns {
-                 1 {
-                   identifier = header
-                   name = Header
-                   colspan = 3
-                   colPos = 1
-                 }
-               }
-             }
-             2 {
-               columns {
-                 1 {
-                   identifier = main
-                   name = Main
-                   colspan = 2
-                   colPos = 0
-                 }
-                 2 {
-                   identifier = aside
-                   name = Aside
-                   rowspan = 2
-                   colPos = 2
-                 }
-               }
-             }
-             3 {
-               columns {
-                 1 {
-                   identifier = left
-                   name = Main Left
-                   colPos = 5
-                 }
-                 2 {
-                   identifier = right
-                   name = Main Right
-                   colPos = 6
-                 }
-               }
-             }
-           }
-         }
-       }
-     }
-   }
 
 
 .. _be-layout-frontend:

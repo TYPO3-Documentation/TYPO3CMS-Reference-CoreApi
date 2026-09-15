@@ -1,0 +1,6 @@
+TCEMAIN.linkHandler {
+  page {
+    handler = TYPO3\CMS\Backend\LinkHandler\PageLinkHandler
+    label = backend.browse_links:page
+  }
+}
