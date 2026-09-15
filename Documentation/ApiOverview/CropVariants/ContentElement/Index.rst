@@ -41,35 +41,8 @@ as this is the default field name for image manipulation in `sys_file_reference`
 It is also possible to set the cropping configuration only for a **specific tt_content element type** by using the
 `columnsOverrides` feature:
 
-.. code-block:: php
+..  literalinclude:: _tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
-
-    $GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['assets']['config']['overrideChildTca']['columns']['crop']['config'] = [
-        'cropVariants' => [
-           'default' => [
-               'disabled' => true,
-           ],
-           'mobile' => [
-               'title' => 'ext_key.messages:imageManipulation.mobile',
-               'cropArea' => [
-                   'x' => 0.1,
-                   'y' => 0.1,
-                   'width' => 0.8,
-                   'height' => 0.8,
-               ],
-               'allowedAspectRatios' => [
-                   '4:3' => [
-                       'title' => 'core.wizards:imwizard.ratio.4_3',
-                       'value' => 4 / 3
-                   ],
-                   'NaN' => [
-                       'title' => 'core.wizards:imwizard.ratio.free',
-                       'value' => 0.0
-                   ],
-               ],
-           ],
-        ],
-    ];
 
 ..  _ce-cropvariants-disable-crop-variants:
 

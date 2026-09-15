@@ -75,14 +75,8 @@ Strings starting with :php:`LLL:` will be replaced with localized text. See chap
 :ref:`Extension localization <extension_localization>`. All other strings
 will be output as they are. This title will always be output as "Tea" without localization:
 
-.. code-block:: php
-   :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
-
-   [
-       'ctrl' => [
-           'title' => 'Tea',
-       ],
-   ]
+..  literalinclude:: _tx_tea_domain_model_tea.php
+    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php (excerpt)
 
 ..  _extbase_tutorial_tea_model_ctrl_label:
 
@@ -138,7 +132,7 @@ should be an image, we limit the allowed file extensions to the `common-image-ty
 See also :ref:`TCA type 'file', property 'allowed' <t3tca:confval-file-allowed>`.
 
 ..  literalinclude:: _Model/_image_tca.php
-    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
+    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php (excerpt)
 
 ..  _extbase_tutorial_tea_model_types:
 
