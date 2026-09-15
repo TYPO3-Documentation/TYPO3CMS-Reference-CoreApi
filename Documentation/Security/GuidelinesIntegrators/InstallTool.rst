@@ -83,7 +83,7 @@ The password for accessing the Install Tool is stored using the
 in the global configuration file :file:`config/system/settings.php`:
 
 ..  literalinclude:: _settings_installToolPassword.php
-    :caption: config/system/settings.php
+    :caption: config/system/settings.php (excerpt)
 
 The Install Tool password is initially set during the
 installation process. This means that if a system administrator
@@ -183,7 +183,7 @@ It is also possible to manually modify the list by adding or removing the
 user's UID (:sql:`be_users.uid`) in :file:`config/system/settings.php`:
 
 ..  literalinclude:: _settings_backendAccess.php
-    :caption: config/system/settings.php
+    :caption: config/system/settings.php (excerpt)
 
 
 For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`
