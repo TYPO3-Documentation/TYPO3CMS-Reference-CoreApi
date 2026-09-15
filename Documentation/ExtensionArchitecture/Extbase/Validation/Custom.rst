@@ -35,25 +35,8 @@ than four weeks from now, a speaker assignment is optional — but if it starts
 sooner, a speaker is required. That rule cannot be expressed on any single
 property; it needs both `$startDate` and `$speaker` at the same time:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceSpeakerValidator.php
     :caption: EXT:my_extension/Classes/Validation/Validator/ConferenceSpeakerValidator.php
-
-    use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
-
-    class ConferenceSpeakerValidator extends AbstractValidator
-    {
-        protected function isValid(mixed $value): void
-        {
-            $weeksUntilStart = (int)(($value->getStartDate()->getTimestamp() - time()) / 604800);
-            if ($weeksUntilStart < 4 && $value->getSpeaker() === null) {
-                $this->addErrorForProperty(
-                    'speaker',
-                    $this->translateErrorMessage('my_extension.messages:validator.conference.speakerRequired'),
-                    1716300100,
-                );
-            }
-        }
-    }
 
 Both approaches can be combined on the same type — property validators run
 first, and action-parameter validators run afterwards.
@@ -165,18 +148,8 @@ access:
 
 Attach the validator with its option on the action parameter:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceControllerWithCustomValidator.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Validation\Validator\SeatCountValidator;
-    use TYPO3\CMS\Extbase\Attribute\Validate;
-
-    public function registerAction(
-        #[Validate(SeatCountValidator::class, options: ['minimum' => 1])]
-        Conference $conference,
-    ): ResponseInterface {
-        // Only reached when SeatCountValidator passes
-    }
 
 
 ..  _extbase-validation-custom-translated-messages:
