@@ -21,15 +21,8 @@ via :php:`GeneralUtility::makeInstance()`.
 
 Example:
 
-..  code-block:: php
+..  literalinclude:: _MySingletonService.php
     :caption: EXT:some_extension/Classes/MySingletonService.php
-
-    namespace Vendor\SomeExtension;
-
-    class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface
-    {
-        // …
-    }
 
 :php:`SingletonInterface` has no methods to implement. Services implementing the
 interface are automatically declared :ref:`public <What-to-make-public>`.

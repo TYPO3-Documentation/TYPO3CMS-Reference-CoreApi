@@ -84,29 +84,8 @@ Populate a `select` field using a PHP function (`itemsProcFunc`)
 The function :php:`user_orderBy` populates the select field in
 :file:`Backend/ItemsProcFunc.php`:
 
-..  code-block:: php
+..  literalinclude:: _ItemsProcFunc.php
     :caption: EXT:my_extension/Classes/Backend/ItemsProcFunc.php
-
-    class ItemsProcFunc
-    {
-         /**
-         * Modifies the select box of orderBy-options.
-         *
-         * @param array &$config configuration array
-         */
-        public function user_orderBy(array &$config)
-        {
-            // simple and stupid example
-            // change this to dynamically populate the list!
-            $config['items'] = [
-                // label, value
-                ['Timestamp', 'timestamp'],
-                ['Title', 'title']
-            ];
-        }
-
-        // ...
-    }
 
 ..  seealso::
 

@@ -145,26 +145,8 @@ goes into details about these.
 
 Now we need a simple first test which is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`:
 
-.. code-block:: php
-   :caption: EXT:site_introduction/Tests/Acceptance/Frontend/FrontendPagesCest.php
-
-    <?php
-    declare(strict_types = 1);
-    namespace Bk2k\SiteIntroduction\Tests\Acceptance\Frontend;
-    use Bk2k\SiteIntroduction\Tests\Acceptance\Support\AcceptanceTester;
-    class FrontendPagesCest
-    {
-        /**
-         * @param AcceptanceTester $I
-         */
-        public function firstPageIsRendered(AcceptanceTester $I)
-        {
-            $I->amOnPage('/');
-            $I->see('Open source, enterprise CMS delivering  content-rich digital experiences on any channel,  any device, in any language');
-            $I->click('Customize');
-            $I->see('Incredible flexible');
-        }
-    }
+..  literalinclude:: _FrontendPagesCest.php
+    :caption: EXT:site_introduction/Tests/Acceptance/Frontend/FrontendPagesCest.php
 
 It just calls the homepage of our instance, clicks one of the links and verifies some text is
 shown. Straight, but enough to see if the basic instance does work.

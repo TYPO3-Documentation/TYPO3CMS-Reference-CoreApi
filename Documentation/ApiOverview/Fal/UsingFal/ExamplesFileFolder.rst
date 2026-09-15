@@ -151,25 +151,8 @@ Feature flags controlling this behavior:
 
 For controlled or low-level operations, consistency checks can be bypassed temporarily:
 
-..  code-block:: php
+..  literalinclude:: _ImportCommand.php
     :caption: EXT:my_extension/Classes/Command/ImportCommand.php
-
-    <?php
-    class ImportCommand
-    {
-        use \TYPO3\CMS\Core\Resource\ResourceInstructionTrait;
-
-        protected function execute(): void
-        {
-            // ...
-
-            // Skip the consistency check once for the specified storage, source, and target
-            $this->skipResourceConsistencyCheckForCommands($storage, $temporaryFileName, $targetFileName);
-
-            /** @var \TYPO3\CMS\Core\Resource\File $file */
-            $file = $storage->addFile($temporaryFileName, $targetFolder, $targetFileName);
-        }
-    }
 
 ..  _fal-using-fal-examples-file-folder-create-reference:
 

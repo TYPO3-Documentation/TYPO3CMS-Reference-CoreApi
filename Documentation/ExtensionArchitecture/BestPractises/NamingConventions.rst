@@ -311,17 +311,8 @@ Example:
 
 Example usage:
 
-.. code-block:: php
+..  literalinclude:: _snippets/_Modules.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
-
-    return [
-        // Submodule key
-        'content_productmanagement' => [
-            // Main module key (use existing main module 'content' here)
-            'parent' => 'content',
-            // ...
-        ],
-    ];
 
 ..  versionchanged:: 14.0
     The main module `web` has been renamed to `content`.

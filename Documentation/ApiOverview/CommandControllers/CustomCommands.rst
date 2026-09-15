@@ -129,19 +129,8 @@ Making a command non-schedulable
 A command can be set as disabled for the scheduler by using the
 :php:`#[AsNonSchedulableCommand]` attribute:
 
-..  code-block:: php
+..  literalinclude:: _MyImportCommand.php
     :caption: EXT:my_extension/Classes/Commands/MyImportCommand.php
-
-    use Symfony\Component\Console\Attribute\AsCommand;
-    use Symfony\Component\Console\Command\Command;
-    use TYPO3\CMS\Core\Attribute\AsNonSchedulableCommand;
-
-    #[AsCommand('myextension:import', 'Import data from external source')]
-    #[AsNonSchedulableCommand]
-    final class MyImportCommand extends Command
-    {
-        // ...
-    }
 
 ..  _writing-custom-symfony-console-command-context:
 

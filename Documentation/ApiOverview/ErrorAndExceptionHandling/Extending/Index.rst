@@ -44,23 +44,8 @@ Example debug exception handler
 This uses the default Core exception handler `DebugExceptionHandler` and overrides some
 of the functionality:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Error/PostExceptionsOnTwitter.php
-
-   namespace Vendor\SomeExtension\Error;
-
-   class PostExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
-   {
-       public function echoExceptionWeb(Exception $exception)
-       {
-           $this->postExceptionsOnTwitter($exception);
-       }
-
-       public function postExceptionsOnTwitter($exception)
-       {
-           // do it ;-)
-       }
-   }
+..  literalinclude:: _PostExceptionsOnTwitter.php
+    :caption: EXT:some_extension/Classes/Error/PostExceptionsOnTwitter.php
 
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
