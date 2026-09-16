@@ -12,8 +12,8 @@
             <f:if condition="{blog.singleFile}">
                 <div>
                     <f:form.uploadDeleteCheckbox id="singleFile"
-                                                 property="singleFile"
-                                                 fileReference="{blog.singleFile}" />
+                        property="singleFile"
+                        fileReference="{blog.singleFile}" />
                     <label for="singleFile">Delete file</label>
                 </div>
             </f:if>
@@ -28,8 +28,8 @@
                 <f:for each="{blog.multipleFiles}" as="file" iteration="i">
                     <div>
                         <f:form.uploadDeleteCheckbox id="multipleFiles.{i.index}"
-                                                     property="multipleFiles"
-                                                     fileReference="{file}" />
+                            property="multipleFiles"
+                            fileReference="{file}" />
                         <label for="multipleFiles.{i.index}">Delete file</label>
                     </div>
                 </f:for>

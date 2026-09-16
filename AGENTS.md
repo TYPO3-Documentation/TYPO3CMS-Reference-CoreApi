@@ -22,7 +22,20 @@ Makefile                    # local install/build/test commands
 - `make test-docs` — render in minimal-test mode (the same validation CI
   runs); use this to validate any change before committing. `docs-test`
   still works as a deprecated alias for the target's former name.
-- `make test` — full test suite (docs, lint, cgl, yaml).
+- `make test-editorconfig` — check indentation and whitespace against
+  `.editorconfig`. It runs only over code files: `.editorconfig-checker.json`
+  excludes reST, because the checker cannot tell a directive body from an
+  embedded code block and would flag every snippet whose indentation is not a
+  multiple of four. `max_line_length` is disabled there too — it stays in
+  `.editorconfig` as advice for editors, not as a gate, since reflowing prose
+  is an editorial decision. Add an exclude for a file whose indentation is
+  content rather than formatting: in the TypoScript multiline value example
+  the leading spaces end up in the value, in the comment example the
+  indentation is the very notation the page demonstrates, and PlantUML keeps
+  the indentation of note text, where every space shifts the rendered label.
+  Never reformat an example whose subject is its own formatting, and check
+  what a file's whitespace actually does before touching it.
+- `make test` — full test suite (docs, lint, cgl, yaml, editorconfig).
 
 ## Rules
 
