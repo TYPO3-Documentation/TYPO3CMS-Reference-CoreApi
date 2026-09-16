@@ -1,0 +1,11 @@
+config.recordLinks.anIdentifier {
+  forceLink = 0
+
+  typolink {
+    parameter = 123
+    additionalParams.data = field:uid
+    additionalParams.wrap = &tx_example_pi1[item]=|
+  }
+}
+
+# ...
