@@ -8,9 +8,10 @@
         <div>
             <label>Logo</label>
             <f:if condition="{conference.logo}">
-                <f:form.uploadDeleteCheckbox id="deleteLogo"
-                                             property="logo"
-                                             fileReference="{conference.logo}" />
+                <f:form.uploadDeleteCheckbox
+                    id="deleteLogo"
+                    property="logo"
+                    fileReference="{conference.logo}" />
                 <label for="deleteLogo">Delete logo</label>
             </f:if>
             <f:form.upload property="logo" />
@@ -19,8 +20,9 @@
         <div>
             <label>Impressions</label>
             <f:for each="{conference.impressions}" as="impression" iteration="i">
-                <f:form.uploadDeleteCheckbox property="impressions.{i.index}"
-                                             fileReference="{impression}" />
+                <f:form.uploadDeleteCheckbox
+                    property="impressions.{i.index}"
+                    fileReference="{impression}" />
                 <label>Delete impression</label>
             </f:for>
             <f:form.upload property="impressions" multiple="1" />

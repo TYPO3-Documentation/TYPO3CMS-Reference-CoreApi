@@ -54,6 +54,8 @@ Options:
             - testRenderDocumentation
             - yamlLint: YAML linting
             - typoscriptLint: TypoScript syntax linting
+            - jsonLint: JSON syntax linting
+            - editorconfigLint: indentation and whitespace per .editorconfig
 
     -b <docker|podman>
         Container environment:
@@ -206,6 +208,7 @@ fi
 IMAGE_PHP="${TYPO3_IMAGE_PREFIX}core-testing-$(echo "php${PHP_VERSION}" | sed -e 's/\.//'):latest"
 IMAGE_ALPINE="${IMAGE_PREFIX}alpine:3.8"
 IMAGE_DOCS="ghcr.io/typo3-documentation/render-guides:latest"
+IMAGE_EDITORCONFIG="${IMAGE_PREFIX}mstruebing/editorconfig-checker:4.0.1"
 
 # Set $1 to first mass argument, this is the optional test file or test directory to execute
 shift $((OPTIND - 1))
@@ -344,6 +347,16 @@ case ${TEST_SUITE} in
     typoscriptLint)
         COMMAND=(php -dxdebug.mode=off Build/Scripts/typoscriptLint.php Documentation/ "$@")
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name typoscriptLint-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    jsonLint)
+        COMMAND=(php -dxdebug.mode=off Build/Scripts/jsonLint.php Documentation/ "$@")
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name jsonLint-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    editorconfigLint)
+        COMMAND=(editorconfig-checker "$@")
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name editorconfigLint-${SUFFIX} --entrypoint editorconfig-checker ${IMAGE_EDITORCONFIG} "${COMMAND[@]:1}"
         SUITE_EXIT_CODE=$?
         ;;
     *)
