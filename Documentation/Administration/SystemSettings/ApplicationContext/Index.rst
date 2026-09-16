@@ -163,14 +163,8 @@ property to load a specific file with each request before all other files.
 
     ..  group-tab:: composer.json
 
-        ..  code-block:: json
+        ..  literalinclude:: _composerAutoloadFiles.json
             :caption: composer.json (excerpt)
-
-            {
-                'autoload': {
-                    'files': ['Source/Scripts/ApplicationContext.php']
-                }
-            }
 
     ..  group-tab:: ApplicationContext.php
 

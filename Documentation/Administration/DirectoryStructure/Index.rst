@@ -137,17 +137,8 @@ files needed for the server configuration like a :file:`.htaccess`.
 If required, this directory can be renamed by setting `extra > typo3/cms > web-dir`
 in the composer.json, for example to :path:`web`:
 
-..  code-block:: json
-    :caption: composer.json
-
-    {
-        "extra": {
-            "typo3/cms": {
-                "web-dir": "web"
-            }
-        },
-        "...": "..."
-    }
+..  literalinclude:: _composerWebDir.json
+    :caption: composer.json (excerpt)
 
 This directory contains the following subdirectories:
 

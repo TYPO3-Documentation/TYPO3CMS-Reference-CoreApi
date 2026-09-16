@@ -147,20 +147,9 @@ To install it, open the main :file:`composer.json <extension-composer-json>` of
 your **project** (not the one in the new extension) and define the extension
 directory as a new repository under `repositories`:
 
-..  code-block:: json
-    :caption: my_project_root/composer.json
+..  literalinclude:: _composerProjectRepositories.json
+    :caption: my_project_root/composer.json (excerpt)
     :emphasize-lines: 3-8
-
-    {
-        "name": "my-vendor/my-project",
-        "repositories": {
-            "0_packages": {
-                "type": "path",
-                "url": "src/extensions/*"
-            }
-        },
-        "...": "..."
-    }
 
 Then, on Composer-based systems, require the extension using the composer
 name:

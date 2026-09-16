@@ -43,14 +43,8 @@ getter/setter. No changes to the original extension required.
 registers its own mapping. Declare the third-party extension as a dependency
 in your :file:`composer.json` to guarantee this:
 
-..  code-block:: json
-    :caption: EXT:my_extension/composer.json
-
-    {
-        "require": {
-            "georgringer/news": "^11.0"
-        }
-    }
+..  literalinclude:: _composerRequireNews.json
+    :caption: EXT:my_extension/composer.json (excerpt)
 
 Without this, the load order is undefined and your class mapping may be
 silently overwritten by the original.

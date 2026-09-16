@@ -1,0 +1,17 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/foo/bar.git"
+        },
+        {
+            "type": "path",
+            "url": "./packages/*"
+        }
+    ],
+    "extra": {
+        "typo3/cms": {
+            "web-dir": "public"
+        }
+    }
+}

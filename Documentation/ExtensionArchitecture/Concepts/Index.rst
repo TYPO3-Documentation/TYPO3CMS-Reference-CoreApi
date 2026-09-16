@@ -88,7 +88,7 @@ Third-party and custom extensions
 Third-party and custom extensions must have Composer type `typo3-cms-extension`:
 
 ..  code-block:: json
-    :caption: EXT:my_extension/composer.json`
+    :caption: EXT:my_extension/composer.json
 
     {
         "name": "myvendor/my-extension",
@@ -116,7 +116,7 @@ System extensions
 System extensions have Composer type `typo3-cms-framework`:
 
 ..  code-block:: json
-    :caption: EXT:core/composer.json`
+    :caption: EXT:core/composer.json
 
     {
         "name": "typo3/cms-core",
