@@ -30,6 +30,11 @@ Makefile                    # local install/build/test commands
   it; the check round trips each file through the Core tokenizer and
   counts the block braces. A file that demonstrates invalid syntax on
   purpose opts out with `# typoscript-lint: ignore-file` in its first line.
+- `make test-json` — check the `.json` snippets for syntax errors. JSON has
+  no comment syntax, so an excerpt cannot mark what it leaves out and still
+  has to be a well formed document: wrap the part you show in the braces it
+  belongs in and put `(excerpt)` in the caption. To show that more members
+  follow, write a `"...": "..."` member, which is ordinary JSON.
 - `make test-editorconfig` — check indentation and whitespace against
   `.editorconfig`. It runs only over code files: `.editorconfig-checker.json`
   excludes reST, because the checker cannot tell a directive body from an
@@ -43,7 +48,8 @@ Makefile                    # local install/build/test commands
   the indentation of note text, where every space shifts the rendered label.
   Never reformat an example whose subject is its own formatting, and check
   what a file's whitespace actually does before touching it.
-- `make test` — full test suite (docs, lint, cgl, yaml, typoscript).
+- `make test` — full test suite (docs, lint, cgl, yaml, typoscript, json,
+  editorconfig).
 
 ## Rules
 
