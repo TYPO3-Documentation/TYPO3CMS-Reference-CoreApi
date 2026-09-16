@@ -62,9 +62,9 @@ docs-test: test-docs
 
 docs-hot: ## Generate projects documentation with hot reloading
 	docker run --rm -it --pull always \
-  		-v "./Documentation:/project/Documentation" \
-  		-v "./Documentation-GENERATED-temp:/project/Documentation-GENERATED-temp" \
-  		-p 1337:1337 ghcr.io/typo3-documentation/render-guides:latest --config="Documentation" --watch
+		-v "./Documentation:/project/Documentation" \
+		-v "./Documentation-GENERATED-temp:/project/Documentation-GENERATED-temp" \
+		-p 1337:1337 ghcr.io/typo3-documentation/render-guides:latest --config="Documentation" --watch
 
 .PHONY: docs-open
 docs-open: ## Open rendered documentation in browser
@@ -107,7 +107,7 @@ setup-typo3: check-dependencies ## Initialize TYPO3 for documentation generation
 # Testing
 # ------------------------------------------------------------------------------
 .PHONY: test
-test: test-docs test-lint test-cgl test-yaml test-typoscript ## Run all tests
+test: test-docs test-lint test-cgl test-yaml test-typoscript test-editorconfig ## Run all tests
 
 .PHONY: test-lint
 test-lint: ## Check PHP syntax
@@ -124,6 +124,10 @@ test-yaml: check-dependencies ## Validate YAML files
 .PHONY: test-typoscript
 test-typoscript: check-dependencies ## Check TypoScript snippet syntax
 	Build/Scripts/runTests.sh -s typoscriptLint
+
+.PHONY: test-editorconfig
+test-editorconfig: ## Check indentation and whitespace per .editorconfig
+	Build/Scripts/runTests.sh -s editorconfigLint
 
 # ------------------------------------------------------------------------------
 # Fixing
