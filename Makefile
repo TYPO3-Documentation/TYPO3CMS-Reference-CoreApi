@@ -107,7 +107,7 @@ setup-typo3: check-dependencies ## Initialize TYPO3 for documentation generation
 # Testing
 # ------------------------------------------------------------------------------
 .PHONY: test
-test: test-docs test-lint test-cgl test-yaml test-typoscript test-editorconfig ## Run all tests
+test: test-docs test-lint test-cgl test-yaml test-typoscript test-json test-editorconfig ## Run all tests
 
 .PHONY: test-lint
 test-lint: ## Check PHP syntax
@@ -124,6 +124,10 @@ test-yaml: check-dependencies ## Validate YAML files
 .PHONY: test-typoscript
 test-typoscript: check-dependencies ## Check TypoScript snippet syntax
 	Build/Scripts/runTests.sh -s typoscriptLint
+
+.PHONY: test-json
+test-json: check-dependencies ## Check JSON snippet syntax
+	Build/Scripts/runTests.sh -s jsonLint
 
 .PHONY: test-editorconfig
 test-editorconfig: ## Check indentation and whitespace per .editorconfig
