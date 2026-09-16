@@ -1,29 +1,25 @@
 <?php
 
 declare(strict_types=1);
+
+use TYPO3\CMS\Core\Schema\Struct\SelectItem;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
-$key = 'myextension_basiccontent';
-
-// Adds the content element to the "Type" dropdown
-ExtensionManagementUtility::addTcaSelectItem(
-  'tt_content',
-  'CType',
-  [
-    'label' => 'Example - basic content',
-    'value' => $key,
-    'group' => 'default',
-  ],
-  'textmedia',
-  'after',
+// Add the content element to the "Type" dropdown after the textmedia item
+ExtensionManagementUtility::addRecordType(
+  new SelectItem(
+    type: 'select',
+    label: 'Example - basic content',
+    value: 'myextension_basiccontent',
+    group: 'default',
+  ),
+  // Configure the default backend fields for the content element
+  '
+    --palette--;;headers,
+    bodytext,
+  ',
+  [],
+  'after:textmedia',
 );
-
-// Configure the default backend fields for the content element
-$GLOBALS['TCA']['tt_content']['types'][$key] = [
-  'showitem' => '
-            --palette--;;headers,
-            bodytext,
-        ',
-];
