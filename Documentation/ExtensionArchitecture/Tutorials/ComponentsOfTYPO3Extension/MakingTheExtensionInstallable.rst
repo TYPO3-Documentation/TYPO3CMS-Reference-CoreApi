@@ -22,25 +22,7 @@ Your `composer.json` file should contain the following essential information
 
 A minimal example:
 
-..  code-block:: json
+..  literalinclude:: _composer.json
     :caption: EXT:my_extension/composer.json
-
-    {
-      "name": "myvendor/my-extension",
-      "description": "description for example extension",
-      "type": "typo3-cms-extension",
-      "require": {
-        "php": "~8.2.0 || ~8.3.0",
-        "typo3/cms-core": "^14.3.0",
-        "typo3/cms-extbase": "^14.3.0",
-        "typo3/cms-fluid": "^14.3.0",
-        "typo3/cms-frontend": "^14.3.0"
-      },
-      "extra": {
-        "typo3/cms": {
-          "extension-key": "my_extension"
-        }
-      }
-    }
 
 Add `my_extension/Resources/Public/Icons/Extension.svg`

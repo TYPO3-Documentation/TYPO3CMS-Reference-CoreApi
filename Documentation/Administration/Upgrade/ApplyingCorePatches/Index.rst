@@ -48,22 +48,10 @@ Edit your project's main :file:`composer.json`. Add a section `patches`
 within the section `extra`. If there is no section `extra` yet,
 add one.
 
-.. code-block:: json
-   :caption: project_root/composer.json
-   :emphasize-lines: 5-9
-   :linenos:
-
-   "extra": {
-     "typo3/cms": {
-       "web-dir": "public"
-     },
-     "composer-exit-on-patch-failure": true,
-     "patches": {
-       "typo3/cms-core": {
-         "Bug #98106 fix something":"patches/Bug-98106.diff"
-       }
-     }
-   }
+..  literalinclude:: _composerPatches.json
+    :caption: project_root/composer.json (excerpt)
+    :emphasize-lines: 5-9
+    :linenos::
 
 .. note::
    Use :bash:`composer-exit-on-patch-failure` to exit the running process on patch failures.

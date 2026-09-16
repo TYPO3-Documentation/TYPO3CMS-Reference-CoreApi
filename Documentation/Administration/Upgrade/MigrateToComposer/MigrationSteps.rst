@@ -285,22 +285,8 @@ As a first step, define the repository in the `repositories` section of your
 :file:`composer.json`. In this example the
 additional lines are added to the top of :file:`composer.json`:
 
-.. code-block:: json
-   :caption: /composer.json
-
-    {
-        "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/foo/bar.git"
-            }
-        ],
-        "extra": {
-            "typo3/cms": {
-                "web-dir": "public"
-            }
-        }
-    }
+..  literalinclude:: _composerVcsRepository.json
+    :caption: /composer.json (excerpt)
 
 Ideally, you should not edit a :file:`composer.json` file manually, but instead use
 Composer commands to make the changes, like this:
@@ -357,16 +343,8 @@ Your sitepackage needs to be contained in its own directory like
 in that directory. The :file:`composer.json` file needs to list all the possible
 autoloading information for PHP classes that your sitepackage uses:
 
-.. code-block:: json
-   :caption: EXT:my_sitepackage/composer.json
-
-   {
-        "autoload": {
-            "psr-4": {
-                "MyVendor\\Sitepackage\\": "Classes/"
-            }
-        }
-   }
+..  literalinclude:: _composerSitepackageAutoload.json
+    :caption: EXT:my_sitepackage/composer.json (excerpt)
 
 Directory locations are always relative to where the extension-specific :file:`composer.json` is
 stored.
@@ -377,26 +355,8 @@ project file.
 
 Now our example project's :file:`composer.json` would look like this:
 
-.. code-block:: json
-   :caption: typo3_root/composer.json
-
-   {
-       "repositories": [
-           {
-               "type": "vcs",
-               "url": "https://github.com/foo/bar.git"
-           },
-           {
-               "type": "path",
-               "url": "./packages/*"
-           },
-       ],
-       "extra": {
-           "typo3/cms": {
-               "web-dir": "public"
-           }
-       }
-   }
+..  literalinclude:: _composerRepositories.json
+    :caption: typo3_root/composer.json (excerpt)
 
 After adding or changing paths in the autoload section you should run :bash:`composer dumpautoload`. This command
 will re-generate the autoload information and should be run anytime you add new paths to the autoload section
