@@ -1,0 +1,5 @@
+{
+    "autoload": {
+        "files": ["Source/Scripts/ApplicationContext.php"]
+    }
+}
