@@ -4,9 +4,7 @@
     "\\.rst$",
     "\\.rst\\.txt$",
     "\\.diff$",
-    "\\.plantuml$",
-    "CodeSnippets/TypoScriptSyntax/OperatorMultiLine\\.typoscript$",
-    "CodeSnippets/TypoScriptSyntax/Comments\\.typoscript$"
+    "\\.plantuml$"
   ],
   "Disable": {
     "MaxLineLength": true

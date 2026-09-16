@@ -40,12 +40,12 @@ Makefile                    # local install/build/test commands
   multiple of four. `max_line_length` is disabled there too — it stays in
   `.editorconfig` as advice for editors, not as a gate, since reflowing prose
   is an editorial decision. Add an exclude for a file whose indentation is
-  content rather than formatting: in the TypoScript multiline value example
-  the leading spaces end up in the value, in the comment example the
-  indentation is the very notation the page demonstrates, and PlantUML keeps
-  the indentation of note text, where every space shifts the rendered label.
-  Never reformat an example whose subject is its own formatting, and check
-  what a file's whitespace actually does before touching it.
+  content rather than formatting, the way `.plantuml` is excluded because
+  every leading space shifts the rendered note label, and `.diff` because a
+  leading space is part of the patch. A TypoScript multiline value keeps its
+  indentation in the value as well. Never reformat an example whose subject
+  is its own formatting, and check what a file's whitespace actually does
+  before touching it.
 - `make test` — full test suite (docs, lint, cgl, yaml, typoscript, json,
   editorconfig).
 

@@ -1,5 +1,0 @@
-myIdentifier {
-  10 = TEXT
-  10.value = Hello world
-  20 < .10
-}

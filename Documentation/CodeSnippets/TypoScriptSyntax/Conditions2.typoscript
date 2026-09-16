@@ -1,8 +1,0 @@
-# Some TypoScript, always parsed
-[condition criteria]
-  # Some TypoScript, only parsed if the condition criteria is met
-[ELSE]
-  # Some TypoScript, only parsed if the condition criteria is *not* met
-  # [ELSE] is optional
-[GLOBAL]
-# ... some TypoScript, always parsed
