@@ -162,6 +162,12 @@ Template example
 In the revised template, `POST`-based form buttons are used
 instead of `GET` links for delete actions:
 
+..  The removed delete link quotes its parameter with typographic quotation
+    marks, which Fluid does not read as a delimiter, and passes a string where
+    the view helper expects an array. Leave both: these lines are the insecure
+    version, and it is better that they cannot be copied into a working
+    template.
+
 ..  code-block:: diff
     :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.fluid.html
     :linenos:
