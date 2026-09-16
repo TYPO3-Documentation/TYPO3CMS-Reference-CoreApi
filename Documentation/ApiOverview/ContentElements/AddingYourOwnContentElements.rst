@@ -81,15 +81,15 @@ The following call needs to be added to the file
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 10
+    :emphasize-lines: 11
 
 Now the new content element is available in the CType selector and the
 "New Content Element" wizard.
 
 ..  note::
     In plain Core native plugins you need to call
-    :php:`ExtensionManagementUtility::addPlugin`instead of
-    :php:`ExtensionManagementUtility::addTcaSelectItem`.
+    :php:`ExtensionManagementUtility::addPlugin` instead of
+    :php:`ExtensionManagementUtility::addRecordType`.
 
 
 .. index:: Content element; Icon
@@ -119,12 +119,12 @@ New content elements added via TCA are automatically displayed in the
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 15,16,17
+    :emphasize-lines: 14,15,16
 
 The values in the array highlighted in the code example above are used for the
 display in the :guilabel:`New Content Element` wizard.
 
-It is also possible to define a description and an :ref:`icon <AddingCE-Icon>`:
+It is also possible to define an :ref:`icon <AddingCE-Icon>` and a description:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_description.diff
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
@@ -144,13 +144,13 @@ the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 26,27
+    :emphasize-lines: 20,21
 
-In line 27 a custom :ref:`palette <t3tca:palettes>` with the header and related
+In line 20 a custom :ref:`palette <t3tca:palettes>` with the header and related
 fields is displayed. This palette and its fields are defined in
 :t3src:`typo3/sysext/frontend/Configuration/TCA/tt_content.php`.
 
-In line 28 a predefined field, `bodytext` is added to be displayed in the
+In line 21 a predefined field, `bodytext` is added to be displayed in the
 form of the new content element type.
 
 .. index:: Content element; Frontend rendering
