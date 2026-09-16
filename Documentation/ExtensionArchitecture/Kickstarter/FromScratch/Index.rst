@@ -36,17 +36,8 @@ before publishing it. Create the extension directory in the
 Then edit your project's :file:`composer.json <extension-composer-json>` (The one in the TYPO3 root
 directory, **not the one in the extension**) and add the following repository:
 
-..  code-block:: json
-    :caption: composer.json
-
-    {
-        "repositories": [
-            {
-                "type": "path",
-                "url": "packages/*"
-            }
-        ]
-    }
+..  literalinclude:: _composerPathRepository.json
+    :caption: composer.json (excerpt)
 
 After that install your extension via Composer:
 

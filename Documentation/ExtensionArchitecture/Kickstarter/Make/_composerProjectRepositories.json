@@ -1,0 +1,10 @@
+{
+    "name": "my-vendor/my-project",
+    "repositories": {
+        "0_packages": {
+            "type": "path",
+            "url": "src/extensions/*"
+        }
+    },
+    "...": "..."
+}
