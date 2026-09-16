@@ -1,5 +1,0 @@
-myIdentifier = TEXT
-myIdentifier {
-  stdWrap.field = title
-  stdWrap.ifEmpty.data = leveltitle:0
-}

@@ -1,3 +1,0 @@
-myIdentifier = TEXT
-myIdentifier.stdWrap.field = title
-myIdentifier.stdWrap.ifEmpty.data = leveltitle:0
