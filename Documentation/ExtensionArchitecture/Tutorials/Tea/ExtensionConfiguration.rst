@@ -10,7 +10,7 @@ Create an extension
 
 For an extension to be installable in TYPO3 it needs a file called
 :file:`composer.json <extension-composer-json>`. You can read more about this file here:
-:ref:`files-composer-json`.
+:ref:`composer.json <files-composer-json>`.
 
 A minimal :file:`composer.json <extension-composer-json>` to get the extension up and running
 could look like this:

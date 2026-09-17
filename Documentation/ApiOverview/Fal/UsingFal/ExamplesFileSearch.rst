@@ -33,7 +33,7 @@ Searching for files in a storage
     :caption: EXT:my_extension/Classes/SearchInStorageExample.php
 
 ..  seealso::
-    :ref:`fal-using-fal-examples-storage-repository`
+    :ref:`The StorageRepository class <fal-using-fal-examples-storage-repository>`
 
 
 ..  _fal-using-fal-examples-file-search-add-additional-restrictions:

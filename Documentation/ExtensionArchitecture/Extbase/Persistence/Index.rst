@@ -28,19 +28,19 @@ start with the domain chapter:
 
 The pages in this chapter cover:
 
-:ref:`extbase-persistence-queries`
+:ref:`Querying the database with Extbase <extbase-persistence-queries>`
     Everything around a query: how to create, constrain and execute them, query
     settings (language, enable fields, deleted records), limiting, ordering and
     pagination, when changes reach the database with :php:`persistAll()`, and how
     to debug a query by inspecting its SQL.
 
-:ref:`extbase-persistence-storagepid`
+:ref:`The storagePid: where Extbase looks for records <extbase-persistence-storagepid>`
     The **storagePid** — the page restriction Extbase applies to every query, and
     the most common reason a query does not return what you expect. The
     resolution chain, the recursive setting, and how to override or drop the
     restriction for a single query.
 
-:ref:`extbase-persistence-relations`
+:ref:`Object relations in Extbase <extbase-persistence-relations>`
     The two relation **shapes** — a relation to one object and a relation to many
     — and how each is stored, how Extbase loads related objects, and the **lazy
     loading versus N+1 query** trade-off that decides the performance of a list

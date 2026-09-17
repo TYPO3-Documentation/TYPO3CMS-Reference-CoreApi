@@ -181,7 +181,7 @@ Policy violations and reporting
     webpage's output. Both dispositions can be set independently in TYPO3.
 
 *   All active rules can be seen in the backend configuration section, see
-    :ref:`content-security-policy-backend-rules`.
+    :ref:`Active content security policy rules <content-security-policy-backend-rules>`.
 
 ..  _content-security-policy-example:
 
@@ -889,5 +889,5 @@ PSR-14 events
 
 The following PSR-14 events are available:
 
-*   :ref:`InvestigateMutationsEvent`
-*   :ref:`PolicyMutatedEvent`
+*   :ref:`InvestigateMutationsEvent <InvestigateMutationsEvent>`
+*   :ref:`PolicyMutatedEvent <PolicyMutatedEvent>`

@@ -221,8 +221,8 @@ Events that allow additional adjusting of assets
 
 There are two events available that allow additional adjusting of assets:
 
-* :ref:`BeforeJavaScriptsRenderingEvent`
-* :ref:`BeforeStylesheetsRenderingEvent`
+* :ref:`BeforeJavaScriptsRenderingEvent <BeforeJavaScriptsRenderingEvent>`
+* :ref:`BeforeStylesheetsRenderingEvent <BeforeStylesheetsRenderingEvent>`
 
 
 ..  _assets-other-methods:

@@ -31,7 +31,7 @@ the namespace :php:`\MyVendor\MyExtension\ViewHelpers` is imported with the
 prefix `m`. Now, all tags starting with `m:` are interpreted as
 ViewHelper from within this namespace.
 For further information about namespace import, see
-:ref:`fluid-syntax-viewhelpers-import-namespaces`.
+:ref:`ViewHelper namespaces <fluid-syntax-viewhelpers-import-namespaces>`.
 
 The ViewHelper should be given the name "gravatar" and take an email
 address and an optional alt-text  as a parameters.

@@ -11,7 +11,7 @@ can be used to modify the actual translated record (if found) to add additional
 information or perform custom processing of the record.
 
 ..  seealso::
-    *   :ref:`BeforeRecordLanguageOverlayEvent`
+    *   :ref:`BeforeRecordLanguageOverlayEvent <BeforeRecordLanguageOverlayEvent>`
 
 ..  _after-record-language-overlay-event-example:
 

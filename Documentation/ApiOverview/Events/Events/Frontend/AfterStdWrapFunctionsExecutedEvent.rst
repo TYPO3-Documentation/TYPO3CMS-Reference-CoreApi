@@ -13,13 +13,13 @@ is called after the content has been modified by the rest of the
 
 Calling order of similar events:
 
-*   :ref:`BeforeStdWrapFunctionsInitializedEvent`
-*   :ref:`AfterStdWrapFunctionsInitializedEvent`
-*   :ref:`BeforeStdWrapFunctionsExecutedEvent`
+*   :ref:`BeforeStdWrapFunctionsInitializedEvent <BeforeStdWrapFunctionsInitializedEvent>`
+*   :ref:`AfterStdWrapFunctionsInitializedEvent <AfterStdWrapFunctionsInitializedEvent>`
+*   :ref:`BeforeStdWrapFunctionsExecutedEvent <BeforeStdWrapFunctionsExecutedEvent>`
 *   AfterStdWrapFunctionsExecutedEvent
 
 ..  seealso::
-    :ref:`EnhanceStdWrapEvent`
+    :ref:`EnhanceStdWrapEvent <EnhanceStdWrapEvent>`
 
 
 ..  _after-std-wrap-functions-executed-event-example:

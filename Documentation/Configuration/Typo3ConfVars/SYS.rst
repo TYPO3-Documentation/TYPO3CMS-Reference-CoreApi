@@ -983,7 +983,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
     Additional link handlers can be added by extensions.
 
     ..  seealso::
-        :ref:`LinkHandling`
+        :ref:`Link handling <LinkHandling>`
 
 
 ..  _typo3ConfVars_sys_passwordPolicies:
@@ -1044,7 +1044,7 @@ messenger
                 = 'doctrine';
 
         ..  seealso::
-            :ref:`message-bus-routing`
+            :ref:`Configuring the message bus transport <message-bus-routing>`
 
 ..  _typo3ConfVars_sys_localization:
 

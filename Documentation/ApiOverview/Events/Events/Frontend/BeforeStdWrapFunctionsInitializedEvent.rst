@@ -13,12 +13,12 @@ is dispatched before any :ref:`stdWrap <t3tsref:stdwrap>` function is initialize
 Calling order of similar events:
 
 *   BeforeStdWrapFunctionsInitializedEvent
-*   :ref:`AfterStdWrapFunctionsInitializedEvent`
-*   :ref:`BeforeStdWrapFunctionsExecutedEvent`
-*   :ref:`AfterStdWrapFunctionsExecutedEvent`
+*   :ref:`AfterStdWrapFunctionsInitializedEvent <AfterStdWrapFunctionsInitializedEvent>`
+*   :ref:`BeforeStdWrapFunctionsExecutedEvent <BeforeStdWrapFunctionsExecutedEvent>`
+*   :ref:`AfterStdWrapFunctionsExecutedEvent <AfterStdWrapFunctionsExecutedEvent>`
 
 ..  seealso::
-    :ref:`EnhanceStdWrapEvent`
+    :ref:`EnhanceStdWrapEvent <EnhanceStdWrapEvent>`
 
 
 ..  _before-std-wrap-functions-initialized-event-example:

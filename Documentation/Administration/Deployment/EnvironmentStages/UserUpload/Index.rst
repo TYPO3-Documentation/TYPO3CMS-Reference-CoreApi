@@ -22,10 +22,10 @@ synchronizing **user-uploaded files** across environments is different because
 
     This chapter focuses on managing **file-based content**, such as uploads
     and media files. For database content, refer to
-    :ref:`multi-stage-environment-database-management`.
+    :ref:`Synchronizing database content across environments <multi-stage-environment-database-management>`.
 
     For an overview of environment workflows, see
-    :ref:`multi-stage-environment-workflow`.
+    :ref:`Multi-stage environment workflow for TYPO3 <multi-stage-environment-workflow>`.
 
 ..  _multi-stage-environment-file-storage-locations:
 

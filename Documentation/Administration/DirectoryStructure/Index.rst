@@ -92,7 +92,7 @@ These files define a set of global settings stored in a global array called
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`.
 
 This path can be retrieved from the Environment API, see
-:ref:`Environment-config-path`.
+:ref:`getConfigPath() <Environment-config-path>`.
 
 ..  _directory-packages:
 
@@ -277,7 +277,7 @@ cache and logs files) and should not be publicly available.
     changes they have made and that can be safely regenerated.
 
     For more information and instructions on safely handling this directory, see:
-    :ref:`regeneration-temporary-folders`.
+    :ref:`Regenerating temporary folders <regeneration-temporary-folders>`.
 
 ..  _directory-var-cache:
 
@@ -295,7 +295,7 @@ The directory :path:`var/labels/` is for extension
 localizations. It contains all downloaded translation files.
 
 This path can be retrieved from the Environment API, see
-:ref:`Environment-labels-path`.
+:ref:`getLabelsPath() <Environment-labels-path>`.
 
 ..  _directory-var-log:
 

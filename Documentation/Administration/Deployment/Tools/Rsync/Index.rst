@@ -71,7 +71,7 @@ Assuming:
       user@example.org:/var/www/typo3-site/
 
 To use a custom SSH identity file or port, see:
-:ref:`deployment-rsync-sync-ssh`.
+:ref:`Additional SSH configuration <deployment-rsync-sync-ssh>`.
 
 In addition, transfer the database dump to a temporary location:
 
@@ -108,7 +108,7 @@ your editors have uploaded in the backend.
       user@example.org:/var/www/typo3-site/
 
 To use a custom SSH identity file or port, see:
-:ref:`deployment-rsync-sync-ssh`.
+:ref:`Additional SSH configuration <deployment-rsync-sync-ssh>`.
 
 There are additional steps needed beyond file transfer. See also
 `Incremental deployment <https://docs.typo3.org/permalink/t3coreapi:manual-deployment-incremental>`_.
@@ -157,7 +157,7 @@ To preview changes before syncing, you can use `--dry-run`:
       ~/Projects/typo3-site/public/fileadmin/
 
 To use a custom SSH identity file or port, see:
-:ref:`deployment-rsync-sync-ssh`.
+:ref:`Additional SSH configuration <deployment-rsync-sync-ssh>`.
 
 ..  _deployment-rsync-sync-ssh:
 

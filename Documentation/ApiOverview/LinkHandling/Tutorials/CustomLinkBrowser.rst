@@ -173,7 +173,7 @@ will not be found by :php:`$pageRenderer->loadJavaScriptModule()`.
 
 As our JavaScript class depends on classes provided by the backend system extension,
 :php:`backend` has to be added as dependency. See also
-:ref:`backend-javascript-es6-loading`.
+:ref:`Loading ES6 <backend-javascript-es6-loading>`.
 
 The `backend.form` tag is required because the import map is only generated
 on the initial request. Without this tag, the module would not be resolvable

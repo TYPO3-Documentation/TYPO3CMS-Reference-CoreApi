@@ -96,7 +96,7 @@ installations :ref:`classic-directory-typo3temp-var`.
 
 In Composer-based installation this method provides the path
 :ref:`directory-config`, in Classic mode installations
-:ref:`classic-directory-typo3conf`.
+:ref:`typo3conf/ <classic-directory-typo3conf>`.
 
 The directory returned by this method contains the folders :file:`system/`
 containing the :ref:`configuration files <configuration-files>`

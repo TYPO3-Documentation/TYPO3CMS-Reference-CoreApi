@@ -12,7 +12,7 @@ Content security policy
 =======================
 
 ..  seealso::
-    *   :ref:`content-security-policy`
+    *   :ref:`Content security policy <content-security-policy>`
 
 Content security policy (CSP_) is an added layer of security that helps
 to detect and mitigate certain types of attacks, including cross-site

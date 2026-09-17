@@ -15,7 +15,7 @@ server.
     If you are looking for guidance on configuring logging for production
     environments — such as log rotation, file locations, retention, or
     integration with tools like Sentry — see the chapter
-    :ref:`production-logging`.
+    :ref:`Logging considerations during production <production-logging>`.
 
 Different log writers offer possibilities to log into different targets.
 :ref:`Custom log writers <logging-writers-custom>` can extend the functionality

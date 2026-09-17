@@ -17,7 +17,7 @@ allows extension authors to display content in any colPos before the first
 content element.
 
 ..  seealso::
-    * :ref:`AfterSectionMarkupGeneratedEvent`
+    * :ref:`AfterSectionMarkupGeneratedEvent <AfterSectionMarkupGeneratedEvent>`
 
 Example
 =======

@@ -8,7 +8,7 @@ Create plugins
 
 How to create plugins with the Extbase framework and Fluid templating engine
 is handled in depth in the chapter
-:ref:`extbase-registration-frontend-plugin`.
+:ref:`Registering an Extbase frontend plugin <extbase-registration-frontend-plugin>`.
 
 There are basically two ways to create frontend plugins in TYPO3:
 
