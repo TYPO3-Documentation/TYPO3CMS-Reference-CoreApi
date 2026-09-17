@@ -29,7 +29,7 @@ Some important fields:
     The type of the file represented by an integer defined by an enum
     :php:`\TYPO3\CMS\Core\Resource\FileType` value.
 
-    See :ref:`globals-constants-file-types` for more details.
+    See :ref:`File types <globals-constants-file-types>` for more details.
 
 :sql:`identifier`
     A string which should uniquely identify a file within its
