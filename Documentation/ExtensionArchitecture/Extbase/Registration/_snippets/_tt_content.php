@@ -11,5 +11,5 @@ ExtensionUtility::registerPlugin(
   'my-extension-conference-list',
   'plugins',
   'my_extension.db:plugin.conferencelist.description',
-  'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml',
+  'FILE:EXT:my_extension/Configuration/FlexForms/ConferenceList.xml',
 );
