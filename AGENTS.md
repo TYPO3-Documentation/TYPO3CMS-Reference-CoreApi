@@ -35,6 +35,13 @@ Makefile                    # local install/build/test commands
   has to be a well formed document: wrap the part you show in the braces it
   belongs in and put `(excerpt)` in the caption. To show that more members
   follow, write a `"...": "..."` member, which is ordinary JSON.
+- `make test-rst-style` — check the two indentation rules of the style guide
+  that can be decided without reading the page: two spaces after `..`, and
+  directive options four spaces deeper than their directive. Everything else
+  reST indents has its own width, so a general rule would report noise
+  instead of findings. The body of a literal directive is left alone, and
+  `Documentation/CodeSnippets/` is skipped entirely, because a generator
+  writes those files and decides their format.
 - `make test-editorconfig` — check indentation and whitespace against
   `.editorconfig`. It runs only over code files: `.editorconfig-checker.json`
   excludes reST, because the checker cannot tell a directive body from an
@@ -49,7 +56,7 @@ Makefile                    # local install/build/test commands
   is its own formatting, and check what a file's whitespace actually does
   before touching it.
 - `make test` — full test suite (docs, lint, cgl, yaml, typoscript, json,
-  editorconfig).
+  reST style, editorconfig).
 
 ## Rules
 

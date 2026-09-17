@@ -107,7 +107,7 @@ setup-typo3: check-dependencies ## Initialize TYPO3 for documentation generation
 # Testing
 # ------------------------------------------------------------------------------
 .PHONY: test
-test: test-docs test-lint test-cgl test-yaml test-typoscript test-json test-editorconfig ## Run all tests
+test: test-docs test-lint test-cgl test-yaml test-typoscript test-json test-rst-style test-editorconfig ## Run all tests
 
 .PHONY: test-lint
 test-lint: ## Check PHP syntax
@@ -128,6 +128,10 @@ test-typoscript: check-dependencies ## Check TypoScript snippet syntax
 .PHONY: test-json
 test-json: check-dependencies ## Check JSON snippet syntax
 	Build/Scripts/runTests.sh -s jsonLint
+
+.PHONY: test-rst-style
+test-rst-style: check-dependencies ## Check reST indentation per the style guide
+	Build/Scripts/runTests.sh -s rstStyleLint
 
 .PHONY: test-editorconfig
 test-editorconfig: ## Check indentation and whitespace per .editorconfig
