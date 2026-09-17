@@ -17,8 +17,9 @@ on the parameters.
 
 ..  note::
     The overwritten parameters are used for building the URI and are also passed
-    to the :ref:`AfterPagePreviewUriGeneratedEvent`. They however do not
-    overwrite the related class properties in :php:`PreviewUriBuilder`.
+    to the :ref:`AfterPagePreviewUriGeneratedEvent
+    <AfterPagePreviewUriGeneratedEvent>`. They however do not overwrite the
+    related class properties in :php:`PreviewUriBuilder`.
 
 ..  _before-page-preview-uri-generated-event-example:
 
