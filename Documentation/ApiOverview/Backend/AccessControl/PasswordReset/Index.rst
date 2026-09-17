@@ -62,8 +62,8 @@ Implications of displaying the username in the email
     :ref:`Multi-factor authentication <multi-factor-authentication>`.
 
 
-.. index:: Backend; passwordReset
-.. index:: Backend; passwordResetForAdmins
+..  index:: Backend; passwordReset
+..  index:: Backend; passwordResetForAdmins
 
 ..  _access-password-reset-global-configuration:
 

@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _appendix-a-properties:
+..  _appendix-a-properties:
 
 ==============================
 Properties and transformations

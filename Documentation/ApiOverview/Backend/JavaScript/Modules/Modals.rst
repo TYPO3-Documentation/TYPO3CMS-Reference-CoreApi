@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   JavaScript (Backend); Modals
-   Modal window
-.. _modules-modals:
+..  include:: /Includes.rst.txt
+..  index::
+    JavaScript (Backend); Modals
+    Modal window
+..  _modules-modals:
 
 ======
 Modals
@@ -21,7 +21,7 @@ the :ref:`Notification API (flash message) <notification_api>` should be used.
 
 For complex content, like forms or a lot of information, use normal pages.
 
-.. _modules-modals-api:
+..  _modules-modals-api:
 
 API
 ===
@@ -31,7 +31,7 @@ The API provides only two public methods:
 #. :js:`TYPO3.Modal.confirm(title, content, severity, buttons)`
 #. :js:`TYPO3.Modal.dismiss()`
 
-.. _modules-modals-settings:
+..  _modules-modals-settings:
 
 Modal settings
 --------------
@@ -77,7 +77,7 @@ Modal settings
         Controls whether a static backdrop should be rendered, which prevents
         closing the modal by clicking outside of it.
 
-.. _modules-modals-button-settings:
+..  _modules-modals-button-settings:
 
 Button settings
 ---------------

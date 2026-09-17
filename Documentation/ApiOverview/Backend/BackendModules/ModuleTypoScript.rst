@@ -1,8 +1,8 @@
 :navigation-title: TypoScript
 
-.. include:: /Includes.rst.txt
-.. index:: Backend modules; TypoScript
-.. _backend-module-typoscript:
+..  include:: /Includes.rst.txt
+..  index:: Backend modules; TypoScript
+..  _backend-module-typoscript:
 
 ===================================
 TypoScript configuration of modules

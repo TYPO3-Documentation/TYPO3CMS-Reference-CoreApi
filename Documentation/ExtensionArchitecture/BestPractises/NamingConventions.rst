@@ -1,8 +1,8 @@
 :navigation-title: Naming
 
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Naming conventions
-.. _extension-naming:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Naming conventions
+..  _extension-naming:
 
 ==================
 Naming conventions
@@ -12,7 +12,7 @@ The first thing you should decide on is the :ref:`extension key <extension-key>`
 for your extension and the vendor name. A significant part of the names below
 are based on the extension key.
 
-.. tip::
+..  tip::
 
     Some of the names, such as extension key or vendor name, will be spelled differently,
     depending on where they are used, for example:
@@ -88,20 +88,20 @@ a soft requirement: strongly recommended but will usually work, even if you
 do not follow the conventions.
 
 
-.. tip::
-   If you study the naming conventions closely you will find that
-   they are complicated due to varying rules derived from the extkey,
-   if the extkey contains underscores. Sometimes the underscores are
-   stripped off, sometimes not, sometimes a name in UpperCamelCase is created.
+..  tip::
+    If you study the naming conventions closely you will find that
+    they are complicated due to varying rules derived from the extkey,
+    if the extkey contains underscores. Sometimes the underscores are
+    stripped off, sometimes not, sometimes a name in UpperCamelCase is created.
 
-   The best practice you can follow is to  *avoid using underscores* in
-   your extensions keys altogether. That will make the rules simpler and is
-   highly recommended.
+    The best practice you can follow is to  *avoid using underscores* in
+    your extensions keys altogether. That will make the rules simpler and is
+    highly recommended.
 
 
 
-.. index:: Extension key
-.. _naming-conventions-extkey:
+..  index:: Extension key
+..  _naming-conventions-extkey:
 
 Extension key (extkey)
 ======================
@@ -119,17 +119,17 @@ Derived names are:
   to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `MyVendor\CoolShop`).
 
 
-.. attention::
+..  attention::
 
-   If you plan to :ref:`publish your extension <publish-extension>`,
-   the extension key must be unique worldwide. This will be checked
-   and enforced once you register the extension key on extensions.typo3.org.
+    If you plan to :ref:`publish your extension <publish-extension>`,
+    the extension key must be unique worldwide. This will be checked
+    and enforced once you register the extension key on extensions.typo3.org.
 
-   The *extkey* is valid if the TER accepts it. This also makes sure that the
-   name follows the rules and is unique.
+    The *extkey* is valid if the TER accepts it. This also makes sure that the
+    name follows the rules and is unique.
 
-   Do this early! An already reserved key can usually only be transferred if the
-   original author agrees to this.
+    Do this early! An already reserved key can usually only be transferred if the
+    original author agrees to this.
 
 
 
@@ -152,7 +152,7 @@ Here, the *extkey* is `my_extension`:
 * package name in :file:`composer.json <extension-composer-json>`: `vendor-name/my-extension` (the underscore is replaced by
   a dash)
 
-.. index:: Vendor name
+..  index:: Vendor name
 
 ..  _extension-naming-vendor-name:
 
@@ -164,12 +164,12 @@ The vendor name is used in:
 * namespaces
 * package name in :file:`composer.json <extension-composer-json>`, e.g. `myvendor/cool-shop` (all lowercase)
 
-.. attention::
+..  attention::
 
-   The vendor name MUST be unique (if you publish your extensions
-   on packagist).
+    The vendor name MUST be unique (if you publish your extensions
+    on packagist).
 
-   Register your vendor name early on `Packagist <https://packagist.org>`__!
+    Register your vendor name early on `Packagist <https://packagist.org>`__!
 
 
 Use common PHP naming conventions for vendor names in namespaces and check
@@ -190,9 +190,9 @@ Examples:
    * Namespace: :php:`MyCompany\MyExample\...`
    * package name (in :file:`composer.json <extension-composer-json>`): `my-company/my-example`
 
-.. seealso::
+..  seealso::
 
-   * `PSR-0 <https://www.php-fig.org/psr/psr-0/>`__
+    * `PSR-0 <https://www.php-fig.org/psr/psr-0/>`__
 
 ..  _naming-tables:
 
@@ -203,9 +203,9 @@ These rules apply to public extensions, but should be followed nevertheless.
 
 Database table names **should** follow this pattern:
 
-.. code-block:: none
+..  code-block:: none
 
-   tx_<extkeyprefix>_<table_name>
+    tx_<extkeyprefix>_<table_name>
 
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<table_name>` should clearly describe the purpose of the table
@@ -222,9 +222,9 @@ Extbase domain model tables
 
 Extbase domain model tables **should** follow this pattern:
 
-.. code-block:: none
+..  code-block:: none
 
-   tx_<extkeyprefix>_domain_model_<model-name>
+    tx_<extkeyprefix>_domain_model_<model-name>
 
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<model-name>` should match the domain model name
@@ -243,11 +243,11 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 | :php:`Vendor\CoolShop\Domain\Model\Billing\Address` | :sql:`tx_coolshop_domain_model_billing_address` |
 +-----------------------------------------------------+-------------------------------------------------+
 
-.. tip::
-   Notice that the names above use the singular form, e.g. `post` and
-   not `posts`. This is recommended, but not a requirement.
-   However, if you do not follow the recommended patterns
-   you may need :ref:`manual mapping <extbase-domain-model-mapping>`.
+..  tip::
+    Notice that the names above use the singular form, e.g. `post` and
+    not `posts`. This is recommended, but not a requirement.
+    However, if you do not follow the recommended patterns
+    you may need :ref:`manual mapping <extbase-domain-model-mapping>`.
 
 ..  _naming-tables-mm:
 
@@ -258,24 +258,24 @@ MM-tables for multiple-multiple relations between tables
 
 Extbase:
 
-.. code-block:: none
+..  code-block:: none
 
-   # rule for Extbase
-   tx_<extkeyprefix>_domain_model_<model-name-1>_<model-name-2>_mm
-   # example: EXT:blog with relation between post and comment
-   tx_blogexample_domain_model_post_comment_mm
+    # rule for Extbase
+    tx_<extkeyprefix>_domain_model_<model-name-1>_<model-name-2>_mm
+    # example: EXT:blog with relation between post and comment
+    tx_blogexample_domain_model_post_comment_mm
 
 Non-Extbase tables usually use a similar rule, without the "domain_model" part:
 
-.. code-block:: none
+..  code-block:: none
 
-   # recommendation for non-Extbase third party extensions
-   tx_<extkeyprefix>_<model-1>_<model-2>_mm
-   # Example
-   tx_myextension_address_category_mm
+    # recommendation for non-Extbase third party extensions
+    tx_<extkeyprefix>_<model-1>_<model-2>_mm
+    # Example
+    tx_myextension_address_category_mm
 
-   # example for TYPO3 core:
-   sys_category_record_mm
+    # example for TYPO3 core:
+    sys_category_record_mm
 
 ..  _extension-naming-database-column-name:
 
@@ -285,17 +285,17 @@ Database column name
 When extending a common table like :sql:`tt_content`, column names SHOULD
 follow this pattern:
 
-.. code-block:: none
+..  code-block:: none
 
-   tx_<extkeyprefix>_<column-name>
+    tx_<extkeyprefix>_<column-name>
 
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<column-name>` purpose of the column, lower case letters with underscores
 
-.. tip::
-   If you work with column-names not following this convention (e.g. :php:`colPos`), you have to add a :ref:`column mapping <extbase-domain-model-mapping>`.
+..  tip::
+    If you work with column-names not following this convention (e.g. :php:`colPos`), you have to add a :ref:`column mapping <extbase-domain-model-mapping>`.
 
-.. _BackendModuleKey:
+..  _BackendModuleKey:
 
 Backend module key (modkey)
 ===========================
@@ -344,7 +344,7 @@ Examples (from TYPO3 Core extensions):
     You can look at existing module signatures in
     :guilabel:`System > Configuration > Backend Modules`.
 
-.. _naming-conventions-plugin-signature:
+..  _naming-conventions-plugin-signature:
 
 Plugin signature
 ================
@@ -373,12 +373,12 @@ The extension key and plugin key are separated by an underscore (`_`).
 
 Example:
 
-.. code-block:: php
-   :caption: Plugin name and Plugin key listed
+..  code-block:: php
+    :caption: Plugin name and Plugin key listed
 
-   $extensionName = 'my_extension';
-   $pluginName = 'MyCoolPlugin';
-   $pluginSignature = "myextension_mycoolplugin"
+    $extensionName = 'my_extension';
+    $pluginName = 'MyCoolPlugin';
+    $pluginSignature = "myextension_mycoolplugin"
 
 The plugin signature is used in:
 
@@ -463,9 +463,9 @@ Examples:
 *   :php:`CodeCompletionController`
 *   :php:`AjaxController`
 
-.. seealso::
+..  seealso::
 
-   This follows `PSR-1 <https://www.php-fig.org/psr/psr-1/>`__ conventions.
+    This follows `PSR-1 <https://www.php-fig.org/psr/psr-1/>`__ conventions.
 
 ..  _extension-naming-upgrade-wizard-identifier:
 
@@ -482,7 +482,7 @@ Please see :ref:`upgrade-wizards-identifier` in the Upgrade Wizard chapter
 for further explanations.
 
 
-.. _extension-old-extensions:
+..  _extension-old-extensions:
 
 Note on "old" extensions
 ========================
@@ -497,17 +497,17 @@ Furthermore, some of the classic plugins (tt\_board, tt\_guest etc) use
 the "user\_" prefix for their classes as well.
 
 
-.. _TER: https://extensions.typo3.org/
-.. _Packagist: https://packagist.org/
+..  _TER: https://extensions.typo3.org/
+..  _Packagist: https://packagist.org/
 
 ..  _extension-naming-further-reading:
 
 Further reading
 ===============
 
-.. seealso::
+..  seealso::
 
-   * :ref:`extension key <extension-key>`
-   * :ref:`publish-extension`
-   * :ref:`cgl`
-   * :ref:`Xliff language file id naming conventions <xliff-id-naming>`
+    * :ref:`extension key <extension-key>`
+    * :ref:`publish-extension`
+    * :ref:`cgl`
+    * :ref:`Xliff language file id naming conventions <xliff-id-naming>`

@@ -38,8 +38,8 @@ extension. Otherwise they will not be available in the default
 In the :file:`composer.json <extension-composer-json>` we define that all PHP classes are
 automatically loaded from the :file:`Classes/` directory:
 
-.. literalinclude:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.json
-   :caption: EXT:tea/composer.json, extract
+..  literalinclude:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.json
+    :caption: EXT:tea/composer.json, extract
 
 The key of the psr-4 array, here :php:`'TTN\\Tea\\'`, defines the namespace
 for all classes in order to be found by
@@ -68,7 +68,7 @@ Additional logic needed for the view can be provided by **ViewHelpers** and
 should be stored in the respective viewhelper folder.
 
 ..  note::
-     :ref:`ViewHelpers <fluid-custom-viewhelper>` are a feature of the Fluid templating engine.
+    :ref:`ViewHelpers <fluid-custom-viewhelper>` are a feature of the Fluid templating engine.
 
 ..  _extbase-tutorial-tea-directory-structure-directory-configuration:
 

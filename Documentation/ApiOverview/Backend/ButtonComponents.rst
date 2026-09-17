@@ -23,7 +23,7 @@ Example on how to use a button component:
 
 ..  todo: Add components: FullyRenderedButton, InputButton, LinkButton, SplitButton
 
-.. _generic-button-component:
+..  _generic-button-component:
 
 Generic button component
 ========================
@@ -47,7 +47,7 @@ Example:
     $buttonBar->addButton($genericButton, ButtonBar::BUTTON_POSITION_RIGHT, 2);
 
 
-.. _dropdown-button-components:
+..  _dropdown-button-components:
 
 Dropdown button components
 ==========================

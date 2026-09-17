@@ -183,7 +183,7 @@ now this uses the Site Language Prefix plus one or more slugs),
 whereas Route Enhancements and Aspects take care of all additionally configured
 parameters (such as beautifying plugin parameters, handling `type` etc.).
 
-.. _routing-page-based-routing:
+..  _routing-page-based-routing:
 
 Page-based routing
 ------------------

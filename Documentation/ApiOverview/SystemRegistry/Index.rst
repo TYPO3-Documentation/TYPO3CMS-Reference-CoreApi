@@ -6,8 +6,8 @@
 System registry
 ===============
 
-.. contents::
-   :local:
+..  contents::
+    :local:
 
 ..  _registry-introduction:
 

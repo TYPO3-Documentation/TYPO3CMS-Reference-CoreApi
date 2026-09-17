@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: Path; EXT:{extkey}/Documentation
+..  include:: /Includes.rst.txt
+..  index:: Path; EXT:{extkey}/Documentation
 
-.. _extension-files-documentation:
+..  _extension-files-documentation:
 
 ===============
 `Documentation`

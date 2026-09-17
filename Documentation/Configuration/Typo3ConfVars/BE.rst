@@ -845,7 +845,7 @@ stylesheets
     Load additional CSS files for the TYPO3 backend interface. This can be set
     for a site or in an extension :file:`ext_localconf.php` file.
 
-    .. rubric:: Examples:
+    ..  rubric:: Examples:
 
     Add a specific stylesheet:
 

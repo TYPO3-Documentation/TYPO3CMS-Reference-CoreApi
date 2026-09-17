@@ -1,10 +1,10 @@
 :navigation-title: Tutorials
 
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Tutorial
-   Tutorial; Extension development
-.. _extension-tutorials:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Tutorial
+    Tutorial; Extension development
+..  _extension-tutorials:
 
 ===============================
 Extension development tutorials

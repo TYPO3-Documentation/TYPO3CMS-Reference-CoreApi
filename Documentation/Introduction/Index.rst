@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _introduction:
+..  include:: /Includes.rst.txt
+..  _introduction:
 
 ============
 Introduction
@@ -10,7 +10,7 @@ The :ref:`TYPO3 - Getting Started Tutorial <t3start:start>` gives you an
 introduction to the core concepts of TYPO3 and will help you to kickstart your
 first project.
 
-.. _introduction-installation:
+..  _introduction-installation:
 
 A basic TYPO3 installation
 ==========================
@@ -23,7 +23,7 @@ You can also `download TYPO3 from our official page <https://get.typo3.org/versi
 If you are starting out we would suggest using the latest TYPO3 version with
 long term support.
 
-.. _introduction-site-package:
+..  _introduction-site-package:
 
 A basic site package
 ====================
@@ -34,7 +34,7 @@ To get started you need a basic
 You can use the official `Site Package Builder <https://get.typo3.org/sitepackage>`_
 to generate one for you or follow the :ref:`site package tutorial <t3sitepackage:start>`.
 
-.. _introduction-getting-help:
+..  _introduction-getting-help:
 
 Getting help with TYPO3
 =======================

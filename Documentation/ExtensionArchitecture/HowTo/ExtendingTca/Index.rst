@@ -1,13 +1,13 @@
 :navigation-title: Extend TCA
 
-.. include:: /Includes.rst.txt
-.. index::
-   single: Extension development; TCA
-   pair: TCA; Extension
-   single: $GLOBALS; TCA
+..  include:: /Includes.rst.txt
+..  index::
+    single: Extension development; TCA
+    pair: TCA; Extension
+    single: $GLOBALS; TCA
 
-.. _extending:
-.. _extending-tca:
+..  _extending:
+..  _extending-tca:
 
 =======================
 Extending the TCA array
@@ -18,11 +18,11 @@ extended. It can be accessed as the global variable :php:`$GLOBALS['TCA']`.
 TYPO3 also provides APIs for making this simpler.
 
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+..  toctree::
+    :maxdepth: 5
+    :titlesonly:
+    :glob:
 
-   StoringChanges/Index
-   Examples/Index
-   Verifying/Index
+    StoringChanges/Index
+    Examples/Index
+    Verifying/Index

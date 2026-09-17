@@ -101,10 +101,10 @@ names, especially `locallang.xlf` and the `locallang_` prefix.
 
 The resource identifier appears before the colon in the resource part (below `comment`).
 
-.. code-block:: php
-   :caption: Example usage of "package.resource:identifier"
+..  code-block:: php
+    :caption: Example usage of "package.resource:identifier"
 
-    $translator->label('my_extension.comment:domain_model.title');
+     $translator->label('my_extension.comment:domain_model.title');
 
 ..  _translation-domain-resolution:
 
@@ -130,7 +130,7 @@ translation domains with their translations and label counts:
     # Also list the files configured via resourceOverrides for each domain
     vendor/bin/typo3 language:domain:list --show-overrides
 
-.. _translation-domain-mapping:
+..  _translation-domain-mapping:
 
 Deterministic file-based translation domain mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,7 +155,7 @@ reduces file system operations. Extension label files are
 discovered once during initialization, and their mapping is reused from
 cache for subsequent lookups.
 
-.. _translation-domain-rules:
+..  _translation-domain-rules:
 
 Domain generation rules
 -----------------------

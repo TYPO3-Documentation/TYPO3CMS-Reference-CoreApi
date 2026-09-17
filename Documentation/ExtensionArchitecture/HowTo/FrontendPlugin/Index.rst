@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Extension development; Frontend plugin
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Extension development; Frontend plugin
 
-.. _frontend_plugin:
+..  _frontend_plugin:
 
 ===============
 Frontend plugin

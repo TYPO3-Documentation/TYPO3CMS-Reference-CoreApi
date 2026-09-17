@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: TypoScript; Syntax
-.. _typoscript-syntax:
+..  include:: /Includes.rst.txt
+..  index:: TypoScript; Syntax
+..  _typoscript-syntax:
 
 ======
 Syntax

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Testing; Project
-.. _testing-tutorial-acceptance:
+..  include:: /Includes.rst.txt
+..  index:: Testing; Project
+..  _testing-tutorial-acceptance:
 
 =======================================
 Acceptance testing of site_introduction
@@ -44,7 +44,7 @@ Just like any other projects wants.
 The quick start for an own site based on this repository boils down to these commands, with
 more details mentioned in `README.md <https://github.com/TYPO3-Documentation/site-introduction/blob/main/README.md>`_:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: Setting up the site-introduction project
 
     lolli@apoc /var/www/local $ git clone git@github.com:TYPO3-Documentation/site-introduction.git
@@ -57,7 +57,7 @@ more details mentioned in `README.md <https://github.com/TYPO3-Documentation/sit
 This will start various containers: A database, a phpmyadmin instance, and a web server. If all
 goes well, the instance is reachable on :samp:`https://introduction.ddev.site`.
 
-.. index:: Testing; Acceptance
+..  index:: Testing; Acceptance
 
 ..  _testing-tutorial-acceptance-local-acceptance-testing:
 
@@ -115,7 +115,7 @@ Ah, and we need a "Tester" in the `Support directory <https://github.com/TYPO3-D
 That's it. We can now execute the acceptance test suite by executing a command in the
 ddev PHP container:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: Running the acceptance test suite
 
     lolli@apoc /var/www/local/site-introduction $ ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
@@ -152,7 +152,7 @@ ddev PHP container:
 
 Done: Local test execution of a projects acceptance test!
 
-.. index:: Testing; GitHub Actions
+..  index:: Testing; GitHub Actions
 
 ..  _testing-tutorial-acceptance-github-actions:
 
@@ -166,41 +166,41 @@ service to get that done. It's free for open source projects.
 To tell the CI what to do, create a new workflow file in
 `.github/workflows/tests.yml <https://github.com/TYPO3-Documentation/site-introduction/blob/master/.github/workflows/tests.yml>`__
 
-.. code-block:: yaml
+..  code-block:: yaml
     :caption: .github/workflows/tests.yml of the site-introduction project
 
-   name: tests
+    name: tests
 
-   on:
-     push:
-     pull_request:
-     workflow_dispatch:
+    on:
+      push:
+      pull_request:
+      workflow_dispatch:
 
-   jobs:
-     testsuite:
-       name: all tests
-       runs-on: ubuntu-20.04
-       steps:
-         - name: Checkout
-           uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+    jobs:
+      testsuite:
+        name: all tests
+        runs-on: ubuntu-20.04
+        steps:
+          - name: Checkout
+            uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-         - name: Start DDEV
-           uses: jonaseberle/github-action-setup-ddev@v1
+          - name: Start DDEV
+            uses: jonaseberle/github-action-setup-ddev@v1
 
-         - name: Import database
-           run: ddev import-db --src=./data/db.sql
+          - name: Import database
+            run: ddev import-db --src=./data/db.sql
 
-         - name: Import files
-           run: ddev import-files --src=./assets
+          - name: Import files
+            run: ddev import-files --src=./assets
 
-         - name: Install Composer packages
-           run: ddev composer install
+          - name: Install Composer packages
+            run: ddev composer install
 
-         - name: Allow public access of var folder
-           run: sudo chmod 0777 ./var
+          - name: Allow public access of var folder
+            run: sudo chmod 0777 ./var
 
-         - name: Run acceptance tests
-           run: ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
+          - name: Run acceptance tests
+            run: ddev exec bin/codecept run acceptance -d -c Tests/codeception.yml
 
 It's possible to see executed test runs `online <https://github.com/TYPO3-Documentation/site-introduction/actions>`_.
 Green :)

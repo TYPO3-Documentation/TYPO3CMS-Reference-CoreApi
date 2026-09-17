@@ -18,8 +18,8 @@ All examples use :ref:`dependency injection <DependencyInjection>` to provide
 the :ref:`ConnectionPool <database-connection-pool>` in the classes.
 
 
-.. contents:: **Table of Contents**
-   :local:
+..  contents:: **Table of Contents**
+    :local:
 
 
 ..  index:: Database; INSERT
@@ -42,9 +42,9 @@ This results in the following SQL statement:
         VALUES ('42', 'ipsum')
 
 
-.. index:: Database; SELECT
+..  index:: Database; SELECT
 
-.. _database-select:
+..  _database-select:
 
 Select a single row
 ===================
@@ -120,7 +120,7 @@ The executed query looks like this:
             AND (`tt_content`.`deleted` = 0)
 
 
-.. index:: Database; UPDATE
+..  index:: Database; UPDATE
 
 ..  _database-basic-crud-update-multiple-rows:
 

@@ -29,24 +29,24 @@ Example
 
 The response returned by the AJAX endpoint should look like this:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php (excerpt)
 
-   use TYPO3\CMS\Core\Http\JsonResponse;
+    use TYPO3\CMS\Core\Http\JsonResponse;
 
-   // Success
-   return new JsonResponse([
-       'success' => true,
-       'title'   => $languageService->sL('myext.messages:notification.success.title'),
-       'message' => $languageService->sL('myext.messages:notification.success.message'),
-   ]);
+    // Success
+    return new JsonResponse([
+        'success' => true,
+        'title'   => $languageService->sL('myext.messages:notification.success.title'),
+        'message' => $languageService->sL('myext.messages:notification.success.message'),
+    ]);
 
-   // Failure
-   return new JsonResponse([
-       'success' => false,
-       'title'   => $languageService->sL('myext.messages:notification.error.title'),
-       'message' => $languageService->sL('myext.messages:notification.error.message'),
-   ]);
+    // Failure
+    return new JsonResponse([
+        'success' => false,
+        'title'   => $languageService->sL('myext.messages:notification.error.title'),
+        'message' => $languageService->sL('myext.messages:notification.error.message'),
+    ]);
 
 ..  _ModifyClearCacheActionsEvent-api:
 

@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: backend, acl, permissions, user groups, user management
+..  index:: backend, acl, permissions, user groups, user management
 
-.. _groups-inheritance:
+..  _groups-inheritance:
 
 ==================
 Groups inheritance
@@ -19,5 +19,5 @@ of the sources of specific permissions.
     :caption: Backend groups hierarchy with 2 levels of inheritance
     :width: 700
 
-.. note::
+..  note::
     Avoid complex inheritance within backend user groups. One or two levels of inheritance should suffice and make permissions easier to maintain.

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Locking
-.. _locking-api:
+..  include:: /Includes.rst.txt
+..  index:: ! Locking
+..  _locking-api:
 
 ===========
 Locking API
@@ -12,14 +12,14 @@ where concurrent access can be a problem. For example if you are getting a
 cache entry, while another process sets the same entry. This may
 result in incomplete or corrupt data, if locking is not used.
 
-.. attention::
+..  attention::
 
-   The :ref:`TYPO3 Caching Framework <caching>` does not use locking internally.
-   If you use the Caching Framework to cache entries in your extension, you may
-   want to use the locking API as well.
+    The :ref:`TYPO3 Caching Framework <caching>` does not use locking internally.
+    If you use the Caching Framework to cache entries in your extension, you may
+    want to use the locking API as well.
 
 
-.. index:: Locking; Strategy
+..  index:: Locking; Strategy
 
 ..  _locking-api-locking-strategies:
 
@@ -36,13 +36,13 @@ available, :php:`SemaphoreLockStrategy` will not be used).
    and creates a file in `typo3temp/var/lock`
    The directory can be overwritten by configuration:
 
-   .. code-block:: php
-      :caption: config/system/additional.php | typo3conf/system/additional.php
+   ..  code-block:: php
+       :caption: config/system/additional.php | typo3conf/system/additional.php
 
-      use TYPO3\CMS\Core\Locking\FileLockStrategy;
+       use TYPO3\CMS\Core\Locking\FileLockStrategy;
 
-      // The directory specified here must exist und must be a subdirectory of `Environment::getProjectPath()`
-      $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['lockFileDir'] = 'mylockdir';
+       // The directory specified here must exist und must be a subdirectory of `Environment::getProjectPath()`
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['lockFileDir'] = 'mylockdir';
 
 *  **SemaphoreLockStrategy**: uses the PHP function `sem_get()
    <https://www.php.net/manual/en/function.sem-get.php>`__
@@ -66,11 +66,11 @@ locking strategy supported on system
    Some locking strategies do basic checks, e.g. semaphore locking is only available
    on Linux systems.
 
-.. index::
-   Locking; Capabilities
-   Locking; LOCK_CAPABILITY_NOBLOCK
-   Locking; LOCK_CAPABILITY_EXCLUSIVE
-   Locking; LOCK_CAPABILITY_SHARED
+..  index::
+    Locking; Capabilities
+    Locking; LOCK_CAPABILITY_NOBLOCK
+    Locking; LOCK_CAPABILITY_EXCLUSIVE
+    Locking; LOCK_CAPABILITY_SHARED
 
 ..  _locking-api-locking-strategies-capabilities:
 
@@ -112,18 +112,18 @@ LOCK_CAPABILITY_NOBLOCK
 
 You can use bitwise `OR` to combine them:
 
-.. code-block:: php
+..  code-block:: php
 
-   $capabilities = LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE
-       | LockingStrategyInterface::LOCK_CAPABILITY_SHARED
-       | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK
+    $capabilities = LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE
+        | LockingStrategyInterface::LOCK_CAPABILITY_SHARED
+        | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK
 
 
-.. index::
-   Locking; Priorities
-   Locking; FileLockStrategy
-   Locking; SimpleLockStrategy
-   Locking; SemaphoreLockStrategy
+..  index::
+    Locking; Priorities
+    Locking; FileLockStrategy
+    Locking; SimpleLockStrategy
+    Locking; SemaphoreLockStrategy
 
 ..  _locking-api-locking-strategies-priorities:
 
@@ -143,12 +143,12 @@ Currently, these are the priorities of the locking strategies supplied by the Co
 To change the locking strategy priority, the priority can be overwritten by configuration,
 for example in additional configuration:
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   use TYPO3\CMS\Core\Locking\FileLockStrategy;
+    use TYPO3\CMS\Core\Locking\FileLockStrategy;
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['priority'] = 10;
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][FileLockStrategy::class]['priority'] = 10;
 
 ..  _locking-api-locking-strategies-examples:
 
@@ -157,59 +157,59 @@ Examples
 
 Acquire and use an exclusive, blocking lock:
 
-.. code-block:: php
-   :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
+..  code-block:: php
+    :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
 
-   use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
-   use TYPO3\CMS\Core\Locking\LockFactory;
-   // ...
+    use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
+    use TYPO3\CMS\Core\Locking\LockFactory;
+    // ...
 
-   $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
+    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
-   // createLocker will return an instance of class which implements
-   // LockingStrategyInterface, according to required capabilities.
-   // Here, we are asking for an exclusive, blocking lock. This is the default,
-   // so the second parameter could be omitted.
-   $locker = $lockFactory->createLocker('someId', LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE);
+    // createLocker will return an instance of class which implements
+    // LockingStrategyInterface, according to required capabilities.
+    // Here, we are asking for an exclusive, blocking lock. This is the default,
+    // so the second parameter could be omitted.
+    $locker = $lockFactory->createLocker('someId', LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE);
 
-   // now use the locker to lock something exclusively, this may block (wait) until lock is free, if it
-   // has been used already
-   if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE)) {
-       // do some work that required exclusive locking here ...
+    // now use the locker to lock something exclusively, this may block (wait) until lock is free, if it
+    // has been used already
+    if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE)) {
+        // do some work that required exclusive locking here ...
 
-       // after you did your stuff, you must release
-       $locker->release();
-   }
+        // after you did your stuff, you must release
+        $locker->release();
+    }
 
 
 Acquire and use an exclusive, non-blocking lock:
 
-.. code-block:: php
-   :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
+..  code-block:: php
+    :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
 
-   use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
-   use TYPO3\CMS\Core\Locking\LockFactory;
-   // ...
+    use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
+    use TYPO3\CMS\Core\Locking\LockFactory;
+    // ...
 
-   $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
+    $lockFactory = GeneralUtility::makeInstance(LockFactory::class);
 
-   // get lock strategy that supports exclusive, shared and non-blocking
-   $locker = $lockFactory->createLocker('id',
-       LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK);
+    // get lock strategy that supports exclusive, shared and non-blocking
+    $locker = $lockFactory->createLocker('id',
+        LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK);
 
-   // now use the locker to lock something exclusively, this will not block, so handle retry / abort yourself,
-   // e.g. by using a loop
-   if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK)) {
-       // ... some work to be done that requires locking
+    // now use the locker to lock something exclusively, this will not block, so handle retry / abort yourself,
+    // e.g. by using a loop
+    if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK)) {
+        // ... some work to be done that requires locking
 
-       // after you did your stuff, you must release
-       $locker->release();
-   }
+        // after you did your stuff, you must release
+        $locker->release();
+    }
 
 
-.. index::  pair: Locking; Extensions
+..  index::  pair: Locking; Extensions
 
-.. _use-locking-api-in-extensions:
+..  _use-locking-api-in-extensions:
 
 Extend locking in extensions
 ============================
@@ -225,25 +225,25 @@ if it should override the current top choice :php:`FileLockStrategy` by default.
 If you want to release your file locking strategy extension, make sure to make the priority configurable,
 as is done in the TYPO3 Core:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:my_extension/Classes/Locking/MyLockingStrategy.php (excerpt)
 
-   public static function getPriority()
-   {
-       return $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][self::class]['priority']
-           ?? self::DEFAULT_PRIORITY;
-   }
+    public static function getPriority()
+    {
+        return $GLOBALS['TYPO3_CONF_VARS']['SYS']['locking']['strategies'][self::class]['priority']
+            ?? self::DEFAULT_PRIORITY;
+    }
 
 See :t3src:`core/Classes/Locking/FileLockStrategy.php` for an example.
 
-.. index:: Locking; Caveats
-.. _locking-api-caveats:
+..  index:: Locking; Caveats
+..  _locking-api-caveats:
 
 Caveats
 =======
 
 
-.. index:: Locking; FileLockStrategy & NFS
+..  index:: Locking; FileLockStrategy & NFS
 
 ..  _locking-api-caveats-filelockstrategy-nfs:
 
@@ -266,7 +266,7 @@ and `LOCK_CAPABILITY_NOBLOCK`) and priority (75), FileLockStrategy is used as
 first choice for most locking operations in TYPO3.
 
 
-.. index:: Locking; Multiple servers
+..  index:: Locking; Multiple servers
 
 ..  _locking-api-caveats-multiple-servers-cache:
 
@@ -285,7 +285,7 @@ Specifically, this may be a problem:
   not shared) in combination with a central cache mechanism (e.g. central Redis
   or DB used for page caching in TYPO3)
 
-.. _locking-api-more-info:
+..  _locking-api-more-info:
 
 Related information
 ===================

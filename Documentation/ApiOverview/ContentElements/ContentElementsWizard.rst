@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Add; Content elements
-.. _content-element-wizard:
+..  include:: /Includes.rst.txt
+..  index:: pair: Add; Content elements
+..  _content-element-wizard:
 
 ==========================
 New content element wizard
@@ -52,7 +52,7 @@ and you are an administrator.
 Some third party extensions like :composer:`bk2k/bootstrap-package` are altering
 the available groups.
 
-.. _content-element-wizard-plain:
+..  _content-element-wizard-plain:
 
 Plain content elements or plugins
 =================================
@@ -82,7 +82,7 @@ While it is still possible to use
 as is commonly seen in older extensions this method is not specific to content
 elements and therefore sets not default values for group and icon.
 
-.. _content-element-wizard-extbase:
+..  _content-element-wizard-extbase:
 
 Plugins (Extbase) in the "New Content Element" wizard
 =====================================================
@@ -96,7 +96,7 @@ This method is only available for Extbase plugins defined via
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_register_plugin.php
     :caption: EXT:my_extension/Configuration/Overrides/tt_content.php
 
-.. _content-element-wizard-page-tsconfig:
+..  _content-element-wizard-page-tsconfig:
 
 Override the wizard with page TSconfig
 ======================================
@@ -111,7 +111,7 @@ in your :ref:`site package <site-package>`.
 You can use the settings of :ref:`newContentElement.wizardItems <t3tsref:pagenewcontentelementwizard>`.
 
 
-.. _content-element-wizard-page-tsconfig-remove:
+..  _content-element-wizard-page-tsconfig-remove:
 
 Remove items from the "New Content Element" wizard
 --------------------------------------------------
@@ -137,7 +137,7 @@ You can also remove whole groups of content elements from the wizard:
 ..  literalinclude:: _AddingYourOwnContentElements/_page_remove_group.tsconfig
     :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
 
-.. _content-element-wizard-page-tsconfig-change:
+..  _content-element-wizard-page-tsconfig-change:
 
 Change title, description, icon and default values in the wizard
 ----------------------------------------------------------------
@@ -155,7 +155,7 @@ of the element in the wizard:
 ..  literalinclude:: _AddingYourOwnContentElements/_page_change_item.tsconfig
     :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
 
-.. _content-element-wizard-create-group:
+..  _content-element-wizard-create-group:
 
 Register a new group in the "New Content Element" wizard
 ========================================================

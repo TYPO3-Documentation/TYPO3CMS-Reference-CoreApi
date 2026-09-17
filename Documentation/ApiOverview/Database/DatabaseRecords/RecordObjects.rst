@@ -17,7 +17,7 @@ into account.
     The Record object is available but still considered experimental. Only the
     usage in Fluid is public API.
 
-.. _record_objects_typoscript:
+..  _record_objects_typoscript:
 
 Provide records in TypoScript
 =============================
@@ -67,7 +67,7 @@ Overview of all possibilities:
 ..  literalinclude:: _CodeSnippets/_FluidUsage.fluid.html
     :caption: Demonstration of available variables in Fluid
 
-.. _record_objects_fluid-raw:
+..  _record_objects_fluid-raw:
 
 Using the raw record
 --------------------

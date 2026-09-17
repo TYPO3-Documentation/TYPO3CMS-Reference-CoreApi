@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: LinkHandlers
-.. _linkhandler:
+..  include:: /Includes.rst.txt
+..  index:: LinkHandlers
+..  _linkhandler:
 
 ===================
 The LinkHandler API
@@ -24,11 +24,11 @@ Current LinkHandlers:
 *  MailLinkHandler: for linking email addresses
 *  TelephoneLinkHandler: for linking phone numbers
 
-.. note::
+..  note::
 
-   In the system extension :file:`core` there are also classes ending on
-   "LinkHandler". However those implement the interface :php:`LinkHandlingInterface`
-   and are part of the LinkHandling API, not the LinkHandler API.
+    In the system extension :file:`core` there are also classes ending on
+    "LinkHandler". However those implement the interface :php:`LinkHandlingInterface`
+    and are part of the LinkHandling API, not the LinkHandler API.
 
 The links are now stored in the database with the syntax
 `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
@@ -38,16 +38,16 @@ The links are now stored in the database with the syntax
    ..  literalinclude:: _recordLinkFrontend.typoscript
        :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
 
-   .. attention::
+   ..  attention::
 
-      Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
-      stored as part of the link in the database.
+       Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
+       stored as part of the link in the database.
 
 
-.. index::
-   pair: LinkHandler; Page TSconfig
-   TCEMAIN; linkHandler
-.. _linkhandler-pagetsconfig:
+..  index::
+    pair: LinkHandler; Page TSconfig
+    TCEMAIN; linkHandler
+..  _linkhandler-pagetsconfig:
 
 LinkHandler page TSconfig options
 =================================
@@ -82,15 +82,15 @@ The page TSconfig of the LinkHandler is being used in sysext `backend`
 in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
 which does not contain Hooks.
 
-.. attention::
+..  attention::
 
     It is important, that the `storagePid` is hard coded in TSConfig, because using
     constants, for example from the site configuration, will not work here.
 
-.. index::
-   pair: LinkHandler; TypoScript
-   TypoScript; config.recordLinks
-.. _linkhandler-typoscript:
+..  index::
+    pair: LinkHandler; TypoScript
+    TypoScript; config.recordLinks
+..  _linkhandler-typoscript:
 
 LinkHandler TypoScript options
 ==============================

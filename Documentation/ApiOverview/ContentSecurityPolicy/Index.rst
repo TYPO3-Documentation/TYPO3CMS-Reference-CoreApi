@@ -316,7 +316,7 @@ different techniques for the declarations):
     :ref:`events <content-security-policy-events>`) shall be used.
 
 
-.. _content-security-policy-extension:
+..  _content-security-policy-extension:
 
 Extension-specific
 ------------------
@@ -354,7 +354,7 @@ a boilerplate configuration like the example above helps you to get started.
 
 ..  todo: Better explain "MutationCollection", "Mutation", "MutationMode"
 
-.. _content-security-policy-backend-specification:
+..  _content-security-policy-backend-specification:
 
 Backend-specific
 ----------------
@@ -366,7 +366,7 @@ as described in the :ref:`section above <content-security-policy-extension>`.
 You need to ensure that `Scope::backend()` is set in the mapped return array
 for the rules you want to setup.
 
-.. _content-security-policy-site:
+..  _content-security-policy-site:
 
 Site-specific (frontend)
 ------------------------
@@ -623,7 +623,7 @@ via the following modes:
             Content-Security-Policy: img-src 'self'
 
 
-.. _content-security-policy-nonce:
+..  _content-security-policy-nonce:
 
 Nonce
 =====
@@ -739,7 +739,7 @@ ViewHelpers with the `useNonce` attribute:
         .some-style { color: red; }
     </f:asset.css>
 
-.. _content-security-policy-nonce-caching:
+..  _content-security-policy-nonce-caching:
 
 Notes about nonces and caching
 ------------------------------
@@ -792,8 +792,8 @@ There is no automatism for this kind of hashing in TYPO3 (yet, see
 `https://forge.typo3.org/issues/100887`__), so it has to be done manually
 as outlined above.
 
-.. _content-security-policy-backend:
-.. _content-security-policy-reporting:
+..  _content-security-policy-backend:
+..  _content-security-policy-reporting:
 
 Reporting of violations, "Content Security Policy" (CSP) backend module
 =======================================================================

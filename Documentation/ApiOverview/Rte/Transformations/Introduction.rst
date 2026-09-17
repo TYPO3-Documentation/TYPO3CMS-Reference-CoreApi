@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Rich text editor; Transformation
-.. _transformations-introduction:
+..  include:: /Includes.rst.txt
+..  index:: Rich text editor; Transformation
+..  _transformations-introduction:
 
 ============
 Introduction
@@ -30,7 +30,7 @@ Generally transformations are needed for two reasons:
   such a dummy-body before it can be edited.
 
 
-.. _transformations-hybrid-modes:
+..  _transformations-hybrid-modes:
 
 Hybrid modes
 ============
@@ -50,7 +50,7 @@ To know the details of those transformations, please refer to the
 hybrid mode:
 
 
-.. _transformations-hybrid-modes-db:
+..  _transformations-hybrid-modes-db:
 
 In the database
 ---------------
@@ -58,13 +58,13 @@ In the database
 This is how the content in the database could look for a hybrid mode
 (such as :code:`css_transform`):
 
-.. code-block:: html
+..  code-block:: html
     :caption: Content of tt_content.bodytext in the database
 
-   This is line number 1 with a <a href="t3://page?uid=123">link</a> inside
-   This is line number 2 with a <b>bold part</b> in the text
-   <p align="center">This line is centered.</p>
-   This line is just plain
+    This is line number 1 with a <a href="t3://page?uid=123">link</a> inside
+    This is line number 2 with a <b>bold part</b> in the text
+    <p align="center">This line is centered.</p>
+    This line is just plain
 
 
 As you can see the TYPO3-specific tag,
@@ -84,7 +84,7 @@ which is not already wrapped in a :code:`<p>` tag and run all
 resolve them to real uris." and thus the final result will be valid HTML.
 
 
-.. _transformations-hybrid-modes-rte:
+..  _transformations-hybrid-modes-rte:
 
 In RTE
 ------
@@ -95,20 +95,20 @@ above from the database has to go into the RTE it *will not* work if
 every line is not wrapped in a :code:`<p>` tag!
 This is what eventually goes into the RTE:
 
-.. code-block:: xml
+..  code-block:: xml
     :caption: The same content as it goes into the RTE
 
-   <p>This is line number 1 with a <a href="t3://page?uid=123">link</a> inside</p>
-   <p>This is line number 2 with a <strong>bold part</strong> in the text</p>
-   <p align="center">This line is centered.</p>
-   <p>This line is just plain</p>
+    <p>This is line number 1 with a <a href="t3://page?uid=123">link</a> inside</p>
+    <p>This is line number 2 with a <strong>bold part</strong> in the text</p>
+    <p align="center">This line is centered.</p>
+    <p>This line is just plain</p>
 
 
 This process of conversion from one format to the other is what
 transformations do!
 
 
-.. _transformations-configuration:
+..  _transformations-configuration:
 
 Configuration
 =============
@@ -121,7 +121,7 @@ In addition :ref:`transformations can be fine-tuned by page TSconfig <t3tsref:pa
 which means that RTE behaviour can be determined even on page branch level!
 
 
-.. _transformations-where:
+..  _transformations-where:
 
 Where transformations are performed
 ===================================

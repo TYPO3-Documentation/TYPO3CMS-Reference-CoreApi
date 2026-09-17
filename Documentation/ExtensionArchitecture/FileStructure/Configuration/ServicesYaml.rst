@@ -2,7 +2,7 @@
 ..  index::
     Extension development; Configuration/Services.yaml
     Path; EXT:{extkey}/Configuration/Services.yaml
-.. _ServicesYaml:
+..  _ServicesYaml:
 ..  _extension-configuration-services-yaml:
 
 ===============

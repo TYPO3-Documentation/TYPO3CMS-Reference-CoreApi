@@ -70,18 +70,18 @@ the extensions or TYPO3 versions you use.
 The proper way to do this is to update each package one by one (or at least
 grouped with explicit names, if some packages belong together):
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer update georgringer/news helhum/typo3-console
+    composer update georgringer/news helhum/typo3-console
 
 You can also raise the requirements on certain extensions if you want to
 include a new major release:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require someVendor/someExtension:^3.0
+    composer require someVendor/someExtension:^3.0
 
 For details on upgrading the TYPO3 Core to a new major version, please see
 :ref:`upgradecore`.

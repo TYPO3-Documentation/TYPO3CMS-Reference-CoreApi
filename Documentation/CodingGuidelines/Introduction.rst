@@ -1,6 +1,6 @@
 :navigation-title: Introduction
-.. include:: /Includes.rst.txt
-.. _cgl-introduction:
+..  include:: /Includes.rst.txt
+..  _cgl-introduction:
 
 =================================================
 Introduction to the TYPO3 coding guidelines (CGL)
@@ -20,8 +20,8 @@ This chapter defines how TYPO3 code, files and directories should be
 outlined and formatted. It gives some thoughts on general coding
 flavors the Core tries to follow.
 
-.. index:: Coding guidelines; Quality assurance
-.. _cgl-quality-assurance:
+..  index:: Coding guidelines; Quality assurance
+..  _cgl-quality-assurance:
 
 The CGL as a means of quality assurance
 =======================================
@@ -45,28 +45,28 @@ and pushed another time. For details on Core contributions, have a look at the
 :ref:`TYPO3 Contribution Guide <t3contribute:start>`.
 
 
-.. _cgl-general-recommendations:
+..  _cgl-general-recommendations:
 
 General recommendations
 =======================
 
-.. index::
-   pair: Coding guidelines; Editor
-   pair: Coding guidelines; IDE
+..  index::
+    pair: Coding guidelines; Editor
+    pair: Coding guidelines; IDE
 
-.. _cgl-ide:
+..  _cgl-ide:
 
 Setup IDE / editor
 ------------------
 
-.. attention::
+..  attention::
 
-   You are strongly advised to set up your editor / IDE properly so that the
-   standards get checked and enforced automatically!
+    You are strongly advised to set up your editor / IDE properly so that the
+    standards get checked and enforced automatically!
 
 
-.. index:: pair: Coding guidelines; EditorConfig
-.. _cgl-editorconfig:
+..  index:: pair: Coding guidelines; EditorConfig
+..  _cgl-editorconfig:
 
 .editorconfig
 ~~~~~~~~~~~~~

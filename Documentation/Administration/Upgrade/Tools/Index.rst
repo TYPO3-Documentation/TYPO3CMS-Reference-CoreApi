@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _tools:
+..  _tools:
 
 =================
 Third-party tools

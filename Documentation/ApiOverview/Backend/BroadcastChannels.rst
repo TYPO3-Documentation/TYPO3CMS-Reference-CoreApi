@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Broadcast service
-.. _broadcast_channels:
+..  include:: /Includes.rst.txt
+..  index:: ! Broadcast service
+..  _broadcast_channels:
 
 ==================
 Broadcast channels
@@ -9,11 +9,11 @@ Broadcast channels
 It is possible to send broadcast messages from anywhere in TYPO3 that are
 listened to via JavaScript.
 
-.. warning::
+..  warning::
 
-   This API is considered internal and may change anytime until declared being stable.
+    This API is considered internal and may change anytime until declared being stable.
 
-.. index:: Broadcast service; Sending
+..  index:: Broadcast service; Sending
 
 ..  _broadcast-channels-send-message:
 
@@ -40,9 +40,9 @@ Example code:
 ..  literalinclude:: _BroadcastChannels/_my-broadcast-service.js
     :caption: EXT:my_broadcast_extension/Resources/Public/JavaScript/my-broadcast-service.js
 
-.. index::
-   Broadcast service; Receiving
-   Hook; typo3/backend.php->constructPostProcess
+..  index::
+    Broadcast service; Receiving
+    Hook; typo3/backend.php->constructPostProcess
 
 ..  _broadcast-channels-receive-message:
 

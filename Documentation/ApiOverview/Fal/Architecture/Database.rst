@@ -53,11 +53,11 @@ Some important fields:
     :ref:`TCA <t3tca:start>` of the :sql:`sys_file` table.
 
 
-.. caution::
-   Modifying the :sql:`sys_file` table using DataHandler is blocked. The table
-   **must** not be extended and additional fields should be added to
-   :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__
-   for more information.
+..  caution::
+    Modifying the :sql:`sys_file` table using DataHandler is blocked. The table
+    **must** not be extended and additional fields should be added to
+    :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__
+    for more information.
 
 
 ..  index:: Tables; sys_file_metadata

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyInlineElementEnabledControlsEvent
-.. _ModifyInlineElementEnabledControlsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyInlineElementEnabledControlsEvent
+..  _ModifyInlineElementEnabledControlsEvent:
 
 =========================================
 `ModifyInlineElementEnabledControlsEvent`

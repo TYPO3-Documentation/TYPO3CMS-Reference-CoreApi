@@ -1,12 +1,12 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Localization; TypoScript
-.. _extension-localization-typoscript:
+..  _extension-localization-typoscript:
 
 ==========
 TypoScript
 ==========
 
-.. _extension-localization-typoscript-gettext:
+..  _extension-localization-typoscript-gettext:
 
 Output localized strings with TypoScript
 ========================================
@@ -18,7 +18,7 @@ in the current language:
 ..  literalinclude:: _blogListTitle.typoscript
     :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
 
-.. _extension-localization-typoscript-conditions:
+..  _extension-localization-typoscript-conditions:
 
 TypoScript conditions based on the current language
 ===================================================

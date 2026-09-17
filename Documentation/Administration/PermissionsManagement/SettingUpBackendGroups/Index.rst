@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: backend, acl, permissions, user groups, user management
+..  index:: backend, acl, permissions, user groups, user management
 
-.. _setting-up-backend-user-groups:
+..  _setting-up-backend-user-groups:
 
 ==============================
 Setting up backend user groups
@@ -19,7 +19,7 @@ to provide a permissions set representing a specific role.
 This classification should not be seen as a TYPO3 standard, but rather as a guideline
 that will assist in configuring groups later on. Read more to discover the details.
 
-.. _system-groups:
+..  _system-groups:
 
 System groups
 =============
@@ -31,10 +31,10 @@ and group IDs, allow definition of accessible sections of pages and categories
 tree for users, and determine access to files and folders within storages (via File Mounts).
 System groups are likely to be the ones you modify the least often.
 
-.. note::
+..  note::
     System groups are likely to be the ones you modify the least often.
 
-.. _acl-groups:
+..  _acl-groups:
 
 Access control list (ACL) groups
 ================================
@@ -56,12 +56,12 @@ It's crucial to equip such a group with access to:
 Therefore, a group can be seen as an independent unit that provides complete
 access to a specific part of the system and can be integrated later with other units (groups).
 
-.. note::
+..  note::
     An Access Control List (ACL) group can be seen as a standalone, complete set of
     permissions tailored to a specific element(s) and designed to fulfill its defined
     scope or purpose (editing/managing Articles or Products).
 
-.. _role-groups:
+..  _role-groups:
 
 Role groups as an aggregation of specific role permissions
 ==========================================================
@@ -76,11 +76,11 @@ By utilizing this structure, TYPO3 allows for a clear and organized approach
 to managing access rights, ensuring users have the permissions they need,
 nothing more, nothing less.
 
-.. note::
+..  note::
     Role groups inherit permissions from subgroups and should not have any
     permissions configured directly on themselves.
 
-.. _naming-convention:
+..  _naming-convention:
 
 Implementing naming conventions for easy group management
 =========================================================
@@ -99,7 +99,7 @@ these options can be categorized into types like access lists, mounts, page perm
 etc. This categorization can also aid in organizing backend user groups.
 Let’s explore how implementing prefixes in group names can help streamline their organization.
 
-.. _role-group::
+..  _role-group::
 
 ..  _naming-convention-role-group:
 
@@ -113,7 +113,7 @@ Role group
     inherit permissions from multiple other groups (aggregates them) to compile
     the necessary permissions set.
 
-.. _page-group:
+..  _page-group:
 
 Page group
 ----------
@@ -127,7 +127,7 @@ Page group
     Those groups will be assigned directly to the pages (see Page Permissions
     for more details) following the TSConfig or the :guilabel:`Permissions` module configuration.
 
-.. _database-mount:
+..  _database-mount:
 
 Database mount
 --------------
@@ -141,7 +141,7 @@ Database mount
     This setting is closely linked to page access permissions — without sufficient
     permissions to list the pages, a user will not be able to view the mounted page tree.
 
-.. _file-mount:
+..  _file-mount:
 
 File mount
 ----------
@@ -151,7 +151,7 @@ File mount
 
    Grants access to the selected folders (File Mounts) within file storage.
 
-.. _category-mount:
+..  _category-mount:
 
 Category mount
 --------------
@@ -161,7 +161,7 @@ Category mount
 
     Provides access to system categories, or more precisely, to the entire categories tree or a portion of it.
 
-.. _access-control-lists:
+..  _access-control-lists:
 
 Access control lists
 --------------------
@@ -172,7 +172,7 @@ Access control lists
     These groups are the largest, defining granular
     access to content elements, plugins, modules, fields and more.
 
-.. _file-operations:
+..  _file-operations:
 
 File operations
 ---------------
@@ -182,7 +182,7 @@ File operations
 
     Defines the range of allowed operations for files and folders, such as read, write, delete, etc.
 
-.. _limit-to-languages:
+..  _limit-to-languages:
 
 Limit to languages
 ------------------
@@ -198,16 +198,16 @@ File Mounts, File Operations, Category Mounts, and module, table, widget,
 and language access. These examples are customizable to fit specific needs.
 Ensure each group name is straightforward and indicative of its permissions.
 
-.. figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementPrefixedGroupName.png
-   :alt: Prefixed group names
+..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementPrefixedGroupName.png
+    :alt: Prefixed group names
 
-   Prefixing group names makes them more organized and easier to search within forms
+    Prefixing group names makes them more organized and easier to search within forms
 
-.. note::
+..  note::
     Use prefixes or another naming convention to easily
     distinguish backend user groups by their purpose.
 
-.. _describe-naming-conventions-in-tca:
+..  _describe-naming-conventions-in-tca:
 
 Describe the naming conventions in the TCA
 ==========================================
@@ -218,12 +218,12 @@ detailing these conventions instead of referencing separate documentation.
 This ensures immediate visibility of the naming rules for anyone modifying group
 inheritance or assignments.
 
-.. code-block:: php
-   :caption: Add description to a form field through TCA
+..  code-block:: php
+    :caption: Add description to a form field through TCA
 
-   $GLOBALS['TCA']['be_users']['columns']['usergroup']['description'] =
-    'Prefixes: R_ - Role, PG_ - Page Group, DBM_ - Database Mount, FM_ - File Mount,' .
-    'FO_ - File Operations, CM_ - Category Mount, ACL_ - Access Control';
+    $GLOBALS['TCA']['be_users']['columns']['usergroup']['description'] =
+     'Prefixes: R_ - Role, PG_ - Page Group, DBM_ - Database Mount, FM_ - File Mount,' .
+     'FO_ - File Operations, CM_ - Category Mount, ACL_ - Access Control';
 
 This code demonstrates the assignment of a static description for the usergroup
 field in the backend user form. However, you should place it in a translation
@@ -238,7 +238,7 @@ Another good practice for managing backend groups is to clearly describe
 the purpose or scope of each group. This can be done using the Description
 field located within the Notes tab of the backend group form.
 
-.. figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementTCAFieldDescription.png
-   :alt: TCA field description
+..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementTCAFieldDescription.png
+    :alt: TCA field description
 
-   Describe the scope or purpose of the group
+    Describe the scope or purpose of the group

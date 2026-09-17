@@ -86,9 +86,9 @@ Use console commands to list and run the upgrade wizards:
             # Run all upgrade wizards
             vendor/bin/typo3 upgrade:run
 
-    .. group-tab:: Classic mode installation (no Composer)
+    ..  group-tab:: Classic mode installation (no Composer)
 
-        .. code-block:: bash
+        ..  code-block:: bash
             :caption: typo3_root$ (Classic mode)
 
             # List upgrade wizards that need to be run
@@ -141,7 +141,7 @@ which extensions are causing errors.
 Extension scanner: scan extension files
 =======================================
 
-..   figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png
+..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png
     :alt: The extension scanner report with strong and weak matches
 
     Deprecations as strong and weak matches in the extension scanner for EXT:news

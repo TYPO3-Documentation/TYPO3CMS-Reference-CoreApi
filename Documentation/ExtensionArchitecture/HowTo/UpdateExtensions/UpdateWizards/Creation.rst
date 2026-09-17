@@ -33,9 +33,9 @@ The class *may* implement other interfaces (optional):
 *   :php:`ConfirmableInterface` for wizards that need user confirmation
 
 
-.. index:: Upgrade wizards; Registration
-.. _upgrade-wizards-register:
-.. _upgrade-wizards-interface:
+..  index:: Upgrade wizards; Registration
+..  _upgrade-wizards-register:
+..  _upgrade-wizards-interface:
 
 `UpgradeWizardInterface`
 ========================
@@ -119,8 +119,8 @@ command:
 
 ..  include:: /_includes/CliCacheFlush.rst.txt
 
-.. index:: Upgrade wizards; Identifier
-.. _upgrade-wizards-identifier:
+..  index:: Upgrade wizards; Identifier
+..  _upgrade-wizards-identifier:
 
 Wizard identifier
 =================
@@ -162,9 +162,9 @@ Some examples:
 +-------------------+-------------------------------------+
 
 
-.. index:: Upgrade wizards; Marking wizard as done
-.. _upgrade-wizards-mark-as-done:
-.. _repeatable-interface:
+..  index:: Upgrade wizards; Marking wizard as done
+..  _upgrade-wizards-mark-as-done:
+..  _repeatable-interface:
 
 Marking wizard as done
 ======================
@@ -184,9 +184,9 @@ This interface works as a marker and does not force any methods to be
 implemented.
 
 
-.. index:: Upgrade wizards; Generating output
-.. _upgrade-wizards-generate-output:
-.. _uprade-wizards-chatty-interface:
+..  index:: Upgrade wizards; Generating output
+..  _upgrade-wizards-generate-output:
+..  _uprade-wizards-chatty-interface:
 
 Generating output
 =================
@@ -274,9 +274,9 @@ It is also possible to execute the wizard from the command line:
 
             vendor/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
 
-    .. group-tab:: Classic mode installation (no Composer)
+    ..  group-tab:: Classic mode installation (no Composer)
 
-        .. code-block:: bash
+        ..  code-block:: bash
 
             typo3/sysext/core/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
 
@@ -293,9 +293,9 @@ It is also possible to execute the wizard from the command line:
 
                 vendor/bin/typo3 upgrade:run '\\MyVendor\\MyExtension\\Upgrade\\ExampleUpgradeWizard'
 
-        .. group-tab:: Classic mode installation (no Composer)
+        ..  group-tab:: Classic mode installation (no Composer)
 
-            .. code-block:: bash
+            ..  code-block:: bash
 
                 typo3/sysext/core/bin/typo3 '\\MyVendor\\MyExtension\\Upgrade\\ExampleUpgradeWizard'
 

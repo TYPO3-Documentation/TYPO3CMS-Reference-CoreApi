@@ -29,8 +29,8 @@ The data processor can be configured through a TypoScript setup configuration. A
 custom data processor can be used in the definition of a "new custom content
 element" as follows:
 
-.. literalinclude:: /CodeSnippets/DataProcessing/CustomCategoryProcessorTypoScript.typoscript
-   :caption: EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript
+..  literalinclude:: /CodeSnippets/DataProcessing/CustomCategoryProcessorTypoScript.typoscript
+    :caption: EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript
 
 In the extension *examples* you can find the code in
 :file:`EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript`.
@@ -114,8 +114,8 @@ The main method :php:`process()` gets called with the following parameters:
 
 This is an example implementation of a custom data processor:
 
-.. literalinclude:: /CodeSnippets/DataProcessing/CustomCategoryProcessor.php
-   :caption: EXT:examples/Classes/DataProcessing/CustomCategoryProcessor.php
+..  literalinclude:: /CodeSnippets/DataProcessing/CustomCategoryProcessor.php
+    :caption: EXT:examples/Classes/DataProcessing/CustomCategoryProcessor.php
 
 In the extension *examples* you can find the code in
 :file:`EXT:/examples/Classes/DataProcessing/CustomCategoryProcessor.php`.
@@ -146,7 +146,7 @@ To make the data processor more configurable, we test for a TypoScript
 :ref:`if <t3tsref:if>` condition at the beginning, and name the key
 we use to store the data configurable by the configuration :typoscript:`as`.
 
-.. hint::
+..  hint::
 
     See :ref:`typo3-request-data-processor` for details on accessing the request
     object in data processors.

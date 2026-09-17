@@ -1,10 +1,10 @@
 :navigation-title: Context menus
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _csm:
-.. _context-menu:
+..  _csm:
+..  _context-menu:
 
 =======================
 Context-sensitive menus
@@ -14,9 +14,9 @@ Contextual menus exist in many places in the TYPO3 backend. Just try your
 luck clicking on any **icon** that you see. Chances are good that a contextual
 menu will appear, offering useful functions to execute.
 
-.. include:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.rst.txt
 
-.. _csm-implementation:
+..  _csm-implementation:
 
 Context menu rendering flow
 ===========================
@@ -104,7 +104,7 @@ or other modules defined in the JSON as :js:`additionalAttributes['data-callback
 
 Example of the JSON response:
 
-.. code-block:: javascript
+..  code-block:: javascript
     :caption: Example of the JSON response
 
     {
@@ -233,11 +233,11 @@ values being, for example, :html:`tree` for context menu triggered from
 the page tree. Context is used to hide menu items independently for page tree
 independently from other places (disabled items can be configured in TSconfig).
 
-.. note::
+..  note::
 
-   In most cases the :html:`data-contextmenu-uid` attribute contains an integer value.
-   However, in case of files and folders this attribute takes file/folder path
-   as a value like :html:`data-contextmenu-uid="1:/some-folder/some-file.pdf"`
+    In most cases the :html:`data-contextmenu-uid` attribute contains an integer value.
+    However, in case of files and folders this attribute takes file/folder path
+    as a value like :html:`data-contextmenu-uid="1:/some-folder/some-file.pdf"`
 
 
 ..  _csm-disabling-context-menu:
@@ -252,23 +252,23 @@ you want to cover.
 For example, disabling :typoscript:`edit` and :typoscript:`new` items for
 table :typoscript:`pages` use:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   options.contextMenu.table.pages.disableItems = edit,new
+    options.contextMenu.table.pages.disableItems = edit,new
 
 If you want to disable the items just for certain context (for example tree)
 add the :typoscript:`.tree` key after table name like that:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   options.contextMenu.table.pages.tree.disableItems = edit,new
+    options.contextMenu.table.pages.tree.disableItems = edit,new
 
 If configuration for certain context is available, the default configuration
 is not taken into account.
 
 For more details see :ref:`TSConfig reference <t3tsref:useroptions-contextmenu-key-disableitems>`.
 
-.. _csm-adding:
+..  _csm-adding:
 
 Tutorial: how to add a custom context menu item
 ===============================================
@@ -279,7 +279,7 @@ Tutorial: how to add a custom context menu item
 Follow these steps to add a custom menu item for pages records. You will add a
 "Hello world" item which will show an info after clicking.
 
-.. include:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
 
 ..  _csm-adding-step-1-implementation:
 
@@ -293,8 +293,8 @@ or any other provider from EXT:backend.
 
 See comments in the following code snippet clarifying implementation details.
 
-.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/HelloWorldItemProvider.php
-   :caption: EXT:examples/Classes/ContextMenu/HelloWorldItemProvider.php
+..  literalinclude:: /CodeSnippets/Tutorials/ContextMenu/HelloWorldItemProvider.php
+    :caption: EXT:examples/Classes/ContextMenu/HelloWorldItemProvider.php
 
 ..  _csm-adding-step-2-javascript:
 
@@ -304,13 +304,13 @@ Step 2: JavaScript actions
 Provide a JavaScript file (ES6 module) which will be
 called after clicking on the context menu item.
 
-.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/ContextMenuActions.js
-   :caption: EXT:examples/Resources/Public/JavaScript/context-menu-actions.js
+..  literalinclude:: /CodeSnippets/Tutorials/ContextMenu/ContextMenuActions.js
+    :caption: EXT:examples/Resources/Public/JavaScript/context-menu-actions.js
 
 Register the JavaScript ES6 modules of your extension if not done yet:
 
-.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/JavaScriptModules.php
-   :caption: examples/Configuration/JavaScriptModules.php
+..  literalinclude:: /CodeSnippets/Tutorials/ContextMenu/JavaScriptModules.php
+    :caption: examples/Configuration/JavaScriptModules.php
 
 ..  _csm-adding-step-3-registration:
 
@@ -328,6 +328,6 @@ get registered as context menu items automatically:
 If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
 by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 
-.. literalinclude:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
-   :emphasize-lines: 5-7
+..  literalinclude:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+    :emphasize-lines: 5-7

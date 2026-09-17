@@ -75,7 +75,7 @@ The notification API may bind actions to a notification that execute certain
 tasks when invoked. Each action item is an object containing the
 fields :js:`label` and :js:`action`:
 
-.. rst-class:: dl-parameters
+..  rst-class:: dl-parameters
 
 label
     :sep:`|` :aspect:`Condition:` required

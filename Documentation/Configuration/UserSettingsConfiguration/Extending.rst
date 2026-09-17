@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: User settings; Custom settings
-.. _user-settings-extending:
+..  include:: /Includes.rst.txt
+..  index:: User settings; Custom settings
+..  _user-settings-extending:
 
 ===========================
 Extending the user settings
@@ -59,7 +59,7 @@ Available field types:
 *   `select` with `renderType => 'selectSingle'` - Select dropdown
 *   `language` - Language selector
 
-.. _user-settings-extending-javascript:
+..  _user-settings-extending-javascript:
 
 "On Click" / "On Confirmation" JavaScript callbacks
 ===================================================
@@ -67,7 +67,7 @@ Available field types:
 PSR-14 event :ref:`AddJavaScriptModulesEvent` can be used
 to inject a JavaScript module to handle custom JavaScript events.
 
-.. _user-settings-extending-migration:
+..  _user-settings-extending-migration:
 
 Migration from `addFieldsToUserSettings` to `addUserSetting`
 ============================================================

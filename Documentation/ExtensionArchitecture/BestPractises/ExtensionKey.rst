@@ -1,8 +1,8 @@
 :navigation-title: Extension Key
 
-.. include:: /Includes.rst.txt
-.. index:: ! Extension key
-.. _extension-key:
+..  include:: /Includes.rst.txt
+..  index:: ! Extension key
+..  _extension-key:
 
 =========================
 Choosing an extension key
@@ -67,12 +67,12 @@ There are two ways to name an extension:
   extensions!
 
 
-.. tip::
-   It is far easier to settle for the right
-   extension key from the beginning. Changing it later involves a cascade
-   of name changes to tables, modules, configuration files, etc. Think carefully.
+..  tip::
+    It is far easier to settle for the right
+    extension key from the beginning. Changing it later involves a cascade
+    of name changes to tables, modules, configuration files, etc. Think carefully.
 
-.. _extension-license:
+..  _extension-license:
 
 About GPL and extensions
 ========================
@@ -86,13 +86,13 @@ TYPO3 Extension API is designed to make sharing of your work easy as
 well as using others' work easy. Remember TYPO3 is Open Source Software
 and we rely on each other in the community to develop it further.
 
-.. attention::
-   It's also your responsibility to make sure that
-   all content of your extensions is legally covered by GPL. The
-   webmaster of TYPO3.org reserves the right to kick out any extension
-   *without notice* that is reported to contain non-GPL material.
+..  attention::
+    It's also your responsibility to make sure that
+    all content of your extensions is legally covered by GPL. The
+    webmaster of TYPO3.org reserves the right to kick out any extension
+    *without notice* that is reported to contain non-GPL material.
 
-.. _extensions-security:
+..  _extensions-security:
 
 Security
 ========
@@ -110,7 +110,7 @@ TYPO3 Extension Repository.
 More details on the security team's policy on handling security issues
 can be found at https://typo3.community/contribute/teams-committees/security/extension-security-policy.
 
-.. _extension-key-registration:
+..  _extension-key-registration:
 
 Registering an extension key
 ============================
@@ -124,8 +124,8 @@ Go to `extensions.typo3.org <https://extensions.typo3.org>`__, log in with your
 menu. Click on the :guilabel:`Register extension key` tab. On that page enter
 the extension key you want to register.
 
-.. figure:: /Images/ExternalImages/TER/RegisterExtensionKey.png
-   :alt: The extension key registration form
-   :class: with-border
+..  figure:: /Images/ExternalImages/TER/RegisterExtensionKey.png
+    :alt: The extension key registration form
+    :class: with-border
 
-   The extension key registration form
+    The extension key registration form

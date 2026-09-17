@@ -74,9 +74,9 @@ Enter the username, password and group membership:
     to a group, although this can still be useful to share
     special settings among administrators.
 
-.. _user-management-advanced-editor:
-.. _user-management-simple-editor:
-.. _simulate-user:
+..  _user-management-advanced-editor:
+..  _user-management-simple-editor:
+..  _simulate-user:
 
 Simulate user
 =============

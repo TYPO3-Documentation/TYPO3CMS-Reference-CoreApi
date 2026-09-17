@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: backend, acl, permissions, user groups, user management
+..  index:: backend, acl, permissions, user groups, user management
 
-.. _example-configuration:
+..  _example-configuration:
 
 ============================================
 Example configuration of backend user groups
@@ -14,7 +14,7 @@ to distinguish their purpose or context as well as following best practice
 and more advanced examples of group structures for projects with a single or multisite setup
 are discussed.
 
-.. _single-site-structure:
+..  _single-site-structure:
 
 Backend groups’ structure for a small project
 =============================================
@@ -59,7 +59,7 @@ that can be integrated into a larger entity, in this case, the role group.
 These role groups can then be assigned to users. As previously mentioned,
 permissions should only be assigned to users via role groups.
 
-.. _multisite-structure:
+..  _multisite-structure:
 
 Backend group structure for a multi-site project
 ================================================

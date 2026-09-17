@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Versioning
-   Workspaces
-.. _workspaces:
+..  include:: /Includes.rst.txt
+..  index::
+    Versioning
+    Workspaces
+..  _workspaces:
 
 =========================
 Versioning and workspaces
@@ -24,17 +24,17 @@ and in the :ref:`description of the "versioningWS" property <t3tca:ctrl-referenc
 You might want to turn the workspace off for certain tables.
 The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/TCA/Overrides/example_table.php
+..  code-block:: php
+    :caption: EXT:some_extension/Configuration/TCA/Overrides/example_table.php
 
-   $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
+    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
 See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
 
-.. note::
+..  note::
 
-   This will lead to all t3ver_* fields of the example table to be marked as obsolete,
-   if they have not be defined explicitly in an extension. A subsequent DB schema update will then drop these fields.
+    This will lead to all t3ver_* fields of the example table to be marked as obsolete,
+    if they have not be defined explicitly in an extension. A subsequent DB schema update will then drop these fields.
 
 The concept of workspaces needs attention from extension programmers.
 The implementation of workspaces is however made, so that no critical
@@ -55,7 +55,7 @@ chapter has been written with instructions and insight into the issues
 you are facing.
 
 
-.. _workspaces-frontend:
+..  _workspaces-frontend:
 
 Frontend challenges in general
 ==============================
@@ -94,7 +94,7 @@ functions for "enableFields" and "deleted" so it will work out of the
 box for you. But as soon as you do selection based on other fields
 like email, username, alias etc. it will fail.
 
-.. _workspaces-frontend-summary:
+..  _workspaces-frontend-summary:
 
 Summary
 -------
@@ -108,7 +108,7 @@ set to 1 (placeholder for new elements) but only when not previewed.
 live records and check for them in versionOL on input record.
 
 
-.. _workspaces-frontend-guidelines:
+..  _workspaces-frontend-guidelines:
 
 Frontend implementation guidelines
 ==================================
@@ -127,7 +127,7 @@ Use the following API function for support of version previews in the
 frontend:
 
 
-.. rst-class:: dl-parameters
+..  rst-class:: dl-parameters
 
 \\TYPO3\\CMS\\Core\\Domain\\Repository\\PageRepository->versionOL($table, &$row, $unsetMovePointers=FALSE)
    Versioning Preview Overlay.
@@ -145,21 +145,21 @@ frontend:
    when you do queries directly (not using API functions already using
    them):
 
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
+   ..  code-block:: php
+       :caption: EXT:some_extension/Classes/SomeClass.php
 
-      // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
-      // use TYPO3\CMS\Core\Utility\GeneralUtility;
+       // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
+       // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-      $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
-      $result = $queryBuilder->executeQuery();
-      while ($row = $result->fetchAssociative()) {
-          $pageRepository->versionOL($table, $row);
-          if (is_array($row)) {
-              // ...
-          }
-          // ...
-      }
+       $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
+       $result = $queryBuilder->executeQuery();
+       while ($row = $result->fetchAssociative()) {
+           $pageRepository->versionOL($table, $row);
+           if (is_array($row)) {
+               // ...
+           }
+           // ...
+       }
 
    When the live record is selected, call :code:`->versionOL()` and make
    sure to check if the input row (passed by reference) is still an array.
@@ -171,7 +171,7 @@ frontend:
    workspace (only for "element" type versioning)
 
 
-.. _workspaces-frontend-problems:
+..  _workspaces-frontend-problems:
 
 Frontend scenarios impossible to preview
 ========================================
@@ -218,7 +218,7 @@ These issues are not planned to be supported for preview:
    can be experienced during previews.
 
 
-.. _workspaces-backend:
+..  _workspaces-backend:
 
 Backend challenges
 ==================
@@ -232,12 +232,12 @@ correct pid-values. All issues related to selecting on fields other
 than pid and uid also relates to the backend as they did for the
 frontend.
 
-.. _workspaces-backend-api:
+..  _workspaces-backend-api:
 
 Workspace-related API for backend modules
 -----------------------------------------
 
-.. rst-class:: dl-parameters
+..  rst-class:: dl-parameters
 
 :php:`BackendUtility::workspaceOL()`
    Overlaying record with workspace version if any. Works like
@@ -245,7 +245,7 @@ Workspace-related API for backend modules
    have fields only from the table (no pseudo fields) and the record is
    passed by reference.
 
-   .. todo: Find a better example
+   ..  todo: Find a better example
             If looped (while), resultset is retrieved and looped completely, as there is
             no "break" which could leave unretrieved results. So the single retrieve
             statement after the loop do not make any sense, as resultset is at the end,
@@ -255,23 +255,23 @@ Workspace-related API for backend modules
 
    **Example:**
 
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
+   ..  code-block:: php
+       :caption: EXT:some_extension/Classes/SomeClass.php
 
-      // use TYPO3\CMS\Backend\Utility\BackendUtility
-      // use TYPO3\CMS\Core\Database\Connection;
+       // use TYPO3\CMS\Backend\Utility\BackendUtility
+       // use TYPO3\CMS\Core\Database\Connection;
 
-      $result = $queryBuilder
-         ->select('*')
-         ->from('pages')
-         ->where(
-            $queryBuilder->expr()->eq('uid',
-               $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)
-            )
-         )
-         ->executeQuery();
-      $row = $result->fetchAssociative();
-      BackendUtility::workspaceOL('pages', $row);
+       $result = $queryBuilder
+          ->select('*')
+          ->from('pages')
+          ->where(
+             $queryBuilder->expr()->eq('uid',
+                $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)
+             )
+          )
+          ->executeQuery();
+       $row = $result->fetchAssociative();
+       BackendUtility::workspaceOL('pages', $row);
 
 :php:`BackendUtility::getRecordWSOL()`
    Gets record from table and overlays the record with workspace version
@@ -279,14 +279,14 @@ Workspace-related API for backend modules
 
    **Example:**
 
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
+   ..  code-block:: php
+       :caption: EXT:some_extension/Classes/SomeClass.php
 
-      // use \TYPO3\CMS\Backend\Utility\BackendUtility
-      $row = BackendUtility::getRecordWSOL($table, $uid);
-      // This is the same as:
-      $row = BackendUtility::getRecord($table, $uid);
-      BackendUtility::workspaceOL($table, $row);
+       // use \TYPO3\CMS\Backend\Utility\BackendUtility
+       $row = BackendUtility::getRecordWSOL($table, $uid);
+       // This is the same as:
+       $row = BackendUtility::getRecord($table, $uid);
+       BackendUtility::workspaceOL($table, $row);
 
 :php:`BackendUtility::isPidInVersionizedBranch()`
    Will fetch the rootline for the pid, then check if anywhere in the
@@ -306,9 +306,9 @@ Workspace-related API for backend modules
    It limits an SQL query to only select records which are "online" (pid != -1)
    and in live or current workspace:
 
-   .. code-block:: php
+   ..  code-block:: php
 
-      // use TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction
+       // use TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction
 
 
 :php:`$BE_USER->workspaceCannotEditRecord()`
@@ -332,7 +332,7 @@ Workspace-related API for backend modules
    Setting frontend preview state.
 
 
-.. _workspaces-backend-acess:
+..  _workspaces-backend-acess:
 
 Backend module access
 =====================
@@ -351,7 +351,7 @@ The value can be one of:
 *   :php:`offline`
 
 
-.. _workspaces-detection:
+..  _workspaces-detection:
 
 Detecting current workspace
 ===========================
@@ -365,7 +365,7 @@ The values for workspaces is either 0 (online/live) or the uid of the
 corresponding entry in the :sql:`sys_workspace` table.
 
 
-.. _workspaces-tcemain:
+..  _workspaces-tcemain:
 
 Using DataHandler with workspaces
 =================================
@@ -380,7 +380,7 @@ User Settings" module; that actually allows them to save to a live record
 (their user record) while in a draft workspace.
 
 
-.. _workspaces-moving:
+..  _workspaces-moving:
 
 Moving in workspaces
 ====================
@@ -444,60 +444,60 @@ Workspace placeholders are stored in field :sql:`t3ver_state` which can have the
 Overview
 --------
 
-.. csv-table:: Overview of `pages` records (not all possible scenarios are shown)
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Overview of `pages` records (not all possible scenarios are shown)
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   10,0,0,128,0,0,0,0,0,example.org website
-   20,10,0,128,0,0,0,0,0,Current issues
-   21,10,0,256,0,0,0,20,1,Actualité
-   22,10,0,384,0,0,0,20,2,Neuigkeiten
-   30,10,0,512,0,0,0,0,0,Other topics
-   ...,...,...,...,...,...,...,...,...,...,...
-   41,30,0,128,1,0,1,0,0,Topic #1 new
-   42,-1,0,128,1,41,-1,0,0,Topic #2 new
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    10,0,0,128,0,0,0,0,0,example.org website
+    20,10,0,128,0,0,0,0,0,Current issues
+    21,10,0,256,0,0,0,20,1,Actualité
+    22,10,0,384,0,0,0,20,2,Neuigkeiten
+    30,10,0,512,0,0,0,0,0,Other topics
+    ...,...,...,...,...,...,...,...,...,...,...
+    41,30,0,128,1,0,1,0,0,Topic #1 new
+    42,-1,0,128,1,41,-1,0,0,Topic #2 new
 
-.. csv-table:: Overview of regular records (e.g. `tx_record`, `tt_content`, ... but not `pages`)
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Overview of regular records (e.g. `tx_record`, `tt_content`, ... but not `pages`)
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   11,20,0,128,0,0,0,0,0,Article #1
-   12,20,0,256,0,0,0,0,0,Article #2
-   13,20,0,384,0,0,0,0,0,Article #3
-   ...,...,...,...,...,...,...,...,...,...,...
-   21,-1,0,128,1,11,0,0,0,Article #1 modified
-   22,-1,0,256,1,12,2,0,0,Article #2 deleted
-   23,-1,0,384,1,13,4,0,0,Article #3 moved
-   25,20,0,512,1,0,1,0,0,Article #4 new
-   26,-1,0,512,1,25,-1,0,0,Article #4 new
-   27,20,1,640,0,0,1,0,0,Article #5 discarded
-   28,-1,1,640,0,27,-1,0,0,Article #5 discarded
-   29,41,0,128,1,0,1,0,0,Topic #1 Article new
-   30,-1,0,128,1,29,-1,0,0,Topic #1 Article new
-   ...,...,...,...,...,...,...,...,...,...,...
-   31,20,0,192,1,0,1,11,1,Entrefilet #1 (fr)
-   32,-1,0,192,1,31,-1,11,1,Entrefilet #1 (fr)
-   33,20,0,224,1,0,1,11,2,Beitrag #1 (de)
-   34,-1,0,224,1,33,-1,11,2,Beitrag #1 (de)
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    11,20,0,128,0,0,0,0,0,Article #1
+    12,20,0,256,0,0,0,0,0,Article #2
+    13,20,0,384,0,0,0,0,0,Article #3
+    ...,...,...,...,...,...,...,...,...,...,...
+    21,-1,0,128,1,11,0,0,0,Article #1 modified
+    22,-1,0,256,1,12,2,0,0,Article #2 deleted
+    23,-1,0,384,1,13,4,0,0,Article #3 moved
+    25,20,0,512,1,0,1,0,0,Article #4 new
+    26,-1,0,512,1,25,-1,0,0,Article #4 new
+    27,20,1,640,0,0,1,0,0,Article #5 discarded
+    28,-1,1,640,0,27,-1,0,0,Article #5 discarded
+    29,41,0,128,1,0,1,0,0,Topic #1 Article new
+    30,-1,0,128,1,29,-1,0,0,Topic #1 Article new
+    ...,...,...,...,...,...,...,...,...,...,...
+    31,20,0,192,1,0,1,11,1,Entrefilet #1 (fr)
+    32,-1,0,192,1,31,-1,11,1,Entrefilet #1 (fr)
+    33,20,0,224,1,0,1,11,2,Beitrag #1 (de)
+    34,-1,0,224,1,33,-1,11,2,Beitrag #1 (de)
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new:
 
 Scenario: create new page
 -------------------------
 
-.. csv-table:: Page "Topic #1 new" is created with their according placeholders
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Page "Topic #1 new" is created with their according placeholders
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   10,0,0,128,0,0,0,0,0,example.org website
-   ...,...,...,...,...,...,...,...,...,...,...
-   30,10,0,512,0,0,0,0,0,Other topics
-   ...,...,...,...,...,...,...,...,...,...,...
-   41,**30**,0,128,1,0,**1**,0,0,Topic #1 new
-   42,-1,0,128,1,**41**,**-1**,0,0,Topic #2 new
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    10,0,0,128,0,0,0,0,0,example.org website
+    ...,...,...,...,...,...,...,...,...,...,...
+    30,10,0,512,0,0,0,0,0,Other topics
+    ...,...,...,...,...,...,...,...,...,...,...
+    41,**30**,0,128,1,0,**1**,0,0,Topic #1 new
+    42,-1,0,128,1,**41**,**-1**,0,0,Topic #2 new
 
 * record :code:`uid = 41` defines :code:`sorting` insertion point page :code:`pid = 30` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`,
@@ -508,14 +508,14 @@ Scenario: create new page
 Scenario: modify record
 -----------------------
 
-.. csv-table:: Record "Article #1" is modified in workspace
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Article #1" is modified in workspace
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   11,20,0,128,0,0,0,0,0,Article #1
-   ...,...,...,...,...,...,...,...,...,...,...
-   21,-1,0,128,1,**11**,0,0,0,Article #1 modified
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    11,20,0,128,0,0,0,0,0,Article #1
+    ...,...,...,...,...,...,...,...,...,...,...
+    21,-1,0,128,1,**11**,0,0,0,Article #1 modified
 
 * record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`,
   using default version state :code:`t3ver_state = 0`
@@ -525,31 +525,31 @@ Scenario: modify record
 Scenario: delete record
 -----------------------
 
-.. csv-table:: Record "Article #2" is deleted in workspace
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Article #2" is deleted in workspace
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   12,20,0,256,0,0,0,0,0,Article #2
-   ...,...,...,...,...,...,...,...,...,...,...
-   22,-1,0,256,1,**12**,**2**,0,0,Article #2 deleted
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    12,20,0,256,0,0,0,0,0,Article #2
+    ...,...,...,...,...,...,...,...,...,...,...
+    22,-1,0,256,1,**12**,**2**,0,0,Article #2 deleted
 
 * record :code:`uid = 22` represents delete placeholder :code:`t3ver_state = 2`, pointing back to live pendant, :code:`t3ver_oid = 12`
 
 
-.. _scenario-create-new-record-on-existing-page:
+..  _scenario-create-new-record-on-existing-page:
 
 Scenario: create new record on existing page
 --------------------------------------------
 
-.. csv-table:: Record "Article #4" is created on existing page
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Article #4" is created on existing page
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   ...,...,...,...,...,...,...,...,...,...,...
-   25,**20**,0,512,1,0,**1**,0,0,Article #4 new
-   26,-1,0,512,1,**25**,**-1**,0,0,Article #4 new
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    ...,...,...,...,...,...,...,...,...,...,...
+    25,**20**,0,512,1,0,**1**,0,0,Article #4 new
+    26,-1,0,512,1,**25**,**-1**,0,0,Article #4 new
 
 * record :code:`uid = 25` defines :code:`sorting` insertion point on page :code:`pid = 20` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`,
@@ -560,33 +560,33 @@ Scenario: create new record on existing page
 Scenario: create new record on page that is new in workspace
 ------------------------------------------------------------
 
-.. csv-table:: Record "Topic #1 Article" is created on page that is new in workspace
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Topic #1 Article" is created on page that is new in workspace
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   ...,...,...,...,...,...,...,...,...,...,...
-   29,**41**,0,128,1,0,**1**,0,0,Topic #1 Article new
-   30,-1,0,128,1,**29**,**-1**,0,0,Topic #1 Article new
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    ...,...,...,...,...,...,...,...,...,...,...
+    29,**41**,0,128,1,0,**1**,0,0,Topic #1 Article new
+    30,-1,0,128,1,**29**,**-1**,0,0,Topic #1 Article new
 
 * record :code:`uid = 29` defines :code:`sorting` insertion point on page :code:`pid = 41` in live workspace, :code:`t3ver_state = 1`
 * record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`,
   indicating new version state :code:`t3ver_state = -1`
 * side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace
 
-.. _scenario-discard-record-workspace-modifications:
+..  _scenario-discard-record-workspace-modifications:
 
 Scenario: discard record workspace modifications
 ------------------------------------------------
 
-.. csv-table:: Previously created record "Article #5" is discarded
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Previously created record "Article #5" is discarded
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   ...,...,...,...,...,...,...,...,...,...,...
-   27,20,**1**,640,**0**,0,1,0,0,Article #5 discarded
-   28,-1,**1**,640,**0**,27,-1,0,0,Article #5 discarded
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    ...,...,...,...,...,...,...,...,...,...,...
+    27,20,**1**,640,**0**,0,1,0,0,Article #5 discarded
+    28,-1,**1**,640,**0**,27,-1,0,0,Article #5 discarded
 
 * previously records :code:`uid = 27` and :code:`uid = 28` have been created in workspace
   (similar to :ref:`scenario-create-new-record-on-existing-page`)
@@ -597,17 +597,17 @@ Scenario: discard record workspace modifications
 Scenario: create new record localization
 ----------------------------------------
 
-.. csv-table:: Record "Article #1" is localized to French and German
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Article #1" is localized to French and German
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   11,20,0,128,0,0,0,0,0,Article #1
-   ...,...,...,...,...,...,...,...,...,...,...
-   31,20,0,192,1,1,0,**11**,**1**,Entrefilet #1 (fr)
-   32,-1,0,192,1,31,-1,**11**,**1**,Entrefilet #1 (fr)
-   33,20,0,224,1,0,1,**11**,**2**,Beitrag #1 (de)
-   34,-1,0,224,1,33,-1,**11**,**2**,Beitrag #1 (de)
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    11,20,0,128,0,0,0,0,0,Article #1
+    ...,...,...,...,...,...,...,...,...,...,...
+    31,20,0,192,1,1,0,**11**,**1**,Entrefilet #1 (fr)
+    32,-1,0,192,1,31,-1,**11**,**1**,Entrefilet #1 (fr)
+    33,20,0,224,1,0,1,**11**,**2**,Beitrag #1 (de)
+    34,-1,0,224,1,33,-1,**11**,**2**,Beitrag #1 (de)
 
 * *principles of creating new records with according placeholders applies in this scenario*
 * records :code:`uid = 31` and :code:`uid = 32` represent localization to French :code:`sys_language_uid = 1`,
@@ -620,14 +620,14 @@ Scenario: create new record localization
 Scenario: create new record, then move to different page
 --------------------------------------------------------
 
-.. csv-table:: Record "Article #4" is created on existing page, then moved to different page
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Article #4" is created on existing page, then moved to different page
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   ...,...,...,...,...,...,...,...,...,...,...
-   25,**30**,0,512,1,0,1,0,0,Article #4 new & moved
-   26,-1,0,512,1,25,-1,0,0,Article #4 new & moved
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    ...,...,...,...,...,...,...,...,...,...,...
+    25,**30**,0,512,1,0,1,0,0,Article #4 new & moved
+    26,-1,0,512,1,25,-1,0,0,Article #4 new & moved
 
 * previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
   (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
@@ -639,14 +639,14 @@ Scenario: create new record, then move to different page
 Scenario: create new record, then delete
 ----------------------------------------
 
-.. csv-table:: Record "Article #4" is created on existing page, then deleted
-   :header-rows: 1
-   :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
+..  csv-table:: Record "Article #4" is created on existing page, then deleted
+    :header-rows: 1
+    :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 
-   uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
-   ...,...,...,...,...,...,...,...,...,...,...
-   25,20,**1**,512,**0**,0,1,0,0,Article #4 new & deleted
-   26,-1,**1**,512,**0**,25,-1,0,0,Article #4 new & deleted
+    uid,pid,deleted,sorting,t3ver_wsid,t3ver_oid,t3ver_state,l10n_parent,sys_language_uid,title
+    ...,...,...,...,...,...,...,...,...,...,...
+    25,20,**1**,512,**0**,0,1,0,0,Article #4 new & deleted
+    26,-1,**1**,512,**0**,25,-1,0,0,Article #4 new & deleted
 
 * previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
   (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Environment
-.. _Environment:
+..  include:: /Includes.rst.txt
+..  index:: ! Environment
+..  _Environment:
 
 ===========
 Environment
@@ -20,14 +20,14 @@ be called to adjust the information.
     :local:
     :depth: 2
 
-.. _Environment-php-api:
+..  _Environment-php-api:
 
 Environment PHP API
 ===================
 
-.. tip::
-   A comprehensive list of methods can be found in the
-   Class Reference: :php-short:`\TYPO3\CMS\Core\Core\Environment`
+..  tip::
+    A comprehensive list of methods can be found in the
+    Class Reference: :php-short:`\TYPO3\CMS\Core\Core\Environment`
 
 ..  versionchanged:: 14.0
     Method `Environment::getComposerRootPath()` has been removed.
@@ -35,10 +35,10 @@ Environment PHP API
     Instead of calculating relative paths manually, use absolute paths or the
     appropriate TYPO3 APIs for path handling, `Environment::getProjectPath() <https://docs.typo3.org/permalink/t3coreapi:environment-project-path>`_
 
-.. index::
-   Environment; getProjectPath
-   File; composer.json
-.. _Environment-project-path:
+..  index::
+    Environment; getProjectPath
+    File; composer.json
+..  _Environment-project-path:
 
 `getProjectPath()`
 ------------------
@@ -47,10 +47,10 @@ The environment provides the path to the folder containing the :file:`composer.j
 For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
 
 
-.. index::
-   Environment; getPublicPath
-   PATH_site
-.. _Environment-public-path:
+..  index::
+    Environment; getPublicPath
+    PATH_site
+..  _Environment-public-path:
 
 `getPublicPath()`
 -----------------
@@ -60,11 +60,11 @@ The environment provides the path to the public web folder with
 For projects without Composer setup, this is equal to :ref:`Environment-project-path`.
 
 
-.. index::
-   Environment; getVarPath
-   Path; var
-   Path; typo3temp/var
-.. _Environment-var-path:
+..  index::
+    Environment; getVarPath
+    Path; var
+    Path; typo3temp/var
+..  _Environment-var-path:
 
 `getVarPath()`
 --------------
@@ -85,11 +85,11 @@ installations :ref:`classic-directory-typo3temp-var`.
     $pathToLabels = Environment::getVarPath();
 
 
-.. index::
-   Environment; getConfigPath
-   Path; typo3conf
-   Path; config
-.. _Environment-config-path:
+..  index::
+    Environment; getConfigPath
+    Path; typo3conf
+    Path; config
+..  _Environment-config-path:
 
 `getConfigPath()`
 -----------------
@@ -117,11 +117,11 @@ containing the :ref:`configuration files <configuration-files>`
     $pathToSiteConfig = Environment::getConfigPath() . 'sites/' . $siteKey . '/config.yaml';
 
 
-.. index::
-   Environment; getConfigPath
-   Path; var/labels
-   Path; typo3conf/l10n
-.. _Environment-labels-path:
+..  index::
+    Environment; getConfigPath
+    Path; var/labels
+    Path; typo3conf/l10n
+..  _Environment-labels-path:
 
 `getLabelsPath()`
 -----------------
@@ -139,19 +139,19 @@ folder in Classic mode installations. This folder contains downloaded translatio
     // Classic mode installations: '/path/to/my-project/typo3conf/l10n/'
     $pathToLabels = Environment::getLabelsPath();
 
-.. index:: Environment; getCurrentScript
-.. _Environment-current-script:
+..  index:: Environment; getCurrentScript
+..  _Environment-current-script:
 
 `getCurrentScript()`
 --------------------
 
 Returns the path and filename to the current PHP script.
 
-.. index::
-   Environment; getContext
-   Application context
-   TYPO3_CONTEXT
-.. _Environment-context:
+..  index::
+    Environment; getContext
+    Application context
+    TYPO3_CONTEXT
+..  _Environment-context:
 
 `getContext()`
 --------------
@@ -161,12 +161,12 @@ May be one of `Production`, `Testing`, or `Development` with optional sub-contex
 
 Example, test for production context:
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   use TYPO3\CMS\Core\Core\Environment;
+    use TYPO3\CMS\Core\Core\Environment;
 
-   $applicationContext = Environment::getContext();
-   if ($applicationContext->isProduction()) {
-      // do something only when in production context
-   }
+    $applicationContext = Environment::getContext();
+    if ($applicationContext->isProduction()) {
+       // do something only when in production context
+    }

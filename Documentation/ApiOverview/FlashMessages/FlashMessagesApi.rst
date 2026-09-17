@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Flash messages; API
-.. _flash-messages-api:
+..  include:: /Includes.rst.txt
+..  index:: Flash messages; API
+..  _flash-messages-api:
 
 ==================
 Flash messages API
@@ -14,20 +14,20 @@ Instantiate a flash message
 Creating a flash message is achieved by instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   use TYPO3\CMS\Core\Messaging\FlashMessage;
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+    use TYPO3\CMS\Core\Messaging\FlashMessage;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 
-   // FlashMessage($message, $title = '', $severity = ContextualFeedbackSeverity::OK, $storeInSession = false)
-   $message = GeneralUtility::makeInstance(FlashMessage::class,
-      'My message text',
-      'Message Header',
-      ContextualFeedbackSeverity::WARNING,
-      true
-   );
+    // FlashMessage($message, $title = '', $severity = ContextualFeedbackSeverity::OK, $storeInSession = false)
+    $message = GeneralUtility::makeInstance(FlashMessage::class,
+       'My message text',
+       'Message Header',
+       ContextualFeedbackSeverity::WARNING,
+       true
+    );
 
 :php:`$message`
    The text of the message
@@ -42,7 +42,7 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
    a redirection (default: :php:`false`).
 
 
-.. index:: ContextualFeedbackSeverity
+..  index:: ContextualFeedbackSeverity
 
 ..  _flash-messages-api-flash-messages-severities:
 
@@ -75,21 +75,21 @@ or render it on your own where ever you want.
 In this example the :php:`FlashMessageService` (:php:`TYPO3\CMS\Core\Messaging\FlashMessageService`)
 is used to add a flash message at the bottom right of a module:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Controller/SomeController.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Messaging\FlashMessageService;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Messaging\FlashMessageService;
 
-   $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
-   $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
-   $messageQueue->addMessage($message);
+    $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
+    $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
+    $messageQueue->addMessage($message);
 
 The message is added to the queue and then the template class calls
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
 messages from the queue as inline flash messages. Here's how such a message looks like in a module:
 
-.. include:: /Images/ManualScreenshots/Examples/FlashMessages/FlashMessagesExample.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/FlashMessages/FlashMessagesExample.rst.txt
 
 This shows flash messages with 2 types of rendering mechanisms:
 

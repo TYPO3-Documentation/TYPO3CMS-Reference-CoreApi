@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index:: ! TypoScript
-.. _typoscript-syntax-introduction:
-.. _typoscript-syntax-what-is-typoscript:
-.. _typoscript-syntax-credits:
+..  include:: /Includes.rst.txt
+..  index:: ! TypoScript
+..  _typoscript-syntax-introduction:
+..  _typoscript-syntax-what-is-typoscript:
+..  _typoscript-syntax-credits:
 
 ============
 Introduction
@@ -45,11 +45,11 @@ for instance, to enable or disable UI elements, to change defaults, and
 similar.
 
 
-.. index:: TypoScript; PHP arrays
-.. _typoscript-syntax-php-arrays:
-.. _typoscript-syntax-object-paths:
-.. _typoscript-syntax-semantics:
-.. _typoscript-syntax-parsed-php-array:
+..  index:: TypoScript; PHP arrays
+..  _typoscript-syntax-php-arrays:
+..  _typoscript-syntax-object-paths:
+..  _typoscript-syntax-semantics:
+..  _typoscript-syntax-parsed-php-array:
 
 TypoScript parsing
 ==================

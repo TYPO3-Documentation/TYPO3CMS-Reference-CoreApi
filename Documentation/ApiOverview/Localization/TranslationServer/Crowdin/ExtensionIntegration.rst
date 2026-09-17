@@ -31,7 +31,7 @@ Get in contact with the team in the TYPO3 Slack channel
 
 ..  _#typo3-localization-team: https://typo3.slack.com/app_redirect?channel=CR75200FL
 
-.. _crowdin-extension-integration-github:
+..  _crowdin-extension-integration-github:
 
 Integration in GitHub or GitLab
 ===============================

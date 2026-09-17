@@ -41,5 +41,5 @@ Example: build a module header with buttons and a menu
 We use the DocHeaderComponent to register buttons and a menu to the module
 header.
 
-.. literalinclude:: /ApiOverview/Backend/BackendModules/_ModifyDocHeaderComponent.php
-   :caption: Class T3docs\\BlogExample\\Controller\\BackendController
+..  literalinclude:: /ApiOverview/Backend/BackendModules/_ModifyDocHeaderComponent.php
+    :caption: Class T3docs\\BlogExample\\Controller\\BackendController

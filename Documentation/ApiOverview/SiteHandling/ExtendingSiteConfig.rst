@@ -44,7 +44,7 @@ Access it via the API:
     $site->getConfiguration()['myProject']['recordStorage']
 
 
-.. index:: Site handling; Extending the Form
+..  index:: Site handling; Extending the Form
 
 ..  _sitehandling-extending-site-configuration-extending-form:
 

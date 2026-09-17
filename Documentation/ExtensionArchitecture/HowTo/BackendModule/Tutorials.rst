@@ -1,9 +1,9 @@
 :navigation-title: Tutorials
 
-.. include:: /Includes.rst.txt
-.. index:: Backend modules; Tutorials
+..  include:: /Includes.rst.txt
+..  index:: Backend modules; Tutorials
 
-.. _backend-modules-tutorials:
+..  _backend-modules-tutorials:
 
 ======================================
 Tutorial - backend module registration

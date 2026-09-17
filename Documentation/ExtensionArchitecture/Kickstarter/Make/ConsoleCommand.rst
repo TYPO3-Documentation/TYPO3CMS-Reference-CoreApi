@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Make
-.. _extension-make-console-command:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Make
+..  _extension-make-console-command:
 
 ============================
 Create a new console command

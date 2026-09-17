@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _appendices:
-.. _appendix-a:
+..  _appendices:
+..  _appendix-a:
 
 =============================================
 Historical perspective on RTE transformations
@@ -14,8 +14,8 @@ generally OK and may help you to further understand why these issues
 exist. The argumentation is still valid.
 
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   PropertiesAndTransformations
-   RteTransformationsInContentElements
+    PropertiesAndTransformations
+    RteTransformationsInContentElements

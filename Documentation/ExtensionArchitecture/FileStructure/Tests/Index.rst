@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. index:: Path; EXT:{extkey}/Tests
+..  include:: /Includes.rst.txt
+..  index:: Path; EXT:{extkey}/Tests
 
 ..  _extension-files-tests:
 
@@ -11,12 +11,12 @@ This folder contains all automatic tests to test the extension.
 
 Read more about :ref:`automatic testing <testing>`
 
-.. index:: Path; EXT:{extkey}/Tests/Unit
+..  index:: Path; EXT:{extkey}/Tests/Unit
 
 Tests/Unit
   Contains unit tests and fixtures.
 
-.. index:: Path; EXT:{extkey}/Tests/Functional
+..  index:: Path; EXT:{extkey}/Tests/Functional
 
 Tests/Functional
   Contains functional tests and fixtures.

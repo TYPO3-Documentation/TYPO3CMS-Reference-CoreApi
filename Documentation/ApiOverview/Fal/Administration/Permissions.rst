@@ -149,8 +149,8 @@ Here is the detail of what the various permission options mean:
     Remove a folder even if it has contents; needs write folder permissions.
 
 
-.. index:: File abstraction layer; Default upload folder
-.. _fal-administration-permissions-upload-folder:
+..  index:: File abstraction layer; Default upload folder
+..  _fal-administration-permissions-upload-folder:
 
 Default upload folder
 =====================

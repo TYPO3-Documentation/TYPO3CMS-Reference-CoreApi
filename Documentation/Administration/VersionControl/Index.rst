@@ -375,7 +375,7 @@ https://git-scm.com/docs/gitignore
         For Composer-based projects, you can use the `.gitignore` from the official
         GitLab TYPO3 Project Template as a solid starting point.
 
-        .. literalinclude:: _codesnippets/_GitIgnoreComposer.txt
+        ..  literalinclude:: _codesnippets/_GitIgnoreComposer.txt
             :caption: project_root/.gitignore
             :linenos:
 
@@ -389,7 +389,7 @@ https://git-scm.com/docs/gitignore
 
     ..  group-tab:: Classic mode (non-Composer)
 
-        .. literalinclude:: _codesnippets/_GitIgnoreClassic.txt
+        ..  literalinclude:: _codesnippets/_GitIgnoreClassic.txt
             :caption: project_root/.gitignore
             :linenos:
 ..  note::

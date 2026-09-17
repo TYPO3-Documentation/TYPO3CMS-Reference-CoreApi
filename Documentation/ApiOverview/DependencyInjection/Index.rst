@@ -1,24 +1,24 @@
-.. include:: /Includes.rst.txt
-.. index::
-   !Dependency injection
-   pair: Dependency injection; Extensions
-   pair: Dependency injection; Services
-   File; EXT:{extkey}/Configuration/Services.yaml
-   File; EXT:{extkey}/Configuration/Services.php
-   File; config/system/services.yaml
-   File; config/system/services.php
+..  include:: /Includes.rst.txt
+..  index::
+    !Dependency injection
+    pair: Dependency injection; Extensions
+    pair: Dependency injection; Services
+    File; EXT:{extkey}/Configuration/Services.yaml
+    File; EXT:{extkey}/Configuration/Services.php
+    File; config/system/services.yaml
+    File; config/system/services.php
 
-.. _DependencyInjection:
-.. _dependency-injection:
+..  _DependencyInjection:
+..  _dependency-injection:
 
 ====================
 Dependency injection
 ====================
 
 
-.. rst-class:: compact-list
-.. contents:: Overview of page contents
-   :local:
+..  rst-class:: compact-list
+..  contents:: Overview of page contents
+    :local:
 
 
 ..  _dependency-injection-abstract:
@@ -178,11 +178,11 @@ For developers, it is important to understand that dealing with Symfony DI is
 an *early core bootstrap and cached* thing. The system will fail upon misconfiguration, leading
 to unreachable frontend and backend.
 
-.. attention::
+..  attention::
 
-   Errors in the DI configuration may block frontend and backend!
+    Errors in the DI configuration may block frontend and backend!
 
-   The DI cache does not heal by itself but needs to be cleared manually!
+    The DI cache does not heal by itself but needs to be cleared manually!
 
 With the container cache entry being a low level early bootstrap thing that is expensive
 to calculate when it has to be rebuild, there is a limited list of options to flush
@@ -262,8 +262,8 @@ Data object
   over time.
 
 
-.. _supported-ways-of-dependency-injection:
-.. _Using-DI:
+..  _supported-ways-of-dependency-injection:
+..  _Using-DI:
 
 Using DI
 ========
@@ -282,7 +282,7 @@ Constructor injection using :php:`__construct()` and method injection using
 is not dealing with complex abstract inheritance chains. The symfony service container
 can inject specific classes as well as instances of interfaces.
 
-.. _Constructor-injection:
+..  _Constructor-injection:
 
 Constructor injection
 ---------------------
@@ -304,7 +304,7 @@ property promotion <https://www.php.net/manual/en/language.oop5.decon.php#langua
 and the property is declared :php:`readonly`.
 
 
-.. _Method-injection:
+..  _Method-injection:
 
 Method injection
 ----------------
@@ -358,7 +358,7 @@ can not rely on them. Furthermore, classes that should *not* be extended by exte
 are free to use constructor injection and *should* be marked :php:`final`, making
 sure they can't be extended to allow internal changes.
 
-.. _interface-injection:
+..  _interface-injection:
 
 Interface injection
 -------------------
@@ -408,8 +408,8 @@ some service consumers:
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 
-.. _configure-dependency-injection-in-extensions:
-.. _dependency-injection-Configuration:
+..  _configure-dependency-injection-in-extensions:
+..  _dependency-injection-Configuration:
 
 Configuration
 =============
@@ -466,7 +466,7 @@ Model exclusion
     usually created by the Extbase persistence layer, which does not support the
     DI container.
 
-.. _dependency-injection-autoconfigure:
+..  _dependency-injection-autoconfigure:
 
 Autoconfiguration using attributes and `Services.yaml`
 ------------------------------------------------------
@@ -508,8 +508,8 @@ the "foreign" service as "public" in :file:`Services.yaml`:
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 
-.. _dependency-injection-autowire:
-.. _DependencyInjectionArguments:
+..  _dependency-injection-autowire:
+..  _DependencyInjectionArguments:
 
 Autowiring using attributes
 ---------------------------
@@ -562,7 +562,7 @@ the most important ones for extension developers. TYPO3 core does
 :ref:`not arbitrarily add <service-aliases>` aliases.
 
 
-.. _dependency-injection-installation-wide:
+..  _dependency-injection-installation-wide:
 
 Installation-wide configuration
 -------------------------------
@@ -607,9 +607,9 @@ interface is given:
 FAQ
 ===
 
-.. _knowing-what-to-make-public:
-.. _What-to-make-public:
-.. _errors-resulting-from-wrong-configuration:
+..  _knowing-what-to-make-public:
+..  _What-to-make-public:
+..  _errors-resulting-from-wrong-configuration:
 
 What to make public?
 --------------------
@@ -626,7 +626,7 @@ The basic difference between public and private is well explained in the
     public, it means that you can access it directly from the container at runtime.
     For example, the doctrine service is a public service:
 
-    .. code-block:: php
+    ..  code-block:: php
 
         // only public services can be accessed in this way
         $doctrine = $container->get('doctrine');
@@ -744,7 +744,7 @@ mitigate side effects between different services. It is often preferable to crea
 stateful services using :php:`GeneralUtility::makeInstance()` when needed, rather
 than within :php:`__construct()`.
 
-.. _when-to-use-php-generalutility-makeinstance:
+..  _when-to-use-php-generalutility-makeinstance:
 When to use `GeneralUtility::makeInstance()`?
 ---------------------------------------------
 
@@ -800,7 +800,7 @@ as dependency injection cannot handle consumer state. These services *must* be
 instantiated using :php:`makeInstance()` until their constructors are updated to be
 compatible with dependency injection.
 
-.. _dependency-injection-new:
+..  _dependency-injection-new:
 
 When to use `new`?
 ------------------
@@ -910,7 +910,7 @@ Not yet exemplified
 Further information
 ===================
 
-.. rst-class:: compact-list
+..  rst-class:: compact-list
 
 *  `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 

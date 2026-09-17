@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Publishing
-.. _publish-to-ter:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Publishing
+..  _publish-to-ter:
 
 =================================
 Publish your extension in the TER

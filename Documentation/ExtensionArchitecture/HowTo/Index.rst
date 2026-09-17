@@ -1,9 +1,9 @@
 :navigation-title: How-to
 
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; How to
-.. _extension-howto:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; How to
+..  _extension-howto:
 
 ======================================
 How-to guides for extension developers
