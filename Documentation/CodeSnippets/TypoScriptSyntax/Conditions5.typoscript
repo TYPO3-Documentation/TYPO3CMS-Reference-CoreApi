@@ -1,7 +1,0 @@
-# Invalid: Conditions must not be used within code blocks
-someIdentifier {
-  someProperty = foo
-  [frontend.user.isloggedIn]
-    someProperty = bar
-  [GLOBAL]
-}
