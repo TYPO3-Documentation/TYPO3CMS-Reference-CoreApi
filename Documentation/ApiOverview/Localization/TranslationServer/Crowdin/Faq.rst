@@ -61,7 +61,7 @@ used — so you do not need to convert files manually.
 
 ..  seealso::
     Learn more about XLIFF 2.x in TYPO3:
-    :ref:`xliff`
+    :ref:`Translation files (XLIFF format) <xliff>`
 
 ..  _crowdin-faq-xliff-convert:
 

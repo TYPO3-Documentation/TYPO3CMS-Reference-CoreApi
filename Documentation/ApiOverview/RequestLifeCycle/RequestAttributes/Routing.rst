@@ -55,7 +55,7 @@ Example:
     $arguments = $routing->getArguments()
 
 ..  seealso::
-    :ref:`backend-routing-dynamic-parts`
+    :ref:`Dynamic URL parts in backend URLs <backend-routing-dynamic-parts>`
 
 ..  _typo3-request-attribute-routing-backend-api:
 

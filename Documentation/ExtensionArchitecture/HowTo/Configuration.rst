@@ -60,7 +60,7 @@ the extension.
 
 ..  seealso::
 
-    * :ref:`extension-options`
+    * :ref:`ext_conf_template.txt <extension-options>`
 
 
 ..  index:: FlexForms

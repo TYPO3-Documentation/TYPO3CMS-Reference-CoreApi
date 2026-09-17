@@ -156,7 +156,7 @@ Using the DataHandler in CLI commands
 
 When using the :ref:`DataHandler <datahandler-basics>` in a CLI command,
 backend user authentication is required. For more information see:
-:ref:`dataHandler-cli-command`.
+:ref:`Using the DataHandler in a Symfony command <dataHandler-cli-command>`.
 
 ..  _writing-custom-commands-backend-user:
 

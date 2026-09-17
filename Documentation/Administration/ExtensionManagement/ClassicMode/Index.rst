@@ -68,7 +68,7 @@ all dependencies in this config file.
 If you get an exception and cannot access the Extension Manager anymore because
 of it, you can uninstall / install extensions manually with
 :file:`PackageStates.php` as a last resort, see
-:ref:`uninstall-extension-manually`
+:ref:`Uninstalling an extension manually <uninstall-extension-manually>`
 
 ..  tip::
     Be sure not to uninstall extensions by trial and error on production

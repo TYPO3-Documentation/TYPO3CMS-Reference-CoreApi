@@ -27,7 +27,7 @@ extended.
 
 ..  seealso::
 
-    -   :ref:`typo3ConfVars_http`
+    -   :ref:`HTTP - tune requests <typo3ConfVars_http>`
     -   `Guzzle request options <https://docs.guzzlephp.org/en/stable/request-options.html>`__
     -   `Full documentation for Guzzle <https://docs.guzzlephp.org/en/stable/>`__
 

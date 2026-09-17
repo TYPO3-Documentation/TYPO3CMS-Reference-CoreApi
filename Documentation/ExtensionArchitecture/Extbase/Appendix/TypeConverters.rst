@@ -15,7 +15,7 @@ value. This page lists all converters shipped with TYPO3, their accepted
 source types, and the configuration constants they expose.
 
 For an introduction to how type converters are selected and configured, see
-:ref:`extbase-controller-propertymapping`.
+:ref:`Property mapping: request arguments to objects <extbase-controller-propertymapping>`.
 
 ..  contents:: On this page
     :local:

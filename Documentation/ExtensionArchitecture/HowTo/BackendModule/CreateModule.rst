@@ -76,7 +76,7 @@ and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()
     :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
 
 ..  seealso::
-    :ref:`button-components`
+    :ref:`Button components <button-components>`
 
 
 ..  _backend-modules-template-without-extbase-template-example:

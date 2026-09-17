@@ -22,7 +22,7 @@ The PSR-14 event
 allows to modify the main URL of a language pack.
 
 ..  seealso::
-    :ref:`custom-translation-server`
+    :ref:`Custom translation servers <custom-translation-server>`
 
 ..  _ModifyLanguagePackRemoteBaseUrlEvent-example:
 

@@ -19,7 +19,7 @@ and production systems.
 
     This chapter is focused on database content only. For managing
     uploaded files, images, and media assets, see
-    :ref:`multi-stage-environment-user-upload-management`.
+    :ref:`Synchronizing user-uploaded files across environments <multi-stage-environment-user-upload-management>`.
 
 ..  _multi-stage-environment-database-schema:
 

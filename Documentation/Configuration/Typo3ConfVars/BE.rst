@@ -922,7 +922,7 @@ entryPoint
         $GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint'] = '/my-specific-path';
 
     ..  seealso::
-        :ref:`backend-entry-point`
+        :ref:`Backend entry point <backend-entry-point>`
 
 
 installToolSessionHandler

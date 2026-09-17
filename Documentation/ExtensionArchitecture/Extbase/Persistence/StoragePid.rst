@@ -79,7 +79,7 @@ handles the request:
     code you set them decides how wide the effect is: inside a single repository
     method only that one query changes; inside an overridden :php:`createQuery()`
     every query the repository builds is affected. See
-    :ref:`extbase-persistence-storagepid-override`.
+    :ref:`Overriding the storagePid for a single query <extbase-persistence-storagepid-override>`.
 
 The most specific option that supplies a value is applied; a specific query's
 settings always have the final say.
@@ -131,7 +131,7 @@ is the recommended placement, see :ref:`module <t3tsref:tlo-module>` TypoScript 
     to :sql:`0`. If your module is not meant to be scoped to the current page or the root,
     set an explicit storagePid in :typoscript:`module.tx_*` TypoScript, or drop
     the restriction per query with :php:`setRespectStoragePage(false)` — see
-    :ref:`extbase-persistence-storagepid-override`.
+    :ref:`Overriding the storagePid for a single query <extbase-persistence-storagepid-override>`.
 
 The :typoscript:`recursive` setting works the same in a backend module as in the
 frontend, as described next.

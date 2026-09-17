@@ -86,7 +86,7 @@ For the above example code that means:
     written only to the default log file (:file:`var/log/typo3_<hash>.log`).
 
 For a list of writers shipped with the TYPO3 Core see the section about
-:ref:`logging-writers`.
+:ref:`Log writers <logging-writers>`.
 
 
 ..  index:: Logging; Processor configuration
@@ -103,7 +103,7 @@ can be configured on a per-class and per-namespace basis with the sub-key
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 For a list of processors shipped with the TYPO3 Core, see the section about
-:ref:`logging-processors`.
+:ref:`Log processors <logging-processors>`.
 
 ..  _logging-configuration-disable:
 

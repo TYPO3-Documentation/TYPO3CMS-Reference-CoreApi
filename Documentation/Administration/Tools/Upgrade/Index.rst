@@ -42,8 +42,8 @@ this function to automatically do patch level TYPO3 Core updates.
 
 ..  seealso::
 
-    *   :ref:`classic-mode-upgrade-minor`
-    *   :ref:`classic-mode-upgrade-disable`
+    *   :ref:`Minor upgrades  - using the Core updater <classic-mode-upgrade-minor>`
+    *   :ref:`Disabling the Core updater in a classic mode installation <classic-mode-upgrade-disable>`
 
 
 ..  _run_upgrade_wizard:

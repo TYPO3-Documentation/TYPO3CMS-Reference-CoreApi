@@ -269,7 +269,7 @@ module:
     The :guilabel:`System > Permissions` module and its overview of page rights and owners
 
 Editing permissions is described in details in chapter
-:ref:`page-permissions`.
+:ref:`Page permissions <page-permissions>`.
 
 A user must be "admin" *or* the owner of a page in order to edit its
 permissions.

@@ -43,7 +43,7 @@ Dispatching an event
 
 This quick start section shows how to create your own event class and dispatch it.
 If you just want to listen on an existing event, see section
-:ref:`EventDispatcherImplementation`.
+:ref:`Implementing an event listener in your extension <EventDispatcherImplementation>`.
 
 ..  rst-class:: bignums
 

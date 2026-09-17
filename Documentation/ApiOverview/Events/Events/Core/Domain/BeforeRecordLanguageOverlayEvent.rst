@@ -12,7 +12,7 @@ can be used to modify information (such as the
 record from the database) before the database is queried.
 
 ..  seealso::
-    *   :ref:`AfterRecordLanguageOverlayEvent`
+    *   :ref:`AfterRecordLanguageOverlayEvent <AfterRecordLanguageOverlayEvent>`
 
 ..  _BeforeRecordLanguageOverlayEvent-example:
 

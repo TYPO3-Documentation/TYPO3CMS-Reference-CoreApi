@@ -144,4 +144,4 @@ LANG
 
     More information about retrieving the
     :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` is available in
-    :ref:`extension-localization-php`.
+    :ref:`Localization in PHP <extension-localization-php>`.

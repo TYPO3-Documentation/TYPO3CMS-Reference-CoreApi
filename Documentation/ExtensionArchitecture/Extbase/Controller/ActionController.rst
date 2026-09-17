@@ -107,7 +107,7 @@ do for a missing argument. Always combine the nullable type with a default:
 
 If an argument is missing from the request and there is no default value, Extbase
 calls :php:`errorAction()` instead. See
-:ref:`extbase-controller-action-error`.
+:ref:`errorAction: Extbase validation and argument-mapping errors <extbase-controller-action-error>`.
 
 ..  seealso::
 

@@ -16,7 +16,7 @@ Contains Language resources.
 
     *   Read more about localizing extensions: :ref:`extension_localization`
     *   Read more about the XLIFF format in the following chapter:
-        :ref:`xliff`.
+        :ref:`Translation files (XLIFF format) <xliff>`.
     *   Read more about applying localised labels in the following chapter:
         :ref:`Localization API <xliff-api>`.
 

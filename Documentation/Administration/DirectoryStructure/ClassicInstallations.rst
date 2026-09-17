@@ -124,7 +124,7 @@ the following symlink structure:
 ------------
 
 This path can be retrieved from the Environment API, see
-:ref:`Environment-config-path`.
+:ref:`getConfigPath() <Environment-config-path>`.
 
 ..  _classic-directory-typo3conf-autoload:
 ..  _legacy-directory-typo3conf-autoload:
@@ -160,7 +160,7 @@ Directory for extension localizations. Contains all downloaded translation
 files.
 
 This path can be retrieved from the Environment API, see
-:ref:`Environment-labels-path`.
+:ref:`getLabelsPath() <Environment-labels-path>`.
 
 ..  _classic-directory-typo3conf-sites:
 ..  _legacy-directory-typo3conf-sites:
@@ -189,7 +189,7 @@ These files define a set of global settings stored in a global array called
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`.
 
 This path can be retrieved from the Environment API, see
-:ref:`Environment-config-path`.
+:ref:`getConfigPath() <Environment-config-path>`.
 
 ..  _classic-directory-typo3temp:
 ..  _legacy-directory-typo3temp:

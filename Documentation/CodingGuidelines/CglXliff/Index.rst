@@ -21,7 +21,7 @@ files. XLIFF is based on XML.
 
 ..  seealso::
 
-    :ref:`xliff`
+    :ref:`Translation files (XLIFF format) <xliff>`
 
 ..  _cgl-xliff-filenames:
 

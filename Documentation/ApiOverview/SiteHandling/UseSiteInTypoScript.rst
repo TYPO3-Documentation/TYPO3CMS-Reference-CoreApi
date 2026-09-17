@@ -87,7 +87,7 @@ Non-Extbase Fluid view
     The :php-short:`\TYPO3\CMS\Fluid\View\StandaloneView` was deprecated with
     TYPO3 v13.3 and has been removed with v14.0. Use a
     :php-short:`\TYPO3\CMS\Core\View\ViewInterface` instance provided by the
-    :ref:`sitehandling-site-object`.
+    :ref:`The Site object <sitehandling-site-object>`.
 
 In a non-Extbase Fluid view (:php:`\TYPO3\CMS\Core\View\ViewInterface`), created
 manually by the :ref:`generic-view-factory`, you can use the PHP API to access the

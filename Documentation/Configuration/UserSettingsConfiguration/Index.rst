@@ -22,7 +22,7 @@ the top bar and then on "User settings".
 
 A number of settings such as backend language, password, etc, are available
 by default. These settings can be extended via extensions as described in
-:ref:`user-settings-extending`.
+:ref:`Extending the user settings <user-settings-extending>`.
 
 The User Settings module is handled by TCA and configured via
 :php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. It does, however,

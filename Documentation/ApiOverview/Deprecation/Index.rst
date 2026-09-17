@@ -38,7 +38,7 @@ it.
 ..  seealso::
 
     To learn how to properly disable the deprecation log in production, see
-    :ref:`deprecation-disable-errors`.
+    :ref:`Disabling the deprecation log on production <deprecation-disable-errors>`.
 
 ..  _deprecation-enable-errors-gui:
 
@@ -85,7 +85,7 @@ development context:
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 For more information on how to configure the writing of deprecation logs see
-:ref:`logging-configuration-writer`.
+:ref:`Writer configuration <logging-configuration-writer>`.
 
 
 ..  index::

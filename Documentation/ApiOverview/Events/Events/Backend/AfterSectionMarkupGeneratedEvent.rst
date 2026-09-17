@@ -18,7 +18,7 @@ allows extension authors to display content in any colPos after the last
 content element.
 
 ..  seealso::
-    * :ref:`BeforeSectionMarkupGeneratedEvent`
+    * :ref:`BeforeSectionMarkupGeneratedEvent <BeforeSectionMarkupGeneratedEvent>`
 
 Example
 =======

@@ -81,7 +81,7 @@ caches another way — for example with :ref:`automatic cache clearing
         :php:`frontend.cache.autoTagging` defaults to enabled on fresh
         installations. Upgraded instances keep their previous value — verify the
         toggle after upgrading. See
-        :ref:`extbase-upgrading-feature-toggle-defaults`.
+        :ref:`Check relevant feature toggle defaults after upgrading (TYPO3 v14) <extbase-upgrading-feature-toggle-defaults>`.
 
 You set the toggle in :file:`settings.php` under
 :php:`SYS/features`, or through :guilabel:`Admin Tools > Settings > Feature
