@@ -153,7 +153,8 @@ Working links
 Links in your website are quite important. You can use third party applications to check all your links, but you can
 also use the core extension `EXT:linkvalidator` to ensure all the links in your site are working as expected.
 
-Please check the documentation of :doc:`ext_linkvalidator:Index`.
+Please check the `TYPO3 Link Validator documentation
+<https://docs.typo3.org/permalink/typo3/cms-linkvalidator:start>`_.
 
 
 ..  _seo-configuration-typoscript-examples:
