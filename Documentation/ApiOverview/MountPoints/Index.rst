@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Mount points
-.. _MountPoints:
+..  include:: /Includes.rst.txt
+..  index:: Mount points
+..  _MountPoints:
 
 ============
 Mount points
@@ -34,19 +34,19 @@ page tree, meaning they cannot be linked directly. However, the TYPO3 menu
 generation will take mount points into account and generate subpage links
 accordingly.
 
-.. note::
+..  note::
 
-   **Technical Background**:
+    **Technical Background**:
 
-   Linking to a subpage will result in adding "MP" GET Parameters and altering the root
-   line (tree structure) of the website, as the "MP" is containing the context.
-   The MP parameter found throughout the TYPO3 Core includes the ID of the Mounted Page and
-   the mount point ID - e.g. "13-23," whereas 13 would be the Mounted Page and 23
-   the mount point (`doktype` set to 7).
+    Linking to a subpage will result in adding "MP" GET Parameters and altering the root
+    line (tree structure) of the website, as the "MP" is containing the context.
+    The MP parameter found throughout the TYPO3 Core includes the ID of the Mounted Page and
+    the mount point ID - e.g. "13-23," whereas 13 would be the Mounted Page and 23
+    the mount point (`doktype` set to 7).
 
-   Recursive mount points are added to the "MP" parameter with ",", like "13-23,84-26".
-   Recursive mount points are defined as follows: A Mounted Page has a subpage
-   which in turn has another subpage, which is again a mount point. (Nested mount points.)
+    Recursive mount points are added to the "MP" parameter with ",", like "13-23,84-26".
+    Recursive mount points are defined as follows: A Mounted Page has a subpage
+    which in turn has another subpage, which is again a mount point. (Nested mount points.)
 
 
 ..  _mount-points-simple-usage-example:
@@ -56,25 +56,25 @@ Simple usage example
 
 Consider this setup:
 
-.. code-block:: none
-   :caption: example page tree
+..  code-block:: none
+    :caption: example page tree
 
-   page   tree
-   ====== ====================
-   1      Root
-   2      ├── Basic Mount Point    <- mount point, mounting page 3
-   3      └── Company              <- mounted by page 2
-   4          └── About us
+    page   tree
+    ====== ====================
+    1      Root
+    2      ├── Basic Mount Point    <- mount point, mounting page 3
+    3      └── Company              <- mounted by page 2
+    4          └── About us
 
 Let's assume the mount point page two is configured like this:
 
-.. code-block:: none
-   :caption: Data in the mount point
+..  code-block:: none
+    :caption: Data in the mount point
 
-   Title         :  Basic Mount Point
-   URL segment   :  basic-mountpoint
-   Target page   :  Company
-   Display option:  "Show the mounted page" (subpages included)
+    Title         :  Basic Mount Point
+    URL segment   :  basic-mountpoint
+    Target page   :  Company
+    Display option:  "Show the mounted page" (subpages included)
 
 The result will be:
 
@@ -95,7 +95,7 @@ about-us
    Both URLs will show the same content, namely that of page 4.
 
 
-.. index:: Mount points; Multi-site
+..  index:: Mount points; Multi-site
 
 ..  _mount-points-multi-site-support:
 
@@ -111,29 +111,29 @@ same site setup.
 
 Situation:
 
-.. code-block:: none
-   :caption: example page tree
+..  code-block:: none
+    :caption: example page tree
 
-   Page   Tree
-   ====== ====================
+    Page   Tree
+    ====== ====================
 
-   1      Site 1: example.org
-   2      └── Company              <- mounted by page 5
-   3          └── About us
+    1      Site 1: example.org
+    2      └── Company              <- mounted by page 5
+    3          └── About us
 
-   4      Site 2: company.example.org
-   5      └── Cross site mount     <- mount point page that is mounting page 2
+    4      Site 2: company.example.org
+    5      └── Cross site mount     <- mount point page that is mounting page 2
 
 
 Configuration of mount point page 5:
 
-.. code-block:: none
-   :caption: Data in the mount point
+..  code-block:: none
+    :caption: Data in the mount point
 
-   Title         :  Cross site mount
-   URL segment   :  cross-site-mount
-   Target page   :  Company
-   Display option:  "Show the mounted page" (subpages included)
+    Title         :  Cross site mount
+    URL segment   :  cross-site-mount
+    Target page   :  Company
+    Display option:  "Show the mounted page" (subpages included)
 
 
 This will be the result:
@@ -171,19 +171,19 @@ Limitations
    be detected. In contrast, the non-mounted page would always work, and a subpage of a
    Mounted Page would never be reached.:
 
-   .. code-block:: none
-      :caption: example page tree
+   ..  code-block:: none
+       :caption: example page tree
 
-      Page   Tree
-      ====== ====================
+       Page   Tree
+       ====== ====================
 
-      1      Site 1: example.org
-      2      └── More              <- mounted by page 5
-      3          └── Imprint       <- page will never be reached via Site 2
+       1      Site 1: example.org
+       2      └── More              <- mounted by page 5
+       3          └── Imprint       <- page will never be reached via Site 2
 
-      4      Site 2: company.example.org
-      5      └── More              <- mount point page that is mounting page 2
-      6      └── Imprint           <- slug manually configured to `more/imprint/`
+       4      Site 2: company.example.org
+       5      └── More              <- mount point page that is mounting page 2
+       6      └── Imprint           <- slug manually configured to `more/imprint/`
 
 
 ..  _mount-points-see:

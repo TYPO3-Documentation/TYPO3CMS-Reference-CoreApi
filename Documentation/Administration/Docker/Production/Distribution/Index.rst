@@ -45,7 +45,7 @@ To ensure your TYPO3 Docker image remains private, follow these steps:
 
 #.  Log in to Docker Hub, tag and push your image
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
         docker login
         docker tag your-image yourusername/your-image:tag

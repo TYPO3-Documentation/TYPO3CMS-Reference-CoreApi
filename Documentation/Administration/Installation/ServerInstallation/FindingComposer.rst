@@ -32,7 +32,7 @@ Use full paths instead of just `composer`, for example:
 
 Then run it like this:
 
-.. code-block:: bash
+..  code-block:: bash
 
     /opt/php-8.3/bin/php composer.phar create-project \
         "typo3/cms-base-distribution:^14" my-new-project

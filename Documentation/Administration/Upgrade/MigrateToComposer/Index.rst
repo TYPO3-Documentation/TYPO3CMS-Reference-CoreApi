@@ -1,15 +1,15 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _migratetocomposer:
+..  _migratetocomposer:
 
 ===================================
 Migrate a TYPO3 project to Composer
 ===================================
 
-.. toctree::
-   :maxdepth: 2
+..  toctree::
+    :maxdepth: 2
 
-   Requirements
-   MigrationSteps
-   AssetMigration
-   VersionControl
+    Requirements
+    MigrationSteps
+    AssetMigration
+    VersionControl

@@ -29,23 +29,23 @@ constants for the Constant editor" in
 This syntax applies to the comment line that should be placed just before the constant.
 Consider the following example (taken from system extension "backend"):
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   # cat=Login; type=string; label=Logo: If set, this logo will be used instead of...
-   loginLogo =
+    # cat=Login; type=string; label=Logo: If set, this logo will be used instead of...
+    loginLogo =
 
 First a category (cat) is defined ("Login"). Then a type is given ("string") and finally a label, which
 is itself split (on the colon ":") into a title and a description. The Label should actually be a localized string, like this:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   # cat=Login; type=string; label=LLL:EXT:my_extension_key/Resources/Private/Language/locallang_be.xlf:loginLogo
-   loginLogo =
+    # cat=Login; type=string; label=LLL:EXT:my_extension_key/Resources/Private/Language/locallang_be.xlf:loginLogo
+    loginLogo =
 
 The above example will be rendered like this in the Settings module:
 
-.. figure:: /Images/ManualScreenshots/ExtensionArchitecture/ExtensionConfigurationOptions.png
-   :alt: Configuration screen for the backend extension
+..  figure:: /Images/ManualScreenshots/ExtensionArchitecture/ExtensionConfigurationOptions.png
+    :alt: Configuration screen for the backend extension
 
 The configuration tab displays all options from a single category. A
 selector is available to switch between categories. Inside an option
@@ -77,19 +77,19 @@ wrap          wrap field
 
 Option select can be used as follows:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   # cat=basic/enable/050; type=options[label1=value1,label2=value2,value3]; label=MyLabel
-   myVariable = value1
+    # cat=basic/enable/050; type=options[label1=value1,label2=value2,value3]; label=MyLabel
+    myVariable = value1
 
 "label1", "label2" and "label3" can be any text string. Any integer or string value can be used on the right side of the equation sign "=".
 
 Where user functions have to be written the following way:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   # cat=basic/enable/050; type=user[Vendor\MyExtensionKey\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
-   myVariable = 1
+    # cat=basic/enable/050; type=user[Vendor\MyExtensionKey\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
+    myVariable = 1
 
 
 ..  _extension-options-accessing-saved-options:

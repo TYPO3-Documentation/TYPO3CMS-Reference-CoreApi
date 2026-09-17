@@ -1,8 +1,8 @@
 :navigation-title: Session Manager
 
-.. include:: /Includes.rst.txt
-.. index:: pair: Session; User
-.. _session-management:
+..  include:: /Includes.rst.txt
+..  index:: pair: Session; User
+..  _session-management:
 
 =======================
 User session management
@@ -29,7 +29,7 @@ and persisting them. It effectively encapsulates all calls to the
 :ref:`session backend <session-storage>`.
 
 
-.. index:: UserSessionManager
+..  index:: UserSessionManager
 
 ..  _session-management-public-api-usersessionmanager:
 
@@ -39,13 +39,13 @@ Public API of `UserSessionManager`
 The :php:`UserSessionManager` can be retrieved using its static factory
 method :php:`create()`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   use TYPO3\CMS\Core\Session\UserSessionManager;
+    use TYPO3\CMS\Core\Session\UserSessionManager;
 
-   $loginType = 'BE'; // or 'FE' for frontend
-   $userSessionManager = UserSessionManager::create($loginType);
+    $loginType = 'BE'; // or 'FE' for frontend
+    $userSessionManager = UserSessionManager::create($loginType);
 
 You can then use the :php:`UserSessionManager` to work
 with user sessions. A couple of public methods are available:

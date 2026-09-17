@@ -1,7 +1,7 @@
 :navigation-title: reStructuredText
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; reStructuredText
-.. _cgl-rest:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; reStructuredText
+..  _cgl-rest:
 
 =======================
 reStructuredText (reST)

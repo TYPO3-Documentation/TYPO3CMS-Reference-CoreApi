@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: TSconfig
-.. _tsconfig:
+..  include:: /Includes.rst.txt
+..  index:: TSconfig
+..  _tsconfig:
 
 ========
 TSconfig
@@ -15,10 +15,10 @@ using the TypoScript syntax. The
 describe in detail how this works and what can be done with it.
 
 
-.. index::
-   User TSconfig
-   TSconfig; User
-.. _tsconfig-user:
+..  index::
+    User TSconfig
+    TSconfig; User
+..  _tsconfig-user:
 
 User TSconfig
 =============
@@ -30,10 +30,10 @@ settings like those found in the :guilabel:`User Settings` module, various backe
 (lock user to IP, may user clear caches?, etc.) and backend module configuration.
 
 
-.. index::
-   Page TSconfig
-   TSconfig; Page
-.. _tsconfig-page:
+..  index::
+    Page TSconfig
+    TSconfig; Page
+..  _tsconfig-page:
 
 Page TSconfig
 =============

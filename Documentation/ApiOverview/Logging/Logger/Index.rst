@@ -34,7 +34,7 @@ automatically instantiate the logger:
 
 ..  index::
     Logging; logger->log
-.. _logging-logger-log:
+..  _logging-logger-log:
 
 The `log()` method
 ==================
@@ -213,7 +213,7 @@ Alert
     *   The entire website is down.
     *   The database is unavailable.
 
-.. _label-emergency:
+..  _label-emergency:
 
 Emergency
 ---------
@@ -283,7 +283,7 @@ For more examples for configuring the logging see the
 :ref:`logging-configuration-writer` section.
 
 
-.. _logging-logger-examples:
+..  _logging-logger-examples:
 
 Examples
 ========

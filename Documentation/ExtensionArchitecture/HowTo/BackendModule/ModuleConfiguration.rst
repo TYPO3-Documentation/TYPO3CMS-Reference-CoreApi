@@ -24,11 +24,11 @@ You can find the following example in
 Two backend modules are being registered. The first module is based on
 :ref:`Extbase <extbase-extension-framework>` while the second uses a plain controller.
 
-.. literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_Modules.php
-   :caption: EXT:examples/Configuration/Backend/Modules.php
+..  literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_Modules.php
+    :caption: EXT:examples/Configuration/Backend/Modules.php
 
 
-.. _backend-modules-configuration-example-debug:
+..  _backend-modules-configuration-example-debug:
 
 Check if the modules have been properly registered
 ==================================================

@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _globals-values:
+..  include:: /Includes.rst.txt
+..  _globals-values:
 
 =============
 Global values
@@ -10,8 +10,8 @@ Global values
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   */Index
+    */Index

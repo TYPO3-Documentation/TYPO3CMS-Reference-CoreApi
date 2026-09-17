@@ -17,11 +17,11 @@ Public assets
 Public assets used in extensions (files that should be delivered by the web
 server) **must** be located in the :file:`Resources/Public` folder of the extension.
 
-.. note::
-   This folder should only be used for static assets.
+..  note::
+    This folder should only be used for static assets.
 
-   If you need to create assets during runtime, they should be stored in
-   :file:`typo3temp/`.
+    If you need to create assets during runtime, they should be stored in
+    :file:`typo3temp/`.
 
 ..  _extension-resources-public-prevent-access:
 
@@ -64,21 +64,21 @@ the servers web root.
 Common subfolders
 =================
 
-.. index::
-   Path; EXT:{extkey}/Resources/Public/Css
-   pair: Extensions; CSS
+..  index::
+    Path; EXT:{extkey}/Resources/Public/Css
+    pair: Extensions; CSS
 
 Resources/Public/Css
   Any CSS file used by the extension.
 
-.. index:: Path; EXT:{extkey}/Resources/Public/Images
+..  index:: Path; EXT:{extkey}/Resources/Public/Images
 
 Resources/Public/Images
   Any image used by the extension.
 
-.. index::
-   Path; EXT:{extkey}/Resources/Public/JavaScript
-   pair: Extensions; JavaScript
+..  index::
+    Path; EXT:{extkey}/Resources/Public/JavaScript
+    pair: Extensions; JavaScript
 
 Resources/Public/JavaScript
   Any JS file used by the extension.

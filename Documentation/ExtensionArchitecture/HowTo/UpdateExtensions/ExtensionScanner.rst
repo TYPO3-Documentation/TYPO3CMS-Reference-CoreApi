@@ -1,8 +1,8 @@
 :navigation-title: Extension scanner
 
-.. include:: /Includes.rst.txt
-.. index:: Extension scanner
-.. _extension-scanner:
+..  include:: /Includes.rst.txt
+..  index:: Extension scanner
+..  _extension-scanner:
 
 
 =================
@@ -33,24 +33,24 @@ and Core developers to add Core patches which use the scanner.
 
 This module has been featured on the TYPO3 YouTube channel:
 
-.. youtube:: UdIYDZgBrQU
+..  youtube:: UdIYDZgBrQU
 
 
-.. index:: Admin tool; Scan extension files
+..  index:: Admin tool; Scan extension files
 
 ..  _extension-scanner-quick-start:
 
 Quick start
 ===========
 
-.. rst-class:: bignums
+..  rst-class:: bignums
 
 1. Open extension scanner from the TYPO3 backend:
 
    :guilabel:`System > Upgrade > Scan Extension Files`
 
    ..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScannerOpen.png
-        :zoom: lightbox
+       :zoom: lightbox
 
         Open the extension scanner at :guilabel:`System > Upgrade > Scan Extension Files`
 
@@ -64,10 +64,10 @@ Quick start
 
    Click on the Changelog to view it.
 
-   ..   figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png
-        :alt: The extension scanner report with strong and weak matches
+   ..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png
+       :alt: The extension scanner report with strong and weak matches
 
-        Deprecations as strong and weak matches in the extension scanner for EXT:news
+       Deprecations as strong and weak matches in the extension scanner for EXT:news
 
 ..  _extension-scanner-goals-non-goals:
 
@@ -98,7 +98,7 @@ Goals and non goals
 * The extension scanner is not meant to be used on Core extensions - it is not a Core development helper.
 
 
-.. index:: Extension scanner; Limits
+..  index:: Extension scanner; Limits
 
 ..  _extension-scanner-limits:
 
@@ -118,7 +118,7 @@ Let's explain this by example. Suppose a static method was deprecated:
 This method is registered in the matcher class
 :php:`TYPO3\CMS\Install\ExtensionScanner\Php\Matcher\MethodCallStaticMatcher` like this:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:install/Classes/ExtensionScanner/Php/Matcher/MethodCallStaticMatcher.php (excerpt)
 
     'TYPO3\CMS\Core\Utility\SomeUtility::someMethod' => [
@@ -162,7 +162,7 @@ on one Core version and a different one on another Core version. The extension s
 understand these constructs and would still show the deprecated call as a match, even if it was wrapped
 in a Core version check.
 
-.. index:: Extension scanner; Extension authors
+..  index:: Extension scanner; Extension authors
 
 ..  _extension-scanner-extension-authors:
 
@@ -188,7 +188,7 @@ may need attention when upgrading to a newer Core version, the following points 
 
   * Suppress a single match with an inline comment:
 
-    .. code-block:: php
+    ..  code-block:: php
 
         // @extensionScannerIgnoreLine
         $foo->someFalsePositiveMatch('foo');
@@ -196,7 +196,7 @@ may need attention when upgrading to a newer Core version, the following points 
   * Suppress all matches in an entire file with a comment. This is especially useful for
     dedicated classes which act as proxies for Core API:
 
-    .. code-block:: php
+    ..  code-block:: php
         :caption: EXT:my_extension/Classes/SomeClassIgnoredByExtensionScanner.php
 
         <?php
@@ -227,7 +227,7 @@ may need attention when upgrading to a newer Core version, the following points 
   annotations this could be an indication to the extension author to consider branching off
   an extensions to support individual Core versions instead of supporting multiple versions in the same release.
 
-.. index:: Extension scanner; Project developers
+..  index:: Extension scanner; Project developers
 
 ..  _extension-scanner-project-developers:
 
@@ -247,7 +247,7 @@ an extension scanner run the following points should be considered:
   anything about the quality of the extension: false positives can be caused by for example supporting
   multiple TYPO3 versions in the same extension release.
 
-.. index:: Extension scanner; Core developers
+..  index:: Extension scanner; Core developers
 
 ..  _extension-scanner-core-developers:
 

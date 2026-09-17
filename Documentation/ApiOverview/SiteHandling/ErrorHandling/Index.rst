@@ -61,7 +61,7 @@ These properties apply to all error handlers.
     ..  _HTTP (error) status code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 
-.. _sitehandling-errorHandling_errorHandler:
+..  _sitehandling-errorHandling_errorHandler:
 
 ..  option:: errorHandler
 

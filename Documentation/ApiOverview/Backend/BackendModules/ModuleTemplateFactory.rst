@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Backend modules; ModuleTemplateFactory
-.. _ModuleTemplateFactory:
+..  include:: /Includes.rst.txt
+..  index:: Backend modules; ModuleTemplateFactory
+..  _ModuleTemplateFactory:
 
 =======================
 `ModuleTemplateFactory`
@@ -23,7 +23,7 @@ The template module factory should be used by backend controllers to create a
 Example: initialize module template
 ===================================
 
-.. seealso::
+..  seealso::
     :ref:`Create a backend module with Core functionality <t3coreapi:backend-modules-template-without-extbase>`
     and :ref:`Create a backend module with Extbase <t3coreapi:backend-modules-template>`.
 

@@ -27,7 +27,7 @@ files **does not** guarantee that TYPO3 is running in Composer mode.
 ..  contents:: Table of contents
     :depth: 1
 
-.. seealso::
+..  seealso::
 
     If your installation is running in Classic mode (also called Non-Composer or
     Legacy mode), see the following for details on the directory structure:

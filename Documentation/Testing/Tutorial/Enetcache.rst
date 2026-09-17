@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _testing-tutorial-enetcache:
+..  include:: /Includes.rst.txt
+..  _testing-tutorial-enetcache:
 
 =================
 Testing enetcache
@@ -7,7 +7,7 @@ Testing enetcache
 
 ..  contents:: Table of contents
 
-.. _testing-tutorial-enetcache-introduction:
+..  _testing-tutorial-enetcache-introduction:
 
 Introduction
 ============
@@ -19,7 +19,7 @@ in a TYPO3 instance to run tests in a TYPO3 environment and
 how to configure GitHub Actions to run tests. Tests are run using Docker
 containers and an extension-specific :file:`runTests.sh`.
 
-.. _testing-tutorial-enetcache-scope:
+..  _testing-tutorial-enetcache-scope:
 
 Scope
 =====
@@ -47,7 +47,7 @@ About this chapter and what it does *not* cover.
   chapter may still be of use to help you build a general understanding of
   the testing process.
 
-.. _testing-tutorial-enetcache-strategy:
+..  _testing-tutorial-enetcache-strategy:
 
 General strategy
 ================
@@ -68,7 +68,7 @@ as a dependency and it is used as a root composer.json to specify dependencies.
 This turns the extension into a project of its own, allowing us to set up a full TYPO3
 environment in a subfolder of the extension and execute tests inside this subfolder.
 
-.. _testing-tutorial-enetcache-testing:
+..  _testing-tutorial-enetcache-testing:
 
 Testing enetcache
 =================
@@ -103,7 +103,7 @@ The enetcache extension comes with some unit tests
 in `Tests/Unit`. We will run these locally and use GitHub Actions, along with
 some PHP linting to verify that there is no fatal PHP error.
 
-.. _testing-tutorial-enetcache-start:
+..  _testing-tutorial-enetcache-start:
 
 Starting point
 --------------
@@ -117,7 +117,7 @@ notes "root-only" of the `Composer documentation <https://getcomposer.org/doc/04
 
 This is the composer.json file before adding a test setup:
 
-.. code-block:: json
+..  code-block:: json
     :caption: composer.json of EXT:enetcache, before the test setup
 
     {
@@ -156,26 +156,26 @@ to "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ di
 The extension contains unit tests that extend the `typo3/testing-framework` base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
 
-.. code-block:: php
-   :caption: E
+..  code-block:: php
+    :caption: E
 
-    <?php
-    namespace Lolli\Enetcache\Tests\Unit\Hooks;
+     <?php
+     namespace Lolli\Enetcache\Tests\Unit\Hooks;
 
-    use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
+     use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
-    class DataHandlerFlushByTagHookTest extends UnitTestCase
-    {
-        /**
-         * @test
-         */
-        public function findReferencedDatabaseEntriesReturnsEmptyArrayForTcaWithoutRelations()
-        {
-            // some unit test code
-        }
-    }
+     class DataHandlerFlushByTagHookTest extends UnitTestCase
+     {
+         /**
+          * @test
+          */
+         public function findReferencedDatabaseEntriesReturnsEmptyArrayForTcaWithoutRelations()
+         {
+             // some unit test code
+         }
+     }
 
-.. _testing-tutorial-enetcache-composer-json:
+..  _testing-tutorial-enetcache-composer-json:
 
 Preparing composer.json
 -----------------------
@@ -184,7 +184,7 @@ Now let's add our properties. First, we add a series of properties
 to :file:`composer.json <extension-composer-json>`
 which are root :file:`composer.json` properties, turning the extension into a project:
 
-.. code-block:: json
+..  code-block:: json
     :caption: composer.json of EXT:enetcache, after the test setup
     :linenos:
     :emphasize-lines: 18-24, 30-34, 42
@@ -243,13 +243,13 @@ that there are test classes in the :file:`Tests/` directory.
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
 on-the-fly files. The :file:`.gitignore` file looks like this:
 
-.. code-block:: none
-   :caption: .gitignore
+..  code-block:: none
+    :caption: .gitignore
 
-   .Build/
-   .idea/
-   Build/testing-docker/.env
-   composer.lock
+    .Build/
+    .idea/
+    Build/testing-docker/.env
+    composer.lock
 
 In :file:`.gitignore` we ignore the `.Build` directory as these are on-the-fly
 files that do not belong to the extension functionality. We also ignore the
@@ -262,7 +262,7 @@ compatible in our `composer.json` file.
 
 Let's clone the repository and run `composer install` (stripped):
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: Cloning the extension and running composer install
     :emphasize-lines: 1, 10, 11
 
@@ -294,7 +294,7 @@ To clean up any errors, we can always run `rm -r .Build/ composer.lock` and
 call `composer install` again. In our `.Build/` folder we now have a basic
 TYPO3 instance to execute our tests in:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: The test instance created under .Build/
 
     lolli@apoc /var/www/local/git/enetcache $ cd .Build/
@@ -315,7 +315,7 @@ extensions set as dependencies. We end up with the Core extensions `backend`, `c
 We now have a full TYPO3 instance. It is not installed and there is no database,
 but we are now at the point where we can begin unit testing!
 
-.. _testing-tutorial-enetcache-runtests:
+..  _testing-tutorial-enetcache-runtests:
 
 `runTests.sh` and docker-compose.yml
 ------------------------------------
@@ -338,14 +338,14 @@ own extension, but you may need to adapt them to your needs:
 
 Let's run the unit tests:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: command line
 
     Build/Scripts/runTests.sh
 
 You should now see something similar to this:
 
-.. code-block:: text
+..  code-block:: text
 
     Creating network "local_default" with the default driver
     PHP 8.2.6 (cli) (built: May 13 2023 01:04:28) (NTS)
@@ -365,19 +365,19 @@ You should now see something similar to this:
 
 If there is no test output, try changing the verbosity when you run runTests.sh:
 
-.. code-block:: shell
+..  code-block:: shell
 
-   enetcache> Build/Scripts/runTests.sh -v
+    enetcache> Build/Scripts/runTests.sh -v
 
 Use -h to see all the options:
 
-.. code-block:: shell
+..  code-block:: shell
 
-   enetcache> Build/Scripts/runTests.sh -h
+    enetcache> Build/Scripts/runTests.sh -h
 
 On some versions of MacOS :file:`runTests.sh` might produce the following error:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: runTests.sh failing on some macOS versions
 
     $ ./Build/Scripts/runTests.sh
@@ -395,9 +395,9 @@ risk breaking your automated testing with GitHub Actions, consider symlinking
 your readlink executable to the greadlink you've just installed using the following
 command (as mentioned in the comments):
 
-.. code-block:: shell
+..  code-block:: shell
 
-   ln -s "$(which greadlink)" "$(dirname "$(which greadlink)")/readlink"
+    ln -s "$(which greadlink)" "$(dirname "$(which greadlink)")/readlink"
 
 The :file:`runTests.sh` file in enetcache comes with some additional features,
 for example:
@@ -412,9 +412,9 @@ for example:
 *   verbose output is available with `-v`
 *   help is available with `runTests.sh -h`
 
-.. index:: Testing; Github Actions
+..  index:: Testing; Github Actions
 
-.. _testing-tutorial-enetcache-github:
+..  _testing-tutorial-enetcache-github:
 
 GitHub actions
 --------------
@@ -426,46 +426,46 @@ works. We'll use the Github Actions CI service for that. It's free for open
 source projects. In order to tell the CI what to do, create a new workflow file
 in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
 
-.. code-block:: yaml
+..  code-block:: yaml
     :caption: .github/workflows/ci.yml of EXT:enetcache
 
-   name: CI
+    name: CI
 
-   on: [push, pull_request]
+    on: [push, pull_request]
 
-   jobs:
+    jobs:
 
-     testsuite:
-       name: all tests
-       runs-on: ubuntu-latest
-       strategy:
-         matrix:
-           php: [ '8.1', '8.2' ]
-           minMax: [ 'composerInstallMin', 'composerInstallMax' ]
-       steps:
-         - name: Checkout
-           uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      testsuite:
+        name: all tests
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            php: [ '8.1', '8.2' ]
+            minMax: [ 'composerInstallMin', 'composerInstallMax' ]
+        steps:
+          - name: Checkout
+            uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-         - name: Composer
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s ${{ matrix.minMax }}
+          - name: Composer
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s ${{ matrix.minMax }}
 
-         - name: Composer validate
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
+          - name: Composer validate
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
 
-         - name: Lint PHP
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+          - name: Lint PHP
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
-         - name: Unit tests
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
+          - name: Unit tests
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
 
-         - name: Functional tests with mariadb
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
+          - name: Functional tests with mariadb
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
 
-         - name: Functional tests with postgres
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+          - name: Functional tests with postgres
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
 
-         - name: Functional tests with sqlite
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+          - name: Functional tests with sqlite
+            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
 
 We let Github Actions test the enetcache extension with several different PHP versions.
 The PHP versions will also be tested with the highest and lowest compatible
@@ -479,7 +479,7 @@ identical to our local environment and it is dockerized. The environment provide
 to set up the docker environment.
 
 
-.. _testing-extensions-styleguide:
+..  _testing-extensions-styleguide:
 
 Testing styleguide
 ==================
@@ -501,7 +501,7 @@ Styleguide comes with more test suites than enetcache. It has functional and
 acceptance tests! Our goal is to run the functional tests on different database platforms, and to
 execute the acceptance tests locally, with GitHub Actions and with different PHP versions.
 
-.. _testing-tutorial-enetcache-setup:
+..  _testing-tutorial-enetcache-setup:
 
 Basic setup
 -----------
@@ -518,7 +518,7 @@ longer than that for enetcache (to handle the functional and acceptance tests se
 
 Now that this is in place we can run unit tests:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: ~$
 
     git clone git@github.com:TYPO3/styleguide.git
@@ -528,7 +528,7 @@ Now that this is in place we can run unit tests:
     Build/Scripts/runTests.sh
     # ... OK (1 test, 4 assertions)
 
-.. _testing-tutorial-enetcache-functional:
+..  _testing-tutorial-enetcache-functional:
 
 Functional testing
 ------------------
@@ -542,75 +542,75 @@ once in a while. A perfect scenario for a `functional test!
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
 (slightly stripped):
 
-.. code-block:: php
-   :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php
+..  code-block:: php
+    :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php
 
-   <?php
-   namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
+    <?php
+    namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
 
-   use TYPO3\CMS\Core\Core\Bootstrap;
-   use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
-   use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
+    use TYPO3\CMS\Core\Core\Bootstrap;
+    use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
+    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-   /**
-    * Test case
-    */
-   class GeneratorTest extends FunctionalTestCase
-   {
-       /**
-        * @var array Have styleguide loaded
-        */
-       protected $testExtensionsToLoad = [
-           'typo3conf/ext/styleguide',
-       ];
+    /**
+     * Test case
+     */
+    class GeneratorTest extends FunctionalTestCase
+    {
+        /**
+         * @var array Have styleguide loaded
+         */
+        protected $testExtensionsToLoad = [
+            'typo3conf/ext/styleguide',
+        ];
 
-       /**
-        * Just a dummy to show that at least one test is actually executed on mssql
-        *
-        * @test
-        */
-       public function dummy()
-       {
-           $this->assertTrue(true);
-       }
+        /**
+         * Just a dummy to show that at least one test is actually executed on mssql
+         *
+         * @test
+         */
+        public function dummy()
+        {
+            $this->assertTrue(true);
+        }
 
-       /**
-        * @test
-        * @group not-mssql
-        * @todo Generator does not work using mssql DMBS yet ... fix this
-        */
-       public function generatorCreatesBasicRecord()
-       {
-           // styleguide generator uses DataHandler for some parts. DataHandler needs an
-           // initialized BE user with admin right and the live workspace.
-           Bootstrap::initializeBackendUser();
-           $GLOBALS['BE_USER']->user['admin'] = 1;
-           $GLOBALS['BE_USER']->user['uid'] = 1;
-           $GLOBALS['BE_USER']->workspace = 0;
-           Bootstrap::initializeLanguageObject();
+        /**
+         * @test
+         * @group not-mssql
+         * @todo Generator does not work using mssql DMBS yet ... fix this
+         */
+        public function generatorCreatesBasicRecord()
+        {
+            // styleguide generator uses DataHandler for some parts. DataHandler needs an
+            // initialized BE user with admin right and the live workspace.
+            Bootstrap::initializeBackendUser();
+            $GLOBALS['BE_USER']->user['admin'] = 1;
+            $GLOBALS['BE_USER']->user['uid'] = 1;
+            $GLOBALS['BE_USER']->workspace = 0;
+            Bootstrap::initializeLanguageObject();
 
-           // Verify there is no tx_styleguide_elements_basic yet
-           $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
-           $queryBuilder->getRestrictions()->removeAll();
-           $count = (int)$queryBuilder->count('uid')
-               ->from('tx_styleguide_elements_basic')
-               ->executeQuery()
-               ->fetchOne();
-           $this->assertEquals(0, $count);
+            // Verify there is no tx_styleguide_elements_basic yet
+            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+            $queryBuilder->getRestrictions()->removeAll();
+            $count = (int)$queryBuilder->count('uid')
+                ->from('tx_styleguide_elements_basic')
+                ->executeQuery()
+                ->fetchOne();
+            $this->assertEquals(0, $count);
 
-           $generator = new Generator();
-           $generator->create();
+            $generator = new Generator();
+            $generator->create();
 
-           // Verify there is at least one tx_styleguide_elements_basic record now
-           $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
-           $queryBuilder->getRestrictions()->removeAll();
-           $count = (int)$queryBuilder->count('uid')
-               ->from('tx_styleguide_elements_basic')
-               ->executeQuery()
-               ->fetchOne();
-           $this->assertGreaterThan(0, $count);
-       }
-   }
+            // Verify there is at least one tx_styleguide_elements_basic record now
+            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+            $queryBuilder->getRestrictions()->removeAll();
+            $count = (int)$queryBuilder->count('uid')
+                ->from('tx_styleguide_elements_basic')
+                ->executeQuery()
+                ->fetchOne();
+            $this->assertGreaterThan(0, $count);
+        }
+    }
 
 Ah, shame on us! The data generator does not work very well if we use MSSQL as our DBMS. It is therefore marked as
 `@group not-mssql` at the moment. We will need to fix that at some point. The rest is straight forward -
@@ -619,7 +619,7 @@ the styleguide extension (:php:`$testExtensionsToLoad`), need some additional ma
 call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
 That's it. It executes fine using :file:`runTests.sh`:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: Output of a functional test run
 
     lolli@apoc /var/www/local/git/styleguide $ Build/Scripts/runTests.sh -s functional
@@ -653,7 +653,7 @@ a TYPO3 test instance within the `.Build/` folder anyway. But the functional tes
 setup creates instances for the single tests cases. The code that is actually executed is now located in sub folder
 `typo3temp/` in `.Build/`. In this test case it is `functional-9ad521a`:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: The instance a functional test case creates
 
     lolli@apoc /var/www/local/git/styleguide $ ls -l .Build/Web/typo3temp/var/tests/functional-9ad521a/
@@ -670,7 +670,7 @@ This can be confusing at first, but it starts making sense the more you use it.
 Also, the :file:`docker-compose.yml` file contains setup to start databases for the functional tests
 and :file:`runTests.sh` is tuned to call the different scenarios.
 
-.. _testing-tutorial-enetcache-acceptance:
+..  _testing-tutorial-enetcache-acceptance:
 
 Acceptance testing
 ------------------
@@ -681,82 +681,82 @@ data that we functionally tested above. To verify this works in the backend, sty
 comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php>`_:
 
-.. code-block:: php
-   :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php
+..  code-block:: php
+    :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php
 
-    <?php
-    declare(strict_types = 1);
-    namespace TYPO3\CMS\Styleguide\Tests\Acceptance\Backend;
+     <?php
+     declare(strict_types = 1);
+     namespace TYPO3\CMS\Styleguide\Tests\Acceptance\Backend;
 
-    use TYPO3\CMS\Styleguide\Tests\Acceptance\Support\BackendTester;
-    use TYPO3\TestingFramework\Core\Acceptance\Helper\Topbar;
+     use TYPO3\CMS\Styleguide\Tests\Acceptance\Support\BackendTester;
+     use TYPO3\TestingFramework\Core\Acceptance\Helper\Topbar;
 
-    /**
-     * Tests the styleguide backend module can be loaded
-     */
-    class ModuleCest
-    {
-        /**
-         * Selector for the module container in the topbar
-         *
-         * @var string
-         */
-        public static $topBarModuleSelector = '#typo3-cms-backend-backend-toolbaritems-helptoolbaritem';
+     /**
+      * Tests the styleguide backend module can be loaded
+      */
+     class ModuleCest
+     {
+         /**
+          * Selector for the module container in the topbar
+          *
+          * @var string
+          */
+         public static $topBarModuleSelector = '#typo3-cms-backend-backend-toolbaritems-helptoolbaritem';
 
-        /**
-         * @param BackendTester $I
-         */
-        public function _before(BackendTester $I)
-        {
-            $I->useExistingSession('admin');
-        }
+         /**
+          * @param BackendTester $I
+          */
+         public function _before(BackendTester $I)
+         {
+             $I->useExistingSession('admin');
+         }
 
-        /**
-         * @param BackendTester $I
-         */
-        public function styleguideInTopbarHelpCanBeCalled(BackendTester $I)
-        {
-            $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
-            $I->canSee('Styleguide', self::$topBarModuleSelector);
-            $I->click('Styleguide', self::$topBarModuleSelector);
-            $I->switchToContentFrame();
-            $I->see('TYPO3 CMS Backend Styleguide', 'h1');
-        }
+         /**
+          * @param BackendTester $I
+          */
+         public function styleguideInTopbarHelpCanBeCalled(BackendTester $I)
+         {
+             $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
+             $I->canSee('Styleguide', self::$topBarModuleSelector);
+             $I->click('Styleguide', self::$topBarModuleSelector);
+             $I->switchToContentFrame();
+             $I->see('TYPO3 CMS Backend Styleguide', 'h1');
+         }
 
-        /**
-         * @depends styleguideInTopbarHelpCanBeCalled
-         * @param BackendTester $I
-         */
-        public function creatingDemoDataWorks(BackendTester $I)
-        {
-            $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
-            $I->canSee('Styleguide', self::$topBarModuleSelector);
-            $I->click('Styleguide', self::$topBarModuleSelector);
-            $I->switchToContentFrame();
-            $I->see('TYPO3 CMS Backend Styleguide', 'h1');
-            $I->click('TCA / Records');
-            $I->waitForText('TCA test records');
-            $I->click('Create styleguide page tree with data');
-            $I->waitForText('A page tree with styleguide TCA test records was created.', 300);
-        }
+         /**
+          * @depends styleguideInTopbarHelpCanBeCalled
+          * @param BackendTester $I
+          */
+         public function creatingDemoDataWorks(BackendTester $I)
+         {
+             $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
+             $I->canSee('Styleguide', self::$topBarModuleSelector);
+             $I->click('Styleguide', self::$topBarModuleSelector);
+             $I->switchToContentFrame();
+             $I->see('TYPO3 CMS Backend Styleguide', 'h1');
+             $I->click('TCA / Records');
+             $I->waitForText('TCA test records');
+             $I->click('Create styleguide page tree with data');
+             $I->waitForText('A page tree with styleguide TCA test records was created.', 300);
+         }
 
-        /**
-         * @depends creatingDemoDataWorks
-         * @param BackendTester $I
-         */
-        public function deletingDemoDataWorks(BackendTester $I)
-        {
-            $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
-            $I->canSee('Styleguide', self::$topBarModuleSelector);
-            $I->click('Styleguide', self::$topBarModuleSelector);
-            $I->switchToContentFrame();
-            $I->see('TYPO3 CMS Backend Styleguide', 'h1');
-            $I->click('TCA / Records');
-            $I->waitForText('TCA test records');
-            $I->click('Delete styleguide page tree and all styleguide data records');
-            $I->waitForText('The styleguide page tree and all styleguide records were deleted.', 300);
-        }
-    }
+         /**
+          * @depends creatingDemoDataWorks
+          * @param BackendTester $I
+          */
+         public function deletingDemoDataWorks(BackendTester $I)
+         {
+             $I->click(Topbar::$dropdownToggleSelector, self::$topBarModuleSelector);
+             $I->canSee('Styleguide', self::$topBarModuleSelector);
+             $I->click('Styleguide', self::$topBarModuleSelector);
+             $I->switchToContentFrame();
+             $I->see('TYPO3 CMS Backend Styleguide', 'h1');
+             $I->click('TCA / Records');
+             $I->waitForText('TCA test records');
+             $I->click('Delete styleguide page tree and all styleguide data records');
+             $I->waitForText('The styleguide page tree and all styleguide records were deleted.', 300);
+         }
+     }
 
 There are three tests. One verifies that the backend module can be called, one
 creates demo data and one deletes the demo data. The codeception setup needs more setup. The entry point
@@ -770,7 +770,7 @@ some database fixtures to easily log in to the backend. In addition, the :file:`
 :file:`docker-compose.yml` files take care of adding selenium-chrome and a web
 server to execute the tests:
 
-.. code-block:: shell
+..  code-block:: shell
     :caption: Output of an acceptance test run
 
     lolli@apoc /var/www/local/git/styleguide $ Build/Scripts/runTests.sh -s acceptance
@@ -815,7 +815,7 @@ Ok, this setup took a bit more effort, but we end up with a browser automaticall
 an ad-hoc TYPO3 instance to verify that this extension can perform its job. If something goes wrong, screenshots
 of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/AcceptanceReports/`.
 
-.. _testing-tutorial-enetcache-github2:
+..  _testing-tutorial-enetcache-github2:
 
 GitHub actions
 --------------
@@ -823,7 +823,7 @@ GitHub actions
 Now we want all of this checked automatically by Github Actions. As before, we
 define the jobs in `.github/workflows/tests.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
 
-.. code-block:: yaml
+..  code-block:: yaml
     :caption: .github/workflows/tests.yml of EXT:styleguide
 
     name: tests

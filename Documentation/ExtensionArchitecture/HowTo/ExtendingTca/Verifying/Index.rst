@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   TCA; Verification
-   Module; Configuration
-.. _verifying:
+..  include:: /Includes.rst.txt
+..  index::
+    TCA; Verification
+    Module; Configuration
+..  _verifying:
 
 =================
 Verifying the TCA
@@ -12,14 +12,14 @@ At some point it may be necessary to check the overall structure of
 The :guilabel:`System > Configuration` module gives you an overview of the
 complete :php:`$GLOBALS['TCA']`, with all modifications taken into account.
 
-.. note::
-    The :guilabel:`Configuration` module is part of the lowlevel system extension. In Composer mode you can install it with:
+..  note::
+     The :guilabel:`Configuration` module is part of the lowlevel system extension. In Composer mode you can install it with:
 
-   .. code-block:: shell
+    ..  code-block:: shell
 
-      composer req typo3/cms-lowlevel
+        composer req typo3/cms-lowlevel
 
-.. include:: /Images/ManualScreenshots/ExtendingTca/VerifyingTca.rst.txt
+..  include:: /Images/ManualScreenshots/ExtendingTca/VerifyingTca.rst.txt
 
 If you can't find your new field it probably means that you have
 made a mistake somewhere.

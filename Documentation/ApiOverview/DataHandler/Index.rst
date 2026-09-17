@@ -1,17 +1,17 @@
-.. include:: /Includes.rst.txt
-.. index:: DataHandler
-.. _tce:
-.. _data-handler:
+..  include:: /Includes.rst.txt
+..  index:: DataHandler
+..  _tce:
+..  _data-handler:
 
 ===========
 DataHandler
 ===========
 
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Introduction/Index
-   Database/Index
-   UsingDataHandler/Index
-   TceDb/Index
+    Introduction/Index
+    Database/Index
+    UsingDataHandler/Index
+    TceDb/Index

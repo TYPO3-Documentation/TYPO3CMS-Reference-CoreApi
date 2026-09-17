@@ -89,7 +89,7 @@ Extension files
 :file:`Configuration/TypoScript/`
     :ref:`TypoScript configuration <t3tsref:start>`.
 
-.. hint::
+..  hint::
     The files are explained in more depth in:
 
     * :ref:`extension-files-locations`
@@ -204,10 +204,10 @@ TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
     Stored in :php:`$GLOBALS['TYPO3_USER_SETTINGS']`, they define backend user
     preferences.
 
-.. hint::
+..  hint::
 
-   View configurations in the backend under :guilabel:`System > Configuration`
-   (read-only) or use a debugger. This requires the `lowlevel` system extension.
+    View configurations in the backend under :guilabel:`System > Configuration`
+    (read-only) or use a debugger. This requires the `lowlevel` system extension.
 
 Only system maintainers can change :php:`TYPO3_CONF_VARS`, extension settings,
 and feature toggles in the backend. TCA and settings for the

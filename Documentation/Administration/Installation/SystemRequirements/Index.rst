@@ -103,7 +103,7 @@ Database-specific PHP extensions
 
         * `sqlite3`
 
-.. _system-requirements-image-processing:
+..  _system-requirements-image-processing:
 
 Image processing requirements
 =============================
@@ -191,7 +191,7 @@ at the system level.
     :language: nginx
     :caption: Example: /etc/nginx/conf.d/typo3.conf
 
-.. _system-requirements-iis:
+..  _system-requirements-iis:
 
 IIS (Windows) web server configuration
 --------------------------------------
@@ -206,7 +206,7 @@ File location:
 
 :file:`EXT:install/Resources/Private/FolderStructureTemplateFiles/root-web-config`
 
-.. _system-requirements-docker:
+..  _system-requirements-docker:
 
 Using TYPO3 with Docker-based environments
 ==========================================
@@ -259,7 +259,7 @@ The Dockerfiles reference a `php.ini` file with recommended settings:
     Refer to these pages for available image variants (e.g. Alpine, FPM) and
     supported tags for each version.
 
-.. _system-requirements-docker-database-images:
+..  _system-requirements-docker-database-images:
 
 Recommended Docker images for TYPO3-compatible databases
 --------------------------------------------------------
@@ -277,7 +277,7 @@ These images can be used with Docker Compose or similar orchestration tools.
 Ensure proper volume mounts and configuration (users, encoding, collation)
 for TYPO3 compatibility.
 
-.. _system-requirements-local-environments:
+..  _system-requirements-local-environments:
 
 Using DDEV for local TYPO3 development
 ======================================

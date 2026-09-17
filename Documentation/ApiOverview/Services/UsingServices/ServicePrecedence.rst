@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Services API; Service precedence
-.. _services-using-services-precedence:
+..  include:: /Includes.rst.txt
+..  index:: Services API; Service precedence
+..  _services-using-services-precedence:
 
 ==================
 Service precedence

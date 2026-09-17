@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Password hashing
-   Troubleshooting
-   pair: Password; Troubleshooting
-.. _password-hashing_troubleshooting:
+..  include:: /Includes.rst.txt
+..  index::
+    Password hashing
+    Troubleshooting
+    pair: Password; Troubleshooting
+..  _password-hashing_troubleshooting:
 
 ===============
 Troubleshooting
@@ -17,11 +17,11 @@ Troubleshooting
 If the hashing mechanism used in passwords is not supported by your PHP build
 Errors like the following might pop up:
 
-.. code-block:: text
+..  code-block:: text
 
-   #1533818591 TYPO3\CMS\Core\Crypto\PasswordHashing\InvalidPasswordHashException
-   No implementation found that handles given hash. This happens if the
-   stored hash uses a mechanism not supported by current server.
+    #1533818591 TYPO3\CMS\Core\Crypto\PasswordHashing\InvalidPasswordHashException
+    No implementation found that handles given hash. This happens if the
+    stored hash uses a mechanism not supported by current server.
 
 
 ..  _password-hashing-troubleshooting-1533818591-invalidpasswordhashexception-explanation:
@@ -73,7 +73,7 @@ server where argon2 isn't available. Create a new user that uses the
 working algorithm.
 
 
-.. index:: File; config/system/settings.php
+..  index:: File; config/system/settings.php
 
 ..  _password-hashing-troubleshooting-1533818591-invalidpasswordhashexception-solutions-manually:
 

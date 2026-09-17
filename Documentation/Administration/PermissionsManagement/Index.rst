@@ -1,18 +1,18 @@
 :navigation-title: Permissions
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: backend, acl, permissions, user groups, user management
+..  index:: backend, acl, permissions, user groups, user management
 
-.. _permissions-management:
+..  _permissions-management:
 
 ======================
 Permissions management
 ======================
 
-.. warning::
+..  warning::
 
-   This chapter (and the following) cover modules that will only be available for backend users
-   with :ref:`"admin" <admin-user>` access privileges.
+    This chapter (and the following) cover modules that will only be available for backend users
+    with :ref:`"admin" <admin-user>` access privileges.
 
 ..  _permissions-management-introduction:
 
@@ -40,7 +40,7 @@ permission setup could lead to a risky workaround: granting administrative
 privileges to users who shouldn't have them, even though it may seem like a quick fix at the time.
 This approach compromises security and deviates from best practice.
 
-.. note::
+..  note::
 
     The intention behind the previous text isn't to make you worried about the complexity
     of access management in TYPO3. Actually, it's just the opposite. We want to show you
@@ -54,7 +54,7 @@ of recommended practices and guidelines that could be beneficial in managing
 permissions within the TYPO3 backend. However, remember that these recommendations
 are adaptable and can be tailored to suit your specific requirements.
 
-.. _available-acl-options:
+..  _available-acl-options:
 
 What access options can be set within TYPO3?
 ============================================
@@ -99,17 +99,17 @@ User TSConfig
 Visualizing this overview of Access Control Options will help in developing
 the naming convention for backend groups later on.
 
-.. note::
+..  note::
     Different types of Access Control Options can be leveraged to establish
     naming conventions for backend user groups.
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+..  toctree::
+    :maxdepth: 5
+    :titlesonly:
+    :glob:
 
-   GeneralRecommendations/Index
-   SettingUpBackendGroups/Index
-   ExampleConfiguration/Index
-   PermissionsSynchronization/Index
-   GroupsInheritance/Index
+    GeneralRecommendations/Index
+    SettingUpBackendGroups/Index
+    ExampleConfiguration/Index
+    PermissionsSynchronization/Index
+    GroupsInheritance/Index

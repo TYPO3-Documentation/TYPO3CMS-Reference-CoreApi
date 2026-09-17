@@ -20,7 +20,7 @@ and their details are found in standalone manuals:
 *   A quick kick start to frontend TypoScript is available at
     :ref:`TypoScript guide <t3tsref:guide>`.
 
-.. note::
+..  note::
 
     The TypoScript parser has been rewritten with TYPO3 v12. The new implementation is
     more resilient and more performant. This chapter has been rewritten for TYPO3 v12.
@@ -35,13 +35,13 @@ and their details are found in standalone manuals:
 
 **Table of Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   Introduction/Index
-   Syntax/Index
-   FrontendTypoScript/Index
-   TSconfig/Index
-   PhpApi/Index
-   MythsFaq/Index
+    Introduction/Index
+    Syntax/Index
+    FrontendTypoScript/Index
+    TSconfig/Index
+    PhpApi/Index
+    MythsFaq/Index

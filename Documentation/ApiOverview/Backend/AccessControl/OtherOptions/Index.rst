@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _access-other-options:
+..  _access-other-options:
 
 =============
 Other options
@@ -11,7 +11,7 @@ This chapter presents a few more, miscellaneous options for
 backend users and groups.
 
 
-.. _access-other-options-users:
+..  _access-other-options-users:
 
 Backend users
 =============
@@ -22,11 +22,11 @@ Default language
    :ref:`User Settings <backendlanguages>`
    module.
 
-   .. note::
+   ..  note::
 
-      Language packs must be downloaded using the :guilabel:`System > Maintenance > Manage Language Packs`
-      module. As long as the language packs are not available, the backend
-      will still display in English.
+       Language packs must be downloaded using the :guilabel:`System > Maintenance > Manage Language Packs`
+       module. As long as the language packs are not available, the backend
+       will still display in English.
 
 Fileoperation permissions
    This is a complement to the File Mounts and defines exactly which operations
@@ -45,7 +45,7 @@ Lock to domain
    sites.
 
 
-.. _access-other-options-groups:
+..  _access-other-options-groups:
 
 Backend groups
 ==============

@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _access-users-groups:
+..  include:: /Includes.rst.txt
+..  _access-users-groups:
 
 ================
 Users and groups
@@ -8,8 +8,8 @@ Users and groups
 TYPO3 features an access control system based on users and groups.
 
 
-.. index:: pair: Backend; Users
-.. _access-users-groups-users:
+..  index:: pair: Backend; Users
+..  _access-users-groups-users:
 
 Users
 =====
@@ -32,8 +32,8 @@ its default language for the backend is English.
 It is possible to assign rights directly to a user, but it is much better
 done using groups. Furthermore groups offer far more options.
 
-.. index:: pair: Backend; Groups
-.. _access-users-groups-groups:
+..  index:: pair: Backend; Groups
+..  _access-users-groups-groups:
 
 Groups
 ======
@@ -57,8 +57,8 @@ It contains many more fields!
 
 See :ref:`access-options` for details.
 
-.. index:: Admin user
-.. _access-users-groups-admin:
+..  index:: Admin user
+..  _access-users-groups-admin:
 
 The "admin" user
 ================
@@ -84,21 +84,21 @@ Admin users are differentiated with an orange icon.
 
     In :guilabel:`Content > Records` view, the different icon for admin users
 
-.. note::
+..  note::
 
-   There's no other level between admin and ordinary users.
-   This seems to be a strong limitation, especially
-   when you consider that ordinary users may not access TypoScript
-   templates.
+    There's no other level between admin and ordinary users.
+    This seems to be a strong limitation, especially
+    when you consider that ordinary users may not access TypoScript
+    templates.
 
-   However, there is a security reason for this. From a TypoScript template,
-   you can call a PHP script. So - in effect - a user with access to
-   TypoScript can run arbitrary PHP code on the server, for example
-   in order to create an admin account for himself. This type of escalation
-   cannot be allowed.
+    However, there is a security reason for this. From a TypoScript template,
+    you can call a PHP script. So - in effect - a user with access to
+    TypoScript can run arbitrary PHP code on the server, for example
+    in order to create an admin account for himself. This type of escalation
+    cannot be allowed.
 
 
-.. _access-users-groups-location:
+..  _access-users-groups-location:
 
 Location of users and groups
 ============================

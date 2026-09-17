@@ -11,7 +11,7 @@ is called after the markup for all enabled controls has been generated. It
 can be used to either change the markup of a control, to add a new control
 or to completely remove a control.
 
-.. _ModifyInlineElementControlsEvent_example:
+..  _ModifyInlineElementControlsEvent_example:
 
 Example
 =======

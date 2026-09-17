@@ -12,7 +12,7 @@ This page lists breaking changes and migration steps for
 upgrading an Extbase extension to a newer TYPO3 version. Each entry details
 what has changed, which version introduced the change, and what to do.
 
-.. tip::
+..  tip::
 
     Many migrations can be automated, and TYPO3 Rector (:composer:`ssch/typo3-rector`) provides
     rules to do so. The tool is actively maintained and updated for each TYPO3 version that is

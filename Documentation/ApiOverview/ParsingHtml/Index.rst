@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _parsing-html:
+..  _parsing-html:
 
 ============
 Parsing HTML
@@ -12,7 +12,7 @@ TYPO3 provides its own HTML parsing class:
 shows some example uses.
 
 
-.. _parsing-html-extraction-blocks:
+..  _parsing-html-extraction-blocks:
 
 Extracting blocks from an HTML document
 =======================================
@@ -20,46 +20,46 @@ Extracting blocks from an HTML document
 The first example shows how to extract parts of a document.
 Consider the following code:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   use TYPO3\CMS\Core\Html\HtmlParser;
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Html\HtmlParser;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-   $testHTML = '
-      <DIV>
-         <IMG src="welcome.gif">
-         <p>Line 1</p>
-         <p>Line <B class="test">2</B></p>
-         <p>Line <b><i>3</i></p>
-         <img src="test.gif" />
-         <BR><br/>
-         <TABLE>
-            <tr>
-               <td>Another line here</td>
-            </tr>
-         </TABLE>
-      </div>
-      <B>Text outside div tag</B>
-      <table>
-         <tr>
-            <td>Another line here</td>
-         </tr>
-      </table>
-   ';
+    $testHTML = '
+       <DIV>
+          <IMG src="welcome.gif">
+          <p>Line 1</p>
+          <p>Line <B class="test">2</B></p>
+          <p>Line <b><i>3</i></p>
+          <img src="test.gif" />
+          <BR><br/>
+          <TABLE>
+             <tr>
+                <td>Another line here</td>
+             </tr>
+          </TABLE>
+       </div>
+       <B>Text outside div tag</B>
+       <table>
+          <tr>
+             <td>Another line here</td>
+          </tr>
+       </table>
+    ';
 
-      // Splitting HTML into blocks defined by <div> and <table> tags
-   $parseObj = GeneralUtility::makeInstance(HtmlParser::class);
-   $result = $parseObj->splitIntoBlock('div,table', $testHTML);
+       // Splitting HTML into blocks defined by <div> and <table> tags
+    $parseObj = GeneralUtility::makeInstance(HtmlParser::class);
+    $result = $parseObj->splitIntoBlock('div,table', $testHTML);
 
 After loading some dummy HTML code into a variable, we create an instance of
 :code:`\TYPO3\CMS\Core\Html\HtmlParser` and ask it to split the HTML structure
 on "div" and "table" tags. A debug output of the result shows the following:
 
-.. figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingBlocks.png
-   :alt: Debug output of HTML parsing
+..  figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingBlocks.png
+    :alt: Debug output of HTML parsing
 
-   The HTML parsed into several blocks
+    The HTML parsed into several blocks
 
 As you can see the HTML source has been divided so the "div"
 section and the "table" section are found in key 1 and 3. Odd key always
@@ -76,31 +76,31 @@ Note also how the HTML parser does not care for case (upper or lower,
 all tags were found).
 
 
-.. _parsing-html-extraction-single:
+..  _parsing-html-extraction-single:
 
 Extracting single tags
 ======================
 
 It is also possible to split by non-block tags, for example "img" and "br":
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $result = $parseObj->splitTags('img,br', $testHTML);
+    $result = $parseObj->splitTags('img,br', $testHTML);
 
 with the following result:
 
-.. figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingTags.png
-   :alt: Debug output of HTML parsing
+..  figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingTags.png
+    :alt: Debug output of HTML parsing
 
-   The HTML split along some tags
+    The HTML split along some tags
 
 Again, all the odd keys in the array contain the tags that
 were found. Note how the parser handled transparently simple
 tags or self-closing tags.
 
 
-.. _parsing-html-cleanup:
+..  _parsing-html-cleanup:
 
 Cleaning HTML content
 =====================
@@ -112,33 +112,33 @@ is quite extensive. Please refer to the phpDoc comments of the
 
 Here is a sample usage:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $tagCfg = array(
-      'b' => array(
-         'nesting' => 1,
-         'remap' => 'strong',
-         'allowedAttribs' => 0
-      ),
-      'img' => array(),
-      'div' => array(),
-      'br' => array(),
-      'p' => array(
-         'fixAttrib' => array(
-            'class' => array(
-               'set' => 'bodytext'
-            )
-         )
-      )
-   );
-   $result = $parseObj->HTMLcleaner(
-      $testHTML,
-      $tagCfg,
-      FALSE,
-      FALSE,
-      array('xhtml' => 1)
-   );
+    $tagCfg = array(
+       'b' => array(
+          'nesting' => 1,
+          'remap' => 'strong',
+          'allowedAttribs' => 0
+       ),
+       'img' => array(),
+       'div' => array(),
+       'br' => array(),
+       'p' => array(
+          'fixAttrib' => array(
+             'class' => array(
+                'set' => 'bodytext'
+             )
+          )
+       )
+    );
+    $result = $parseObj->HTMLcleaner(
+       $testHTML,
+       $tagCfg,
+       FALSE,
+       FALSE,
+       array('xhtml' => 1)
+    );
 
 We first define our cleanup/transformation configuration.
 We define that only five tags should be kept ("b", "img", "div",
@@ -157,13 +157,13 @@ Lastly - in the call to :code:`HTMLcleaner()` itself, we request
 
 This is the result:
 
-.. figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingCleanup.png
-   :alt: Debug output of cleaned up HTML
+..  figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingCleanup.png
+    :alt: Debug output of cleaned up HTML
 
-   The cleaned up HTML code
+    The cleaned up HTML code
 
 
-.. _parsing-html-advanced:
+..  _parsing-html-advanced:
 
 Advanced processing
 ===================

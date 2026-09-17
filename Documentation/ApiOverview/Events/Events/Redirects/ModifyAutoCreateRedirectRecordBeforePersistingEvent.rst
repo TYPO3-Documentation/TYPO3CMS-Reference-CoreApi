@@ -34,4 +34,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/ModifyAutoCreateRedirectRecordBeforePersistingEvent.rst.txt
+..  include:: /CodeSnippets/Events/Redirects/ModifyAutoCreateRedirectRecordBeforePersistingEvent.rst.txt

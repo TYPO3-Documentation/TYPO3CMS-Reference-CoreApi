@@ -1,12 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index:: Password hashing
-.. _password-hashing:
+..  include:: /Includes.rst.txt
+..  index:: Password hashing
+..  _password-hashing:
 
 ================
 Password hashing
 ================
 
-.. _password-hashing-introduction:
+..  _password-hashing-introduction:
 
 Introduction
 ============
@@ -21,7 +21,7 @@ This section is for administrators and users who want to know more about TYPO3 p
 have a basic understanding of hashing algorithms and configuration in TYPO3.
 
 
-.. _password-hashing-basic-knowledge:
+..  _password-hashing-basic-knowledge:
 
 Basic knowledge
 ===============
@@ -112,19 +112,19 @@ Below is an example of a frontend user with its stored password hash. Since TYPO
 different hash mechanisms in parallel, each hash is prefixed with a unique string that identifies the
 used hash algorithm. In this case it is `$argon2id` which denotes the Argon2id hash algorithm:
 
-.. code-block:: none
-   :caption: Data of a frontend user in the database
+..  code-block:: none
+    :caption: Data of a frontend user in the database
 
-   MariaDB [cms]> SELECT uid,username,password FROM fe_users WHERE uid=2;
-   +-----+----------+----------------------------------------------------------------------------------------------------+
-   | uid | username | password                                                                                           |
-   +-----+----------+----------------------------------------------------------------------------------------------------+
-   |   2 | someuser | $argon2id$v=19$m=65536,t=16,p=1$NkVhNmt5Ynl6ZDRkV1RlZw$16iztnV7xYJDlsG0hEL9sLGDGFC/WQx34ogfoWHBVJI |
-   +-----+----------+----------------------------------------------------------------------------------------------------+
-   1 row in set (0.01 sec)
+    MariaDB [cms]> SELECT uid,username,password FROM fe_users WHERE uid=2;
+    +-----+----------+----------------------------------------------------------------------------------------------------+
+    | uid | username | password                                                                                           |
+    +-----+----------+----------------------------------------------------------------------------------------------------+
+    |   2 | someuser | $argon2id$v=19$m=65536,t=16,p=1$NkVhNmt5Ynl6ZDRkV1RlZw$16iztnV7xYJDlsG0hEL9sLGDGFC/WQx34ogfoWHBVJI |
+    +-----+----------+----------------------------------------------------------------------------------------------------+
+    1 row in set (0.01 sec)
 
 
-.. index:: Password hashing; Configuration
+..  index:: Password hashing; Configuration
 
 ..  _password-hashing-configuration:
 
@@ -167,10 +167,10 @@ They rely on different PHP capabilities and might be suitable fall backs, if Arg
 reason.
 
 
-.. index::
-   TYPO3_CONF_VARS; SYS availablePasswordHashAlgorithms
-   TYPO3_CONF_VARS; FE passwordHashing
-   TYPO3_CONF_VARS; BE passwordHashing
+..  index::
+    TYPO3_CONF_VARS; SYS availablePasswordHashAlgorithms
+    TYPO3_CONF_VARS; FE passwordHashing
+    TYPO3_CONF_VARS; BE passwordHashing
 
 ..  _password-hashing-configuration-options:
 
@@ -194,8 +194,8 @@ Configuration of password hashing is stored in :file:`config/system/settings.php
 
 
 
-.. index:: Password hashing;
-.. _password-hashing-available-algorithms:
+..  index:: Password hashing;
+..  _password-hashing-available-algorithms:
 
 Available hash algorithms
 =========================
@@ -207,7 +207,7 @@ not need to fiddle with these and should go with defaults configured by the Core
 administrators should know exactly what they are doing.
 
 
-.. index:: Password hashing;
+..  index:: Password hashing;
 
 ..  _password-hashing-available-algorithms-argon2i-argon2id:
 
@@ -227,7 +227,7 @@ Options:
 * threads: Number of threads to use for computing the Argon2 hash. Defaults to 2.
 
 
-.. index:: Password hashing;
+..  index:: Password hashing;
 
 ..  _password-hashing-available-algorithms-bcrypt:
 
@@ -240,7 +240,7 @@ additional quirks for long passwords in PHP and should only be used if Argon2i i
 * cost: Denotes the algorithmic time cost that should be used, given in number of iterations. Defaults to 12.
 
 
-.. index:: Password hashing;
+..  index:: Password hashing;
 
 ..  _password-hashing-available-algorithms-pbkdf2:
 
@@ -254,7 +254,7 @@ It could be a preferred password hash algorithm if storing passwords in a FIPS c
 * hash_count: Number of hash iterations (time cost). Defaults to 25000.
 
 
-.. index:: Password hashing;
+..  index:: Password hashing;
 
 ..  _password-hashing-available-algorithms-phpass:
 
@@ -267,7 +267,7 @@ The implementation should work on almost all PHP builds. Options:
 * hash_count: The default log2 number of iterations (time cost) for password stretching. Defaults to 14.
 
 
-.. index:: Password hashing;
+..  index:: Password hashing;
 
 ..  _password-hashing-available-algorithms-blowfish:
 
@@ -307,13 +307,13 @@ To create a new password hash from a given plain-text password, these are the st
 
 Example implementation for TYPO3 frontend:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   // Given plain text password
-   $password = 'someHopefullyGoodAndLongPassword';
-   $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
-   $hashedPassword = $hashInstance->getHashedPassword($password);
+    // Given plain text password
+    $password = 'someHopefullyGoodAndLongPassword';
+    $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
+    $hashedPassword = $hashInstance->getHashedPassword($password);
 
 ..  _password-hashing-php-api-checking-password:
 
@@ -327,20 +327,20 @@ To check a plain-text password against a password hash, these are the steps to b
 
 Example implementation for TYPO3 frontend:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
-   // ...
-   // Given plain-text password
-   $password = 'someHopefullyGoodAndLongPassword';
-   // The stored password hash from database
-   $passwordHash = 'YYY';
-   // The context, either 'FE' or 'BE'
-   $mode = 'FE';
-   $success = GeneralUtility::makeInstance(PasswordHashFactory::class)
-       ->get($passwordHash, $mode) # or getDefaultHashInstance($mode)
-       ->checkPassword($password, $passwordHash);
+    use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
+    // ...
+    // Given plain-text password
+    $password = 'someHopefullyGoodAndLongPassword';
+    // The stored password hash from database
+    $passwordHash = 'YYY';
+    // The context, either 'FE' or 'BE'
+    $mode = 'FE';
+    $success = GeneralUtility::makeInstance(PasswordHashFactory::class)
+        ->get($passwordHash, $mode) # or getDefaultHashInstance($mode)
+        ->checkPassword($password, $passwordHash);
 
 ..  _password-hashing-php-api-adding-new-hash:
 
@@ -355,14 +355,14 @@ To add an additional hash algorithm, these steps are necessary:
     :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3ConfVars_sys_availablePasswordHashAlgorithms>`
 
 
-.. _hash: https://en.wikipedia.org/wiki/Cryptographic_hash_function
-.. _password hash: https://en.wikipedia.org/wiki/Key_derivation_function
-.. _Argon2: https://en.wikipedia.org/wiki/Argon2
-.. _bcrypt: https://en.wikipedia.org/wiki/Bcrypt
-.. _PBKDF2: https://en.wikipedia.org/wiki/PBKDF2
-.. _phpass: https://www.openwall.com/phpass/
-.. _blowfish: https://en.wikipedia.org/wiki/Blowfish_(cipher)
-.. _md5: https://en.wikipedia.org/wiki/MD5
+..  _hash: https://en.wikipedia.org/wiki/Cryptographic_hash_function
+..  _password hash: https://en.wikipedia.org/wiki/Key_derivation_function
+..  _Argon2: https://en.wikipedia.org/wiki/Argon2
+..  _bcrypt: https://en.wikipedia.org/wiki/Bcrypt
+..  _PBKDF2: https://en.wikipedia.org/wiki/PBKDF2
+..  _phpass: https://www.openwall.com/phpass/
+..  _blowfish: https://en.wikipedia.org/wiki/Blowfish_(cipher)
+..  _md5: https://en.wikipedia.org/wiki/MD5
 
 
 ..  _password-hashing-information:
@@ -370,8 +370,8 @@ To add an additional hash algorithm, these steps are necessary:
 More information
 ================
 
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
+..  toctree::
+    :titlesonly:
+    :maxdepth: 1
 
-   Troubleshooting
+    Troubleshooting

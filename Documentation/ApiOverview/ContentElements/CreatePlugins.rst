@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Plugin; Create
-.. _Create-plugins:
+..  include:: /Includes.rst.txt
+..  index:: Plugin; Create
+..  _Create-plugins:
 
 ==============
 Create plugins

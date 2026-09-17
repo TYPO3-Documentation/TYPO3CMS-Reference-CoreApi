@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: backend, acl, permissions, user groups, user management
+..  index:: backend, acl, permissions, user groups, user management
 
-.. _general-recommendations:
+..  _general-recommendations:
 
 =======================
 General recommendations
@@ -15,7 +15,7 @@ before proceeding to the next chapter, where guidance on establishing top-level
 backend groups corresponding to different roles, such as editors, proofreaders,
 and others, is explained.
 
-.. _user-specific-accounts:
+..  _user-specific-accounts:
 
 Create user-specific accounts
 =============================
@@ -31,20 +31,20 @@ In the context of :abbr:`GDPR (General Data Protection Regulation)`, it is recom
 to use properly named accounts to easily distinguish individuals. Assigning top-level
 groups to these accounts makes identifying user roles straightforward.
 
-.. figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementBadUserNaming.png
-   :alt: Bad username setup
+..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementBadUserNaming.png
+    :alt: Bad username setup
 
-   Bad username setup
+    Bad username setup
 
-.. figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementGoodUserNaming.png
-   :alt: Good username setup
+..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementGoodUserNaming.png
+    :alt: Good username setup
 
-   Good username setup
+    Good username setup
 
-.. note::
+..  note::
     Avoid generic names for a backend username, instead use their real names.
 
-.. _ensure-safety:
+..  _ensure-safety:
 
 How to ensure safety
 ====================
@@ -62,13 +62,13 @@ Secure each user account with a strong password and follow
 or updated accounts. Promote cybersecurity by informing users about security policies.
 Additionally, enable Multi-factor authentication (MFA) for an extra security layer.
 
-.. note::
+..  note::
     - Grant users only the access they truly need
     - Instead of using administrative accounts, create groups for specific roles, such as editor, and assign these roles to users
     - Regularly maintain backend user accounts, removing any that are no longer needed
     - Always establish secure passwords for users
 
-.. _permissions-via-groups:
+..  _permissions-via-groups:
 
 Set permissions via groups, not user records
 ============================================
@@ -80,19 +80,19 @@ to long-term issues, such as difficulty tracking permission origins when spread
 across users and groups. Centralizing permissions in backend groups simplifies their
 management and maintenance.
 
-.. figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementDoNotSetPermissionsOnUserRecord.png
-   :alt: User record without permissions
+..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementDoNotSetPermissionsOnUserRecord.png
+    :alt: User record without permissions
 
-   Avoid setting permissions directly through the backend user record
+    Avoid setting permissions directly through the backend user record
 
 When permissions are assigned to individual users and groups, updating them
 requires editing each account. Setting permissions at the group level
 simplifies updates, as changes automatically apply to all group members.
 
-.. note::
+..  note::
     Configure permissions only through the backend user groups. Don’t set them on the user record.
 
-.. _file-mounts-and-files-management:
+..  _file-mounts-and-files-management:
 
 File mounts and files management
 ================================
@@ -125,5 +125,5 @@ structure for each site. However, the setup remains similar - create separate
 file mounts where needed and a backend group that will utilize this file mount.
 Then, assign such groups to role groups.
 
-.. note::
+..  note::
     For each File Mount create a separate backend user group.

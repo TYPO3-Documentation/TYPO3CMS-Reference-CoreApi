@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: Extension development; File name conventions
-.. _extension-files-locations:
-.. _extension-reserved-folders-legacy:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; File name conventions
+..  _extension-files-locations:
+..  _extension-reserved-folders-legacy:
 
 ==============
 File structure
@@ -124,7 +124,7 @@ The following folder and file structure is typical for a TYPO3 extension:
     *   :ref:`ext_tables.sql <ext_tables-sql>`
 
 
-.. _extension-files:
+..  _extension-files:
 
 Files
 =====
@@ -140,8 +140,8 @@ An extension consists of:
 
 3. Additional files for the main extension functionality.
 
-.. index:: Extension development; Reserved file names
-.. _extension-reserved-filenames:
+..  index:: Extension development; Reserved file names
+..  _extension-reserved-filenames:
 
 Reserved file names
 ===================
@@ -150,7 +150,7 @@ Most of these files are not required, except :file:`composer.json <extension-com
 
 Do not use the prefix :file:`ext_` in your extension names as this is a reserved name.
 
-.. _extension-reserved-folders:
+..  _extension-reserved-folders:
 
 Reserved folders
 ================
@@ -167,10 +167,10 @@ the system will autoload the files.
 Extension kickstarters like the :composer:`friendsoftypo3/extension-builder`
 will create the correct structure for you.
 
-.. toctree::
-   :titlesonly:
-   :glob:
-   :hidden:
+..  toctree::
+    :titlesonly:
+    :glob:
+    :hidden:
 
-   */Index
-   *
+    */Index
+    *

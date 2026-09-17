@@ -10,13 +10,13 @@ This chapter contains description of the formal requirements or standards
 regarding coding that you should adhere to when you develop TYPO3
 extensions or Core parts.
 
-.. tip::
+..  tip::
 
-   You can find an
-   `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__
-   file in the TYPO3 Core  repository.
-   `Some editors and IDEs <https://editorconfig.org/>`__ can use this
-   file and the rules defined within.
+    You can find an
+    `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__
+    file in the TYPO3 Core  repository.
+    `Some editors and IDEs <https://editorconfig.org/>`__ can use this
+    file and the rules defined within.
 
 Some basic rules are defined in the .editorconfig, such as the charset and
 the indenting style. By default, indenting with 4 spaces is

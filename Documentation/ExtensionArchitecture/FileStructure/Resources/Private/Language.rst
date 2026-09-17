@@ -1,10 +1,10 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Folder; Resources/Private/Language
-   Resources; Language
-   Resources; XLF
-   Resources; locallang
-.. _extension-Resources-Private-Language:
+..  include:: /Includes.rst.txt
+..  index::
+    Folder; Resources/Private/Language
+    Resources; Language
+    Resources; XLF
+    Resources; locallang
+..  _extension-Resources-Private-Language:
 
 ==========
 `Language`

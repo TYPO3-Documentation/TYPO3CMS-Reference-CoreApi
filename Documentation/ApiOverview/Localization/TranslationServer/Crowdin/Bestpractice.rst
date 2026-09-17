@@ -209,7 +209,7 @@ it is used in TYPO3.
 
 You find the Extension here: `Extension Crowdin | TER`_
 
-.. _Extension Crowdin | TER: https://extensions.typo3.org/extension/crowdin
+..  _Extension Crowdin | TER: https://extensions.typo3.org/extension/crowdin
 
 ..  _crowdin-bestpractice-setup-translating:
 
@@ -237,7 +237,7 @@ most out of the tool.
 
 You find the Crowdin Docs here: `Crowdin Docs`_
 
-.. _Crowdin Docs: https://support.crowdin.com/
+..  _Crowdin Docs: https://support.crowdin.com/
 
 ..  _crowdin-bestpractice-glossary:
 
@@ -259,9 +259,9 @@ collaboration and makes it easier for future translators to deliver high quality
 
 You can read more about creating and using Glossary on Crowdin Docs: `Glossary | Crowdin Docs`_
 
-.. _Glossary | Crowdin Docs: https://support.crowdin.com/glossary/
+..  _Glossary | Crowdin Docs: https://support.crowdin.com/glossary/
 
-.. _crowdin-bestpractice-tm:
+..  _crowdin-bestpractice-tm:
 
 Translation memory (TM)
 -----------------------
@@ -285,7 +285,7 @@ consistency in translations, and you don't have to reinvent the wheel repeatedly
 
 Read more about Translation Memory on Crowdin Docs: `Translation Memory | Crowdin Docs`_
 
-.. _Translation Memory | Crowdin Docs: https://support.crowdin.com/translation-memory/
+..  _Translation Memory | Crowdin Docs: https://support.crowdin.com/translation-memory/
 
 ..  _crowdin-bestpractice-shortcuts:
 
@@ -298,7 +298,7 @@ Shortcuts can save you a lot of clicks and make it easier to navigate, especiall
 when you're working on large projects. Check out the list of shortcuts and try it
 out – you'll quickly discover which ones best suit your working style.
 
-.. _crowdin-bestpractice-communication:
+..  _crowdin-bestpractice-communication:
 
 Communication and collaboration
 -------------------------------
@@ -316,9 +316,9 @@ Go to TYPO3 Slack:
 *   Channel questions and problems working with translations: `typo3-translations | Slack`_
 *   Channel for the localization team: `typo3-localization-team | Slack`_
 
-.. _TYPO3 Slack Account: https://docs.typo3.org/m/typo3/guide-step-by-step/main/en-us/10GettingStarted/05MeetTheCommunity/SignUpForATypo3SlackAccount.html
-.. _typo3-translations | Slack: https://typo3.slack.com/archives/C032FRT0W
-.. _typo3-localization-team | Slack: https://typo3.slack.com/archives/CR75200FL
+..  _TYPO3 Slack Account: https://docs.typo3.org/m/typo3/guide-step-by-step/main/en-us/10GettingStarted/05MeetTheCommunity/SignUpForATypo3SlackAccount.html
+..  _typo3-translations | Slack: https://typo3.slack.com/archives/C032FRT0W
+..  _typo3-localization-team | Slack: https://typo3.slack.com/archives/CR75200FL
 
 ..  _crowdin-bestpractice-stuck:
 
@@ -360,7 +360,7 @@ one word in a sentence, Crowdin counts the entire sentence as changed. Luckily,
 it shows the translation from the old version, so you can copy and correct just
 that one word – it's fast and saves time.
 
-.. _crowdin-bestpractice-proofreader:
+..  _crowdin-bestpractice-proofreader:
 
 Proofreaders 101
 ================
@@ -377,7 +377,7 @@ Crowdin should remember and ignore them in the future.
 
 Read more about QA: `QA Check | Crowdin Docs`_
 
-.. _QA Check | Crowdin Docs: https://support.crowdin.com/project-settings/qa-checks/
+..  _QA Check | Crowdin Docs: https://support.crowdin.com/project-settings/qa-checks/
 
 Use the batch approval view in the Editor view, to get many translations done in a few steps. By changing the
 view from "Comfortable" to "Side-by-side", you get a full view of the translated strings and words.
@@ -385,7 +385,7 @@ You can select more/all strings and approve all selected strings in one click.
 
 Reviewing translation is explained here: `Side-by-side | Crowdin Docs`_
 
-.. _Side-by-side | Crowdin Docs: https://support.crowdin.com/online-editor/#proofreading
+..  _Side-by-side | Crowdin Docs: https://support.crowdin.com/online-editor/#proofreading
 
 Finally, if you do both translation and approval in Crowdin (some of us do..), there is a neat
 little feature we will share with you: The fabulous "Auto-approve" feature! As a proofreader or
@@ -394,9 +394,9 @@ feature under the "Editor Settings" just beside your logo in the top right corne
 
 Aoto-approval is explained here: `Editor Settings | Crowdin Docs`_
 
-.. _Editor Settings | Crowdin Docs: https://support.crowdin.com/online-editor/#editor-settings
+..  _Editor Settings | Crowdin Docs: https://support.crowdin.com/online-editor/#editor-settings
 
-.. _crowdin-bestpractice-final:
+..  _crowdin-bestpractice-final:
 
 Final thoughts
 ==============
@@ -410,7 +410,7 @@ Feel free to share your experiences and best tips with the community – it empo
 everyone, and together we can make TYPO3 even better and more accessible to users
 all over the world.
 
-.. _crowdin-bestpractice-further-readings:
+..  _crowdin-bestpractice-further-readings:
 
 Further readings
 ----------------
@@ -418,4 +418,4 @@ Further readings
 Get inspired by Martin Pribyl's article about how he did a full translation and
 proofreading of TYPO3 CMS into Czech language: `Bringing Czech to TYPO3 - My Translation Journey`_
 
-.. _Bringing Czech to TYPO3 - My translation Journey: https://news.typo3.com/archive/bringing-czech-to-typo3-my-translation-journey
+..  _Bringing Czech to TYPO3 - My translation Journey: https://news.typo3.com/archive/bringing-czech-to-typo3-my-translation-journey

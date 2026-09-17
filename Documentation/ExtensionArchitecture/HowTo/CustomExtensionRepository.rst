@@ -1,18 +1,18 @@
 :navigation-title: Extension repositories
 
-.. include:: /Includes.rst.txt
-.. index:: Custom Extension Repository
-.. _custom-extension-repository:
+..  include:: /Includes.rst.txt
+..  index:: Custom Extension Repository
+..  _custom-extension-repository:
 
 ===========================
 Custom extension repository
 ===========================
 
-.. note::
+..  note::
 
-   This section is only relevant for Classic mode installations,
-   as Composer Mode installations use the download functionality
-   of Composer.
+    This section is only relevant for Classic mode installations,
+    as Composer Mode installations use the download functionality
+    of Composer.
 
 TYPO3 provides functionality that connects to a different repository type
 than the "official" TER_ (TYPO3 Extension Repository) to download third-party extensions.
@@ -23,23 +23,23 @@ an extension via the :php:`ExtensionDownloaderRemoteInterface`.
 It is possible to add new remotes, disable registered remotes
 or change the default remote.
 
-.. index:: File; EXT:{extkey}/Configuration/Services.yaml
+..  index:: File; EXT:{extkey}/Configuration/Services.yaml
 
 Custom remote configuration can be added in the
 :file:`Configuration/Services.yaml` of the corresponding extension.
 
-.. code-block:: yaml
+..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-  extension.remote.myremote:
-    class: 'TYPO3\CMS\Extensionmanager\Remote\TerExtensionRemote'
-    arguments:
-      $identifier: 'myremote'
-      $options:
-         remoteBase: 'https://my_own_remote/'
-    tags:
-      - name: 'extension.remote'
-        default: true
+    extension.remote.myremote:
+      class: 'TYPO3\CMS\Extensionmanager\Remote\TerExtensionRemote'
+      arguments:
+        $identifier: 'myremote'
+        $options:
+           remoteBase: 'https://my_own_remote/'
+      tags:
+        - name: 'extension.remote'
+          default: true
 
 Using :yaml:`default: true`, "myremote" will be used as the default remote.
 Setting :yaml:`default: true` only works if the defined service
@@ -50,12 +50,12 @@ Please note that :php:`Vendor\SitePackage\Remote\MyRemote` must implement
 
 To disable an already registered remote, :yaml:`enabled: false` can be set.
 
-.. code-block:: yaml
+..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-  extension.remote.ter:
-    tags:
-      - name: 'extension.remote'
-        enabled: false
+    extension.remote.ter:
+      tags:
+        - name: 'extension.remote'
+          enabled: false
 
-.. _TER: https://extensions.typo3.org/
+..  _TER: https://extensions.typo3.org/

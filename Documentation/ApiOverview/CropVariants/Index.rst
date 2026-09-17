@@ -1,7 +1,7 @@
 :navigation-title: Cropping images
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _cropvariants:
+..  _cropvariants:
 
 ========================
 Crop variants for images
@@ -14,10 +14,10 @@ as in previous TYPO3 versions.
 
 See also :ref:`TCA reference on imageManipulation<t3tca:columns-imagemanipulation>`
 
-.. toctree::
-   :maxdepth: 5
-   :titlesonly:
-   :glob:
+..  toctree::
+    :maxdepth: 5
+    :titlesonly:
+    :glob:
 
-   General/Index
-   ContentElement/Index
+    General/Index
+    ContentElement/Index

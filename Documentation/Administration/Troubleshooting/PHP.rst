@@ -1,14 +1,14 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: php requirements, php, windows, opcode cache
+..  index:: php requirements, php, windows, opcode cache
 
-.. _troubleshooting-php:
+..  _troubleshooting-php:
 
 ===
 PHP
 ===
 
-.. _troubleshooting-php-modules:
+..  _troubleshooting-php-modules:
 
 Missing PHP modules
 -------------------
@@ -21,22 +21,22 @@ For example, the PHP extensions openssl and fileinfo must be enabled. This can
 be achieved by adding (or uncommenting) the following lines in the [PHP]
 section of your :file:`php.ini` file:
 
-.. code-block:: none
-   :caption: php.ini
+..  code-block:: none
+    :caption: php.ini
 
-   extension=fileinfo.so
-   extension=openssl.so
+    extension=fileinfo.so
+    extension=openssl.so
 
 On a Windows-based server, these are the extension files:
 
-.. code-block:: none
-   :caption: php.ini
+..  code-block:: none
+    :caption: php.ini
 
-   extension=php_fileinfo.dll
-   extension=php_openssl.dll
+    extension=php_fileinfo.dll
+    extension=php_openssl.dll
 
 
-.. _troubleshooting-php-caches-extension-classes-etc:
+..  _troubleshooting-php-caches-extension-classes-etc:
 
 PHP caches, extension classes etc.
 ----------------------------------
@@ -54,7 +54,7 @@ illogical problems after an upgrade:
   and restart Apache.
 
 
-.. _troubleshooting-php-troubleshooting_opcode:
+..  _troubleshooting-php-troubleshooting_opcode:
 
 Opcode cache messages
 ---------------------

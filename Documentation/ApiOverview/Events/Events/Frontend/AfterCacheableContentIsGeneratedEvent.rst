@@ -70,7 +70,7 @@ The event has been changed by removing :php:`getController()` and adding
 Extensions aiming for TYPO3 v13 and v14 compatibility in a single version can use a version
 check gate:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php (excerpt)
 
     #[AsEventListener('my-extension')]

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Testing
-.. _testing:
+..  include:: /Includes.rst.txt
+..  index:: ! Testing
+..  _testing:
 
 =======
 Testing

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: LinkBrowser; Custom
-.. _tutorial-github-link-handler:
+..  include:: /Includes.rst.txt
+..  index:: LinkBrowser; Custom
+..  _tutorial-github-link-handler:
 
 ============================
 Create a custom link browser
@@ -35,13 +35,13 @@ automatically.
 ..  contents::
     :local:
 
-.. _tutorial_backend_link_handler-tsconfig:
+..  _tutorial_backend_link_handler-tsconfig:
 
 1.  Register the custom link browser tab in page TSconfig
 =========================================================
 
-.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_PageTsConfig.typoscript
-   :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig
+..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_PageTsConfig.typoscript
+    :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig
 
 The following options are of note here:
 
@@ -58,7 +58,7 @@ The following options are of note here:
 
 For a complete list of available option see :ref:`link-handler-configuration`.
 
-.. _tutorial_backend_link_handler:
+..  _tutorial_backend_link_handler:
 
 2. Create a link browser tab
 ============================
@@ -88,8 +88,8 @@ We will explain some of the important methods below:
 Initialization and dependencies
 -------------------------------
 
-.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.php
-   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
+..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.php
+    :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
 For technical reasons, not all dependencies needed by the backend link handler can
 be acquired by :ref:`DependencyInjection`. Therefore the following two methods
@@ -136,7 +136,7 @@ be marked as :yaml:`shared: false`:
 ..  literalinclude:: _CustomLinkBrowser/_Services.yaml
     :caption: EXT:examples/Configuration/Services.yaml
 
-.. _tutorial_backend_link_handler_render:
+..  _tutorial_backend_link_handler_render:
 
 Render the link browser tab
 ---------------------------
@@ -145,10 +145,10 @@ The method :php:`LinkHandlerInterface::render()` is called when the tab should
 be rendered. It registers the required JavaScript in the page renderer, assigns
 variables to the view and returns the rendered HTML.
 
-.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.php
-   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
+..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.php
+    :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
-.. _tutorial_backend_link_handler_javascript:
+..  _tutorial_backend_link_handler_javascript:
 
 Set the link via JavaScript
 ---------------------------
@@ -158,8 +158,8 @@ JavaScript class interprets the form data and creates the link to be stored:
 
 ..  todo: Configure code snippet tool to remove or shorten the license comment here
 
-.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.js
-   :caption: EXT:examples/Resources/Public/JavaScript/github_link_handler.js
+..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.js
+    :caption: EXT:examples/Resources/Public/JavaScript/github_link_handler.js
 
 It is important that the JavaScript function calls
 :js:`LinkBrowser.finalizeFunction()`. Otherwise no link will be set.
@@ -181,7 +181,7 @@ when the link browser is opened later from within a form, for example from
 an inline record.
 
 
-.. _tutorial_backend_link_handler_canHandleLink:
+..  _tutorial_backend_link_handler_canHandleLink:
 
 Can we handle this link?
 ------------------------
@@ -192,10 +192,10 @@ be called and can decide if they can handle that link. If so, they should store
 the provided information to be used in rendering (for example, to fill an input
 field with the old value).
 
-.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.php
-   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
+..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.php
+    :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
-.. _tutorial_backend_link_handler_formatCurrentUrl:
+..  _tutorial_backend_link_handler_formatCurrentUrl:
 
 Format current URL
 ------------------
@@ -232,8 +232,8 @@ of the new format by a second class which implements the
     :php:`TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface` handle the
     introduced link format. Such a class is called a "(core) link handler".
 
-.. literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandling.php
-   :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandling
+..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandling.php
+    :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandling
 
 The method :php:`LinkHandlingInterface::asString()` creates a string
 representation from the parameter array.

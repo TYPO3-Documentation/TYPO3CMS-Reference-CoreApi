@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Content elements; custom
-   pair: Create; Content elements
-.. _adding-your-own-content-elements:
+..  include:: /Includes.rst.txt
+..  index::
+    Content elements; custom
+    pair: Create; Content elements
+..  _adding-your-own-content-elements:
 
 ============================================
 Create a custom content element type (CType)
@@ -45,12 +45,12 @@ The following examples require an extension like the system extension
 
 It can be installed via Composer with:
 
-.. code-block:: console
+..  code-block:: console
 
-   composer req typo3/cms-fluid-styled-content
+    composer req typo3/cms-fluid-styled-content
 
-.. index:: Extension development; Custom content element
-.. _AddingCE-use-an-extension:
+..  index:: Extension development; Custom content element
+..  _AddingCE-use-an-extension:
 
 Use an extension
 ================
@@ -62,9 +62,9 @@ Here you can find information on how to
 :ref:`create an extension <extension-create-new>`.
 
 
-.. index:: Content element; Registration
-.. _RegisterCE:
-.. _AddingCE-TCA-Overrides-tt_content:
+..  index:: Content element; Registration
+..  _RegisterCE:
+..  _AddingCE-TCA-Overrides-tt_content:
 
 Register the content element type
 =================================
@@ -92,8 +92,8 @@ Now the new content element is available in the CType selector and the
     :php:`ExtensionManagementUtility::addRecordType`.
 
 
-.. index:: Content element; Icon
-.. _AddingCE-Icon:
+..  index:: Content element; Icon
+..  _AddingCE-Icon:
 
 Display an icon
 ---------------
@@ -107,8 +107,8 @@ own icon using the :ref:`Icon API <icon>`.
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_icon.diff
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
 
-.. index:: Content element; Wizard
-.. _AddingCE-PageTSconfig:
+..  index:: Content element; Wizard
+..  _AddingCE-PageTSconfig:
 
 The new content element wizard
 ==============================
@@ -132,8 +132,8 @@ It is also possible to define an :ref:`icon <AddingCE-Icon>` and a description:
 The content element wizard configuration is described in detail in
 :ref:`content-element-wizard`.
 
-.. index:: Content element; Backend form
-.. _ConfigureCE-Fields:
+..  index:: Content element; Backend form
+..  _ConfigureCE-Fields:
 
 Configure the backend form
 ==========================
@@ -153,8 +153,8 @@ fields is displayed. This palette and its fields are defined in
 In line 21 a predefined field, `bodytext` is added to be displayed in the
 form of the new content element type.
 
-.. index:: Content element; Frontend rendering
-.. _ConfigureCE-Frontend:
+..  index:: Content element; Frontend rendering
+..  _ConfigureCE-Frontend:
 
 Configure the frontend rendering
 ================================
@@ -205,8 +205,8 @@ the `data` variable.
 The following example shows the text entered in the text field. New lines are
 converted to `<br>` tags.
 
-.. literalinclude:: /CodeSnippets/CustomContentElements/CustomContentElement.fluid.html
-   :caption: EXT:examples/Resources/Private/Templates/NewContentElement.fluid.html
+..  literalinclude:: /CodeSnippets/CustomContentElements/CustomContentElement.fluid.html
+    :caption: EXT:examples/Resources/Private/Templates/NewContentElement.fluid.html
 
 All fields of the table :php:`tt_content` are now available in the variable
 `data`. Read more about :ref:`fluid`.
@@ -231,12 +231,12 @@ All fields of the table :php:`tt_content` are now available in the variable
 Below you can see the example output of the new content element and a
 dump of all available data:
 
-.. figure:: /Images/ManualScreenshots/Frontend/ContentElements/NewContentElementOutput.png
-   :class: with-border with-shadow
-   :alt: The example output
+..  figure:: /Images/ManualScreenshots/Frontend/ContentElements/NewContentElementOutput.png
+    :class: with-border with-shadow
+    :alt: The example output
 
 
-.. _AddingCE-Extended-Example:
+..  _AddingCE-Extended-Example:
 
 Extended example: extend tt_content and use data processing
 ===========================================================
@@ -251,10 +251,10 @@ As different programs use different separators to store CSV we want to make
 the separator configurable.
 
 
-.. index::
-   pair: Content element; Extending tt_content
-   Extension development; Extending tt_content
-.. _ConfigureCE-Extend-tt_content:
+..  index::
+    pair: Content element; Extending tt_content
+    Extension development; Extending tt_content
+..  _ConfigureCE-Extend-tt_content:
 
 Extending tt_content
 --------------------
@@ -263,10 +263,10 @@ If the available fields in the table tt_content are not sufficient you can add
 your own fields. In this case we need a field :php:`tx_examples_separator` from
 which to choose the desired separator.
 
-.. index::
-   Files;EXT:{extkey}/ext_tables.sql
-   Tables;tt_content
-.. _ConfigureCE-Extend-tt_content-database:
+..  index::
+    Files;EXT:{extkey}/ext_tables.sql
+    Tables;tt_content
+..  _ConfigureCE-Extend-tt_content-database:
 
 Extending the database schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,30 +278,30 @@ First we extend the database schema by adding the following to the file
     :language: sql
     :caption: EXT:my_extension/ext_tables.sql
 
-.. tip::
+..  tip::
 
     Do a database compare in the :guilabel:`System > Maintenance` module
     after changing the database schema (system maintainers only). Or call the
     console command:
 
-    .. tabs::
+    ..  tabs::
 
-       .. group-tab:: Composer-based installation
+        ..  group-tab:: Composer-based installation
 
-          .. code-block:: bash
+            ..  code-block:: bash
 
-             vendor/bin/typo3 extension:setup
+                vendor/bin/typo3 extension:setup
 
-       .. group-tab:: Classic mode installation (no Composer)
+        ..  group-tab:: Classic mode installation (no Composer)
 
-          .. code-block:: bash
+            ..  code-block:: bash
 
-             typo3/sysext/core/bin/typo3 extension:setup
+                typo3/sysext/core/bin/typo3 extension:setup
 
-.. index::
-   pair: Content element; TCA
-   Files; EXT:{extkey}/Configuration/TCA/Overrides/tt_content.php
-.. _ConfigureCE-Extend-tt_content-tca:
+..  index::
+    pair: Content element; TCA
+    Files; EXT:{extkey}/Configuration/TCA/Overrides/tt_content.php
+..  _ConfigureCE-Extend-tt_content-tca:
 
 Defining the field in the TCA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -353,8 +353,8 @@ instead of `###PAGE_TSCONFIG_ID###`):
     be used right away. They need not be added to a model.
 
 
-.. index:: pair: Content element; Data processing
-.. _ConfigureCE-DataProcessors:
+..  index:: pair: Content element; Data processing
+..  _ConfigureCE-DataProcessors:
 
 Data processing
 ---------------
@@ -380,12 +380,12 @@ parameters to be used in the data processor:
 You can now iterate over the variable `myTable` in the Fluid template, in this
 example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.fluid.html`
 
-.. literalinclude:: /CodeSnippets/CustomContentElements/DataProcCsv.fluid.html
-   :caption: EXT:examples/Resources/Private/Templates/ContentElements/DataProcCsv.fluid.html
+..  literalinclude:: /CodeSnippets/CustomContentElements/DataProcCsv.fluid.html
+    :caption: EXT:examples/Resources/Private/Templates/ContentElements/DataProcCsv.fluid.html
 
 
 The output would look like this (we added a debug of the variable `myTable`):
 
-.. figure:: /Images/ManualScreenshots/Frontend/ContentElements/ContentElementWithDataProcessorOutput.png
-   :class: with-shadow
-   :alt: Output of the CommaSeparatedValueProcessor
+..  figure:: /Images/ManualScreenshots/Frontend/ContentElements/ContentElementWithDataProcessorOutput.png
+    :class: with-shadow
+    :alt: Output of the CommaSeparatedValueProcessor

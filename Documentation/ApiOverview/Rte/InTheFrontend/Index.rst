@@ -14,10 +14,10 @@ extensive options that are configurable for individual needs.
 This chapter outlines conceptual and technical information
 about adding an RTE on frontend pages.
 
-.. figure:: ../Images/CKEditor-frontend.png
-   :alt: An RTE in the TYPO3 FE
+..  figure:: ../Images/CKEditor-frontend.png
+    :alt: An RTE in the TYPO3 FE
 
-   The CKEditor integrated in the frontend
+    The CKEditor integrated in the frontend
 
 The following list describes features and corresponding implementation
 effort ordered from simple to complex.
@@ -64,20 +64,20 @@ The optional features
 
    *This option requires an Ajax-connection to interact with TYPO3.*
 
-.. attention::
+..  attention::
 
-   User input in the frontend always represents a general security risk.
+    User input in the frontend always represents a general security risk.
 
-   **A Rich Text Editor might reduce this awareness** because it looks like a
-   professional solution but in fact might increase vulnerability if features
-   are enabled or included without proper handling on the server.
+    **A Rich Text Editor might reduce this awareness** because it looks like a
+    professional solution but in fact might increase vulnerability if features
+    are enabled or included without proper handling on the server.
 
-   It's advised to allow only required input and to disallow any further
-   content and features.
+    It's advised to allow only required input and to disallow any further
+    content and features.
 
-   The chapter :ref:`security-threats` informs about possible vulnerabilities
-   and concerning forms especially the paragraph about
-   :ref:`Cross Site Scripting (XSS) <security-xss>` is important.
+    The chapter :ref:`security-threats` informs about possible vulnerabilities
+    and concerning forms especially the paragraph about
+    :ref:`Cross Site Scripting (XSS) <security-xss>` is important.
 
 ..  _rte-frontend-introduction-technical:
 
@@ -101,13 +101,13 @@ again because it's possible to circumvent validation in the frontend by
 sending the data without filling the real form or just by disabling
 JavaScript.
 
-.. note::
+..  note::
 
-   Extensions like the TYPO3 `form framework` or `powermail` might offer
-   solutions to handle some RTE-related challenges. This description is
-   not related to any of those extensions, as it would exceed the context
-   of this API. If an existing extension is used for forms then the manual
-   or support in context of the corresponding extension should help.
+    Extensions like the TYPO3 `form framework` or `powermail` might offer
+    solutions to handle some RTE-related challenges. This description is
+    not related to any of those extensions, as it would exceed the context
+    of this API. If an existing extension is used for forms then the manual
+    or support in context of the corresponding extension should help.
 
 ..  _rte-frontend-solution:
 

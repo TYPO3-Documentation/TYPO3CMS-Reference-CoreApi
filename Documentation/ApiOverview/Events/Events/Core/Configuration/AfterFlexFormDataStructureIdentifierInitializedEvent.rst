@@ -19,7 +19,7 @@ object-oriented approach.
     *   :ref:`BeforeFlexFormDataStructureParsedEvent`
 
 
-.. _AfterFlexFormDataStructureIdentifierInitializedEvent-Example:
+..  _AfterFlexFormDataStructureIdentifierInitializedEvent-Example:
 
 Example
 =======

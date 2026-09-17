@@ -25,7 +25,7 @@ Two objects are available:
     Access the configuration of the current site language.
 
 
-.. index:: Site handling; TypoScript conditions
+..  index:: Site handling; TypoScript conditions
 
 ..  _sitehandling-in-conditions-typoscript-examples:
 
@@ -43,7 +43,7 @@ The identifier of the site name is evaluated:
 
 A custom field is evaluated:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
     [site("configuration")["custom_field"] == "compareValue"]
        page.35.value = abc
@@ -62,7 +62,7 @@ Property of the current site language is evaluated:
     [GLOBAL]
 
 
-.. index:: pair: Site handling; YAML
+..  index:: pair: Site handling; YAML
 
 ..  _sitehandling-in-conditions-example-ext-form:
 

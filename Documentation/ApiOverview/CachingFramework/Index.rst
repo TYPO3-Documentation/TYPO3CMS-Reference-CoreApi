@@ -271,7 +271,7 @@ caches, too.
 Cache warmup
 ------------
 
-.. important::
+..  important::
     Cache warm-up fails if the PHP **major or minor** version used by the
     CLI differs from the version used by the web server.
     (Both numbers are part of the cache key.)
@@ -294,9 +294,9 @@ The administrator can use the following
 Specific cache groups can be defined via the group option.
 The usage is described as this:
 
-.. code-block:: bash
+..  code-block:: bash
 
-   cache:warmup [--group <all|system|di|pages|...>]
+    cache:warmup [--group <all|system|di|pages|...>]
 
 All available :ref:`cache groups <caching-architecture-core>` can be supplied as
 option. The command defaults to warm all available cache groups.

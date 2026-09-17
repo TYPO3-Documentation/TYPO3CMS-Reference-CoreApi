@@ -1,8 +1,8 @@
 :navigation-title: Publishing
 
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Publishing
-.. _publish-extension:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Publishing
+..  _publish-extension:
 
 ======================
 Publish your extension
@@ -18,9 +18,9 @@ Follow these steps to release your extension publicly in the TYPO3 world:
 
 – *TYPO3 - Inspiring people to share*
 
-.. index:: Extension development; Git
+..  index:: Extension development; Git
 
-.. _publishExtensionGit:
+..  _publishExtensionGit:
 
 Git
 ===
@@ -39,9 +39,9 @@ repository name, but that is not necessary.
 *  Documentation can be published in the official TYPO3 documentation
    by using a webhook (see below).
 
-.. index:: Extension development; Packagist
+..  index:: Extension development; Packagist
 
-.. _publishExtensionPackagist:
+..  _publishExtensionPackagist:
 
 Packagist
 =========
@@ -66,9 +66,9 @@ about the publishing process.
 
    *  Extension can be updated easily with `composer update`
 
-.. index:: Extension development; TER
+..  index:: Extension development; TER
 
-.. _publishExtensionTer:
+..  _publishExtensionTer:
 
 TER
 ===
@@ -102,9 +102,9 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
    *  Link to the source code (optional)
    *  Link to the issue tracker (optional)
 
-.. index:: Extension development; webhook for documentation
+..  index:: Extension development; webhook for documentation
 
-.. _publishExtensionDocumentation:
+..  _publishExtensionDocumentation:
 
 Documentation
 =============
@@ -127,7 +127,7 @@ an appropriate webhook.
 *  Easily find your extension documentation, which serves as a good companion
    for getting started with your extension.
 
-.. _publishExtensionTranslation:
+..  _publishExtensionTranslation:
 
 Crowdin
 =======
@@ -144,9 +144,9 @@ This is documented on :ref:`crowdin-extension-integration`.
 Further reading
 ===============
 
-.. toctree::
-   :maxdepth: 3
-   :titlesonly:
-   :glob:
+..  toctree::
+    :maxdepth: 3
+    :titlesonly:
+    :glob:
 
-   PublishToTER/Index
+    PublishToTER/Index

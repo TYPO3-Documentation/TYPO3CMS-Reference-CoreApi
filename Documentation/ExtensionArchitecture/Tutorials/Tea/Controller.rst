@@ -17,8 +17,8 @@ ends on the name "Action" and returns an object of type
 
 In the following action a tea object should be displayed in the view:
 
-.. literalinclude:: /ExtensionArchitecture/Tutorials/Tea/_Controller/_ShowAction.php
-   :caption: Class TTN\\Tea\\Controller\\TeaController
+..  literalinclude:: /ExtensionArchitecture/Tutorials/Tea/_Controller/_ShowAction.php
+    :caption: Class TTN\\Tea\\Controller\\TeaController
 
 This action would be displayed if an URL like the following would be requested:
 :samp:`https://www.example.org/myfrontendplugin?tx_tea[action]=show&tx_tea[controller]=tea&tx_tea[tea]=42&chash=whatever`.
@@ -33,8 +33,8 @@ happens automatically in the controller.
 The following action expects no parameters. It fetches all available tea
 objects from the repository and hands them over to the view:
 
-.. literalinclude:: /ExtensionArchitecture/Tutorials/Tea/_Controller/_IndexAction.php
-   :caption: Class TTN\\Tea\\Controller\\TeaController
+..  literalinclude:: /ExtensionArchitecture/Tutorials/Tea/_Controller/_IndexAction.php
+    :caption: Class TTN\\Tea\\Controller\\TeaController
 
 The controller has to access the :php:`TeaRepository` to find all available tea
 objects. We use :ref:`Dependency Injection <DependencyInjection>` to make the
@@ -47,8 +47,8 @@ This method is implemented in the parent class :php:`ActionController` and is
 a shorthand method to create a response from the response factory and attach
 the rendered content. Let us have a look at what happens in this method:
 
-.. literalinclude:: /ExtensionArchitecture/Tutorials/Tea/_Controller/_HtmlResponse.php
-   :caption: Class TYPO3\\CMS\\Extbase\\Mvc\\Controller\\ActionController
+..  literalinclude:: /ExtensionArchitecture/Tutorials/Tea/_Controller/_HtmlResponse.php
+    :caption: Class TYPO3\\CMS\\Extbase\\Mvc\\Controller\\ActionController
 
 You can also use this code directly in your controller if you need to return
 a different HTTP header. If a different rendering from the standard view is

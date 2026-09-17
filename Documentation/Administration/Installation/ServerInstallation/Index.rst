@@ -109,7 +109,7 @@ server can overwrite each other's changes.
 **Non-reproducible Environments**: Manual changes build up over time, making
 the setup hard to replicate elsewhere (for testing or staging).
 
-.. _direct-server-safe:
+..  _direct-server-safe:
 
 How to make it safer
 --------------------

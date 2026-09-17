@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 
-.. index:: Deployment; Incremental deployment;
+..  index:: Deployment; Incremental deployment;
 
 
 ..  _manual-deployment-incremental:
@@ -63,7 +63,7 @@ If database changes are required:
 Flush TYPO3 caches:
 -------------------
 
-.. code-block:: bash
+..  code-block:: bash
 
     ./vendor/bin/typo3 cache:flush
 

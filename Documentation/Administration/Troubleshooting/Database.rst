@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: database, utf-8
+..  index:: database, utf-8
 
-.. _troubleshooting_database:
+..  _troubleshooting_database:
 
 ========
 Database
@@ -13,7 +13,7 @@ Database
 MySQL
 =====
 
-.. _troubleshooting-character-sets:
+..  _troubleshooting-character-sets:
 
 Character set
 -------------

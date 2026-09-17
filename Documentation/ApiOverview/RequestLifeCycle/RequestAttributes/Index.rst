@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index::
-   Request attributes
-.. _request-attributes:
+..  index::
+    Request attributes
+..  _request-attributes:
 
 ========================
 TYPO3 request attributes

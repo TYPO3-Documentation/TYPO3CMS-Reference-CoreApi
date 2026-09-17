@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Rate limiting
-.. _rate-limiting:
+..  include:: /Includes.rst.txt
+..  index:: Rate limiting
+..  _rate-limiting:
 
 =============
 Rate limiting
@@ -27,7 +27,7 @@ injecting the factory.
     :local:
 
 
-.. _rate-limiting-typo3-conf-vars:
+..  _rate-limiting-typo3-conf-vars:
 
 Overriding the `rateLimiter` via the TYPO3_CONF_VARS
 ====================================================
@@ -36,7 +36,7 @@ Overriding the `rateLimiter` via the TYPO3_CONF_VARS
     :confval:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter'] <globals-typo3-conf-vars-sys-rateLimiter>`
 
 
-.. _rate-limiting-extbase-action:
+..  _rate-limiting-extbase-action:
 
 Example limiter ID for Extbase action
 =====================================
@@ -52,7 +52,7 @@ The limiter ID for the action is:
 `extbase-myvendor-myextension-controller-mycontroller-dosomethingaction`
 
 
-.. _rate-limiting-general-purpose:
+..  _rate-limiting-general-purpose:
 
 General-purpose rate limiting
 =============================

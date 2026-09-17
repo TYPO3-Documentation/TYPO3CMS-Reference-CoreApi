@@ -1,13 +1,13 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Make
-.. _extension-make:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Make
+..  _extension-make:
 
 ====
 Make
 ====
 
-.. _extension-make-kickstart:
+..  _extension-make-kickstart:
 
 Kickstart a TYPO3 extension with "Make"
 =======================================

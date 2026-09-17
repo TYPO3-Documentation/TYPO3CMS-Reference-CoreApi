@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: JavaScript (Backend); ES6
-.. _backend-javascript-es6:
+..  include:: /Includes.rst.txt
+..  index:: JavaScript (Backend); ES6
+..  _backend-javascript-es6:
 
 ========================
 ES6 in the TYPO3 backend
@@ -42,7 +42,7 @@ third-party library definitions and overwrites:
 ..  literalinclude:: _JavaScriptModulesExtended.php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php
 
-.. _backend-javascript-es6-loading:
+..  _backend-javascript-es6-loading:
 
 Loading ES6
 ===========

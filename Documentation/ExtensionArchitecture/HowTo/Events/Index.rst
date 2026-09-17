@@ -1,8 +1,8 @@
 :navigation-title: Events
 
-.. include:: /Includes.rst.txt
-.. index:: pair: Extension development; Events
-.. _extension-development-events:
+..  include:: /Includes.rst.txt
+..  index:: pair: Extension development; Events
+..  _extension-development-events:
 
 ==========================================
 Using and dispatching events in extensions
@@ -18,7 +18,7 @@ Events provided by third-party extensions should be described in the extension's
 manual. You can also search for events by looking for classes that inject the
 :ref:`Psr\\EventDispatcher\\EventDispatcherInterface <EventDispatcherObject>`.
 
-.. _extension-development-event-listener:
+..  _extension-development-event-listener:
 
 Listen to an event
 ==================
@@ -32,7 +32,7 @@ the name in the :file:`Configuration/Services.yaml` or it is not found.
 It is best practice to use a descriptive class name and to put it in the
 namespace :php:`MyVendor\MyExtension\EventListener`.
 
-.. literalinclude:: _Joh316PasswordInformer.php
+..  literalinclude:: _Joh316PasswordInformer.php
     :caption: EXT:my_extension/Classes/EventListener/Joh316PasswordInformer.php
 
 ..  _extension-development-events-dispatch-event:

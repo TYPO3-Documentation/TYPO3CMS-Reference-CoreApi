@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Resources/Private
-   Folder; Resources/Private
-   Resources; Private
-.. _extension-resources-private:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Resources/Private
+    Folder; Resources/Private
+    Resources; Private
+..  _extension-resources-private:
 
 =========
 `Private`
@@ -18,7 +18,7 @@ but are not needed directly by the browser. This includes:
 
 ..  contents:: Table of contents
 
-.. _extension-resources-private-fluid:
+..  _extension-resources-private-fluid:
 
 Fluid templates in the folder resources/private
 ===============================================
@@ -41,7 +41,7 @@ configurable via:
 *   In some special cases paths might be set in PHP as well, for example when a
     ViewFactory is used: `Using the generic view factory (ViewFactoryInterface) <https://docs.typo3.org/permalink/t3coreapi:generic-view-factory>`_.
 
-.. _extension-resources-private-fluid-plugin:
+..  _extension-resources-private-fluid-plugin:
 
 Common locations for Fluid templates in TYPO3 extensions with plugins:
 ======================================================================
@@ -83,7 +83,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
     These can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into the main Fluid template.
 
-.. _extension-resources-private-fluid-site-packages:
+..  _extension-resources-private-fluid-site-packages:
 
 Common Fluid template locations for the page view in site packages
 ==================================================================
@@ -122,7 +122,7 @@ TypoScript object to display the HTML page output. They have one folder, commonl
     These can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into the page view template.
 
-.. _extension-resources-private-fluid-site-fsc:
+..  _extension-resources-private-fluid-site-fsc:
 
 Common locations to override Fluid-Styled Content elements
 ==========================================================
@@ -163,8 +163,8 @@ etc. to work. See also `Site Package Tutorial: Overriding the default templates 
     into content element templates.
 
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Make backend controller
-.. _extension-make-backend-controller:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Make backend controller
+..  _extension-make-backend-controller:
 
 ===============================
 Create a new backend controller

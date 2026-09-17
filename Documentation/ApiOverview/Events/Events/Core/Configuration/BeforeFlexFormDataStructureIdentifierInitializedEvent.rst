@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; BeforeFlexFormDataStructureIdentifierInitializedEvent
+..  include:: /Includes.rst.txt
+..  index:: Events; BeforeFlexFormDataStructureIdentifierInitializedEvent
 
-.. _BeforeFlexFormDataStructureIdentifierInitializedEvent:
+..  _BeforeFlexFormDataStructureIdentifierInitializedEvent:
 
 =======================================================
 `BeforeFlexFormDataStructureIdentifierInitializedEvent`

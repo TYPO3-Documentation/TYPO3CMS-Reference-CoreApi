@@ -79,6 +79,6 @@ Rendering crop variants
 
 Render a crop variant by adding it as an argument to an image view helper:
 
-.. code-block:: html
+..  code-block:: html
 
     <f:image image="{data.image}" cropVariant="mobile" width="800" />

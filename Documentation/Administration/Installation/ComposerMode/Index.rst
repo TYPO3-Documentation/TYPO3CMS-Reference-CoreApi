@@ -26,8 +26,8 @@ TYPO3 installation <legacyinstallation>`.
 For more information on how to deploy TYPO3 to a live environment, visit the
 :ref:`deploying TYPO3 <DeployTYPO3>` chapter.
 
-.. contents::
-   :local:
+..  contents::
+    :local:
 
 ..  _installation-checklist:
 
@@ -124,7 +124,7 @@ expecially the `Quick wins & caution flags <https://docs.typo3.org/permalink/t3c
 If Composer is available, installation is simple. If not, you may
 need to find or install it. See :ref:`direct-server-composer-access`.
 
-.. code-block:: bash
+..  code-block:: bash
 
     composer create-project "typo3/cms-base-distribution:^14" my-new-project
 

@@ -206,7 +206,7 @@ These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute`
 namespace and are applied to controller action methods to control access and
 rate limiting.
 
-.. Full documentation for these attributes is planned for the Controller and Security chapters.
+..  Full documentation for these attributes is planned for the Controller and Security chapters.
 
 
 ..  _extbase-appendix-attributes-authorize:
@@ -225,7 +225,7 @@ Declares access requirements for an action method. Extbase checks the
 requirements before calling the action and redirects or throws an exception
 if they are not met.
 
-.. Full parameter reference and usage examples are coming in the Security chapter.
+..  Full parameter reference and usage examples are coming in the Security chapter.
 
 ..  warning::
 
@@ -250,4 +250,4 @@ if they are not met.
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.
 
-.. Full parameter reference and usage examples are coming in the Security chapter.
+..  Full parameter reference and usage examples are coming in the Security chapter.

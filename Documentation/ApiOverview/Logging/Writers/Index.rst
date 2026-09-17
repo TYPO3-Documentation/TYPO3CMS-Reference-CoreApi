@@ -231,7 +231,7 @@ The following option is available:
 
     The syslog `facility`_ to log into.
 
-    .. _facility: https://en.wikipedia.org/wiki/Syslog#Facility
+    ..  _facility: https://en.wikipedia.org/wiki/Syslog#Facility
 
 
 ..  _logging-writers-custom:

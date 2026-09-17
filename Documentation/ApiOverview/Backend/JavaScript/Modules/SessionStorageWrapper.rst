@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: JavaScript (Backend); SessionStorage wrapper
-.. _modules-sessionstorage:
+..  include:: /Includes.rst.txt
+..  index:: JavaScript (Backend); SessionStorage wrapper
+..  _modules-sessionstorage:
 
 ========================
 `SessionStorage` wrapper

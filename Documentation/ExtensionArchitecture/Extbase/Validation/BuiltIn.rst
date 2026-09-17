@@ -91,19 +91,19 @@ empty values. It is always executed.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 15 60
+..  list-table::
+    :header-rows: 1
+    :widths: 25 15 60
 
-   * - Option
-     - Default
-     - Description
-   * - `nullMessage`
-     - built-in
-     - Translation key or message shown when the value is :php:`null`.
-   * - `emptyMessage`
-     - built-in
-     - Translation key or message shown when the value is empty.
+    * - Option
+      - Default
+      - Description
+    * - `nullMessage`
+      - built-in
+      - Translation key or message shown when the value is :php:`null`.
+    * - `emptyMessage`
+      - built-in
+      - Translation key or message shown when the value is empty.
 
 
 ..  _extbase-validation-builtin-stringlength:
@@ -118,19 +118,19 @@ accepted and cast automatically.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 15 60
+..  list-table::
+    :header-rows: 1
+    :widths: 25 15 60
 
-   * - Option
-     - Default
-     - Description
-   * - `minimum`
-     - `0`
-     - Minimum number of characters required.
-   * - `maximum`
-     - `PHP_INT_MAX`
-     - Maximum number of characters allowed.
+    * - Option
+      - Default
+      - Description
+    * - `minimum`
+      - `0`
+      - Minimum number of characters required.
+    * - `maximum`
+      - `PHP_INT_MAX`
+      - Maximum number of characters allowed.
 
 
 ..  _extbase-validation-builtin-numberrange:
@@ -146,19 +146,19 @@ Checks that a numeric value falls within a given range (inclusive). If
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberRangeValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 15 60
+..  list-table::
+    :header-rows: 1
+    :widths: 25 15 60
 
-   * - Option
-     - Default
-     - Description
-   * - `minimum`
-     - `0`
-     - Minimum value accepted.
-   * - `maximum`
-     - `PHP_INT_MAX`
-     - Maximum value accepted.
+    * - Option
+      - Default
+      - Description
+    * - `minimum`
+      - `0`
+      - Minimum value accepted.
+    * - `maximum`
+      - `PHP_INT_MAX`
+      - Maximum value accepted.
 
 
 ..  _extbase-validation-builtin-regularexpression:
@@ -178,16 +178,16 @@ delimiters.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 15 60
+..  list-table::
+    :header-rows: 1
+    :widths: 25 15 60
 
-   * - Option
-     - Default
-     - Description
-   * - `regularExpression`
-     - *(required)*
-     - The full PCRE pattern including delimiters, for example, `'/^[a-z]+$/i'`.
+    * - Option
+      - Default
+      - Description
+    * - `regularExpression`
+      - *(required)*
+      - The full PCRE pattern including delimiters, for example, `'/^[a-z]+$/i'`.
 
 ..  code-block:: php
     :caption: Restricting a slug to lowercase letters and hyphens
@@ -366,19 +366,19 @@ Checks that the uploaded file has an allowed file extension.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
+..  list-table::
+    :header-rows: 1
+    :widths: 25 75
 
-   * - Option
-     - Description
-   * - `allowedExtensions`
-     - Comma-separated list of allowed file extensions without the leading dot,
-       for example `'jpg,jpeg,png'`.
-   * - `useStorageDefaults`
-     - If set to `true`, also allows the file extensions configured in
-       `$GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']`,
-       `['mediafile_ext']` and `['miscfile_ext']`.
+    * - Option
+      - Description
+    * - `allowedExtensions`
+      - Comma-separated list of allowed file extensions without the leading dot,
+        for example `'jpg,jpeg,png'`.
+    * - `useStorageDefaults`
+      - If set to `true`, also allows the file extensions configured in
+        `$GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']`,
+        `['mediafile_ext']` and `['miscfile_ext']`.
 
 At least one of ``allowedFileExtensions`` or ``useStorageDefaults`` must be
 set.
@@ -394,16 +394,16 @@ Checks that the uploaded file size falls within a given range.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
+..  list-table::
+    :header-rows: 1
+    :widths: 25 75
 
-   * - Option
-     - Description
-   * - `minimum`
-     - Minimum file size as a string with unit, for example `'0B'`.
-   * - `maximum`
-     - Maximum file size as a string with unit, for example `'5M'`.
+    * - Option
+      - Description
+    * - `minimum`
+      - Minimum file size as a string with unit, for example `'0B'`.
+    * - `maximum`
+      - Maximum file size as a string with unit, for example `'5M'`.
 
 
 ..  _extbase-validation-builtin-mimetype:
@@ -416,19 +416,19 @@ Checks that the uploaded file's :abbr:`MIME (Multipurpose Internet Mail Extensio
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
+..  list-table::
+    :header-rows: 1
+    :widths: 25 75
 
-   * - Option
-     - Description
-   * - `allowedMimeTypes`
-     - Array of allowed MIME type strings, for example
-       `['image/jpeg', 'image/png']`.
-   * - `ignoreFileExtensionCheck`
-     - If set to `true`, disables the check that the file extension
-       matches the detected MIME type. Defaults to `false`. Be aware of
-       the security implications of setting this to `true`.
+    * - Option
+      - Description
+    * - `allowedMimeTypes`
+      - Array of allowed MIME type strings, for example
+        `['image/jpeg', 'image/png']`.
+    * - `ignoreFileExtensionCheck`
+      - If set to `true`, disables the check that the file extension
+        matches the detected MIME type. Defaults to `false`. Be aware of
+        the security implications of setting this to `true`.
 
 
 ..  _extbase-validation-builtin-imagedimensions:
@@ -441,24 +441,24 @@ Checks that an uploaded image's width and height fall within the given bounds.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 75
+..  list-table::
+    :header-rows: 1
+    :widths: 25 75
 
-   * - Option
-     - Description
-   * - `width`
-     - Exact required image width in pixels. Unset by default.
-   * - `height`
-     - Exact required image height in pixels. Unset by default.
-   * - `minWidth`
-     - Minimum image width in pixels.
-   * - `maxWidth`
-     - Maximum image width in pixels.
-   * - `minHeight`
-     - Minimum image height in pixels.
-   * - `maxHeight`
-     - Maximum image height in pixels.
+    * - Option
+      - Description
+    * - `width`
+      - Exact required image width in pixels. Unset by default.
+    * - `height`
+      - Exact required image height in pixels. Unset by default.
+    * - `minWidth`
+      - Minimum image width in pixels.
+    * - `maxWidth`
+      - Maximum image width in pixels.
+    * - `minHeight`
+      - Minimum image height in pixels.
+    * - `maxHeight`
+      - Maximum image height in pixels.
 
 
 ..  _extbase-validation-builtin-fileextensionmimetypeconsistency:

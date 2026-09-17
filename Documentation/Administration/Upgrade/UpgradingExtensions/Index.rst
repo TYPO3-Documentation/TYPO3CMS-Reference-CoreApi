@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _upgradingextensions:
+..  include:: /Includes.rst.txt
+..  _upgradingextensions:
 
 ====================
 Upgrading extensions

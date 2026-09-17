@@ -40,9 +40,9 @@ TYPO3 implementation
 TYPO3 has implemented the PSR-15 approach in the following way:
 
 ..  uml:: /Images/Plantuml/RequestHandling/flow-of-middleware-execution.plantuml
-   :align: center
-   :caption: Figure 1-1: Application flow
-   :width: 1000
+    :align: center
+    :caption: Figure 1-1: Application flow
+    :width: 1000
 
 
 ..  rst-class:: bignums
@@ -212,8 +212,8 @@ the configuration.
 The configuration is provided within
 :file:`Configuration/RequestMiddlewares.php` of an extension:
 
-.. literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
-   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+..  literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
 TYPO3 has multiple stacks where one middleware might only be necessary in one
 of them. Therefore the configuration defines the context on its first level to define the
@@ -307,7 +307,7 @@ PSR-17_ response factory interface (the concrete TYPO3 implementation is injecte
 dependency) to create a new PSR-7_ response object:
 
 ..  literalinclude:: _Middlewares/_StatusCheckMiddleware.php
-   :caption: EXT:some_extension/Classes/Middleware/StatusCheckMiddleware.php
+    :caption: EXT:some_extension/Classes/Middleware/StatusCheckMiddleware.php
 
 ..  index:: Request handling; Execution
 ..  _request-handling-psr-18:

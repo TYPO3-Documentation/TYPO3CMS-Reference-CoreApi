@@ -1,11 +1,11 @@
 :navigation-title: File mounts
 
-.. include:: /Includes.rst.txt
-.. index::
-   Backend; File mounts
-   pair: Backend; File abstraction layer
-   File mounts
-.. _access-filemounts-more:
+..  include:: /Includes.rst.txt
+..  index::
+    Backend; File mounts
+    pair: Backend; File abstraction layer
+    File mounts
+..  _access-filemounts-more:
 
 ======================
 More about file mounts
@@ -38,10 +38,10 @@ File mounts
   actually give access to users to some directories. A file mount is always
   related to a storage.
 
-.. index::
-   File mounts; create
+..  index::
+    File mounts; create
 
-.. _access-filemounts-create:
+..  _access-filemounts-create:
 
 Create a new file mount
 =======================
@@ -55,12 +55,12 @@ It is also possible to create a file mount manually in the :guilabel:`List`
 module by creating a record of type :php:`Filemount`. In this case you have
 to choose the storage and folder manually.
 
-.. index::
-   TYPO3_CONF_VARS; BE fileadminDir
-   TYPO3_CONF_VARS; BE lockRootPath
-   Local driver storage
-   Path: fileadmin
-.. _access-filemounts-more-local-driver:
+..  index::
+    TYPO3_CONF_VARS; BE fileadminDir
+    TYPO3_CONF_VARS; BE lockRootPath
+    Local driver storage
+    Path: fileadmin
+..  _access-filemounts-more-local-driver:
 
 Paths for local driver storage
 ==============================
@@ -79,14 +79,14 @@ folder (or whatever other folder was configured using
 Absolute paths are full paths starting at the root of the file system
 (i.e. :code:`/` on Unix systems).
 
-.. attention::
+..  attention::
 
-   If the :file:`fileadmin/` location is not changed, be aware
-   that all files beneath it will be accessible via a browser,
-   since this directory is located below the web root. This is
-   perfectly fine in most cases, and indeed generally a desired
-   behaviour. Just be careful what kind of files you store in that
-   place, as they will be publicly accessible.
+    If the :file:`fileadmin/` location is not changed, be aware
+    that all files beneath it will be accessible via a browser,
+    since this directory is located below the web root. This is
+    perfectly fine in most cases, and indeed generally a desired
+    behaviour. Just be careful what kind of files you store in that
+    place, as they will be publicly accessible.
 
 Absolute paths outside of the web root
 must be explicitly declared in the global configuration option
@@ -101,13 +101,13 @@ pointing to :file:`/home/foo/bar` and one pointing to
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']` to be
 equal to :code:`/home/foo/`.
 
-.. index::
-   TYPO3_CONF_VARS; BE userHomePath
-   TYPO3_CONF_VARS; BE groupHomePath
-   TYPO3_CONF_VARS; BE userUploadDir
-   Home directories
-   TSconfig; DefaultUploadFolder
-.. _access-filemounts-home-directories:
+..  index::
+    TYPO3_CONF_VARS; BE userHomePath
+    TYPO3_CONF_VARS; BE groupHomePath
+    TYPO3_CONF_VARS; BE userUploadDir
+    Home directories
+    TSconfig; DefaultUploadFolder
+..  _access-filemounts-home-directories:
 
 Home directories
 ================
@@ -118,10 +118,10 @@ configured in the global configuration. Thus they don't need to have a file
 mount record representing them - they just need a properly named
 directory to be present.
 
-.. note::
+..  note::
 
-   That last sentence is important. The directories need to exist.
-   They are not created automatically.
+    That last sentence is important. The directories need to exist.
+    They are not created automatically.
 
 
 The parent directory of user/group home directories is defined by
@@ -129,7 +129,7 @@ The parent directory of user/group home directories is defined by
 :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']`
 respectively. Let's say we define the following:
 
-.. code-block:: php
+..  code-block:: php
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath'] = '1:user_homes/';
 
@@ -154,7 +154,7 @@ The same goes for groups, but only using the uid.
 Assuming a group called "editors" with a uid of "1",
 and:
 
-.. code-block:: php
+..  code-block:: php
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath'] = '1:groups/';
 
@@ -164,22 +164,22 @@ Having set up all these properties and folders, the user
 should see the following when moving to the :guilabel:`Media`
 module:
 
-.. figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
-   :alt: The file list with automatically mounted user and group directories
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
+    :alt: The file list with automatically mounted user and group directories
 
 
 where only the first mount was explicitly assigned to that user.
 A different icon visually distinguishes automatic file mounts.
 
-.. note::
+..  note::
 
-   If the :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']` option is
-   also used, it is appended to the user home directory name. Thus a value
-   of :code:`_uploads` would mean that our home directories become
-   :file:`/path/to/web/root/fileadmin/user_homes/3_uploads/`
-   or :file:`/path/to/web/root/fileadmin/user_homes/3_editor_uploads/`.
+    If the :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']` option is
+    also used, it is appended to the user home directory name. Thus a value
+    of :code:`_uploads` would mean that our home directories become
+    :file:`/path/to/web/root/fileadmin/user_homes/3_uploads/`
+    or :file:`/path/to/web/root/fileadmin/user_homes/3_editor_uploads/`.
 
-   This does not apply to group home directories.
+    This does not apply to group home directories.
 
 The concept of home directories can be efficiently combined with
 the TSconfig :ref:`defaultUploadFolder <t3tsref:useroptions>` option,
