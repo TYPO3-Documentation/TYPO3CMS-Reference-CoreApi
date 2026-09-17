@@ -1466,8 +1466,8 @@ Remarks:
     turned off and an explicit call to :php:`->quoteIdentifier()` must be added.
 
 *   Internally, :php:`->quoteIdentifier()` is automatically called on all method
-    arguments that must be a field name. For instance, :php:`->quoteIdentifier()`
-    is called for all arguments of :ref:`->select() <database-query-builder-select>`.
+    arguments that must be a field name or a table name. For instance,
+    :php:`->quoteIdentifier()` is called for all arguments of :ref:`->select() <database-query-builder-select>`.
 
 *   :php:`->quoteIdentifiers()` (mind the plural) can be used to quote multiple
     field names at once. While that method is "public" and thus exposed as an
