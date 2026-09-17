@@ -11,7 +11,7 @@ ExtensionManagementUtility::addPlugin(
     'label' => 'my_extension.messages:myextension_myplugin_title',
     'value' => 'myextension_myplugin',
     'icon' => 'content-text',
-    'group' => 'plugin',
+    'group' => 'plugins',
     'description' => 'my_extension.messages:myextension_myplugin_description',
   ],
 );
