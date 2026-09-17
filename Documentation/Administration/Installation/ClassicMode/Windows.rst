@@ -93,4 +93,4 @@ In the next steps, you will use the installation wizard to:
 
 ..  seealso::
 
-    :ref:`classic-installation-wizard`
+    :ref:`Run the installation wizard and complete the installation <classic-installation-wizard>`

@@ -14,9 +14,9 @@ object-oriented approach.
 
 ..  seealso::
 
-    *   :ref:`AfterFlexFormDataStructureIdentifierInitializedEvent`
-    *   :ref:`AfterFlexFormDataStructureParsedEvent`
-    *   :ref:`BeforeFlexFormDataStructureIdentifierInitializedEvent`
+    *   :ref:`AfterFlexFormDataStructureIdentifierInitializedEvent <AfterFlexFormDataStructureIdentifierInitializedEvent>`
+    *   :ref:`AfterFlexFormDataStructureParsedEvent <AfterFlexFormDataStructureParsedEvent>`
+    *   :ref:`BeforeFlexFormDataStructureIdentifierInitializedEvent <BeforeFlexFormDataStructureIdentifierInitializedEvent>`
 
 ..  _before-flex-form-data-structure-parsed-event-example:
 

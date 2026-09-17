@@ -18,7 +18,7 @@ translate strings in plain PHP.
 
 For examples see :ref:`extension-localization-php`.  Create a
 :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` with
-:ref:`LanguageServiceFactory-api`.
+:ref:`LanguageServiceFactory <LanguageServiceFactory-api>`.
 
 In the backend context a :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface`
 is stored in the global variable :php:`$GLOBALS['LANG']`.

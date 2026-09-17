@@ -11,7 +11,7 @@ YAML syntax in TYPO3
 Following is an introduction to the YAML syntax. If you are familiar with YAML, skip to
 the **TYPO3 specific information**:
 
-*   :ref:`yamlFileLoader`
+*   :ref:`YamlFileLoader <yamlFileLoader>`
 
 ..  seealso::
 

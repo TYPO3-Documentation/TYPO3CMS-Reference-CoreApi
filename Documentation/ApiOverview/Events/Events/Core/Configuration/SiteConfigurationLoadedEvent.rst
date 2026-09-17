@@ -13,7 +13,7 @@ before loading the configuration.
 
 ..  note::
     If you need to change the configuration before it is saved to disk, use
-    :ref:`SiteConfigurationBeforeWriteEvent`.
+    :ref:`SiteConfigurationBeforeWriteEvent <SiteConfigurationBeforeWriteEvent>`.
 
 ..  _site-configuration-loaded-event-example:
 

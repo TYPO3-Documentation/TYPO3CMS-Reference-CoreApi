@@ -46,7 +46,7 @@ Module configuration options
         :ref:`list of available toplevel modules. <backend-modules-toplevel-module>`
 
         Extensions can add additional parent modules, see
-        :ref:`backend-modules-toplevel-module`.
+        :ref:`Toplevel modules <backend-modules-toplevel-module>`.
 
     ..  confval:: path
         :name: backend-module-path

@@ -70,7 +70,7 @@ pointed at — nothing on the :php:`Location` side records the conference.
     here says a location belongs to exactly one conference, or that it knows
     about the conference at all. The cardinality language (1:1, 1:n, …) only
     becomes meaningful once both sides are declared — see
-    :ref:`extbase-persistence-relations-behind`.
+    :ref:`Behind the scenes: TCA, unidirectional and bidirectional relations <extbase-persistence-relations-behind>`.
 
 
 ..  _extbase-persistence-relations-to-many:

@@ -11,7 +11,7 @@ can be used to modify the button bar in the TYPO3 backend module
 :ref:`docheader <backend-modules-template-without-extbase-docheader>`.
 
 ..  seealso::
-    *   :ref:`button-components`
+    *   :ref:`Button components <button-components>`
 
 ..  _modify-button-bar-event-example:
 

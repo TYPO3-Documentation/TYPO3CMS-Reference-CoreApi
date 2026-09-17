@@ -508,6 +508,6 @@ Further reading
 ..  seealso::
 
     * :ref:`extension key <extension-key>`
-    * :ref:`publish-extension`
-    * :ref:`cgl`
+    * :ref:`Publish your extension <publish-extension>`
+    * :ref:`Coding guidelines <cgl>`
     * :ref:`Xliff language file id naming conventions <xliff-id-naming>`

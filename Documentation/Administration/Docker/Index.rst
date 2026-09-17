@@ -33,7 +33,7 @@ These examples help you understand how TYPO3 works in containers. They are
 intended for local use and **not recommended for production** as-is.
 
 For an overview of production-related considerations, see
-:ref:`docker-production`.
+:ref:`Using Docker in production <docker-production>`.
 
 ..  toctree::
     :titlesonly:

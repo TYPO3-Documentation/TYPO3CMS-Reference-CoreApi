@@ -212,7 +212,7 @@ oversized images from reaching the server's image processing pipeline:
 
 The remaining keys — `required`, `minFiles`, `maxFiles` — control
 upload count. For the full option reference see
-:ref:`extbase-validation-builtin-file`.
+:ref:`File upload validators <extbase-validation-builtin-file>`.
 
 ..  warning::
 

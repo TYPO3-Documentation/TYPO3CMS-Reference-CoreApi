@@ -23,7 +23,7 @@ extensions in practice. For an exhaustive list of TypoScript properties
 including data type and default value, see the
 :ref:`plugin reference in the TypoScript Reference <t3tsref:setup-plugin-extbase>`.
 For the bigger picture of configuration "surfaces" and what belongs in them, see
-:ref:`extbase-configuration`.
+:ref:`Configure Extbase plugins and modules <extbase-configuration>`.
 
 ..  contents:: On this page
     :local:
@@ -57,7 +57,7 @@ extension-wide values from :typoscript:`plugin.tx_myextension`.
 A few framework settings can also be set globally for every Extbase plugin and
 module below :typoscript:`config.tx_extbase`. Use this scope sparingly —
 plugin-specific configuration is almost always clearer. See
-:ref:`extbase-configuration-typoscript-global-scope`.
+:ref:`The global scope: config.tx_extbase <extbase-configuration-typoscript-global-scope>`.
 
 The merge order, from lowest to highest precedence, is:
 
@@ -111,7 +111,7 @@ template paths only make sense for individual extensions. Do not put either ther
     :typoscript:`config.tx_extbase` if you have a deliberate **installation-wide
     policy**. Use per-plugin configuration in every other case. A global
     value placed in this scope by mistake is a documented pitfall — see
-    :ref:`extbase-appendix-pitfalls-global-config`.
+    :ref:`A global config.tx_extbase value breaks an unrelated plugin <extbase-appendix-pitfalls-global-config>`.
 
 A legitimate case is a policy that must hold even for plugins that you do not
 control. A good example is MVC error handling: "on this site, *any*
@@ -458,7 +458,7 @@ module) and apply to a whole installation rather than to a single plugin.
     Enabled by default. Aligns Extbase's :php:`\DateTime` mapping with the FormEngine
     and DataHandler so that timezones and integer-based time fields behave
     consistently across the backend and Extbase. See
-    :ref:`extbase-domain-property-types-datetime-consistency`.
+    :ref:`Consistent DateTime handling <extbase-domain-property-types-datetime-consistency>`.
 
 :php:`extbase.enableHistoryTracking`
     Disabled by default (added in TYPO3 v14.2). When enabled, changes persisted by Extbase
@@ -468,7 +468,7 @@ module) and apply to a whole installation rather than to a single plugin.
     :php:`'ctrl' => ['extbase' => ['enableHistoryTracking' => false]]`. Mind the
     GDPR implications — full data snapshots are stored. See
     :ref:`Feature #107289 <changelog:feature-107289-1734172800>` and
-    :ref:`extbase-upgrading-feature-toggle-defaults`.
+    :ref:`Check relevant feature toggle defaults after upgrading (TYPO3 v14) <extbase-upgrading-feature-toggle-defaults>`.
 
 ..  seealso::
 

@@ -65,7 +65,7 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
     }
 
 ..  seealso::
-    :ref:`dropdown-button-components`
+    :ref:`Dropdown button components <dropdown-button-components>`
 
 
 Using this :php:`ModuleTemplate` class, the Fluid templates for

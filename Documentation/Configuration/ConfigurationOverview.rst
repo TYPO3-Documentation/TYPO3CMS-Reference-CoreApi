@@ -86,7 +86,7 @@ Extension files
 ..  hint::
     The files are explained in more depth in:
 
-    * :ref:`extension-files-locations`
+    * :ref:`File structure <extension-files-locations>`
 
 ..  _classification-syntax:
 ..  _configuration-syntax:
