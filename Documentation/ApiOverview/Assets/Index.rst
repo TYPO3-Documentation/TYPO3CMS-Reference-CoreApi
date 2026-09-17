@@ -31,10 +31,10 @@ see the :ref:`TypoScript Reference <t3tsref:setup-page-includecss-array>`. In
 extensions, both directly using the :php:`PageRenderer` as well as using the
 more convenient :php:`AssetCollector` is possible.
 
-.. index::
-   AssetCollector
-   Fluid; asset.script
-   Fluid; asset.css
+..  index::
+    AssetCollector
+    Fluid; asset.script
+    Fluid; asset.css
 
 ..  _asset-collector:
 
@@ -87,7 +87,7 @@ The asset collector API
     exists before generating it again, hence avoiding redundancy.
 
 
-.. index:: pair: Assets; Viewhelpers
+..  index:: pair: Assets; Viewhelpers
 
 ..  _assets-viewhelper:
 
@@ -98,7 +98,7 @@ There are two ViewHelpers which use the :php:`AssetCollector` API - :ref:`f:asse
 :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>`.
 
 
-.. index:: pair: Assets; Rendering order
+..  index:: pair: Assets; Rendering order
 
 ..  _assets-rendering-order:
 
@@ -209,10 +209,10 @@ Resulting in the following HTML output:
 
     <link rel="stylesheet" href="/_assets/<hash>/myFile.css" />
 
-.. index::
-   pair: Assets; Events
-   Events; BeforeJavaScriptsRenderingEvent
-   Events; BeforeStylesheetsRenderingEvent
+..  index::
+    pair: Assets; Events
+    Events; BeforeJavaScriptsRenderingEvent
+    Events; BeforeStylesheetsRenderingEvent
 
 ..  _assets-events:
 

@@ -1,8 +1,8 @@
 :navigation-title: Access Gates
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _backend-module-access-gates:
+..  _backend-module-access-gates:
 
 ===========================
 Backend module access gates
@@ -112,8 +112,8 @@ Possible results are:
 Example: custom editor gate
 ---------------------------
 
-.. literalinclude:: /ApiOverview/Backend/BackendModules/_AccessGate/_ExampleGate.php
-   :caption: EXT:examples/Classes/Module/AccessGate/ExampleGate.php
+..  literalinclude:: /ApiOverview/Backend/BackendModules/_AccessGate/_ExampleGate.php
+    :caption: EXT:examples/Classes/Module/AccessGate/ExampleGate.php
 
 The example above defines a custom access type called :php:`exampleUser`.
 

@@ -1,7 +1,7 @@
 :navigation-title: TYPO3 information
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _typo3Information:
+..  _typo3Information:
 
 ===================================
 Global meta information about TYPO3
@@ -23,13 +23,13 @@ The following methods are available:
 - :php:`getInlineHeaderComment()` will return the TYPO3 header comment rendered in all frontend requests ("This website is powered by TYPO3...")
 - :php:`getCopyrightNotice()` will return the TYPO3 copyright notice
 
-.. warning::
+..  warning::
 
-   DO NOT prevent the copyright notice from being shown in ANY WAY.
-   According to the GPL license an interactive application must show such a notice on start-up
-   ('If the program is interactive, make it output a short notice... ' )
-   Therefore preventing this notice from being properly shown is a violation of the license, regardless of whether
-   you remove it or use a stylesheet to obstruct the display.
+    DO NOT prevent the copyright notice from being shown in ANY WAY.
+    According to the GPL license an interactive application must show such a notice on start-up
+    ('If the program is interactive, make it output a short notice... ' )
+    Therefore preventing this notice from being properly shown is a violation of the license, regardless of whether
+    you remove it or use a stylesheet to obstruct the display.
 
 ..  _typo3-information-version-information:
 

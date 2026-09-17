@@ -1,13 +1,13 @@
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Composer-based installation
+    ..  group-tab:: Composer-based installation
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         vendor/bin/typo3 cache:warmup
+            vendor/bin/typo3 cache:warmup
 
-   .. group-tab:: Classic mode installation (No Composer)
+    ..  group-tab:: Classic mode installation (No Composer)
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         typo3/sysext/core/bin/typo3 cache:warmup
+            typo3/sysext/core/bin/typo3 cache:warmup

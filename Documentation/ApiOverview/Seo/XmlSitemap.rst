@@ -12,14 +12,14 @@ or more sitemaps in it. By default, there will be one sitemap that contains all
 pages of the current site and language.  You can render different sitemaps
 for each site and language.
 
-.. note::
-   The XML sitemap is provided by the optional system extension
-   EXT:seo. You can find information about how to install and use it in the
-   :doc:`EXT:seo manual <ext_seo:Index>`.
+..  note::
+    The XML sitemap is provided by the optional system extension
+    EXT:seo. You can find information about how to install and use it in the
+    :doc:`EXT:seo manual <ext_seo:Index>`.
 
-.. contents:: Table of Contents
-   :depth: 1
-   :local:
+..  contents:: Table of Contents
+    :depth: 1
+    :local:
 
 ..  _xmlsitemap-installation:
 
@@ -65,7 +65,7 @@ sitemap types (`pages` and additional ones, for example, from the news extension
 ..  literalinclude:: _sitemapRouteEnhancers.yaml
     :caption: config/sites/<your_site>/config.yaml (excerpt)
 
-.. index:: XmlSitemapDataProviders
+..  index:: XmlSitemapDataProviders
 
 ..  _xmlsitemap-xmlsitemapdataproviders:
 
@@ -91,9 +91,9 @@ backend.
 ..  literalinclude:: _sitemapPagesConfig.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
 
-.. note::
-   The doktypes 137 and 138 in the example above are custom doktypes.
-   The other doktypes given are the ones excluded by default by the SEO extension.
+..  note::
+    The doktypes 137 and 138 in the example above are custom doktypes.
+    The other doktypes given are the ones excluded by default by the SEO extension.
 
 ..  _xmlsitemap-xmlsitemapdataproviders-records:
 
@@ -233,7 +233,7 @@ specific item. This value is a UNIX timestamp. In addition, you can include
 :ref:`search engines a hint <xmlsitemap-changefreq-priority>`.
 
 
-.. _sitemap-xslFile:
+..  _sitemap-xslFile:
 
 Use a customized sitemap XSL file
 =================================
@@ -243,21 +243,21 @@ three levels:
 
 #.  For all sitemaps:
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
         :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
         plugin.tx_seo.config.xslFile = EXT:my_extension/Resources/Public/CSS/mySite.xsl
 
 #.  For all sitemaps of a certain sitemapType:
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
         :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
         plugin.tx_seo.config.<sitemapType>.sitemaps.xslFile = EXT:my_extension/Resources/Public/CSS/mySitemapType.xsl
 
 #.  For a specific sitemap:
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
         :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
         plugin.tx_seo.config.<sitemapType>.sitemaps.<sitemap>.config.xslFile = EXT:my_extension/Resources/Public/CSS/mySpecificSitemap.xsl

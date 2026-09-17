@@ -1,7 +1,7 @@
 :navigation-title: Models
 
 ..  include:: /Includes.rst.txt
-.. _creating-database-model:
+..  _creating-database-model:
 
 =============================
 Creating a new database model

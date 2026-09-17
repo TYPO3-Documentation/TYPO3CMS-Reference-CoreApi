@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Services API; Configuration
-.. _services-configuration:
+..  include:: /Includes.rst.txt
+..  index:: Services API; Configuration
+..  _services-configuration:
 
 =============
 Configuration
@@ -11,9 +11,9 @@ documented in their manual. There are however properties common to all
 services as well as generic mechanisms which are described below.
 
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   RegistrationChanges
-   ServiceConfiguration
-   ServiceTypeConfiguration
+    RegistrationChanges
+    ServiceConfiguration
+    ServiceTypeConfiguration

@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 
-.. index:: Deployment; Automated deployment;
+..  index:: Deployment; Automated deployment;
 
 ..  _automated-deployment:
 

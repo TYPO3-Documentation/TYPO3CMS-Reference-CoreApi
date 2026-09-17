@@ -29,8 +29,8 @@ bootstrap.
 
     Read more about :ref:`Using Ajax in the backend <ajax-backend>`.
 
-.. literalinclude:: /CodeSnippets/Manual/Extension/Configuration/BackendAjaxRoutes.php
-   :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
+..  literalinclude:: /CodeSnippets/Manual/Extension/Configuration/BackendAjaxRoutes.php
+    :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
 ..  _extension-configuration-backend-routes:
 

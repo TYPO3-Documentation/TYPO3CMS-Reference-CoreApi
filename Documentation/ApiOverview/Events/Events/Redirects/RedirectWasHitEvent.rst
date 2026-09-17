@@ -35,4 +35,4 @@ before and dynamically set the records :php:`disable_hitcount` flag.
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/RedirectWasHitEvent.rst.txt
+..  include:: /CodeSnippets/Events/Redirects/RedirectWasHitEvent.rst.txt

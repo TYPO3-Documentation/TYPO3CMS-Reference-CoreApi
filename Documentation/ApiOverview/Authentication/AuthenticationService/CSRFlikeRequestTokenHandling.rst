@@ -44,8 +44,8 @@ Submitting request token value to application:
     The event :ref:`BeforeRequestTokenProcessedEvent` is available to
     intercept/adjust the request token.
 
-.. _JSON Web Token (JWT): https://jwt.io/
-.. _nonce: https://en.wikipedia.org/wiki/Cryptographic_nonce
+..  _JSON Web Token (JWT): https://jwt.io/
+..  _nonce: https://en.wikipedia.org/wiki/Cryptographic_nonce
 
 ..  _authentication-request-token-workflow:
 

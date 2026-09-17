@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. highlight:: bash
+..  include:: /Includes.rst.txt
+..  highlight:: bash
 
 ..  _migratetocomposer-steps:
 
@@ -69,16 +69,16 @@ the `TYPO3 Composer Helper <https://get.typo3.org/misc/composer/helper>`__
 or advanced project builders like `CPS-IT project-builder <https://github.com/CPS-IT/project-builder>`__
 which use a guided approach to create the file.
 
-.. hint::
+..  hint::
 
-   If you see versions of the :file:`composer.json` for versions older than TYPO3 v12,
-   you may see references to a `scripts` section that makes use of
-   `helhum/typo3-console <https://packagist.org/packages/helhum/typo3-console>`__.
-   This is optional.
+    If you see versions of the :file:`composer.json` for versions older than TYPO3 v12,
+    you may see references to a `scripts` section that makes use of
+    `helhum/typo3-console <https://packagist.org/packages/helhum/typo3-console>`__.
+    This is optional.
 
-   You can look at previous versions of the
-   `Base Distribution's composer.json <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/14.x/composer.json>`__
-   for differences between the TYPO3 versions.
+    You can look at previous versions of the
+    `Base Distribution's composer.json <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/14.x/composer.json>`__
+    for differences between the TYPO3 versions.
 
 
 ..  _migratetocomposer-steps-add-required-packages:
@@ -89,18 +89,18 @@ Add all required packages to your project
 You can add all your required packages with the Composer command :bash:`composer
 require`. The full syntax is:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require anyvendorname/anypackagename:version
+    composer require anyvendorname/anypackagename:version
 
 **Example**:
 
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require "typo3/minimal:^12"
+    composer require "typo3/minimal:^12"
 
 This uses the `Packagist <https://packagist.org>`__ repository by default,
 which is the de-facto standard for Composer packages.
@@ -150,8 +150,8 @@ to TYPO3.
 As a first step, you should only pick the TYPO3 Core extensions to
 ensure your setup works, and add third-party dependencies later.
 
-.. _composer-migration-require-all:
-.. _composer-migration-require-subtree-packages:
+..  _composer-migration-require-all:
+..  _composer-migration-require-subtree-packages:
 
 Install the Core
 ----------------
@@ -159,19 +159,19 @@ Install the Core
 Once the :file:`composer.json` is updated,
 install additional system extensions:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require typo3/minimal:^14.3
-   composer require typo3/cms-scheduler:^14.3
-   composer require ...
+    composer require typo3/minimal:^14.3
+    composer require typo3/cms-scheduler:^14.3
+    composer require ...
 
 Or, in one line:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require typo3/minimal:^14.3 typo3/cms-scheduler:^14.3 ...
+    composer require typo3/minimal:^14.3 typo3/cms-scheduler:^14.3 ...
 
 To find the correct package names, either take a look in the
 :file:`composer.json` of that system extension or follow the naming
@@ -180,7 +180,7 @@ convention
 e.g. :file:`typo3/cms-fluid-styled-content`. You can also go to `Packagist <https://packagist.org/>`__
 and search for `typo3/cms-` to see all listed packages.
 
-.. note::
+..  note::
 
     To find all TYPO3 Core packages, you can visit the TYPO3 Composer Helper website.
     https://get.typo3.org/misc/composer/helper
@@ -216,9 +216,9 @@ Composer package name on `Packagist <https://packagist.org>`__. Most maintainers
 have done this and if you search for the extension in TER you will see which
 command and Composer package name can be used to install the extension.
 
-.. include:: /Images/ExternalImages/Upgrade/TerComposerCommand.rst.txt
+..  include:: /Images/ExternalImages/Upgrade/TerComposerCommand.rst.txt
 
-.. note::
+..  note::
 
     The command :bash:`composer req` is short for :bash:`composer require`. Both commands
     do exactly the same thing and are interchangeable.
@@ -245,31 +245,31 @@ has not explicitly provided the command.
 
 #. Click button "Take a look into the code".
 
-   .. include:: /Images/ExternalImages/Upgrade/TerCodeLink.rst.txt
+   ..  include:: /Images/ExternalImages/Upgrade/TerCodeLink.rst.txt
 
 #. Open file :file:`composer.json`.
 
-   .. include:: /Images/ExternalImages/Upgrade/GithubComposerFile.rst.txt
+   ..  include:: /Images/ExternalImages/Upgrade/GithubComposerFile.rst.txt
 
 #. Search for line with property `"name"`. Its value should be
    formatted like `vendor/package`.
 
-   .. include:: /Images/ExternalImages/Upgrade/GithubComposerName.rst.txt
+   ..  include:: /Images/ExternalImages/Upgrade/GithubComposerName.rst.txt
 
 #. Check if the package can be found on
    `Packagist <https://packagist.org>`__.
 
-   .. include:: /Images/ExternalImages/Upgrade/PackagistMask.rst.txt
+   ..  include:: /Images/ExternalImages/Upgrade/PackagistMask.rst.txt
 
 **Example:**
 To install the mask extension version 8.3.\*, type:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require mask/mask:~8.3.0
+    composer require mask/mask:~8.3.0
 
-.. _composer-require-repository:
+..  _composer-require-repository:
 
 Install extension from version control system (e.g. GitHub, GitLab, ...)
 ------------------------------------------------------------------------
@@ -291,10 +291,10 @@ additional lines are added to the top of :file:`composer.json`:
 Ideally, you should not edit a :file:`composer.json` file manually, but instead use
 Composer commands to make the changes, like this:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer config repositories.foo-bar vcs https://github.com/foo/bar.git
+    composer config repositories.foo-bar vcs https://github.com/foo/bar.git
 
 The Git repository must point to a TYPO3 extension with a
 :file:`composer.json`.
@@ -310,12 +310,12 @@ or `Private Packagist <https://packagist.com/>`__ repositories.
 If these requirements are fulfilled, you can add your extension in the
 normal way:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer require foo/bar:~1.0.0
+    composer require foo/bar:~1.0.0
 
-.. _mig-composer-include-individual-extensions:
+..  _mig-composer-include-individual-extensions:
 
 Include individual extensions like site packages
 ================================================
@@ -332,11 +332,11 @@ GitHub or on Packagist.
 Usually these extensions are in a directory like :file:`<project_root>/packages/`
 or :file:`<project_root>/extensions/` (and no longer in :file:`typo3conf/ext/`), so you would use:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   composer config repositories.local_packages path './packages/*'
-   composer require myvendor/sitepackage
+    composer config repositories.local_packages path './packages/*'
+    composer require myvendor/sitepackage
 
 Your sitepackage needs to be contained in its own directory like
 :file:`<project_root>/packages/my_sitepackage/` and provide a :file:`composer.json` file
@@ -381,19 +381,19 @@ At a minimum, the site configuration and the translations should be moved.
 
 Move files:
 
-.. code-block:: shell
-   :caption: typo3_root$
+..  code-block:: shell
+    :caption: typo3_root$
 
-   mv public/typo3conf/sites config/sites
-   mv public/typo3temp/var var
-   mv public/typo3conf/l10n var/labels
+    mv public/typo3conf/sites config/sites
+    mv public/typo3temp/var var
+    mv public/typo3conf/l10n var/labels
 
-.. important::
+..  important::
 
-   The :file:`var` directory may already exist. In that case, move the files
-   individually. You can also delete the "old" files in
-   :file:`public/typo3temp/var`, unless you need to keep the log files
-   or anything else that may still be relevant.
+    The :file:`var` directory may already exist. In that case, move the files
+    individually. You can also delete the "old" files in
+    :file:`public/typo3temp/var`, unless you need to keep the log files
+    or anything else that may still be relevant.
 
 These locations have changed. Note that TYPO3 v12+ moved more configuration
 files to a new directory than TYPO3 v11:

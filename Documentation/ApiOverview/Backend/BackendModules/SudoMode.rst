@@ -1,8 +1,8 @@
 :navigation-title: Sudo mode
 
-.. include:: /Includes.rst.txt
-.. index:: Backend modules; TypoScript
-.. _backend-module-sudo:
+..  include:: /Includes.rst.txt
+..  index:: Backend modules; TypoScript
+..  _backend-module-sudo:
 
 ==================================
 Sudo mode in TYPO3 backend modules
@@ -17,7 +17,7 @@ tool password. This is done
 in order to mitigate unintended modifications that might occur as result
 of for example possible cross-site scripting vulnerabilities in the system.
 
-.. _backend-module-sudo-extensions:
+..  _backend-module-sudo-extensions:
 
 Authentication in for sudo mode in extensions using the auth service
 ====================================================================
@@ -37,7 +37,7 @@ invocations.
 ..  literalinclude:: _SudoMode/_MyAuthenticationService.php
     :caption: EXT:my_extension/Classes/Authentication/MyAuthenticationService.php
 
-.. _backend-module-sudo-modules:
+..  _backend-module-sudo-modules:
 
 Custom backend modules requiring the sudo mode
 ==============================================
@@ -75,7 +75,7 @@ relevant configuration would look like this:
 ..  literalinclude:: /ApiOverview/Backend/BackendModules/ModuleConfiguration/_ModuleConfiguration/_sudo_modules.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-.. _backend-module-sudo-modules-process:
+..  _backend-module-sudo-modules-process:
 
 Process in a nutshell
 ---------------------

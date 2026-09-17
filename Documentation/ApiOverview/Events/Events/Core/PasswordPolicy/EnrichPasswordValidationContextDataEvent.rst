@@ -40,4 +40,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/PasswordPolicy/EnrichPasswordValidationContextDataEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/PasswordPolicy/EnrichPasswordValidationContextDataEvent.rst.txt

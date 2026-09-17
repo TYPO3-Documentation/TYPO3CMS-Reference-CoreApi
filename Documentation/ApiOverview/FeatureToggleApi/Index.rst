@@ -28,9 +28,9 @@ Examples for features are:
 -   Enable alternative "page not found" handling for an installation.
 
 
-.. contents:: **Table of Contents**
-   :depth: 1
-   :local:
+..  contents:: **Table of Contents**
+    :depth: 1
+    :local:
 
 
 ..  _feature-toggles-naming-feature-toggles:
@@ -87,7 +87,7 @@ To check if a feature is enabled, use this code:
     :file:`config/system/settings.php` or :file:`config/system/additional.php`
     files like:
 
-    .. code-block:: php
+    ..  code-block:: php
         :caption: config/system/additional.php | typo3conf/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true;
@@ -96,7 +96,7 @@ The name can be any arbitrary string, but an extension author should prefix the
 feature with the extension name as the features are global switches which
 otherwise might lead to naming conflicts.
 
-.. _feature-toggles-core:
+..  _feature-toggles-core:
 
 Core feature toggles
 ====================

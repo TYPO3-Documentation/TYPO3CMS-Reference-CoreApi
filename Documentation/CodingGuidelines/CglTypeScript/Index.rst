@@ -1,7 +1,7 @@
 :navigation-title: TypeScript
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; TypeScript
-.. _cgl-typescript:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; TypeScript
+..  _cgl-typescript:
 
 ============================
 TypeScript coding guidelines
@@ -30,9 +30,9 @@ Format
 
 * Indent with 2 spaces.
 
-.. seealso::
+..  seealso::
 
-   `Excel Micro : Whitespace <https://github.com/excelmicro/typescript#whitespace>`__
+    `Excel Micro : Whitespace <https://github.com/excelmicro/typescript#whitespace>`__
 
 ..  _cgl-typescript-information:
 

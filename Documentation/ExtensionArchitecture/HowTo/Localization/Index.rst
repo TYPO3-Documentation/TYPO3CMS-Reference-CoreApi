@@ -1,8 +1,8 @@
 :navigation-title: Localization
 
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Localization
-.. _extension_localization:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Localization
+..  _extension_localization:
 
 =========================
 Localizing your extension

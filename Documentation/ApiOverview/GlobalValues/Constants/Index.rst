@@ -109,7 +109,7 @@ Enum case                    Value Description
 ============================ ===== =======================
 
 
-.. index:: Constants; HTTP status codes
+..  index:: Constants; HTTP status codes
 
 ..  _globals-constants-http-status-codes:
 

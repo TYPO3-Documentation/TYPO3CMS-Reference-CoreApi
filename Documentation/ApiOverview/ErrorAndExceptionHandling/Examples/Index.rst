@@ -1,24 +1,24 @@
-.. include:: /Includes.rst.txt
-.. _error-handling-configuration-examples:
+..  include:: /Includes.rst.txt
+..  _error-handling-configuration-examples:
 
 ========
 Examples
 ========
 
-.. index:: Errors; Debugging setup
-.. _error-handling-configuration-examples-debug:
+..  index:: Errors; Debugging setup
+..  _error-handling-configuration-examples-debug:
 
 Debugging and development setup
 ===============================
 
-.. attention::
-   Do not use **debug / development setup** in production. This setup generates error
-   messages in the Frontend and a number of log messages for low severity errors.
-   The messages in the Frontend will be visible to the user, give a potential attacker
-   more information about your system and the logging will fill your filesystem / DB,
-   which degrades performance and can potentially be used to bring down your system
-   by filling storage with log messages. See :ref:`security-staging-servers` for more
-   information.
+..  attention::
+    Do not use **debug / development setup** in production. This setup generates error
+    messages in the Frontend and a number of log messages for low severity errors.
+    The messages in the Frontend will be visible to the user, give a potential attacker
+    more information about your system and the logging will fill your filesystem / DB,
+    which degrades performance and can potentially be used to bring down your system
+    by filling storage with log messages. See :ref:`security-staging-servers` for more
+    information.
 
 Very verbose configuration which logs and displays all errors and
 exceptions.
@@ -33,33 +33,33 @@ You can also use the "Debug" preset in the Settings module "Configuration preset
 
 In :file:`.htaccess`
 
-.. code-block:: apacheconf
-   :caption: .htaccess
+..  code-block:: apacheconf
+    :caption: .htaccess
 
-   php_flag display_errors on
-   php_flag log_errors on
-   php_value error_log /path/to/php_error.log
+    php_flag display_errors on
+    php_flag log_errors on
+    php_value error_log /path/to/php_error.log
 
 
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
+..  code-block:: typoscript
+    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
 
-   config.contentObjectExceptionHandler = 0
+    config.contentObjectExceptionHandler = 0
 
 Use this setting, to get more context and a stacktrace in the Frontend in case of an exception.
 
-.. attention::
-   Do not set `config.contentObjectExceptionHandler` to 0 in production. It will
-   display a complete stack dump in the Frontend, when an exception occurs. Use
-   `config.contentObjectExceptionHandler = 1`, which is the default, in production.
+..  attention::
+    Do not set `config.contentObjectExceptionHandler` to 0 in production. It will
+    display a complete stack dump in the Frontend, when an exception occurs. Use
+    `config.contentObjectExceptionHandler = 1`, which is the default, in production.
 
 See :ref:`contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>` for more
 information.
 
 
-.. index:: Errors; Production setup
-.. _error-handling-configuration-examples-production:
+..  index:: Errors; Production setup
+..  _error-handling-configuration-examples-production:
 
 Production setup
 ================
@@ -79,16 +79,16 @@ You can also use the "Live" preset in the Settings module "Configuration presets
 
 In :file:`.htaccess`:
 
-.. code-block:: apacheconf
-   :caption: .htaccess
+..  code-block:: apacheconf
+    :caption: .htaccess
 
-   php_flag display_errors off
-   php_flag log_errors on
-   php_value error_log /path/to/php_error.log
+    php_flag display_errors off
+    php_flag log_errors on
+    php_value error_log /path/to/php_error.log
 
 
-.. index:: Errors; Performance setup
-.. _error-handling-configuration-examples-performance:
+..  index:: Errors; Performance setup
+..  _error-handling-configuration-examples-performance:
 
 Performance setup
 =================
@@ -112,8 +112,8 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 In :file:`.htaccess`:
 
-.. code-block:: apacheconf
-   :caption: .htaccess
+..  code-block:: apacheconf
+    :caption: .htaccess
 
-   php_flag display_errors off
-   php_flag log_errors off
+    php_flag display_errors off
+    php_flag log_errors off

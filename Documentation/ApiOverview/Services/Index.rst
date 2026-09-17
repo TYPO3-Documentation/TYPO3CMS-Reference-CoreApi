@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _services:
+..  include:: /Includes.rst.txt
+..  _services:
 
 ========
 Services
@@ -7,10 +7,10 @@ Services
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Introduction/Index
-   UsingServices/Index
-   Configuration/Index
-   Developer/Index
+    Introduction/Index
+    UsingServices/Index
+    Configuration/Index
+    Developer/Index

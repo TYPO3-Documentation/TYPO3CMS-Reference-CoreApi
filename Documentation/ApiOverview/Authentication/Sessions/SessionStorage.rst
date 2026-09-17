@@ -1,8 +1,8 @@
 :navigation-title: Session Storage
 
-.. include:: /Includes.rst.txt
-.. index:: Sessions; Storage
-.. _session-storage:
+..  include:: /Includes.rst.txt
+..  index:: Sessions; Storage
+..  _session-storage:
 
 =========================
 Session storage framework
@@ -19,8 +19,8 @@ The Core ships two session backends by default:
 By default user sessions are stored in the database using the database
 storage backend.
 
-.. index:: Sessions; Database storage
-.. _sessions-database:
+..  index:: Sessions; Database storage
+..  _sessions-database:
 
 Database storage backend
 ========================
@@ -30,7 +30,7 @@ The table name (`table` option) and whether anonymous sessions (`has_anonymous` 
 
 The default configuration used for sessions by the Core is:
 
-.. code-block:: php
+..  code-block:: php
     :caption: Default session configuration of the Core
 
     'SYS' => [
@@ -52,15 +52,15 @@ The default configuration used for sessions by the Core is:
     ],
 
 
-.. index:: Sessions; Redis Storage
-.. _sessions-redis:
+..  index:: Sessions; Redis Storage
+..  _sessions-redis:
 
 Using Redis to store sessions
 =============================
 
 TYPO3 also comes with the possibility to store sessions in a Redis key-value database.
 
-.. note::
+..  note::
 
     This requires a running Redis instance (refer to the Redis documentation for help on this)
     and the PHP extension "redis" to be installed.
@@ -115,12 +115,12 @@ The available options are:
         See `Feature: #104451 - Redis backends support for key prefixing
         <https://docs.typo3.org/permalink/changelog:feature-104451-1721646565>`_.
 
-.. tip::
+..  tip::
     If a Redis instance is running on the same machine as the webserver
     the hostname 'localhost' can be used.
 
-.. index:: Sessions; Custom storage
-.. _sessions-custom:
+..  index:: Sessions; Custom storage
+..  _sessions-custom:
 
 Writing your own session storage
 ================================
@@ -136,14 +136,14 @@ the Redis backend):
 ..  literalinclude:: _settings_custom.php
     :caption: config/system/settings.php (excerpt)
 
-.. _sessions-manager:
+..  _sessions-manager:
 
 `SessionManager` API
 ====================
 
 ..  include:: _SessionManager.rst.txt
 
-.. _sessions-references:
+..  _sessions-references:
 
 References
 ==========

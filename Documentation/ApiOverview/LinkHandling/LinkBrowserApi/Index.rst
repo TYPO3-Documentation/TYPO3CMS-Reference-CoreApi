@@ -1,13 +1,13 @@
-.. include:: /Includes.rst.txt
-.. index:: LinkBrowser
-.. _linkbrowser-api:
-.. _LinkBrowser:
+..  include:: /Includes.rst.txt
+..  index:: LinkBrowser
+..  _linkbrowser-api:
+..  _LinkBrowser:
 
 =================
 `LinkBrowser` API
 =================
 
-.. _linkbrowser-api-description:
+..  _linkbrowser-api-description:
 
 Description
 ===========
@@ -31,26 +31,26 @@ If no link handler is available to deal with your link type, you can create
 a custom link handler. See :ref:`Tutorial: Create a custom link
 browser <tutorial-github-link-handler>`.
 
-.. index:: LinkBrowser; Tab registration
-.. _linkbrowser-api-tab-registration:
+..  index:: LinkBrowser; Tab registration
+..  _linkbrowser-api-tab-registration:
 
 Tab registration
 ----------------
 
 LinkBrowser tabs are registered in page TSconfig like this:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
+..  code-block:: typoscript
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
-   TCEMAIN.linkHandler.<tabIdentifier> {
-       handler = TYPO3\CMS\Backend\LinkHandler\FileLinkHandler
-       label = backend.browse_links:file
-       displayAfter = page
-       scanAfter = page
-       configuration {
-           customConfig = passed to the handler
-       }
-   }
+    TCEMAIN.linkHandler.<tabIdentifier> {
+        handler = TYPO3\CMS\Backend\LinkHandler\FileLinkHandler
+        label = backend.browse_links:file
+        displayAfter = page
+        scanAfter = page
+        configuration {
+            customConfig = passed to the handler
+        }
+    }
 
 The options `displayBefore` and `displayAfter` define the order how the various tabs are displayed in the LinkBrowser.
 

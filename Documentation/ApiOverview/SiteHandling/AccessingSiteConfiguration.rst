@@ -84,7 +84,7 @@ API
 ..  include:: /CodeSnippets/Manual/Core/SiteFinder.rst.txt
 
 
-.. index:: pair: Site handling; Site object
+..  index:: pair: Site handling; Site object
 ..  _sitehandling-site-object:
 
 The `Site` object
@@ -101,7 +101,7 @@ API
 ..  include:: /CodeSnippets/Manual/Entity/Site.rst.txt
 
 
-.. index:: pair: Site handling; SiteLanguage object
+..  index:: pair: Site handling; SiteLanguage object
 ..  _sitehandling-sitelanguage-object:
 
 The `SiteLanguage` object

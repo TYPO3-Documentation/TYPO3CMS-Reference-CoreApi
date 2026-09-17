@@ -1,16 +1,16 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _database-connection:
+..  _database-connection:
 
 ==========
 Connection
 ==========
 
-.. contents:: **Table of Contents**
-   :local:
+..  contents:: **Table of Contents**
+    :local:
 
 
-.. _database-connection-introduction:
+..  _database-connection-introduction:
 
 Introduction
 ============
@@ -39,7 +39,7 @@ are executed right away.
     same table.
 
 
-.. _database-connection-instantiation:
+..  _database-connection-instantiation:
 
 Instantiation
 =============
@@ -85,7 +85,7 @@ Another way is to inject the :php:`Connection` object directly via
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
-.. _database-connection-parameter-types:
+..  _database-connection-parameter-types:
 
 Parameter types
 ===============
@@ -129,7 +129,7 @@ is omitted.
 Internally, these parameter types are mapped to the types Doctrine DBAL expects.
 
 
-.. _database-connection-insert:
+..  _database-connection-insert:
 
 `insert()`
 ==========
@@ -175,7 +175,7 @@ thrown.
     :php:`TYPO3\CMS\Core\Database\Connection` class.
 
 
-.. _database-connection-bulk-insert:
+..  _database-connection-bulk-insert:
 
 `bulkInsert()`
 ==============
@@ -212,7 +212,7 @@ The number of inserted rows are returned. If something goes wrong, a
     run your extension an anything else than MySQL.
 
 
-.. _database-connection-update:
+..  _database-connection-update:
 
 `update()`
 ==========
@@ -251,7 +251,7 @@ The method returns the number of updated rows. If something goes wrong, a
     complex stuff the :ref:`query builder <database-query-builder>` must be used.
 
 
-.. _database-connection-delete:
+..  _database-connection-delete:
 
 `delete()`
 ==========
@@ -288,7 +288,7 @@ The method returns the number of deleted rows. If something goes wrong, a
     to handle deletions instead of executing such low-level queries directly.
 
 
-.. _database-connection-truncate:
+..  _database-connection-truncate:
 
 `truncate()`
 ============
@@ -307,7 +307,7 @@ The argument is the name of the table to be truncated. If something goes wrong,
 a :php:`\Doctrine\DBAL\Exception` is thrown.
 
 
-.. _database-connection-count:
+..  _database-connection-count:
 
 `count()`
 =========
@@ -355,7 +355,7 @@ Remarks:
     :php:`Connection` object.
 
 
-.. _database-connection-select:
+..  _database-connection-select:
 
 `select()`
 ==========
@@ -403,7 +403,7 @@ Remarks:
     method for fine-grained :sql:`WHERE` manipulation.
 
 
-.. _database-connection-last-insert-id:
+..  _database-connection-last-insert-id:
 
 `lastInsertId()`
 ================
@@ -425,7 +425,7 @@ Remarks:
     - but be aware of this.
 
 
-.. _database-connection-create-query-builder:
+..  _database-connection-create-query-builder:
 
 `createQueryBuilder()`
 ======================

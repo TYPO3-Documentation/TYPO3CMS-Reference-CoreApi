@@ -1,7 +1,7 @@
 :navigation-title: Docker Container
 
 ..  include:: /Includes.rst.txt
-.. _docker-deployment:
+..  _docker-deployment:
 
 =====================================
 Deploying TYPO3 as a Docker container
@@ -18,7 +18,7 @@ maintaining TYPO3 instances in containers.
 
 For in-depth information, see the main Docker chapter:
 
-.. seealso::
+..  seealso::
 
     - `Running TYPO3 with Docker on Production <https://docs.typo3.org/permalink/t3coreapi:docker-production>`_
     - `Docker documentation <https://docs.docker.com/>`_

@@ -94,5 +94,5 @@ to let the framework handle persistence details internally.
     appropriate!
 
 
-.. _Doctrine DBAL: https://www.doctrine-project.org/projects/dbal.html
-.. _Doctrine ORM: https://www.doctrine-project.org/projects/orm.html
+..  _Doctrine DBAL: https://www.doctrine-project.org/projects/dbal.html
+..  _Doctrine ORM: https://www.doctrine-project.org/projects/orm.html

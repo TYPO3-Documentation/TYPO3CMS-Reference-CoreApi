@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Link handler; Configuration
-.. _link-handler-configuration:
+..  include:: /Includes.rst.txt
+..  index:: Link handler; Configuration
+..  _link-handler-configuration:
 
 ==========================
 Link handler configuration
@@ -8,8 +8,8 @@ Link handler configuration
 
 Link browser tabs are registered in :ref:`page TSconfig <t3tsref:pagetsconfig>` like this:
 
-.. literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.typoscript
-   :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
+..  literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.typoscript
+    :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
 
 See the complete example: :ref:`Tutorial: Custom record link
 browser <TableRecordLinkBrowserTutorials>`.
@@ -36,7 +36,7 @@ Possible options are:
 :typoscript:`configuration`
     Some custom configuration, available to the backend link handler.
 
-.. _record-link-handler-configuration:
+..  _record-link-handler-configuration:
 
 Record link handler configuration
 =================================
@@ -60,26 +60,26 @@ Page link handler configuration
 :typoscript:`configuration.pageIdSelector.enabled`
    Enable an additional field in the link browser to enter the uid of a page.
 
-.. figure:: Linkhandler/Images/LinkBrowserTSConfigExamplepageIdSelector.png
-   :alt: The link browser field for entering a page uid.
+..  figure:: Linkhandler/Images/LinkBrowserTSConfigExamplepageIdSelector.png
+    :alt: The link browser field for entering a page uid.
 
 Enable the field with the following page TSConfig:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
+..  code-block:: typoscript
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
-   TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
+    TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
 
 or by configuring the link button in your ckeditor configuration
 
 ..  literalinclude:: _rtePageIdSelector.yaml
     :caption: EXT:some_extension/Configuration/RTE/Default.yaml
 
-.. note::
+..  note::
 
-   Additionally, you have to allow the pageIdSelector as a link option in your RTE configuration, e.g.
+    Additionally, you have to allow the pageIdSelector as a link option in your RTE configuration, e.g.
 
-.. code-block:: yaml
-   :caption: EXT:some_extension/Configuration/RTE/Default.yaml
+..  code-block:: yaml
+    :caption: EXT:some_extension/Configuration/RTE/Default.yaml
 
-   allowedOptions: 'target,title,class,pageIdSelector'
+    allowedOptions: 'target,title,class,pageIdSelector'

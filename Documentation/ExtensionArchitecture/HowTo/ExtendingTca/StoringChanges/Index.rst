@@ -11,7 +11,7 @@ There are various ways to store modifications to :php:`$GLOBALS['TCA']`. They
 depend on what you are trying to achieve and the version of TYPO3 CMS you are
 targeting. The TCA can only be modified from inside an extension.
 
-.. versionchanged:: 14.0
+..  versionchanged:: 14.0
     There are two changes to :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin()`.
     The second argument :php:`$type` and the third argument :php:`$extensionKey`
     have been dropped.

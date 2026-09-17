@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Production Settings; Environment
+..  index:: Production Settings; Environment
 
-.. _production-settings:
+..  _production-settings:
 
 ===================
 Production settings

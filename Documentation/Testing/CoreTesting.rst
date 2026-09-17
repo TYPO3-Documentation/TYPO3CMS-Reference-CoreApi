@@ -1,6 +1,6 @@
 :orphan:
 
-.. _testing-core:
+..  _testing-core:
 
 ============
 Core testing

@@ -4,7 +4,7 @@
 ..  index::
     Webhooks
     Reactions
-.. _webhooks:
+..  _webhooks:
 
 =======================================================
 Webhooks and reactions: integration of external systems

@@ -1,14 +1,14 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _database-restriction-builder:
+..  _database-restriction-builder:
 
 ===================
 Restriction builder
 ===================
 
-.. contents:: Table of Contents
-   :depth: 1
-   :local:
+..  contents:: Table of Contents
+    :depth: 1
+    :local:
 
 Database tables in TYPO3 that can be managed in the backend have :doc:`TCA
 <t3tca:Index>` definitions that specify how single fields and rows of the table
@@ -135,7 +135,7 @@ extension developer.
 Restrictions
 ============
 
-.. rst-class:: dl-parameters
+..  rst-class:: dl-parameters
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction` (default)
     Evaluates :php:`['ctrl']['delete']`, adds for instance
@@ -189,7 +189,7 @@ following applies:
 `QueryRestrictionContainer`
 ===========================
 
-.. rst-class:: dl-parameters
+..  rst-class:: dl-parameters
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer`
     Adds
@@ -271,7 +271,7 @@ Which results in:
         AND ("c2"."hidden" = 0))
 
 
-.. _database-custom-restrictions:
+..  _database-custom-restrictions:
 
 Custom restrictions
 ===================

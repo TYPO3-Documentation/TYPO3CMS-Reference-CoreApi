@@ -19,8 +19,8 @@ emoji (UTF-8 representation).
 ..  _ISO 3166-1: https://en.wikipedia.org/wiki/ISO_3166-1
 ..  _Debian's ISO code list: https://salsa.debian.org/iso-codes-team/iso-codes
 
-.. contents:: Contents
-   :local:
+..  contents:: Contents
+    :local:
 
 
 ..  _country-api-php-api:
@@ -118,21 +118,21 @@ PHP API reference
 `CountryProvider`
 -----------------
 
-.. include:: /CodeSnippets/Manual/Country/CountryProvider.rst.txt
+..  include:: /CodeSnippets/Manual/Country/CountryProvider.rst.txt
 
 ..  _country-api-php-api-reference-countryfilter:
 
 `CountryFilter`
 ---------------
 
-.. include:: /CodeSnippets/Manual/Country/CountryFilter.rst.txt
+..  include:: /CodeSnippets/Manual/Country/CountryFilter.rst.txt
 
 ..  _country-api-php-api-reference-country:
 
 `Country`
 ---------
 
-.. include:: /CodeSnippets/Manual/Country/Country.rst.txt
+..  include:: /CodeSnippets/Manual/Country/Country.rst.txt
 
 
 ..  index:: CountrySelect ViewHelper

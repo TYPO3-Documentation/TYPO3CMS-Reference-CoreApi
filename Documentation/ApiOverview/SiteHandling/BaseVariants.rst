@@ -62,7 +62,7 @@ Example
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 
-.. index:: Site handling; Base variant properties
+..  index:: Site handling; Base variant properties
 
 ..  _sitehandling-base-variants-properties:
 
@@ -99,9 +99,9 @@ Properties
     The current :ref:`application context <application-context>`.
 
 
-.. index::
-   Site handling; Base variant functions
-   DefaultFunctionsProvider
+..  index::
+    Site handling; Base variant functions
+    DefaultFunctionsProvider
 
 ..  _sitehandling-base-variants-functions:
 

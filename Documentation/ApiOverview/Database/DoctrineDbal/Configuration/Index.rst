@@ -56,7 +56,7 @@ Remarks:
     :ref:`Connection <database-connection>` class
     :php:`\TYPO3\CMS\Core\Database\Connection` as main facade around Doctrine DBAL.
 
-.. _doctrine connection docs: https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html
+..  _doctrine connection docs: https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html
 
 
 ..  _database-configuration-example-two-connections:

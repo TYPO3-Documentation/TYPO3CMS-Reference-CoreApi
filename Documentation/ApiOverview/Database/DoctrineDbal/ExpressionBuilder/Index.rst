@@ -6,8 +6,8 @@
 Expression builder
 ==================
 
-.. contents:: **Table of Contents**
-   :local:
+..  contents:: **Table of Contents**
+    :local:
 
 ..  include:: _ExpressionBuilder.rst.txt
 

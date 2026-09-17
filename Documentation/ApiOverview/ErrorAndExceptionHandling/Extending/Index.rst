@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Errors; Custom error handler
-   Exceptions; Custom exception handler
-.. _error-handling-extending:
+..  include:: /Includes.rst.txt
+..  index::
+    Errors; Custom error handler
+    Exceptions; Custom exception handler
+..  _error-handling-extending:
 
 ==============================================
 How to extend the error and exception handling
@@ -15,18 +15,18 @@ If you want to register your own error or exception handler:
 #. Override the Core defaults for `productionExceptionHandler`, `debugExceptionHandler`
    or `errorHandler` in :file:`config/system/additional.php`:
 
-   .. code-block:: php
-      :caption: config/system/additional.php | typo3conf/system/additional.php
+   ..  code-block:: php
+       :caption: config/system/additional.php | typo3conf/system/additional.php
 
-      $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
-      $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
-      $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = \Vendor\Ext\Error\MyOwnProductionExceptionHandler::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = \Vendor\Ext\Error\MyOwnProductionExceptionHandler::class;
 
-.. tip::
+..  tip::
 
-   We use :file:`config/system/additional.php` and **not** :file:`ext_localconf.php`
-   in the extension (as previously documented) because that will be executed
-   **after** the error / exception handlers are initialized in the bootstrap process.
+    We use :file:`config/system/additional.php` and **not** :file:`ext_localconf.php`
+    in the extension (as previously documented) because that will be executed
+    **after** the error / exception handlers are initialized in the bootstrap process.
 
 An error or exception handler class must register an error (exception)
 handler in its constructor. Have a look at the files in :file:`EXT:core/Classes/Error/`
@@ -47,7 +47,7 @@ of the functionality:
 ..  literalinclude:: _PostExceptionsOnTwitter.php
     :caption: EXT:some_extension/Classes/Error/PostExceptionsOnTwitter.php
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;

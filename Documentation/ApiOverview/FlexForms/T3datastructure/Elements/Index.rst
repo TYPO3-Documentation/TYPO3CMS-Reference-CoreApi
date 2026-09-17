@@ -206,8 +206,8 @@ Details can be found in
 Below is the structure of a basic FlexForm from the example extension
 :composer:`typo3/cms-styleguide`:
 
-.. literalinclude:: /CodeSnippets/FlexForms/Simple.xml
-   :caption: EXT:styleguide/Configuration/FlexForms/Simple.xml
+..  literalinclude:: /CodeSnippets/FlexForms/Simple.xml
+    :caption: EXT:styleguide/Configuration/FlexForms/Simple.xml
 
 For a more detailed example, have a look at the plugin configuration of
 system extension `felogin` (:t3src:`felogin/Configuration/FlexForms/Login.xml`).

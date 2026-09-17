@@ -1,8 +1,8 @@
 :navigation-title: Requests
-.. include:: /Includes.rst.txt
-.. index::
-   Request Life Cycle
-.. _request-life-cycle:
+..  include:: /Includes.rst.txt
+..  index::
+    Request Life Cycle
+..  _request-life-cycle:
 
 ==================
 Request life cycle

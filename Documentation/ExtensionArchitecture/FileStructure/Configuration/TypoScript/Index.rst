@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Configuration/TypoScript
-   Path; EXT:{extkey}/Configuration/TypoScript
-.. _extension-configuration-typoscript:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Configuration/TypoScript
+    Path; EXT:{extkey}/Configuration/TypoScript
+..  _extension-configuration-typoscript:
 
 ============
 `TypoScript`
@@ -27,8 +27,8 @@ These two files are made available for inclusion in TypoScript records by
 :php:`ExtensionManagementUtility::addStaticFile` in
 :file:`Configuration/TCA/Overrides/sys_template.php`:
 
-.. literalinclude:: _snippets/_sys_template.php
-   :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
+..  literalinclude:: _snippets/_sys_template.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
 
 It is possible to use subfolders or a differently named folder instead, however, the file
 names have to stay the same.

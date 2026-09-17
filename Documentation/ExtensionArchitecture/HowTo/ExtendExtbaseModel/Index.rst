@@ -1,8 +1,8 @@
 :navigation-title: Model extensions
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _extending-extbase-model:
+..  _extending-extbase-model:
 
 ==========================
 Extending an Extbase model
@@ -15,7 +15,7 @@ However, if the extension you are trying to extend is based on :ref:`Extbase <ex
 field is not available in the frontend out of the box. Further steps are
 needed to make the fields available. These steps will not work in all cases.
 
-.. _extending-extbase-model_quick_overview:
+..  _extending-extbase-model_quick_overview:
 
 Quick overview
 ==============
@@ -49,7 +49,7 @@ Follow these steps:
 #.  :ref:`Register your extended repository <extending-extbase-model_register_extended_repository>`
     so that it is used instead of the original one.
 
-.. _extending-extbase-model_steps:
+..  _extending-extbase-model_steps:
 
 Step by step
 ============

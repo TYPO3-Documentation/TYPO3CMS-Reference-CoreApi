@@ -105,7 +105,7 @@ can be configured on a per-class and per-namespace basis with the sub-key
 For a list of processors shipped with the TYPO3 Core, see the section about
 :ref:`logging-processors`.
 
-..    _logging-configuration-disable:
+..  _logging-configuration-disable:
 
 Disable all logging
 ===================

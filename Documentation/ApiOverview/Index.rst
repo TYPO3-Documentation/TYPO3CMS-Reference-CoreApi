@@ -1,4 +1,4 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 ..  _api:
 
@@ -24,9 +24,9 @@ documentation in multiple locations is impractical due to the frequent changes
 in the codebase. This chapter highlights the most critical elements of the
 API.
 
-.. note::
+..  note::
 
-   The source is the documentation! (General wisdom)
+    The source is the documentation! (General wisdom)
 
 **Contents:**
 

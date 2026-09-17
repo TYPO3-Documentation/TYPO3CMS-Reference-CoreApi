@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Environment; Configuration; .env ; dotenv
+..  index:: Environment; Configuration; .env ; dotenv
 
-.. _environment-configuration:
+..  _environment-configuration:
 
 ========================
 Configuring environments
@@ -70,7 +70,7 @@ Examples of well-suited configuration options:
 
 The following sections describe this implementation process in depth.
 
-.. _environment-dotenv:
+..  _environment-dotenv:
 
 .env / dotenv files
 ===================
@@ -100,7 +100,7 @@ Example for `vlucas/phpdotenv`:
 Once this code has loaded the content from the :file:`.env` file into :php:`$_ENV`
 variables, you can access contents of the variables anywhere you need.
 
-.. _environment-helhum-dotenv:
+..  _environment-helhum-dotenv:
 
 helhum/dotenv-connector
 -----------------------
@@ -120,7 +120,7 @@ This has two nice benefits:
 The drawback is that you will have an additional dependency on another package, and
 glue code that is outside of your own implementation.
 
-.. _environment-phpconfig:
+..  _environment-phpconfig:
 
 Plain PHP configuration files
 =============================
@@ -155,7 +155,7 @@ be applied to every environment of yours, and that is not managed through
     the GUI of the backend. :file:`additional.php` always has the higher
     priority, so configuration values there will overwrite the GUI configuration.
 
-.. _multi-environment-best-practices:
+..  _multi-environment-best-practices:
 
 Best practices for managing multiple environments
 =================================================

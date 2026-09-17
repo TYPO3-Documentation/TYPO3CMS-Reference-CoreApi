@@ -1,13 +1,13 @@
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Composer-based installation
+    ..  group-tab:: Composer-based installation
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         vendor/bin/typo3 cache:flush
+            vendor/bin/typo3 cache:flush
 
-   .. group-tab:: Classic mode installation (no Composer)
+    ..  group-tab:: Classic mode installation (no Composer)
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         typo3/sysext/core/bin/typo3 cache:flush
+            typo3/sysext/core/bin/typo3 cache:flush

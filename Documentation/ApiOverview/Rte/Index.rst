@@ -1,11 +1,11 @@
 :navigation-title: RTE
-.. include:: /Includes.rst.txt
-.. index::
-   Rich text editor
-   RTE
-   see: RTE; Rich text editor
-   CKEditor
-.. _rte:
+..  include:: /Includes.rst.txt
+..  index::
+    Rich text editor
+    RTE
+    see: RTE; Rich text editor
+    CKEditor
+..  _rte:
 
 =======================
 Rich text editors (RTE)
@@ -26,7 +26,7 @@ various processes (saving to the database, rendering to the frontend, etc.)
     Transformations/Index
     HistoricalRteTransformations/Index
 
-.. _rte_ckeditor:
+..  _rte_ckeditor:
 
 CKEditor rich text editor
 =========================

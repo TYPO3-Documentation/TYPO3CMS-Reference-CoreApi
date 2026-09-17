@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Links
-.. _LinkHandling:
+..  include:: /Includes.rst.txt
+..  index:: Links
+..  _LinkHandling:
 
 =============
 Link handling

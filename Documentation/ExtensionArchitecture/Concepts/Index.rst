@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Concepts
-.. _extension-concepts:
-.. _extension-further-reading:
-.. _extension-architecture-introduction:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Concepts
+..  _extension-concepts:
+..  _extension-further-reading:
+..  _extension-architecture-introduction:
 
 ====================================
 The concepts behind TYPO3 extensions
@@ -22,7 +22,7 @@ And for Composer-based setups, TYPO3 can pull in any PHP packages from
 Extensions allow TYPO3 to be extended in unlimited directions due to the robust
 TYPO3 Extension API - and without compromising backward compatibility.
 
-.. _extensions-core:
+..  _extensions-core:
 
 System extensions
 =================
@@ -62,13 +62,13 @@ These are the most important ones:
 :composer:`typo3/cms-install`
     Contains the Install Tool, which is used for system setup, upgrades, and configuration.
 
-.. tip::
+..  tip::
 
     You can use `Composer Helper on get.typo3.org <https://get.typo3.org/misc/composer/helper>`_
     to generate a Composer command. Choose between default, minimal, or full TYPO3 installation presets,
     select optional individual packages and specify your desired TYPO3 version.
 
-.. _extension-scope:
+..  _extension-scope:
 
 Scope of extensions: system, third-party or custom
 ==================================================
@@ -80,7 +80,7 @@ In Classic mode installations they are found in :ref:`classic-directory-typo3-sy
 (system extensions) or :ref:`classic-directory-typo3conf-ext` (third-party
 and custom extensions).
 
-.. _extension-local:
+..  _extension-local:
 
 Third-party and custom extensions
 ---------------------------------
@@ -107,8 +107,8 @@ In Classic mode installations third-party extensions are installed into
 directory outside of the project root and symlinked into :file:`typo3conf/ext/`
 or manually inserted in the directory.
 
-.. _extension-global:
-.. _extension-system:
+..  _extension-global:
+..  _extension-system:
 
 System extensions
 -----------------

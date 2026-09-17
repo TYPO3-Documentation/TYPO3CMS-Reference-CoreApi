@@ -1,8 +1,8 @@
 :navigation-title: Update
 
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Update
-.. _update-extension:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Update
+..  _update-extension:
 
 ============================================
 Update your extension for new TYPO3 versions

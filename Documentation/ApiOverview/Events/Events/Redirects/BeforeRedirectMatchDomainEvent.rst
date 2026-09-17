@@ -40,4 +40,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/BeforeRedirectMatchDomainEvent.rst.txt
+..  include:: /CodeSnippets/Events/Redirects/BeforeRedirectMatchDomainEvent.rst.txt

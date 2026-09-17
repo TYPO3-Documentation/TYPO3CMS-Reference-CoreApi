@@ -1,10 +1,10 @@
 :navigation-title: Environments
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Deployment; Environment workflow; Staging; Production; Best practices
+..  index:: Deployment; Environment workflow; Staging; Production; Best practices
 
-.. _multi-stage-environment-workflow:
+..  _multi-stage-environment-workflow:
 
 ==========================================
 Multi-stage environment workflow for TYPO3
@@ -32,12 +32,12 @@ Separating your TYPO3 project into multiple environments allows you to:
     Database/Index
     UserUpload/Index
 
-.. _multi-stage-environment-stages:
+..  _multi-stage-environment-stages:
 
 Common environments in multi-stage deployment workflow
 ======================================================
 
-.. _multi-stage-environment-local:
+..  _multi-stage-environment-local:
 
 Local development
 -----------------
@@ -49,7 +49,7 @@ Individual developers work on their local machines using tools such as
 *   Running automated tests.
 *   Experimenting without affecting others.
 
-.. _multi-stage-environment-integration:
+..  _multi-stage-environment-integration:
 
 Integration / development environment
 -------------------------------------
@@ -61,7 +61,7 @@ changes. Useful for:
 *   Early feedback loops.
 *   Continuous integration pipelines.
 
-.. _multi-stage-environment-staging:
+..  _multi-stage-environment-staging:
 
 Staging / pre-production environment
 ------------------------------------
@@ -72,7 +72,7 @@ A production-like environment for:
 *   Verifying deployment procedures.
 *   Performance or load testing.
 
-.. _multi-stage-environment-production:
+..  _multi-stage-environment-production:
 
 Production / live environment
 -----------------------------
@@ -83,7 +83,7 @@ The final, customer-facing live site. Key requirements include:
 *   Security hardening.
 *   Data integrity and performance optimization.
 
-.. _multi-stage-environment-best-practices:
+..  _multi-stage-environment-best-practices:
 
 Best practices
 ==============

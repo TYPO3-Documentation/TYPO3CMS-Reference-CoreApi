@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Services API; Override service registration
-   TYPO3_CONF_VARS; T3_SERVICES
-.. _services-configuration-registration-changes:
+..  include:: /Includes.rst.txt
+..  index::
+    Services API; Override service registration
+    TYPO3_CONF_VARS; T3_SERVICES
+..  _services-configuration-registration-changes:
 
 =============================
 Override service registration
@@ -17,9 +17,9 @@ overridden in any extension's :file:`ext_localconf.php` file. Example:
 
 The general syntax is:
 
-.. code-block:: php
+..  code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES'][service type][service key][option key] = value;
+    $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES'][service type][service key][option key] = value;
 
 Registration options are described in more details in
 :ref:`Implementing a service <services-developer-implementing>`.

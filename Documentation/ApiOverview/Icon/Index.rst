@@ -71,7 +71,7 @@ If you need a custom icon provider, you can add your own by writing a
 class which implements the
 :t3src:`core/Classes/Imaging/IconProviderInterface.php`.
 
-.. _icon-usage:
+..  _icon-usage:
 
 Using icons in your code
 ========================
@@ -85,7 +85,7 @@ code or directly in Fluid.
     TYPO3 caches.
 
 
-.. index:: Icon API; IconFactory
+..  index:: Icon API; IconFactory
 
 ..  _icon-usage-php-way:
 
@@ -162,7 +162,7 @@ add the following dependency to your :ref:`ES6 module <backend-javascript-es6>`:
 
 The module has a single public method :js:`getIcon()` which accepts up to five arguments:
 
-.. rst-class:: dl-parameters
+..  rst-class:: dl-parameters
 
 identifier
     :sep:`|` :aspect:`Condition:` required
@@ -238,8 +238,8 @@ Here is an example code how a usage of the JavaScript Icon API may look like:
     export default new MyEs6Module();
 
 
-.. index:: Icon Api; Available icons
-.. _available-icons:
+..  index:: Icon Api; Available icons
+..  _available-icons:
 
 Available icons
 ===============

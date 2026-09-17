@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _appendix-a-content-elements:
+..  _appendix-a-content-elements:
 
 =======================================
 RTE transformations in content elements
@@ -139,7 +139,7 @@ URLs and must be converted to relative URLs if they are within the
 current domain.
 
 
-.. _appendix-a-content-elements-conclusion:
+..  _appendix-a-content-elements-conclusion:
 
 Conclusion
 ==========

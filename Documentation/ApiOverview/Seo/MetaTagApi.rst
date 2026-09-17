@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! MetaTag
-.. _metatagapi:
+..  include:: /Includes.rst.txt
+..  index:: ! MetaTag
+..  _metatagapi:
 
 =============
 `MetaTag` API
@@ -8,7 +8,7 @@
 
 The MetaTag API is available for setting meta tags in a flexible way.
 
-.. note::
+..  note::
 
     Usually, it is sufficient to set meta tags using the API of the
     :php:`\TYPO3\CMS\Core\Page\PageRenderer` which uses the MetaTag API
@@ -21,8 +21,8 @@ In addition to the MetaTagManagers included in the Core, you can also register y
 are made available through the :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
 
 
-.. index:: pair: MetaTag; API
-.. _metatagapi-usage:
+..  index:: pair: MetaTag; API
+..  _metatagapi-usage:
 
 Using the `MetaTag` API
 =======================
@@ -52,8 +52,8 @@ Or remove all previously set meta tags of a specific manager:
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-.. index:: MetaTag; Custom MetaTagManager
-.. _metatagapi-create-your-own:
+..  index:: MetaTag; Custom MetaTagManager
+..  _metatagapi-create-your-own:
 
 Creating your own `MetaTagManager`
 ==================================
@@ -95,8 +95,8 @@ Alternatively, the service tag :yaml:`metatag.manager` can be used directly in
 ..  literalinclude:: _MetaTagApi/_Services.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-.. index:: pair: MetaTag; TypoScript
-.. _metatagapi-configuration:
+..  index:: pair: MetaTag; TypoScript
+..  _metatagapi-configuration:
 
 TypoScript and PHP
 ==================

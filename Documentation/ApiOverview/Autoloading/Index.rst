@@ -190,7 +190,7 @@ Best practices
 Further reading
 ===============
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Background
+    Background

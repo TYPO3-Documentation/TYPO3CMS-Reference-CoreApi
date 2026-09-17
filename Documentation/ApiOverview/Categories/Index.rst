@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _categories:
+..  _categories:
 
 =================
 System categories
@@ -22,13 +22,13 @@ available.
 Pages, content elements and files contain category fields by default.
 
 
-.. _categories-using:
+..  _categories-using:
 
 Using categories
 ================
 
 
-.. _categories-managing:
+..  _categories-managing:
 
 Managing categories
 -------------------
@@ -44,7 +44,7 @@ can have a parent, making a tree-like structure.
 The :guilabel:`Items` tab shows all related records, for example all records
 that have been marked as belonging to this category.
 
-.. _categories-activating:
+..  _categories-activating:
 
 Adding categories to a table
 ----------------------------
@@ -55,7 +55,7 @@ takes care of generating the necessary TCA configuration and also adds
 the database column automatically. Developers only have to configure the
 TCA column and add it to the desired record types:
 
-.. literalinclude:: /CodeSnippets/Manual/Categoy/CategorySimple.php
+..  literalinclude:: /CodeSnippets/Manual/Categoy/CategorySimple.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/my_table.php
 
 This is the result of the above code:
@@ -65,7 +65,7 @@ This is the result of the above code:
 
     The newly added field to define relations to categories
 
-.. _categories-flexforms:
+..  _categories-flexforms:
 
 Using categories in FlexForms
 =============================
@@ -78,15 +78,15 @@ Due to some limitations in FlexForm, the property
 `manyToMany` is not supported. Therefore, the default value for this property
 is `oneToMany`.
 
-.. literalinclude:: /CodeSnippets/Manual/Categoy/CategoryFlexform.xml
+..  literalinclude:: /CodeSnippets/Manual/Categoy/CategoryFlexform.xml
     :caption: EXT:my_extension/Configuration/FlexForms/MyFlexForm.xml
 
-.. _categories-api:
+..  _categories-api:
 
 System categories API
 =====================
 
-.. _categories-collections:
+..  _categories-collections:
 
 Category collections
 ====================
@@ -103,28 +103,28 @@ The main method is :php:`load()` which will return a
 traversable list of items related to the given category.
 Here is an example usage, taken from the RECORDS content object:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:frontend/Classes/ContentObject/RecordsContentObject.php (excerpt)
 
-   use TYPO3\CMS\Frontend\Category\Collection\CategoryCollection;
+    use TYPO3\CMS\Frontend\Category\Collection\CategoryCollection;
 
-   $collection = CategoryCollection::load(
-      $aCategory,
-      true,
-      $table,
-      $relationField
-   );
-   if ($collection->count() > 0) {
-      // Add items to the collection of records for the current table
-      foreach ($collection as $item) {
-         $tableRecords[$item['uid']] = $item;
-         // Keep track of all categories a given item belongs to
-         if (!isset($categoriesPerRecord[$item['uid']])) {
-            $categoriesPerRecord[$item['uid']] = [];
-         }
-         $categoriesPerRecord[$item['uid']][] = $aCategory;
-      }
-   }
+    $collection = CategoryCollection::load(
+       $aCategory,
+       true,
+       $table,
+       $relationField
+    );
+    if ($collection->count() > 0) {
+       // Add items to the collection of records for the current table
+       foreach ($collection as $item) {
+          $tableRecords[$item['uid']] = $item;
+          // Keep track of all categories a given item belongs to
+          if (!isset($categoriesPerRecord[$item['uid']])) {
+             $categoriesPerRecord[$item['uid']] = [];
+          }
+          $categoriesPerRecord[$item['uid']][] = $aCategory;
+       }
+    }
 
 As all collection classes in the TYPO3 Core implement the
 :php:`Iterator` interface, it is also possible to use expected methods like
@@ -133,7 +133,7 @@ As all collection classes in the TYPO3 Core implement the
 The relations are not persisted in the database.
 
 
-.. _categories-typoscript:
+..  _categories-typoscript:
 
 Usage with TypoScript
 =====================

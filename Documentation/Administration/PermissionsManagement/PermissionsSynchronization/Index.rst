@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: backend, acl, permissions, user groups, user management
+..  index:: backend, acl, permissions, user groups, user management
 
-.. _permissions-synchronization:
+..  _permissions-synchronization:
 
 ===========================
 Permissions synchronization
@@ -18,7 +18,7 @@ often leading to issues. For example, developers might forget to update permissi
 across environments during deployments, causing inconsistencies. There are strategies
 to mitigate these synchronization challenges.
 
-.. _permissions-import-export:
+..  _permissions-import-export:
 
 Managing database configurations: importing and exporting
 =========================================================
@@ -33,7 +33,7 @@ After importing groups and permissions, reassign these groups to existing users
 as needed. Keep in mind though, that managing environment-specific groups while
 updating others can be a complex task.
 
-.. _deployable-permissions:
+..  _deployable-permissions:
 
 Deployable permissions
 ======================

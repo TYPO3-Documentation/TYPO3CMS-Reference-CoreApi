@@ -10,7 +10,7 @@ Using FAL in the frontend
     :local:
 
 
-.. _fal-using-fal-frontend-typoScript:
+..  _fal-using-fal-frontend-typoScript:
 
 TypoScript
 ==========

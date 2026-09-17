@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _best-practices:
+..  _best-practices:
 
 ==============
 Best practices

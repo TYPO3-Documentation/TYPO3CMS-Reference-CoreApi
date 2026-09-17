@@ -1,15 +1,15 @@
-.. include:: /Includes.rst.txt
-.. index::
-   TypoScript; Parsing
-   TypoScript; Execution
-   TypoScript; Storage
-.. _typoscript-syntax-typoscript-parser-api:
-.. _typoscript-syntax-parsing-storing-executing-typoscript:
-.. _typoscript-syntax-parsing-typoscript:
-.. _typoscript-syntax-storing-typoscript:
-.. _typoscript-syntax-executing-typoscript:
-.. _typoscript-syntax-parser-introduction:
-.. _typoscript-syntax-custom-typoscript:
+..  include:: /Includes.rst.txt
+..  index::
+    TypoScript; Parsing
+    TypoScript; Execution
+    TypoScript; Storage
+..  _typoscript-syntax-typoscript-parser-api:
+..  _typoscript-syntax-parsing-storing-executing-typoscript:
+..  _typoscript-syntax-parsing-typoscript:
+..  _typoscript-syntax-storing-typoscript:
+..  _typoscript-syntax-executing-typoscript:
+..  _typoscript-syntax-parser-introduction:
+..  _typoscript-syntax-custom-typoscript:
 
 =======
 PHP API
@@ -28,8 +28,8 @@ future. Use them on your own risk at the moment.
 TYPO3 already provides frontend TypoScript and TSconfig. Use these APIs for other use cases:
 
 
-.. index:: TSconfig; PHP
-.. _typoscript-access_page_tsconfig:
+..  index:: TSconfig; PHP
+..  _typoscript-access_page_tsconfig:
 
 Page TSconfig
 =============
@@ -47,7 +47,7 @@ the array representation of the parsed TypoScript:
     // Get the page TSconfig for the page with uid 42
     $pageTsConfig = BackendUtility::getPagesTSconfig(42);
 
-.. _typoscript-access_frontend_typoscript:
+..  _typoscript-access_frontend_typoscript:
 
 Frontend TypoScript
 ===================
@@ -64,9 +64,9 @@ evolve allowing extensions to parse TypoScript more easily.
 However, extension controllers that need the parsed TypoScript can access the parsed
 setup as array:
 
-.. code-block:: php
+..  code-block:: php
 
-        $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
+    $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
 
 Read more about :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`
 from different contexts.

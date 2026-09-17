@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _about:
+..  _about:
 
 =================
 About this manual
@@ -22,7 +22,7 @@ of the TYPO3 Core architecture. It will hopefully be the knowledge base
 of choice in your work with TYPO3.
 
 
-.. _audience:
+..  _audience:
 
 Intended audience
 =================
@@ -41,7 +41,7 @@ will enable you to educate others higher up in the "hierarchy". Please
 consider that as well!
 
 
-.. _code-examples:
+..  _code-examples:
 
 Code examples
 =============
@@ -53,8 +53,8 @@ Quite a few others come from the "`styleguide <https://github.com/TYPO3/stylegui
 extension. You can install it, if you want to try out these examples yourself and
 use them as a basis for your own extensions.
 
-.. _contribute:
-.. _feedback:
+..  _contribute:
+..  _feedback:
 
 Feedback and contribute
 =======================
@@ -86,7 +86,7 @@ And finally, as a last resort, you can get in touch with the documentation team
 `by mail <documentation@typo3.org>`_.
 
 
-.. _credits:
+..  _credits:
 
 Credits
 =======
@@ -102,7 +102,7 @@ for compiling the content of the security chapter and coordinating the collabora
 several teams. He managed the whole process of getting the Security Guide to a high quality.
 
 
-.. _dedication:
+..  _dedication:
 
 Dedication
 ==========

@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Rich text editor; Custom
-.. _rte-plug:
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Rich text editor; Custom
+..  _rte-plug:
 
 ========================
 Plugging in a custom RTE
@@ -16,7 +16,7 @@ TYPO3 comes with a built-in RTE called "ckeditor", but other RTEs
 are available in the TYPO3 Extension Repository and you can implement your
 own RTE if you like.
 
-.. _rte-api:
+..  _rte-api:
 
 API for rich text editors
 =========================

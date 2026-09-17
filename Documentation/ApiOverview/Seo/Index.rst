@@ -1,10 +1,10 @@
 :navigation-title: SEO
-.. include:: /Includes.rst.txt
-.. index::
-   ! SEO
-   Search engine optimization
-   see: Search engine optimization; SEO
-.. _seo:
+..  include:: /Includes.rst.txt
+..  index::
+    ! SEO
+    Search engine optimization
+    see: Search engine optimization; SEO
+..  _seo:
 
 ================================
 Search engine optimization (SEO)
@@ -12,10 +12,10 @@ Search engine optimization (SEO)
 
 TYPO3 contains various SEO related functionality out of the box.
 
-.. note::
-   Most of these features are provided by the optional system extension
-   EXT:seo. You can find information about how to install and use it in the
-   :doc:`EXT:seo manual <ext_seo:Index>`.
+..  note::
+    Most of these features are provided by the optional system extension
+    EXT:seo. You can find information about how to install and use it in the
+    :doc:`EXT:seo manual <ext_seo:Index>`.
 
 The following provides an introduction in those features.
 
@@ -52,7 +52,7 @@ Canonical Tags
     automatically. This ensures that there is no empty canonical.
 
 
-.. warning::
+..  warning::
     If you have other SEO extensions installed that generate canonical links, you have to make sure only one creates it.
     If both the Core and an extension are generating a canonical link, it will
     result in 2 canonical links which might cause confusion for search engines.

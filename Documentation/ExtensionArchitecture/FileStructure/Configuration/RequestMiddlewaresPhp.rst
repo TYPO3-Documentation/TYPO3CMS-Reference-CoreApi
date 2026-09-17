@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Configuration/RequestMiddlewares.php
-   Path; EXT:{extkey}/Configuration/RequestMiddlewares.php
-.. _extension-configuration-RequestMiddlewares-php:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Configuration/RequestMiddlewares.php
+    Path; EXT:{extkey}/Configuration/RequestMiddlewares.php
+..  _extension-configuration-RequestMiddlewares-php:
 
 
 ========================
@@ -22,5 +22,5 @@
     See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
     for details.
 
-.. literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
-   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+..  literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php

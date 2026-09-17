@@ -42,4 +42,4 @@ An event listener that validates `t3://record` targets:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/RedirectIntegrityCheckEvent.rst.txt
+..  include:: /CodeSnippets/Events/Redirects/RedirectIntegrityCheckEvent.rst.txt

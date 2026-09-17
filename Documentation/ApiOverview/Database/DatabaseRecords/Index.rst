@@ -1,7 +1,7 @@
 :navigation-title: Records
 
-.. include:: /Includes.rst.txt
-.. _database-records:
+..  include:: /Includes.rst.txt
+..  _database-records:
 
 ================
 Database records
@@ -62,7 +62,7 @@ Extension-specific records
 ..  todo: Create a page listing all tables created by the core and explain what
     they do. Link from here
 
-.. _database-records-technical:
+..  _database-records-technical:
 
 Technical structure of a record:
 ================================
@@ -76,7 +76,7 @@ attributes (for example, title, content), and metadata like creation and
 modification timestamps, visibility, information on translation
 and workspace handling. A record can have relations to other records.
 
-.. _database-records-tca:
+..  _database-records-tca:
 
 TCA (table configuration array)
 ===============================
@@ -86,7 +86,7 @@ structured, how they are displayed in the backend, and how they interact
 with other parts of the system. See the :ref:`TCA Reference <t3tca:start>`
 for details.
 
-.. _database-records-types:
+..  _database-records-types:
 
 Types and subtypes in records
 -----------------------------
@@ -125,7 +125,7 @@ when no :ref:`Extbase domain model <database-records-models>` is available.
 
 Read more in chapter :ref:`record_objects`.
 
-.. _database-records-models:
+..  _database-records-models:
 
 Extbase domain models
 =====================

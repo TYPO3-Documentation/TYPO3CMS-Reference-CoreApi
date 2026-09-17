@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Pagination
-.. _pagination:
+..  include:: /Includes.rst.txt
+..  index:: Pagination
+..  _pagination:
 
 ==========
 Pagination
@@ -23,7 +23,7 @@ items while it leaves the processing of items to the concrete paginator class.
     :local:
 
 
-.. _pagination-paginators:
+..  _pagination-paginators:
 
 Paginators
 ==========
@@ -41,7 +41,7 @@ Three concrete paginators are available:
     :php:`\TYPO3\CMS\Core\Pagination\QueryBuilderPaginator`
 
 
-.. _pagination-example-array-paginator:
+..  _pagination-example-array-paginator:
 
 Example: `ArrayPaginator`
 -------------------------
@@ -58,7 +58,7 @@ And the corresponding Fluid template:
     :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.fluid.html
 
 
-.. _pagination-example-query-builder-paginator:
+..  _pagination-example-query-builder-paginator:
 
 Example: `QueryBuilderPaginator`
 --------------------------------
@@ -88,7 +88,7 @@ CTEs, windowing functions, or grouping.
     :php:`QueryBuilder` instance.
 
 
-.. _pagination-sliding-window:
+..  _pagination-sliding-window:
 
 Sliding window pagination
 =========================
@@ -103,7 +103,7 @@ this `< prev ... 21 22 23 24 ... next >` or `< 1 ... 21 22 23 24 ... 50 >` or
 simple `< 21 22 23 24 >`. Customise the template to suit your needs.
 
 
-.. _pagination-sliding-window-usage:
+..  _pagination-sliding-window-usage:
 
 Usage
 -----
