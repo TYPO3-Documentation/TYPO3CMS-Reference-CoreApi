@@ -177,26 +177,26 @@ point once the code has been refactored enough to not rely on it anymore.
 
 The following attributes are available in **frontend** context:
 
-*    :doc:`RequestAttributes/ApplicationType`
-*    :doc:`RequestAttributes/CurrentContentObject`
-*    :doc:`RequestAttributes/FrontendCacheCollector`
-*    :doc:`RequestAttributes/FrontendCacheInstruction`
-*    :doc:`RequestAttributes/FrontendPageInformation`
-*    :doc:`RequestAttributes/FrontendTyposcript`
-*    :doc:`RequestAttributes/FrontendUser`
-*    :doc:`RequestAttributes/Language`
-*    :doc:`RequestAttributes/Nonce`
-*    :doc:`RequestAttributes/NormalizedParams`
-*    :doc:`RequestAttributes/Routing`
-*    :doc:`RequestAttributes/Site`
+*   :ref:`Application type <typo3-request-attribute-application-type>`
+*   :ref:`Current content object <typo3-request-attribute-current-content-object>`
+*   :ref:`Frontend cache collector <typo3-request-attribute-frontend-cache-collector>`
+*   :ref:`Frontend cache instruction <typo3-request-attribute-frontend-cache-instruction>`
+*   :ref:`Frontend page information <typo3-request-attribute-frontend-page-information>`
+*   :ref:`Frontend TypoScript <typo3-request-attribute-frontend-typoscript>`
+*   :ref:`Frontend user <typo3-request-attribute-frontend-user>`
+*   :ref:`Language <typo3-request-attribute-language>`
+*   :ref:`Nonce <typo3-request-attribute-nonce>`
+*   :ref:`Normalized parameters <typo3-request-attribute-normalizedParams>`
+*   :ref:`Routing <typo3-request-attribute-routing>`
+*   :ref:`Site <typo3-request-attribute-site>`
 
 The following attributes are available in **backend** context:
 
-*   :doc:`RequestAttributes/ApplicationType`
-*   :doc:`RequestAttributes/Module`
-*   :doc:`RequestAttributes/ModuleData`
-*   :doc:`RequestAttributes/Nonce`
-*   :doc:`RequestAttributes/NormalizedParams`
-*   :doc:`RequestAttributes/Route`
-*   :doc:`RequestAttributes/Site`
-*   :doc:`RequestAttributes/Target`
+*   :ref:`Application type <typo3-request-attribute-application-type>`
+*   :ref:`Module <typo3-request-attribute-module>`
+*   :ref:`Module data <typo3-request-attribute-module-data>`
+*   :ref:`Nonce <typo3-request-attribute-nonce>`
+*   :ref:`Normalized parameters <typo3-request-attribute-normalizedParams>`
+*   :ref:`Route <typo3-request-attribute-route>`
+*   :ref:`Site <typo3-request-attribute-site>`
+*   :ref:`Target <typo3-request-attribute-target>`

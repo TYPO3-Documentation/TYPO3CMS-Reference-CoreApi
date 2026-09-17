@@ -28,9 +28,11 @@ and their details are found in standalone manuals:
     or more strict. Refer to
     `older versions <https://docs.typo3.org/m/typo3/reference-coreapi/11.5/en-us/Configuration/TypoScriptSyntax/Index.html>`__
     of this chapter when using TYPO3 versions older than v12. More details of changes implemented with the
-    new parser can be found in this :doc:`ext_core:Changelog/12.0/Breaking-97816-TypoScriptSyntaxChanges`
-    and this :doc:`ext_core:Changelog/12.0/Feature-97816-TypoScriptSyntaxImprovements`
-    changelog entries.
+    new parser can be found in the changelog entries
+    `Breaking: #97816 - TypoScript syntax changes
+    <https://docs.typo3.org/permalink/changelog:breaking-97816-1656350406>`_
+    and `Feature: #97816 - TypoScript syntax improvements
+    <https://docs.typo3.org/permalink/changelog:feature-97816-1656350667>`_.
 
 
 **Table of Contents:**

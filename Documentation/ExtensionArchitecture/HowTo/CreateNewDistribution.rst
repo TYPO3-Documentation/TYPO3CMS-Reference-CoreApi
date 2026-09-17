@@ -117,7 +117,9 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 ..  note::
 
     Existing site configuration folders with the same identifier will neither be overwritten nor changed.
-    See :doc:`ext_core:Changelog/10.1/Feature-89010-IntroduceSiteConfigForDistributionPackages`
+    See the changelog entry `Feature: #89010 - Introduce Site Configuration
+    for Distribution Packages
+    <https://docs.typo3.org/permalink/changelog:feature-89010>`_.
 
 
 ..  _distribution-kickstart-database:
