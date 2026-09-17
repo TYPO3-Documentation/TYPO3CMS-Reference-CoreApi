@@ -125,7 +125,7 @@ If the `composer` command doesn't work, check the command path or install it.
 See :ref:`Finding or installing Composer <direct-server-composer-access>`_.
 
 Once the project is created, continue with
-`Setup TYPO3 <https://docs.typo3.org/permalink/installation-setup>`_.
+`Setup TYPO3 <https://docs.typo3.org/permalink/t3coreapi:installation-setup>`_.
 
 ..  note::
 
