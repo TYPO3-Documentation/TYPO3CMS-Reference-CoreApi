@@ -18,7 +18,7 @@ Contains Language resources.
     *   Read more about the XLIFF format in the following chapter:
         :ref:`xliff`.
     *   Read more about applying localised labels in the following chapter:
-        :ref:`xliff_api`.
+        :ref:`Localization API <xliff-api>`.
 
 In the folder :file:`EXT:my_extension/Resources/Private/Language/` language
 files are stored in the format :file:`.xlf`.
