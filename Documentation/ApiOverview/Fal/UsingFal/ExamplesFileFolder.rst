@@ -109,7 +109,7 @@ storage:
     :caption: EXT:my_extension/Classes/MyClass.php
 
 The default storage uses :file:`fileadmin/` unless this was configured
-differently, as explained in :ref:`fal-concepts-storages-drivers`.
+differently, as explained in :ref:`Storages and drivers <fal-concepts-storages-drivers>`.
 
 So, for this example, the resulting file path would typically be
 :file:`<document-root>/fileadmin/final_file_name.ext`
@@ -230,7 +230,8 @@ of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 ..  seealso::
 
-    See :ref:`typo3-request-attribute-current-content-object` about fetching
+    See :ref:`Current content object
+    <typo3-request-attribute-current-content-object>` about fetching
     the UID of the current `tt_content` object.
 
 

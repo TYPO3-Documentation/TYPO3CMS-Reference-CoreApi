@@ -176,7 +176,8 @@ for example:
 
 There are a number of circumstances where it might be convenient
 to change the default upload folder. The PSR-14 event
-:ref:`AfterDefaultUploadFolderWasResolvedEvent` exists to provide
+:ref:`AfterDefaultUploadFolderWasResolvedEvent
+<AfterDefaultUploadFolderWasResolvedEvent>` exists to provide
 maximum flexibility in that regard. For example, take a look at the extension
 `default_upload_folder`_, which makes it possible to define a default upload
 folder for a given field of a given table (using custom TSconfig).
