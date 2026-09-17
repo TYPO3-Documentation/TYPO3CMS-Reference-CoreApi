@@ -157,7 +157,7 @@ The extension contains unit tests that extend the `typo3/testing-framework` base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
 
 ..  code-block:: php
-    :caption: E
+    :caption: Tests/Unit/Hooks/DataHandlerFlushByTagHookTest.php of EXT:enetcache (excerpt)
 
      <?php
      namespace Lolli\Enetcache\Tests\Unit\Hooks;
