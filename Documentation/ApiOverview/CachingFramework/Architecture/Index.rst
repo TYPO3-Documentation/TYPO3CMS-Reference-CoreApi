@@ -240,7 +240,7 @@ The following caches exist in the TYPO3 Core:
 `fluid_template`
     **groups**: system
 
-    *   Cache for :ref:`Fluid` templates.
+    *   Cache for :ref:`Fluid templates <fluid-templates>`.
 
 `extbase`
     **group**: system

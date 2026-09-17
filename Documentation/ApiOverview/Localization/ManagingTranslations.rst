@@ -233,4 +233,4 @@ automatically.
 
 ..  seealso::
     Configure :yaml:`typo3Language` to use custom languages in the frontend.
-    See :ref:`sitehandling-addinglanguages` for details.
+    See :ref:`Adding languages <sitehandling-addingLanguages>` for details.

@@ -45,7 +45,7 @@ Use records in Fluid
 
 In frontend templates the record object is provided by
 :ref:`TypoScript <record_objects_typoscript>` or passed to Fluid by a
-:ref:`PHP class`.
+:ref:`PHP class <record_objects_php>`.
 
 Content element preview templates automatically receive a record object
 representing the record of the content element that should currently be displayed.
