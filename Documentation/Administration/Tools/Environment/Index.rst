@@ -47,7 +47,7 @@ On Apache web servers the tool can also create the recommended :file:`.htaccess`
 files for you.
 
 If you are upgrading and already have a custom :file:`.htaccess` file, try to
-:ref:`_maintain-htaccess`.
+:ref:`verify the webserver configuration <maintain-htaccess>`.
 
 For NGINX based webservers, you may also need to update your configuration during
 upgrades. The TYPO3 changelogs will contain upgrade instructions, like in
