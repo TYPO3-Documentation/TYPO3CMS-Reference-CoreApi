@@ -88,13 +88,13 @@ which can be added on the command line:
 
       ..  code-block:: bash
 
-         vendor/bin/typo3 examples:createwizard [-b] [wizardName]
+          vendor/bin/typo3 examples:createwizard [-b] [wizardName]
 
    ..  group-tab:: Classic mode
 
       ..  code-block:: bash
 
-         typo3/sysext/core/bin/typo3 examples:createwizard [-b] [wizardName]
+          typo3/sysext/core/bin/typo3 examples:createwizard [-b] [wizardName]
 
 ..  _console-command-tutorial-fluidmail:
 

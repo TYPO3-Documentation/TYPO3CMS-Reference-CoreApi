@@ -593,10 +593,10 @@ this page", and no\_cache checked:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
-     $data['pages'][9834] = [
-         'title' => 'New title for this page',
-         'no_cache' => '1'
-     ];
+    $data['pages'][9834] = [
+        'title' => 'New title for this page',
+        'no_cache' => '1'
+    ];
 
 
 ..  index:: DataHandler; Clear cache
