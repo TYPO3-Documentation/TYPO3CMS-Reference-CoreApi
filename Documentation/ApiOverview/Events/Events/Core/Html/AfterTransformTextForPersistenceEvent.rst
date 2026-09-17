@@ -7,9 +7,9 @@
 =======================================
 
 Modify data when saving rich-text-editor (RTE) content to the database
-(persistence). As opposed to :ref:`BeforeTransformTextForPersistenceEvent`
-this event is executed **after** TYPO3 applied any kind of internal
-transformations like for links.
+(persistence). As opposed to :ref:`BeforeTransformTextForPersistenceEvent
+<BeforeTransformTextForPersistenceEvent>` this event is executed **after** TYPO3
+applied any kind of internal transformations like for links.
 
 When using a RTE HTML content element, two transformations
 take place within the TYPO3 backend:

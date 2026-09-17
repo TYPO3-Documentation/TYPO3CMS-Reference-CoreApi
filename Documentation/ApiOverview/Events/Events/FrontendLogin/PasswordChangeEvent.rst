@@ -11,8 +11,9 @@ contains information about the password that has been set and will be
 stored in the database shortly.
 
 ..  note::
-    You can find a basic example implementation of a listener to this event
-    in the chapter :ref:`extension-development-event-listener`.
+    You can find a basic example implementation of a listener to this event in
+    the chapter :ref:`Listen to an event
+    <extension-development-event-listener>`.
 
 ..  _password-change-event-example:
 

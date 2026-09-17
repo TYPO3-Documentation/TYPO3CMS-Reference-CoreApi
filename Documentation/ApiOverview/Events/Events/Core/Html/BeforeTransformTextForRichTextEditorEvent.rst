@@ -7,14 +7,17 @@
 ===========================================
 
 Modify data when retrieving content from the database and pass to the
-rich-text-editor (RTE). As opposed to :ref:`AfterTransformTextForRichTextEditorEvent`
-this event is executed **before** TYPO3 applied any kind of internal
-transformations like for links.
+rich-text-editor (RTE). As opposed to
+:ref:`AfterTransformTextForRichTextEditorEvent
+<AfterTransformTextForRichTextEditorEvent>` this event is executed **before**
+TYPO3 applied any kind of internal transformations like for links.
 
-For a detailed description on how to use this event, see
-the corresponding **after** event: :ref:`AfterTransformTextForRichTextEditorEvent`.
+For a detailed description on how to use this event, see the corresponding
+**after** event: :ref:`AfterTransformTextForRichTextEditorEvent
+<AfterTransformTextForRichTextEditorEvent>`.
 
-For an example see :ref:`AfterTransformTextForPersistenceEvent-example`.
+For an example see :ref:`Example: transform a text before saving to database
+<AfterTransformTextForPersistenceEvent-example>`.
 
 ..  _BeforeTransformTextForRichTextEditorEvent-api:
 

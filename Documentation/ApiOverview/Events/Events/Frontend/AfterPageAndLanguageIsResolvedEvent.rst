@@ -19,9 +19,10 @@ a custom 403 response).
     and its root line or language based on the incoming request. They are
     triggered in the following order:
 
-    #.  :ref:`BeforePageIsResolvedEvent`
-    #.  :ref:`AfterPageWithRootLineIsResolvedEvent`
-    #.  AfterPageAndLanguageIsResolvedEvent
+    #.  :ref:`BeforePageIsResolvedEvent <BeforePageIsResolvedEvent>` #.
+    :ref:`AfterPageWithRootLineIsResolvedEvent
+    <AfterPageWithRootLineIsResolvedEvent>` #.
+    AfterPageAndLanguageIsResolvedEvent
 
 
 ..  _after-page-and-language-is-resolved-event-example:
