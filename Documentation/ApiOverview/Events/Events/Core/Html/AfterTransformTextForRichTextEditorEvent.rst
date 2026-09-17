@@ -7,9 +7,10 @@
 ==========================================
 
 Modify data when retrieving content from the database and pass to the
-rich-text-editor (RTE). As opposed to :ref:`BeforeTransformTextForRichTextEditorEvent`
-this event is executed **after** TYPO3 applied any kind of internal
-transformations like for links.
+rich-text-editor (RTE). As opposed to
+:ref:`BeforeTransformTextForRichTextEditorEvent
+<BeforeTransformTextForRichTextEditorEvent>` this event is executed **after**
+TYPO3 applied any kind of internal transformations like for links.
 
 When using a RTE HTML content element, two transformations
 take place within the TYPO3 backend:
@@ -23,9 +24,10 @@ This event can modify the first part. This allows developers to apply
 more customized transformations, apart from the internal and API ones.
 
 Event listeners can use :php:`$value = $event->getHtmlContent()` to get the
-current contents, apply changes to :php:`$value` and then store the
-manipulated data via :php:`$event->setHtmlContent($value)`,
-see example: :ref:`AfterTransformTextForPersistenceEvent-example`.
+current contents, apply changes to :php:`$value` and then store the manipulated
+data via :php:`$event->setHtmlContent($value)`, see example: :ref:`Example:
+transform a text before saving to database
+<AfterTransformTextForPersistenceEvent-example>`.
 
 ..  _AfterTransformTextForRichTextEditorEvent-api:
 

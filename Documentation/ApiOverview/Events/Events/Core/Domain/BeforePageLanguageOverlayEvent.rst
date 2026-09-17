@@ -10,7 +10,8 @@ The PSR-14 event :php:`\TYPO3\CMS\Core\Domain\Event\BeforePageLanguageOverlayEve
 is a special event which is fired when TYPO3 is about to do the language overlay
 of one or multiple pages, which could be one full record or multiple page IDs.
 This event is fired only for pages and in-between the events
-:ref:`BeforeRecordLanguageOverlayEvent` and :ref:`AfterRecordLanguageOverlayEvent`.
+:ref:`BeforeRecordLanguageOverlayEvent <BeforeRecordLanguageOverlayEvent>`
+and :ref:`AfterRecordLanguageOverlayEvent <AfterRecordLanguageOverlayEvent>`.
 
 ..  _before-page-language-overlay-event-example:
 

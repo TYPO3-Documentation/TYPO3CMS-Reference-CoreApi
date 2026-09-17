@@ -20,9 +20,10 @@ creates early responses.
     and its root line or language based on the incoming request. They are
     triggered in the following order:
 
-    #.  BeforePageIsResolvedEvent
-    #.  :ref:`AfterPageWithRootLineIsResolvedEvent`
-    #.  :ref:`AfterPageAndLanguageIsResolvedEvent`
+    #.  BeforePageIsResolvedEvent #.  :ref:`AfterPageWithRootLineIsResolvedEvent
+    <AfterPageWithRootLineIsResolvedEvent>` #.
+    :ref:`AfterPageAndLanguageIsResolvedEvent
+    <AfterPageAndLanguageIsResolvedEvent>`
 
 
 ..  _before-page-is-resolved-event-example:
