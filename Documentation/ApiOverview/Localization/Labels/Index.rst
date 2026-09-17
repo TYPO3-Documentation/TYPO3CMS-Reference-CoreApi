@@ -104,7 +104,7 @@ The resource identifier appears before the colon in the resource part (below `co
 ..  code-block:: php
     :caption: Example usage of "package.resource:identifier"
 
-     $translator->label('my_extension.comment:domain_model.title');
+    $translator->label('my_extension.comment:domain_model.title');
 
 ..  _translation-domain-resolution:
 
