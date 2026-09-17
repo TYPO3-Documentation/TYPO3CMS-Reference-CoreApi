@@ -112,16 +112,16 @@ The method then receives a parameter array with the following values:
 ..  code-block:: php
     :caption: Structure of the parameter array
 
-    [
-        'slug' ...  the slug to be used
-        'workspaceId' ...  the workspace ID, "0" if in live workspace
-        'configuration' ...  the configuration of the TCA field
-        'record' ...  the full record to be used
-        'pid' ...  the resolved parent page ID
-        'prefix' ...  the prefix that was added
-        'tableName' ...  the table of the slug field
-        'fieldName' ...  the field name of the slug field
-   ];
+     [
+         'slug' ...  the slug to be used
+         'workspaceId' ...  the workspace ID, "0" if in live workspace
+         'configuration' ...  the configuration of the TCA field
+         'record' ...  the full record to be used
+         'pid' ...  the resolved parent page ID
+         'prefix' ...  the prefix that was added
+         'tableName' ...  the table of the slug field
+         'fieldName' ...  the field name of the slug field
+    ];
 
 All hooks need to return the modified slug value.
 

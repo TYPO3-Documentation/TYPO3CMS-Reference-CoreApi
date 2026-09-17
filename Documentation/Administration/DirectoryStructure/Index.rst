@@ -111,16 +111,16 @@ manually:
 ..  code-block:: diff
     :caption: composer.json (diff)
 
-      {
-         "name": "myvendor/my-project",
-         "repositories": [
-     +       {
-     +           "type": "path",
-     +           "url": "packages/*"
-             }
-         ],
-         "...": "..."
-      }
+     {
+        "name": "myvendor/my-project",
+        "repositories": [
+    +       {
+    +           "type": "path",
+    +           "url": "packages/*"
+            }
+        ],
+        "...": "..."
+     }
 
 ..  _directory-public:
 

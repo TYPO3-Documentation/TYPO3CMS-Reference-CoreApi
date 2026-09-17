@@ -60,7 +60,7 @@ This would create a link looking like this:
 
 ..  code-block:: html
 
-   <a href="github:123">Example Link</a>
+    <a href="github:123">Example Link</a>
 
 Which could, for example, be interpreted by a custom protocol handler on a
 company computer's operating system.
