@@ -157,7 +157,7 @@ be configured or an existing event listener can also be overridden with a differ
 
 The :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires
 the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an overview of all registered
-event listeners, see :ref:`EventDebugging`.
+event listeners, see :ref:`Debugging event handling <EventDebugging>`.
 
 
 ..  _event-dispatcher-advantages-event-dispatcher:
@@ -355,8 +355,9 @@ Make sure that you set the `identifier` property to exactly
 the string which the original implementation uses. If the identifier is not mentioned specifically
 in the original implementation, the service name (when unspecified, the fully-qualified name of the event
 listener class) is used. You can inspect that identifier in the
-:guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires the system extension
-:doc:`lowlevel <ext_lowlevel:Index>`), see :ref:`EventDebugging`. In this example,
+:guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module
+(requires the system extension :doc:`lowlevel <ext_lowlevel:Index>`), see
+:ref:`Debugging event handling <EventDebugging>`. In this example,
 if :yaml:`identifier: 'ext-some-extension/modify-hreflang'` is not defined, the identifier
 will be set to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEventListener'` and you could
 use that identifier in your implementation.

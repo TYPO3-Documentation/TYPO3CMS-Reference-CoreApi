@@ -19,9 +19,10 @@ page response if additional permissions should be checked.
     and its root line or language based on the incoming request. They are
     triggered in the following order:
 
-    #.  :ref:`BeforePageIsResolvedEvent`
-    #.  AfterPageWithRootLineIsResolvedEvent
-    #.  :ref:`AfterPageAndLanguageIsResolvedEvent`
+    #.  :ref:`BeforePageIsResolvedEvent <BeforePageIsResolvedEvent>` #.
+    AfterPageWithRootLineIsResolvedEvent #.
+    :ref:`AfterPageAndLanguageIsResolvedEvent
+    <AfterPageAndLanguageIsResolvedEvent>`
 
 
 ..  _after-page-with-root-line-is-resolved-event-example:
