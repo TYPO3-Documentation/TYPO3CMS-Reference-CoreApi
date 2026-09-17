@@ -83,7 +83,7 @@ APIs are the best choice.
     implements it in detail.
 
     For extension development without Extbase, see
-    :ref:`extension-architecture`.
+    :ref:`Extension development <extension-architecture>`.
 
     Something not working as expected? See
     :ref:`extbase-appendix-pitfalls` for a list of common

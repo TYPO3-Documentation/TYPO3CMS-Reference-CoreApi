@@ -56,7 +56,7 @@ The configuration "surfaces" of an Extbase extension
     than per plugin — for example consistent :php:`\DateTime` handling and
     record-history tracking. This is not done by TypoScript; it is set in
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']`. See
-    :ref:`extbase-configuration-feature-toggles`.
+    :ref:`Extbase feature toggles (not TypoScript) <extbase-configuration-feature-toggles>`.
 
 :file:`Configuration/Extbase/Persistence/Classes.php`
     The class-mapping surface. A domain model maps to a table or columns
@@ -64,7 +64,7 @@ The configuration "surfaces" of an Extbase extension
     existing table such as :sql:`fe_users` — this PHP file maps the class and
     its properties to the real names. It configures persistence rather than
     runtime behaviour, so it is covered by the domain model: see
-    :ref:`extbase-domain-model-mapping`.
+    :ref:`Table and field mapping <extbase-domain-model-mapping>`.
 
 ..  _extbase-configuration-how-they-combine:
 
@@ -83,7 +83,7 @@ The lowest to the highest precedence is as follows:
 
 The full rules — including how to stop an empty FlexForm field from overriding
 a TypoScript default — are explained in
-:ref:`extbase-configuration-typoscript-scopes`.
+:ref:`Where Extbase TypoScript lives <extbase-configuration-typoscript-scopes>`.
 
 Feature toggles sit outside this chain: they change framework behaviour for the
 whole installation and are not part of the per-plugin merge.

@@ -130,7 +130,7 @@ It is also possible to define an :ref:`icon <AddingCE-Icon>` and a description:
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
 
 The content element wizard configuration is described in detail in
-:ref:`content-element-wizard`.
+:ref:`New content element wizard <content-element-wizard>`.
 
 ..  index:: Content element; Backend form
 ..  _ConfigureCE-Fields:

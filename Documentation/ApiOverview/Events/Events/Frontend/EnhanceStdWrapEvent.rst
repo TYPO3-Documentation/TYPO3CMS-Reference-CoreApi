@@ -14,10 +14,10 @@ event, which allows the corresponding listeners to be called on each step.
 
 Child events:
 
-*   :ref:`BeforeStdWrapFunctionsInitializedEvent`
-*   :ref:`AfterStdWrapFunctionsInitializedEvent`
-*   :ref:`BeforeStdWrapFunctionsExecutedEvent`
-*   :ref:`AfterStdWrapFunctionsExecutedEvent`
+*   :ref:`BeforeStdWrapFunctionsInitializedEvent <BeforeStdWrapFunctionsInitializedEvent>`
+*   :ref:`AfterStdWrapFunctionsInitializedEvent <AfterStdWrapFunctionsInitializedEvent>`
+*   :ref:`BeforeStdWrapFunctionsExecutedEvent <BeforeStdWrapFunctionsExecutedEvent>`
+*   :ref:`AfterStdWrapFunctionsExecutedEvent <AfterStdWrapFunctionsExecutedEvent>`
 
 All events provide the same functionality. The difference is only the execution
 order in which they are called in the :typoscript:`stdWrap` processing chain.

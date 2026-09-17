@@ -252,10 +252,10 @@ Creating custom content element types or plugins
 The following chapters handle how to create custom content element types and
 plugins:
 
-*   :ref:`adding-your-own-content-elements`
+*   :ref:`Create a custom content element type (CType) <adding-your-own-content-elements>`
 *   :ref:`Registering frontend plugins in
     Extbase <extbase-registration-frontend-plugin>`
 
 How to make your plugins or content elements configurable by editors with
 
-*  :ref:`flexforms`
+*  :ref:`FlexForms <flexforms>`

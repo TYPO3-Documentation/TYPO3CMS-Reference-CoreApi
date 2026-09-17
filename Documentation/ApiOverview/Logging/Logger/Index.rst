@@ -53,7 +53,7 @@ which takes three parameters:
     :Type: integer
 
     One of the defined log levels, see the section
-    :ref:`logging-logger-shortcuts`.
+    :ref:`Log levels and shorthand methods <logging-logger-shortcuts>`.
 
 
 $message

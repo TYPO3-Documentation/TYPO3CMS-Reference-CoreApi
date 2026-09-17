@@ -16,7 +16,7 @@ with it programmatically.
 
 If you're looking for production-level logging guidance (e.g., log rotation,
 monitoring, or security), see:
-:ref:`production-logging`.
+:ref:`Logging considerations during production <production-logging>`.
 
 The chapter :ref:`logging-quickstart` helps you get started.
 

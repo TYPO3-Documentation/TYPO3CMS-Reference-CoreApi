@@ -195,7 +195,7 @@ Read more at :ref:`static routes<sitehandling-staticRoutes>`.
 
 While page routing works out of the box without any further settings, route
 enhancers allow configuring routing for TYPO3 extensions. Read more at
-:ref:`routing-advanced-routing-configuration`.
+:ref:`Route enhancements and aspects: for extensions <routing-advanced-routing-configuration>`.
 
 
 ..  _sitehandling-basics-settings:

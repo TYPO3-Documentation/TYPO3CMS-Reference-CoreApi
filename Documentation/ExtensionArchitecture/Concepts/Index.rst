@@ -128,4 +128,4 @@ Composer installs TYPO3 extensions (including system extensions) in the
 :ref:`vendor/ <directory-vendor>` directory.
 
 In Classic mode installations they are installed in
-:ref:`classic-directory-typo3-sysext`.
+:ref:`typo3/sysext/ <classic-directory-typo3-sysext>`.

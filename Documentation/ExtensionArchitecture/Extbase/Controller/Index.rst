@@ -104,12 +104,12 @@ be :php:`protected`, not :php:`private`, so subclasses can access them.
 In this chapter
 ===============
 
-:ref:`extbase-controller-action`
+:ref:`ActionController: actions, arguments and responses <extbase-controller-action>`
     Actions, action arguments and automatic object resolution, response
     helpers, redirect and forward, flash messages, per-action initializers,
     :php:`#[Authorize]`, :php:`#[RateLimit]`, and :php:`errorAction`.
 
-:ref:`extbase-controller-propertymapping`
+:ref:`Property mapping: request arguments to objects <extbase-controller-propertymapping>`
     How raw request data is converted to typed PHP objects; the
     `__trustedProperties` mechanism; when manual allowlisting in
     :php:`initialize*Action()` is necessary.

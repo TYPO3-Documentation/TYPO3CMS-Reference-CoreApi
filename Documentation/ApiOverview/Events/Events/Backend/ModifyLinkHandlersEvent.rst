@@ -12,8 +12,8 @@ is triggered before link handlers are executed, allowing listeners
 to modify the set of handlers that will be used.
 
 ..  seealso::
-    *   :ref:`modifyLinkHandlers`
-    *   :ref:`ModifyAllowedItemsEvent`
+    *   :ref:`Events to modify link handler <modifyLinkHandlers>`
+    *   :ref:`ModifyAllowedItemsEvent <ModifyAllowedItemsEvent>`
 
 ..  _modify-link-handlers-event-example:
 

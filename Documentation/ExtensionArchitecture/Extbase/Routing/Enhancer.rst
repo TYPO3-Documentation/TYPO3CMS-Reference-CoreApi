@@ -215,4 +215,4 @@ removes `cHash` for a numeric placeholder.
     background on when and why `cHash` is added.
 
 The next step is defining the individual routes inside the enhancer — see
-:ref:`extbase-routing-routes`.
+:ref:`Defining routes for Extbase plugins <extbase-routing-routes>`.

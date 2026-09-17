@@ -68,7 +68,7 @@ Key points:
 
 ..  seealso::
 
-    :ref:`extbase-domain-model`
+    :ref:`Extbase domain model <extbase-domain-model>`
 
 
 ..  _extbase-quickstart-repository:
@@ -91,7 +91,7 @@ box.
 
 ..  seealso::
 
-    :ref:`extbase-domain-repository`
+    :ref:`Extbase repository <extbase-domain-repository>`
 
 
 ..  _extbase-quickstart-tca:
@@ -145,7 +145,7 @@ Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies v
 
 ..  seealso::
 
-    :ref:`extbase-controller-action`
+    :ref:`ActionController: actions, arguments and responses <extbase-controller-action>`
 
 
 ..  _extbase-quickstart-templates:
@@ -190,7 +190,7 @@ directly in the template.
 
 ..  seealso::
 
-    :ref:`extbase-view-overview`
+    :ref:`View layer in Extbase <extbase-view-overview>`
 
     :ref:`fluid` — the full Fluid templating reference, including all built-in
     ViewHelpers.
@@ -234,7 +234,7 @@ instead of `content-plugin` in the :php:`registerPlugin()` call above.
 
 ..  seealso::
 
-    :ref:`extbase-registration-frontend-plugin`
+    :ref:`Registering an Extbase frontend plugin <extbase-registration-frontend-plugin>`
 
 
 ..  _extbase-quickstart-routing:
@@ -288,7 +288,7 @@ Then in the TYPO3 backend:
 4.  Open the page in the frontend — you should see your list view.
 
 If the list is empty, check the storagePid first. See
-:ref:`extbase-domain-repository-storagepid`.
+:ref:`The storagePid constraint on repository queries <extbase-domain-repository-storagepid>`.
 
 
 ..  _extbase-quickstart-next:

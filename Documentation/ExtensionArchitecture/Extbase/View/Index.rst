@@ -46,7 +46,7 @@ configuration array. How that array is assembled — and how :typoscript:`view`,
 :typoscript:`persistence`, and :typoscript:`settings` relate to TypoScript paths
 and FlexForm overrides — is covered in the registration chapters:
 :ref:`extbase-registration-frontend-plugin-configuration-assembly` and
-:ref:`extbase-registration-backend-module-configuration-assembly`.
+:ref:`How the module configuration is assembled <extbase-registration-backend-module-configuration-assembly>`.
 
 
 ..  _extbase-view-assign-shared:

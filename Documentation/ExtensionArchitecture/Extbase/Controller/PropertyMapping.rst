@@ -89,7 +89,7 @@ token automatically, based on whether an `__identity` field is present.
 For the standard Extbase workflow, Fluid form → controller action, no
 additional configuration is needed. If your request does not originate from
 a :html:`<f:form>` (URL parameters, hand-built forms, JSON payloads), see
-:ref:`extbase-controller-propertymapping-allowproperties`.
+:ref:`Manually allowing properties on Extbase action arguments <extbase-controller-propertymapping-allowproperties>`.
 
 
 ..  _extbase-controller-propertymapping-typeconverters:

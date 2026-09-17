@@ -72,10 +72,10 @@ The following folder and file structure is typical for a TYPO3 extension:
             *   constants.typoscript
             *   setup.typoscript
 
-        *   :ref:`extension-configuration-Icons-php`
-        *   :ref:`extension-configuration-page_tsconfig`
-        *   :ref:`extension-configuration-services-yaml`
-        *   :ref:`extension-configuration-user_tsconfig`
+        *   :ref:`Icons.php <extension-configuration-Icons-php>`
+        *   :ref:`page.tsconfig <extension-configuration-page_tsconfig>`
+        *   :ref:`Services.yaml <extension-configuration-services-yaml>`
+        *   :ref:`user.tsconfig <extension-configuration-user_tsconfig>`
 
     *   :ref:`Documentation <extension-files-documentation>`
 

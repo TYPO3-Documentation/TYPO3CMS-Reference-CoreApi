@@ -15,7 +15,7 @@ editors adding additional information, for example, custom attributes can be
 inserted to the link markup.
 
 ..  seealso::
-    :ref:`BeforeTypoLinkEncodedEvent`
+    :ref:`BeforeTypoLinkEncodedEvent <BeforeTypoLinkEncodedEvent>`
 
 ..  _after-typo-link-decoded-event-example:
 

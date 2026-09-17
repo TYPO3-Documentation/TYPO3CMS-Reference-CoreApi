@@ -307,7 +307,7 @@ via :ref:`CacheWarmupEvent`.
 ..  note::
     TYPO3 frontend caches will not be warmed by TYPO3 Core, such functionality
     could be added by third-party extensions with the help of
-    :ref:`CacheWarmupEvent`.
+    :ref:`CacheWarmupEvent <CacheWarmupEvent>`.
 
 ..  _caching-clearing-flushing-warming-case-deployment:
 

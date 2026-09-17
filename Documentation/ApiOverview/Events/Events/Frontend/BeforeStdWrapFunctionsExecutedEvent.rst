@@ -13,13 +13,13 @@ call, but still before the content gets modified.
 
 Calling order of similar events:
 
-*   :ref:`BeforeStdWrapFunctionsInitializedEvent`
-*   :ref:`AfterStdWrapFunctionsInitializedEvent`
+*   :ref:`BeforeStdWrapFunctionsInitializedEvent <BeforeStdWrapFunctionsInitializedEvent>`
+*   :ref:`AfterStdWrapFunctionsInitializedEvent <AfterStdWrapFunctionsInitializedEvent>`
 *   BeforeStdWrapFunctionsExecutedEvent
-*   :ref:`AfterStdWrapFunctionsExecutedEvent`
+*   :ref:`AfterStdWrapFunctionsExecutedEvent <AfterStdWrapFunctionsExecutedEvent>`
 
 ..  seealso::
-    :ref:`EnhanceStdWrapEvent`
+    :ref:`EnhanceStdWrapEvent <EnhanceStdWrapEvent>`
 
 
 ..  _before-std-wrap-functions-executed-event-example:

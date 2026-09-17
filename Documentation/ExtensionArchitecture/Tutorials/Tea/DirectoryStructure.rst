@@ -117,7 +117,7 @@ The :file:`Configuration` folder contains several subfolders:
     Is used to configure technical aspects of the extension, including
     automatic wiring, automatic configuration and options for
     :ref:`dependency injection <Dependency-Injection>`. See also
-    :ref:`extension-configuration-services-yaml`.
+    :ref:`Services.yaml <extension-configuration-services-yaml>`.
 
 ..  _extbase-tutorial-tea-directory-structure-directory-documentation:
 

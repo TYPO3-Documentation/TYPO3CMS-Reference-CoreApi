@@ -114,7 +114,7 @@ at all. There is just one rule: put each class into its own file. This also
 means that there can only be a single class per file.
 
 You can also explicitly configure autoloading in the
-:ref:`extension-declaration`.
+:ref:`ext_emconf.php no longer evaluated <extension-declaration>`.
 
 The generated :file:`typo3conf/autoload_classmap.php` is a large array with a
 mapping of classnames to their location on the disk:

@@ -16,7 +16,7 @@ Example on how to use a button component:
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
 
 ..  seealso::
-    *   :ref:`ModifyButtonBarEvent`
+    *   :ref:`ModifyButtonBarEvent <ModifyButtonBarEvent>`
 
 ..  contents:: Table of contents
     :local:
