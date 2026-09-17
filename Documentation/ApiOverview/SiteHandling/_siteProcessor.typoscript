@@ -1,0 +1,11 @@
+tt_content.mycontent.20 = FLUIDTEMPLATE
+tt_content.mycontent.20 {
+  file = EXT:my_extension/Resources/Private/Templates/ContentObjects/MyContent.fluid.html
+
+  dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+  dataProcessing.10 {
+    as = site
+  }
+}
+
+# ...
