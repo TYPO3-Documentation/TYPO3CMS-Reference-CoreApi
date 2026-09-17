@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Autoloader; ComposerClassLoader
-   ClassLoader
-.. _composer-class-loader:
+..  include:: /Includes.rst.txt
+..  index::
+    Autoloader; ComposerClassLoader
+    ClassLoader
+..  _composer-class-loader:
 
 =====================
 `ComposerClassLoader`

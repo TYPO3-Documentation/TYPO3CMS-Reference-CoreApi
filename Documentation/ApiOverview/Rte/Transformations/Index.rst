@@ -1,13 +1,13 @@
-.. include:: /Includes.rst.txt
-.. _transformations:
+..  include:: /Includes.rst.txt
+..  _transformations:
 
 ===================
 RTE transformations
 ===================
 
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Introduction
-   Overview
+    Introduction
+    Overview

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Core link handler
-.. _core-link-handler:
+..  include:: /Includes.rst.txt
+..  index:: Core link handler
+..  _core-link-handler:
 
 =================
 Core link handler

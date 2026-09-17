@@ -64,11 +64,11 @@ Example:
 
 :ref:`Register an exception handler <error-handling-extending>`:
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] =
-       \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] =
+        \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
 
 ..  _ext-localconf-php-usage:
 

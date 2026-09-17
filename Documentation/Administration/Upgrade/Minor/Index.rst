@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _minor:
+..  _minor:
 
 ===================
 Patch/bugfix update

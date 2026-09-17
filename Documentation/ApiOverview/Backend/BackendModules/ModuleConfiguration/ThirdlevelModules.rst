@@ -1,11 +1,11 @@
 :navigation-title: 3rd level
 
-.. include:: /Includes.rst.txt
-.. index::
-   Backend modules; Thirdlevel
-   Backend modules; Module functions
+..  include:: /Includes.rst.txt
+..  index::
+    Backend modules; Thirdlevel
+    Backend modules; Module functions
 
-.. _backend-modules-third-level-module:
+..  _backend-modules-third-level-module:
 
 ======================================
 Third-level modules / module functions

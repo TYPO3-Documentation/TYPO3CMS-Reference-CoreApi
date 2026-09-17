@@ -57,90 +57,90 @@ number of community-managed tools that you can use.
 Extension kickstarter matrix
 ============================
 
-.. list-table:: Comparison: Kickstarters
-   :header-rows: 1
+..  list-table:: Comparison: Kickstarters
+    :header-rows: 1
 
-   * - Feature
-     - :composer:`friendsoftypo3/kickstarter`
-     - :composer:`b13/make`
-     - :composer:`friendsoftypo3/extension-builder`
+    * - Feature
+      - :composer:`friendsoftypo3/kickstarter`
+      - :composer:`b13/make`
+      - :composer:`friendsoftypo3/extension-builder`
 
-   * - GUI available
-     - (✅) Still experimental
-     - ❌
-     - ✅ Web-based GUI (Extbase modeler in TYPO3 backend)
+    * - GUI available
+      - (✅) Still experimental
+      - ❌
+      - ✅ Web-based GUI (Extbase modeler in TYPO3 backend)
 
-   * - Command line support
-     - ✅ CLI commands via `vendor/bin/typo3 make:*`
-     - ✅ CLI commands via `vendor/bin/typo3 make:*`
-     - ❌ Not directly; uses GUI to generate and export code
+    * - Command line support
+      - ✅ CLI commands via `vendor/bin/typo3 make:*`
+      - ✅ CLI commands via `vendor/bin/typo3 make:*`
+      - ❌ Not directly; uses GUI to generate and export code
 
-   * - Creates extension
-     - ✅ Creates new extension skeleton
-     - ✅ Creates modern extension skeleton
-     - ✅ Generates full Extbase+Fluid extension with GUI modeler
+    * - Creates extension
+      - ✅ Creates new extension skeleton
+      - ✅ Creates modern extension skeleton
+      - ✅ Generates full Extbase+Fluid extension with GUI modeler
 
-   * - Controller
-     - ✅ Extbase or native TYPO3 controller
-     - ❌ Not supported
-     - ✅ Supports generation of controllers and backend modules via modeler
+    * - Controller
+      - ✅ Extbase or native TYPO3 controller
+      - ❌ Not supported
+      - ✅ Supports generation of controllers and backend modules via modeler
 
-   * - Module
-     - ❌ Not supported
-     - ✅ Backend controller (Module)
-     - ✅ GUI lets you define backend modules based on controllers/actions
+    * - Module
+      - ❌ Not supported
+      - ✅ Backend controller (Module)
+      - ✅ GUI lets you define backend modules based on controllers/actions
 
-   * - Repository
-     - ✅ Extbase repository generation
-     - ❌ Not supported
-     - ✅ Supports definition of domain repositories via modeler
+    * - Repository
+      - ✅ Extbase repository generation
+      - ❌ Not supported
+      - ✅ Supports definition of domain repositories via modeler
 
-   * - Model
-     - ✅ Domain model with property mapping
-     - ❌ Not supported
-     - ✅ Supports domain model generation and inheritance relations
+    * - Model
+      - ✅ Domain model with property mapping
+      - ❌ Not supported
+      - ✅ Supports domain model generation and inheritance relations
 
-   * - Plugin
-     - ✅ Generates plugin + TypoScript
-     - ❌ Not supported
-     - ✅ Lets you define frontend plugins in GUI
+    * - Plugin
+      - ✅ Generates plugin + TypoScript
+      - ❌ Not supported
+      - ✅ Lets you define frontend plugins in GUI
 
-   * - Table
-     - ✅ Generates TCA
-     - ❌ Not supported
-     - ✅ Creates TCA and maps to existing tables via modeler
+    * - Table
+      - ✅ Generates TCA
+      - ❌ Not supported
+      - ✅ Creates TCA and maps to existing tables via modeler
 
-   * - Event
-     - ✅ Creates event class
-     - ❌ Not supported
-     - ❌ No direct support
+    * - Event
+      - ✅ Creates event class
+      - ❌ Not supported
+      - ❌ No direct support
 
-   * - Eventlistener
-     - ✅ Supported
-     - ✅ Supported
-     - ❌ Not supported
+    * - Eventlistener
+      - ✅ Supported
+      - ✅ Supported
+      - ❌ Not supported
 
-   * - Typeconverter
-     - ✅ Generates Extbase TypeConverter
-     - ❌ Not supported
-     - ❌ Not supported
+    * - Typeconverter
+      - ✅ Generates Extbase TypeConverter
+      - ❌ Not supported
+      - ❌ Not supported
 
-   * - Upgrade Wizard
-     - ✅ Generates Upgrade Wizard class
-     - ❌ Not supported
-     - ❌ Not supported
+    * - Upgrade Wizard
+      - ✅ Generates Upgrade Wizard class
+      - ❌ Not supported
+      - ❌ Not supported
 
-   * - Testing
-     - ✅ Adds testing environment
-     - ❌ Not supported
-     - ✅ Includes PHPUnit tests scaffolding for extension skeleton
+    * - Testing
+      - ✅ Adds testing environment
+      - ❌ Not supported
+      - ✅ Includes PHPUnit tests scaffolding for extension skeleton
 
-   * - Command
-     - ❌ Not supported
-     - ✅ Generates Symfony Console command
-     - ❌ Not supported
+    * - Command
+      - ❌ Not supported
+      - ✅ Generates Symfony Console command
+      - ❌ Not supported
 
-   * - Middleware
-     - ❌ Not supported
-     - ✅ Creates PSR‑15 Middleware
-     - ❌ Not supported
+    * - Middleware
+      - ❌ Not supported
+      - ✅ Creates PSR‑15 Middleware
+      - ❌ Not supported

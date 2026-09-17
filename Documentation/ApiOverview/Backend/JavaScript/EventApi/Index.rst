@@ -10,7 +10,7 @@ The TYPO3 JavaScript Event API enables JavaScript developers to have a stable ev
 interface. The API takes care of common pitfalls like event delegation and clean
 event unbinding.
 
-.. warning::
+..  warning::
 
     When using :js:`import` statements, it is vital that you use the suffix
     :file:`.js` to any import statements, when you are in the scope of `JavaScript/ES6`.

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Services API; Usage
-.. _services-using-services-simple:
+..  include:: /Includes.rst.txt
+..  index:: Services API; Usage
+..  _services-using-services-simple:
 
 ============
 Simple usage
@@ -9,7 +9,7 @@ Simple usage
 The most basic use is when you want an object that handles a
 given service type:
 
-.. code-block:: php
+..  code-block:: php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 

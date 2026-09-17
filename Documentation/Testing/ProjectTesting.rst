@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Testing; Project
-.. _testing-projects:
+..  include:: /Includes.rst.txt
+..  index:: Testing; Project
+..  _testing-projects:
 
 ===============
 Project testing
@@ -8,7 +8,7 @@ Project testing
 
 ..  contents::
 
-.. _testing-projects-differences:
+..  _testing-projects-differences:
 
 Differences between project and extension testing
 =================================================
@@ -28,7 +28,7 @@ The Core mono repository is basically a project setup, having local path
 extensions in `typo3/sysexts/*` instead of the more known and lived `packages/*`
 project folder structure.
 
-.. _testing-projects-structure:
+..  _testing-projects-structure:
 
 Project structure
 =================
@@ -101,7 +101,7 @@ TYPO3 testing framework:
 
     composer req --dev typo3/coding-standards typo3/testing-framework
 
-.. _testing-projects-configuration:
+..  _testing-projects-configuration:
 
 Test configuration on project level
 ===================================
@@ -128,7 +128,7 @@ It is recommended to also copy the :file:`.editorconfig` from the testing
 framework into your main directory so that your IDE applies the same formatting
 as the php-cs-fixer.
 
-.. _testing-projects-configuration-phpstan:
+..  _testing-projects-configuration-phpstan:
 
 PHPStan - static PHP analysis
 -----------------------------
@@ -169,7 +169,7 @@ file:
 
     vendor/bin/php-cs-fixer fix --config=Build/php-cs-fixer/.php-cs-fixer.dist.php
 
-.. _testing-projects-execution-phpstan:
+..  _testing-projects-execution-phpstan:
 
 Run PHPStan
 -----------
@@ -210,7 +210,7 @@ Run functional tests using sqlite and DDEV
         typo3DatabaseDriver=pdo_sqlite \
         php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml
 
-.. _testing-projects-execution-functional-mysqli:
+..  _testing-projects-execution-functional-mysqli:
 
 Run functional tests using mysqli and DDEV
 ------------------------------------------
@@ -228,7 +228,7 @@ Run functional tests using mysqli and DDEV
         php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml
 
 
-.. _testing-projects-organization:
+..  _testing-projects-organization:
 
 Organizing and storing the commands
 ===================================

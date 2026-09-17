@@ -192,7 +192,7 @@ Naming XLIFF IDs
 It is recommended to apply the following rules for defining identifiers (the
 :xml:`id` attribute).
 
-.. _xliff-id-naming-dots:
+..  _xliff-id-naming-dots:
 
 Separate XLIFF IDs by dots
 --------------------------
@@ -212,7 +212,7 @@ Bad examples:
     CTypeMenuAbstract
     CType-menuAbstract
 
-.. _xliff-id-naming-namespace:
+..  _xliff-id-naming-namespace:
 
 Namespace convention for XLIFF IDs
 ----------------------------------
@@ -238,7 +238,7 @@ Namespaces should be defined by context.
 `menuAbstract.CType` could also be a reasonable namespace
 if the context is about `menuAbstract`.
 
-.. _xliff-id-naming-lower-camel:
+..  _xliff-id-naming-lower-camel:
 
 Use `lowerCamelCase` for XLIFF IDs
 ----------------------------------

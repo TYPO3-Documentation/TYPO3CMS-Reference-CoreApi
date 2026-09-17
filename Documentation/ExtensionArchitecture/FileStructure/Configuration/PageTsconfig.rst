@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Configuration/page.tsconfig
-   Path; EXT:{extkey}/Configuration/page.tsconfig
-.. _extension-configuration-page_tsconfig:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Configuration/page.tsconfig
+    Path; EXT:{extkey}/Configuration/page.tsconfig
+..  _extension-configuration-page_tsconfig:
 
 ===============
 `page.tsconfig`
@@ -20,7 +20,7 @@
     For details see
     :ref:`Setting the page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
+..  code-block:: typoscript
+    :caption: EXT:some_extension/Configuration/page.tsconfig
 
-   TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
+    TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1

@@ -11,46 +11,46 @@ In Extbase, the standard way of issuing flash messages is to add them
 in the controller. Code from the `"examples" extension
 <https://github.com/TYPO3-Documentation/t3docs-examples>`__:
 
-.. code-block:: php
-   :caption: EXT:examples/Classes/Controller/ModuleController.php
+..  code-block:: php
+    :caption: EXT:examples/Classes/Controller/ModuleController.php
 
-   $this->addFlashMessage('This is a simple success message');
+    $this->addFlashMessage('This is a simple success message');
 
-.. warning::
+..  warning::
 
-   You cannot call this function in the constructor of a controller
-   or in an initialize action as it needs some internal data
-   structures to be initialized.
+    You cannot call this function in the constructor of a controller
+    or in an initialize action as it needs some internal data
+    structures to be initialized.
 
 
 A more elaborate example:
 
 
-.. code-block:: php
-   :caption: EXT:examples/Classes/Controller/ModuleController.php
+..  code-block:: php
+    :caption: EXT:examples/Classes/Controller/ModuleController.php
 
-   // use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+    // use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 
-   $this->addFlashMessage(
-      'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
-      'Success',
-      ContextualFeedbackSeverity::OK,
-      false
-   );
+    $this->addFlashMessage(
+       'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
+       'Success',
+       ContextualFeedbackSeverity::OK,
+       false
+    );
 
 
 The messages are then displayed by Fluid with the
 `FlashMessages ViewHelper <f:flashMessages> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_:
 
-.. code-block:: html
+..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
-   <div id="typo3-docbody">
-      <div id="typo3-inner-docbody">
-         <f:flashMessages />
-         <f:render section="main" />
-      </div>
-   </div>
+    <div id="typo3-docbody">
+       <div id="typo3-inner-docbody">
+          <f:flashMessages />
+          <f:render section="main" />
+       </div>
+    </div>
 
 Where to display the flash messages in an Extbase-based backend module is
 as simple as moving the ViewHelper around.

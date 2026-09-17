@@ -825,8 +825,8 @@ features
 --------
 
 ..  confval:: features
-   :name: globals-typo3-conf-vars-sys-features
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
+    :name: globals-typo3-conf-vars-sys-features
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
 
     New features of TYPO3 that are activated on new installations (but upgrading
     installations may still use the old behaviour).
@@ -838,10 +838,10 @@ features
     ..  _typo3ConfVars_sys_features_form.legacyUploadMimeTypes:
 
     ..  confval:: form.legacyUploadMimeTypes
-       :name: globals-typo3-conf-vars-sys-features-form-legacyUploadMimeTypes
-       :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
-       :type: bool
-       :Default: true
+        :name: globals-typo3-conf-vars-sys-features-form-legacyUploadMimeTypes
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
+        :type: bool
+        :Default: true
 
        If enabled, some mime types are predefined for the "FileUpload" and "ImageUpload"
        elements of the "form" extension which always allows file uploads of these
@@ -850,10 +850,10 @@ features
     ..  _typo3ConfVars_sys_features_redirects.hitCount:
 
     ..  confval:: redirects.hitCount
-       :name: globals-typo3-conf-vars-sys-features-redirects-hitCount
-       :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
-       :type: bool
-       :Default: false
+        :name: globals-typo3-conf-vars-sys-features-redirects-hitCount
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
+        :type: bool
+        :Default: false
 
        If enabled, and extension "redirects" is loaded, each redirect is
        counted and the last hit time is logged to the database.
@@ -861,10 +861,10 @@ features
     ..  _typo3ConfVars_sys_features_security.backend.enforceReferrer:
 
     ..  confval:: security.backend.enforceReferrer
-       :name: globals-typo3-conf-vars-sys-features-security-backend-enforceReferrer
-       :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer']
-       :type: bool
-       :Default: true
+        :name: globals-typo3-conf-vars-sys-features-security-backend-enforceReferrer
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer']
+        :type: bool
+        :Default: true
 
        If enabled, HTTP referrer headers are enforced for backend and install tool requests to mitigate
        potential same-site request forgery attacks. The behavior can be disabled if HTTP proxies filter
@@ -947,10 +947,10 @@ availablePasswordHashAlgorithms
 -------------------------------
 
 ..  confval:: availablePasswordHashAlgorithms
-   :name: globals-typo3-conf-vars-sys-availablePasswordHashAlgorithms
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
-   :type: array
-   :Default:
+    :name: globals-typo3-conf-vars-sys-availablePasswordHashAlgorithms
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
+    :type: array
+    :Default:
 
    A list of available password hash mechanisms. Extensions may register
    additional mechanisms here.
@@ -1062,7 +1062,7 @@ localization
 
         ..  _typo3ConfVars_sys_localization_locales_user:
 
-        .. confval:: user
+        ..  confval:: user
             :name: globals-typo3-conf-vars-sys-localization-locales-user
             :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user']
             :type: array
@@ -1077,7 +1077,7 @@ localization
 
         ..  _typo3ConfVars_sys_localization_locales_dependencies:
 
-        .. confval:: dependencies
+        ..  confval:: dependencies
             :name: globals-typo3-conf-vars-sys-localization-locales-dependencies
             :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies']
             :type: array

@@ -40,16 +40,16 @@ The TYPO3-specific wrapper :php:`GeneralUtility::getUrl()` uses Guzzle for
 remote files, eliminating the need to directly configure settings based on
 specific implementations such as stream wrappers or cURL.
 
-.. index:: HTTP request; RequestFactory
-.. _http-basic:
+..  index:: HTTP request; RequestFactory
+..  _http-basic:
 
 Basic usage
 ===========
 
 The :php:`RequestFactory` class can be used like this:
 
-.. literalinclude:: /CodeSnippets/Examples/Http/MeowInformationRequester.php
-   :caption: EXT:examples/Classes/Http/MeowInformationRequester.php
+..  literalinclude:: /CodeSnippets/Examples/Http/MeowInformationRequester.php
+    :caption: EXT:examples/Classes/Http/MeowInformationRequester.php
 
 A POST request can be achieved with:
 
@@ -61,8 +61,8 @@ using the Guzzle API directly in order to ensure a clear upgrade path when
 updates to the underlying API need to be done.
 
 
-.. index:: HTTP request; Custom middleware handlers
-.. _http-custom-handlers:
+..  index:: HTTP request; Custom middleware handlers
+..  _http-custom-handlers:
 
 Custom middleware handlers
 ==========================
@@ -76,7 +76,7 @@ and not overwritten.
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 
-.. index:: HTTP request; HttpUtility
+..  index:: HTTP request; HttpUtility
 
 ..  _http-http-utility-methods:
 
@@ -106,4 +106,4 @@ with an optional prepend of :php:`?` or :php:`&`.
 If the query is not empty, `?` or `&` are prepended in the correct sequence.
 Empty parameters are skipped.
 
-.. _`PHP function`: https://www.php.net/manual/en/function.http-build-query.php
+..  _`PHP function`: https://www.php.net/manual/en/function.http-build-query.php

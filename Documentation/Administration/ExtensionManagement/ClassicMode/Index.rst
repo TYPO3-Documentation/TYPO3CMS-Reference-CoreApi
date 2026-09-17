@@ -7,9 +7,9 @@
 Installing extensions - Classic mode
 ====================================
 
-.. _extension-manager:
-.. _extension-package-manager:
-.. _extension-install:
+..  _extension-manager:
+..  _extension-package-manager:
+..  _extension-install:
 
 Installing an extension using the extension manager
 ===================================================

@@ -52,8 +52,8 @@ different types of edit/create record links in the backend.
 
 Here an excerpt:
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_LinksAction.php
-   :caption: Class T3docs\\Examples\\Controller\\ModuleController
+..  literalinclude:: /ApiOverview/Backend/_UriBuilder/_LinksAction.php
+    :caption: Class T3docs\\Examples\\Controller\\ModuleController
 
 The links appear in the example backend module:
 
@@ -77,8 +77,8 @@ one single form!
 
 Also the fields to be displayed can be restricted.
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_GetEditDoktypeLink.php
-   :caption: Class T3docs\\Examples\\Controller\\ModuleController
+..  literalinclude:: /ApiOverview/Backend/_UriBuilder/_GetEditDoktypeLink.php
+    :caption: Class T3docs\\Examples\\Controller\\ModuleController
 
 ..  versionchanged:: 14.0
 
@@ -102,14 +102,14 @@ Display a link to "Create a New Record"
 The :ref:`t3ViewHelper:typo3-backend-uri-newrecord` can be used to create a
 "create new record" link:
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuBlankLink.fluid.html
-   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuBlankLink.fluid.html
+..  literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuBlankLink.fluid.html
+    :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuBlankLink.fluid.html
 
 If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLinkPhp.php
-   :caption: Class T3docs\\Examples\\Controller\\ModuleController
+..  literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLinkPhp.php
+    :caption: Class T3docs\\Examples\\Controller\\ModuleController
 
 
 ..  versionchanged:: 14.0
@@ -119,8 +119,8 @@ default values for certain fields.
 
 It can then be displayed like this:
 
-.. literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLink.fluid.html
-   :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuLink.fluid.html
+..  literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuLink.fluid.html
+    :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuLink.fluid.html
 
 The link triggers the creation a new record for the table `tx_examples_haiku`
 on page 1. It also sets a default value for the `title` field ("New haiku") and

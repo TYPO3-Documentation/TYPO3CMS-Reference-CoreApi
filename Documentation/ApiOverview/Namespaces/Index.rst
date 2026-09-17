@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Namespaces
-.. _namespaces:
+..  include:: /Includes.rst.txt
+..  index:: ! Namespaces
+..  _namespaces:
 
 ==========
 Namespaces
@@ -10,10 +10,10 @@ TYPO3 uses PHP namespaces for all classes in the Core.
 
 The general structure of namespaces is the following:
 
-.. code-block:: none
-   :caption: General namespace schema
+..  code-block:: none
+    :caption: General namespace schema
 
-   \{VendorName}\{PackageName}\({CategoryName}\)*{ClassName}
+    \{VendorName}\{PackageName}\({CategoryName}\)*{ClassName}
 
 
 For the Core, the *vendor name* is :php:`TYPO3\CMS` and the *package name* corresponds
@@ -28,8 +28,8 @@ Finally the *class name* is the same as the corresponding file name, without the
 
 "UpperCamelCase" is used for all segments.
 
-.. index:: pair: Namespaces; Core
-.. _namespaces-example:
+..  index:: pair: Namespaces; Core
+..  _namespaces-example:
 
 Core example
 ------------
@@ -41,8 +41,8 @@ This means that the class is now found in the `core` system extension, in folder
 :file:`Classes/Utility`, in a file named :file:`GeneralUtility.php`.
 
 
-.. index:: pair: Namespaces; Extensions
-.. _namespaces-extensions:
+..  index:: pair: Namespaces; Extensions
+..  _namespaces-extensions:
 
 Usage in extensions
 -------------------
@@ -54,35 +54,35 @@ In order to avoid problems with different filesystems, only
 the characters a-z, A-Z, 0-9 and the dash sign "-" are allowed for package
 names – don't use special characters:
 
-.. code-block:: php
-   :caption: Examples for vendor names
+..  code-block:: php
+    :caption: Examples for vendor names
 
-   // correct vendor name for 'web company':
-   \WebCompany
+    // correct vendor name for 'web company':
+    \WebCompany
 
-   // wrong vendor name for 'web company':
-   \Web\Company
+    // wrong vendor name for 'web company':
+    \Web\Company
 
-.. attention::
+..  attention::
 
-   The vendor name `TYPO3\CMS` is reserved and may not be used by extensions!
+    The vendor name `TYPO3\CMS` is reserved and may not be used by extensions!
 
 The package name corresponds to the extension key. Underscores in the extension
 key are removed in the namespace and replaced by upper camel-case. So extension key:
 
-.. code-block:: none
-   :caption: Do not do this
+..  code-block:: none
+    :caption: Do not do this
 
-   weird-name_examples
+    weird-name_examples
 
 would become:
 
-.. code-block:: none
-   :caption: Do not do this
+..  code-block:: none
+    :caption: Do not do this
 
-   Weird-nameExamples
+    Weird-nameExamples
 
-.. TODO: Something is very wrong with this example...
+..  TODO: Something is very wrong with this example...
 
 in the namespace.
 
@@ -98,15 +98,15 @@ as fully qualified name.
 
 Inside the class, the namespace is declared as:
 
-.. code-block:: php
-   :caption: EXT:examples/Classes/Controller/DefaultController.php
+..  code-block:: php
+    :caption: EXT:examples/Classes/Controller/DefaultController.php
 
-   <?php
-   namespace Documentation\Examples\Controller;
+    <?php
+    namespace Documentation\Examples\Controller;
 
 
-.. index:: pair: Namespaces; Extbase
-.. _namespaces-extbase:
+..  index:: pair: Namespaces; Extbase
+..  _namespaces-extbase:
 
 Namespaces in Extbase
 ---------------------
@@ -124,8 +124,8 @@ For a frontend module:
 ..  literalinclude:: _ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php
 
-.. index:: pair: Namespaces; Tests
-.. _namespaces-test:
+..  index:: pair: Namespaces; Tests
+..  _namespaces-test:
 
 Namespaces for test classes
 ---------------------------
@@ -142,7 +142,7 @@ So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespac
 :code:`\MyVendor\FooBarBaz\Tests\Unit\Bla`.
 
 
-.. _namespaces-instances:
+..  _namespaces-instances:
 
 Creating instances
 ------------------
@@ -150,13 +150,13 @@ Creating instances
 The following example shows how you can create instances by means of
 :php:`GeneralUtility::makeInstance()`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-   $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+    $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
 
 ..  _namespaces-include-required:
@@ -169,7 +169,7 @@ classes adhering to namespace conventions will automatically be located and
 included by the autoloader.
 
 
-.. _namespaces-references:
+..  _namespaces-references:
 
 References
 ----------

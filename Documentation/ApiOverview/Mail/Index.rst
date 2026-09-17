@@ -538,8 +538,8 @@ Symfony mail documentation
 Please refer to the Symfony documentation for more information about
 available methods.
 
-.. seealso::
+..  seealso::
 
-   - `The Mime Component <https://symfony.com/doc/current/components/mime.html>`__
+    - `The Mime Component <https://symfony.com/doc/current/components/mime.html>`__
 
-   - `Sending Emails with Mailer <https://symfony.com/doc/current/mailer.html>`__
+    - `Sending Emails with Mailer <https://symfony.com/doc/current/mailer.html>`__

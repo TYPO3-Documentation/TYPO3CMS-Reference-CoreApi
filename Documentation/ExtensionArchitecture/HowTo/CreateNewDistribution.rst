@@ -1,8 +1,8 @@
 :navigation-title: Distributions
 
-.. include:: /Includes.rst.txt
-.. index:: ! Distributions
-.. _distribution:
+..  include:: /Includes.rst.txt
+..  index:: ! Distributions
+..  _distribution:
 
 ===========================
 Creating a new distribution
@@ -11,7 +11,7 @@ Creating a new distribution
 This chapter describes the main steps in creating a new distribution.
 
 
-.. _distribution_concept:
+..  _distribution_concept:
 
 Concept of distributions
 ========================
@@ -39,7 +39,7 @@ care of the following parts:
   extensions not available through TER)
 
 
-.. _distribution-kickstart:
+..  _distribution-kickstart:
 
 Kickstarting the distribution
 =============================
@@ -54,7 +54,7 @@ except for the "category" property which must be set to
 **distribution**.
 
 
-.. _distribution-kickstart-image:
+..  _distribution-kickstart-image:
 
 Configuring the distribution display in the EM
 ----------------------------------------------
@@ -66,7 +66,7 @@ welcome image as :file:`Resources/Public/Images/DistributionWelcome.png`.
 The welcome image is displayed in the distribution detail view inside the Extension Manager.
 
 
-.. _distribution-kickstart-fileadmin:
+..  _distribution-kickstart-fileadmin:
 
 Fileadmin files
 ---------------
@@ -106,7 +106,7 @@ the Introduction Package provides only the database dump and asset files which
 results in only content-related files being in :file:`fileadmin/`,
 which are provided by the Introduction Package.
 
-.. _distribution-kickstart-site:
+..  _distribution-kickstart-site:
 
 Site configuration
 ------------------
@@ -114,13 +114,13 @@ Site configuration
 In order to import a site configuration upon installation, supply a site config file
 to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 
-.. note::
+..  note::
 
     Existing site configuration folders with the same identifier will neither be overwritten nor changed.
     See :doc:`ext_core:Changelog/10.1/Feature-89010-IntroduceSiteConfigForDistributionPackages`
 
 
-.. _distribution-kickstart-database:
+..  _distribution-kickstart-database:
 
 Database data
 -------------
@@ -130,7 +130,7 @@ The database data is delivered as TYPO3 CMS export file under :file:`Initialisat
 Generate this file by exporting your whole TYPO3 instance
 from the root of the page tree using the :ref:`export module <ext_impexp:export>`:
 
-.. rst-class:: bignums-xxl
+..  rst-class:: bignums-xxl
 
 #. Page tree
 
@@ -181,29 +181,29 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
    containing the files with hashed filenames to the distribution folder
    under :file:`Initialisation/data.xml.files/`.
 
-.. note::
+..  note::
 
-   Any extensions that are not required by the distribution should be deactivated
-   before the export task is executed.
+    Any extensions that are not required by the distribution should be deactivated
+    before the export task is executed.
 
-.. note::
+..  note::
 
-   By default, any file that has an entry in the :sql:`sys_file` table will be
-   exported, including files in the :file:`fileadmin/user_upload/_temp/` path where
-   previous exports were stored that you do not want included in the export.
+    By default, any file that has an entry in the :sql:`sys_file` table will be
+    exported, including files in the :file:`fileadmin/user_upload/_temp/` path where
+    previous exports were stored that you do not want included in the export.
 
-   Therefore, delete any temporary files that you do not want to export from the
-   fileadmin. Use the :guilabel:`Media` module to delete these files.
-   If you delete them directly from the file system, the corresponding entries in
-   :sql:`sys_file` will not be deleted and an error will occur during export,
-   which must then be corrected directly by manually deleting the database entries.
+    Therefore, delete any temporary files that you do not want to export from the
+    fileadmin. Use the :guilabel:`Media` module to delete these files.
+    If you delete them directly from the file system, the corresponding entries in
+    :sql:`sys_file` will not be deleted and an error will occur during export,
+    which must then be corrected directly by manually deleting the database entries.
 
-.. note::
+..  note::
 
     A TYPO3 issue prevents loading :file:`data.xml` larger than
     10MB. In this case the only option left is going with :file:`data.t3d`
 
-.. warning::
+..  warning::
 
     Do *not* include backend users in the dump! If you do, you end up
     having your user on other systems who loaded your distribution. Give
@@ -211,24 +211,24 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
     in the dump is most likely a security vulnerability of your distribution
     if that distribution is uploaded to the public.
 
-.. seealso::
+..  seealso::
 
-   The Introduction Package comes with a maintained export preset within its
-   `database export <https://github.com/FriendsOfTYPO3/introduction/blob/master/Initialisation/data.xml>`_
-   which can be useful as a kick start. Just import that preset into your
-   installation and adapt to the needs of your distribution. The import works
-   similar to the export.
+    The Introduction Package comes with a maintained export preset within its
+    `database export <https://github.com/FriendsOfTYPO3/introduction/blob/master/Initialisation/data.xml>`_
+    which can be useful as a kick start. Just import that preset into your
+    installation and adapt to the needs of your distribution. The import works
+    similar to the export.
 
-   The export preset is configured as:
+    The export preset is configured as:
 
-   * Export database data as :file:`data.xml`
-   * Export only referenced FAL file relations into :file:`data.xml.files` directory,
-     do not just export *all* files from fileadmin
-   * Do not export :sql:`be_users` (!)
-   * Do not export some other tables like :sql:`sys_log` and friends
+    * Export database data as :file:`data.xml`
+    * Export only referenced FAL file relations into :file:`data.xml.files` directory,
+      do not just export *all* files from fileadmin
+    * Do not export :sql:`be_users` (!)
+    * Do not export some other tables like :sql:`sys_log` and friends
 
 
-.. _distribution-kickstart-configuration:
+..  _distribution-kickstart-configuration:
 
 Distribution configuration
 --------------------------
@@ -240,7 +240,7 @@ After installing the extension, the event :ref:`AfterPackageActivationEvent<Afte
 dispatched. You may use this to alter your website configuration (e.g. color
 scheme) on the fly.
 
-.. _distribution-testing:
+..  _distribution-testing:
 
 Test your distribution
 ======================
@@ -265,12 +265,12 @@ via "Get preconfigured distribution", when it has been uploaded or updated in
 TER, with the only difference that you can provide and test the distribution
 locally *without* uploading to TER first.
 
-.. warning::
+..  warning::
 
-   It is not enough to clean all files and the page tree if you want to
-   try again to install your distribution. Indeed, TYPO3 CMS remembers that it
-   previously imported your distribution and will skip any known files and
-   the database import. Make sure to clean the table "sys_registry" if you want
-   to work around that, or, even better, install a new blank TYPO3 to test again.
-   Tip: Optimize creating the empty TYPO3 instance with a script, you probably
-   end up testing the import a couple of times until you are satisfied with the result.
+    It is not enough to clean all files and the page tree if you want to
+    try again to install your distribution. Indeed, TYPO3 CMS remembers that it
+    previously imported your distribution and will skip any known files and
+    the database import. Make sure to clean the table "sys_registry" if you want
+    to work around that, or, even better, install a new blank TYPO3 to test again.
+    Tip: Optimize creating the empty TYPO3 instance with a script, you probably
+    end up testing the import a couple of times until you are satisfied with the result.

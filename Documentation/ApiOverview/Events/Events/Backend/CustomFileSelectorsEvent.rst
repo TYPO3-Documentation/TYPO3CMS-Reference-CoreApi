@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; CustomFileSelectorsEvent
-.. _CustomFileSelectorsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; CustomFileSelectorsEvent
+..  _CustomFileSelectorsEvent:
 
 ==========================
 `CustomFileSelectorsEvent`

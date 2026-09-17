@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: TypoScript; Frontend TypoScript
-.. _typoscript-frontend-typoscript:
+..  include:: /Includes.rst.txt
+..  index:: TypoScript; Frontend TypoScript
+..  _typoscript-frontend-typoscript:
 
 ===================
 Frontend TypoScript

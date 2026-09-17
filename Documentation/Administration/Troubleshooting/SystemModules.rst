@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _troubleshooting-system_modules:
+..  _troubleshooting-system_modules:
 
 ==============
 System modules
@@ -9,7 +9,7 @@ System modules
 The following system modules can help when trying to troubleshoot issues with
 TYPO3. Administrative rights are required.
 
-.. _troubleshooting-system-modules-log:
+..  _troubleshooting-system-modules-log:
 
 Log
 ===
@@ -19,22 +19,22 @@ login, cache clearing, database entries (creation, update, deletion),
 settings changes, file actions and errors. A number of filters are
 available to help filter this data.
 
-.. _troubleshooting-system-modules-dbcheck:
+..  _troubleshooting-system-modules-dbcheck:
 
 DB Check
 ========
 
-.. important::
+..  important::
 
-   "DB Check and :ref:`troubleshooting-system-modules-configuration` are only available
-   if the system extension "lowlevel" is installed and activated.
+    "DB Check and :ref:`troubleshooting-system-modules-configuration` are only available
+    if the system extension "lowlevel" is installed and activated.
 
-   To install this system extension:
+    To install this system extension:
 
-   .. code-block:: bash
-      :caption: ~$
+    ..  code-block:: bash
+        :caption: ~$
 
-      composer req typo3/cms-lowlevel
+        composer req typo3/cms-lowlevel
 
 
 The *Database (DB) Check* module provides four functions related
@@ -55,7 +55,7 @@ Check and update global reference index
   useful to update this index regularly.
 
 
-.. _troubleshooting-system-modules-configuration:
+..  _troubleshooting-system-modules-configuration:
 
 Configuration
 =============
@@ -63,7 +63,7 @@ Configuration
 The *Configuration* module can be used to view the various
 configuration arrays used by the CMS.
 
-.. _troubleshooting-system-modules-reports:
+..  _troubleshooting-system-modules-reports:
 
 Reports
 =======

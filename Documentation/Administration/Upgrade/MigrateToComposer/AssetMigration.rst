@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 :navigation-title: Migrating public web assets
 
-.. _migrate-public-assets:
+..  _migrate-public-assets:
 
 ===================================================================================
 Migrating and accessing public web assets from `typo3conf/ext/` to `public/_assets`

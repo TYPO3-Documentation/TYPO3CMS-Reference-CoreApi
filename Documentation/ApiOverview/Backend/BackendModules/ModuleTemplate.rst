@@ -22,5 +22,5 @@ Example: create and use a `ModuleTemplate` in an Extbase controller
 
 ..  include:: _AboutBlogExample.rst.txt
 
-.. literalinclude:: /ApiOverview/Backend/BackendModules/_InitializeModuleTemplate.php
-   :caption: Class T3docs\\BlogExample\\Controller\\BackendController
+..  literalinclude:: /ApiOverview/Backend/BackendModules/_InitializeModuleTemplate.php
+    :caption: Class T3docs\\BlogExample\\Controller\\BackendController

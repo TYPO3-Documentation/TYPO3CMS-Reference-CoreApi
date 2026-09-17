@@ -282,7 +282,7 @@ The following caches exist in the TYPO3 Core:
     :file:`typo3temp/var/cache/code/` (for Classic mode installations).
 
 
-.. _caching-architecture-task:
+..  _caching-architecture-task:
 
 Garbage collection task
 =======================
@@ -296,7 +296,7 @@ day at night) for all used backends that do not delete entries which exceeded
 their lifetime on their own to free up memory or hard disk space.
 
 
-.. _caching-architecture-api:
+..  _caching-architecture-api:
 
 Cache API
 =========

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Services API; Subtypes
-.. _services-using-services-subtypes:
+..  include:: /Includes.rst.txt
+..  index:: Services API; Subtypes
+..  _services-using-services-subtypes:
 
 =================
 Use with subtypes
@@ -9,18 +9,18 @@ Use with subtypes
 A service can also be requested for not just a type, but a subtype
 too:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-   // Find a service for a file type
-   if (is_object($serviceObject = GeneralUtility::makeInstanceService('metaExtract', $fileType))) {
-           $serviceObj->setInputFile($absFile, $fileType);
-           if ($serviceObj->process('', '', array('meta' => $meta)) > 0 && (is_array($svmeta = $serviceObj->getOutput()))) {
-                   $meta = $svmeta;
-           }
-   }
+    // Find a service for a file type
+    if (is_object($serviceObject = GeneralUtility::makeInstanceService('metaExtract', $fileType))) {
+            $serviceObj->setInputFile($absFile, $fileType);
+            if ($serviceObj->process('', '', array('meta' => $meta)) > 0 && (is_array($svmeta = $serviceObj->getOutput()))) {
+                    $meta = $svmeta;
+            }
+    }
 
 In this example a service type "metaExtract" is requested for a
 specific subtype corresponding to some file's type. With the returned

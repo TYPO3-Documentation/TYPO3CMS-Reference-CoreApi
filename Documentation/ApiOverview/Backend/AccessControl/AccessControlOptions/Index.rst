@@ -1,10 +1,10 @@
 :navigation-title: Options
 
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _access-options:
+..  _access-options:
 
 ======================
 Access control options
@@ -35,7 +35,7 @@ User TSconfig
    :ref:`TSconfig Reference <t3tsref:usertsconfig>`
 
 
-.. _access-options-access-lists:
+..  _access-options-access-lists:
 
 Access lists
 ============
@@ -45,10 +45,10 @@ user rights is described in chapter :ref:`setting-up-user-permissions`.
 The various access lists are described here for reference, with
 additional technical details, where necessary.
 
-.. note::
+..  note::
 
-   Access list don't apply to admin users. As mentioned before, admin
-   users have access to every single feature of the TYPO3 CMS backend.
+    Access list don't apply to admin users. As mentioned before, admin
+    users have access to every single feature of the TYPO3 CMS backend.
 
 Modules
    This is a list of submodules a user may be given access to. Access to a main
@@ -60,19 +60,19 @@ Modules
    :guilabel:`Administration` and :guilabel:`System` modules, as well as the
    :guilabel:`Sites` modules.
 
-   .. note::
+   ..  note::
 
-      This is the only access list that is also available for definition
-      at user-level.
+       This is the only access list that is also available for definition
+       at user-level.
 
 Dashboard widgets
    A :ref:`list of the available dashboard widgets <ext_dashboard:permission-handling-of-widgets>`
    a user may be allowed to use on the dashboard.
 
-   .. note::
+   ..  note::
 
-      This section is only available with activated
-      :doc:`dashboard <ext_dashboard:Index>` system extension.
+       This section is only available with activated
+       :doc:`dashboard <ext_dashboard:Index>` system extension.
 
 Tables for listing
    A list of all tables a user may be allowed to read in the backend.
@@ -84,11 +84,11 @@ Tables for listing
    Restricting a table to admin users only is done using the
    :ref:`TCA property "adminOnly" <t3tca:ctrl-reference-adminonly>`.
 
-   .. note::
+   ..  note::
 
-      All tables that are allowed for modification (see below) are
-      also allowed for read access, so no need to select them in this
-      list as well.
+       All tables that are allowed for modification (see below) are
+       also allowed for read access, so no need to select them in this
+       list as well.
 
 Tables for editing
    This is exactly the same list of tables as before, but for granting
@@ -123,7 +123,7 @@ When a user is a member of more than one group, the access lists for
 the groups are "added" together.
 
 
-.. _access-options-mounts:
+..  _access-options-mounts:
 
 Mounts
 ======
@@ -146,15 +146,15 @@ page that should be mounted for the user (at user or group-level):
 
 This is what the user will see:
 
-.. figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserPageTree.png
-   :alt: Only selected pages are accessible to the user
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserPageTree.png
+    :alt: Only selected pages are accessible to the user
 
 
-.. warning::
+..  warning::
 
-   A DB mount will appear only if the :ref:`page permissions <access-options-page-permissions>`
-   allow the user at least read access to the mounted page (and subpages).
-   Otherwise nothing will appear at all!
+    A DB mount will appear only if the :ref:`page permissions <access-options-page-permissions>`
+    allow the user at least read access to the mounted page (and subpages).
+    Otherwise nothing will appear at all!
 
 **File Mounts** are a little more difficult to set up, as they
 involve several steps. First of all, you need to have at least
@@ -163,12 +163,12 @@ default, you will always have one, pointing
 to the :file:`fileadmin` directory. It is created by TYPO3 CMS
 upon installation.
 
-.. note::
+..  note::
 
-   The :file:`fileadmin` directory is the default place where
-   TYPO3 CMS expects media resources to be located. It can be
-   changed using the global configuration option
-   :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
+    The :file:`fileadmin` directory is the default place where
+    TYPO3 CMS expects media resources to be located. It can be
+    changed using the global configuration option
+    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/FileStorage.png
     :zoom: lightbox
@@ -196,8 +196,8 @@ to a user or group:
 After a successful configuration, the file mount will appear to
 the user:
 
-.. figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
-   :alt: The file tree as visible by the user
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
+    :alt: The file tree as visible by the user
 
 
 DB and File Mounts can be set for both the user and group records.
@@ -218,7 +218,7 @@ groups:
 to every part of the installation.
 
 
-.. _access-options-page-permissions:
+..  _access-options-page-permissions:
 
 Page permissions
 ----------------
@@ -251,10 +251,10 @@ summarized here:
   New pages (8)
     Create new pages under the page.
 
-.. note::
+..  note::
 
-   Here "Page content" means all records related to that page,
-   except other pages.
+    Here "Page content" means all records related to that page,
+    except other pages.
 
 Page permissions are set and viewed with the module :guilabel:`Administration > Permissions`
 module:
@@ -280,7 +280,7 @@ listed user group* configured for the users record (if any). These defaults
 can be changed through :ref:`page TSconfig <t3tsref:pagetcemain-permissions-user-group>`.
 
 
-.. _access-options-user-tsconfig:
+..  _access-options-user-tsconfig:
 
 User TSconfig
 =============

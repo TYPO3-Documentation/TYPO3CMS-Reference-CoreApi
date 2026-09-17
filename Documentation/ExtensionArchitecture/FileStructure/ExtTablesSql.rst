@@ -165,7 +165,7 @@ Extended examples about how to handle `CHAR` columns can be found in
 `Important: #105310 - Create CHAR and BINARY as fixed-length
 columns <https://docs.typo3.org/permalink/changelog:important-105310-1736154829>`_
 
-.. _auto-generated-db-structure:
+..  _auto-generated-db-structure:
 
 Auto-generated structure
 ========================

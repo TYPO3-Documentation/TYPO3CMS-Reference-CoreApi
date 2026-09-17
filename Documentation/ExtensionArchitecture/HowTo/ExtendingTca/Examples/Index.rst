@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _extending-examples:
+..  include:: /Includes.rst.txt
+..  _extending-examples:
 
 ======================
 Customization examples
@@ -9,10 +9,10 @@ There are many customization examples in the documentation, but this section
 provides the most complete examples.
 
 
-.. index::
-   TCA; fe_users
-   File; EXT:{extkey}Configuration/TCA/Overrides/fe_users.php
-.. _extending-examples-feusers:
+..  index::
+    TCA; fe_users
+    File; EXT:{extkey}Configuration/TCA/Overrides/fe_users.php
+..  _extending-examples-feusers:
 
 Example 1: extending the `fe_users` table
 =========================================
@@ -26,11 +26,11 @@ Here is the complete code, taken from file
 
 Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
 
-.. note::
+..  note::
 
-   The second example, :php:`tx_examples_special`, only works when
-   :php:`renderType` has been registered, implemented, and registered in
-   ext_localconf.php. Please refer to :ref:`t3tca:columns-user`.
+    The second example, :php:`tx_examples_special`, only works when
+    :php:`renderType` has been registered, implemented, and registered in
+    ext_localconf.php. Please refer to :ref:`t3tca:columns-user`.
 
 
 The first method call adds fields using
@@ -67,35 +67,35 @@ is created automatically if it does not exist.
 These method calls do not create fields in the database. To do
 this, the new fields must be defined in the :file:`ext_tables.sql` file of the extension:
 
-.. code-block:: sql
-   :caption: EXT:some_extension/ext_tables.sql
+..  code-block:: sql
+    :caption: EXT:some_extension/ext_tables.sql
 
-   CREATE TABLE fe_users (
-       tx_examples_options int(11) DEFAULT '0' NOT NULL,
-       tx_examples_special varchar(255) DEFAULT '' NOT NULL
-   );
+    CREATE TABLE fe_users (
+        tx_examples_options int(11) DEFAULT '0' NOT NULL,
+        tx_examples_special varchar(255) DEFAULT '' NOT NULL
+    );
 
 
-.. note::
+..  note::
 
-   The above example uses the SQL :sql:`CREATE TABLE` statement. This is the
-   way TYPO3 expects it to be. The Extension Manager will automatically
-   transform this into an :sql:`ALTER TABLE` statement when it detects that the
-   table already exists.
+    The above example uses the SQL :sql:`CREATE TABLE` statement. This is the
+    way TYPO3 expects it to be. The Extension Manager will automatically
+    transform this into an :sql:`ALTER TABLE` statement when it detects that the
+    table already exists.
 
 
 The following screenshot shows the position of the two
 new fields when editing a "fe\_users" record:
 
-.. include:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaFeUsers.rst.txt
+..  include:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaFeUsers.rst.txt
 
 The next example shows how to position a field more precisely.
 
 
-.. index::
-   TCA; tt_content
-   File; EXT:{extkey}Configuration/TCA/Overrides/tt_content.php
-.. _extending-examples-ttcontent:
+..  index::
+    TCA; tt_content
+    File; EXT:{extkey}Configuration/TCA/Overrides/tt_content.php
+..  _extending-examples-ttcontent:
 
 Example 2: extending the `tt_content` table
 ===========================================
@@ -104,12 +104,12 @@ In this second example, we will add a "No print" field to all content
 element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
-.. code-block:: sql
-   :caption: EXT:some_extension/ext_tables.sql
+..  code-block:: sql
+    :caption: EXT:some_extension/ext_tables.sql
 
-   CREATE TABLE tt_content (
-       tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
-   );
+    CREATE TABLE tt_content (
+        tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
+    );
 
 Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrides/tt_content.php`:
 
@@ -129,29 +129,29 @@ The new field is positioned by the fourth parameter
 
 The result is the following:
 
-.. include:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaTtContent.rst.txt
+..  include:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaTtContent.rst.txt
 
-.. note::
+..  note::
 
-   Obviously this new field doesn't do anything yet. For it to do its job of
-   excluding a content element from being printed, it must modify the TypoScript
-   used to render the :sql:`tt_content` table. Although this is outside the scope of this
-   manual, here is an example of what you could do, for the sake of
-   showing the complete process.
+    Obviously this new field doesn't do anything yet. For it to do its job of
+    excluding a content element from being printed, it must modify the TypoScript
+    used to render the :sql:`tt_content` table. Although this is outside the scope of this
+    manual, here is an example of what you could do, for the sake of
+    showing the complete process.
 
-   Assuming you are using "fluid\_styled\_content" (which is installed by
-   default), you could add the following TypoScript to your template:
+    Assuming you are using "fluid\_styled\_content" (which is installed by
+    default), you could add the following TypoScript to your template:
 
-   .. code-block:: typoscript
+    ..  code-block:: typoscript
 
-      tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
-      tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint
+        tt_content.stdWrap.outerWrap = <div class="noprint">|</div>
+        tt_content.stdWrap.outerWrap.if.isTrue.field = tx_examples_noprint
 
-   This will wrap a "div" tag with a "noprint" class around any content
-   element that has its "No print" checkbox checked. The final step would
-   be to declare the appropriate selector in the print-media CSS file so
-   that "noprint" elements don't get displayed.
+    This will wrap a "div" tag with a "noprint" class around any content
+    element that has its "No print" checkbox checked. The final step would
+    be to declare the appropriate selector in the print-media CSS file so
+    that "noprint" elements don't get displayed.
 
-   This is just an example of how the "No print" checkbox
-   can be implemented. It is meant to show that just adding
-   the field to the :php:`$GLOBALS['TCA']` is not enough.
+    This is just an example of how the "No print" checkbox
+    can be implemented. It is meant to show that just adding
+    the field to the :php:`$GLOBALS['TCA']` is not enough.

@@ -30,4 +30,4 @@ registration, adds the URLs found in a sites XML sitemap to the list of URLs.
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Redirects/AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent.rst.txt

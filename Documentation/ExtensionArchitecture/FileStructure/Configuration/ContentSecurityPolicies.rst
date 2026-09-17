@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Configuration/ContentSecurityPolicies.php
-   Path; EXT:{extkey}/Configuration/ContentSecurityPolicies.php
-.. _extension-configuration-ContentSecurityPolicies-php:
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Configuration/ContentSecurityPolicies.php
+    Path; EXT:{extkey}/Configuration/ContentSecurityPolicies.php
+..  _extension-configuration-ContentSecurityPolicies-php:
 
 =============================
 `ContentSecurityPolicies.php`

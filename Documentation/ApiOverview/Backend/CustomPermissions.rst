@@ -1,8 +1,8 @@
 :navigation-title: Custom Permissions
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _custom-permissions:
+..  _custom-permissions:
 
 ===============================
 Using custom permission options
@@ -15,7 +15,7 @@ permission option is always a checkbox (on/off).
 
 The scope of such options is the backend only.
 
-.. _custom-permissions-registration:
+..  _custom-permissions-registration:
 
 Registration
 ============
@@ -31,13 +31,13 @@ the following example, which registers two custom permission options:
 The result is that these options appear in the group access lists like
 this:
 
-.. include:: /Images/ManualScreenshots/Examples/CustomPermissions/CustomOptions.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/CustomPermissions/CustomOptions.rst.txt
 
 As you can see it is possible to add both an icon and a description text.
 If icons not provided by the Core are used, they need to be registered
 with the :ref:`Icon API <icon>`.
 
-.. _custom-permissions-evaluation:
+..  _custom-permissions-evaluation:
 
 Evaluation
 ==========
@@ -45,10 +45,10 @@ Evaluation
 To check if a custom permission option is set call the following API
 function from the user object:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $GLOBALS['BE_USER']->check('custom_options', $catKey . ':' . $itemKey);
+    $GLOBALS['BE_USER']->check('custom_options', $catKey . ':' . $itemKey);
 
 :code:`$catKey` is the category in which the option resides. From the example
 above this would be :code:`tx_examples_cat1`.
@@ -60,7 +60,7 @@ depending on which one of them you want to evaluate.
 The function returns true if the option is set, otherwise false.
 
 
-.. _custom-permissions-keys:
+..  _custom-permissions-keys:
 
 Keys for options
 ================
@@ -69,6 +69,6 @@ It is good practice to use the extension keys prefixed with :code:`tx_` on
 the first level of the array to avoid potential conflicts with other
 custom options.
 
-.. attention::
-   Never pick a key containing any of the characters
-   ",:\\|". They are reserved delimiter characters.
+..  attention::
+    Never pick a key containing any of the characters
+    ",:\\|". They are reserved delimiter characters.

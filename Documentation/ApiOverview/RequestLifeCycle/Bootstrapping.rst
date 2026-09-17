@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Bootstrapping
-.. _bootstrapping:
+..  include:: /Includes.rst.txt
+..  index:: ! Bootstrapping
+..  _bootstrapping:
 
 =============
 Bootstrapping
@@ -71,13 +71,13 @@ The install tool :php:`Application` only runs with a very limited bootstrap
 set up. The failsafe package manager does not take
 the :php:`ext_localconf.php` of installed extensions into account.
 
-.. warning::
+..  warning::
 
-   This bootstrapping API is internal and may change at any time in the near future
-   even in minor updates. It is thus discouraged to use it in third party code.
-   Use this class only if other extensibility possibilities such as
-   :ref:`Events <eventdispatcher>`, :ref:`Hooks <hooks>`, or :ref:`XCLASS <xclasses>`
-   are not enough to reach your goals.
+    This bootstrapping API is internal and may change at any time in the near future
+    even in minor updates. It is thus discouraged to use it in third party code.
+    Use this class only if other extensibility possibilities such as
+    :ref:`Events <eventdispatcher>`, :ref:`Hooks <hooks>`, or :ref:`XCLASS <xclasses>`
+    are not enough to reach your goals.
 
 Example of bootstrapping the TYPO3 Backend:
 
@@ -85,7 +85,7 @@ Example of bootstrapping the TYPO3 Backend:
     :caption: An entry script bootstrapping the backend
 
 
-.. _backend-initialization:
+..  _backend-initialization:
 
 Initialization
 ==============
@@ -94,9 +94,9 @@ Whenever a call to TYPO3 is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
 used in the frontend, but only the backend process is described here.
 
-.. note::
-   This chapter is outdated and should probably be merged with the "HTTP request library / Guzzle / PSR-7"
-   chapter below. The chapter should include an overview of single bootstrap steps, PSR-15 and routing.
+..  note::
+    This chapter is outdated and should probably be merged with the "HTTP request library / Guzzle / PSR-7"
+    chapter below. The chapter should include an overview of single bootstrap steps, PSR-15 and routing.
 
 The following steps are performed during bootstrapping.
 
@@ -196,12 +196,12 @@ this will typically go through such important steps like:
 
 -  verifying and initializing the backend user
 
-.. note::
+..  note::
 
-   For more information on the middleware stack, you can continue reading the
-   chapter :ref:`request-handling`.
+    For more information on the middleware stack, you can continue reading the
+    chapter :ref:`request-handling`.
 
-.. _bootstrapping-context:
+..  _bootstrapping-context:
 
 Application context
 ===================
@@ -217,51 +217,51 @@ contexts:
 The context TYPO3 runs in is specified through the environment variable
 `TYPO3_CONTEXT`. It can be set on the command line:
 
-.. code-block:: bash
+..  code-block:: bash
 
-   # run the TYPO3 CLI commands in development context
-   TYPO3_CONTEXT=Development ./bin/typo3
+    # run the TYPO3 CLI commands in development context
+    TYPO3_CONTEXT=Development ./bin/typo3
 
 
 or be part of the web server configuration:
 
-.. code-block:: apacheconf
+..  code-block:: apacheconf
     :caption: .htaccess or Apache vhost configuration
 
-   # In your Apache configuration (either .htaccess or vhost)
-   # you can either set context to static value with:
-   SetEnv TYPO3_CONTEXT Development
+    # In your Apache configuration (either .htaccess or vhost)
+    # you can either set context to static value with:
+    SetEnv TYPO3_CONTEXT Development
 
-   # Or set context depending on current host header
-   # using mod_rewrite module
-   RewriteCond %{HTTP_HOST} ^dev\.example\.com$
-   RewriteRule .? - [E=TYPO3_CONTEXT:Development]
+    # Or set context depending on current host header
+    # using mod_rewrite module
+    RewriteCond %{HTTP_HOST} ^dev\.example\.com$
+    RewriteRule .? - [E=TYPO3_CONTEXT:Development]
 
-   RewriteCond %{HTTP_HOST} ^staging\.example\.com$
-   RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
+    RewriteCond %{HTTP_HOST} ^staging\.example\.com$
+    RewriteRule .? - [E=TYPO3_CONTEXT:Production/Staging]
 
-   RewriteCond %{HTTP_HOST} ^www\.example\.com$
-   RewriteRule .? - [E=TYPO3_CONTEXT:Production]
+    RewriteCond %{HTTP_HOST} ^www\.example\.com$
+    RewriteRule .? - [E=TYPO3_CONTEXT:Production]
 
-   # or using setenvif module
-   SetEnvIf Host "^dev\.example\.com$" TYPO3_CONTEXT=Development
-   SetEnvIf Host "^staging\.example\.com$" TYPO3_CONTEXT=Production/Staging
-   SetEnvIf Host "^www\.example\.com$" TYPO3_CONTEXT=Production
+    # or using setenvif module
+    SetEnvIf Host "^dev\.example\.com$" TYPO3_CONTEXT=Development
+    SetEnvIf Host "^staging\.example\.com$" TYPO3_CONTEXT=Production/Staging
+    SetEnvIf Host "^www\.example\.com$" TYPO3_CONTEXT=Production
 
 
-.. code-block:: nginx
+..  code-block:: nginx
     :caption: nginx-site-typo3.conf
 
-   # In your Nginx configuration, you can pass the context as a fastcgi parameter
-   location ~ \.php$ {
-      include         fastcgi_params;
-      fastcgi_index   index.php;
-      fastcgi_param   TYPO3_CONTEXT  Development/Dev;
-      fastcgi_param   SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-   }
+    # In your Nginx configuration, you can pass the context as a fastcgi parameter
+    location ~ \.php$ {
+       include         fastcgi_params;
+       fastcgi_index   index.php;
+       fastcgi_param   TYPO3_CONTEXT  Development/Dev;
+       fastcgi_param   SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    }
 
 
-.. _bootstrapping-context-custom:
+..  _bootstrapping-context-custom:
 
 Custom contexts
 ---------------
@@ -283,21 +283,21 @@ specifying them like `<MainContext>/<SubContext>`.
 For a staging environment a custom context `Production/Staging` may provide the
 necessary settings while the `Production/Live` context is used on the live instance.
 
-.. note::
+..  note::
 
-   This even works recursively, so if you have a multiple-server staging
-   setup, you could use the context `Production/Staging/Server1` and
-   `Production/Staging/Server2` if both staging servers needed different
-   configuration.
+    This even works recursively, so if you have a multiple-server staging
+    setup, you could use the context `Production/Staging/Server1` and
+    `Production/Staging/Server2` if both staging servers needed different
+    configuration.
 
-.. attention::
+..  attention::
 
-   `Testing` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
-   It must not be used otherwise. Instead sub-contexts must be used:
-   `Production/Testing` or `Development/Testing`
+    `Testing` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
+    It must not be used otherwise. Instead sub-contexts must be used:
+    `Production/Testing` or `Development/Testing`
 
 
-.. _bootstrapping-context-example:
+..  _bootstrapping-context-example:
 
 Usage example
 ~~~~~~~~~~~~~

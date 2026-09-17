@@ -21,10 +21,10 @@ integrator can define the priority of the providers for his project.
     The page title can also be set via the `Page.title ViewHelper
     <f:page.title> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-page-title>`_.
 
-.. seealso::
+..  seealso::
 
-   The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
-   and :ref:`sitehandling-basics-websiteTitle`.
+    The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
+    and :ref:`sitehandling-basics-websiteTitle`.
 
 ..  contents:: Table of contents
     :local:
@@ -151,9 +151,9 @@ default provider which always returns a value. If the system extension
 :composer:`typo3/cms-seo` is loaded the default :guilabel:`SEO Title` has a particular format,
 you can change this by loading your custom provider before `seo`.
 
-.. index:: PageTitle; Priority
+..  index:: PageTitle; Priority
 
-.. _define-the-priority-of-pagetitleproviders:
+..  _define-the-priority-of-pagetitleproviders:
 
 Define the priority of `PageTitleProviders`
 ===========================================

@@ -1,17 +1,17 @@
 :navigation-title: Extbase controller
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _backend-modules-extbase:
-.. _backend-modules-template:
+..  _backend-modules-extbase:
+..  _backend-modules-template:
 
 ====================================
 Create a backend module with Extbase
 ====================================
 
-.. tip::
+..  tip::
 
-   If you don't want to do extensive data modeling templates can be written
-   :ref:`without Extbase. <backend-modules-template-without-extbase>`
+    If you don't want to do extensive data modeling templates can be written
+    :ref:`without Extbase. <backend-modules-template-without-extbase>`
 
 See also the :ref:`Backend module API <backend-modules>`.
 
@@ -42,7 +42,7 @@ controller:
 
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php (excerpt)
 
     // use Psr\Http\Message\ResponseInterface
@@ -72,7 +72,7 @@ Using this :php:`ModuleTemplate` class, the Fluid templates for
 your module need only take care of the actual content of your module.
 TYPO3 even comes with a default Fluid layout, that can easily be used:
 
-.. code-block:: html
+..  code-block:: html
 
     <f:layout name="Module" />
 
@@ -80,23 +80,23 @@ and the actual Template needs to render the title and the content only.
 For example, here is an extract of the "Index" action template of
 the "beuser" extension:
 
-.. code-block:: html
-   :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.fluid.html
+..  code-block:: html
+    :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.fluid.html
 
-   <html
-      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-      xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-      data-namespace-typo3-fluid="true">
+    <html
+       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+       xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+       xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+       data-namespace-typo3-fluid="true">
 
-      <f:layout name="Module" />
+       <f:layout name="Module" />
 
-      <f:section name="Content">
-          <h1><f:translate key="backendUserListing" /></h1>
-          ...
-      </f:section>
+       <f:section name="Content">
+           <h1><f:translate key="backendUserListing" /></h1>
+           ...
+       </f:section>
 
-   </html>
+    </html>
 
 
 The best resources for learning is to look at existing modules

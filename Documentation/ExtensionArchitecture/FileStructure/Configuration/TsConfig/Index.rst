@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. _extension-configuration-tsconfig:
-.. index:: Path; EXT:{extkey}/Configuration/TsConfig
+..  include:: /Includes.rst.txt
+..  _extension-configuration-tsconfig:
+..  index:: Path; EXT:{extkey}/Configuration/TsConfig
 
 ==========
 `TsConfig`

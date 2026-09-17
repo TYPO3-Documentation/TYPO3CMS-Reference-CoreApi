@@ -177,7 +177,7 @@ Please contact the Localization Team via email at `localization@typo3.org`_ to r
 
 Or join the Slack channel of the Localization Team: `#typo3-localization-team`_
 
-.. _#typo3-localization-team: https://typo3.slack.com/archives/CR75200FL
+..  _#typo3-localization-team: https://typo3.slack.com/archives/CR75200FL
 
 ..  _crowdin-crowdin-translation-links:
 

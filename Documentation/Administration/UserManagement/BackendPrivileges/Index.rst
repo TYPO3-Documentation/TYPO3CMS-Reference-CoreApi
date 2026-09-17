@@ -1,8 +1,8 @@
 :navigation-title: Administrators
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _privileges:
+..  _privileges:
 
 =========================================================
 Backend privileges: administrators and System Maintainers
@@ -24,7 +24,7 @@ modules and GUI elements that the user does not have access to. It also makes it
 impossible for a user to damage the system by accidentally doing things he or she
 should not have been able to do in the first place.
 
-.. _admin-user:
+..  _admin-user:
 
 Administrators
 ==============
@@ -38,8 +38,8 @@ Administrators
     *   `Using the backend module "Backend Users" to create admins (Getting Started Tutorial) <https://docs.typo3.org/permalink/t3start:backend-users-admin-backend-module>`_
     *   `Create an administrator / System Maintainer using a console command (Getting Started Tutorial) <https://docs.typo3.org/permalink/t3start:backend-users-admin-cli>`_
 
-.. _user-management-system-maintainers:
-.. _system-maintainer:
+..  _user-management-system-maintainers:
+..  _system-maintainer:
 
 System maintainers
 ==================

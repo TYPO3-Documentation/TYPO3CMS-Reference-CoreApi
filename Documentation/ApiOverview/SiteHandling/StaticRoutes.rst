@@ -47,13 +47,13 @@ A configuration example:
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 
-.. index::
-   Site handling; TYPO3 URL
-   TYPO3 URL
-   t3://
-   see: t3://; TYPO3 URL
+..  index::
+    Site handling; TYPO3 URL
+    TYPO3 URL
+    t3://
+    see: t3://; TYPO3 URL
 
-.. _static-routes-to-assets:
+..  _static-routes-to-assets:
 
 Static routes to assets
 =======================

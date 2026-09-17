@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index:: TypoScript; Myth and FAQ
-.. _typoscript-syntax-myths:
-.. _typoscript-syntax-faq:
-.. _typoscript-syntax-acknowledgements:
-.. _typoscript-syntax-details:
+..  include:: /Includes.rst.txt
+..  index:: TypoScript; Myth and FAQ
+..  _typoscript-syntax-myths:
+..  _typoscript-syntax-faq:
+..  _typoscript-syntax-acknowledgements:
+..  _typoscript-syntax-details:
 
 =============
 Myths and FAQ
@@ -13,7 +13,7 @@ This section contains a few remarks and answers to questions you may
 still have.
 
 
-.. _typoscript-syntax-myth-scripting-language:
+..  _typoscript-syntax-myth-scripting-language:
 
 Myth: "TypoScript Is a scripting language"
 ==========================================
@@ -32,7 +32,7 @@ Finally the name "TypoScript" is misleading as well. We are sorry
 about that: Too late to change that now.
 
 
-.. _typoscript-syntax-myth-javascript:
+..  _typoscript-syntax-myth-javascript:
 
 Myth: "TypoScript has the same syntax as JavaScript"
 ====================================================
@@ -43,7 +43,7 @@ is very dangerous to say this since it all stops with the syntax -
 TypoScript is not a procedural programming language!
 
 
-.. _typoscript-syntax-myth-proprietary:
+..  _typoscript-syntax-myth-proprietary:
 
 Myth: "TypoScript is a proprietary standard"
 ============================================
@@ -81,7 +81,7 @@ time it would take to learn about them would not be eliminated, if
 TypoScript was not invented!
 
 
-.. _typoscript-syntax-myth-complex:
+..  _typoscript-syntax-myth-complex:
 
 Myth: "TypoScript is very complex"
 ==================================
@@ -97,8 +97,8 @@ This can partly be solved by:
   gives you overview as well.
 
 
-.. index:: TypoScript; vs. XML
-.. _typoscript-syntax-xml:
+..  index:: TypoScript; vs. XML
+..  _typoscript-syntax-xml:
 
 FAQ: "Why not XML Instead?"
 ===========================
@@ -122,44 +122,44 @@ name for the non-existing TypoScript Mark-Up Language):
 That was 17 lines of TypoScript code and converting this information
 into an XML structure could look like this:
 
-.. code-block:: xml
+..  code-block:: xml
     :caption: The same structure in the fictitious TSML syntax
 
-   <TSML syntax="3">
-     <styles>
-       <content>
-         <bulletlist>
-           TEXT
-           <stdWrap>
-             <current>1</current>
-             <trim>1</trim>
-             <if>
-               <isTrue>
-                 <current>1</current>
-               </isTrue>
-             </if>
-             <!-- Copying the object "styles.content.parseFunc" to this position -->
-             <parseFunc copy="styles.content.parseFunc"/>
-             <split>
-               <token>
-                 <char>10</char>
-               </token>
-               <cObjNum>1</cObjNum>
-               <num:1>
-                 <current>1</current>
-                 <wrap>&lt;li&gt;</wrap>
-               </num:1>
-             </split>
-             <!-- Setting wrapping value: -->
-             <fontTag>&lt;ol type=&quot;1&quot;&gt; | &lt;/ol&gt;</fontTag>
-             <textStyle>
-               <altWrap>{$styles.content.bulletlist.altWrap}</altWrap>
-             </textStyle>
-           </stdWrap>
-         </bulletlist>
-       </content>
-     </styles>
-   </TSML>
+    <TSML syntax="3">
+      <styles>
+        <content>
+          <bulletlist>
+            TEXT
+            <stdWrap>
+              <current>1</current>
+              <trim>1</trim>
+              <if>
+                <isTrue>
+                  <current>1</current>
+                </isTrue>
+              </if>
+              <!-- Copying the object "styles.content.parseFunc" to this position -->
+              <parseFunc copy="styles.content.parseFunc"/>
+              <split>
+                <token>
+                  <char>10</char>
+                </token>
+                <cObjNum>1</cObjNum>
+                <num:1>
+                  <current>1</current>
+                  <wrap>&lt;li&gt;</wrap>
+                </num:1>
+              </split>
+              <!-- Setting wrapping value: -->
+              <fontTag>&lt;ol type=&quot;1&quot;&gt; | &lt;/ol&gt;</fontTag>
+              <textStyle>
+                <altWrap>{$styles.content.bulletlist.altWrap}</altWrap>
+              </textStyle>
+            </stdWrap>
+          </bulletlist>
+        </content>
+      </styles>
+    </TSML>
 
 That was 35 lines of XML - the double amount of lines! And in bytes
 probably also much bigger. This example clearly demonstrates *why not

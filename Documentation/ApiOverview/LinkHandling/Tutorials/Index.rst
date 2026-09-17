@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: LinkBrowser; Tutorials
-.. _LinkBrowserTutorials:
+..  include:: /Includes.rst.txt
+..  index:: LinkBrowser; Tutorials
+..  _LinkBrowserTutorials:
 
 =======================
 `LinkBrowser` tutorials

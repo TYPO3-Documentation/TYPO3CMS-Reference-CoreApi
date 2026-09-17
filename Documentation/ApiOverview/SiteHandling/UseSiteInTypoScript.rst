@@ -1,13 +1,13 @@
 :navigation-title: Usage in TypoScript + Fluid
-.. include:: /Includes.rst.txt
-.. index:: pair: Site handling; TypoScript
-.. _sitehandling-inTypoScript:
+..  include:: /Includes.rst.txt
+..  index:: pair: Site handling; TypoScript
+..  _sitehandling-inTypoScript:
 
 ==========================================================
 Using site configuration in TypoScript and Fluid templates
 ==========================================================
 
-.. index:: pair: Site handling; getText
+..  index:: pair: Site handling; getText
 
 ..  _sitehandling-in-typo-script-gettext:
 
@@ -18,7 +18,7 @@ Site configuration can be accessed via the :ref:`site <t3tsref:data-type-site>` 
 
 Example:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
     page.10 = TEXT
     page.10.data = site:base
@@ -27,7 +27,7 @@ Example:
 Where :typoscript:`site` is the keyword for accessing an aspect, and the following parts are the
 configuration key(s) to access.
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
     data = site:customConfigKey.nested.value
 
@@ -37,7 +37,7 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
 
 
-.. tip::
+..  tip::
     Accessing site configuration is possible in TypoScript, which enables to store site specific configuration options
     in one central place (the site configuration) and allows usage of that configuration from different contexts.
     While this sounds similar to using TypoScript constants, site configuration
@@ -47,13 +47,13 @@ Site configuration can also be used in :ref:`TypoScript conditions <sitehandling
 :ref:`TypoScript constants <sitehandling-settings>`.
 
 
-.. index::
-   Site handling; FLUIDTEMPLATE
-   Site handling; SiteProcessor
-   Site handling; Fluid
-   SiteProcessor
+..  index::
+    Site handling; FLUIDTEMPLATE
+    Site handling; SiteProcessor
+    Site handling; Fluid
+    SiteProcessor
 
-.. _sitehandling-fluidtemplate:
+..  _sitehandling-fluidtemplate:
 
 FLUIDTEMPLATE
 =============
@@ -66,19 +66,19 @@ to fetch data from the site entity:
 
 In the Fluid template the properties of the site entity can be accessed with:
 
-.. code-block:: html
+..  code-block:: html
 
-   <p>{site.rootPageId}</p>
-   <p>{site.configuration.someCustomConfiguration}</p>
+    <p>{site.rootPageId}</p>
+    <p>{site.configuration.someCustomConfiguration}</p>
 
 Specific :ref:`sitehandling-settings` can be accessed via:
 
-.. code-block:: html
+..  code-block:: html
 
-   <p>{site.configuration.settings.mySettingKey}</p>
-   <p>{site.settings.all.mySettingKey}</p>
+    <p>{site.configuration.settings.mySettingKey}</p>
+    <p>{site.settings.all.mySettingKey}</p>
 
-.. _sitehandling-non-extbase-fluid:
+..  _sitehandling-non-extbase-fluid:
 
 Non-Extbase Fluid view
 ======================

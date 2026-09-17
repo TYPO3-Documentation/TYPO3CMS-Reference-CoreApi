@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyHrefLangTagsEvent
-.. _ModifyHrefLangTagsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyHrefLangTagsEvent
+..  _ModifyHrefLangTagsEvent:
 
 =========================
 `ModifyHrefLangTagsEvent`

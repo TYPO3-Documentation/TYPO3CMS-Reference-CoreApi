@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Exceptions; DebugExceptionHandler
-.. _error-handling-debug-exception-handler:
+..  include:: /Includes.rst.txt
+..  index:: Exceptions; DebugExceptionHandler
+..  _error-handling-debug-exception-handler:
 
 =======================
 Debug exception handler

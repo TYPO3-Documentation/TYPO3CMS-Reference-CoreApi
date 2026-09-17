@@ -119,7 +119,7 @@ through the array :php:`$this->arguments`, in method :php:`render()`.
     `array|string`. If any type should be allowed, use `mixed`
     instead.
 
-.. versionadded:: 14.0
+..  versionadded:: 14.0
 
     Union types for ViewHelper arguments are available since TYPO3 14.0.
 

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: !Backend layout
-.. _be-layout:
+..  include:: /Includes.rst.txt
+..  index:: !Backend layout
+..  _be-layout:
 
 ==============
 Backend layout
@@ -10,19 +10,19 @@ Backend layouts can be defined as database records or via :ref:`page TSconfig <t
 Page TSconfig should be preferred as it can be stored in the file system and
 be kept under version control.
 
-.. _be-layout-video:
+..  _be-layout-video:
 
 Backend layout video
 ====================
 
 Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 
-.. youtube:: RoHaeo4fq34
+..  youtube:: RoHaeo4fq34
 
-.. index::
-   Backend layout; Status module
-   Backend layout; Configuration
-.. _be-layout-info-module:
+..  index::
+    Backend layout; Status module
+    Backend layout; Configuration
+..  _be-layout-info-module:
 
 Backend layout configuration
 ============================
@@ -52,10 +52,10 @@ inherited from a parent page at
 
     Overview of the backend layouts used
 
-.. index::
-   Backend layout; Record
-   Backend layout; TSconfig
-.. _be-layout-definition:
+..  index::
+    Backend layout; Record
+    Backend layout; TSconfig
+..  _be-layout-definition:
 
 Backend layout definition
 =========================
@@ -80,8 +80,8 @@ for further use.
 For usage with the :ref:`page-content data processor <t3tsref:PageContentFetchingProcessor>`, an identifier string must
 be assigned to each column. The default backend layout definition uses `identifier = main` for column `0`.
 
-.. index:: Backend layout; Example
-.. _be-layout-simple-example:
+..  index:: Backend layout; Example
+..  _be-layout-simple-example:
 
 Backend layout simple example
 =============================
@@ -91,7 +91,7 @@ The following page TSconfig example creates a simple backend layout consisting o
 ..  literalinclude:: _backendLayoutSimple.tsconfig
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
-.. _be-layout-advanced-example:
+..  _be-layout-advanced-example:
 
 Backend layout advanced example
 ===============================
@@ -103,7 +103,7 @@ row (here called "header") spans all 3 columns. There is an "aside" spanning two
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
 
-.. _be-layout-frontend:
+..  _be-layout-frontend:
 
 Output of a backend layout in the frontend
 ==========================================
@@ -121,7 +121,7 @@ To get the correct backend layout, the following TypoScript code can be used:
 
 Using  `data = pagelayout` is the same as using as
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
     field = backend_layout
     ifEmpty.data = levelfield:-2,backend_layout_next_level,slide
@@ -131,8 +131,8 @@ In the Fluid template the column positions can be accessed now via content mappi
 :ref:`t3sitepackage:content-mapping`.
 
 
-.. index:: Backend layout; Reference implementation
-.. _be-layout-reference-implementations:
+..  index:: Backend layout; Reference implementation
+..  _be-layout-reference-implementations:
 
 Reference implementations of backend layouts
 ============================================
@@ -142,8 +142,8 @@ The extension :composer:`bk2k/bootstrap-package` ships several
 as well as an example configuration of how to include frontend templates for backend layouts (see its
 `setup.typoscript <https://github.com/benjaminkott/bootstrap_package/blob/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TypoScript/setup.typoscript#L99-L113>`__)
 
-.. index:: pair: Backend layout; Extensions
-.. _be-layout-extensions:
+..  index:: pair: Backend layout; Extensions
+..  _be-layout-extensions:
 
 Extensions for backend layouts
 ==============================

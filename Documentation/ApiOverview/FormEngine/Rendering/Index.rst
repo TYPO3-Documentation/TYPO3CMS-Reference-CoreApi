@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: FormEngine; Rendering
-.. _FormEngine-Rendering:
+..  include:: /Includes.rst.txt
+..  index:: FormEngine; Rendering
+..  _FormEngine-Rendering:
 
 =========
 Rendering
@@ -43,7 +43,7 @@ array as :php:`$data['renderType']` and then gives the data array to the :php:`N
 an appropriate class name, instantiates and initializes the class, gives it the data array, and calls :php:`render()`
 on it.
 
-.. _FormEngine-Rendering-ClassInheritance:
+..  _FormEngine-Rendering-ClassInheritance:
 
 Class inheritance
 =================
@@ -61,7 +61,7 @@ The call concept is simple: A first container is called, which either calls a co
 single element never calls a container again.
 
 
-.. _FormEngine-Rendering-NodeFactory:
+..  _FormEngine-Rendering-NodeFactory:
 
 `NodeFactory`
 =============
@@ -122,7 +122,7 @@ The trick here is that CKEditor registers his resolver with a higher priority (5
 "ckeditor" resolver is called first and wins if both extensions are loaded and if both return a valid class name.
 
 
-.. _FormEngine-Rendering-ResultArray:
+..  _FormEngine-Rendering-ResultArray:
 
 Result array
 ============
@@ -184,7 +184,7 @@ Or a controller:
 ..  literalinclude:: _SomeController.php
     :caption: EXT:my_extension/Classes/Backend/Controller/SomeController.php
 
-.. _FormEngine-Rendering-NodeExpansion:
+..  _FormEngine-Rendering-NodeExpansion:
 
 Node expansion
 ==============

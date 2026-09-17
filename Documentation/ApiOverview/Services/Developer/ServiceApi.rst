@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _services-developer-service-api:
+..  _services-developer-service-api:
 
 ===========
 Service API
@@ -13,7 +13,7 @@ Authentication services should inherit from
 :php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`.
 
 
-.. _services-developer-service-api-implementation:
+..  _services-developer-service-api-implementation:
 
 
 Service implementation
@@ -21,10 +21,10 @@ Service implementation
 
 These methods are related to the general functioning of services.
 
-.. attention::
+..  attention::
 
-   :php:`init()` and :php:`reset()` are the most important methods to implement
-   when developing your own services.
+    :php:`init()` and :php:`reset()` are the most important methods to implement
+    when developing your own services.
 
 init
   This method is expected to perform any necessary initialization for
@@ -65,13 +65,13 @@ The little schema below summarizes the process of getting a service
 instance and when each of :php:`init()` and :php:`reset()` are
 called.
 
-.. figure:: /Images/ExternalImages/Services/InstanceLifeCycle.png
-   :alt: The life cycle of a service instance
+..  figure:: /Images/ExternalImages/Services/InstanceLifeCycle.png
+    :alt: The life cycle of a service instance
 
-   The life cycle of a service instance
+    The life cycle of a service instance
 
 
-.. _services-developer-service-api-getters:
+..  _services-developer-service-api-getters:
 
 Getter methods for service information
 ======================================
@@ -101,10 +101,10 @@ getServiceOption
    :php:`getServiceOption()` instead. In its simplest form, it will look
    like this (inside your service's code):
 
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/Services/SomeService.php
+   ..  code-block:: php
+       :caption: EXT:some_extension/Classes/Services/SomeService.php
 
-      $ignoreBozo = $this->getServiceOption('ignoreBozo');
+       $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
    This will retrieve the value of the "ignoreBozo" option for your
    specific service, if defined. If not, it will try to find a value in
@@ -119,7 +119,7 @@ getServiceOption
    This allows for a lot of flexibility.
 
 
-.. _services-developer-service-api-error:
+..  _services-developer-service-api-error:
 
 Error handling
 ==============
@@ -156,7 +156,7 @@ resetErrors
    Empties the error queue.
 
 
-.. _services-developer-service-api-general:
+..  _services-developer-service-api-general:
 
 General service functions
 =========================
@@ -176,7 +176,7 @@ deactivateService
    suddenly fails for some reason.
 
 
-.. _services-developer-service-api-io-tools:
+..  _services-developer-service-api-io-tools:
 
 I/O Tools
 =========
@@ -211,7 +211,7 @@ unlinkTempFiles
    Deletes all the registered temporary files.
 
 
-.. _services-developer-service-api-io-input-output:
+..  _services-developer-service-api-io-input-output:
 
 I/O Input and I/O output
 ========================

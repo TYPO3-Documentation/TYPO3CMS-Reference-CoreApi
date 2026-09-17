@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _modules-documentservice:
+..  _modules-documentservice:
 
 ===========================================
 `DocumentService` (jQuery.ready substitute)
@@ -15,15 +15,15 @@ the initial HTML document has been completely loaded and parsed, without
 waiting for stylesheets, images, and sub-frames to finish loading.
 
 
-.. code-block:: javascript
+..  code-block:: javascript
 
-   $(document).ready(() => {
-     // your application code
-   });
+    $(document).ready(() => {
+      // your application code
+    });
 
 Above jQuery code can be transformed into the following using :js:`DocumentService`:
 
-.. code-block:: javascript
+..  code-block:: javascript
     :caption: EXT:my_extension/Resources/Public/JavaScript/my-module.js
 
     import DocumentService from '@typo3/core/document-service.js';

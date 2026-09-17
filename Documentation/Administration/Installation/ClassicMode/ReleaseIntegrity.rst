@@ -269,9 +269,9 @@ You can download the used public keys from `get.typo3.org.keys`_
     *   Fingerprint `63BF 864E FCEC 136F 693C EF1B 6E19 848C F6A4 CF16`
 
 
-.. _0x9B9CB92E59BC94C4: https://keys.openpgp.org/search?q=9B9CB92E59BC94C4
-.. _0x3304BBDBFA9613D1: https://keys.openpgp.org/search?q=3304BBDBFA9613D1
-.. _0xC19FAFD699012A5A: https://keys.openpgp.org/search?q=C19FAFD699012A5A
-.. _0xA36E4D1F16490937: https://keys.openpgp.org/search?q=A36E4D1F16490937
-.. _0x6E19848CF6A4CF16: https://keys.openpgp.org/search?q=6E19848CF6A4CF16
-.. _get.typo3.org.keys: https://get.typo3.org/KEYS
+..  _0x9B9CB92E59BC94C4: https://keys.openpgp.org/search?q=9B9CB92E59BC94C4
+..  _0x3304BBDBFA9613D1: https://keys.openpgp.org/search?q=3304BBDBFA9613D1
+..  _0xC19FAFD699012A5A: https://keys.openpgp.org/search?q=C19FAFD699012A5A
+..  _0xA36E4D1F16490937: https://keys.openpgp.org/search?q=A36E4D1F16490937
+..  _0x6E19848CF6A4CF16: https://keys.openpgp.org/search?q=6E19848CF6A4CF16
+..  _get.typo3.org.keys: https://get.typo3.org/KEYS

@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 
-.. index:: Deployment; Initial deployment;
+..  index:: Deployment; Initial deployment;
 
 ..  _manual-deployment-initial:
 
@@ -103,7 +103,7 @@ Update web server configuration:
 Flush TYPO3 caches:
 -------------------
 
-.. code-block:: bash
+..  code-block:: bash
 
     ./vendor/bin/typo3 cache:flush
 

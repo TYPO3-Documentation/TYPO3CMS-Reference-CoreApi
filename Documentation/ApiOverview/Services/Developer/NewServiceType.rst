@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Services API; Custom service
-.. _services-developer-new-service-type:
+..  include:: /Includes.rst.txt
+..  index:: Services API; Custom service
+..  _services-developer-new-service-type:
 
 ==============================
 Introducing a new service type

@@ -44,7 +44,7 @@ If :doc:`EXT:lowlevel <ext_lowlevel:Index>` is installed, the name of the
 database table or field is appended to the select options in the
 :guilabel:`System > Database > Full Search` module.
 
-.. _examples-debug-utility:
+..  _examples-debug-utility:
 
 
 `DebugUtility::debug()`
@@ -58,8 +58,8 @@ information only if it matches a set of IP addresses (defined in
 
 For example, the following code:
 
-.. literalinclude:: /CodeSnippets/Debugging/DebugCookies.php
-   :caption: Extension examples, file Classes/Controller/ModuleController.php
+..  literalinclude:: /CodeSnippets/Debugging/DebugCookies.php
+    :caption: Extension examples, file Classes/Controller/ModuleController.php
 
 will produce such an output:
 
@@ -72,7 +72,7 @@ debugging tools.
     pair: Debugging; Backend
     TYPO3_CONF_VARS; BE debug
 
-.. _examples-debug-extbase-utility:
+..  _examples-debug-extbase-utility:
 
 Extbase `DebuggerUtility`
 =========================
@@ -88,7 +88,7 @@ You can also use the Extbase DebuggerUtility to debug SQL Querys for example. To
 :php:`\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryBuilder->getSQL());`
 
 
-.. _examples-debug-fluid:
+..  _examples-debug-fluid:
 
 Fluid debug ViewHelper
 ======================
@@ -110,7 +110,7 @@ To display all available variables in your Fluid template, you can use the _all 
 Get more information in the Fluid ViewHelper Reference :ref:`t3viewhelper:typo3-fluid-debug`
 
 
-.. _examples-debug-xdebug:
+..  _examples-debug-xdebug:
 
 Xdebug
 ======

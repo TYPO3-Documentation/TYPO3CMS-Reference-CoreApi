@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: LinkHandlers; RecordLinkHandler
-.. _recordlinkhandler:
+..  include:: /Includes.rst.txt
+..  index:: LinkHandlers; RecordLinkHandler
+..  _recordlinkhandler:
 
 =======================
 The `RecordLinkHandler`
@@ -20,7 +20,7 @@ of the system extension :file:`backend`. The class is marked as
 
 In order to use the :php:`RecordLinkHandler` it can be configured as following:
 
-.. rst-class:: bignums-xxl
+..  rst-class:: bignums-xxl
 
 #. Page TSconfig is used to create a new tab in the LinkBrowser to
    be able to select records.
@@ -38,17 +38,17 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
    ..  literalinclude:: _recordLinkFrontend.typoscript
        :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
 
-   .. attention::
+   ..  attention::
 
-      Do not change the identifier after links have been created using the
-      RecordLinkHandler. The identifier will be stored as part of the link in the
-      database.
+       Do not change the identifier after links have been created using the
+       RecordLinkHandler. The identifier will be stored as part of the link in the
+       database.
 
 
-.. index::
-   pair: RecordLinkHandler; Page TSconfig
-   TCEMAIN; RecordLinkHandler
-.. _linkhandler-pagetsconfig_options:
+..  index::
+    pair: RecordLinkHandler; Page TSconfig
+    TCEMAIN; RecordLinkHandler
+..  _linkhandler-pagetsconfig_options:
 
 `RecordLinkHandler` page TSconfig options
 =========================================
@@ -77,10 +77,10 @@ Furthermore the following options are available from the LinkBrowser Api:
 :typoscript:`configuration.displayBefore = page` or :typoscript:`configuration.displayAfter = page`
    Define the order of how the various tabs are displayed in the link browser.
 
-.. index::
-   pair: LinkHandler; TypoScript
-   TypoScript; config.recordLinks
-.. _linkhandler-typoscript_options:
+..  index::
+    pair: LinkHandler; TypoScript
+    TypoScript; config.recordLinks
+..  _linkhandler-typoscript_options:
 
 LinkHandler TypoScript options
 ==============================

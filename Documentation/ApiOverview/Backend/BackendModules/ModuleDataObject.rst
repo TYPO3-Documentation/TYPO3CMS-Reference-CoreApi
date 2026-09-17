@@ -1,9 +1,9 @@
 :navigation-title: ModuleData
 
-.. include:: /Includes.rst.txt
-.. index::
-   Backend modules; Module data object
-.. _backend-Module-data-object:
+..  include:: /Includes.rst.txt
+..  index::
+    Backend modules; Module data object
+..  _backend-Module-data-object:
 
 ==================
 Module data object
@@ -30,18 +30,18 @@ read the final module data.
 The *allowed* properties are defined with their default value in the
 :ref:`module registration <backend-modules-configuration>`:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Configuration/Backend/Modules.php
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-   'moduleData' => [
-       'allowedProperty' => '',
-       'anotherAllowedProperty' => true,
-   ],
+    'moduleData' => [
+        'allowedProperty' => '',
+        'anotherAllowedProperty' => true,
+    ],
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Controller/MyController.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-   $MOD_SETTINGS = $request->getAttribute('moduleData');
+    $MOD_SETTINGS = $request->getAttribute('moduleData');
 
 The :php:`ModuleData` object provides the following methods:
 
@@ -75,20 +75,20 @@ The :php:`ModuleData` object provides the following methods:
 In case a controller needs to store changed module data, this can still be done
 using :php:`$backendUser->pushModuleData('my_module', $this->moduleData->toArray());`.
 
-.. note::
+..  note::
 
-   It is possible to store and retrieve arbitrary module data. The
-   definition of :php:`moduleData` in the module registration only defines,
-   which properties can be overwritten in a request (with :php:`GET` / :php:`POST`).
+    It is possible to store and retrieve arbitrary module data. The
+    definition of :php:`moduleData` in the module registration only defines,
+    which properties can be overwritten in a request (with :php:`GET` / :php:`POST`).
 
 To restrict the values of module data properties, the given :php:`ModuleData`
 object can be cleaned, for example, in a controller:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Controller/MyController.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-   $allowedValues = ['foo', 'bar'];
-   $this->moduleData->clean('property', $allowedValues);
+    $allowedValues = ['foo', 'bar'];
+    $this->moduleData->clean('property', $allowedValues);
 
 If :php:`ModuleData` contains :php:`property`, the value is checked
 against the :php:`$allowedValues` list. If the current value is valid,

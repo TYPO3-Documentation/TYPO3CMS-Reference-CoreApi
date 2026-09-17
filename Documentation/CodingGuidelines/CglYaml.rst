@@ -1,7 +1,7 @@
 :navigation-title: YAML
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; Yaml
-.. _cgl-yaml:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; Yaml
+..  _cgl-yaml:
 
 ======================
 YAML coding guidelines
@@ -30,18 +30,18 @@ Format
   block strings in YAML.
 * The quotes on a trivial string value (a single word or similar) may be omitted.
 
-.. code-block:: yaml
+..  code-block:: yaml
     :caption: Example: string formatting in YAML
 
-   trivial: aValue
-   simple: 'This is a "salt" used for various kinds of encryption ...'
-   complex: "This string has unicode escaped characters, like \x0d\x0a"
-   multi: |
-      This is a multi-line string.
+    trivial: aValue
+    simple: 'This is a "salt" used for various kinds of encryption ...'
+    complex: "This string has unicode escaped characters, like \x0d\x0a"
+    multi: |
+       This is a multi-line string.
 
-      Line breaks are preserved in this value. It's good for including
+       Line breaks are preserved in this value. It's good for including
 
-      <em>HTML snippets</em>.
+       <em>HTML snippets</em>.
 
 ..  _cgl-yaml-information:
 

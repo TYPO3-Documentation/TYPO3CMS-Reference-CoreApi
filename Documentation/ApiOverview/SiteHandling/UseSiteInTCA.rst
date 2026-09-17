@@ -1,13 +1,13 @@
 :navigation-title: Usage in TCA
-.. include:: /Includes.rst.txt
-.. index:: pair: Site handling; TCA
-.. _sitehandling-inTCA:
+..  include:: /Includes.rst.txt
+..  index:: pair: Site handling; TCA
+..  _sitehandling-inTCA:
 
 =====================================================
 Using site configuration in TCA `foreign_table_where`
 =====================================================
 
-.. index:: pair: Site handling; foreign_table_where
+..  index:: pair: Site handling; foreign_table_where
 
 ..  _sitehandling-in-tca-tca-foreign-table:
 
@@ -29,7 +29,7 @@ To access a configuration value the following syntax is available:
 Example:
 --------
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:my_extension/Configuration/TCA/my_table.php (excerpt)
 
     // ...

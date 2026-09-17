@@ -1,9 +1,9 @@
 :navigation-title: Security Considerations
 
-.. include:: /Includes.rst.txt
-.. index:: Backend modules; Security Considerations
+..  include:: /Includes.rst.txt
+..  index:: Backend modules; Security Considerations
 
-.. _backend-modules-security:
+..  _backend-modules-security:
 
 =======================
 Security considerations

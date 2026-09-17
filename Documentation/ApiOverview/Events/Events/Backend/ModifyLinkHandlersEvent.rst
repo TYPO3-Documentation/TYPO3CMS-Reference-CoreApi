@@ -29,4 +29,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyLinkHandlersEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/ModifyLinkHandlersEvent.rst.txt

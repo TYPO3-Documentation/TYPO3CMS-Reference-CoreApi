@@ -1,19 +1,19 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: resetting password, new password, new user
+..  index:: resetting password, new password, new user
 
-.. _troubleshooting-typo3:
+..  _troubleshooting-typo3:
 
 =====
 TYPO3
 =====
 
-.. _troubleshooting-typo3-password-reset:
+..  _troubleshooting-typo3-password-reset:
 
 Resetting passwords
 ===================
 
-.. _troubleshooting-backend-admin-password:
+..  _troubleshooting-backend-admin-password:
 
 Backend administrator password
 ------------------------------
@@ -31,9 +31,9 @@ If an alternative administrator account is not available or it doesn't have the
 appropriate access, the Install Tool can be accessed directly
 using the following address to create a new administrative user:
 
-.. code-block:: none
+..  code-block:: none
 
-   https://example.com/typo3/install.php
+    https://example.com/typo3/install.php
 
 The Install Tool requires the "Installation Password" that would have been set
 when TYPO3 was installed.
@@ -65,7 +65,7 @@ Use this new administrator account to log into the TYPO3 backend. In the module
 :guilabel:`Backend Users` you can change the passwords of existing users,
 including administrators.
 
-.. _troubleshooting-install-tool-password:
+..  _troubleshooting-install-tool-password:
 
 Install tool password
 ---------------------
@@ -82,31 +82,31 @@ Write access to :file:`config/system/settings.php` (in Classic mode installation
 
 Before editing this file, visit:
 
-.. code-block:: none
+..  code-block:: none
 
-   https://example.com/typo3/install.php
+    https://example.com/typo3/install.php
 
 
 Enter the new password into the dialogue box. As the new password is not correct,
 the following response will be returned:
 
-.. code-block:: none
-   :caption: Example Output
+..  code-block:: none
+    :caption: Example Output
 
-   "Given password does not match the install tool login password. Calculated hash:
-   $argon2i$v=xyz"
+    "Given password does not match the install tool login password. Calculated hash:
+    $argon2i$v=xyz"
 
 Copy this hash including the :php:`$argon2i` part and any trailing dots.
 
 Then edit :file:`config/system/settings.php` and replace the following
 array entry with the new hashed password:
 
-.. code-block:: php
-   :caption: config/system/settings.php
+..  code-block:: php
+    :caption: config/system/settings.php
 
-   'BE' => [
-      'installToolPassword' => '$argon2i$v=xyz',
-   ],
+    'BE' => [
+       'installToolPassword' => '$argon2i$v=xyz',
+    ],
 
 ..  note::
 
@@ -116,7 +116,7 @@ array entry with the new hashed password:
     if one exists. If you can still not log into the install tool check if
     there are errors in the logs when debugging is enabled.
 
-.. _troubleshooting-debug-mode:
+..  _troubleshooting-debug-mode:
 
 Debug settings
 ==============
@@ -125,9 +125,9 @@ During troubleshooting, in the :guilabel:`"Settings > Configuration Presets"`
 section of the Install Tool, under "Debug settings", the "Debug" preset can be
 change to show errors in the frontend.
 
-.. include:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.rst.txt
+..  include:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.rst.txt
 
-.. include:: /Images/ManualScreenshots/DebugSettings/DebugSettings.rst.txt
+..  include:: /Images/ManualScreenshots/DebugSettings/DebugSettings.rst.txt
 
 The following TypoScript setting can also be added to the root TypoScript for
 the site to show additional debug information.
@@ -138,14 +138,14 @@ This is particularly useful when debugging Fluid errors:
 
     config.contentObjectExceptionHandler = 0
 
-.. seealso::
+..  seealso::
 
-   :ref:`t3coreapi:error-handling-configuration-examples-debug`
+    :ref:`t3coreapi:error-handling-configuration-examples-debug`
 
-.. important::
+..  important::
 
-   Once debugging has been completed, make sure to remove any debug Typoscript and
-   set Debug setting back to 'Live'.
+    Once debugging has been completed, make sure to remove any debug Typoscript and
+    set Debug setting back to 'Live'.
 
 Additionally, the following logs should be checked for additional information:
 
@@ -155,12 +155,12 @@ Additionally, the following logs should be checked for additional information:
 *  TYPO3 logs written by the :ref:`Logging Framework <t3coreapi:logging>` located in :file:`var/log`
    or :file:`typo3temp/var/log` depending on the installation setup.
 
-.. _troubleshooting-caching:
+..  _troubleshooting-caching:
 
 Caching
 =======
 
-.. _troubleshooting-caching-typo3temp:
+..  _troubleshooting-caching-typo3temp:
 
 Cached files in typo3temp/
 --------------------------
@@ -180,11 +180,11 @@ should be safe to use regardless of the corrupt state of the Caches.
 Amongst other caches, under :file:`<var-path>/cache/code/core/`
 you will find:
 
-.. code-block:: bash
-   :caption: <var-path>/cache/code/core/
+..  code-block:: bash
+    :caption: <var-path>/cache/code/core/
 
-   -rw-rw----   1 www-data   www-data   61555  2014-03-26 16:28   ext_localconf_8b0519db6112697cceedb50296df89b0ce04ff70.php
-   -rw-rw----   1 www-data   www-data   81995  2014-03-26 16:28   ext_tables_c3638687920118a92ab652cbf23a9ca69d4a6469.php
+    -rw-rw----   1 www-data   www-data   61555  2014-03-26 16:28   ext_localconf_8b0519db6112697cceedb50296df89b0ce04ff70.php
+    -rw-rw----   1 www-data   www-data   81995  2014-03-26 16:28   ext_tables_c3638687920118a92ab652cbf23a9ca69d4a6469.php
 
 These files contain all :file:`ext\_tables.php` and
 :file:`ext\_localconf.php` files of the installed extensions
@@ -192,12 +192,12 @@ concatenated in the order they are loaded. Therefore including one of
 these files would be the same as including potentially hundreds of PHP
 files and should improve performance.
 
-.. _troubleshooting-possible-problems-with-the-cached-files:
+..  _troubleshooting-possible-problems-with-the-cached-files:
 
 Possible problems with the cached files
 ---------------------------------------
 
-.. _troubleshooting-changing-the-absolute-path-to-typo3:
+..  _troubleshooting-changing-the-absolute-path-to-typo3:
 
 Changing the absolute path to TYPO3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -210,7 +210,7 @@ files.
 Fix: Clean the cache using the Install Tool: Go to "Important Actions"
 and use the "Clear all caches" function. Then hit the page again.
 
-.. _troubleshooting-changing-image-processing-settings:
+..  _troubleshooting-changing-image-processing-settings:
 
 Changing image processing settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
