@@ -1,6 +1,7 @@
 <?php
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
 
 final readonly class HaikuSeasonList implements MiddlewareInterface
 {

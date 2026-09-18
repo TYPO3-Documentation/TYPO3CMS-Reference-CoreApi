@@ -4,6 +4,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use T3docs\BlogExample\Domain\Model\Post;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BackendController extends ActionController
 {

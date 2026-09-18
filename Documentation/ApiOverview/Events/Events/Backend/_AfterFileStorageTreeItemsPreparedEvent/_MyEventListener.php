@@ -6,7 +6,9 @@ namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Controller\Event\AfterFileStorageTreeItemsPreparedEvent;
 use TYPO3\CMS\Backend\Dto\Tree\Label\Label;
+use TYPO3\CMS\Backend\Dto\Tree\Status\StatusInformation;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 
 #[AsEventListener(
   identifier: 'my-extension/backend/modify-file-storage-tree-items',

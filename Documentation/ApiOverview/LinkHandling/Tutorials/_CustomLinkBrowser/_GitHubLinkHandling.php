@@ -1,5 +1,7 @@
 <?php
 
+use TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface;
+
 /**
  * Resolves GitHub Links
  */

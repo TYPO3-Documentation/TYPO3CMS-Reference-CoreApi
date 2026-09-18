@@ -2,6 +2,7 @@
 
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BackendController extends ActionController
 {
