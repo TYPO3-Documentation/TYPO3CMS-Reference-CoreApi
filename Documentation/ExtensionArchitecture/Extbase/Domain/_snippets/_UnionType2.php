@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Domain\Model\MyEntity;
+namespace MyVendor\MyExtension\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 

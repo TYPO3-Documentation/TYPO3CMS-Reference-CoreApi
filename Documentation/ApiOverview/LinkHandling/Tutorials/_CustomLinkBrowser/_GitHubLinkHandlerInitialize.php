@@ -1,6 +1,7 @@
 <?php
 
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
+use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\View\ViewInterface;
 
