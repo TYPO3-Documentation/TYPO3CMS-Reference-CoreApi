@@ -1,6 +1,7 @@
 <?php
 
 use Psr\Http\Message\UriInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ModuleController extends ActionController
 {

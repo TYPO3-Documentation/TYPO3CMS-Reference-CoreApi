@@ -2,6 +2,7 @@
 
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Server\MiddlewareInterface;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
 /**

@@ -1,6 +1,7 @@
 <?php
 
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ControllerInterface;
 
 abstract class ActionController implements ControllerInterface
 {
