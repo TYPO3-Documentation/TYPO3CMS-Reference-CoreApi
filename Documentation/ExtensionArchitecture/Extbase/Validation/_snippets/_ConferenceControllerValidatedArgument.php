@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -15,5 +16,6 @@ class ConferenceController extends ActionController
     string $title,
   ): ResponseInterface {
     // $title is guaranteed non-empty and at most 255 characters
+    return $this->htmlResponse();
   }
 }

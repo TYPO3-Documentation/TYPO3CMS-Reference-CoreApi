@@ -23,5 +23,7 @@ final class SomeController extends ActionController
     );
 
     // ...
+
+    return $this->htmlResponse();
   }
 }
