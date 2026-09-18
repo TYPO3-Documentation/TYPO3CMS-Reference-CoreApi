@@ -1,6 +1,7 @@
 <?php
 
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 
 class GitHubLinkHandler implements LinkHandlerInterface
 {

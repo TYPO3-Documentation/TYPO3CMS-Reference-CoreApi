@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Validation\Error;
 use TYPO3\CMS\Form\Event\BeforeRenderableIsValidatedEvent;
+use TYPO3\CMS\Form\Service\TranslationService;
 
 final readonly class MyEventListener
 {
