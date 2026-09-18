@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Controller;
 
+use MyVendor\MyExtension\Domain\Model\Cart;
+use MyVendor\MyExtension\Domain\Model\Item;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
@@ -21,7 +23,7 @@ class ShoppingCartController extends ActionController
     return $this->redirect('list');
   }
 
-  public function list(): ResponseInterface
+  public function listAction(): ResponseInterface
   {
     $this->view->assign('cart', $this->getCartFromSession());
     return $this->htmlResponse();
