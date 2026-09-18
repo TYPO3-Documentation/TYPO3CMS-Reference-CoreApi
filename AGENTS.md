@@ -58,6 +58,30 @@ Makefile                    # local install/build/test commands
 - `make test` — full test suite (docs, lint, cgl, yaml, typoscript, json,
   reST style, editorconfig).
 
+## Finding your way in the published manual
+
+- **Do not guess a rendered path or an anchor.** Every manual publishes its
+  object inventory, so the target of a `:ref:` and the page a section sits on
+  can be looked up in one call — 7433 labels for this manual:
+
+  ```bash
+  curl -s https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/objects.inv.json \
+    | jq -r '."std:label" | to_entries[] | select(.key|test("base-variants")) | "\(.key) -> \(.value[2])"'
+  ```
+
+  `std:doc` maps document names the same way. Swapping the base URL answers
+  the same question for any other manual, which is how a moved page or the
+  right target for a cross-manual reference is found without rendering.
+
+- **A permalink can be checked without rendering.** A `HEAD` request against
+  `https://docs.typo3.org/permalink/<interlink>:<anchor>` answers `307` with a
+  `Location` naming the page the anchor resolves to; a wrong anchor answers
+  `404`:
+
+  ```bash
+  curl -sI https://docs.typo3.org/permalink/t3coreapi:sitehandling-base-variants-functions | head -2
+  ```
+
 ## Rules
 
 1.  **Content style**: follow the central
@@ -98,7 +122,13 @@ Makefile                    # local install/build/test commands
     requirement tracked elsewhere in this repo — it's an observed
     convention from merged commit history, so follow the trailer order
     above rather than only the `Releases:`/label rules in 4.
-6.  **Merging the bot's backport PRs**: once a labelled PR is merged,
+6.  **Taking over someone else's commits**: this repository merges by
+    squash, so a contributor whose commits you carry into your own branch
+    survives on the target branch only as a `Co-authored-by:` trailer in the
+    squash message. A rebase keeps them as authors in the branch history, and
+    the merge does not transplant that. When continuing someone's pull
+    request, add the trailer yourself rather than relying on the history.
+7.  **Merging the bot's backport PRs**: once a labelled PR is merged,
     `typo3-docs-backport-bot` opens the `[Backport <version>]` PRs.
     Afterwards confirm the commit actually reached the release branch
     (`git log origin/14.3 --grep=...`): a `backport-done` label is not
