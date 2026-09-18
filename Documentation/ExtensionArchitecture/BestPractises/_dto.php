@@ -70,6 +70,7 @@ class DtoController extends TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     // Set up a DTO to be filled with input data.
     // The Fluid template would use <f:form> and its helpers.
     $this->view->assign('personDTO', new PersonDTO());
+    return $this->htmlResponse();
   }
 
   public function saveAction(PersonDTO $personDTO): Psr\Http\Message\ResponseInterface
@@ -85,6 +86,7 @@ class DtoController extends TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     // Persist the extbase entity
     $this->personRepository->add($person);
 
-    // The "old" DTO needs to further processing.
+    // The "old" DTO needs no further processing.
+    return $this->redirect('create');
   }
 }

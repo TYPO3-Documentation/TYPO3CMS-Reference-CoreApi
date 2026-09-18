@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Controller;
 
 use MyVendor\MyExtension\Domain\Model\Tea;
+use MyVendor\MyExtension\Domain\Repository\TeaRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Country\CountryProvider;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;

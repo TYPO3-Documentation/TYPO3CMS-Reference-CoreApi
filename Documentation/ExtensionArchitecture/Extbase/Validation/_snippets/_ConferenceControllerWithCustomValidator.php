@@ -17,5 +17,6 @@ class ConferenceController extends ActionController
     Conference $conference,
   ): ResponseInterface {
     // Only reached when SeatCountValidator passes
+    return $this->htmlResponse();
   }
 }

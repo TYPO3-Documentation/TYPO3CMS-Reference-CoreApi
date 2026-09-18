@@ -19,5 +19,7 @@ final class MyController extends ActionController
     $language = $this->request->getAttribute('language');
 
     // ...
+
+    return $this->htmlResponse();
   }
 }
