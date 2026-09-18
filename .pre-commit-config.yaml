@@ -1,6 +1,19 @@
+# `pre-commit install` installs these stages. Without `commit-msg` here, the
+# commit message check below runs only after `--hook-type commit-msg`.
+default_install_hook_types: [pre-commit, commit-msg]
+# `default_install_hook_types` needs pre-commit 2.18.0; an older version
+# ignores it without a message.
+minimum_pre_commit_version: '2.18.0'
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0  # Use the latest version
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+  - repo: local
+    hooks:
+      - id: commit-message
+        name: Commit message trailers
+        entry: php Build/Scripts/commitMessageLint.php
+        language: system
+        stages: [commit-msg]
