@@ -16,5 +16,6 @@ class ConferenceController extends ActionController
     Conference $conference,
   ): ResponseInterface {
     // validation skipped for $conference
+    return $this->htmlResponse();
   }
 }

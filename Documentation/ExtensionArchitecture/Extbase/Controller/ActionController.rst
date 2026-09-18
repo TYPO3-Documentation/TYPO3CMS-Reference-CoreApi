@@ -295,6 +295,7 @@ with :php-short:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
+    use MyVendor\MyExtension\Domain\Model\Conference;
     use Psr\Http\Message\ResponseInterface;
 
     public function deleteAction(Conference $conference): ResponseInterface
@@ -487,6 +488,8 @@ like form submissions.
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
+    use MyVendor\MyExtension\Domain\Model\Conference;
+    use Psr\Http\Message\ResponseInterface;
     use TYPO3\CMS\Extbase\Attribute\RateLimit;
 
     #[RateLimit(limit: 3, interval: '1 hour')]
