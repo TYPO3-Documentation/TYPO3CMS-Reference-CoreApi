@@ -11,8 +11,8 @@ final class SomeClass
   public function doSomeThing(): void
   {
     // Hook for processing data submission to extensions
-    foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['my_custom_hook']
-             ['checkDataSubmission'] ?? [] as $className) {
+    $hooks = $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['my_custom_hook'];
+    foreach ($hooks['checkDataSubmission'] ?? [] as $className) {
       $_procObj = GeneralUtility::makeInstance($className);
       $_procObj->checkDataSubmission($this);
     }
