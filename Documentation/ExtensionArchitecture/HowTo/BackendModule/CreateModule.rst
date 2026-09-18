@@ -71,7 +71,8 @@ The DocHeader
 =============
 
 To add a DocHeader button use :php:`$view->getDocHeaderComponent()->getButtonBar()`
-and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()` to add it.
+and :php:`$this->componentFactory->createLinkButton()` to create the button.
+Finally, use :php:`addButton()` to add it.
 
 ..  literalinclude:: /ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerSetUpDocHeader.php
     :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
