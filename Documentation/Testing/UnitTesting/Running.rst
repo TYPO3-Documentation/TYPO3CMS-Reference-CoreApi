@@ -40,6 +40,14 @@ Testing framework <= 7.x is no longer maintained.
 Provide configuration files for unit tests
 ==========================================
 
+..  tip::
+    If you are setting up testing for an extension, the extension
+    kickstarter (:composer:`friendsoftypo3/kickstarter`) can generate a complete
+    test environment including :file:`UnitTests.xml`,
+    :file:`UnitTestsBootstrap.php`, and :file:`runTests.sh` automatically using
+    the command `vendor/bin/typo3 make:testenv [extension_key]`. See also
+    :ref:`testing-extensions`.
+
 The TYPO3 testing framework comes with a predefined unit test configuration and
 a bootstrapping file. You should copy these files into your project so you
 can adjust them as needed:
@@ -48,9 +56,12 @@ Copy the files `vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xm
 <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTests.xml>`__
 and `vendor/typo3/testing-framework/Resources/Core/Build/UnitTestsBootstrap.php
 <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTestsBootstrap.php>`__
+into your project under :path:`Build/phpunit/`.
 
 Open file :file:`UnitTests.xml` and adjust the paths to the path (or multiple paths) where
-the unit tests are stored. By convention many extensions store them in the
+the unit tests are stored. Because the configuration file is located two directory
+levels deep in :path:`Build/phpunit/`, use `../../` to navigate back to the root
+directory. By convention many extensions store them in the
 directory :path:`Tests/Unit` and subdirectories thereof:
 
 ..  code-block:: diff
@@ -136,11 +147,14 @@ and adjust it to your needs.
 There are different solutions to store and execute these commands.
 For details see :ref:`testing-organization`.
 
-
 runTests.sh is a script that originates from the TYPO3 Core repository and is used as
 a test and tool execution runner. It is based on running individual Docker containers
 with several bash commands, and also allows Xdebug integration, different database
 environments and much more. Once you copy such a file to your repository you need to
 take care of maintaining it when possible bugfixes or changes occur upstream.
+
+..  seealso::
+    To test scenarios requiring a database connection and the full TYPO3
+    framework, see :ref:`Running functional tests <testing-functional-run>`.
 
 ..  todo: once we have a chapter about the runTests.sh, link it from here.

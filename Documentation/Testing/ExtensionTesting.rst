@@ -172,7 +172,7 @@ TYPO3 environment being present.
 See also :ref:`Writing functional tests <testing-writing-functional>`
 
 If you used the :composer:`friendsoftypo3/kickstarter` to create your testing
-environment you can run unit tests like this:
+environment you can run functional tests like this:
 
 ..  code-block:: bash
 
