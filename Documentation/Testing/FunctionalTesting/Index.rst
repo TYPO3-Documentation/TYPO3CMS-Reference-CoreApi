@@ -15,6 +15,7 @@ Functional testing with the TYPO3 testing framework
     :titlesonly:
 
     Introduction
+    Running
 
 ..  _testing-writing-functional-example-simple:
 
@@ -79,8 +80,8 @@ be loaded, and another `base_extension` should be loaded. These extensions will 
 `typo3conf/ext` of the test case instance.
 
 The functional test bootstrap links all extensions to either `typo3/sysext` for Core extensions or
-`typo3conf/ext` for third party extensions, creates a :file:`PackageStates.php` and then uses the
-database schema analyzer to create all database tables specified in the :file:`ext_tables.sql` files.
+`typo3conf/ext` for third party extensions, creates a :file:`PackageStates.php` and then creates
+all database tables based on TCA and complementary :file:`ext_tables.sql` definitions.
 
 ..  _testing-writing-functional-fixtures:
 
