@@ -1,8 +1,8 @@
 {
-    "extra": {
-        "typo3/cms": {
-            "web-dir": "web"
-        }
-    },
-    "...": "..."
+  "extra": {
+    "typo3/cms": {
+      "web-dir": "web"
+    }
+  },
+  "...": "..."
 }

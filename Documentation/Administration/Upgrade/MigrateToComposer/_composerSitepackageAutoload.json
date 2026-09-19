@@ -1,7 +1,7 @@
 {
-    "autoload": {
-    "psr-4": {
-        "MyVendor\\Sitepackage\\": "Classes/"
-    }
-    }
+  "autoload": {
+  "psr-4": {
+    "MyVendor\\Sitepackage\\": "Classes/"
+  }
+  }
 }
