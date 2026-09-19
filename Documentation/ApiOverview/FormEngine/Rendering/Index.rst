@@ -60,6 +60,28 @@ implement helpers for containers and elements respectively.
 The call concept is simple: A first container is called, which either calls a container below or a single element. A
 single element never calls a container again.
 
+..  _FormEngine-Rendering-DependencyInjection:
+
+Dependency injection in nodes
+-----------------------------
+
+The :php-short:`\TYPO3\CMS\Backend\Form\NodeFactory` creates every node
+with :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and
+then passes the data array to its :php:`setData()` method, which
+:php-short:`\TYPO3\CMS\Backend\Form\AbstractNode` implements. The
+constructor of a node is free for
+:ref:`dependency injection <DependencyInjection>`. Classes implementing
+:php-short:`\TYPO3\CMS\Backend\Form\NodeInterface` are public services
+automatically, and each node gets its own instance, so they need no entry in
+:file:`Configuration/Services.yaml`.
+:php-short:`\TYPO3\CMS\Backend\Form\Element\AbstractFormElement` and
+:php-short:`\TYPO3\CMS\Backend\Form\Container\AbstractContainer`
+receive the :php-short:`\TYPO3\CMS\Backend\Form\NodeFactory` through
+`inject*()` methods, so it does not appear in your constructor:
+
+..  literalinclude:: _StatusIconElement.php
+    :caption: EXT:my_extension/Classes/Backend/Form/StatusIconElement.php
+
 
 ..  _FormEngine-Rendering-NodeFactory:
 
