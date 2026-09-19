@@ -17,7 +17,7 @@ class ConferenceController extends ActionController
   ) {}
 
   #[\Override]
-  protected function initializeAction(): void
+  protected function initializeView(): void
   {
     /** @var Site $site */
     $site = $this->request->getAttribute('site');
