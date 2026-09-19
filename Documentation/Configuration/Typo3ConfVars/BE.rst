@@ -777,6 +777,8 @@ HTTP
 
 
 
+..  _globals-typo3-conf-vars-be-passwordHashing:
+
 passwordHashing
 ---------------
 
@@ -924,6 +926,8 @@ entryPoint
     ..  seealso::
         :ref:`Backend entry point <backend-entry-point>`
 
+
+..  _globals-typo3-conf-vars-be-installToolSessionHandler:
 
 installToolSessionHandler
 -------------------------

@@ -28,6 +28,8 @@ $GLOBALS
 
 
 
+..  _globals-tca:
+
 TCA
 ---
 
@@ -42,6 +44,8 @@ TCA
 
 
 
+..  _globals-t3-services:
+
 T3_SERVICES
 -----------
 
@@ -54,6 +58,8 @@ T3_SERVICES
 
     Global registration of :ref:`services <services-introduction>`.
 
+
+..  _globals-typo3-user-settings:
 
 TYPO3_USER_SETTINGS
 -------------------
@@ -69,6 +75,8 @@ TYPO3_USER_SETTINGS
         See: `Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_
 
 
+..  _globals-be-users:
+
 BE_USER
 -------
 
@@ -82,6 +90,8 @@ BE_USER
     Backend user object. See :ref:`be-user`.
 
 
+
+..  _globals-exec-time:
 
 EXEC_TIME
 ---------
@@ -103,6 +113,8 @@ EXEC_TIME
 
 
 
+..  _globals-sim-exec-time:
+
 SIM_EXEC_TIME
 -------------
 
@@ -122,6 +134,8 @@ SIM_EXEC_TIME
         Should not be used anymore, rather use the
         :ref:`DateTime Aspect <context_api_aspects_datetime>`.
 
+
+..  _globals-lang:
 
 LANG
 ----

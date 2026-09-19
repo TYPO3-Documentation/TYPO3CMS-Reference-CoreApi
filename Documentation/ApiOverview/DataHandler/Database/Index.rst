@@ -84,6 +84,8 @@ Description of keywords in syntax:
     :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
 
 
+..  _datahandler-cmd-uid:
+
 uid
 ---
 
@@ -93,6 +95,8 @@ uid
 
     The UID of the record that is manipulated. This is always an integer.
 
+
+..  _datahandler-cmd-command:
 
 command
 -------
@@ -109,6 +113,8 @@ command
 
     See :ref:`command keywords and values <datahandler-command-keywords>`
 
+
+..  _datahandler-cmd-value:
 
 value
 -----
@@ -167,6 +173,8 @@ Command keywords and values
 
 
 
+..  _datahandler-cmd-move:
+
 move
 ~~~~
 
@@ -178,6 +186,8 @@ move
     making a copy.
 
 
+
+..  _datahandler-cmd-delete:
 
 delete
 ~~~~~~
@@ -194,6 +204,8 @@ delete
 
 
 
+..  _datahandler-cmd-undelete:
+
 undelete
 ~~~~~~~~
 
@@ -206,6 +218,8 @@ undelete
     This action will set the "deleted" flag back to 0.
 
 
+
+..  _datahandler-cmd-localize:
 
 localize
 ~~~~~~~~
@@ -247,6 +261,8 @@ localize
 
 
 
+..  _datahandler-cmd-copyToLanguage:
+
 copyToLanguage
 ~~~~~~~~~~~~~~
 
@@ -265,6 +281,8 @@ copyToLanguage
     "Copy" strategy.
 
 
+
+..  _datahandler-cmd-inlineLocalizeSynchronize:
 
 inlineLocalizeSynchronize
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -288,6 +306,8 @@ inlineLocalizeSynchronize
         ];
 
 
+
+..  _datahandler-cmd-version:
 
 version
 ~~~~~~~
@@ -453,6 +473,8 @@ Description of keywords in syntax:
 
 
 
+..  _datahandler-data-uid:
+
 uid
 ---
 
@@ -475,6 +497,8 @@ uid
 
 
 
+..  _datahandler-data-fieldname:
+
 fieldname
 ---------
 
@@ -487,6 +511,8 @@ fieldname
     :ref:`$GLOBALS['TCA'][$table]['columns'] <t3tca:columns>`.
 
 
+
+..  _datahandler-data-value:
 
 value
 -----
@@ -621,6 +647,8 @@ Values for the :php:`$cacheCmd` argument:
 
 
 
+..  _datahandler-clear-cachecmd-all:
+
 "all"
 -----
 
@@ -634,6 +662,8 @@ Values for the :php:`$cacheCmd` argument:
     TSconfig "options.clearCache.all".
 
 
+
+..  _datahandler-clear-cachecmd-pages:
 
 "pages"
 -------
@@ -722,6 +752,8 @@ Flags in the DataHandler
 There are a few internal variables you can set prior to executing
 commands or data submission.
 
+
+..  _datahandler-flags-reverseOrder:
 
 ->reverseOrder
 --------------

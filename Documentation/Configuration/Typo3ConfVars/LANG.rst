@@ -48,6 +48,8 @@ LANG - language configuration
         All translations are used.
 
 
+..  _globals-typo3-conf-vars-lang-loader:
+
 loader
 ------
 
@@ -62,6 +64,8 @@ loader
     Configures custom translation loaders.
 
 
+..  _globals-typo3-conf-vars-lang-format:
+
 format
 ------
 
@@ -75,6 +79,8 @@ format
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['format']`.
 
 
+..  _globals-typo3-conf-vars-lang-availableLocales:
+
 availableLocales
 ----------------
 
@@ -87,6 +93,8 @@ availableLocales
     ..  versionchanged:: 14.0
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['lang']['availableLanguages']`.
 
+
+..  _globals-typo3-conf-vars-lang-resourceOverrides:
 
 resourceOverrides
 -----------------

@@ -53,6 +53,8 @@ the following properties:
     Returns the Unix timestamp as an integer value.
 
 
+..  _datetime-aspect-timezone:
+
 timezone
 ~~~~~~~~
 
@@ -62,6 +64,8 @@ timezone
 
     Returns the timezone name, for example, "Germany/Berlin".
 
+
+..  _datetime-aspect-iso:
 
 iso
 ~~~
@@ -74,6 +78,8 @@ iso
     `ISO 8601 <https://en.wikipedia.org/wiki/ISO_8601>`__ format, for example,
     "2004-02-12T15:19:21+00:00".
 
+
+..  _datetime-aspect-full:
 
 full
 ~~~~
@@ -116,6 +122,8 @@ following properties:
     Returns the requested language of the current page as integer (uid).
 
 
+..  _language-aspect-contentId:
+
 contentId
 ~~~~~~~~~
 
@@ -127,6 +135,8 @@ contentId
     integer (uid).
 
 
+..  _language-aspect-fallbackChain:
+
 fallbackChain
 ~~~~~~~~~~~~~
 
@@ -136,6 +146,8 @@ fallbackChain
 
     Returns the fallback steps as array.
 
+
+..  _language-aspect-overlayType:
 
 overlayType
 ~~~~~~~~~~~
@@ -154,6 +166,8 @@ overlayType
     See :ref:`context_api_aspects_language_overlay-types` for more details.
 
 
+..  _language-aspect-legacyLanguageMode:
+
 legacyLanguageMode
 ~~~~~~~~~~~~~~~~~~
 
@@ -170,6 +184,8 @@ legacyLanguageMode
     This property is kept for compatibility reasons. Do not use, if not really
     necessary, the option will be removed rather sooner than later.
 
+
+..  _language-aspect-legacyOverlayType:
 
 legacyOverlayType
 ~~~~~~~~~~~~~~~~~
@@ -265,6 +281,8 @@ following properties:
     in.
 
 
+..  _user-aspect-username:
+
 username
 ~~~~~~~~
 
@@ -276,6 +294,8 @@ username
     no user is logged in.
 
 
+..  _user-aspect-isLoggedIn:
+
 isLoggedIn
 ~~~~~~~~~~
 
@@ -285,6 +305,8 @@ isLoggedIn
 
     Returns, whether a user is logged in, as boolean.
 
+
+..  _user-aspect-isAdmin:
 
 isAdmin
 ~~~~~~~
@@ -297,6 +319,8 @@ isAdmin
     for backend users.
 
 
+..  _user-aspect-groupIds:
+
 groupIds
 ~~~~~~~~
 
@@ -306,6 +330,8 @@ groupIds
 
     Returns the groups the user is a member of, as array.
 
+
+..  _user-aspect-groupNames:
 
 groupNames
 ~~~~~~~~~~
@@ -346,6 +372,8 @@ the following properties:
     Returns, whether hidden pages should be displayed, as boolean.
 
 
+..  _visibility-aspect-includeHiddenContent:
+
 includeHiddenContent
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -355,6 +383,8 @@ includeHiddenContent
 
     Returns, whether hidden content should be displayed, as boolean.
 
+
+..  _visibility-aspect-includeDeletedRecords:
 
 includeDeletedRecords
 ~~~~~~~~~~~~~~~~~~~~~
@@ -395,6 +425,8 @@ the following properties:
     Returns the UID of the currently accessed workspace, as integer.
 
 
+..  _workspace-aspect-isLive:
+
 isLive
 ~~~~~~
 
@@ -405,6 +437,8 @@ isLive
     Returns whether the current workspace is live, or a custom offline
     workspace, as boolean.
 
+
+..  _workspace-aspect-isOffline:
 
 isOffline
 ~~~~~~~~~
