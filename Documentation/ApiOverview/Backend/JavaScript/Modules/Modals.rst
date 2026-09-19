@@ -151,6 +151,37 @@ Example:
 ..  literalinclude:: _Modals/_DataModal.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
+..  _modules-modals-events:
+
+Reacting to events of backend modals
+------------------------------------
+
+A modal dispatches the following events. Add the event listeners to the
+modal returned by the API:
+
+`typo3-modal-show`
+    Before the modal is opened.
+
+`typo3-modal-shown`
+    After the modal has been opened.
+
+`typo3-modal-hide`
+    Before the modal is closed.
+
+`typo3-modal-hidden`
+    After the modal has been closed.
+
+..  literalinclude:: _Modals/_events.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/delete-conference.js
+
+..  versionchanged:: 14.0
+    Modals are native :html:`<dialog>` elements. The Bootstrap modal events,
+    such as `shown.bs.modal`, and the Bootstrap modal API, including the
+    `data-bs-toggle="modal"` attribute, are not supported anymore, see
+    `Breaking: #107443 - Migrate Modal component from Bootstrap to native
+    dialog
+    <https://docs.typo3.org/permalink/changelog:breaking-107443-1761040245>`_.
+
 ..  _modules-modals-examples:
 
 Examples
