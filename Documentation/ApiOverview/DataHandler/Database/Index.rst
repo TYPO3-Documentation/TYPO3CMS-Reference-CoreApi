@@ -493,12 +493,32 @@ value
 
 ..  confval:: value
     :name: datahandler-data-value
-    :Data type: string
+    :Data type: string, :php:`\DateTimeInterface`
 
     Value for "fieldname".
 
-    For fields of type :ref:`inline <t3tca:columns-inline>` this is a
+    For fields of TCA type :ref:`inline <t3tca:columns-inline>` this is a
     comma-separated list of UIDs of referenced records.
+
+    For fields of TCA type :ref:`datetime <t3tca:columns-datetime>` use one
+    of these values:
+
+    *   An ISO 8601 date without timezone offset, for example
+        `1999-11-11T11:11:11`. It is taken as local time of the server.
+    *   An ISO 8601 date with timezone offset, for example
+        `1999-11-11T11:11:11+01:00` or `1999-11-11T10:11:11Z`.
+    *   A :php:`\DateTimeInterface` object.
+
+    The DataHandler stores the point in time, as UTC for integer fields and as
+    server local time for native :sql:`DATETIME` fields. The timezone offset
+    itself is not stored.
+
+    ..  versionchanged:: 14.0
+        A timezone offset is now respected. Previously, `Z` was taken to mean
+        server local time, see
+        `Breaking: #105549 - Improved ISO8601 Date Handling in TYPO3
+        DataHandler
+        <https://docs.typo3.org/permalink/changelog:breaking-105549-1742214899>`_.
 
 
 ..  note::
