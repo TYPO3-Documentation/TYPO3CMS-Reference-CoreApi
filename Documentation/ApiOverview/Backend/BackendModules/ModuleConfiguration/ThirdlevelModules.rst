@@ -31,3 +31,26 @@ file of an extension:
 
 ..  literalinclude:: _ModuleConfiguration/_ThirdlevelModule.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+..  _backend-modules-third-level-module-overview:
+
+Showing third-level backend modules as cards
+============================================
+
+..  versionadded:: 14.0
+    See `Feature: #107712 - Introduce card-based sub module overview
+    <https://docs.typo3.org/permalink/changelog:feature-107712-1760548718>`_.
+
+By default, a click on a module with third-level modules opens the first of
+them. Set the option `showSubmoduleOverview` of the module to `true` to show
+an overview instead, as the :guilabel:`Content > Status` module does. Each
+third-level module the current user has access to is shown as a card with its
+icon, title and description, and a button to open it. If the user has access
+to none of them, a message is shown instead of the cards.
+
+The following example registers a *Conference* module with the third-level
+modules *Talks* and *Speakers*. The `description` in their `labels` is the
+text shown on the cards:
+
+..  literalinclude:: _ModuleConfiguration/_SubmoduleOverview.php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php

@@ -110,6 +110,23 @@ Module configuration options
 
             If set to false the module is not displayed in the module menu.
 
+    ..  confval:: showSubmoduleOverview
+        :name: backend-module-showSubmoduleOverview
+        :type: bool
+        :Default: false
+
+        ..  versionadded:: 14.0
+            See `Feature: #107712 - Introduce card-based sub module overview
+            <https://docs.typo3.org/permalink/changelog:feature-107712-1760548718>`_.
+
+        If true, a module with
+        :ref:`submodules <backend-modules-third-level-module>` shows an
+        overview of them instead of opening the first submodule. Each submodule
+        the current user has access to is shown as a card with its icon, title
+        and description, and a button to open it. See
+        :ref:`Showing third-level backend modules as cards
+        <backend-modules-third-level-module-overview>` for an example.
+
     ..  confval:: iconIdentifier
         :name: backend-module-iconIdentifier
         :type: string
