@@ -307,6 +307,36 @@ inlineLocalizeSynchronize
 
 
 
+..  _datahandler-cmd-discard:
+
+discard
+~~~~~~~
+
+..  confval:: discard
+    :name: datahandler-cmd-discard
+    :Data type: boolean (true)
+
+    Value should always be `true`.
+
+    Discards the changes made to a record in a workspace: The workspace
+    version of the record and of its child records are removed without being
+    published. Use the UID of the workspace version, not the UID of the live
+    record.
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
+
+        // 123 is the UID of the workspace version of a page
+        $cmd['pages'][123]['discard'] = true;
+
+    ..  versionadded:: 14.0
+        The command replaces the actions `clearWSID` and `flush` of the
+        :ref:`version <datahandler-cmd-version>` command, see
+        `Feature: #107519 - Add "discard" command to DataHandler
+        <https://docs.typo3.org/permalink/changelog:feature-107519-1742215067>`_.
+
+
+
 ..  _datahandler-cmd-version:
 
 version
@@ -370,10 +400,12 @@ version
         "clearWSID"
             Indicates that the workspace of the record should be set to zero
             (0). This removes versions out of workspaces without publishing
-            them.
+            them. Use the :ref:`discard <datahandler-cmd-discard>` command
+            instead.
 
         "flush"
-            Completely deletes a version without publishing it.
+            Completely deletes a version without publishing it. Use the
+            :ref:`discard <datahandler-cmd-discard>` command instead.
 
         "setStage"
             Sets the stage of an element. *Special feature: The id key in the
