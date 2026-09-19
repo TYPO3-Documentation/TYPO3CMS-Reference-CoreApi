@@ -61,8 +61,8 @@ PHP build without argon support.
 Disable argon2 support in the install tool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Call the standalone install tool at :samp:`example.org/typo3/install.php` and log in
-once. This should detect
+Call the standalone install tool at :samp:`example.org/typo3/install` and
+log in once. This should detect
 that argon2 is not available and will configure a different default
 hash mechanism. A backend login should be possible afterwards.
 

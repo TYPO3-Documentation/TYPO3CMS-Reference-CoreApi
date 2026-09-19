@@ -326,7 +326,6 @@ installation method:
             loaded extensions are installed
         -   :path:`typo3/sysext/` – The TYPO3 Core (So a project can
             be rebuild in from the Git alone)
-        -   :file:`typo3/install.php`
 
 
 ..  _version-control-platforms-never:

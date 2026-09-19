@@ -36,9 +36,12 @@ Install Tool against unauthorized access:
 2.  An Install Tool password is required. This password is independent of
     all backend user passwords.
 
-The Install Tool can be found as a stand-alone application via :samp:`https://example.org/typo3/install.php`.
-It is also :ref:`accessible in the backend <security-install-tool-backend-access>`,
-but only for logged-in users with administrator and maintainer privileges.
+The Install Tool can be found as a stand-alone application via
+:samp:`https://example.org/typo3/install`. The path follows the
+:ref:`backend entry point <backend-entry-point>`, for example
+:samp:`https://example.org/admin/install`. It is also
+:ref:`accessible in the backend <security-install-tool-backend-access>`, but
+only for logged-in users with administrator and maintainer privileges.
 
 ..  _security-install-tool-access-enable-file:
 
@@ -186,12 +189,17 @@ user's UID (:sql:`be_users.uid`) in :file:`config/system/settings.php`:
     :caption: config/system/settings.php (excerpt)
 
 
-For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`
-can be deleted, or password protected on a server level (e.g. by a web
-server's user authentication mechanism). Please keep in mind that
-these measures have an impact on the usability of the system. If you
-are not the only person who uses the Install Tool, you should
-discuss the best approach with the team.
+If TYPO3 is not set up or does not work properly, the Install Tool can also
+be reached via :samp:`https://example.org/?__typo3_install`. Use this address
+for recovery only. The parameter might be removed in a future TYPO3 version.
+
+For additional security, you can deny requests with the `__typo3_install`
+parameter on web server level, or protect them with the user authentication of
+the web server. If the Install Tool is not needed on a live server, you can
+remove :composer:`typo3/cms-install` there, in Classic mode the folder
+:path:`typo3/sysext/install`. Please keep in mind that these measures have an
+impact on the usability of the system. If you are not the only person who
+uses the Install Tool, you should discuss the best approach with the team.
 
 ..  _security-install-tool-core-updates:
 
