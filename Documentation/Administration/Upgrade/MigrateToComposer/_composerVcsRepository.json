@@ -1,13 +1,13 @@
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/foo/bar.git"
-        }
-    ],
-    "extra": {
-        "typo3/cms": {
-            "web-dir": "public"
-        }
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/foo/bar.git"
     }
+  ],
+  "extra": {
+    "typo3/cms": {
+      "web-dir": "public"
+    }
+  }
 }
