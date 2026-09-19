@@ -4,7 +4,7 @@ USER root
 
 # Install Node.js and gosu (for user switching)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs gosu
+  apt-get install -y nodejs gosu
 
 # Copy the startup script into place
 COPY ./startup.sh /usr/local/bin/startup.sh
