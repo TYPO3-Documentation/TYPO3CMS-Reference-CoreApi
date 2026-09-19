@@ -13,6 +13,13 @@ allows to modify the displayed record actions (for example
 :guilabel:`edit`, :guilabel:`copy`, :guilabel:`delete`) for a table in
 the record list.
 
+..  versionchanged:: 14.0
+    The actions are button components instead of HTML strings, and the
+    primary and secondary actions are addressed with the
+    :php-short:`\TYPO3\CMS\Backend\Template\Components\ActionGroup` enum, see
+    `Breaking: #107884 - Rework actions to use Buttons API with Components
+    <https://docs.typo3.org/permalink/changelog:breaking-107884-1730135000>`_.
+
 ..  _modify-record-list-record-actions-event-usage:
 
 Usage
