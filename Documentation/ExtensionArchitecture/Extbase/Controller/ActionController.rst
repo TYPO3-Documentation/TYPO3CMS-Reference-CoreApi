@@ -57,7 +57,8 @@ Key rules:
     :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`, create a
     :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` instance per action,
     assign variables via :php:`$moduleTemplate->assignMultiple()`, and return
-    :php:`$moduleTemplate->renderResponse('ActionName')`. Do not use
+    :php:`$moduleTemplate->renderResponse('ControllerName/ActionName')`.
+    Do not use
     :php:`$this->view` or :php:`$this->htmlResponse()` in a module controller.
     See :ref:`extbase-registration-backend-module`.
 
