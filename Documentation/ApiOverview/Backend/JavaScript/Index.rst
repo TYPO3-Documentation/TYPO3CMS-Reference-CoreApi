@@ -24,6 +24,7 @@ APIs in that regard.
     Templating/Index
     Modules/Index
     AjaxRequest/Index
+    UrlFactory/Index
     EventApi/Index
     HotkeyApi/Index
     Navigation/Index
