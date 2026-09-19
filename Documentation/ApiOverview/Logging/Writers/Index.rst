@@ -68,6 +68,8 @@ set, TYPO3 will use a filename containing a random hash, like
 The following options are available:
 
 
+..  _file-writer-logFile:
+
 logFile
 ~~~~~~~
 
@@ -80,6 +82,8 @@ logFile
 
     The path to the log file.
 
+
+..  _file-writer-logFileInfix:
 
 logFileInfix
 ~~~~~~~~~~~~
@@ -139,6 +143,8 @@ The file writer :php:`\TYPO3\CMS\Core\Log\Writer\RotatingFileWriter` extends the
 accepts all options of :php:`FileWriter` in addition of the following:
 
 
+..  _rotating-file-writer-interval:
+
 interval
 ~~~~~~~~
 
@@ -156,6 +162,8 @@ interval
     *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::MONTHLY` or :php:`monthly`
     *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::YEARLY` or :php:`yearly`
 
+
+..  _rotating-file-writer-maxFiles:
 
 maxFiles
 ~~~~~~~~

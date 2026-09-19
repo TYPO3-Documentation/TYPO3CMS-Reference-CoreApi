@@ -71,6 +71,8 @@ The cache action array element consists of the following keys and values:
     the :ref:`addCacheActionIdentifier <ModifyClearCacheActionsEvent-api-add-cache-identifier>`.
 
 
+..  _ModifyClearCacheActionsEvent-api-add-cache-action-title:
+
 title
 ~~~~~
 
@@ -81,6 +83,8 @@ title
 
     The title displayed in the clear cache menu.
 
+
+..  _ModifyClearCacheActionsEvent-api-add-cache-action-endpoint:
 
 endpoint
 ~~~~~~~~
@@ -101,6 +105,8 @@ endpoint
     conditions are surfaced correctly.
 
 
+..  _ModifyClearCacheActionsEvent-api-add-cache-action-iconIdentifier:
+
 iconIdentifier
 ~~~~~~~~~~~~~~
 
@@ -112,6 +118,8 @@ iconIdentifier
     An icon to be displayed in the clear cache menu
 
 
+..  _ModifyClearCacheActionsEvent-api-add-cache-action-description:
+
 description
 ~~~~~~~~~~~
 
@@ -121,6 +129,8 @@ description
 
     The description displayed in the clear cache menu.
 
+
+..  _ModifyClearCacheActionsEvent-api-add-cache-action-severity:
 
 severity
 ~~~~~~~~

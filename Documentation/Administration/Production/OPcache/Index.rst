@@ -41,6 +41,8 @@ Below is list a of OPcache features with information on how they can impact TYPO
     rely on information stored in phpDoc comments to function correctly.
 
 
+..  _opcache-tune-opcache-use-cwd:
+
 opcache.use_cwd
 ---------------
 
@@ -54,6 +56,8 @@ opcache.use_cwd
     being stored as a key. TYPO3 works with absolute paths so this would
     return no improvements to performance.
 
+
+..  _opcache-tune-opcache-validate-timestamps:
 
 opcache.validate_timestamps
 ---------------------------
@@ -69,6 +73,8 @@ opcache.validate_timestamps
     pipeline. Additionally, some files can be added to the blacklist, see `opcache.blacklist_filename` for more information.
 
 
+..  _opcache-tune-opcache-revalidate-freq:
+
 opcache.revalidate_freq
 -----------------------
 
@@ -80,6 +86,8 @@ opcache.revalidate_freq
     Setting this to a high value can improve performance but shares the same issue
     when setting `validate_timestamps` to 0.
 
+
+..  _opcache-tune-opcache-revalidate-path:
 
 opcache.revalidate_path
 -----------------------
@@ -93,6 +101,8 @@ opcache.revalidate_path
     relative path names are used to load scripts and if the same file exists several
     times in the include path.
 
+
+..  _opcache-tune-opcache-max-accelerated-files:
 
 opcache.max_accelerated_files
 -----------------------------

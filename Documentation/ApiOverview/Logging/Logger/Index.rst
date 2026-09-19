@@ -56,6 +56,8 @@ which takes three parameters:
     :ref:`Log levels and shorthand methods <logging-logger-shortcuts>`.
 
 
+..  _logger-log-message:
+
 $message
 --------
 
@@ -65,6 +67,8 @@ $message
 
     The log message itself.
 
+
+..  _logger-log-data:
 
 $data
 -----

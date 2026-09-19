@@ -32,6 +32,8 @@ The following options are available:
     The minimum length of a given password.
 
 
+..  _password-policies-validators-uppercasecharacterrequired:
+
 upperCaseCharacterRequired
 --------------------------
 
@@ -42,6 +44,8 @@ upperCaseCharacterRequired
 
     If set to :php:`true` at least one upper case character (`A`-`Z`) is required.
 
+
+..  _password-policies-validators-lowercasecharacterrequired:
 
 lowerCaseCharacterRequired
 --------------------------
@@ -54,6 +58,8 @@ lowerCaseCharacterRequired
     If set to :php:`true` at least one lower case character (`a`-`z`) is required.
 
 
+..  _password-policies-validators-digitcharacterrequired:
+
 digitCharacterRequired
 ----------------------
 
@@ -64,6 +70,8 @@ digitCharacterRequired
 
     If set to :php:`true` at least one digit character (`0`-`9`) is required.
 
+
+..  _password-policies-validators-specialcharacterrequired:
 
 specialCharacterRequired
 ------------------------
