@@ -17,8 +17,8 @@ file abstraction layer.
 Scheduler tasks
 ===============
 
-Two base tasks provided by the :doc:`scheduler <ext_scheduler:Index>` are
-related to the file abstraction layer.
+Two base tasks provided by the system extension :composer:`typo3/cms-scheduler`
+are related to the file abstraction layer.
 
 File abstraction layer: Update storage index
     This task goes through a :ref:`storage <fal-architecture-components-storage>`
@@ -82,3 +82,48 @@ such as wget for this.
 
 Also, deleting processed files while editors are active is not ideal.
 Preferably, lock the TYPO3 backend before you remove the processed files.
+
+..  index::
+    File abstraction layer; cleanup:localprocessedfiles
+    Command; cleanup:localprocessedfiles
+..  _fal-administration-maintenance-processed-files-cli:
+
+Cleaning up processed files on the command line
+-----------------------------------------------
+
+The console command `vendor/bin/typo3 cleanup:localprocessedfiles
+<https://docs.typo3.org/permalink/t3coreapi:console-command-cleanup-localprocessedfiles>`_
+of the system extension :composer:`typo3/cms-lowlevel` removes processed files
+that are no longer needed from storages with the `Local` driver. It deletes
+
+*   files in the processing folders that no :sql:`sys_file_processedfile`
+    record refers to, and
+*   :sql:`sys_file_processedfile` records whose processed file does not exist
+    anymore.
+
+Show which files and records the command would delete, without deleting them:
+
+..  tabs::
+
+    ..  group-tab:: Composer mode
+
+        ..  code-block:: bash
+
+            vendor/bin/typo3 cleanup:localprocessedfiles --dry-run -v
+
+    ..  group-tab:: Classic mode
+
+        ..  code-block:: bash
+
+            typo3/sysext/core/bin/typo3 cleanup:localprocessedfiles --dry-run -v
+
+The command asks for confirmation before it deletes anything. Option `-f`
+(`--force`) skips the question, and so does running the command without
+interaction, for example as a
+:ref:`scheduler task <symfony-console-commands-scheduler>`, so you can run the
+cleanup regularly.
+
+Option `--all` deletes all processed files of these storages and all their
+records, including those still in use. TYPO3 then creates all processed files
+anew, which is useful after adding a new file processor, for example. Flush
+the page cache afterwards, as described above.
