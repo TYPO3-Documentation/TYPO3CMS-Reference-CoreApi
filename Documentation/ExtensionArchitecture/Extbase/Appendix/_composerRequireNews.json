@@ -1,5 +1,5 @@
 {
-    "require": {
-        "georgringer/news": "^11.0"
-    }
+  "require": {
+    "georgringer/news": "^11.0"
+  }
 }

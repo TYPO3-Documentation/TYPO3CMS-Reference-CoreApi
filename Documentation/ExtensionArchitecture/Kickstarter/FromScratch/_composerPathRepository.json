@@ -1,8 +1,8 @@
 {
-    "repositories": [
-        {
-            "type": "path",
-            "url": "packages/*"
-        }
-    ]
+  "repositories": [
+    {
+      "type": "path",
+      "url": "packages/*"
+    }
+  ]
 }
