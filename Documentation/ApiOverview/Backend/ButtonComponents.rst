@@ -10,10 +10,41 @@ The button components are used in the
 :ref:`DocHeader <backend-modules-template-without-extbase-docheader>` of a
 :ref:`backend module <backend-modules>`.
 
+Create the components with the
+:php:`\TYPO3\CMS\Backend\Template\Components\ComponentFactory`, which
+provides a `create*()` method for every button, dropdown item and menu
+component:
+
+..  versionchanged:: 14.0
+    The :php-short:`\TYPO3\CMS\Backend\Template\Components\ComponentFactory`
+    creates all backend components, see
+    `Feature: #107823 - ComponentFactory for backend components <https://docs.typo3.org/permalink/changelog:feature-107823-1761297638>`_.
+
+..  deprecated:: 14.0
+    The `make*()` methods of
+    :php:`\TYPO3\CMS\Backend\Template\Components\ButtonBar` have been
+    deprecated and are removed with TYPO3 v15. Use the `create*()` methods of
+    the :php-short:`\TYPO3\CMS\Backend\Template\Components\ComponentFactory`
+    instead, see
+    `Deprecation: #107823 - ButtonBar, Menu, and MenuRegistry make* methods deprecated <https://docs.typo3.org/permalink/changelog:deprecation-107823-1761297638>`_.
+
 Example on how to use a button component:
 
 ..  literalinclude:: _ButtonComponents/_DropDownButton.php
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
+
+With the :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` of the
+module at hand, its method :php:`addButtonToButtonBar()` adds a button in one
+step. It takes the same position and group as :php:`addButton()`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
+
+    $this->moduleTemplate->addButtonToButtonBar(
+      $dropDownButton,
+      ButtonBar::BUTTON_POSITION_RIGHT,
+      2,
+    );
 
 ..  seealso::
     *   :ref:`ModifyButtonBarEvent <ModifyButtonBarEvent>`
@@ -87,12 +118,12 @@ Example:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
 
-    $dropDownButton = $buttonBar->makeDropDownButton()
+    $dropDownButton = $this->componentFactory->createDropDownButton()
         ->setLabel('Dropdown')
         ->setTitle('Save')
         ->setIcon($this->iconFactory->getIcon('actions-heart'))
         ->addItem(
-            GeneralUtility::makeInstance(DropDownItem::class)
+            $this->componentFactory->createDropDownItem()
                 ->setLabel('Item')
                 ->setHref('#')
         );
