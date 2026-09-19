@@ -1,5 +1,5 @@
 {
-    "replace": {
-        "typo3-ter/my-extension": "self.version"
-    }
+  "replace": {
+    "typo3-ter/my-extension": "self.version"
+  }
 }

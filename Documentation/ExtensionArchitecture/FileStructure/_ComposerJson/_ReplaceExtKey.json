@@ -1,5 +1,5 @@
 {
-    "replace": {
-        "ext_key": "self.version"
-    }
+  "replace": {
+    "ext_key": "self.version"
+  }
 }
