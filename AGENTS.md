@@ -66,7 +66,7 @@ Makefile                    # local install/build/test commands
 
   ```bash
   curl -s https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/objects.inv.json \
-    | jq -r '."std:label" | to_entries[] | select(.key|test("base-variants")) | "\(.key) -> \(.value[2])"'
+    | jq -r '."std:label" | to_entries[] | select(.key|test("base-variants"; "i")) | "\(.key) -> \(.value[2])"'
   ```
 
   `std:doc` maps document names the same way. Swapping the base URL answers
@@ -79,7 +79,7 @@ Makefile                    # local install/build/test commands
   `404`:
 
   ```bash
-  curl -sI https://docs.typo3.org/permalink/t3coreapi:sitehandling-base-variants-functions | head -2
+  curl -sI https://docs.typo3.org/permalink/t3coreapi:sitehandling-base-variants-functions | grep -Ei '^(HTTP|Location)'
   ```
 
 ## Rules
