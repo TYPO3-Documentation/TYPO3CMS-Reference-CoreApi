@@ -223,12 +223,14 @@ another folder name than :path:`fileadmin/` can be in use.
 `public/typo3/`
 ~~~~~~~~~~~~~~~
 
-If :composer:`typo3/cms-install` is installed, this directory contains the PHP
-file for accessing the install tool (:file:`public/typo3/install.php`).
+Up to TYPO3 v13, this directory contained the PHP files for accessing the
+backend and the install tool.
 
 ..  versionchanged:: 14.0
-    The TYPO3 backend entry point PHP file :file:`public/typo3/index.php` has
-    been removed. The backend can be accessed via the :ref:`backend-entry-point`.
+    The PHP files :file:`public/typo3/index.php` and
+    :file:`public/typo3/install.php` have been removed. The backend and the
+    install tool can be accessed via the :ref:`backend-entry-point`, the
+    install tool for example at :samp:`/typo3/install`.
 
 ..  _directory-public-typo3temp:
 

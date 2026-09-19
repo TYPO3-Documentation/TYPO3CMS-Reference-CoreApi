@@ -29,8 +29,14 @@ routing is adapted. That means Composer mode will use assets provided via
 :samp:`_assets/` as before and TYPO3 Classic mode will serve backend assets from
 :samp:`/typo3/*` even if another backend URL is used and configured.
 
-..  note::
-    The install tool is still available via :samp:`/typo3/install.php`.
+The install tool follows the backend entry point, for example
+:samp:`/admin/install`.
+
+..  versionchanged:: 14.0
+    Up to TYPO3 v13, the install tool was available via
+    :samp:`/typo3/install.php`, regardless of the backend entry point, see
+    `Important: #107536 - Install Tool now adapts to backend login routing
+    <https://docs.typo3.org/permalink/changelog:important-107536-1718204204>`_.
 
 ..  _WSTG-CONF-05: https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/05-Enumerate_Infrastructure_and_Application_Admin_Interfaces
 
