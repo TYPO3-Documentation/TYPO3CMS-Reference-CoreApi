@@ -128,20 +128,28 @@ Module configuration options
         :name: backend-module-labels
         :type: array of strings or string
 
-        An :php:`array` with the following keys:
+        The title of the module, the description shown in the
+        :guilabel:`About` module, and the short description shown as a
+        tooltip in the module menu.
 
-        *   `title`
-        *   `description`
-        *   `shortDescription`
+        Pass the :ref:`translation domain <label-reference-domain>` of the
+        XLIFF file that contains the labels, for example
+        `my_extension.modules.conference`. The file has to contain the keys
+        `title`, `description` and `short_description`.
 
-        The value of each array entry can either be a `string` containing the static text, or a locallang label reference.
+        ..  versionadded:: 14.0
+            Referencing the labels by their translation domain, see
+            `Feature: #93334 - Translation domain mapping
+            <https://docs.typo3.org/permalink/changelog:feature-93334-1729000000>`_.
 
-        Alternatively define the path of a :ref:`locallang file reference <t3coreapi:xliff-files>`.
-        A referenced file should contain the following label keys:
+        Alternatively pass an :php:`array` with the keys `title`,
+        `description` and `shortDescription`. The value of each key is either
+        a static text or a label reference.
 
-        *   `mlang_tabs_tab` (used as module title)
-        *   `mlang_labels_tabdescr` (used as module description)
-        *   `mlang_labels_tablabel` (used as module short description)
+        The path of a :ref:`locallang file <t3coreapi:xliff-files>` can be
+        passed as well. Such a file has to contain the keys
+        `mlang_tabs_tab` (title), `mlang_labels_tabdescr` (description) and
+        `mlang_labels_tablabel` (short description).
 
     ..  confval:: component
         :name: backend-module-component
