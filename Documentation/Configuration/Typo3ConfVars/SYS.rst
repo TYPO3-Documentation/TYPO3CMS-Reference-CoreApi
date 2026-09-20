@@ -33,6 +33,8 @@ configuration.
     :type:
 
 
+..  _globals-typo3-conf-vars-sys-caching:
+
 caching
 -------
 
@@ -1096,6 +1098,8 @@ localization
         *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
 
 
+..  _globals-typo3-conf-vars-sys-FileInfo:
+
 FileInfo
 --------
 
@@ -1151,6 +1155,8 @@ FileInfo
                 'text/x-foo';
 
 
+..  _globals-typo3-conf-vars-sys-allowedPhpDisableFunctions:
+
 allowedPhpDisableFunctions
 --------------------------
 
@@ -1177,6 +1183,8 @@ allowedPhpDisableFunctions
     You can also define this manually in your :file:`settings.php` file
     or via :guilabel:`System > Settings > Configure options`.
 
+
+..  _globals-typo3-conf-vars-sys-rateLimiter:
 
 rateLimiter
 -----------
