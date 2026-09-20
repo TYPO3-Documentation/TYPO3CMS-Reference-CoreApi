@@ -109,7 +109,10 @@ the controller uses a
 :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`. The
 :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` provides
 :php:`assign()` and :php:`renderResponse()` methods and wraps the rendered
-output in the backend page frame:
+output in the backend page frame. Always pass the template name, relative to
+the :file:`Templates/` folder, to :php:`renderResponse()`. Unlike
+:php:`$this->view`, it does not derive the name from the controller and action
+and throws an exception without one:
 
 ..  literalinclude:: _snippets/_ConferenceControllerBackendModule.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
