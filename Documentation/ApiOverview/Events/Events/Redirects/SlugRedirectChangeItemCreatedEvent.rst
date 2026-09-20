@@ -40,11 +40,11 @@ Using the :php:`PageTypeSource`
 
 The source type implementation based on
 :php:`\TYPO3\CMS\Redirects\RedirectUpdate\PageTypeSource`
-provides the page type number as additional value. The main use case
+provides the page type number as an additional value. The main use case
 for this source type is to provide additional source types where the source host
-and path are taken from a full built URI before the page slug change occurred for
+and path are taken from a fully built URI before the page slug change occurs for
 a specific page type. This avoids the need for extension authors to implement a
-custom source type for the same task, and instead providing a custom event
+custom source type for the same task, and instead provides a custom event
 listener to build sources for non-zero page types.
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_PageTypeSource/_MyEventListener.php

@@ -6,12 +6,12 @@ namespace MyVendor\MyExtension\Backend;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Context\Context;
+use TYPO3\CMS\Core\Context\VisibilityAspect;
 use TYPO3\CMS\Core\Routing\InvalidRouteArgumentsException;
 use TYPO3\CMS\Core\Routing\RouterInterface;
 use TYPO3\CMS\Core\Routing\UnableToLinkToPageException;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Redirects\Event\SlugRedirectChangeItemCreatedEvent;
 use TYPO3\CMS\Redirects\RedirectUpdate\PageTypeSource;
 use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceCollection;
@@ -24,6 +24,10 @@ use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
 final readonly class MyEventListener
 {
   private const CUSTOM_PAGE_TYPES = [1234, 169999];
+
+  public function __construct(
+    private Context $context,
+  ) {}
 
   public function __invoke(
     SlugRedirectChangeItemCreatedEvent $event,
@@ -91,13 +95,13 @@ final readonly class MyEventListener
     SiteLanguage $siteLanguage,
   ): ?PageTypeSource {
     if ($pageType === 0) {
-      // pageType 0 is handled by \TYPO3\CMS\Redirects\EventListener\AddPageTypeZeroSource
+      // pageType 0 is handled by the Core listener
+      // \TYPO3\CMS\Redirects\EventListener\AddPageTypeZeroSource
       return null;
     }
 
     try {
-      $context = GeneralUtility::makeInstance(Context::class);
-      $uri = $site->getRouter($context)->generateUri(
+      $uri = $site->getRouter($this->getAdjustedContext())->generateUri(
         $pageUid,
         [
           '_language' => $siteLanguage,
@@ -117,7 +121,8 @@ final readonly class MyEventListener
     } catch (\InvalidArgumentException|InvalidRouteArgumentsException $e) {
       throw new UnableToLinkToPageException(
         sprintf(
-          'The link to the page with ID "%d" and type "%d" could not be generated: %s',
+          'The link to the page with ID "%d" and type "%d" could not be '
+          . 'generated: %s',
           $pageUid,
           $pageType,
           $e->getMessage(),
@@ -126,5 +131,20 @@ final readonly class MyEventListener
         $e,
       );
     }
+  }
+
+  /**
+   * The current context hides disabled pages and pages outside their
+   * start and end time, so their old URI could not be built.
+   */
+  private function getAdjustedContext(): Context
+  {
+    $context = clone $this->context;
+    $context->setAspect('visibility', new VisibilityAspect(
+      includeHiddenPages: true,
+      includeHiddenContent: true,
+      includeScheduledRecords: true,
+    ));
+    return $context;
   }
 }
