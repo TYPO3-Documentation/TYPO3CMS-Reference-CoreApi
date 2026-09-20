@@ -191,23 +191,30 @@ Check if a JavaScript file with the given identifier exists:
         // result: false - JavaScript with identifier $identifier does not exist
     }
 
-The following code skips the cache busting parameter `?1726090820` for the supplied CSS file:
+The collector accepts a file of an extension with the `EXT:` syntax, as
+above, and a URL. A URL is rendered as it is, without a cache busting
+parameter. A relative URL needs the prefix `URI:`:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
     $assetCollector->addStyleSheet(
         'myCssFile',
-        PathUtility::getAbsoluteWebPath(GeneralUtility::getFileAbsFileName('EXT:my_extension/Resources/Public/MyFile.css')),
-        [],
-        ['external' => true]
+        'URI:/styles/main.css',
     );
 
 Resulting in the following HTML output:
 
 ..  code-block:: html
 
-    <link rel="stylesheet" href="/_assets/<hash>/myFile.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+
+..  versionchanged:: 14.0
+    The option `external` has been removed. Every other resource is
+    rendered with a cache busting parameter, see
+    `Breaking: #107927 - Remove "external" property / option from TypoScript
+    and AssetRenderer
+    <https://docs.typo3.org/permalink/changelog:breaking-107927-1763052738>`_.
 
 ..  index::
     pair: Assets; Events
