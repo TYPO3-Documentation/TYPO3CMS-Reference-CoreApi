@@ -54,7 +54,7 @@ handle this.
 
 TYPO3 parses :file:`ext_tables.sql` files into a Doctrine DBAL object schema
 to define a virtual database scheme, enriched with
-:php-short:`\TYPO3\CMS\Core\Database\SchemaDefaultTcaSchema` information for
+:php-short:`\TYPO3\CMS\Core\Database\Schema\DefaultTcaSchema` information for
 `TCA-managed, auto-generated <https://docs.typo3.org/permalink/t3coreapi:auto-generated-db-structure>`_
 tables and fields.
 
