@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use TYPO3\CMS\Compatibility6\Form\Container\FlexFormEntryContainer;
+use MyVendor\MyExtension\Form\Container\FlexFormEntryContainer;
 
 defined('TYPO3') or die();
 

@@ -12,7 +12,7 @@ ModifyEditFormUserAccessEvent
     hook.
 
 The PSR-14 event
-:php:`\TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent\ModifyEditFormUserAccessEvent`
+:php:`\TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent`
 provides the full database row of the record in question next to the
 exception, which might have been set by the Core. Additionally, the event allows
 to modify the user access decision in an object-oriented way, using

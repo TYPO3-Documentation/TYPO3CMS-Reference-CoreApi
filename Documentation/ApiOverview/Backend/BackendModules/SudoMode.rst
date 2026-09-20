@@ -91,7 +91,7 @@ markup rendering and payload processing in controller
     in :php:`\TYPO3\CMS\Backend\Http\RouteDispatcher`.
 #.  Using :php-short:`\TYPO3\CMS\Backend\Security\SudoMode\Access\AccessFactory`
     and :php-short:`\TYPO3\CMS\Backend\Security\SudoMode\Access\AccessStorage`,
-    the :php-short:`\TYPO3\CMS\Backend\Security\SudoMode\Access\RouteDispatcher`
+    the :php-short:`\TYPO3\CMS\Backend\Http\RouteDispatcher`
     tries to find a valid and not expired
     :php-short:`\TYPO3\CMS\Backend\Security\SudoMode\Access\AccessGrant` item
     for the specific :php:`RouteAccessSubject('/my/route')` aspect in the
@@ -106,7 +106,7 @@ markup rendering and payload processing in controller
     the claim also contains the originally requested route as
     :php-short:`\TYPO3\CMS\Backend\Security\SudoMode\Access\ServerRequestInstruction`
     (a simplified representation of a
-    :php-short:`\TYPO3\CMS\Backend\Security\SudoMode\Access\ServerRequestInterface`).
+    :php-short:`\Psr\Http\Message\ServerRequestInterface`).
 #.  Next, the user is redirected to the user interface for providing either
     their own password, or the global install tool password as alternative.
 #.  Given, the password was correct, the
