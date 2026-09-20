@@ -65,19 +65,22 @@ single element never calls a container again.
 Dependency injection in nodes
 -----------------------------
 
-The :php-short:`\TYPO3\CMS\Backend\Form\NodeFactory` creates every node
+The :php-short:`\TYPO3\CMS\Backend\Form\NodeFactory` creates nodes
 with :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` and
-then passes the data array to its :php:`setData()` method, which
-:php-short:`\TYPO3\CMS\Backend\Form\AbstractNode` implements. The
-constructor of a node is free for
+then hands the data array to the :php:`setData()` method (rather than having the
+data array handed in via the constructor), implemented in
+:php-short:`\TYPO3\CMS\Backend\Form\AbstractNode`. The
+constructor of the node is therefore freed up to use
 :ref:`dependency injection <DependencyInjection>`. Classes implementing
-:php-short:`\TYPO3\CMS\Backend\Form\NodeInterface` are public services
-automatically, and each node gets its own instance, so they need no entry in
+:php-short:`\TYPO3\CMS\Backend\Form\NodeInterface` are available as public
+services, and each node is its own instance so does not need an entry in
 :file:`Configuration/Services.yaml`.
 :php-short:`\TYPO3\CMS\Backend\Form\Element\AbstractFormElement` and
 :php-short:`\TYPO3\CMS\Backend\Form\Container\AbstractContainer`
 receive the :php-short:`\TYPO3\CMS\Backend\Form\NodeFactory` through
-`inject*()` methods, so it does not appear in your constructor:
+`inject*()` methods, rather than through constructor injection, so
+you never need to add the :php-short:`\TYPO3\CMS\Backend\Form\NodeFactory` to
+the constructor:
 
 ..  literalinclude:: _StatusIconElement.php
     :caption: EXT:my_extension/Classes/Backend/Form/StatusIconElement.php
