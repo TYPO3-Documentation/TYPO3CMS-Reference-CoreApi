@@ -11,7 +11,8 @@ SudoModeRequiredEvent
     to address challenges with single sign-on (SSO) providers.
 
 The PSR-14 event
-:php:`\TYPO3\CMS\Backend\Backend\Event\SudoModeRequiredEvent` is triggered before
+:php:`\TYPO3\CMS\Backend\Security\SudoMode\Event\SudoModeRequiredEvent`
+is triggered before
 showing the `sudo-mode verification dialog <https://docs.typo3.org/permalink/t3coreapi:backend-user-api-sudo>`_
 when managing backend user accounts.
 
