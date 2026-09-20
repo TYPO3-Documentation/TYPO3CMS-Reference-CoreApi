@@ -56,6 +56,8 @@ Configuration properties
     backend will still be able to translate content for the language.
 
 
+..  _sitehandling-addingLanguages-languageId:
+
 languageId
 ----------
 
@@ -73,6 +75,8 @@ languageId
         :yaml:`languageId` must not be changed anymore.
 
 
+..  _sitehandling-addingLanguages-title:
+
 title
 -----
 
@@ -84,6 +88,8 @@ title
     The internal human-readable name for this language.
 
 
+..  _sitehandling-addingLanguages-websiteTitle:
+
 websiteTitle
 ------------
 
@@ -94,6 +100,8 @@ websiteTitle
 
     Overrides the global website title for this language.
 
+
+..  _sitehandling-addingLanguages-navigationTitle:
 
 navigationTitle
 ---------------
@@ -107,6 +115,8 @@ navigationTitle
     :typoscript:`HMENU.special = language`.
 
 
+..  _sitehandling-addingLanguages-base:
+
 base
 ----
 
@@ -117,6 +127,8 @@ base
 
     The language base accepts either a URL or a path segment like :yaml:`/en/`.
 
+
+..  _sitehandling-addingLanguages-baseVariants:
 
 baseVariants
 ------------
@@ -160,6 +172,8 @@ baseVariants
     is installed on the server.
 
 
+..  _sitehandling-addingLanguages-hreflang:
+
 hreflang
 ~~~~~~~~
 
@@ -184,6 +198,8 @@ hreflang
         which is clearly not a valid language key.
 
 
+..  _sitehandling-addingLanguages-typo3Language:
+
 typo3Language
 ~~~~~~~~~~~~~
 
@@ -201,6 +217,8 @@ typo3Language
     Language identifier to use in TYPO3 :ref:`XLIFF files <xliff_api>`.
 
 
+..  _sitehandling-addingLanguages-flag:
+
 flag
 ~~~~
 
@@ -212,6 +230,8 @@ flag
     The flag identifier. For example, the flag is displayed in the backend page
     module.
 
+
+..  _sitehandling-addingLanguages-fallbackType:
 
 fallbackType
 ~~~~~~~~~~~~
@@ -246,6 +266,8 @@ fallbackType
 
         It behaves like old :typoscript:`config.sys_language_overlay = 0`.
 
+
+..  _sitehandling-addingLanguages-fallbacks:
 
 fallbacks
 ~~~~~~~~~

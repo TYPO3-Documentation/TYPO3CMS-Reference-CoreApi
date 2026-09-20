@@ -36,6 +36,8 @@ must be arrays.)
     `<meta>` and `<ROOT>` or `<sheets>`
 
 
+..  _t3datastructure-meta:
+
 <meta>
 ------
 
@@ -46,6 +48,8 @@ must be arrays.)
     Can contain application specific meta settings. Interpretation depends on
     the application using the T3DataStructure. Each setting goes to a XML tag.
 
+
+..  _t3datastructure-root:
 
 <ROOT>
 ------
@@ -64,6 +68,8 @@ must be arrays.)
     `<[application tag]>`.
 
 
+..  _t3datastructure-field-name:
+
 <[field name]>
 --------------
 
@@ -76,6 +82,8 @@ must be arrays.)
 
     Can have the same child tags like `<ROOT>`.
 
+
+..  _t3datastructure-sheets:
 
 <sheets>
 --------
@@ -90,6 +98,8 @@ must be arrays.)
     Contains `<[sheet name]>` tags for the actual sheets.
 
 
+..  _t3datastructure-sheet-title:
+
 <sheetTitle>
 ------------
 
@@ -102,6 +112,8 @@ must be arrays.)
     a language file using standard LLL syntax. Ignored if sheets are not
     defined for the FlexForm.
 
+
+..  _t3datastructure-display-cond:
 
 <displayCond>
 -------------
@@ -117,6 +129,8 @@ must be arrays.)
     in the :ref:`TCA Reference <t3tca:columns>`.
 
 
+..  _t3datastructure-sheet-ident:
+
 <[sheet ident]>
 ---------------
 
@@ -129,6 +143,8 @@ must be arrays.)
     Alternatively, it can be a plain value referring to another
     XML file which contains the <ROOT> structure. See example later.
 
+
+..  _t3datastructure-el:
 
 <el>
 ----
@@ -178,6 +194,8 @@ must be strings or integers.)
 
     If the parent is `<ROOT>` this tag must have the value `"array"`.
 
+
+..  _t3datastructure-section:
 
 <section>
 ---------

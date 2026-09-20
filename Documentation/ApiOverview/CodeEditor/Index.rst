@@ -127,6 +127,8 @@ The following configuration options are available:
     example).
 
 
+..  _code-editor-register-addon-module:
+
 module
 ~~~~~~
 
@@ -138,6 +140,8 @@ module
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
 
+..  _code-editor-register-addon-cssFiles:
+
 cssFiles
 ~~~~~~~~
 
@@ -148,6 +152,8 @@ cssFiles
     Holds all CSS files that must be loaded for the module.
 
 
+..  _code-editor-register-addon-options:
+
 options
 ~~~~~~~
 
@@ -157,6 +163,8 @@ options
 
     Options that are used by the addon.
 
+
+..  _code-editor-register-addon-modes:
 
 modes
 ~~~~~
@@ -197,6 +205,8 @@ The following configuration options are available:
         $GLOBALS['TCA']['tt_content']['types']['css']['columnsOverrides']['bodytext']['config']['format'] = 'css';
 
 
+..  _code-editor-register-mode-module:
+
 module
 ~~~~~~
 
@@ -208,6 +218,8 @@ module
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
 
+..  _code-editor-register-mode-extensions:
+
 extensions
 ~~~~~~~~~~
 
@@ -218,6 +230,8 @@ extensions
     Binds the mode to specific file extensions. This is important for using
     the code editor in the module :guilabel:`File > Filelist`.
 
+
+..  _code-editor-register-mode-default:
 
 default
 ~~~~~~~

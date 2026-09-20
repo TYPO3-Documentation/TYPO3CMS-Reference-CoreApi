@@ -142,6 +142,8 @@ Options of database backends
     for compression and decompression.
 
 
+..  _caching-backend-compressionLevel:
+
 compressionLevel
 ~~~~~~~~~~~~~~~~
 
@@ -246,6 +248,8 @@ Options for the memcached backend
     `unix:///path/to/memcached.sock`
         Connect to memcached server using unix sockets
 
+
+..  _caching-backend-memcached-compression:
 
 compression
 ~~~~~~~~~~~
@@ -358,6 +362,8 @@ Options for the redis caching backend
     IP address or name of redis server to connect to.
 
 
+..  _caching-backend-redis-port:
+
 port
 ~~~~
 
@@ -368,6 +374,8 @@ port
 
     Port of the redis daemon.
 
+
+..  _caching-backend-redis-persistentConnection:
 
 persistentConnection
 ~~~~~~~~~~~~~~~~~~~~
@@ -380,6 +388,8 @@ persistentConnection
     Activate a persistent connection to a redis server. This is a good idea
     in high load cloud setups.
 
+
+..  _caching-backend-redis-database:
 
 database
 ~~~~~~~~
@@ -394,6 +404,8 @@ database
     is issued to one of them. Database numbers 0 and 1 are used and flushed by the Core unit tests
     and should not be used if possible.
 
+
+..  _caching-backend-redis-keyPrefix:
 
 keyPrefix
 ~~~~~~~~~
@@ -413,6 +425,8 @@ keyPrefix
     long as the prefix is unique. If only one cache sharing the database has
     no prefix set, flushing it flushes the whole database.
 
+..  _caching-backend-redis-password:
+
 password
 ~~~~~~~~
 
@@ -427,6 +441,8 @@ password
         The password is sent to the redis server as plain text.
 
 
+..  _caching-backend-redis-compression:
+
 compression
 ~~~~~~~~~~~
 
@@ -439,6 +455,8 @@ compression
     This can reduce cache size, but adds some CPU overhead for the compression
     and decompression operations in PHP.
 
+
+..  _caching-backend-redis-compressionLevel:
 
 compressionLevel
 ~~~~~~~~~~~~~~~~
@@ -625,6 +643,8 @@ Options for the PDO backend
     -   `sqlite::memory`
 
 
+..  _caching-backend-pdo-username:
+
 username
 ~~~~~~~~
 
@@ -635,6 +655,8 @@ username
     Username for the database connection.
 
 
+
+..  _caching-backend-pdo-password:
 
 password
 ~~~~~~~~
