@@ -55,7 +55,7 @@ Assigning variables needed in every action
 ------------------------------------------
 
 If a variable must be available in every action of a controller — for example
-the current site object or a global configuration value — override
+the current site object or a global configuration value — implement a function
 :php:`initializeView()` and assign it once there instead of repeating the
 call in each action method:
 
