@@ -8,7 +8,8 @@
 
 ..  versionadded:: 14.0
 
-The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\BeforeLabelResourceResolvedEvent`
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Localization\Event\BeforeLabelResourceResolvedEvent`
 is dispatched before the message is sent by the mailer and can be
 used to manipulate :php:`\Symfony\Component\Mime\RawMessage` and the
 :php:`\Symfony\Component\Mailer\Envelope`. Usually a

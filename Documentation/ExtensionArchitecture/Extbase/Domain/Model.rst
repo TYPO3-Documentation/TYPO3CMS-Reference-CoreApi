@@ -150,7 +150,7 @@ The four possible attributes on model properties are:
 
     ..  confval:: #[Validate]
         :name: extbase-attr-validate
-        :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Validate`
+        :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\Validate`
 
         Declares a validation rule on a property. The validator runs when
         the object is submitted via a controller action.
@@ -165,7 +165,7 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM` namespace:
     use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
     use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
     use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
-    use TYPO3\CMS\Extbase\Attribute\ORM\Validate;
+    use TYPO3\CMS\Extbase\Attribute\Validate;
 
     // on model properties:
     #[Validate(validator: 'NotEmpty')]
