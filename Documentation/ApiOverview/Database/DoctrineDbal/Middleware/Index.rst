@@ -121,6 +121,8 @@ structure for a middleware configuration is:
     The fully-qualified class name of the driver middleware.
 
 
+..  _database-middleware-sorting-before:
+
 before
 ------
 
@@ -133,6 +135,8 @@ before
     A list of middleware identifiers the current middleware should be registered
     before.
 
+
+..  _database-middleware-sorting-after:
 
 after
 -----
@@ -152,6 +156,8 @@ after
         `'typo3/core/custom-pdo-driver-result-middleware'` driver middlewares to
         ensure essential Core driver middlewares have been processed first.
 
+
+..  _database-middleware-sorting-disabled:
 
 disabled
 --------

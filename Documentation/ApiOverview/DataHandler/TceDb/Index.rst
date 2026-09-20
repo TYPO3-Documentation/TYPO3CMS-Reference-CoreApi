@@ -27,6 +27,8 @@ takes precedence. The variable names you can use are:
 
 
 
+..  _datahandler-commit-cmd:
+
 cmd
 ---
 
@@ -44,6 +46,8 @@ cmd
 
 
 
+..  _datahandler-commit-cacheCmd:
+
 cacheCmd
 --------
 
@@ -54,6 +58,8 @@ cacheCmd
     Cache command sent to :php:`DataHandler->clear_cacheCmd()`.
 
 
+
+..  _datahandler-commit-redirect:
 
 redirect
 --------
@@ -67,6 +73,8 @@ redirect
 
 
 
+..  _datahandler-commit-flags:
+
 flags
 -----
 
@@ -78,6 +86,8 @@ flags
     "reverseOrder" (boolean).
 
 
+
+..  _datahandler-commit-mirror:
 
 mirror
 ------

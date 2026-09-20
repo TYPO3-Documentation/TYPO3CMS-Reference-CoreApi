@@ -66,6 +66,8 @@ imagefile_ext
         between the commas and the file extensions!
 
 
+..  _globals-typo3-conf-vars-sys-gfx-imageFileConversionFormats:
+
 imageFileConversionFormats
 --------------------------
 

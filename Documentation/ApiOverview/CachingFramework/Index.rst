@@ -100,6 +100,8 @@ Various configuration options exist to configure the cHash behavior via
 in the file :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 
+..  _chash-cachedparameterswhitelist:
+
 cachedParametersWhiteList
 -------------------------
 
@@ -114,6 +116,8 @@ cachedParametersWhiteList
         influenced by other parameters beyond the initial caching anymore.
 
 
+..  _chash-requirecachehashpresenceparameters:
+
 requireCacheHashPresenceParameters
 ----------------------------------
 
@@ -124,6 +128,8 @@ requireCacheHashPresenceParameters
     behavior
 
 
+..  _chash-excludedparameters:
+
 excludedParameters
 ------------------
 
@@ -132,6 +138,8 @@ excludedParameters
     The given parameters will be ignored in the cHash calculation.
     Example: `L,tx_search_pi1[query]`
 
+
+..  _chash-excludedparametersifempty:
 
 excludedParametersIfEmpty
 -------------------------
@@ -143,6 +151,8 @@ excludedParametersIfEmpty
     all empty parameters.
 
 
+..  _chash-excludeallemptyparameters:
+
 excludeAllEmptyParameters
 -------------------------
 
@@ -151,6 +161,8 @@ excludeAllEmptyParameters
     If true, all parameters relevant to cHash are only considered when they are
     not empty.
 
+
+..  _chash-enforcevalidation:
 
 enforceValidation
 -----------------

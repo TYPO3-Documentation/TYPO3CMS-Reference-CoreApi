@@ -33,6 +33,8 @@ configuration.
     :type:
 
 
+..  _globals-typo3-conf-vars-sys-caching:
+
 caching
 -------
 
@@ -1096,6 +1098,8 @@ localization
         *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
 
 
+..  _globals-typo3-conf-vars-sys-FileInfo:
+
 FileInfo
 --------
 
@@ -1150,6 +1154,8 @@ FileInfo
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['text/plain']['foo'] =
                 'text/x-foo';
 
+
+..  _globals-typo3-conf-vars-sys-allowedPhpDisableFunctions:
 
 allowedPhpDisableFunctions
 --------------------------
