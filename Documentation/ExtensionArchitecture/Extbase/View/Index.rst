@@ -55,15 +55,15 @@ Assigning variables needed in every action
 ------------------------------------------
 
 If a variable must be available in every action of a controller — for example
-the current site object or a global configuration value — override
-:php:`initializeAction()` and assign it once there instead of repeating the
+the current site object or a global configuration value — implement a function
+:php:`initializeView()` and assign it once there instead of repeating the
 call in each action method:
 
-..  literalinclude:: _snippets/_ConferenceControllerInitializeAction.php
+..  literalinclude:: _snippets/_ConferenceControllerInitializeView.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 If a variable is only needed in one or two actions, assign it directly inside
-those action methods — :php:`initializeAction()` is not required.
+those action methods — :php:`initializeView()` is not required.
 
 
 ..  _extbase-view-property-access:
