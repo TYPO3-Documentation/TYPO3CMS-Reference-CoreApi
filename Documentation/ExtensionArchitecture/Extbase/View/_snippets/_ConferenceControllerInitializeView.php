@@ -8,6 +8,7 @@ use MyVendor\MyExtension\Domain\Model\Conference;
 use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Site\Entity\Site;
+use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ConferenceController extends ActionController
@@ -16,12 +17,11 @@ class ConferenceController extends ActionController
     protected readonly ConferenceRepository $conferenceRepository,
   ) {}
 
-  #[\Override]
-  protected function initializeAction(): void
+  protected function initializeView(ViewInterface $view): void
   {
     /** @var Site $site */
     $site = $this->request->getAttribute('site');
-    $this->view->assign('siteSettings', $site->getSettings()->all());
+    $view->assign('siteSettings', $site->getSettings()->all());
   }
 
   public function listAction(): ResponseInterface
