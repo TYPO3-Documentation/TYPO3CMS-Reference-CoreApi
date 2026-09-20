@@ -28,16 +28,16 @@ based on the implementation of ext:rte_ckeditor.
    to implement your own RichTextNodeResolver and give it a higher priority
    than the Core's implementation:
 
-    ..  literalinclude:: _ext_localconf.php
-        :caption: EXT:my_extension/ext_localconf.php
+..  literalinclude:: _ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
 -  Now create the class :php:`\MyVendor\MyExtension\Form\Resolver\RichTextNodeResolver`.
    The RichTextNodeResolver needs to implement the NodeResolverInterface and
    the major parts happen in the resolve() function, where, if all conditions
    are met, the RichTextElement class name is returned:
 
-    ..  literalinclude:: _RichTextNodeResolver.php
-        :caption: :php:`\MyVendor\MyExtension\Form\Resolver\RichTextNodeResolver`
+..  literalinclude:: _RichTextNodeResolver.php
+    :caption: :php:`\MyVendor\MyExtension\Form\Resolver\RichTextNodeResolver`
 
 -  Next step is to implement the RichtTextElement class. You can look up the
    code of :t3src:`rte_ckeditor/Classes/Form/Element/RichTextElement.php`, which
