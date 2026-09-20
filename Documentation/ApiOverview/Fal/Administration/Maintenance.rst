@@ -17,7 +17,7 @@ file abstraction layer.
 Scheduler tasks
 ===============
 
-Two base tasks provided by the :doc:`scheduler <ext_scheduler:Index>` are
+The :composer:`typo3/cms-scheduler` system extension provides two main tasks
 related to the file abstraction layer.
 
 File abstraction layer: Update storage index
@@ -79,3 +79,48 @@ such as wget for this.
 
 Also, deleting processed files while editors are active is not ideal.
 Preferably, lock the TYPO3 backend before you remove the processed files.
+
+..  index::
+    File abstraction layer; cleanup:localprocessedfiles
+    Command; cleanup:localprocessedfiles
+..  _fal-administration-maintenance-processed-files-cli:
+
+Cleaning up processed files on the command line
+-----------------------------------------------
+
+The console command `vendor/bin/typo3 cleanup:localprocessedfiles
+<https://docs.typo3.org/permalink/t3coreapi:console-command-cleanup-localprocessedfiles>`_
+from system extension :composer:`typo3/cms-lowlevel` removes processed files
+that are no longer needed from local storage (`Local` driver rather than cloud
+storage). It deletes
+
+*   files in the processing folders that are not referred to by any
+    :sql:`sys_file_processedfile` records, and
+*   :sql:`sys_file_processedfile` records where the processed file no longer
+    exists.
+
+Show which files and records the command would delete, without deleting them:
+
+..  tabs::
+
+    ..  group-tab:: Composer mode
+
+        ..  code-block:: bash
+
+            vendor/bin/typo3 cleanup:localprocessedfiles --dry-run -v
+
+    ..  group-tab:: Classic mode
+
+        ..  code-block:: bash
+
+            typo3/sysext/core/bin/typo3 cleanup:localprocessedfiles --dry-run -v
+
+The command asks for confirmation before deletion. Option `-f`
+(`--force`) skips confirmation, as does running the command without
+interaction, for example when running it as a
+:ref:`scheduler task <symfony-console-commands-scheduler>` for regular cleanup.
+
+Option `--all` deletes processed files in all storage and all the associated
+records, including those still in use. TYPO3 then recreates the processed files,
+which is useful, for example, if a new file processor has been added. Flush
+the page cache afterwards, as described above.
