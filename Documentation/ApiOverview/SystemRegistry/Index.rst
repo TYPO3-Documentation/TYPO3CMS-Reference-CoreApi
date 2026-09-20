@@ -104,6 +104,8 @@ table:
     Primary key, needed for replication and also useful as an index.
 
 
+..  _sys-registry-entry-namespace:
+
 entry_namespace
 ---------------
 
@@ -119,6 +121,8 @@ entry_namespace
     within different namespaces.
 
 
+..  _sys-registry-entry-key:
+
 entry_key
 ---------
 
@@ -131,6 +135,8 @@ entry_key
     recommended to use dots as dividers, if necessary. In this way, the
     naming is similar to the syntax already known in TypoScript.
 
+
+..  _sys-registry-entry-value:
 
 entry_value
 -----------

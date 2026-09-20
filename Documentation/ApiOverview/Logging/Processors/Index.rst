@@ -67,6 +67,8 @@ Options
     Adds a full backtrace stack to the log.
 
 
+..  _logging-processors-introspection-shiftBackTraceLevel:
+
 shiftBackTraceLevel
 ```````````````````
 
@@ -103,6 +105,8 @@ Options
     allocated from system instead of :php:`emalloc()` value.
 
 
+..  _logging-processors-memory-formatSize:
+
 formatSize
 ``````````
 
@@ -138,6 +142,8 @@ Options
     Use the `real size of memory <https://www.php.net/manual/en/function.memory-get-peak-usage.php#refsect1-function.memory-get-peak-usage-parameters>`__
     allocated from system instead of :php:`emalloc()` value.
 
+
+..  _logging-processors-memory-peak-formatSize:
 
 formatSize
 ``````````
