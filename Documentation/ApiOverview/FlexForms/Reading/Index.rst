@@ -41,7 +41,7 @@ value is not defined in the plugin.
 FlexFormService: Read FlexForms values in PHP
 =============================================
 
-You can use the :php-short:`\TYPO3\CMS\Extbase\Service\FlexFormService` to read
+You can use the :php-short:`\TYPO3\CMS\Core\Service\FlexFormService` to read
 the content of a FlexForm field.
 
 This is useful in plain controllers without Extbase support, or in contexts
