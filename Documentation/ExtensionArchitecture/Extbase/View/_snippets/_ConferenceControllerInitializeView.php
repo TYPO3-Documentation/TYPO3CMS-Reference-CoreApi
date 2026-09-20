@@ -8,8 +8,8 @@ use MyVendor\MyExtension\Domain\Model\Conference;
 use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Site\Entity\Site;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Core\View\ViewInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ConferenceController extends ActionController
 {
