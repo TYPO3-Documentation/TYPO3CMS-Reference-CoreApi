@@ -11,7 +11,7 @@
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Localization\Event\ModifyLocalizationHandlerIsAvailableEvent`
 is  fired in :php-short:`\TYPO3\CMS\Backend\Localization\LocalizationHandlerRegistry`
 to allow overruling the available state of any registered localization handler based
-on the :php-short:`\TYPO3\CMS\Backend\Localization\LocalizationInstructions\LocalizationInstructions`.
+on the :php-short:`\TYPO3\CMS\Backend\Localization\LocalizationInstructions`.
 
 ..  _ModifyLocalizationHandlerIsAvailableEvent-example:
 

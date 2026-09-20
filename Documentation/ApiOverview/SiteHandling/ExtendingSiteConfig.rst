@@ -79,12 +79,12 @@ handling and similar.
 The example below shows the experimental feature adding a field to site in an
 extension's :file:`Configuration/SiteConfiguration/Overrides/sites.php` file.
 Note the helper methods of class
-:php:`TYPO3\CMS\core\Utility\ExtensionManagementUtility` can not be used.
+:php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` can not be used.
 
 ..  literalinclude:: _extending-site-config.php
     :caption: EXT:my_extension/Configuration/SiteConfiguration/Overrides/sites.php
 
 The field will be shown in the edit form of the configuration module and its
 value stored in the :file:`config.yaml` file. Using the site object
-:php:`\TYPO3\CMS\core\Site\Entity\Site`, the value can be fetched using
+:php:`\TYPO3\CMS\Core\Site\Entity\Site`, the value can be fetched using
 :php:`->getConfiguration()['myNewField']`.

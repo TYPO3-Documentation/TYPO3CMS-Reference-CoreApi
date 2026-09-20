@@ -87,8 +87,8 @@ elements and therefore sets not default values for group and icon.
 Plugins (Extbase) in the "New Content Element" wizard
 =====================================================
 
-To add an Extbase plugin you can use `ExtensionManagementUtility::registerPlugin`
-of class :php:`\TYPO3\CMS\Extbase\Utility\ExtensionManagementUtility`.
+To add an Extbase plugin you can use `ExtensionUtility::registerPlugin`
+of class :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility`.
 
 This method is only available for Extbase plugins defined via
 `ExtensionUtility::configurePlugin` in file :file:`EXT:my_extension/ext_localconf.php`

@@ -59,8 +59,9 @@ Their usage is covered in the :ref:`model page <extbase-domain-model-value-objec
     ..  card:: :ref:`Property types <extbase-domain-property-types>`
 
         Which PHP property types map to which TCA field and database column:
-        primitives, :php:`\DateTime`, :php:`\Country`, enumerations and union
-        types.
+        primitives, :php:`\DateTime`,
+        :php-short:`\TYPO3\CMS\Core\Country\Country`, enumerations and
+        union types.
 
 ..  toctree::
     :titlesonly:
