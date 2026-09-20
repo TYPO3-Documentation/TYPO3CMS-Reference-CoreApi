@@ -184,6 +184,43 @@ Or a controller:
 ..  literalinclude:: _SomeController.php
     :caption: EXT:my_extension/Classes/Backend/Controller/SomeController.php
 
+..  index:: FormEngine; fieldChangeFunc
+..  _FormEngine-Rendering-OnFieldChange:
+
+Reacting to field changes
+=========================
+
+When the value of a field changes, FormEngine runs through all the behaviors
+assigned in `$this->data['parameterArray']['fieldChangeFunc']`. The Core uses
+them, for example, to mark a field as changed or to reload a form when a
+record type changes. Each item implements
+:php:`\TYPO3\CMS\Backend\Form\Behavior\OnFieldChangeInterface` which has a method
+`toArray()` that returns the `name` of the JavaScript handler and the `data`
+passed to it:
+
+..  literalinclude:: _NotifyOnFieldChange.php
+    :emphasize-lines: 20
+    :caption: EXT:my_extension/Classes/Backend/Form/Behavior/NotifyOnFieldChange.php
+
+An element passes the behaviors to the browser as HTML data attributes, which
+are created by the `getOnFieldChangeAttrs()` method in
+:php-short:`\TYPO3\CMS\Backend\Form\Element\AbstractFormElement`. Keep the
+attributes that the Core has already added, so that the field is marked as
+changed:
+
+..  literalinclude:: _NotifyingTextElement.php
+    :caption: EXT:my_extension/Classes/Backend/Form/NotifyingTextElement.php
+
+The JavaScript module registers the handler under the same name. It receives
+the `data` array and the browser event:
+
+..  literalinclude:: _notify-on-field-change.js
+    :emphasize-lines: 5
+    :caption: EXT:my_extension/Resources/Public/JavaScript/notify-on-field-change.js
+
+The module has to be part of the import map, see
+:ref:`Loading ES6 modules <backend-javascript-es6-loading>`.
+
 ..  _FormEngine-Rendering-NodeExpansion:
 
 Node expansion
