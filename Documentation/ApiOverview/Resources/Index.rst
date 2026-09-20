@@ -87,6 +87,46 @@ The `Environment PHP API <https://docs.typo3.org/permalink/t3coreapi:environment
 can be used to resolve paths to other locations within the project such as the
 path to the :folder:`config` folder.
 
+..  _resources-identifiers:
+
+Resource identifiers: referencing files with `EXT:`, `PKG:`, `FAL:` and URLs
+============================================================================
+
+..  versionadded:: 14.0
+    See `Feature: #107537 - System resource API for system file access and
+    public URI generation
+    <https://docs.typo3.org/permalink/changelog:feature-107537-1759136314>`_.
+
+Where TYPO3 resolves a system resource, for example in the TypoScript
+property :typoscript:`includeCSS`, in the `asset collector
+<https://docs.typo3.org/permalink/t3coreapi:asset-collector>`_, in Fluid or
+in the PHP API, it accepts these resource identifiers:
+
+`PKG:my-vendor/my-extension:Resources/Public/Css/main.css`
+    A file in a package, identified by its Composer name. This works in
+    classic mode as well, if the extension has a :file:`composer.json`. The
+    `EXT:` syntax can still be used for extensions.
+
+`PKG:typo3/app:public/typo3temp/assets/style.css`
+    A file of the project itself, with the virtual package name `typo3/app`
+    and a path relative to the project root.
+
+`FAL:1:/templates/css/main.css`
+    A file in the :ref:`file storage <fal-architecture-components-storage>`
+    with the UID `1`.
+
+`https://example.org/css/main.css` or `URI:/css/main.css`
+    A URL, or a URL relative to the current host. An invalid URL throws an
+    exception instead of ending up in the HTML.
+
+..  deprecated:: 14.0
+    Referencing a file by a path relative to the public folder, such as
+    `typo3temp/assets/style.css` or `_assets/vite/foo.css`, is deprecated.
+    A path such as `fileadmin/file.svg` is only resolved in the default file
+    storage, which is configured in
+    `$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-be-fileadmindir>`_.
+    Use one of the identifiers above instead.
+
 ..  _resources-public:
 
 Referencing public resources
@@ -116,16 +156,42 @@ The file paths can then be used within JavaScript:
 ..  literalinclude:: _CodeSnippets/_Map.js
     :caption: packages/my_extension/Resources/Public/JavaScript/Content/Map.js
 
+To reference a resource by its
+:ref:`resource identifier <resources-identifiers>`, turn it into a resource
+object with the ViewHelper `f:resource` first:
+
+..  literalinclude:: _CodeSnippets/_MapResource.fluid.html
+    :caption: packages/my_extension/Resources/Private/Content/Map.fluid.html
+
 If the assets lie within the same extension you can also use relative paths in
 the JavaScript and CSS files.
 
 ..  _resources-public-php:
 
-PHP: `PathUtility::getAbsoluteWebPath()`
-----------------------------------------
+Generating the URL of a public resource in PHP
+----------------------------------------------
 
-You can use the class :php:`\TYPO3\CMS\Core\Utility\PathUtility` to get an
-absolute web path for a public resource via `PathUtility::getAbsoluteWebPath()`:
+..  versionadded:: 14.0
+    See `Feature: #107537 - System resource API for system file access and
+    public URI generation
+    <https://docs.typo3.org/permalink/changelog:feature-107537-1759136314>`_.
+
+To get the URL of a public resource in PHP, resolve its
+:ref:`resource identifier <resources-identifiers>` with the
+:php:`\TYPO3\CMS\Core\SystemResource\SystemResourceFactory` and pass the
+result to an implementation of
+:php:`\TYPO3\CMS\Core\SystemResource\Publishing\SystemResourcePublisherInterface`.
+It returns a URL with a cache buster, which works in Composer and classic
+mode alike:
 
 ..  literalinclude:: _CodeSnippets/_MyMapController.php
     :caption: packages/my_extension/Classes/Controller/MyMapController.php
+
+Pass `null` as request only where there is no request, for example in a
+console command. Absolute URLs cannot be generated then. To leave out the
+cache buster, pass :php:`new UriGenerationOptions(cacheBusting: false)`.
+
+:php:`createPublicResource()` throws an exception if the resource is not
+public, for example a Fluid template in :folder:`Resources/Private`. Use
+:php:`createResource()` to resolve such a resource, for example to read it
+on the server side.
