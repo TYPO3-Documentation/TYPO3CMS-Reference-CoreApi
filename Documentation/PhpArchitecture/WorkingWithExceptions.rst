@@ -233,9 +233,10 @@ Good examples
         that only the catching code knows.
 
     *   Good: The exception hierarchy is relatively flat - it extends from
-        a more generic :php:`\Backend\Form\Exception` which itself extends
-        from :php:`\Backend\Exception` which extends :php:`\Exception`.
-        The :php:`\Backend\Form\Exception` could have been left out, but
+        a more generic :php:`\TYPO3\CMS\Backend\Form\Exception` which
+        itself extends from :php:`\TYPO3\CMS\Backend\Exception` which
+        extends :php:`\Exception`. The
+        :php:`\TYPO3\CMS\Backend\Form\Exception` could have been left out, but
         since the backend extension is so huge, the author decided to have
         this additional class layer in between.
 

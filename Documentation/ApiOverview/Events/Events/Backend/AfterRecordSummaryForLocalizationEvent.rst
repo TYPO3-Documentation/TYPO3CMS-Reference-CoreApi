@@ -11,7 +11,7 @@ AfterRecordSummaryForLocalizationEvent
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent`
 is fired in the
-:php:`\TYPO3\CMS\Backend\Controller\Page\RecordSummaryForLocalization` class
+:php:`\TYPO3\CMS\Backend\Controller\Page\LocalizationController` class
 and allows extensions to modify the payload of the :php:`JsonResponse`.
 
 

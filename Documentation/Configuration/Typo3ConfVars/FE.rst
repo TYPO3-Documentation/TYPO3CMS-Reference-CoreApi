@@ -512,7 +512,7 @@ eID_include
 
     Array of key/value pairs where the key is :php:`tx_[ext]_[optional suffix]`
     and value is relative filename of class to include.
-    Key is used as "?eID=" for :php:`\TYPO3\CMS\Frontend\Http\RequestHandlerRequestHandler`
+    Key is used as "?eID=" for :php:`\TYPO3\CMS\Frontend\Http\RequestHandler`
     to include the code file which renders the page from that point.
 
     (Useful for functionality that requires a low initialization footprint,
