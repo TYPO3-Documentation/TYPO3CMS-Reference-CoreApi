@@ -9,14 +9,14 @@
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent`
-allows to modify the displayed record actions (for example
-:guilabel:`edit`, :guilabel:`copy`, :guilabel:`delete`) for a table in
-the record list.
+allows the displayed record actions (for example
+:guilabel:`edit`, :guilabel:`copy`, :guilabel:`delete`) to be modified for a
+table in the record list.
 
 ..  versionchanged:: 14.0
-    The actions are button components instead of HTML strings, and the
-    primary and secondary actions are addressed with the
-    :php-short:`\TYPO3\CMS\Backend\Template\Components\ActionGroup` enum, see
+    Actions are now button components instead of HTML strings, and
+    primary and secondary actions are set by the
+    :php-short:`\TYPO3\CMS\Backend\Template\Components\ActionGroup` enum. See
     `Breaking: #107884 - Rework actions to use Buttons API with Components
     <https://docs.typo3.org/permalink/changelog:breaking-107884-1730135000>`_.
 
