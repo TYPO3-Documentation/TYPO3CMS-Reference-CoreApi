@@ -34,7 +34,7 @@ The install tool follows the backend entry point, for example
 
 ..  versionchanged:: 14.0
     Up to TYPO3 v13, the install tool was available via
-    :samp:`/typo3/install.php`, regardless of the backend entry point, see
+    :samp:`/typo3/install.php`, regardless of the backend entry point. See
     `Important: #107536 - Install Tool now adapts to backend login routing
     <https://docs.typo3.org/permalink/changelog:important-107536-1718204204>`_.
 

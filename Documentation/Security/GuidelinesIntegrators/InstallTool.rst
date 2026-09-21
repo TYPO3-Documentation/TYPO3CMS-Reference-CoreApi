@@ -193,13 +193,13 @@ If TYPO3 is not set up or does not work properly, the Install Tool can also
 be reached via :samp:`https://example.org/?__typo3_install`. Use this address
 for recovery only. The parameter might be removed in a future TYPO3 version.
 
-For additional security, you can deny requests with the `__typo3_install`
-parameter on web server level, or protect them with the user authentication of
+For additional security, you can deny requests that have the `__typo3_install`
+parameter at the web server level, or protect them by user authentication of
 the web server. If the Install Tool is not needed on a live server, you can
-remove :composer:`typo3/cms-install` there, in Classic mode the folder
-:path:`typo3/sysext/install`. Please keep in mind that these measures have an
+remove :composer:`typo3/cms-install`: in Classic mode this is the folder
+:path:`typo3/sysext/install`. Please keep in mind that this will have an
 impact on the usability of the system. If you are not the only person who
-uses the Install Tool, you should discuss the best approach with the team.
+will use the Install Tool, discuss the best approach with your team.
 
 ..  _security-install-tool-core-updates:
 
