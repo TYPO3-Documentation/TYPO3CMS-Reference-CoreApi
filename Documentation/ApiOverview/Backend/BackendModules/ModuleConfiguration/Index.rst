@@ -119,12 +119,11 @@ Module configuration options
             See `Feature: #107712 - Introduce card-based sub module overview
             <https://docs.typo3.org/permalink/changelog:feature-107712-1760548718>`_.
 
-        If true, a module with
-        :ref:`submodules <backend-modules-third-level-module>` shows an
-        overview of them instead of opening the first submodule. Each submodule
-        the current user has access to is shown as a card with its icon, title
-        and description, and a button to open it. See
-        :ref:`Showing third-level backend modules as cards
+        If true and if a module has
+        :ref:`submodules <backend-modules-third-level-module>`, the submodules
+        that the backend user has access to are displayed as a set of cards.
+        Each card has an icon, a title, a description, and a button to open the
+        submodule. See :ref:`Showing third-level backend modules as cards
         <backend-modules-third-level-module-overview>` for an example.
 
     ..  confval:: iconIdentifier
