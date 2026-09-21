@@ -156,8 +156,8 @@ Example:
 Reacting to events of backend modals
 ------------------------------------
 
-A modal dispatches the following events. Add the event listeners to the
-modal returned by the API:
+A modal dispatches the following events. Add event listeners to the
+modal that is returned by the API:
 
 `typo3-modal-show`
     Before the modal is opened.
@@ -175,9 +175,10 @@ modal returned by the API:
     :caption: EXT:my_extension/Resources/Public/JavaScript/delete-conference.js
 
 ..  versionchanged:: 14.0
-    Modals are native :html:`<dialog>` elements. The Bootstrap modal events,
-    such as `shown.bs.modal`, and the Bootstrap modal API, including the
-    `data-bs-toggle="modal"` attribute, are not supported anymore, see
+    Modals are now native :html:`<dialog>` elements rather than the previous
+    :html:`<div>`-based structure. Bootstrap modal events
+    such as `shown.bs.modal` and the Bootstrap modal API, including the
+    `data-bs-toggle="modal"` attribute, are not supported anymore. See
     `Breaking: #107443 - Migrate Modal component from Bootstrap to native
     dialog
     <https://docs.typo3.org/permalink/changelog:breaking-107443-1761040245>`_.
