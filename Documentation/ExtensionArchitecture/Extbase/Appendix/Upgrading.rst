@@ -241,6 +241,68 @@ available.
     migration guide in the TYPO3 v13 branch of this manual.
 
 
+..  _extbase-upgrading-language-query-settings:
+
+Language query settings replaced by the language aspect (TYPO3 v12 / v13)
+=========================================================================
+
+..  versionchanged:: 13.0
+
+    :php:`setLanguageUid()`, :php:`getLanguageUid()`,
+    :php:`setLanguageOverlayMode()` and :php:`getLanguageOverlayMode()` were
+    removed from
+    :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings`, listed in
+    :ref:`Breaking: #100963 — Deprecated functionality removed <changelog:breaking-100963-1686129084>`.
+    :php:`setLanguageMode()` and :php:`getLanguageMode()` had already gone in
+    v12, listed in
+    :ref:`Breaking: #96107 — Deprecated functionality removed <changelog:breaking-96107>`.
+
+Older tutorials and extensions configure the language of a query by setting a
+language UID and an overlay mode separately on the query settings. Both are
+gone, and because they were removed rather than deprecated, calling them is a
+fatal error rather than a warning.
+
+The replacement is a single
+:php:`\TYPO3\CMS\Core\Context\LanguageAspect`, which carries the language
+UID and the overlay behaviour together:
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+     $query = $this->createQuery();
+     $querySettings = $query->getQuerySettings();
+    -$querySettings->setLanguageUid($languageId);
+    -$querySettings->setLanguageOverlayMode(true);
+    +$querySettings->setLanguageAspect(
+    +    LanguageAspectFactory::createFromSiteLanguage($siteLanguage),
+    +);
+
+The two settings were removed from :php:`QuerySettingsInterface` one version
+earlier, in v12, so a custom implementation of that interface has to provide
+:php:`getLanguageAspect()` and :php:`setLanguageAspect()` instead. See
+:ref:`Breaking: #97926 — Extbase QuerySettings methods removed <changelog:breaking-97926-1657726187>`.
+
+..  hint::
+
+    Build the aspect from a site language rather than assembling one from the
+    old UID and overlay values. The language UID, the `fallbackType` and the
+    fallback chain belong together as one language's configuration, and mixing
+    values from different languages produces behaviour no site declares. See
+    :ref:`extbase-localisation-query-settings-aspect`.
+
+:php:`setRespectSysLanguage()` is *not* affected and remains available. It
+decides whether the language restriction is applied at all, which is a separate
+question from which language is asked for.
+
+..  seealso::
+
+    *   `Setting a language aspect <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-query-settings-aspect>`_
+        — the current way to choose the language of a query.
+
+    *   `Language aspect properties <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-properties>`_
+        — what each constructor parameter of the aspect means.
+
+
 ..  _extbase-upgrading-standalone-view:
 
 `StandaloneView` removed (TYPO3 v14)
