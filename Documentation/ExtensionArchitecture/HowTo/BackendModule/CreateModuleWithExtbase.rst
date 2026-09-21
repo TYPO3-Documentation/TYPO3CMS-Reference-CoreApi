@@ -57,7 +57,7 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
     {
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
 
-        // Example of assignung variables to the view 
+        // Example of assignung variables to the view
         $moduleTemplate->assign('someVar', 'someContent');
 
         // Example of adding a page-shortcut button
@@ -70,6 +70,10 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
         return $moduleTemplate->renderResponse('MyController/MyAction');
     }
+
+Always pass the template name, relative to the :file:`Templates/` folder, to
+:php:`renderResponse()`. Unlike :php:`$this->view`, it does not derive the
+name from the controller and action and throws an exception without one.
 
 ..  seealso::
     :ref:`dropdown-button-components`
