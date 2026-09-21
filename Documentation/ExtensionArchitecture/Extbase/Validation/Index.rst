@@ -17,7 +17,7 @@ method is called. If validation fails, the framework calls
 even if it is invalid — for example to redisplay a form with its errors.
 
 Validators can be Extbase built-ins, custom classes, or — since TYPO3 v14 —
-`Symfony constraints <https://docs.typo3.org/permalink/changelog:feature-106945-1750757664>`_.
+:ref:`Symfony constraints <extbase-validation-symfony-constraints>`.
 
 ..  contents:: On this page
     :local:
@@ -105,6 +105,33 @@ values from the object and :ref:`t3viewhelper:typo3-fluid-form-validationresults
 can display the errors inline — the object does not need to be valid for
 this to work.
 
+
+..  _extbase-validation-symfony-constraints:
+
+Validating Extbase model properties with Symfony constraints
+============================================================
+
+..  versionadded:: 14.0
+    See `Feature: #106945 - Allow usage of Symfony validators in Extbase
+    <https://docs.typo3.org/permalink/changelog:feature-106945-1750757664>`_.
+
+Domain model properties also accept the constraint attributes of the
+Symfony Validator component, for example `#[Assert\\NotBlank]` or
+`#[Assert\\Iban]`. Extbase runs them like its own validators, so their errors
+reach :php:`errorAction()` and the Fluid template in the same way. The package
+:composer:`symfony/validator` is a dependency of Extbase, so there is nothing
+to install:
+
+..  literalinclude:: _snippets/_ConferenceWithSymfonyConstraints.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+A message that starts with `LLL:` is translated. Placeholders of the Symfony
+messages, such as `{{ value }}`, are passed to the translation as `%1$s`,
+`%2$s` and so on.
+
+Symfony constraints only work on model properties, not on action parameters.
+Constraints that depend on the Symfony framework, such as `#[Assert\\File]`
+and `#[Assert\\Image]`, are not supported yet.
 
 ..  _extbase-validation-ignore:
 
@@ -201,12 +228,6 @@ What to read next
     rules that the built-in validators cannot express.
 *   :ref:`extbase-controller-propertymapping` — how request data is mapped to objects
     before validation runs.
-
-..  versionadded:: 14.0
-
-    Symfony validators can be used in Extbase directly — see
-    `Feature #106945 <https://docs.typo3.org/permalink/changelog:feature-106945-1750757664>`_
-    for details.
 
 ..  toctree::
     :titlesonly:
