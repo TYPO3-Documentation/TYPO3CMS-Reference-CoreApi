@@ -318,10 +318,9 @@ discard
 
     Value should always be `true`.
 
-    Discards the changes made to a record in a workspace: The workspace
-    version of the record and of its child records are removed without being
-    published. Use the UID of the workspace version, not the UID of the live
-    record.
+    Discards changes made to a record in a workspace: The workspace
+    version of the record and any child records are removed. Use the UID of the
+    workspace version, not the UID of the live record.
 
     ..  code-block:: php
         :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
