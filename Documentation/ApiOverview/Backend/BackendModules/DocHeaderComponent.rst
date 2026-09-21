@@ -73,31 +73,38 @@ Layout of the backend module header
 
 The module header consists of two rows:
 
-*   The top row shows the breadcrumb on the left and, if the module provides
-    one, the language selector on the right.
+*   The top row has the breadcrumb on the left and, if the module provides
+    one, a language selector on the right.
 *   The second row is the button bar. On the left, it starts with the
-    dropdown of the module actions in button group 0, followed by the
-    buttons of the module. On the right, it holds functional buttons such as
+    dropdown of the module actions from button group 0, followed by the
+    module buttons. The functional buttons are on the right, such as
     :guilabel:`Reload` or :guilabel:`Bookmark`.
+
+    ..  figure:: /Images/ManualScreenshots/Backend/DocHeaderComponent.png
+        :class: with-shadow
+
+        The module header displayed by the DocHeaderComponent
 
 ..  _DocHeaderComponent-language-selector:
 
 Adding module actions and a language selector to the module header
 ==================================================================
 
-:php:`makeDocHeaderModuleMenu()` of the
-:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` adds a dropdown with
-the submodules of the current module. It is hidden if there is only one.
+:php:`makeDocHeaderModuleMenu()` of
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` adds a dropdown
+consisting of the submodules of the current module. If there is only one, it is
+hidden.
 
-:php:`setLanguageSelector()` of the
+:php:`setLanguageSelector()` of
 :php-short:`\TYPO3\CMS\Backend\Template\Components\DocHeaderComponent`
-places a dropdown in the top right corner. With
+places a dropdown in the top right corner. If
 :php:`setShowActiveLabelText(true)`, the dropdown shows the selected item,
 for example "English", as its text, and screen readers announce the label
 and the selected item, "Language: English":
 
 ..  literalinclude:: _DocHeaderLanguageSelector.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+    :emphasize-lines: 34,53,76
 
 ..  _DocHeaderComponent-example:
 
