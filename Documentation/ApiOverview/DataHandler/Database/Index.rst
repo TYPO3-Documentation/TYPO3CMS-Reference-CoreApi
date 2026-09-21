@@ -19,7 +19,7 @@ When you are using DataHandler from your backend applications you need to
 prepare two arrays of information which contain the instructions to
 DataHandler (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
-:ref:`data <datahandler-data>` and :ref:`commands <datahandler-commands>`.
+:ref:`data <datahandler-data>` and :ref:`commands <tce-database-basics-commands-array>`.
 
 "Data" is when you want to write information to a database table or
 create a new record.
@@ -503,15 +503,16 @@ value
     For fields of TCA type :ref:`datetime <t3tca:columns-datetime>` use one
     of these values:
 
-    *   An ISO 8601 date without timezone offset, for example
-        `1999-11-11T11:11:11`. It is taken as local time of the server.
-    *   An ISO 8601 date with timezone offset, for example
+    *   An ISO 8601 date without a timezone offset, for example
+        `1999-11-11T11:11:11`. It is taken as the local time of the server.
+    *   An ISO 8601 date with a timezone offset, for example
         `1999-11-11T11:11:11+01:00` or `1999-11-11T10:11:11Z`.
     *   A :php:`\DateTimeInterface` object.
 
-    The DataHandler stores the point in time, as UTC for integer fields and as
-    server local time for native :sql:`DATETIME` fields. The timezone offset
-    itself is not stored.
+    The DataHandler resolves the datetime value to an absolute point in time and
+    stores that as UTC in integer fields, or as
+    server local time in native :sql:`DATETIME` fields. The timezone offset
+    is not kept.
 
     ..  versionchanged:: 14.0
         A timezone offset is now respected. Previously, `Z` was taken to mean
