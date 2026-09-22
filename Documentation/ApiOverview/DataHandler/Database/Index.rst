@@ -493,7 +493,7 @@ value
 
 ..  confval:: value
     :name: datahandler-data-value
-    :Data type: string, :php:`\DateTimeInterface`
+    :Data type: string, int, :php:`\DateTimeInterface`
 
     Value for "fieldname".
 
@@ -508,6 +508,8 @@ value
     *   An ISO 8601 date with a timezone offset, for example
         `1999-11-11T11:11:11+01:00` or `1999-11-11T10:11:11Z`.
     *   A :php:`\DateTimeInterface` object.
+    *   An integer Unix timestamp, for example `942315071`. This is mainly
+        intended for copy and import operations.
 
     The DataHandler resolves the datetime value to an absolute point in time and
     stores that as UTC in integer fields, or as
