@@ -33,7 +33,7 @@ using the following address to create a new administrative user:
 
 ..  code-block:: none
 
-    https://example.com/typo3/install.php
+    https://example.com/typo3/install
 
 The Install Tool requires the "Installation Password" that would have been set
 when TYPO3 was installed.
@@ -84,7 +84,7 @@ Before editing this file, visit:
 
 ..  code-block:: none
 
-    https://example.com/typo3/install.php
+    https://example.com/typo3/install
 
 
 Enter the new password into the dialogue box. As the new password is not correct,
