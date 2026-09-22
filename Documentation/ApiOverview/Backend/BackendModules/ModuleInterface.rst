@@ -20,6 +20,13 @@ relation handling (main modules and sub modules).
     :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`. See also
     `Feature: #107663 - New method getDependsOnSubmodules() required <https://docs.typo3.org/permalink/changelog:feature-107663-1760110062>`_.
 
+..  versionchanged:: 14.0
+
+    Method :php:`hasSubmoduleOverview()` was added to the
+    :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`. See also
+    `Breaking: #107712 - New method hasSubmoduleOverview() in ModuleInterface
+    <https://docs.typo3.org/permalink/changelog:breaking-107712-1760548718>`_.
+
 ..  contents:: Table of contents
 
 ..  _backend-module-interface-moduleinterface-api:
