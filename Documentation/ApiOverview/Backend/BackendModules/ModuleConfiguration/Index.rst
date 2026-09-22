@@ -129,7 +129,8 @@ Module configuration options
         :type: array of strings or string
 
         The title of the module, the description shown in the
-        :guilabel:`About` module, and the short description shown as a
+        :guilabel:`About` module (find it by clicking on your user profile then
+        under :guilabel:`Help`), and the short description shown as a
         tooltip in the module menu.
 
         Pass the :ref:`translation domain <label-reference-domain>` of the
@@ -138,16 +139,16 @@ Module configuration options
         `title`, `description` and `short_description`.
 
         ..  versionadded:: 14.0
-            Referencing the labels by their translation domain, see
+            Referencing labels by their translation domain, see
             `Feature: #93334 - Translation domain mapping
             <https://docs.typo3.org/permalink/changelog:feature-93334-1729000000>`_.
 
-        Alternatively pass an :php:`array` with the keys `title`,
+        Alternatively, pass an :php:`array` with the keys `title`,
         `description` and `shortDescription`. The value of each key is either
-        a static text or a label reference.
+        static text or a label reference.
 
         The path of a :ref:`locallang file <t3coreapi:xliff-files>` can be
-        passed as well. Such a file has to contain the keys
+        passed as well. The file has to contain the keys
         `mlang_tabs_tab` (title), `mlang_labels_tabdescr` (description) and
         `mlang_labels_tablabel` (short description).
 
