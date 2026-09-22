@@ -47,6 +47,30 @@ Example:
     $buttonBar->addButton($genericButton, ButtonBar::BUTTON_POSITION_RIGHT, 2);
 
 
+..  _button-components-attributes:
+
+Setting HTML attributes on backend buttons
+==========================================
+
+..  versionadded:: 14.0
+    See `Feature: #107823 - ComponentFactory for backend components
+    <https://docs.typo3.org/permalink/changelog:feature-107823-1761297638>`_.
+
+The link, input and split buttons accept HTML attributes through
+:php:`setAttributes()`, like the generic button does. Use these buttons
+rather than a generic button if you only need a few attributes:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
+
+    $previewButton = $this->componentFactory->createLinkButton()
+        ->setHref($previewUrl)
+        ->setTitle('Open preview')
+        ->setIcon($this->iconFactory->getIcon('actions-view'))
+        ->setAttributes(['target' => '_blank', 'rel' => 'noopener']);
+    $buttonBar->addButton($previewButton, ButtonBar::BUTTON_POSITION_RIGHT, 2);
+
+
 ..  _dropdown-button-components:
 
 Dropdown button components
