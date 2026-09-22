@@ -238,8 +238,8 @@ Access TYPO3 via a web browser
 
 After you have configured your web server to point at the `public` directory of
 your project, TYPO3 can be accessed via a web browser. When accessing a new site
-for the first time, TYPO3 automatically redirects all requests to
-:samp:`/typo3/install.php` to complete the installation process.
+for the first time, TYPO3 automatically starts the installer to complete the
+installation process.
 
 ..  tip::
     When accessing the page via HTTPS, a "Privacy error" or similar warning is
@@ -271,8 +271,8 @@ If no issues are detected, the installation process can continue.
 In the event that certain criteria are not met, TYPO3 will display a list of
 issues it has detected accompanied by a resolution for each issue.
 
-Once changes have been made, TYPO3 can re-scan the host environment by reloading
-the page :samp:`https://example-project-site.local/typo3/install.php`.
+Once changes have been made, TYPO3 can re-scan the host environment when you
+reload the page.
 
 ..  include:: /Images/ManualScreenshots/QuickInstall/Step1SystemEnvironment.rst.txt
 
