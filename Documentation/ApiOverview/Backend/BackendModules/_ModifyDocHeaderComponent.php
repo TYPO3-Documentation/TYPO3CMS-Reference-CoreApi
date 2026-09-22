@@ -6,17 +6,19 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BackendController extends ActionController
 {
-  private function modifyDocHeaderComponent(ModuleTemplate $view, string &$context): void
-  {
+  private function modifyDocHeaderComponent(
+    ModuleTemplate $view,
+    string &$context,
+  ): void {
     $menu = $this->buildMenu($view, $context);
     $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
 
     $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
     $this->addButtons($buttonBar);
 
-    $metaInformation = $this->getMetaInformation();
-    if (is_array($metaInformation)) {
-      $view->getDocHeaderComponent()->setPageBreadcrumb($metaInformation);
+    $pageRecord = $this->getPageRecord();
+    if (is_array($pageRecord)) {
+      $view->getDocHeaderComponent()->setPageBreadcrumb($pageRecord);
     }
   }
 
@@ -28,10 +30,9 @@ class BackendController extends ActionController
     $context = '';
     $this->modifyDocHeaderComponent($view, $context);
     $view->setFlashMessageQueue($this->getFlashMessageQueue());
-    $view->setTitle(
-      $this->getLanguageService()->sL('blog_example.module.mod:mlang_tabs_tab'),
-      $context,
-    );
+    $title = $this->getLanguageService()
+        ->sL('blog_example.module.mod:mlang_tabs_tab');
+    $view->setTitle($title, $context);
 
     return $view;
   }
