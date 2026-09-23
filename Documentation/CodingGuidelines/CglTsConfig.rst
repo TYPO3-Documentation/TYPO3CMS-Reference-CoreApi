@@ -44,6 +44,7 @@ See `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__ i
 More information
 ================
 
-*   See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
+*   See :ref:`Setup IDE / editor <cgl-ide>` in this manual for information about
+    setting up your Editor / IDE to adhere to
     the coding guidelines.
 *   :ref:`Using and setting TSconfig <t3tsref:typoscript-syntax-using-setting>`

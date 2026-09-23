@@ -35,5 +35,6 @@ Format
 More information
 ================
 
-*   See :ref:`cgl-ide` in this manual for information about setting up your
+*   See :ref:`Setup IDE / editor <cgl-ide>` in this manual for information about
+    setting up your
     editor / IDE to adhere to the coding guidelines.
