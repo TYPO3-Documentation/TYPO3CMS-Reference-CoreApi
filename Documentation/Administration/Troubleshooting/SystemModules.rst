@@ -26,8 +26,9 @@ DB Check
 
 ..  important::
 
-    "DB Check and :ref:`troubleshooting-system-modules-configuration` are only available
-    if the system extension "lowlevel" is installed and activated.
+    "DB Check and
+    :ref:`Configuration <troubleshooting-system-modules-configuration>` are only
+    available if the system extension "lowlevel" is installed and activated.
 
     To install this system extension:
 

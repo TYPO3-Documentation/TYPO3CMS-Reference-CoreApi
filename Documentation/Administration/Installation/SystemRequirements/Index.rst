@@ -235,7 +235,8 @@ Install required PHP extensions and set suitable PHP configuration.
             :language: dockerfile
             :caption: Dockerfile for PHP 8.4 with FPM (for NGINX)
 
-        See :ref:`system-requirements-nginx` for NGINX configuration.
+        See :ref:`NGINX web server configuration <system-requirements-nginx>`
+        for NGINX configuration.
 
         This image provides PHP-FPM only and is intended to be used together with a
         separate NGINX container. For guidance on configuring NGINX and PHP-FPM

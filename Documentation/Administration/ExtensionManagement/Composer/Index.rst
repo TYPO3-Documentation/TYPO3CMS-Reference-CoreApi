@@ -192,8 +192,8 @@ like any other package.
         composer require myvendor/my-local-extension:"@dev"
 
 Composer install will work as described in
-:ref:`extensions-composer-install` if the extension is available on the system
-where you run the `composer install` command.
+:ref:`Composer install <extensions-composer-install>` if the extension is
+available on the system where you run the `composer install` command.
 
 You will usually commit the
 files :file:`composer.json`, :file:`composer.lock` and the content of the

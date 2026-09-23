@@ -21,8 +21,11 @@ module.
 
 ..  seealso::
 
-    See section :ref:`privileges` for more information on
-    special backend user roles "admin" and "system maintainers".
+    See section
+    :ref:`Backend privileges: administrators and System Maintainers
+    <privileges>`
+    for more information on special backend user roles "admin" and "system
+    maintainers".
 
 The backend module has the following submodules:
 

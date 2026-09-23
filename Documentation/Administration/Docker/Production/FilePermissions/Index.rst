@@ -62,7 +62,8 @@ How to check file permissions in TYPO3 Docker environments
 ==========================================================
 
 If you can already access the Install Tool or TYPO3 backend you can use module
-:guilabel:`Enviroment` and tool :ref:`environment-directory-status`.
+:guilabel:`Enviroment` and tool
+:ref:`Directory status <environment-directory-status>`.
 
 Depending on the hosting setup, it may or may not be possible to verify or
 fix permissions manually.
