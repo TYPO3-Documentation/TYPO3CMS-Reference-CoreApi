@@ -8,7 +8,8 @@
 Nonce
 =====
 
-The :php:`nonce` request attribute is related to :ref:`content-security-policy`.
+The :php:`nonce` request attribute is related to
+:ref:`Content security policy <content-security-policy>`.
 
 ..  seealso::
     https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce

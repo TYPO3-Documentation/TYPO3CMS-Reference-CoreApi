@@ -66,8 +66,9 @@ Modal settings
         :name: modules-modals-settings-buttons
         :type: object[]
 
-        Actions rendered into the modal footer. If empty, the footer
-        is not rendered. See section :ref:`modules-modals` on how to configure the buttons.
+        Actions rendered into the modal footer. If empty, the footer is not
+        rendered. See section :ref:`Modals <modules-modals>` on how to configure
+        the buttons.
 
     ..  confval:: staticBackdrop
         :name: modules-modals-settings-staticBackdrop

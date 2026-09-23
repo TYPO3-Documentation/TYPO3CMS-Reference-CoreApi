@@ -28,7 +28,8 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
    ..  literalinclude:: _recordLinkHandler.tsconfig
        :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
 
-   You can position your own handlers in order as defined in the :ref:`linkbrowser-api`.
+   You can position your own handlers in order as defined in the
+   :ref:`LinkBrowser API <linkbrowser-api>`.
 
    The links are now stored in the database with the syntax
    `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.

@@ -18,8 +18,9 @@ logging and exception system. In development, they are shown as exceptions by
 default; in production, they are typically ignored.
 
 ..  note::
-    For information how to handle deprecations in the TYPO3 Core,
-    see the Contribution Guide: :ref:`t3contribute:deprecations`.
+    For information how to handle deprecations in the TYPO3 Core, see the
+    Contribution Guide:
+    :ref:`How to deprecate in the TYPO3 Core <t3contribute:deprecations>`.
 
 ..  contents:: Table of content
     :local:
@@ -134,4 +135,5 @@ marked as deprecated by both the doc comment and a call to the PHP error method:
     }
 
 For more information about how to deprecate classes, arguments and hooks and how
-the TYPO3 Core handles deprecations, see :ref:`t3contribute:deprecations`.
+the TYPO3 Core handles deprecations, see
+:ref:`How to deprecate in the TYPO3 Core <t3contribute:deprecations>`.

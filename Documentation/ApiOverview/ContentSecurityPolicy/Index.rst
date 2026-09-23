@@ -72,9 +72,11 @@ file needs to set the `enforce` or `report` disposition like this:
 ..  literalinclude:: _csp_enforce.yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
-Within the TYPO3 backend, a specific backend module is available to inspect policy
-violations / reports, and there is also a list to see all configured CSP rules,
-see section :ref:`content-security-policy-backend-rules`.
+Within the TYPO3 backend, a specific backend module is available to inspect
+policy violations / reports, and there is also a list to see all configured CSP
+rules, see section
+:ref:`Active content security policy rules
+<content-security-policy-backend-rules>`.
 
 
 ..  _content-security-policy-terminology:
@@ -87,8 +89,10 @@ these terms are not "invented" by TYPO3. Since reading the W3C RFC can be very
 intimidating, here are a few key concepts.
 
 ..  note::
-    Skip to the section :ref:`content-security-policy-example` to see a "real-life" usage
-    scenario, if you can better understand from actual code examples.
+    Skip to the section
+    :ref:`Example scenario <content-security-policy-example>` to see a
+    "real-life" usage scenario, if you can better understand from actual code
+    examples.
 
 ..  _content-security-policy-terminology-directives:
 
@@ -126,8 +130,8 @@ Applying the policy
     `Content-Security-Policy-Reporty-Only`).
 
 *   In TYPO3, directives can be specified via PHP syntax (within Extensions) and
-    YAML syntax (within site configuration). Additionally, rules can be
-    set via the PSR-14 event :ref:`PolicyMutatedEvent`.
+    YAML syntax (within site configuration). Additionally, rules can be set via
+    the PSR-14 event :ref:`PolicyMutatedEvent <PolicyMutatedEvent>`.
 
 ..  _content-security-policy-terminology-mutations:
 
@@ -139,9 +143,9 @@ Mutations
     defined.
 
 *   Because of this, each mutation (directive definition) needs a specific "mode" that can
-    instruct, how this mutation is applied: Should an existing directive be
-    set, inherited, appended, remove or extended to the final policy (see
-    :ref:`content-security-policy-modes`).
+    instruct, how this mutation is applied: Should an existing directive be set,
+    inherited, appended, remove or extended to the final policy (see
+    :ref:`Content security police modes <content-security-policy-modes>`).
 
 *   Each directive is then applied in regard to its defined mode and can list one or more
     "sources" with the values of additional parameters of a directive. Sources are
@@ -161,7 +165,8 @@ Nonces
     *   TYPO3 can manage these Nonces and apply them where configured.
     *   Nonces are retrieved from :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
         and will be used for any directive within the scope of a single HTTP request.
-    *   More details are covered in :ref:`content-security-policy-nonce`.
+    *   More details are covered in
+        :ref:`Nonce <content-security-policy-nonce>`.
 
 ..  _content-security-policy-terminology-violations:
 
@@ -181,7 +186,8 @@ Policy violations and reporting
     webpage's output. Both dispositions can be set independently in TYPO3.
 
 *   All active rules can be seen in the backend configuration section, see
-    :ref:`Active content security policy rules <content-security-policy-backend-rules>`.
+    :ref:`Active content security policy rules
+    <content-security-policy-backend-rules>`.
 
 ..  _content-security-policy-example:
 
@@ -852,7 +858,9 @@ Disabling content security policy reporting globally
 ----------------------------------------------------
 
 Administrators can disable the reporting endpoint globally or configure it per
-site as needed. (See :ref:`content-security-policy-site-endpoints-disable`).
+site as needed. (See
+:ref:`Example: disabling the reporting endpoint
+<content-security-policy-site-endpoints-disable>`).
 
 If defined, the site-specific configuration takes precedence over
 the global configuration.

@@ -17,12 +17,12 @@ A link builder is a class that implements
 :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface` and that is called when
 a link is rendered in the frontend.
 
-There are link builders for every type of link. Which link to
-call is determined by the respective class configured in global configuration,
-see :ref:`typo3ConfVars_fe_typolinkBuilder`.
+There are link builders for every type of link. Which link to call is determined
+by the respective class configured in global configuration, see
+:ref:`typolinkBuilder <typo3ConfVars_fe_typolinkBuilder>`.
 
 Register a custom link builder in your extension's
-:ref:`ext-localconf-php`:
+:ref:`ext_localconf.php <ext-localconf-php>`:
 
 ..  literalinclude:: _ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php

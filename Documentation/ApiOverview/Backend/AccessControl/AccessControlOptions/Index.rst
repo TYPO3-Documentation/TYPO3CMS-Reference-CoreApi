@@ -40,10 +40,11 @@ User TSconfig
 Access lists
 ============
 
-Access lists are defined at group-level. Usage of access lists for defining
-user rights is described in chapter :ref:`setting-up-user-permissions`.
-The various access lists are described here for reference, with
-additional technical details, where necessary.
+Access lists are defined at group-level. Usage of access lists for defining user
+rights is described in chapter
+:ref:`Setting up user group permissions <setting-up-user-permissions>`. The
+various access lists are described here for reference, with additional technical
+details, where necessary.
 
 ..  note::
 

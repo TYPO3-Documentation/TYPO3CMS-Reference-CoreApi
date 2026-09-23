@@ -216,11 +216,12 @@ Step-by-step instructions for GitHub
     **unapproved state**. These translations need to be explicitly approved in
     Crowdin before they become available for export and use in TYPO3 installations.
 
-    See :ref:`crowdin-mass-approval` for instructions on how to approve translations
-    programmatically using the Crowdin API, or use Crowdin's web interface bulk
-    approval feature.
+    See :ref:`Mass approval on Crowdin <crowdin-mass-approval>` for instructions
+    on how to approve translations programmatically using the Crowdin API, or
+    use Crowdin's web interface bulk approval feature.
 
 Happy translating!
 
 ..  tip::
-    Checkout the :ref:`crowdin-faq` for solutions to common pitfalls.
+    Checkout the :ref:`Frequently asked questions (FAQ) <crowdin-faq>` for
+    solutions to common pitfalls.

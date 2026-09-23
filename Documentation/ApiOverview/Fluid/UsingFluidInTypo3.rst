@@ -10,10 +10,12 @@ Using Fluid in TYPO3
 Here are some examples of how Fluid can be used in TYPO3:
 
 *   Create a template (theme) using a combination of TypoScript
-    :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` and Fluid.
-    Check out the :ref:`t3sitepackage:start` which walks you through the
-    creation of a sitepackage extension.
-*   :ref:`adding-your-own-content-elements` in addition to the already existing
+    :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` and Fluid. Check out the
+    :ref:`TYPO3 site package tutorial <t3sitepackage:start>` which walks you
+    through the creation of a sitepackage extension.
+*   :ref:`Create a custom content element type (CType)
+    <adding-your-own-content-elements>`
+    in addition to the already existing
     content elements TYPO3 supplies.
 *   :ref:`Extbase-based controllers <extbase-controller-overview>` have a default Fluid
     view in :php:`$this->view`.
@@ -335,7 +337,8 @@ Best practices in creating a :php-short:`\TYPO3\CMS\Core\View\ViewFactoryData`
 instance:
 
 *   Hand over request of type :php:`\Psr\Http\Message\ServerRequestInterface`
-    if possible. See :ref:`getting-typo3-request-object`.
+    if possible. See
+    :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`.
 *   Use the tuple `$templateRootPaths`, `$partialRootPaths` and
     `$layoutRootPaths` if possible by providing an array of "base" paths
     like `'EXT:my_extension/Resources/Private/(Templates|Partials|Layouts)'`

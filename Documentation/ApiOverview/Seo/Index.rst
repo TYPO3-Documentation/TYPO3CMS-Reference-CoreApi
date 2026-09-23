@@ -29,9 +29,10 @@ Site title
 Hreflang Tags
     "hreflang" tags are added automatically for multi-language websites based on the one-tree principle.
 
-    The href is relative as long as the domain is the same. If the domain differs the href becomes absolute.
-    The x-default href is the first supported language. The value of "hreflang" is the one set in the sites module
-    (see :ref:`sitehandling-addingLanguages`)
+    The href is relative as long as the domain is the same. If the domain
+    differs the href becomes absolute. The x-default href is the first supported
+    language. The value of "hreflang" is the one set in the sites module (see
+    :ref:`Adding languages <sitehandling-addingLanguages>`)
 
 
 
@@ -58,15 +59,18 @@ Canonical Tags
     result in 2 canonical links which might cause confusion for search engines.
 
 XML Sitemap
-    see :ref:`xmlsitemap`
+    see :ref:`XML sitemap <xmlsitemap>`
 
 
 SEO for Developers
     TYPO3 provides various APIs for developers to implement further SEO features:
 
-    - The CanonicalApi (see :ref:`canonicalapi`) to set dynamic canonical url
-    - The MetaTagApi (see :ref:`metatagapi`) to add dynamic meta tags
-    - The PageTitleAPI (see :ref:`pagetitle`) to manipulate the page title
+    - The CanonicalApi (see :ref:`Canonical API <canonicalapi>`) to set dynamic
+      canonical url
+    - The MetaTagApi (see :ref:`MetaTag API <metatagapi>`) to add dynamic meta
+      tags
+    - The PageTitleAPI (see :ref:`Page title API <pagetitle>`) to manipulate the
+      page title
 
 ..  toctree::
     :maxdepth: 1

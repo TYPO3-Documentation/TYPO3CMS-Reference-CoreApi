@@ -31,7 +31,8 @@ window in the backend.
 ..  literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.typoscript
     :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
 
-For a complete list of available option see :ref:`link-handler-configuration`.
+For a complete list of available option see
+:ref:`Link handler configuration <link-handler-configuration>`.
 
 The TSconfig file should then be included in the extension's global
 :file:`page.tsconfig` file or in the TSconfig of the pages where it should be
@@ -42,7 +43,9 @@ available:
 
     @import 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/*.tsconfig'
 
-You can find all available options here: :ref:`linkhandler-pagetsconfig_options`.
+You can find all available options here:
+:ref:`RecordLinkHandler page TSconfig options
+<linkhandler-pagetsconfig_options>`.
 
 When an editor now selects a haiku poem as link it will then be saved
 as `t3://record?identifier=haiku&uid=1` in backend link
@@ -65,4 +68,5 @@ parameters this plugin expects:
 ..  literalinclude:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkTypoScript.typoscript
     :caption: EXT:examples/Configuration/TypoScript/RecordLinks/Haiku.typoscript
 
-You can find the available options here: :ref:`linkhandler-typoscript_options`.
+You can find the available options here:
+:ref:`LinkHandler TypoScript options <linkhandler-typoscript_options>`.

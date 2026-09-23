@@ -29,8 +29,9 @@ either has to be created via PHP in the controller or a ViewHelper to be used.
 Display a link to "Edit Record"
 ===============================
 
-The :ref:`t3ViewHelper:typo3-backend-uri-editrecord` can be used to create a
-"create new record" link:
+The
+:ref:`be:uri.editRecord ViewHelper <t3ViewHelper:typo3-backend-uri-editrecord>`
+can be used to create a "create new record" link:
 
 ..  literalinclude:: _UriBuilder/_EditRecord.fluid.html
     :caption: EXT:my_extension/Resources/Private/Partials/BackendModule/EditRecordLink.fluid.html
@@ -82,8 +83,10 @@ Also the fields to be displayed can be restricted.
 
 ..  versionchanged:: 14.0
 
-    Accepting  a comma-separated list of fields as value for `columnsOnly`
-    has been removed. See :ref:`t3coreapi/13:edit-links-columnsOnly-migration`.
+    Accepting a comma-separated list of fields as value for `columnsOnly` has
+    been removed. See
+    :ref:`Table dependant definition of columnsOnly
+    <t3coreapi/13:edit-links-columnsOnly-migration>`.
 
 The fields to be included can be listed in the `columnsOnly` parameter, as a comma-separated list.
 The order of the fields doesn't matter, they get displayed in the order they appear in the TCA.
@@ -99,8 +102,9 @@ The example above results in the following:
 Display a link to "Create a New Record"
 =======================================
 
-The :ref:`t3ViewHelper:typo3-backend-uri-newrecord` can be used to create a
-"create new record" link:
+The
+:ref:`be:uri.newRecord ViewHelper <t3ViewHelper:typo3-backend-uri-newrecord>`
+can be used to create a "create new record" link:
 
 ..  literalinclude:: /ApiOverview/Backend/_UriBuilder/_CreateHaikuBlankLink.fluid.html
     :caption: EXT:examples/Resources/Private/Partials/Module/CreateHaikuBlankLink.fluid.html
@@ -114,8 +118,10 @@ default values for certain fields.
 
 ..  versionchanged:: 14.0
 
-    Accepting  a comma-separated list of fields as value for `columnsOnly`
-    has been removed. See :ref:`t3coreapi/13:edit-links-columnsOnly-migration`.
+    Accepting a comma-separated list of fields as value for `columnsOnly` has
+    been removed. See
+    :ref:`Table dependant definition of columnsOnly
+    <t3coreapi/13:edit-links-columnsOnly-migration>`.
 
 It can then be displayed like this:
 

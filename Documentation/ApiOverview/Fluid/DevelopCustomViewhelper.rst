@@ -14,7 +14,8 @@ A "Gravatar" ViewHelper is created, which uses an email address as parameter
 and shows the picture from gravatar.com if it exists.
 
 The official documentation of Fluid for writing custom ViewHelpers can be found
-within the Fluid documentation: :ref:`fluid:creating-viewhelpers`.
+within the Fluid documentation:
+:ref:`Creating ViewHelpers <fluid:creating-viewhelpers>`.
 
 ..  contents:: Contents of this page
     :local:
@@ -91,7 +92,9 @@ the value will be determined automatically: If :php:`$escapeOutput`: is true,
 :php:`$escapeOutput`: is false, :php:`$escapeChildren` will be enabled unless
 disabled explicitly.
 
-Passing in children is explained in :ref:`prepare-viewhelper-for-inline-syntax`.
+Passing in children is explained in
+:ref:`Prepare ViewHelper for inline syntax
+<prepare-viewhelper-for-inline-syntax>`.
 
 ..  _fluid-viewhelper-custom-initializeArguments:
 

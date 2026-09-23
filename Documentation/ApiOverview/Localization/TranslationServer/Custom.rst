@@ -12,8 +12,10 @@ translation server for their extensions.
 
 ..  _Pootle: http://pootle.translatehouse.org/
 
-The event :ref:`ModifyLanguagePackRemoteBaseUrlEvent` can be caught to change
-the translation server URL, for example:
+The event
+:ref:`ModifyLanguagePackRemoteBaseUrlEvent
+<ModifyLanguagePackRemoteBaseUrlEvent>`
+can be caught to change the translation server URL, for example:
 
 ..  literalinclude:: /ApiOverview/Events/Events/Core/Localization/_ModifyLanguagePackRemoteBaseUrlEvent/_CustomMirror.php
     :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php

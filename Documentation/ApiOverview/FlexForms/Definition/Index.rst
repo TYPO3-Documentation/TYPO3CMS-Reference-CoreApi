@@ -56,7 +56,7 @@ Select field
 
 ..  seealso::
 
-    *   :ref:`t3tca:columns-select` in TCA reference.
+    *   :ref:`Select fields <t3tca:columns-select>` in TCA reference.
 
 ..  _flexforms-itemsProcFunc:
 
@@ -187,8 +187,7 @@ FlexForm attribute. If that is missing, an empty value will be
 shown in the backend (:ref:`FormEngine <FormEngine>`)
 fields.
 
-While you can use page TSconfig's :ref:`t3tsref:pageTsTcaDefaults` to
-modify defaults of TCA-based attributes, this is not
-possible with FlexForms. This is because the values are calculated
-at an earlier step in the Core workflow, where FlexForm values
-have not yet been extracted.
+While you can use page TSconfig's :ref:`TCAdefaults <t3tsref:pageTsTcaDefaults>`
+to modify defaults of TCA-based attributes, this is not possible with FlexForms.
+This is because the values are calculated at an earlier step in the Core
+workflow, where FlexForm values have not yet been extracted.

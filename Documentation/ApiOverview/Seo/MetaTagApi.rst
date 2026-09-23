@@ -14,11 +14,13 @@ The MetaTag API is available for setting meta tags in a flexible way.
     :php:`\TYPO3\CMS\Core\Page\PageRenderer` which uses the MetaTag API
     internally. For all other cases, use the MetaTag API directly.
 
-The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta tags. The Core e.g. ships an
-OpenGraph MetaTagManager that is responsible for all OpenGraph tags.
-In addition to the MetaTagManagers included in the Core, you can also register your own
-:php:`MetaTagManager`, see :ref:`metatagapi-create-your-own`. All registered managers
-are made available through the :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
+The API uses :php:`MetaTagManagers` to manage the tags for a "family" of meta
+tags. The Core e.g. ships an OpenGraph MetaTagManager that is responsible for
+all OpenGraph tags. In addition to the MetaTagManagers included in the Core, you
+can also register your own :php:`MetaTagManager`, see
+:ref:`Creating your own MetaTagManager <metatagapi-create-your-own>`. All
+registered managers are made available through the
+:php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry`.
 
 
 ..  index:: pair: MetaTag; API

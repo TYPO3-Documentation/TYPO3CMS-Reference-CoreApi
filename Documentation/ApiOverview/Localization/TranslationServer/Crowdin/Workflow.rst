@@ -43,8 +43,10 @@ The following workflow is used to bring a translation into a TYPO3 installation.
 
 #.  Import translations into TYPO3 installations
 
-    The translations can be downloaded within a TYPO3 installation.
-    This is described under :ref:`xliff-translating-fetch`.
+    The translations can be downloaded within a TYPO3 installation. This is
+    described under
+    :ref:`Fetching translations or updating language packs
+    <xliff-translating-fetch>`.
 
 ..  code-block:: text
 

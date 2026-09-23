@@ -16,16 +16,17 @@ See :doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`
 A content element can be based on fields already available in the `tt_content`
 table.
 
-It is also possible to add extra fields to the `tt_content`
-table, see :ref:`ConfigureCE-Extend-tt_content`.
+It is also possible to add extra fields to the `tt_content` table, see
+:ref:`Extending tt_content <ConfigureCE-Extend-tt_content>`.
 
 The data of the content element is then passed to a TypoScript object, in most
-cases to a :ref:`t3tsref:cobj-fluidtemplate`.
+cases to a :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>`.
 
-Some data might need additional :ref:`ConfigureCE-DataProcessors`. Data
-processors are frequently used for example to process files
-(:ref:`t3tsref:FilesProcessor`) or to fetch related records
-(:ref:`t3tsref:DatabaseQueryProcessor`).
+Some data might need additional
+:ref:`Data processing <ConfigureCE-DataProcessors>`. Data processors are
+frequently used for example to process files
+(:ref:`files data processor <t3tsref:FilesProcessor>`) or to fetch related
+records (:ref:`database-query data processor <t3tsref:DatabaseQueryProcessor>`).
 
 A data processor can also be used to convert a string to an array,
 as is done for example in the *table* content element (:sql:`tt_content`) with the field :sql:`bodytext`.
@@ -166,9 +167,10 @@ to add TypoScript.
 In the `examples` extension the TypoScript can be found at
 :file:`Configuration/TypoScript/CustomContentElements/Basic.typoscript`.
 
-The Fluid templates for a custom content element will be saved in the
-extension. Therefore we need to add the path to the
-:ref:`t3tsref:cobj-fluidtemplate-properties-templaterootpaths`:
+The Fluid templates for a custom content element will be saved in the extension.
+Therefore we need to add the path to the
+:ref:`templateRootPaths
+<t3tsref:cobj-fluidtemplate-properties-templaterootpaths>`:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
@@ -183,15 +185,15 @@ Now you can register the rendering of your custom content element:
 
 The :typoscript:`lib.contentElement` path is defined in file
 :t3src:`typo3/sysext/fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
-and uses a :ref:`t3tsref:cobj-fluidtemplate`.
+and uses a :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>`.
 
 We reference :doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`
 :typoscript:`lib.contentElement` from our new content element and only change
 the Fluid template to be used.
 
 The Fluid template is configured by the
-:ref:`t3tsref:cobj-fluidtemplate-properties-templatename` property as
-`NewContentElement`.
+:ref:`templateName <t3tsref:cobj-fluidtemplate-properties-templatename>`
+property as `NewContentElement`.
 
 This will load a :file:`BasicContent.fluid.html` template file from the path
 defined at the :typoscript:`templateRootPaths`.
@@ -209,7 +211,7 @@ converted to `<br>` tags.
     :caption: EXT:examples/Resources/Private/Templates/NewContentElement.fluid.html
 
 All fields of the table :php:`tt_content` are now available in the variable
-`data`. Read more about :ref:`fluid`.
+`data`. Read more about :ref:`Fluid <fluid>`.
 
 ..  tip::
 
@@ -312,7 +314,8 @@ The new field *tx_examples_separator* is added to the TCA definition of the tabl
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_temporary_column.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-You can read more about defining fields via TCA in the :ref:`t3tca:start`.
+You can read more about defining fields via TCA in the
+:ref:`TCA Reference <t3tca:start>`.
 
 Now the new field can be used in your Fluid template just like any other
 tt_content field.

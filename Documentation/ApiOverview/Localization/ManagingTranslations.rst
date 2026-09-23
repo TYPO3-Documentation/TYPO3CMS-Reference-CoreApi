@@ -23,8 +23,8 @@ The backend module :guilabel:`System > Maintenance > Manage Language Packs`
 displays a list of available languages and can fetch or update language packs
 for system and extension translations from the official TYPO3 translation server.
 
-The module is straightforward to use. Downloaded language packs are stored in the
-environment’s :ref:`Environment-labels-path`.
+The module is straightforward to use. Downloaded language packs are stored in
+the environment’s :ref:`getLabelsPath() <Environment-labels-path>`.
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.png
     :zoom: lightbox
@@ -151,8 +151,8 @@ The result can be seen in the backend:
     -   Custom label files must be located inside an extension.
         Other locations are ignored.
     -   The original translation must exist in the environment’s
-        :ref:`Environment-labels-path` or next to the base translation file in
-        the extension, for example in
+        :ref:`getLabelsPath() <Environment-labels-path>` or next to the base
+        translation file in the extension, for example in
         :file:`my_extension/Resources/Private/Language/`.
 
 
@@ -196,9 +196,9 @@ add custom languages and provide your own translations using XLIFF 1.2 or 2.x.
 #.  Add translation files
 
     Translation files for system and extension labels must be stored under the
-    correct subfolder of the environment’s :ref:`Environment-labels-path`.
-    The minimum requirement is to translate the language name so it appears
-    in the user settings.
+    correct subfolder of the environment’s
+    :ref:`getLabelsPath() <Environment-labels-path>`. The minimum requirement is
+    to translate the language name so it appears in the user settings.
 
     ..  tabs::
 

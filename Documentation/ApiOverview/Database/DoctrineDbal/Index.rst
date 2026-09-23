@@ -16,7 +16,8 @@ perform database operations through an object-oriented API while ensuring
 compatibility across different database systems.
 
 In the TYPO3 backend rows of database tables are usually represented as
-:ref:`database-records` and configured in :ref:`database-records-tca`.
+:ref:`Database records <database-records>` and configured in
+:ref:`TCA (table configuration array) <database-records-tca>`.
 
 In Extbase extensions tables are abstracted as
 :ref:`Extbase models <extbase-domain-model>`. Operations such as creating, updating and

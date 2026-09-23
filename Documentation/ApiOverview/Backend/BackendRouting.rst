@@ -171,7 +171,9 @@ You can configure the sudo mode in your backend routing like this:
 ..  literalinclude:: /ApiOverview/Backend/_BackendRouting/_sudo_routes.php
     :caption: EXT:my_extension/Configuration/Backend/Routes.php
 
-See also :ref:`backend-module-sudo-modules`.
+See also
+:ref:`Custom backend modules requiring the sudo mode
+<backend-module-sudo-modules>`.
 
 ..  _backend-routing-information:
 
