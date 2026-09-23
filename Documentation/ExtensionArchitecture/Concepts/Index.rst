@@ -73,12 +73,13 @@ These are the most important ones:
 Scope of extensions: system, third-party or custom
 ==================================================
 
-Extension files are installed in the:file:`vendor/`
-folder by Composer. See also :ref:`directory-vendor`.
+Extension files are installed in the:file:`vendor/` folder by Composer. See also
+:ref:`vendor/ <directory-vendor>`.
 
-In Classic mode installations they are found in :ref:`classic-directory-typo3-sysext`
-(system extensions) or :ref:`classic-directory-typo3conf-ext` (third-party
-and custom extensions).
+In Classic mode installations they are found in
+:ref:`typo3/sysext/ <classic-directory-typo3-sysext>` (system extensions) or
+:ref:`typo3conf/ext/ <classic-directory-typo3conf-ext>` (third-party and custom
+extensions).
 
 ..  _extension-local:
 
@@ -97,15 +98,15 @@ Third-party and custom extensions must have Composer type `typo3-cms-extension`:
     }
 
 The extension will be installed in the :ref:`vendor/ <directory-vendor>`
-directory by Composer. Custom extensions like sitepackages
-or extensions planned to be used in just one project can be kept under version
-control in a directory like :ref:`directory-packages`. They are then
-symlinked into :file:`vendor/` by Composer.
+directory by Composer. Custom extensions like sitepackages or extensions planned
+to be used in just one project can be kept under version control in a directory
+like :ref:`packages/ <directory-packages>`. They are then symlinked into
+:file:`vendor/` by Composer.
 
 In Classic mode installations third-party extensions are installed into
-:ref:`classic-directory-typo3conf-ext`. Custom extensions can be kept in a
-directory outside of the project root and symlinked into :file:`typo3conf/ext/`
-or manually inserted in the directory.
+:ref:`typo3conf/ext/ <classic-directory-typo3conf-ext>`. Custom extensions can
+be kept in a directory outside of the project root and symlinked into
+:file:`typo3conf/ext/` or manually inserted in the directory.
 
 ..  _extension-global:
 ..  _extension-system:

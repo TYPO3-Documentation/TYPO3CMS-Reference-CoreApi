@@ -69,7 +69,8 @@ Including a :file:`composer.json <extension-composer-json>` is **required**.
 #.  Working with Composer in general is strongly recommended for TYPO3.
 
     If you are not using Composer for your projects yet, see
-    :ref:`migratetocomposer` in the "Upgrade Guide".
+    :ref:`Migrate a TYPO3 project to Composer <migratetocomposer>` in the
+    "Upgrade Guide".
 
 
 ..  _ext-composer-json-minimal:
@@ -93,7 +94,8 @@ Subsequently:
 
 * see `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
   general Composer information
-* see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
+* see :ref:`Properties <ext-composer-json-properties>` below for TYPO3 specific
+  hints
 
 ..  versionchanged:: 14.2
 
@@ -116,8 +118,8 @@ Extended composer.json
 ----------------------
 
 ..  seealso::
-    Please see :ref:`testing-extensions` for
-    further changes to :file:`composer.json <extension-composer-json>` for testing extensions.
+    Please see :ref:`Extension testing <testing-extensions>` for further changes
+    to :file:`composer.json <extension-composer-json>` for testing extensions.
 
 ..  literalinclude:: _ComposerJson/_ExtendedComposer.json
     :caption: EXT:my_extension/composer.json
@@ -125,7 +127,8 @@ Extended composer.json
 
 *   See `composer.json schema <https://getcomposer.org/doc/04-schema.md>`__ for
     general Composer information.
-*   See :ref:`ext-composer-json-properties` below for TYPO3-specific hints.
+*   See :ref:`Properties <ext-composer-json-properties>` below for
+    TYPO3-specific hints.
 
 
 ..  _ext-composer-json-classic-compatible:
@@ -135,10 +138,11 @@ Classic mode compatible composer.json
 
 ..  versionchanged:: 14.2
 
-Extension authors should add :ref:`ext-composer-json-property-extra-version`  and
+Extension authors should add
+:ref:`extra.typo3/cms.version <ext-composer-json-property-extra-version>` and
 `providesPackages <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-property-provides-packages>`_
-definitions to :file:`composer.json <extension-composer-json>` if their extensions
-need to  remain compatible with TYPO3 Classic mode.
+definitions to :file:`composer.json <extension-composer-json>` if their
+extensions need to remain compatible with TYPO3 Classic mode.
 :php:`providesPackages` must exist even if it is empty.
 
 In Classic mode, TYPO3 distinguishes between dependencies on other TYPO3 extensions
@@ -287,8 +291,9 @@ Example for extension key `my_extension`:
 extra.typo3/cms.version
 -----------------------
 
-(using either `version` or :ref:`ext-composer-json-property-extra-version`
-is *required* for Classic mode installations)
+(using either `version` or
+:ref:`extra.typo3/cms.version <ext-composer-json-property-extra-version>` is
+*required* for Classic mode installations)
 
 ..  versionadded:: 14.2
     The version number for extensions installed in Classic mode can be set in
@@ -304,7 +309,10 @@ is *required* for Classic mode installations)
 The version must match the tagged release version. Extension Manager (Classic mode)
 uses the version for compatibility checks.
 
-see :ref:`ext-composer-json-classic-compatible` above.
+see
+:ref:`Classic mode compatible composer.json
+<ext-composer-json-classic-compatible>`
+above.
 
 Supported extension stability values are expressed as version suffixes, for
 example: `"version": "1.2.3-alpha4"`.
@@ -365,15 +373,19 @@ in TYPO3 classic mode, and TYPO3 will include
 `Resources/Private/Php/ComposerVendor/autoload.php` early if it is a
 Composer-generated autoload file.
 
-see :ref:`ext-composer-json-classic-compatible` above
+see
+:ref:`Classic mode compatible composer.json
+<ext-composer-json-classic-compatible>`
+above
 
 ..  _ext-composer-json-property-version:
 
 version
 -------
 
-(using either `version` or :ref:`ext-composer-json-property-extra-version`
-is *required* for Classic mode installations)
+(using either `version` or
+:ref:`extra.typo3/cms.version <ext-composer-json-property-extra-version>` is
+*required* for Classic mode installations)
 
 The version must match the tagged release version. Extension Manager (Classic mode)
 uses the version property for compatibility checks.
@@ -386,8 +398,9 @@ to update this field constantly for branches and/ or releases,
 which would have a bigger impact on behaviour in Composer-managed
 TYPO3 systems and extension authors than initially intended.
 
-To prevent this behavior declare the version number in the extra section
-(see :ref:`ext-composer-json-property-extra-version` below).
+To prevent this behavior declare the version number in the extra section (see
+:ref:`extra.typo3/cms.version <ext-composer-json-property-extra-version>`
+below).
 
 ..  _ext-composer-json-property-not-used:
 

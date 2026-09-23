@@ -77,9 +77,9 @@ Publish your extension in the
 `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__
 - the central storage for public TYPO3 extensions.
 
-See page :ref:`publish-to-ter` for more information about the
-publishing process and check out the TYPO3 community Q&A at
-page `FAQ <https://extensions.typo3.org/faq/>`__.
+See page :ref:`Publish your extension in the TER <publish-to-ter>` for more
+information about the publishing process and check out the TYPO3 community Q&A
+at page `FAQ <https://extensions.typo3.org/faq/>`__.
 
 **Depends on:**
 
@@ -112,8 +112,9 @@ Documentation
 Publish the documentation of your extension in the
 `official TYPO3 documentation <https://docs.typo3.org/>`__.
 
-Please follow the instructions on page :ref:`h2document:migrate` to set up
-an appropriate webhook.
+Please follow the instructions on page
+:ref:`Migration: from Sphinx to PHP-based rendering <h2document:migrate>` to set
+up an appropriate webhook.
 
 **Depends on:**
 
@@ -137,7 +138,8 @@ If you use language labels which should get translated in your extension
 you may want to configure the translation setup on https://crowdin.com.
 Crowdin is the official translation server for TYPO3.
 
-This is documented on :ref:`crowdin-extension-integration`.
+This is documented on
+:ref:`Integrate Crowdin in your extension <crowdin-extension-integration>`.
 
 ..  _publish-extension-further-reading:
 

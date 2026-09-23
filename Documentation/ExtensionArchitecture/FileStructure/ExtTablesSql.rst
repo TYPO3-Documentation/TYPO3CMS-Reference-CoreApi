@@ -171,11 +171,11 @@ Auto-generated structure
 ========================
 
 The database schema analyzer automatically creates TYPO3 "management"-related
-database columns by reading a table's TCA and checking the :ref:`t3tca:ctrl`
-section for table capabilities. Field definitions in :file:`ext_tables.sql` take
-precedence over automatically generated fields, so the TYPO3 Core never
-overrides a manually specified column definition from an :file:`ext_tables.sql`
-file.
+database columns by reading a table's TCA and checking the
+:ref:`Table properties (ctrl) <t3tca:ctrl>` section for table capabilities.
+Field definitions in :file:`ext_tables.sql` take precedence over automatically
+generated fields, so the TYPO3 Core never overrides a manually specified column
+definition from an :file:`ext_tables.sql` file.
 
 ..  note::
 
@@ -209,8 +209,8 @@ definition:
     :doc:`workspace <ext_workspaces:Index>`-aware, the default index
     :sql:`parent` includes :sql:`pid` and :sql:`hidden` as well as
     :sql:`deleted`, if the latter two are specified in TCA's
-    :ref:`t3tca:ctrl`. The parent index creation is only applied, if the column
-    :sql:`pid` is auto-generated, too.
+    :ref:`Table properties (ctrl) <t3tca:ctrl>`. The parent index creation is
+    only applied, if the column :sql:`pid` is auto-generated, too.
 
 The following :ref:`$GLOBALS['TCA']['ctrl'] <t3tca:ctrl>` are considered for
 auto-generated fields, if they are not manually defined in the
@@ -257,15 +257,15 @@ auto-generated fields, if they are not manually defined in the
 
 :sql:`language_identifier` and :sql:`translation_source` indexes
     Added for every language-aware table, based on the language
-    :ref:`t3tca:ctrl` configuration alone - independent of whether the
-    fields above were added here or already declared in
-    :file:`ext_tables.sql`. The :sql:`language_identifier` index covers
+    :ref:`Table properties (ctrl) <t3tca:ctrl>` configuration alone -
+    independent of whether the fields above were added here or already declared
+    in :file:`ext_tables.sql`. The :sql:`language_identifier` index covers
     :php:`['ctrl']['transOrigPointerField']` and
-    :php:`['ctrl']['languageField']`. If :php:`['ctrl']['translationSource']`
-    is set, the :sql:`translation_source` index additionally covers that
-    field, so that both ways of matching a translation - by translation
-    source, or by the translation origin pointer for translations saved
-    without one - resolve through a single index.
+    :php:`['ctrl']['languageField']`. If :php:`['ctrl']['translationSource']` is
+    set, the :sql:`translation_source` index additionally covers that field, so
+    that both ways of matching a translation - by translation source, or by the
+    translation origin pointer for translations saved without one - resolve
+    through a single index.
 
     See `Important: #110454 - Translation source index covers the
     translation lookups

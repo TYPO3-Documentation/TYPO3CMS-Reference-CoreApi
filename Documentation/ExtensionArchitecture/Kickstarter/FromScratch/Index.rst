@@ -19,7 +19,7 @@ If you plan to publish your extension in the TYPO3 Extension Repository
     See `Extension kickstarters <https://docs.typo3.org/permalink/t3coreapi:extension-kickstart>`_.
 
 *   Create a directory with the extension name
-*   Create the :ref:`files-composer-json` file
+*   Create the :ref:`composer.json <files-composer-json>` file
 
 ..  _extension-create-new-installing-newly-created:
 

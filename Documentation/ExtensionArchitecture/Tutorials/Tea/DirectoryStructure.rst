@@ -33,7 +33,8 @@ Directory `Classes`
 
 The :file:`Classes/` folder should contain all the PHP classes provided by the
 extension. Otherwise they will not be available in the default
-:ref:`autoloading <autoload>`. (See documentation on the :ref:`extension-classes` folder).
+:ref:`autoloading <autoload>`. (See documentation on the
+:ref:`Extension folder Classes for PHP classes <extension-classes>` folder).
 
 In the :file:`composer.json <extension-composer-json>` we define that all PHP classes are
 automatically loaded from the :file:`Classes/` directory:
@@ -75,7 +76,8 @@ should be stored in the respective viewhelper folder.
 Directory `Configuration`
 -------------------------
 
-See also documentation on the :ref:`extension-configuration-files` folder.
+See also documentation on the
+:ref:`Extension folder Configuration <extension-configuration-files>` folder.
 
 The :file:`Configuration` folder contains several subfolders:
 
@@ -124,15 +126,15 @@ The :file:`Configuration` folder contains several subfolders:
 Directory `Documentation/`
 --------------------------
 
-The :file:`Documentation/` folder contains files from which
-documentation is rendered. See :ref:`extension-files-documentation`.
+The :file:`Documentation/` folder contains files from which documentation is
+rendered. See :ref:`Documentation <extension-files-documentation>`.
 
 ..  _extbase-tutorial-tea-directory-structure-directory-resources:
 
 Directory `Resources/`
 ----------------------
 
-See also documentation on the :ref:`extension-Resources` folder.
+See also documentation on the :ref:`Resources <extension-Resources>` folder.
 
 The :file:`Resources/` folder contains two sub folders that are
 further divided up:
