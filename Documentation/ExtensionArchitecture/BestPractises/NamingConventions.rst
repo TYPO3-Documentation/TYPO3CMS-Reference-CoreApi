@@ -318,7 +318,9 @@ Example usage:
     The main module `web` has been renamed to `content`.
     See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
 
-For more details have a look into the :ref:`backend-modules-configuration`
+For more details have a look into the
+:ref:`Modules.php - backend module configuration
+<backend-modules-configuration>`
 chapter.
 
 ..  _extension-naming-backend-module-signature:
@@ -478,8 +480,8 @@ You SHOULD use the following naming convention for the identifier:
 
 This is not enforced.
 
-Please see :ref:`upgrade-wizards-identifier` in the Upgrade Wizard chapter
-for further explanations.
+Please see :ref:`Wizard identifier <upgrade-wizards-identifier>` in the Upgrade
+Wizard chapter for further explanations.
 
 
 ..  _extension-old-extensions:

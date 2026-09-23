@@ -51,7 +51,8 @@ Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes
 *   locales
 *   stream wrapper
 *   :ref:`error handler <error-handling-extending>`
-*   Icon registration. Icons should be registered in :ref:`extension-configuration-Icons-php`.
+*   Icon registration. Icons should be registered in
+    :ref:`Icons.php <extension-configuration-Icons-php>`.
 
 This would not work because the extension files :file:`ext_localconf.php` are
 included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the

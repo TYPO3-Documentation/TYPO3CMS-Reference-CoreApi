@@ -12,7 +12,7 @@ Using and dispatching events in extensions
 or third-party extensions.
 
 You can find a complete list of events provided by the TYPO3 Core in the
-following chapter: :ref:`eventlist`.
+following chapter: :ref:`Event list <eventlist>`.
 
 Events provided by third-party extensions should be described in the extension's
 manual. You can also search for events by looking for classes that inject the
