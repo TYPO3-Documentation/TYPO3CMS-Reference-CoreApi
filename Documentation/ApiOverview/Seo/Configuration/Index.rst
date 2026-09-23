@@ -169,7 +169,7 @@ TypoScript examples
 ===================
 
 This section will provide you with examples on how to configure several
-behaviours in the frontend.
+behaviors in the frontend.
 
 ..  _seo-configuration-title:
 

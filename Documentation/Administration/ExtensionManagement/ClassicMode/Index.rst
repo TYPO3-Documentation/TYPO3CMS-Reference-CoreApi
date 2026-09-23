@@ -95,7 +95,7 @@ and what you can do:
     and running. (Click once to uninstall)
 
 Next to the extension you want to uninstall click on Extension UnInstall Icon.
-After some seconds the icon changes to the grey Extension Install Icon.
+After some seconds the icon changes to the gray Extension Install Icon.
 
 ..  _remove-extension-backend:
 
@@ -113,7 +113,7 @@ Uninstalling an extension manually
 
 At times an extension causes a problem and the TYPO3 Backend can not
 be opened anymore due to it. In such a case the extension can be uninstalled
-manually. This is not common practise but a last resort.
+manually. This is not common practice but a last resort.
 
 This can be done by removing the extensions configuration from the file
 :file:`PackageStates.php`

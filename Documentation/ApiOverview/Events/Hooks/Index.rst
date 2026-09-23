@@ -8,7 +8,7 @@ Hooks
 
 Hooks are basically places in the source code where a user function will be
 called for processing, if such has been configured. While there are conventions
-and best practises of how hooks should be implemented the hook concept itself
+and best practices of how hooks should be implemented the hook concept itself
 does not prevent it from being used in any way.
 
 Hooks are being phased-out and no new ones should be created. Dispatch a

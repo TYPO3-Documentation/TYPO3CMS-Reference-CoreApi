@@ -74,7 +74,7 @@ TypoScript for frontend display:
    individual sections between the typotags are usually wrapped
    separately.
 
-Now lets see how this behaviour challenges the use of the RTE. This
+Now lets see how this behavior challenges the use of the RTE. This
 describes how the situation is handled regarding the two Text-types as
 mentioned above. (Numbers refer to the previous bulletlist):
 

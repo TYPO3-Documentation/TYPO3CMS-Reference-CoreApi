@@ -85,7 +85,7 @@ Absolute paths are full paths starting at the root of the file system
     that all files beneath it will be accessible via a browser,
     since this directory is located below the web root. This is
     perfectly fine in most cases, and indeed generally a desired
-    behaviour. Just be careful what kind of files you store in that
+    behavior. Just be careful what kind of files you store in that
     place, as they will be publicly accessible.
 
 Absolute paths outside of the web root

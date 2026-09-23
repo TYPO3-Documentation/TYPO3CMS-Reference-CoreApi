@@ -229,7 +229,7 @@ return different values:
 ..  warning::
 
     Previously, there was an error in the documentation. It did not match
-    the actual behaviour. This has now been fixed. For details, see
+    the actual behavior. This has now been fixed. For details, see
     :issue:`91993`.
 
 *   a negative value or 0 (<=0) indicates that the authentication has
@@ -312,7 +312,7 @@ Advanced options
 ================
 
 There are some special configuration options which can be used
-to modify the behaviour of the authentication process. Some
+to modify the behavior of the authentication process. Some
 impact the inner working of the services themselves, others
 influence when services are called.
 

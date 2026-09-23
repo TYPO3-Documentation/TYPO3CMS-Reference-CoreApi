@@ -45,7 +45,7 @@ This means, implementations returned an empty :php:`array` in case they did
 not want to set an identifier, allowing further implementations to be
 called.
 
-This behaviour has now changed. As soon as a listener sets the identifier
+This behavior has now changed. As soon as a listener sets the identifier
 using the :php:`setIdentifier()` method, the event propagation is stopped
 immediately and no further listeners are being called. Therefore, listeners
 should avoid setting an empty :php:`array` but should just "return" without

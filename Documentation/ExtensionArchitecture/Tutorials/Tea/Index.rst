@@ -11,7 +11,7 @@
 Tea in a nutshell
 =================
 
-The example extension :composer:`ttn/tea` was created as an example of best practises
+The example extension :composer:`ttn/tea` was created as an example of best practices
 on automatic code checks.
 
 ..  hint::
@@ -44,7 +44,7 @@ Steps in this tutorial:
 #.  :ref:`The model <extbase_tutorial_tea_model>`
 
     We define a database schema and make it visible to TYPO3. Then we create
-    a PHP class as a model of the real-life tea flavour.
+    a PHP class as a model of the real-life tea flavor.
 
 #.  :ref:`The Repository <extbase_tutorial_tea_repositoy>`
 

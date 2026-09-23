@@ -81,12 +81,12 @@ The following database types require special consideration if you use them:
 
 Not all database systems (RDBMS) act the same way for fixed-length columns.
 Implementation differences need to be respected to ensure the same query/data
-behaviour across all supported database systems.
+behavior across all supported database systems.
 
 ..  warning::
     Using fixed-length :sql:`CHAR` and :sql:`BINARY` column types requires to carefully work
     with data being persisted and retrieved from the database due to differently
-    behaviour specifically of PostgreSQL.
+    behavior specifically of PostgreSQL.
 
 ..  tip::
     :sql:`CHAR` and :sql:`BINARY` columns can be used (for storage or performance

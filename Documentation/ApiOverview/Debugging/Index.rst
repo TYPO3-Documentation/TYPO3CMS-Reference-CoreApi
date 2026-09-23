@@ -105,7 +105,7 @@ To display all available variables in your Fluid template, you can use the _all 
 :html:`<f:debug>{_all}</f:debug>`
 
 ..  note::
-    If you are debugging in a Fluid partial or a Fluid section, make sure that all variables you want to analyse are passed (defined in the arguments attribute of the render tag).
+    If you are debugging in a Fluid partial or a Fluid section, make sure that all variables you want to analyze are passed (defined in the arguments attribute of the render tag).
 
 Get more information in the Fluid ViewHelper Reference
 :ref:`f:debug ViewHelper <t3viewhelper:typo3-fluid-debug>`
