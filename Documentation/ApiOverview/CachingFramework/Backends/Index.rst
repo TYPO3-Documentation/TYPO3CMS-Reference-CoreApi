@@ -6,11 +6,11 @@
 Cache backends
 ==============
 
-There are a variety of different storage backends. They have different characteristics
-and can be used for different caching needs. The best backend depends on
-your server setup and hardware, as well as cache type and usage.
-A backend should be chosen wisely, as the wrong backend can
-slow down your TYPO3 installation.
+TYPO3 offers several storage backends. Each of them has its own
+characteristics and suits different caching needs. The best backend for a
+cache depends on your server, your hardware, the type of the cache and the way
+the cache is used. Choose the backend with care: the wrong one slows your TYPO3
+installation down.
 
 ..  _caching_backend-api:
 
@@ -30,10 +30,9 @@ All backends must implement the :code:`TYPO3\CMS\Core\Cache\Backend\BackendInter
 
 ..  include:: /CodeSnippets/Manual/Cache/BackendInterface.rst.txt
 
-All operations on caches must use the methods above. There are
-other interfaces that can be implemented by backends to add additional functionality.
-Extension code should not call cache backend operations
-directly, but should use the frontend object instead.
+Every operation on a cache uses one of the methods above. A backend can
+implement further interfaces to add more functionality. In your extension, do
+not call the methods of a backend directly. Use the frontend object instead.
 
 ..  _caching_backend-api-TaggableBackendInterface:
 
@@ -67,53 +66,52 @@ Common options of caching backends
 Database backend
 ================
 
-This is the main backend and is suitable for most storage needs.
-It does not require additional server daemons or server configuration.
+The database backend is the default backend. TYPO3 uses it whenever the
+configuration does not name another backend. It suits most storage needs and
+needs no additional server daemon and no server configuration.
 
-The database backend does not automatically perform garbage collection.
-Use the :ref:`Scheduler garbage collection task <caching-architecture-task>` instead.
+The backend stores the data in a database, usually MySQL, and handles large
+amounts of data at a reasonable speed. It stores the data and the tags in two
+tables, and each cache has its own pair of tables. The TYPO3 Core creates and
+updates these tables itself.
 
-This backend stores data in a database (usually MySQL)
-and can handle large amounts of data with reasonable performance.
-Data and tags are stored in two different tables and every cache has its own set of tables.
-In terms of performance, the database backend is well optimized
-and, if in doubt, should be used as a default backend doubt. This is the default
-backend if no backend is specifically set in the configuration.
-
-The Core takes care of creating and updating database tables "on the fly".
+The database backend does not collect garbage on its own. Use the
+:ref:`Scheduler garbage collection task <caching-architecture-task>` instead.
 
 ..  note::
 
-    Caching framework tables which are no longer required are not
-    automatically deleted. That is why the database analyzer in the Install
-    Tool will suggest renaming/deleting caching framework tables if you
-    change the caching backend to a non-database one.
+    TYPO3 does not delete the tables of a cache that no longer uses the
+    database backend. The database analyzer in the Install Tool therefore
+    suggests that you rename or delete these tables after you switch a cache
+    to another backend.
 
-For caches with a lot of read and write operations, it is important to tune your MySQL setup.
-The most important setting is :code:`innodb_buffer_pool_size`. It is a good idea to give MySQL
-as much RAM as needed so that the main table space is completely loaded in memory.
+Tune your MySQL server if a cache has many read and write operations. The
+most important setting is :code:`innodb_buffer_pool_size`. Give MySQL enough
+RAM to keep the main table space in memory.
 
-The database backend tends to slow down if there are many write operations
-and big caches which don't fit into memory because of slow hard drive seek and
-write performance. If the data table is too big to fit into memory, this backend can
-compress data transparently, which shrinks the amount of
-space needed to 1/4 or less. The overhead of the compress/uncompress operation is usually not high.
-A good candidate for a cache with enabled compression is the Core pages cache:
-it is only read or written once per request and the data size is pretty large.
-Compression should not be enabled for caches which are read or written
-multiple times in one request.
+The database backend becomes slower when a cache has many write operations
+and does not fit into memory, because the hard drive then limits the speed.
+Switch :confval:`compression <caching-backend-compression>` on for a cache
+whose data table is too large for the memory. Compression shrinks the needed
+space to a quarter or less, and it costs little CPU time. The pages cache of
+the TYPO3 Core is a good candidate: its data is large, and each request reads
+or writes it only once. Do not switch compression on for a cache that a single
+request reads or writes several times.
 
 ..  _caching-backend-db-innodb:
 
 `InnoDB` issues
 ---------------
 
-The MySQL database backend uses InnoDB tables. Due to the nature of InnoDB, deleting records
-`does not reclaim <https://bugs.mysql.com/bug.php?id=1287>`_ disk space. For example, if the cache uses 10GB,
-cleaning still keeps 10GB allocated on the disk even though phpMyAdmin shows 0 as the cache table size.
-To reclaim the space, turn on the MySQL option file_per_table, drop the cache tables and re-create
-them using the Install Tool.
-This does not mean that you should skip the scheduler task. Deleting records still improves performance.
+The MySQL database backend uses InnoDB tables. InnoDB
+`does not reclaim <https://bugs.mysql.com/bug.php?id=1287>`_ the disk space of
+deleted records. A cache that uses 10 GB therefore still occupies 10 GB after
+you clean it, although phpMyAdmin reports a table size of 0. To get the space
+back, switch the MySQL option `file_per_table` on, drop the cache tables and
+create them again in the Install Tool.
+
+Run the Scheduler task nonetheless. Deleting the records still improves the
+performance.
 
 
 ..  _caching-backend-db-options:
@@ -157,11 +155,10 @@ compressionLevel
 Memcached backend
 =================
 
-`Memcached <https://memcached.org/>`_ is a simple, distributed key/value RAM database.
-To use this backend, at least one memcached daemon must be reachable,
-and the PECL module "memcache" must be loaded.
-There are two PHP memcached implementations: "memcache" and "memcached".
-Currently, only memcache is supported by this backend.
+`Memcached <https://memcached.org/>`_ is a distributed key-value store that
+keeps its data in RAM. This backend needs at least one reachable memcached
+daemon and the loaded PECL module `memcache`. PHP has two memcached
+extensions, `memcache` and `memcached`. This backend supports `memcache` only.
 
 
 ..  _caching-backend-memcache-warning:
@@ -169,41 +166,35 @@ Currently, only memcache is supported by this backend.
 Limitations of memcached backends
 ---------------------------------
 
-Memcached is a simple key-value store by design . Since the caching framework
-needs to structure it to store the identifier-data-tags relations, for each
-cache entry it stores an identifier->data, identifier->tags and a
-tag->identifiers entry.
+Memcached is a key-value store. The caching framework needs more structure
+than that, so it stores three entries for each cache entry: identifier to
+data, identifier to tags, and tag to identifiers.
 
-This leads to structural problems:
+This causes two problems:
 
--   If memcache runs out of memory but must store new entries,
-    it will toss *some* other entry out of the cache
-    (this is called an eviction in memcached speak).
--   If data is shared over multiple memcache servers and a server fails,
-    key/value pairs on this system will just vanish from cache.
+-   Memcached deletes *some* other entry when it runs out of memory and has
+    to store a new one. Memcached calls this an eviction.
+-   Entries vanish when the data is spread over several memcached servers and
+    one of these servers fails.
 
-Both cases lead to corrupted caches. If, for example, a tags->identifier entry is lost,
-:code:`dropByTag()` will not be able to find the corresponding identifier->data entries
-to be removed and they will not be deleted. This results in old data being delivered by the cache.
-There is currently **no** implementation of garbage collection that
-could rebuild cache integrity.
+Both cases corrupt the cache. If a tag-to-identifier entry is lost, for
+example, :code:`dropByTag()` no longer finds the matching identifier-to-data
+entries and does not delete them. The cache then delivers outdated data. There
+is **no** garbage collection that rebuilds the integrity of the cache.
 
-It is important to monitor a memcached system for evictions and server outages
-and to clear caches if that happens.
+Monitor a memcached system for evictions and for server outages, and flush the
+caches when either of them happens.
 
-Furthermore, memcache has no namespacing.
-To distinguish entries of multiple caches from each other,
-every entry is prefixed with the cache name.
-This can lead to very long run times if a big cache needs to be flushed,
-as every entry has to be handled separately. It would not be possible
-to just truncate the whole cache with one call as this would clear
-the whole memcached data which might also contain non-TYPO3-related entries.
+Memcached also has no namespaces. TYPO3 prefixes every entry with the name of
+the cache to keep the caches apart. Flushing a large cache therefore takes a
+long time, because TYPO3 deletes each entry separately. It cannot truncate the
+whole store in one call, because that would also delete the entries of other
+applications.
 
-Because of the these drawbacks, the memcached backend should be used with care.
-It should be used in situations where cache integrity is not important or if a
-cache does not need to use tags. Currently, the memcache backend implements the
-TaggableBackendInterface, so the implementation does allow tagging,
-even if it is not advisable to use this backend with heavy tagging.
+Use the memcached backend with care. It fits a cache whose integrity does not
+matter, or a cache that does not use tags. The backend implements the
+:php-short:`\TYPO3\CMS\Core\Cache\Backend\TaggableBackendInterface`, so
+tagging works, but do not use this backend for heavy tagging.
 
 ..  warning::
 
@@ -258,23 +249,19 @@ compression
 Redis backend
 =============
 
-`Redis <https://redis.io/>`_ is a key-value storage/database.
-In contrast to memcached, it allows structured values.
-Data is stored in RAM but it can be persisted to disk
-and doesn't suffer from the design problems of the memcached backend implementation.
-The redis backend can be used as an alternative to the database backend
-for big cache tables and help to reduce load on database servers this way.
-The implementation can handle millions of cache entries, each with hundreds of tags
-if the underlying server has enough memory.
+`Redis <https://redis.io/>`_ is a key-value store. Unlike memcached it allows
+structured values. Redis keeps the data in RAM and can also write it to disk,
+and it does not have the design problems of the memcached backend. Use the
+Redis backend instead of the database backend for large caches, to take load
+off the database server. It handles millions of cache entries, each with
+hundreds of tags, if the server has enough memory.
 
-Redis is extremely fast but very memory hungry.
-The implementation is an option for big caches with lots of data
-because most operations perform O(1) in proportion to the number of (redis) keys.
-This basically means that access to an entry in a cache with a million entries
-takes the same time as to a cache with only 10 entries,
-as long as there is enough memory available to hold the complete set in memory.
-At the moment only one redis server can be used at a time per cache,
-but one redis instance can handle multiple caches without performance loss when flushing a single cache.
+Redis is very fast and needs a lot of memory. Most operations perform in O(1)
+in proportion to the number of Redis keys: reading an entry from a cache with
+a million entries takes as long as reading from a cache with ten entries, as
+long as the whole set fits into the memory. A cache uses one Redis server at a
+time. One Redis instance serves several caches, and flushing one of them does
+not slow down the others.
 
 ..  attention::
 
@@ -307,22 +294,19 @@ which must be available on the system.
 Redis example
 -------------
 
-The Redis caching backend configuration is very similar to that of other
-backends, with one caveat.
+The configuration of the Redis backend resembles the configuration of the
+other backends, with one exception: keep caches apart that use the same keys.
+The `pages` and the `pagesection` cache are such a pair. Both use
+`tagIdents:pageId_21566` for the page with the ID 21566.
 
-TYPO3 caches should be separated if the same keys are used.
-This applies to the `pages` and `pagesection` caches.
-Both use "tagIdents:pageId_21566" for a page with id 21566.
-How you separate them is for a system administrator to decide. We provide
-examples with several databases but this may not be the best option
-in production where you might want to use multiple cores (which do not
-support databases). Separation is also a good idea because
-caches can be flushed individually.
+How you keep them apart is a decision for the system administrator. The
+examples below use one Redis database per cache. In production another way may
+suit you better, because a Redis Cluster supports one database only. Separate
+caches have a second advantage: you can flush each of them on its own.
 
-If you have several of your own caches which each use unique keys (for example
-by using a different prefix for each separate cache identifier), you can
-store them in the same database, but it is good practice to separate the core
-caches.
+Store your own caches in one database if each of them uses unique keys, for
+example through its own prefix per cache identifier. Keep the caches of the
+TYPO3 Core apart nonetheless.
 
     In practical terms, Redis databases should be used to separate different keys
     belonging to the same application (if needed), and not to use a single Redis
@@ -495,26 +479,23 @@ Redis server configuration
 
 This section is about the configuration on the Redis server, not the client.
 
-For flushing by cache tags to work, it is important that the integrity of
-the cache entries and cache tags is maintained. This may not be the case,
-depending on which eviction policy (`maxmemory-policy`) is used. For example,
-for a page id=81712, the following entries may exist in the Redis page cache:
+Flushing by cache tag only works while the cache entries and the cache tags
+belong together. The eviction policy of the server (`maxmemory-policy`) can
+break that. The page cache holds these entries for the page with the ID 81712,
+for example:
 
 #.  `tagIdents:pageId_81712` (tag->identifier relation)
 #.  `identTags:81712_7e9c8309692aa221b08e6d5f6ec09fb6` (identifier->tags relation)
 #.  `identData:81712_7e9c8309692aa221b08e6d5f6ec09fb6` (identifier->data)
 
-If entries are evicted (due to memory shortage), there is no mechanism which
-ensures that all related entries will be evicted. If
-`maxmemory-policy allkeys-lru` is used, for example, this may
-result in the situation that the cache entry (identData) still exists, but the
-tag entry (tagIdents) does not. The tag entry reflects the relation
-"cache tag => cache identifier" and is used for
-:php:`RedisBackend::flushByTag()`). If this entry is gone, the cache
-can no longer be flushed if content is changed on the page or an explicit
-flushing of the page cache for this page is requested. Once this is the case,
-cache flushing (for this page) is only possible via other means (such as full
-cache flush).
+When Redis runs out of memory it evicts entries, and nothing makes it evict
+the related entries as well. With `maxmemory-policy allkeys-lru`, for example,
+the data entry (`identData`) can survive while the tag entry (`tagIdents`)
+disappears. The tag entry holds the relation "cache tag to cache identifier",
+which :php:`RedisBackend::flushByTag()` needs. Without it, TYPO3 can no longer
+flush the page cache for that page, neither when an editor changes the content
+of the page nor when somebody flushes that page cache explicitly. Only a full
+cache flush then helps.
 
 Because of this, the following recommendations apply:
 
@@ -537,18 +518,17 @@ The `Eviction policy <https://redis.io/docs/latest/operate/rs/databases/memory-p
 options have the following drawbacks:
 
 volatile-ttl
-    (recommended) Will flush only entries with an expiration date. Should be ok
-    with TYPO3.
+    Recommended. Redis removes only entries that have an expiration date, and
+    it therefore keeps the `tagIdents` entries.
 
 noeviction
-    (Not recommended) Once memory is full, no new entries will be saved to cache.
-    Only use if you can ensure that there is always enough memory.
+    Not recommended. Redis stores no new entry once the memory is full. Use
+    this policy only if the memory is always sufficient.
 
 allkeys-lru, allkeys-lfu, allkeys-random
-    (Not recommended) This may result in tagIdents being removed, but not the
-    related identData entry, which makes it impossible to flush the cache
-    entries by tag (which is necessary for TYPO3 cache flushing on changes to
-    work and the flush page cache to work for specific pages).
+    Not recommended. Redis can remove a `tagIdents` entry and keep the related
+    `identData` entry. TYPO3 then cannot flush these entries by tag, which it
+    needs for flushing the cache of a changed page.
 
 ..  seealso::
 
@@ -560,28 +540,25 @@ allkeys-lru, allkeys-lfu, allkeys-random
 File backend
 ============
 
-The file backend stores every cache entry as a single file in the file system.
-The lifetime and tags are added to the file after the data section.
+The file backend stores each cache entry as one file in the file system. It
+writes the lifetime and the tags into the file, after the data.
 
-This backend is the big brother of the Simple file backend and implements
-additional interfaces. Like the simple file backend it also implements the
-:php:`PhpCapableInterface`, so it can be used with :php:`PhpFrontend`. In
-contrast to the simple file backend it also implements
-:php:`TaggableInterface`.
+The backend is the larger variant of the :ref:`simple file backend
+<caching-backend-simple-file>`. Both implement the
+:php:`PhpCapableInterface`, so both work with the :php:`PhpFrontend`. Only the
+file backend also implements the :php:`TaggableInterface`.
 
-In general, the backend was specifically optimized to cache PHP code because the
-`get` and `set` operations have low overhead. The file backend is
-not very good at tagging and does not scale well with the number of tags. Do
-not use this backend if cached data has many tags.
+The backend caches PHP code well, because its `get` and `set` operations need
+little time. It handles tags poorly: the more tags a cache uses, the slower it
+becomes. Do not use this backend for data with many tags.
 
 ..  warning::
 
-    The performance of :code:`flushByTag()` is bad and scales just O(n).
+    :code:`flushByTag()` performs in O(n) and is therefore slow.
 
-    On the contrary, performance of :code:`get()` and :code:`set()` operations
-    is good and scales well. Of course, if there are many entries, this might
-    still slow down after a while and a different storage strategy should be used
-    (e.g. RAM disks, battery backed up RAID systems or SSD hard disks).
+    :code:`get()` and :code:`set()` are fast and scale well. A cache with many
+    entries still slows down over time. Store such a cache on faster hardware,
+    for example on a RAM disk, an SSD or a battery-backed RAID system.
 
 ..  _caching-backend-file-options:
 
@@ -604,11 +581,13 @@ Options for the file backend
 Simple file backend
 ===================
 
-The simple file backend is the small brother of the :ref:`file backend <caching-backend-file>`. In contrast to most
-other backends, it does not implement the :code:`TaggableInterface`, so cache entries cannot be tagged and flushed
-by tag. This improves performance if cache entries do not need such tagging. The TYPO3 Core uses this backend
-for its central Core cache (it holds autoloader cache entries and other important cache entries). The Core cache is
-usually flushed completely and does not need specific cache entry eviction.
+The simple file backend is the smaller variant of the :ref:`file backend
+<caching-backend-file>`. Unlike most other backends it does not implement the
+:code:`TaggableInterface`, so you cannot tag its entries and cannot flush them
+by tag. This makes the backend faster for caches that do not need tags. The
+TYPO3 Core uses it for the central Core cache, which holds the autoloader
+entries and other important entries. TYPO3 flushes that cache as a whole and
+never removes single entries from it.
 
 
 ..  _caching-backend-pdo:
@@ -616,11 +595,12 @@ usually flushed completely and does not need specific cache entry eviction.
 PDO backend
 ===========
 
-The PDO backend can be used as a native PDO interface to databases which are connected to PHP via PDO.
-It is an alternative to the database backend if a cache should be stored in a database which is otherwise
-only supported by TYPO3 dbal to reduce the parser overhead.
+The PDO backend talks to a database through PHP's native PDO interface. Use
+it instead of the database backend when a cache belongs in a database that
+TYPO3 otherwise reaches through DBAL, because PDO saves the parser overhead.
 
-Garbage collection is implemented for this backend and should be called to clean up hard disk space or memory.
+The backend collects garbage, which frees disk space or memory. Call the
+garbage collection regularly.
 
 ..  note::
 
@@ -675,15 +655,16 @@ password
 Transient memory backend
 ========================
 
-The transient memory backend stores data in a PHP array. It is only valid for one request. This is useful if code
-logic carries out expensive calculations or repeatedly looks up identical
-information in a database. Data is stored once in an array and data entries are retrieved
-from the cache in consecutive calls, getting rid of additional overhead.
-Since caches are available system-wide and shared between Core and extensions,
-they can share the same information.
+The transient memory backend stores the data in a PHP array, which lives for
+one request only. Use it for an expensive calculation, or for a value that the
+code reads from the database again and again. The first call stores the value
+in the array, and every further call reads it from there. The TYPO3 Core and
+the extensions share the caches of an installation, so they also share these
+values.
 
-Since the data is stored directly in memory, this backend is the quickest. The stored data adds to
-the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP setting.
+This backend is the fastest one, because the data stays in memory. That data
+adds to the memory of the PHP process and can reach the PHP setting
+:code:`memory_limit`.
 
 
 ..  _caching-backend-null:
@@ -691,5 +672,5 @@ the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP 
 Null backend
 ============
 
-The null backend is a dummy backend which doesn't store any data and always returns :code:`false`
-on :code:`get()`. This backend is useful in a development context to "switch off" a cache.
+The null backend stores nothing and always returns :code:`false` on
+:code:`get()`. Use it during development to switch a cache off.
