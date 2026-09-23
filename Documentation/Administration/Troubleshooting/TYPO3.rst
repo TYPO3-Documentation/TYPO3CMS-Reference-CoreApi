@@ -140,7 +140,8 @@ This is particularly useful when debugging Fluid errors:
 
 ..  seealso::
 
-    :ref:`t3coreapi:error-handling-configuration-examples-debug`
+    :ref:`Debugging and development setup
+    <t3coreapi:error-handling-configuration-examples-debug>`
 
 ..  important::
 

@@ -57,7 +57,9 @@ correctly, it will still generate `https://` links even if SSL is offloaded.
 Be sure to **enable reverse proxy support in TYPO3** so that it correctly
 interprets the original request scheme.
 
-For details, see: :ref:`reverse-proxy-container`
+For details, see:
+:ref:`Reverse proxies in container-based production environments
+<reverse-proxy-container>`
 
 After installation, **check your site configuration** in TYPO3. If it was
 automatically created with a `http://` base URL but you're accessing the site

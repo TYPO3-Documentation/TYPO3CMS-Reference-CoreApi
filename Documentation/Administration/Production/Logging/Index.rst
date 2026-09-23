@@ -18,7 +18,9 @@ controlling log volume, reducing noise, and monitoring critical events.
 ..  seealso::
 
     For an overview of how logging works inside TYPO3 and how to use it in
-    custom code or extensions, see the :ref:`logging` chapter in the API section.
+    custom code or extensions, see the
+    :ref:`The logging framework (developer guide) <logging>` chapter in the API
+    section.
 
 ..  warning::
 

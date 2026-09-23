@@ -61,7 +61,8 @@ To quickly launch TYPO3 in classic mode with Docker:
     :language: bash
     :caption: ~/projects/typo3demo/$
 
-If you are working on Linux or WSL, see :ref:`classic-docker-permissions`.
+If you are working on Linux or WSL, see
+:ref:`Solving file permission issues <classic-docker-permissions>`.
 
 Then open:
 
@@ -130,7 +131,8 @@ Create a local project directory and subfolders for TYPO3's writable directories
     :language: bash
     :caption: ~/projects/typo3demo/$
 
-If you are working on Linux or WSL, see :ref:`classic-docker-permissions`.
+If you are working on Linux or WSL, see
+:ref:`Solving file permission issues <classic-docker-permissions>`.
 
 ..  _classic-docker-access:
 
@@ -143,8 +145,8 @@ Open:
 
     http://localhost:8080
 
-(assuming port 8080 was mapped to internal port 80 during `docker run`;
-see :ref:`classic-docker-ports`)
+(assuming port 8080 was mapped to internal port 80 during `docker run`; see
+:ref:`Understanding port mapping <classic-docker-ports>`)
 
 Use these database settings:
 
