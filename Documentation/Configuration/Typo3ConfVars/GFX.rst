@@ -10,8 +10,8 @@ GFX - graphics configuration
 ============================
 
 You can test the graphics configuration in module
-:guilabel:`Environment > Image Processing`.
-See also :ref:`environment-test-image-processing`.
+:guilabel:`Environment > Image Processing`. See also
+:ref:`Image processing test tool <environment-test-image-processing>`.
 
 The following configuration variables can be used to configure settings for
 the handling of images and graphics:
@@ -225,8 +225,9 @@ processor_stripColorProfileCommand
 
     This option expected a string of command line parameters. The defined
     parameters had to be shell-escaped beforehand, while the new option
-    :ref:`typo3ConfVars_gfx_processor_stripColorProfileParameters` expects
-    an array of strings that will be shell-escaped by TYPO3 when used.
+    :ref:`processor_stripColorProfileParameters
+    <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
+    expects an array of strings that will be shell-escaped by TYPO3 when used.
 
     The existing configuration will continue to be supported. Still, it is
     suggested to use the new configuration format, as the Install Tool is

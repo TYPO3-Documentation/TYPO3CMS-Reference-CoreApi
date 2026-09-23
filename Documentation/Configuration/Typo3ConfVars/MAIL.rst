@@ -9,8 +9,9 @@
 MAIL settings
 =============
 
-You can test the email settings in module :guilabel:`Environment > Test Mail Setup`.
-See also :ref:`environment-test-mail-setup`.
+You can test the email settings in module
+:guilabel:`Environment > Test Mail Setup`. See also
+:ref:`Test mail setup <environment-test-mail-setup>`.
 
 The following configuration variables can be used to configure settings for
 the sending of mails by TYPO3:
