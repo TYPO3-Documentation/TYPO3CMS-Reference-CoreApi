@@ -44,8 +44,9 @@ Upload and extract the package
 -   Upload the TYPO3 `.zip` file (for example :file:`typo3_src-14.3.y.zip`) directly
     to this folder and extract it using the tools provided by your servers file manager.
 
-    If your server does not offer an option to extract files,
-    see :ref:`manual-archive-alternative-upload`
+    If your server does not offer an option to extract files, see
+    :ref:`Alternative: upload extracted files
+    <manual-archive-alternative-upload>`
 -   After extraction, you have a folder named something like
     :path:`typo3_src-14.3.1`. Move all files and folder contained from this
     folder into **the folder where your domain or

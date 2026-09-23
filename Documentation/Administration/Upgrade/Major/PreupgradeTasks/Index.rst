@@ -27,7 +27,7 @@ TYPO3 version.
 
 Check that all system requirements for upgrading are met:
 
-*   See :ref:`t3start:system-requirements`
+*   See :ref:`System requirements <t3start:system-requirements>`
 
 ..  contents:: Table of contents
 
@@ -48,8 +48,8 @@ Also, you may prefer to upgrade a copy of your site first, if there have been a
 lot of changes and some of them might interfere with functions of your site.
 See the :doc:`changelog <ext_core:Index>` to check that.
 
-For more detailed information about TYPO3 backups see :ref:`t3coreapi:security-backups`
-in *TYPO3 Explained*.
+For more detailed information about TYPO3 backups see
+:ref:`Backups and recovery <t3coreapi:security-backups>` in *TYPO3 Explained*.
 
 ..  _update_reference_index:
 
@@ -172,9 +172,10 @@ can either access the extension scanner via the backend module
 :guilabel:`System > Upgrade` (function :guilabel:`Scan Extension Files`)
 or as a standalone tool (https://github.com/tuurlijk/typo3scan).
 
-The extension scanner will show the corresponding changelog which contains
-a description of how to migrate your code. See :ref:`check-the-changelog-and-news-md`
-for more information about the changelogs and how to read them.
+The extension scanner will show the corresponding changelog which contains a
+description of how to migrate your code. See
+:ref:`Check the Changelog <check-the-changelog-and-news-md>` for more
+information about the changelogs and how to read them.
 
 In addition, you can use the tool `typo3-rector <https://github.com/sabbelasichon/typo3-rector>`__
 to automatically refactor the code for a lot of deprecations.

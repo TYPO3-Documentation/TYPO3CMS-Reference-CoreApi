@@ -42,7 +42,7 @@ Use Composer if:
     the future.
 -   You want easier updates and a cleaner project structure.
 
-Continue with :ref:`installation-composer`.
+Continue with :ref:`Installing TYPO3 with Composer <installation-composer>`.
 
 ..  _direct-server-installation-classic-if:
 
