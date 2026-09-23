@@ -46,4 +46,4 @@ files will be generated, new or changed files marked with a star (*):
         └── composer.json
 
 Learn how to turn the backend controller into a full-fledged backend module in
-the chapter :ref:`backend-modules`.
+the chapter :ref:`Backend modules API <backend-modules>`.

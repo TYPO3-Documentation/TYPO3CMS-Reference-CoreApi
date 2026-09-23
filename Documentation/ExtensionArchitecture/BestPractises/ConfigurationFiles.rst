@@ -15,8 +15,8 @@ The file :file:`ext_localconf.php`
 contains configuration used by the system and in
 requests. It should therefore be optimized for speed.
 
-See :ref:`extension-files-locations` for a full list of file and
-directory names typically used in extensions.
+See :ref:`File structure <extension-files-locations>` for a full list of file
+and directory names typically used in extensions.
 
 ..  warning::
     The content of the file :file:`ext_localconf.php` **must not** be wrapped in a

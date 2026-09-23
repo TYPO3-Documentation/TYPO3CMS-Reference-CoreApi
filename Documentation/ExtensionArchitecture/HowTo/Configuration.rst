@@ -31,7 +31,7 @@ The changes apply to the current page and all subpages.
 
     * :ref:`Extbase TypoScript configuration <extbase-configuration-reference>`
 
-    * :ref:`t3tsref:typoscript-syntax-what-are-constants`
+    * :ref:`Constants <t3tsref:typoscript-syntax-what-are-constants>`
 
 
 ..  index::
@@ -106,8 +106,8 @@ Example: access settings in an Extbase controller
 YAML
 ====
 
-Some extensions offer configuration in the format YAML,
-see :ref:`config-overview-yaml`.
+Some extensions offer configuration in the format YAML, see
+:ref:`YAML <config-overview-yaml>`.
 
 There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
 files.

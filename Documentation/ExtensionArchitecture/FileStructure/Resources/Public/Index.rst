@@ -32,7 +32,7 @@ No extension file outside the folder :file:`Resources/Public` may be accessed
 from outside the web server.
 
 This can be achieved by applying proper access restrictions on the web server.
-See: :ref:`security-restrict-access-server-level`.
+See: :ref:`Restrict HTTP access <security-restrict-access-server-level>`.
 
 By using the Composer package
 :composer:`helhum/typo3-secure-web` all

@@ -30,7 +30,8 @@ Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-
 
     The second example, :php:`tx_examples_special`, only works when
     :php:`renderType` has been registered, implemented, and registered in
-    ext_localconf.php. Please refer to :ref:`t3tca:columns-user`.
+    ext_localconf.php. Please refer to
+    :ref:`Custom inputs (user) <t3tca:columns-user>`.
 
 
 The first method call adds fields using

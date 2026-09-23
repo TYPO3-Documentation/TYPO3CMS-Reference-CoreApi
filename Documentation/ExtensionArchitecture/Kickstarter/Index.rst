@@ -21,7 +21,7 @@ number of community-managed tools that you can use.
     ..  card:: `Creating a new extension from scratch <https://docs.typo3.org/permalink/t3coreapi:extension-create-new>`_
 
         *   Create a directory with the extension name
-        *   Create the :ref:`files-composer-json` file
+        *   Create the :ref:`composer.json <files-composer-json>` file
 
     ..  card:: :ref:`Kickstart a TYPO3 extension with "Make" <extension-make>`
 

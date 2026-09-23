@@ -14,7 +14,8 @@ Contains Language resources.
 
 ..  seealso::
 
-    *   Read more about localizing extensions: :ref:`extension_localization`
+    *   Read more about localizing extensions:
+        :ref:`Localizing your extension <extension_localization>`
     *   Read more about the XLIFF format in the following chapter:
         :ref:`Translation files (XLIFF format) <xliff>`.
     *   Read more about applying localised labels in the following chapter:
@@ -73,7 +74,7 @@ Any arbitrary filename ending with :file:`.xlf` can be used.
         <f:translate key="LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:key1" />
 
     The documentation for the ViewHelper can be found at
-    :ref:`t3viewhelper:typo3-fluid-translate`.
+    :ref:`f:translate ViewHelper <t3viewhelper:typo3-fluid-translate>`.
 
     Language labels to be used in PHP, TypoScript etc. must also be prefixed with
     the complete path.

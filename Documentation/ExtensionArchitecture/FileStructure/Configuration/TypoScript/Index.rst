@@ -34,8 +34,10 @@ It is possible to use subfolders or a differently named folder instead, however,
 names have to stay the same.
 
 ..  warning::
-    In Sites that don't use Site sets it is possible, though not recommended,
-    to have TypoScript that is always included.
-    See :ref:`ext_typoscript_constants_typoscript` and
-    :ref:`ext_typoscript_setup_typoscript`. These files are not included when
-    a site uses a set.
+    In Sites that don't use Site sets it is possible, though not recommended, to
+    have TypoScript that is always included. See
+    :ref:`ext_typoscript_constants.typoscript
+    <ext_typoscript_constants_typoscript>`
+    and
+    :ref:`ext_typoscript_setup.typoscript <ext_typoscript_setup_typoscript>`.
+    These files are not included when a site uses a set.
