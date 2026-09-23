@@ -4,145 +4,133 @@
 ..  index:: Extbase; Localization
 ..  _extbase-localisation-no-frontend:
 
-==============================================
-Extbase language handling outside the frontend
-==============================================
+=========================================
+Localization outside the frontend context
+=========================================
 
-When Extbase is used in Frontend Context, a site and a language are resolved
-before any Extbase code runs. Backend modules,
-command line commands and middlewares do not necessarily have that, and the
-language is one of the things they may be missing.
+When rendering a typical frontend request, TYPO3 resolves the active site and
+language aspect before any Extbase code executes. However, backend modules, CLI
+commands, and custom middleware operate outside this standard pipeline and
+frequently lack a language context. This guide outlines how localization behaves
+in non-frontend environments and how to explicitly manage languages in your
+Extbase code.
 
-This page covers the language consequences only. Whether Extbase can be used in
-those contexts at all, and what else has to be established first, is a broader
-question covered in :ref:`extbase-no-frontend`.
-
-Extbase asks the Context API for a language aspect wherever it runs, and
-gets one created, if none exists yet. Knowing what it gets explains
-a class of surprises.
+..  note::
+    For a broader look at establishing execution environments outside the
+    frontend (such as configuring storage PIDs), see :ref:`extbase-no-frontend`.
 
 ..  _extbase-localisation-no-frontend-default:
 
-The default aspect
-==================
+Understanding the default behavior
+==================================
 
-The language aspect is created on first access, with the default values of
-:php-short:`\TYPO3\CMS\Core\Context\LanguageAspect`: language :php:`0` and the
-overlay type :php:`OVERLAYS_ON_WITH_FLOATING`.
+If no language context is explicitly provided, Extbase queries the Context API
+and falls back to a default fallback state:
 
-In practice this means a backend module or a command behaves as though it were
-a site configured with `fallbackType: strict` in the default language, thus
-only default language records are considered.
+*   **Fallback Target:** An initialized
+    :php-short:`\TYPO3\CMS\Core\Context\LanguageAspect` with an ID of 0.
+*   **Overlay Mode:** OVERLAYS_ON_WITH_FLOATING.
 
-This is rarely what a command wants. A command that sends mails to users,
-generates a report or exports data usually needs a language chosen per record
-or per recipient, and no part of the environment will supply it.
+**The Impact:** Your backend modules or CLI commands will behave as if they are
+executing against a site configured with `fallbackType: strict` in the default
+language. **Only default language records will be returned.**
+
+While acceptable for simple tasks, this default behavior breaks features like
+CLI commands that send localized email alerts, generate localized reports, or
+export multi-language datasets.
 
 ..  _extbase-localisation-no-frontend-explicit:
 
-Choosing the language explicitly
-================================
+Setting the language explicitly
+===============================
 
-Because nothing sets the language for you, set it yourself on the query
-settings, exactly as described in
-:ref:`extbase-localisation-query-settings`.
+To query records in a specific locale, you must manually pass the language
+aspect to your query settings.
 
-The following command sends every frontend user a reminder about upcoming
-conferences, in the language stored on the user record:
+The following CLI command demonstrates how to fetch a frontend user's preferred
+language from their record, resolve it against the site configuration, and query
+the repository using that specific context. The command sends a reminder about
+upcoming conferences to all frontend users, in the language stored on their user
+record.
 
 ..  literalinclude:: _snippets/_ConferenceReminderCommand.php
     :caption: EXT:my_extension/Classes/Command/ConferenceReminderCommand.php
     :emphasize-lines: 39, 43, 45-46
 
-Because no site is resolved for the command, the site is named explicitly and
-each user's language looked up in it. The aspect built from that language is
-handed to :php:`findAllForLanguageAspect()` from
-:ref:`extbase-localisation-query-settings-aspect`.
+Because this method relies on :php:`findAllForLanguageAspect()`, the exact same
+repository logic remains reusable across both the frontend (where the aspect is
+provided natively) and CLI commands (where you supply it manually). See also
+:ref:`extbase-localisation-query-settings`.
 
-The same repository method is therefore usable from the frontend, where
-the aspect comes from the site, and from a command, where it comes from
-the caller.
-
-..  note::
-
-    Labels are a separate matter. Translating the subject and body of the mail
-    means selecting a language for the language service, not for the query.
-    See :ref:`extension-localization-php`.
-
-..  seealso::
-
-    :ref:`extbase-no-frontend-command` covers what else a command has to
-    establish before Extbase can be used, including the storagePid.
+..  tip::
+    **UI Text vs. Database Records:** Query settings only affect data records.
+    If you need to translate email subject lines or template text strings
+    (labels) in your command, use the Core Language Service instead. See
+    :ref:`extension-localization-php`.
 
 ..  _extbase-localisation-no-frontend-backend:
 
 Backend modules
 ===============
 
-Backend modules fall into two groups, and the difference decides how much
-language configuration is available to them.
+How you manage localization in backend modules depends entirely on whether your
+module interacts with the page tree.
 
 ..  _extbase-localisation-no-frontend-backend-without-page:
 
-Modules without a page tree
----------------------------
-
-A module that manages records independently of the page tree — a global
-administration view, a report, a queue — is in the position described above:
-no page, therefore no site, therefore the default aspect. Any language other
-than the default has to be set on the query settings explicitly, and there is
-no site configuration to take a `fallbackType` from.
+Global modules (no page tree)
+-----------------------------
+Modules that manage global records independently of specific pages (for example,
+global settings, system reports, or job queues) do not have a page and so do not
+have a site configuration to take a `fallbackType` from. They default to the
+primary language aspect. You must explicitly specify target languages in your
+query settings.
 
 ..  _extbase-localisation-no-frontend-backend-with-page:
 
-Modules with a page tree
-------------------------
+Page-bound modules (with page tree)
+-----------------------------------
 
-A module that uses the page tree navigation component knows which page the
-editor selected, and a page belongs to a site. That is enough to recover the
-full language configuration: the site's languages, their titles for the
-language selector, and their `fallbackType`.
+If your module utilizes the backend page tree navigation component, TYPO3 knows
+exactly which page the editor is viewing. Because pages map directly to sites,
+you can automatically inherit the site's full localization rules—including
+the site's languages, language titles for the language selector, and fallback
+types.
 
-Resolve the site from the page, take the language the editor selected, and
-build the aspect from it:
+To match the exact translation behavior your visitors see on the live frontend,
+resolve the site language from the active page and generate the aspect using the
+factory. Then hand the aspect to
+:php:`findAllForLanguageAspect()` (see
+:ref:`extbase-localisation-query-settings-aspect`) to add it to the query
+settings and execute the query.
 
 ..  literalinclude:: _snippets/_ConferenceModuleController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceModuleController.php
     :emphasize-lines: 24-25, 28, 35
 
-:php:`LanguageAspectFactory::createFromSiteLanguage()` is the same call the
-frontend uses to turn a site language into a language aspect. A module that
-uses it gets the translation handling the frontend would apply to those
-records, including the site's `fallbackType` — rather than the default-language
-behaviour it would otherwise inherit.
-
-The aspect is then handed to
-:php:`findAllForLanguageAspect()` from
-:ref:`extbase-localisation-query-settings-aspect`, which sets it on the query
-settings and executes the query.
-
-This is the recommended approach whenever a module edits or displays records
-that belong to a page tree, because it keeps the module consistent with what
-the site shows.
+Using :php:`LanguageAspectFactory::createFromSiteLanguage()` ensures your backend
+module's data listings stay perfectly synchronized with the frontend site
+configuration.
 
 ..  seealso::
 
-    -   :ref:`extbase-no-frontend-backend-module` for using Extbase in a
-        backend module beyond the language question.
-    -   :ref:`extbase-persistence-storagepid-backend` describes the related
-        question of where a backend module looks for records, which is also
+    -   :ref:`extbase-no-frontend-backend-module` for more general information on
+        using Extbase in backend modules.
+    -   :ref:`extbase-persistence-storagepid-backend` describes where backend
+        modules look for records, which is also
         resolved differently without a site.
 
 ..  _extbase-localisation-no-frontend-relations:
 
-What this means for relations
-=============================
+How relations are handled
+=========================
 
-Relations behave as they do everywhere else: they are fetched with translation
-handling regardless of the aspect on the parent query, and in the language of
-the record holding them.
+Relational fields follow the exact same translation mapping rules used
+throughout TYPO3. They are automatically resolved based on the specific language
+aspect assigned to the parent query.
 
-Because the default aspect is the default language, relations of records
-fetched in a command are resolved in the default language as well — unless the
-parent record was fetched in another language, in which case its relations
-follow it.
+If you rely on the fallback environment (the default language aspect), any
+relational child records fetched inside your commands will resolve to the
+default language. If you explicitly fetch a parent record in a localized
+language, its underlying relations will automatically match that localized
+language context.
