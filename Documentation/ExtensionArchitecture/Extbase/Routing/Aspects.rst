@@ -216,4 +216,5 @@ The aspect defines all valid values implicitly, so an additional regex
 constraint would be redundant and is silently discarded.
 
 With aspects configured, the next step is generating URLs from controller
-actions and Fluid templates — see :ref:`extbase-routing-uri-builder`.
+actions and Fluid templates — see
+:ref:`Generating URLs with the UriBuilder <extbase-routing-uri-builder>`.

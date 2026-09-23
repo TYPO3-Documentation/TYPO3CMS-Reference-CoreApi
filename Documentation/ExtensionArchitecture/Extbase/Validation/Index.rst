@@ -34,7 +34,8 @@ The sequence for every request that carries arguments is:
 
 1.  **Property mapping** — everything arriving from the request is a string or
     an array of strings. Property mapping converts these into typed PHP values
-    and objects (see :ref:`extbase-controller-propertymapping`).
+    and objects (see
+    :ref:`Property mapping <extbase-controller-propertymapping>`).
 2.  **Validation** — the mapped values are checked against any
     :php:`#[Validate]` attributes declared on the action parameter, on the
     domain model property, or both. Property validators run first; action
@@ -53,12 +54,13 @@ to run the checks and *where* to route the request on failure.
 ..  note::
 
     Validation is not limited to form submissions. It runs on *every* action
-    that receives typed arguments including detail, filter, and search
-    actions that read their input from URL parameters. A record created in the
-    TYPO3 backend may satisfy TCA validation but still fail Extbase model
-    validation when the same record is loaded as an action argument in the
-    frontend. See :ref:`extbase-appendix-pitfalls-validation-tca-gap` for a
-    full explanation.
+    that receives typed arguments including detail, filter, and search actions
+    that read their input from URL parameters. A record created in the TYPO3
+    backend may satisfy TCA validation but still fail Extbase model validation
+    when the same record is loaded as an action argument in the frontend. See
+    :ref:`Extbase model validation and TCA validation are independent
+    <extbase-appendix-pitfalls-validation-tca-gap>`
+    for a full explanation.
 
 
 ..  _extbase-validation-where-to-declare:
@@ -97,13 +99,15 @@ without having to repeat the attribute on every parameter.
     only a title requirement. Each DTO is mapped by property mapping just like
     a domain model and can have its own independent validation rules.
 
-When a form submission fails validation, Extbase re-calls the originating
-action (typically `newAction()` or `editAction()`). If that action has the
-model as a typed parameter and declares :php:`#[IgnoreValidation]` on it,
-the :ref:`t3viewhelper:typo3-fluid-form` view helper can read the submitted
-values from the object and :ref:`t3viewhelper:typo3-fluid-form-validationresults`
-can display the errors inline — the object does not need to be valid for
-this to work.
+When a form submission fails validation, Extbase re-calls the originating action
+(typically `newAction()` or `editAction()`). If that action has the model as a
+typed parameter and declares :php:`#[IgnoreValidation]` on it, the
+:ref:`f:form <t3viewhelper:typo3-fluid-form>` view helper can read the
+submitted values from the object and
+:ref:`f:form.validationResults
+<t3viewhelper:typo3-fluid-form-validationresults>`
+can display the errors inline — the object does not need to be valid for this to
+work.
 
 
 ..  _extbase-validation-symfony-constraints:
@@ -222,11 +226,15 @@ property. Leave it empty to access all errors in the current request.
 What to read next
 =================
 
-*   :ref:`extbase-validation-builtin` — the full list of validators that ship
+*   :ref:`Built-in validators and the #[Validate] attribute
+    <extbase-validation-builtin>`
+    — the full list of validators that ship
     with Extbase and their configuration options.
-*   :ref:`extbase-validation-custom` — how to write a validator for domain
+*   :ref:`Writing a custom Extbase validator <extbase-validation-custom>` — how
+    to write a validator for domain
     rules that the built-in validators cannot express.
-*   :ref:`extbase-controller-propertymapping` — how request data is mapped to objects
+*   :ref:`Property mapping <extbase-controller-propertymapping>` — how request
+    data is mapped to objects
     before validation runs.
 
 ..  toctree::

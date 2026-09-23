@@ -45,7 +45,8 @@ The four arguments are:
     a comma-separated list of action names. The first entry and its first action
     are the default. Only actions listed here are available via this plugin.
 4.  **Non-cacheable actions** — a subset of the above defining output that must not be
-    stored in the page cache. See :ref:`extbase-caching-noncacheable`
+    stored in the page cache. See
+    :ref:`Non-cacheable Extbase plugin actions <extbase-caching-noncacheable>`
     for the implications.
 
 ..  versionchanged:: 14.0

@@ -50,11 +50,15 @@ You do **not** need to declare :php:`$uid` or :php:`$pid` — they are inherited
 
 ..  note::
 
-    Do not extend :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject`.
-    :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`
-    is the correct base class for objects that have identity (a UID).
+    Do not extend
+    :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject`.
+    :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` is the correct
+    base class for objects that have identity (a UID).
     :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractValueObject` exists but
-    is marked :php:`@internal` — see :ref:`extbase-domain-model-value-objects` below.
+    is marked :php:`@internal` — see
+    :ref:`Value objects in Extbase domain models
+    <extbase-domain-model-value-objects>`
+    below.
 
 
 ..  _extbase-domain-model-properties:
@@ -79,7 +83,9 @@ Key rules:
     :abbr:`hydration (populating a PHP object with values loaded from the database)`
     — PHP prevents the parent :php:`_setProperty()` method from writing to them
     — and changes to private properties are never persisted for the same reason.
-    See :ref:`extbase-appendix-pitfalls-private-properties`.
+    See
+    :ref:`Model properties declared private are never populated
+    <extbase-appendix-pitfalls-private-properties>`.
 *   Every property needs a meaningful default so that the object is always in a
     valid state before it is populated by Extbase or your code.
 *   Provide getters. Provide setters for properties that should be changeable
@@ -92,7 +98,8 @@ snake_case database columns automatically. The property :php:`$conferenceDate`
 maps to the column :sql:`conference_date`. If your table or column names do not
 follow this convention, override the mapping in
 :file:`Configuration/Extbase/Persistence/Classes.php`. See
-:ref:`extbase-domain-model-mapping` for the full syntax.
+:ref:`Table and field mapping <extbase-domain-model-mapping>` for the full
+syntax.
 
 ..  seealso::
 
@@ -115,8 +122,9 @@ validation.
 ..  versionchanged:: 14.0
 
     DocBlock annotation support was removed. See
-    :ref:`extbase-upgrading-annotations-to-attributes` for the migration table
-    and the relevant Rector rule.
+    :ref:`Annotations replaced by PHP attributes
+    <extbase-upgrading-annotations-to-attributes>`
+    for the migration table and the relevant Rector rule.
 
 The four possible attributes on model properties are:
 
@@ -282,9 +290,9 @@ configuration or any additional properties set in the TYPO3 backend for that fil
 
 ..  seealso::
 
-    :ref:`extbase-domain-fileupload` for handling file uploads submitted through a
-    frontend form, including the :php:`#[FileUpload]` attribute, validation,
-    and deletion.
+    :ref:`File uploads in Extbase domain models <extbase-domain-fileupload>` for
+    handling file uploads submitted through a frontend form, including the
+    :php:`#[FileUpload]` attribute, validation, and deletion.
 
 
 ..  _extbase-domain-model-enums:
@@ -397,15 +405,16 @@ You only need :file:`ext_tables.sql` for:
 
 ..  seealso::
 
-    :ref:`extension-configuration-tca` — the :file:`Configuration/TCA/`
-    folder in your extension, where TCA files live.
+    :ref:`Extension folder Configuration/TCA <extension-configuration-tca>` —
+    the :file:`Configuration/TCA/` folder in your extension, where TCA files
+    live.
 
     `TCA reference — column types
     <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/ColumnsConfig/Index.html>`_
     — full list of column types and their auto-creation support.
 
-    :ref:`extension-files-locations` — complete extension file and folder
-    structure reference.
+    :ref:`File structure <extension-files-locations>` — complete extension file
+    and folder structure reference.
 
 
 ..  _extbase-domain-model-value-objects:
@@ -603,7 +612,8 @@ looks a bit dirty and is a way around all business rules but that is what the
 
 ..  warning::
     While the :php:`DataMapper` does not use any mutators, other parts of
-    Extbase do. Both, :ref:`validation <extbase-validation-overview>` and property
+    Extbase do. Both, :ref:`validation
+    <extbase-validation-overview>` and property
     mapping, either use existing mutators or gather type information from them.
 
 ..  _extbase-domain-model-hydration-visibility:
@@ -642,5 +652,5 @@ other ways to implement it.
 Using an event when a object is thawed
 --------------------------------------
 
-The PSR-14 event :ref:`AfterObjectThawedEvent` is available to modify values
-when creating domain objects.
+The PSR-14 event :ref:`AfterObjectThawedEvent <AfterObjectThawedEvent>` is
+available to modify values when creating domain objects.

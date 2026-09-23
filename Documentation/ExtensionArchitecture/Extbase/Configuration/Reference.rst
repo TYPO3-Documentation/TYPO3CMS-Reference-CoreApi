@@ -21,7 +21,8 @@ installation-wide feature toggles.
 This page is the working reference for configuration blocks used by Extbase
 extensions in practice. For an exhaustive list of TypoScript properties
 including data type and default value, see the
-:ref:`plugin reference in the TypoScript Reference <t3tsref:setup-plugin-extbase>`.
+:ref:`plugin reference in the TypoScript Reference
+<t3tsref:setup-plugin-extbase>`.
 For the bigger picture of configuration "surfaces" and what belongs in them, see
 :ref:`Configure Extbase plugins and modules <extbase-configuration>`.
 
@@ -57,20 +58,24 @@ extension-wide values from :typoscript:`plugin.tx_myextension`.
 A few framework settings can also be set globally for every Extbase plugin and
 module below :typoscript:`config.tx_extbase`. Use this scope sparingly —
 plugin-specific configuration is almost always clearer. See
-:ref:`The global scope: config.tx_extbase <extbase-configuration-typoscript-global-scope>`.
+:ref:`The global scope: config.tx_extbase
+<extbase-configuration-typoscript-global-scope>`.
 
 The merge order, from lowest to highest precedence, is:
 
 #.  :typoscript:`config.tx_extbase` (global)
 #.  :typoscript:`plugin.tx_myextension` (extension-wide)
 #.  :typoscript:`plugin.tx_myextension_conferencelist` (plugin-specific)
-#.  :ref:`FlexForm <t3coreapi:flexforms>` values set by the editor in the content
+#.  :ref:`FlexForm
+<t3coreapi:flexforms>` values set by the editor in the content
     element
 
-FlexForm values therefore take precedence over TypoScript, field by field. A field
-that an editor leaves blank can still override the matching TypoScript default with its empty
-value; :typoscript:`ignoreFlexFormSettingsIfEmpty` (see
-:ref:`extbase-configuration-typoscript-other`) will retain the TypoScript value.
+FlexForm values therefore take precedence over TypoScript, field by field. A
+field that an editor leaves blank can still override the matching TypoScript
+default with its empty value; :typoscript:`ignoreFlexFormSettingsIfEmpty` (see
+:ref:`Output format, language overrides and FlexForm handling
+<extbase-configuration-typoscript-other>`)
+will retain the TypoScript value.
 
 ..  tip::
 
@@ -111,7 +116,8 @@ template paths only make sense for individual extensions. Do not put either ther
     :typoscript:`config.tx_extbase` if you have a deliberate **installation-wide
     policy**. Use per-plugin configuration in every other case. A global
     value placed in this scope by mistake is a documented pitfall — see
-    :ref:`A global config.tx_extbase value breaks an unrelated plugin <extbase-appendix-pitfalls-global-config>`.
+    :ref:`A global config.tx_extbase value breaks an unrelated plugin
+    <extbase-appendix-pitfalls-global-config>`.
 
 A legitimate case is a policy that must hold even for plugins that you do not
 control. A good example is MVC error handling: "on this site, *any*
@@ -218,15 +224,20 @@ and where it writes new ones.
 :typoscript:`enableAutomaticCacheClearing`
     Enabled by default. When Extbase persists a change, it clears the page cache
     for the affected records automatically. See
-    :ref:`extbase-caching-overview` for when and why you might disable this.
+    :ref:`Caching for Extbase plugins <extbase-caching-overview>` for when and
+    why you might disable this.
 
 ..  seealso::
 
-    *   :ref:`extbase-concepts-persistence-storagepid` — the full
+    *   :ref:`The storagePid: where Extbase looks for records
+        <extbase-concepts-persistence-storagepid>`
+        — the full
         :typoscript:`storagePid` resolution rules, and how to disable
         storage-page filtering.
 
-    *   :ref:`extbase-appendix-pitfalls-storagepid` — why a repository query
+    *   :ref:`findAll() returns nothing on an Extbase repository
+        <extbase-appendix-pitfalls-storagepid>`
+        — why a repository query
         returns nothing when a storage page is misconfigured.
 
 ..  _extbase-configuration-typoscript-view:
@@ -345,8 +356,8 @@ uses:
         Only share a namespace if you intend this. If two unrelated plugins end up with
         the same namespace by accident, their arguments will overwrite each other.
 
-    See :ref:`extbase-routing-uri-builder` for how namespaces affects
-    generated URIs.
+    See :ref:`Generating URLs with the UriBuilder <extbase-routing-uri-builder>`
+    for how namespaces affects generated URIs.
 
 ..  _extbase-configuration-typoscript-mvc:
 
@@ -432,11 +443,13 @@ Output format, language overrides and FlexForm handling
 :typoscript:`ignoreFlexFormSettingsIfEmpty`
     A comma-separated list of FlexForm field names whose empty values should
     **not** override the TypoScript settings of the same name. Because FlexForm
-    values take precedence over TypoScript, a field that an editor leaves blank would
-    otherwise overrule a TypoScript default with its empty value; listing the
-    field here will keep the TypoScript value if the field is left blank. The
-    PSR-14 :ref:`BeforeFlexFormConfigurationOverrideEvent` allows further
-    adjustment of the merged configuration.
+    values take precedence over TypoScript, a field that an editor leaves blank
+    would otherwise overrule a TypoScript default with its empty value; listing
+    the field here will keep the TypoScript value if the field is left blank.
+    The PSR-14
+    :ref:`BeforeFlexFormConfigurationOverrideEvent
+    <BeforeFlexFormConfigurationOverrideEvent>`
+    allows further adjustment of the merged configuration.
 
 ..  seealso::
 
@@ -449,7 +462,8 @@ Extbase feature toggles (not TypoScript)
 ========================================
 
 Two Extbase behaviours are controlled by global
-:ref:`feature toggles <feature-toggles>` rather than by TypoScript. They are set in
+:ref:`feature toggles
+<feature-toggles>` rather than by TypoScript. They are set in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` (configured through
 :file:`settings.php` or the :guilabel:`Settings > Feature Toggles` backend
 module) and apply to a whole installation rather than to a single plugin.
@@ -458,7 +472,8 @@ module) and apply to a whole installation rather than to a single plugin.
     Enabled by default. Aligns Extbase's :php:`\DateTime` mapping with the FormEngine
     and DataHandler so that timezones and integer-based time fields behave
     consistently across the backend and Extbase. See
-    :ref:`Consistent DateTime handling <extbase-domain-property-types-datetime-consistency>`.
+    :ref:`Consistent DateTime handling
+    <extbase-domain-property-types-datetime-consistency>`.
 
 :php:`extbase.enableHistoryTracking`
     Disabled by default (added in TYPO3 v14.2). When enabled, changes persisted by Extbase
@@ -468,21 +483,26 @@ module) and apply to a whole installation rather than to a single plugin.
     :php:`'ctrl' => ['extbase' => ['enableHistoryTracking' => false]]`. Mind the
     GDPR implications — full data snapshots are stored. See
     :ref:`Feature #107289 <changelog:feature-107289-1734172800>` and
-    :ref:`Check relevant feature toggle defaults after upgrading (TYPO3 v14) <extbase-upgrading-feature-toggle-defaults>`.
+    :ref:`Check relevant feature toggle defaults after upgrading (TYPO3 v14)
+    <extbase-upgrading-feature-toggle-defaults>`.
 
 ..  seealso::
 
     *   `plugin reference (TypoScript Reference) <https://docs.typo3.org/permalink/t3tsref:setup-plugin-extbase>`_
         — the complete list of Extbase plugin properties with data types and defaults.
 
-    *   :ref:`extbase-concepts-persistence-storagepid` — how :typoscript:`storagePid`
+    *   :ref:`The storagePid: where Extbase looks for records
+        <extbase-concepts-persistence-storagepid>`
+        — how :typoscript:`storagePid`
         and :typoscript:`recursive` are resolved, and how to bypass storage-page
         filtering.
 
-    *   :ref:`extbase-view-overview` — how template path configuration is used
+    *   :ref:`View layer in Extbase <extbase-view-overview>` — how template path
+        configuration is used
         during rendering.
 
-Now that you have configured your plugin, you can move on to writing queries, relations and
-templates that will turn these settings into a working extension. Start with
-:ref:`extbase-persistence-overview` for data considerations and
-:ref:`extbase-view-overview` for output.
+Now that you have configured your plugin, you can move on to writing queries,
+relations and templates that will turn these settings into a working extension.
+Start with :ref:`Persistence layer in Extbase <extbase-persistence-overview>`
+for data considerations and :ref:`View layer in Extbase <extbase-view-overview>`
+for output.
