@@ -46,7 +46,7 @@ Provide configuration files for unit tests
     test environment including :file:`UnitTests.xml`,
     :file:`UnitTestsBootstrap.php`, and :file:`runTests.sh` automatically using
     the command `vendor/bin/typo3 make:testenv [extension_key]`. See also
-    :ref:`testing-extensions`.
+    :ref:`Testing extensions <testing-extensions>`.
 
 The TYPO3 testing framework comes with a predefined unit test configuration and
 a bootstrapping file. You should copy these files into your project so you
@@ -59,9 +59,9 @@ and `vendor/typo3/testing-framework/Resources/Core/Build/UnitTestsBootstrap.php
 into your project under :path:`Build/phpunit/`.
 
 Open file :file:`UnitTests.xml` and adjust the paths to the path (or multiple paths) where
-the unit tests are stored. Because the configuration file is located two directory
-levels deep in :path:`Build/phpunit/`, use `../../` to navigate back to the root
-directory. By convention many extensions store them in the
+the unit tests are stored. Because the configuration file is located two
+directory levels deep in :path:`Build/phpunit/`, use `../../` to navigate back
+to the root directory. By convention many extensions store them in the
 directory :path:`Tests/Unit` and subdirectories thereof:
 
 ..  code-block:: diff

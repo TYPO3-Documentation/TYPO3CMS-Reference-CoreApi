@@ -15,7 +15,8 @@ Before running functional tests, ensure that the TYPO3 testing framework
 (:composer:`typo3/testing-framework`) and PHPUnit (:composer:`phpunit/phpunit`)
 are installed as Composer development dependencies. For version compatibility
 between TYPO3, PHP, and the testing framework, see
-:ref:`Install PHPUnit and the TYPO3 testing framework <testing-unit-run-install>`.
+:ref:`Install PHPUnit and the TYPO3 testing framework
+<testing-unit-run-install>`.
 
 ..  _testing-functional-run-kickstarter:
 
@@ -43,7 +44,7 @@ The command generates:
 *   Enriches :file:`composer.json` with the necessary `require-dev` and
     `autoload-dev` definitions
 
-For more information, see :ref:`testing-extensions`.
+For more information, see :ref:`Testing extensions <testing-extensions>`.
 
 ..  _testing-functional-run-configure:
 
@@ -61,10 +62,10 @@ the TYPO3 testing framework provides template files:
 Copy these files into your project under :path:`Build/phpunit/`.
 
 Open :file:`FunctionalTests.xml` and adjust the path in the `<testsuite>`
-definition to point to your functional test directory. Because the configuration
-file is located two directory levels deep in :path:`Build/phpunit/`, use `../../`
-to navigate back to the root directory. By convention, functional tests reside
-in :path:`Tests/Functional/`:
+definition to point to your functional test directory. Because the
+configuration file is located two directory levels deep in
+:path:`Build/phpunit/`, use `../../` to navigate back to the root directory.
+By convention, functional tests reside in :path:`Tests/Functional/`:
 
 ..  code-block:: diff
     :caption: FunctionalTests.xml for extension testing
@@ -132,10 +133,11 @@ Run a single test file:
 
 ..  code-block:: bash
 
-    Build/Scripts/runTests.sh -s functional -- Tests/Functional/Domain/Repository/MyRepositoryTest.php
+    Build/Scripts/runTests.sh -s functional -- \
+        Tests/Functional/Domain/Repository/MyRepositoryTest.php
 
 For more details on :file:`runTests.sh` options and workflows, see
-:ref:`testing-organization`.
+:ref:`Test runners <testing-organization>`.
 
 ..  _testing-functional-run-ddev:
 
@@ -187,7 +189,8 @@ Running with SQLite on DDEV:
 
 ..  code-block:: bash
 
-    ddev exec typo3DatabaseDriver=pdo_sqlite php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml
+    ddev exec typo3DatabaseDriver=pdo_sqlite \
+        php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml
 
 Running with MariaDB or MySQL on DDEV:
 
@@ -206,4 +209,6 @@ To run a single test method or test case, use the `--filter` option:
 
 ..  code-block:: bash
 
-    ddev exec typo3DatabaseDriver=pdo_sqlite php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml --filter "MyFunctionalTest"
+    ddev exec typo3DatabaseDriver=pdo_sqlite \
+        php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml \
+        --filter "MyFunctionalTest"
