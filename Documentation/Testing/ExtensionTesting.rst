@@ -211,4 +211,5 @@ Organizing and storing the commands
 ===================================
 
 There are different solutions to store and execute these commands as some are
-quite long. For details see :ref:`testing-organization`.
+quite long. For details see
+:ref:`Test runners: organize and execute tests <testing-organization>`.
