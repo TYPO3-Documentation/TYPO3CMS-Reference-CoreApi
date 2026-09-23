@@ -25,7 +25,8 @@ the FlexForm data, then :php:`FlexFormTools` to write back the
 changes.
 
 :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` is a stateless
-service and can be injected via :ref:`DependencyInjection`.
+service and can be injected via
+:ref:`Dependency injection <DependencyInjection>`.
 
 ..  literalinclude:: _FlexformModificationService.php
     :caption: EXT:my_extension/Classes/Service/FlexformModificationService.php

@@ -60,8 +60,8 @@ calling one (or both) of these two methods:
 
 ..  note::
     Any error that might have occurred during your DataHandler operations can be
-    accessed via its public property :php:`$this->dataHandler->errorLog`.
-    See :ref:`tcemain-error-handling`.
+    accessed via its public property :php:`$this->dataHandler->errorLog`. See
+    :ref:`Error handling <tcemain-error-handling>`.
 
 ..  _tce-database-basics-commands-array:
 

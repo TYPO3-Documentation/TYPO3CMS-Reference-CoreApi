@@ -35,8 +35,8 @@ Provide records in PHP
 In PHP a record object can be created by the
 :php:`\TYPO3\CMS\Core\Domain\RecordFactory`.
 
-The event :ref:`RecordCreationEvent` can be used to influence or replace
-the Record object and its properties during creation.
+The event :ref:`RecordCreationEvent <RecordCreationEvent>` can be used to
+influence or replace the Record object and its properties during creation.
 
 ..  _record_objects_fluid:
 
@@ -52,7 +52,7 @@ representing the record of the content element that should currently be displaye
 
 ..  todo: Link Content element preview templates once documented
 
-The :ref:`Debug ViewHelper <f:debug> <t3viewhelper:typo3-fluid-debug>` output
+The :ref:`f:debug ViewHelper <t3viewhelper:typo3-fluid-debug>` output
 of the Record object is misleading for integrators,
 as most properties are accessed differently as one would assume.
 

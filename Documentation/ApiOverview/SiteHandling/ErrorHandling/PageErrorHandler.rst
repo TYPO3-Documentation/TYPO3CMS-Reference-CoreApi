@@ -36,8 +36,8 @@ Properties
 ==========
 
 The page-based error handler has the properties
-:ref:`sitehandling-errorHandling_errorCode` and
-:ref:`sitehandling-errorHandling_errorHandler` and the following:
+:ref:`errorCode <sitehandling-errorHandling_errorCode>` and
+:ref:`errorHandler <sitehandling-errorHandling_errorHandler>` and the following:
 
 ..  option:: errorContentSource
 

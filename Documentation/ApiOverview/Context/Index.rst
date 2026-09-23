@@ -163,7 +163,8 @@ overlayType
     *   :php:`LanguageAspect::OVERLAYS_ON` or
     *   :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default)
 
-    See :ref:`context_api_aspects_language_overlay-types` for more details.
+    See :ref:`Overlay types <context_api_aspects_language_overlay-types>` for
+    more details.
 
 
 ..  _language-aspect-legacyLanguageMode:

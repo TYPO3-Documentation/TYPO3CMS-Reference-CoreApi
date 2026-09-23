@@ -80,8 +80,9 @@ Capabilities
 These are the current capabilities, that can be used (see
 :t3src:`core/Classes/Locking/LockingStrategyInterface.php`:
 
-In general, the concept of locking, using shared or exclusive + blocking or non-blocking
-locks is not TYPO3-specific. You can find more resources under :ref:`locking-api-more-info`.
+In general, the concept of locking, using shared or exclusive + blocking or
+non-blocking locks is not TYPO3-specific. You can find more resources under
+:ref:`Related information <locking-api-more-info>`.
 
 
 LOCK_CAPABILITY_EXCLUSIVE

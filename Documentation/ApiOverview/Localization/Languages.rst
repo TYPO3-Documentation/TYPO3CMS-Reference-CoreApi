@@ -88,5 +88,6 @@ The list of supported languages is defined in
         and describe your use case. The language might be added to the next
         major release of TYPO3.
 
-    *   Take a look at the section :ref:`xliff-translating-languages` to solve
+    *   Take a look at the section
+        :ref:`Adding custom languages <xliff-translating-languages>` to solve
         it in your project.

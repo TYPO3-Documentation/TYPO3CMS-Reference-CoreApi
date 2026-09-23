@@ -21,9 +21,9 @@ Cache registration
 ==================
 
 Registration of a new cache should be done in an extension's
-:ref:`ext-localconf-php`. The example below defines an empty sub-array in
-`cacheConfigurations`. Neither *frontend* nor *backend* are defined: The cache
-manager will choose the default
+:ref:`ext_localconf.php <ext-localconf-php>`. The example below defines an empty
+sub-array in `cacheConfigurations`. Neither *frontend* nor *backend* are
+defined: The cache manager will choose the default
 :ref:`variable frontend <caching-frontend-variable>` and the
 :ref:`database backend <caching-backend-db>` by default.
 
@@ -117,4 +117,6 @@ Working with cache tags
 
 The frontend cache collector API is available as a PSR-7 request attribute to
 collect cache tags and their corresponding lifetime. Find more information in
-the chapter :ref:`typo3-request-attribute-frontend-cache-collector`.
+the chapter
+:ref:`Frontend cache collector
+<typo3-request-attribute-frontend-cache-collector>`.

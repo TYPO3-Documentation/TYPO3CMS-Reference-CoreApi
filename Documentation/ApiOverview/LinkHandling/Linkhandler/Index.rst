@@ -16,10 +16,12 @@ of interest to Core developers only.
 
 Current LinkHandlers:
 
-*  :ref:`pagelinkhandler`: for linking pages and content
-*  :ref:`recordlinkhandler`: for linking any kind of record
+*  :ref:`The PageLinkHandler <pagelinkhandler>`: for linking pages and content
+*  :ref:`The RecordLinkHandler <recordlinkhandler>`: for linking any kind of
+   record
 *  UrlLinkHandler: for linking external urls
-*  FileLinkHandler: for linking files in the :ref:`fal`
+*  FileLinkHandler: for linking files in the
+   :ref:`File abstraction layer (FAL) <fal>`
 *  FolderLinkHandler: for linking to directories
 *  MailLinkHandler: for linking email addresses
 *  TelephoneLinkHandler: for linking phone numbers
@@ -57,7 +59,8 @@ The minimal page TSconfig configuration is:
 ..  literalinclude:: _recordLinkHandlerOptions.tsconfig
     :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
 
-See :ref:`link-handler-configuration` for all available options.
+See :ref:`Link handler configuration <link-handler-configuration>` for all
+available options.
 
 ..  _linkhandler-pagetsconfig-example-news-records:
 

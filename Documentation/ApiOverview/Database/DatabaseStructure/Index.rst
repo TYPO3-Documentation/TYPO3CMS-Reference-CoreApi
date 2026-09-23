@@ -94,7 +94,7 @@ Defines TYPO3's hierarchical page tree. All managed records reference a
 *   The root page has `pid = 0` and does not exist as a row in the table.
 *   Only administrators can create records on the root level.
 *   Tables must explicitly allow root-level records using
-    :ref:`t3tca:ctrl-reference-rootlevel`.
+    :ref:`rootLevel <t3tca:ctrl-reference-rootlevel>`.
 
 ..  _database-structure-mm-relations:
 

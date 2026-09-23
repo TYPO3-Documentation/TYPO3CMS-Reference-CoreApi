@@ -209,8 +209,8 @@ followed by your command in the :guilabel:`Schedulable Command` field.
 ..  note::
     You need to save and reopen the task to define command arguments.
 
-In order to prevent commands from being set up as scheduler tasks,
-see :ref:`deactivating-the-command-in-scheduler`.
+In order to prevent commands from being set up as scheduler tasks, see
+:ref:`Making a command non-schedulable <deactivating-the-command-in-scheduler>`.
 
 ..  _how-to-run-a-command-ci-cd:
 

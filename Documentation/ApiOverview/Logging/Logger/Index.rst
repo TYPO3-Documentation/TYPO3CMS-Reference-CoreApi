@@ -284,7 +284,7 @@ The written log messages will then have the component name `"security"`, such as
     Fri, 21 Jul 2023 16:26:13 +0000 [DEBUG] ... component="security": ...
 
 For more examples for configuring the logging see the
-:ref:`logging-configuration-writer` section.
+:ref:`Writer configuration <logging-configuration-writer>` section.
 
 
 ..  _logging-logger-examples:

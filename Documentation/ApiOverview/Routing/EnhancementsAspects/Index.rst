@@ -66,8 +66,8 @@ Routing enhancers
 
 ..  tip::
 
-    See :ref:`routing-terminology` for an introduction to the used
-    terminology here.
+    See :ref:`Key terminology <routing-terminology>` for an introduction to the
+    used terminology here.
 
 There are two types of enhancers: route decorators and route enhancers. A route
 enhancer replaces a set of placeholders, inserts URL parameters
@@ -129,9 +129,10 @@ configuration:
     expected route.
 
 :yaml:`static`
-    Declares certain route parameters as static, avoiding the need for
-    `cHash` in URLs. Requires a corresponding :yaml:`requirements` rule.
-    See :ref:`routing-static-variables` for details and examples.
+    Declares certain route parameters as static, avoiding the need for `cHash`
+    in URLs. Requires a corresponding :yaml:`requirements` rule. See
+    :ref:`Static route variables <routing-static-variables>` for details and
+    examples.
 
 
 :yaml:`_arguments`
@@ -140,11 +141,12 @@ configuration:
     URL generation receives the argument :yaml:`category`. It is mapped to that
     name (so you can access/use it as :php:`category` in your custom code).
 
-TYPO3 will add the parameter `cHash` to URLs when necessary, see :ref:`chash`.
-The `cHash` can be removed by converting dynamic arguments into static
-arguments. All captured arguments are dynamic by default. They can be converted
-to static arguments by defining the possible expected values for these
-arguments. This is done by adding :ref:`aspects
+TYPO3 will add the parameter `cHash` to URLs when necessary, see
+:ref:`Caching variants and the cache hash <chash>`. The `cHash` can be removed
+by converting dynamic arguments into static arguments. All captured arguments
+are dynamic by default. They can be converted to static arguments by defining
+the possible expected values for these arguments. This is done by adding
+:ref:`aspects
 <routing-advanced-routing-configuration-aspects>` for those arguments to provide
 a static list of expected values.
 

@@ -28,7 +28,7 @@ As the settings for your websites are important for SEO purposes as well, please
 make sure you check the following fields.
 
 To get more in depth information about the site handling please refer to the
-:ref:`t3coreapi:sitehandling` docs.
+:ref:`Site handling <t3coreapi:sitehandling>` docs.
 
 ..  _seo-configuration-site-entry-point:
 
@@ -60,7 +60,8 @@ when someone is searching in a specific language.
    Even if you have only one language, make sure all language input fields in the :guilabel:`Locale` tab are also set correctly.
    Giving wrong information to search engines will not help you to rank higher.
 
-See :ref:`t3coreapi:sitehandling-addingLanguages` for more details.
+See :ref:`Adding languages <t3coreapi:sitehandling-addingLanguages>` for more
+details.
 
 ..  _seo-configuration-site-error-handling:
 
@@ -71,7 +72,8 @@ Although TYPO3 will respond with a HTTP status code `404 (Not found)` when a pag
 have a proper content telling the user that the page they requested is not available. This can guide them to another
 page or for example to a search function of your website.
 
-See :ref:`t3coreapi:sitehandling-errorHandling` for more details.
+See :ref:`Error handling <t3coreapi:sitehandling-errorHandling>` for more
+details.
 
 ..  _seo-configuration-site-robots-txt:
 
@@ -89,8 +91,9 @@ It is best practice to keep your robots.txt as clean as possible. An example of 
     # This space intentionally left blank. Only add entries when you know how powerful the robots.txt is.
     User-agent: *
 
-On :ref:`t3coreapi:sitehandling-staticRoutes` you can find more details on how to create a static route that will show
-this information when visiting `https://www.example.com/robots.txt`.
+On :ref:`Static routes <t3coreapi:sitehandling-staticRoutes>` you can find more
+details on how to create a static route that will show this information when
+visiting `https://www.example.com/robots.txt`.
 
 When you want to disallow specific URLs, you can use the
 `Index this page <https://docs.typo3.org/permalink/t3editors:seo-page-properties-index-page>`_
@@ -105,9 +108,10 @@ Having correct redirects and choosing the appropriate
 :ref:`status code <ext_redirects:http-status-codes>` is a very important part of SEO.
 
 It is possible to manage redirects via the TYPO3
-:doc:`redirects <ext_redirects:Index>` extension, but it is not the only option and
-from a performance perspective it may not be the best solution. Please also see
-:ref:`ext_redirects:best-practices-performance` in the EXT:redirects documentation.
+:doc:`redirects <ext_redirects:Index>` extension, but it is not the only option
+and from a performance perspective it may not be the best solution. Please also
+see :ref:`Performance <ext_redirects:best-practices-performance>` in the
+EXT:redirects documentation.
 
 ..  _config-tags:
 
@@ -130,7 +134,9 @@ to the :php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` event. Just make
 sure your EventListener is ordered after the :php:`TYPO3\CMS\Seo\HrefLang\HrefLangGenerator`
 listener.
 
-More information how to work with EventListeners can be found in the documentation of :ref:`t3coreapi:EventDispatcher`
+More information how to work with EventListeners can be found in the
+documentation of
+:ref:`Event dispatcher (PSR-14 events) <t3coreapi:EventDispatcher>`
 
 ..  _config-canonical-tag:
 
@@ -202,10 +208,11 @@ TypoScript code like this:
 Setting fallbacks for meta tags
 -------------------------------
 
-As you can see on :ref:`t3coreapi:metatagapi-configuration` the tags are first
-set by PHP and after that the TypoScript config is handled. As `EXT:seo` is only
-adding the meta tags for the `SEO` and `Social media` fields (if they are filled in
-the page properties), you have some possibilities to add fallbacks.
+As you can see on :ref:`TypoScript and PHP <t3coreapi:metatagapi-configuration>`
+the tags are first set by PHP and after that the TypoScript config is handled.
+As `EXT:seo` is only adding the meta tags for the `SEO` and `Social media`
+fields (if they are filled in the page properties), you have some possibilities
+to add fallbacks.
 
 Because `EXT:seo` is handling the tags in PHP-scope, you are able to add those
 fallbacks using TypoScript. You can add those tags with TypoScript and those will
@@ -237,8 +244,8 @@ If you want to have a fallback `og:image` or `twitter:image`, you can use this l
 
 More information about the Meta Tag API can be found on:
 
-*   PHP :ref:`t3coreapi:metatagapi`
-*   TypoScript :ref:`t3tsref:meta`
+*   PHP :ref:`MetaTag API <t3coreapi:metatagapi>`
+*   TypoScript :ref:`Properties <t3tsref:meta>`
 
 ..  _seo-configuration-typoscript-examples-author:
 

@@ -175,8 +175,8 @@ One can check whether a feature is enabled in TypoScript with the function
 Feature toggles in Fluid
 ========================
 
-The :ref:`t3viewhelper:typo3-fluid-feature` can be used to check for a feature in a Fluid
-template:
+The :ref:`f:feature ViewHelper <t3viewhelper:typo3-fluid-feature>` can
+be used to check for a feature in a Fluid template:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html

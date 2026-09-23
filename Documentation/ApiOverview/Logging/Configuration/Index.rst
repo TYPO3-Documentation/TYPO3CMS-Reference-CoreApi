@@ -17,10 +17,10 @@ TYPO3 project.
 
 ..  seealso::
 
-    Are you configuring logging for a live TYPO3 instance?
-    See :ref:`production-logging` for best practices on logging in production
-    environments, including log rotation, log levels, file storage, and
-    monitoring tools like Sentry.
+    Are you configuring logging for a live TYPO3 instance? See
+    :ref:`Logging considerations during production <production-logging>` for
+    best practices on logging in production environments, including log
+    rotation, log levels, file storage, and monitoring tools like Sentry.
 
 For example, to apply a configuration for all loggers within the
 :php:`\TYPO3\CMS\Core\Cache` namespace, the configuration is read from
@@ -65,7 +65,7 @@ One more example:
 ..  literalinclude:: _WriterConfigurationClassAndChannel.php
     :caption: config/system/additional.php | typo3conf/system/additional.php (excerpt)
 
-For more information about channels, see :ref:`logging-channels`.
+For more information about channels, see :ref:`Channels <logging-channels>`.
 
 An arbitrary number of writers can be added for every severity level (INFO,
 WARNING, ERROR, ...). The configuration is applied to log entries of the
