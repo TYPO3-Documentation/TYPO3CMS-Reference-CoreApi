@@ -79,18 +79,21 @@ APIs are the best choice.
 
 ..  seealso::
 
-    :ref:`extbase-concepts` explains the MVC pattern and how Extbase
+    :ref:`Core concepts of Extbase <extbase-concepts>` explains the MVC pattern
+    and how Extbase
     implements it in detail.
 
     For extension development without Extbase, see
     :ref:`Extension development <extension-architecture>`.
 
     Something not working as expected? See
-    :ref:`extbase-appendix-pitfalls` for a list of common
+    :ref:`Common pitfalls in Extbase <extbase-appendix-pitfalls>` for a list of
+    common
     traps and full explanations.
 
     Know what you want to achieve but not which chapter covers it? See
-    :ref:`extbase-appendix-tasks` for goal-oriented answers with
+    :ref:`Common tasks in Extbase <extbase-appendix-tasks>` for goal-oriented
+    answers with
     links to the full details.
 
 ..  toctree::

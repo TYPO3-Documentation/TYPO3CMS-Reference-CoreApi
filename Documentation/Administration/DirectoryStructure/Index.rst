@@ -186,7 +186,7 @@ directory :path:`_assets/`.
 
 ..  seealso::
 
-    *   :ref:`<migrate-public-assets>`
+    *   :ref:`Migrating public web assets to public/_assets <migrate-public-assets>`
     *   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
     *   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
     *   `Migration to typo3/composer-cms-installers version 4+ <https://brotkrueml.dev/migration-typo3-composer-cms-installers-version-4/>`__
