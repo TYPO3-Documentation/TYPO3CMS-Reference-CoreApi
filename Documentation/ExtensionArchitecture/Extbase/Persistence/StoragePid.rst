@@ -38,7 +38,8 @@ regardless of page.
 
 This matters for two reasons. First, a repository with no configured storagePid
 queries page :sql:`0` and finds nothing — see
-:ref:`extbase-persistence-storagepid-zero`. Second, the constraint is resolved
+:ref:`why storagePid = 0 does not disable the restriction
+<extbase-persistence-storagepid-zero>`. Second, the constraint is resolved
 from several configuration sources that override one another, so the page a query
 actually searches is not always the one you set.
 
@@ -114,7 +115,8 @@ shorter:
     the backend counterpart of the :typoscript:`plugin.tx_*` scope used in the
     frontend, and the usual place to set a storagePid for a module.
 #.  **PHP, per query** — query settings override everything above, exactly as in
-    the frontend. See :ref:`extbase-persistence-storagepid-override`.
+    the frontend. See :ref:`overriding the storagePid for a single query
+    <extbase-persistence-storagepid-override>`.
 
 ..  literalinclude:: _snippets/_module_storagepid.typoscript
     :caption: EXT:my_extension/ext_typoscript_setup.typoscript

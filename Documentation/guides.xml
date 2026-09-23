@@ -13,6 +13,7 @@
         edit-on-github="TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
         typo3-core-preferred="14.3"
         interlink-shortcode="t3coreapi"
+        check-link-text="true"
     />
     <project
         title="TYPO3 Explained"
