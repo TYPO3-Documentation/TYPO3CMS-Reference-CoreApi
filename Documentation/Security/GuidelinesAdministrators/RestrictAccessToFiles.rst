@@ -122,8 +122,8 @@ regularly compare their config files with the TYPO3 reference templates:
 *   :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
 *   :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-web-config`
 
-See :ref:`<maintain-htaccess>` for updating config files after major version
-upgrades.
+See :ref:`Verify webserver configuration (.htaccess) <maintain-htaccess>` for
+updating config files after major version upgrades.
 
 ..  _security-restrict-access-server-level-nginx:
 

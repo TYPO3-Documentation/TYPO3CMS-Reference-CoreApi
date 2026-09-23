@@ -18,8 +18,8 @@ controllers easier to test.
 Every Extbase extension has one repository per model. The repository class
 often only needs to exist and therefore will not require any custom code.
 
-Repositories are registered as shared services in the :ref:`dependency-injection`
-container. That means every consumer that injects a given repository within the
+Repositories are registered as shared services in the
+:ref:`dependency injection <dependency-injection>` container. That means every consumer that injects a given repository within the
 same request receives the same instance — query settings configured on it in one
 place apply everywhere it is used.
 
@@ -114,7 +114,8 @@ domain objects out of the box:
 
     Magic find methods (:php:`findByTitle()`, :php:`findOneByTitle()`,
     :php:`countByTitle()`, etc.) were deprecated in v12.3 and removed in v14.
-    See :ref:`extbase-upgrading-magic-findby` for the migration table.
+    See :ref:`the removal of the magic findBy*() methods
+    <extbase-upgrading-magic-findby>` for the migration table.
 
 These methods provide an initial overview. The full behaviour *around* a query —
 which storage pages and languages it covers, how to limit, order and paginate

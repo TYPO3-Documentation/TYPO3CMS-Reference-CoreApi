@@ -81,7 +81,8 @@ ignores them. The replacement is native PHP attributes.
 
 ..  seealso::
 
-    + :ref:`extbase-upgrading-annotations-to-attributes` — migration steps and
+    + :ref:`Annotations replaced by PHP attributes
+      <extbase-upgrading-annotations-to-attributes>` — migration steps and
     the full before/after example.
 
     + `PHP attributes — the v14 way <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-attributes>`_
@@ -102,7 +103,8 @@ in v14. The replacements use an explicit array signature.
 
 ..  seealso::
 
-    :ref:`extbase-upgrading-magic-findby` — migration table with before/after
+    :ref:`Magic findBy() methods removed <extbase-upgrading-magic-findby>` —
+    migration table with before/after
     examples.
 
     `Built-in find methods <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-find-methods>`_ — the current find method reference.
@@ -282,7 +284,8 @@ nothing appears on the page.
 
     The Application Context must be set via an environment variable or webserver
     configuration — it cannot be changed from inside TYPO3. See
-    :ref:`set-application-context` for all available methods. To check which
+    :ref:`how to set the application context <set-application-context>` for all
+    available methods. To check which
     context is currently active, open :guilabel:`System > Environment > Environment
     overview` in the TYPO3 backend.
 

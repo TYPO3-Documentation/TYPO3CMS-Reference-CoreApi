@@ -331,7 +331,8 @@ See the `system requirements <https://get.typo3.org/>`_  for the minimum databas
 Each system has specific configuration and extension requirements.
 See the list of required PHP extensions for supported databases:
 
-* https://docs.typo3.org/permalink/t3coreapi:system-requirements-php-database-extensions
+*   `PHP extensions required by the supported databases
+    <https://docs.typo3.org/permalink/t3coreapi:system-requirements-php-database-extensions>`_
 
 The database user must be granted specific privileges to allow TYPO3 to
 function correctly.
