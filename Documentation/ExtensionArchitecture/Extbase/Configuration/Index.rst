@@ -13,7 +13,7 @@ need to be taken into account. Several distinct "surfaces" exist, each owned by 
 different role and each suited to a different kind of value. These include: the framework
 settings that tell Extbase where to find templates and records, the
 application settings you read in your own controllers and templates, the values
-an editor sets for each content element, and a few installation-wide behaviour
+an editor sets for each content element, and a few installation-wide behavior
 switches.
 
 This chapter explains each surface, what belongs in it, and how the surfaces
@@ -66,7 +66,7 @@ The configuration "surfaces" of an Extbase extension
     that do not follow Extbase's naming conventions — for example reusing an
     existing table such as :sql:`fe_users` — this PHP file maps the class and
     its properties to the real names. It configures persistence rather than
-    runtime behaviour, so it is covered by the domain model: see
+    runtime behavior, so it is covered by the domain model: see
     :ref:`Table and field mapping <extbase-domain-model-mapping>`.
 
 ..  _extbase-configuration-how-they-combine:
@@ -88,7 +88,7 @@ The full rules — including how to stop an empty FlexForm field from overriding
 a TypoScript default — are explained in
 :ref:`Where Extbase TypoScript lives <extbase-configuration-typoscript-scopes>`.
 
-Feature toggles sit outside this chain: they change framework behaviour for the
+Feature toggles sit outside this chain: they change framework behavior for the
 whole installation and are not part of the per-plugin merge.
 
 ..  tip::
@@ -111,7 +111,7 @@ whole installation and are not part of the per-plugin merge.
         defining and reading site-wide configuration values.
 
     *   `Feature toggles <https://docs.typo3.org/permalink/t3coreapi:feature-toggles>`_
-        — how installation-wide behaviour switches work.
+        — how installation-wide behavior switches work.
 
 Now we have looked at configuration surfaces, continue to the
 :ref:`configuration reference <extbase-configuration-reference>` to see how each

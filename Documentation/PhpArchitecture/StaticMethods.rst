@@ -92,7 +92,7 @@ Good static methods calls are not “mocked away” in unit tests of a
 system that calls a static method and are thus indirectly tested
 together with the system under test as if the code is directly embedded
 within the class. It is important to have good test coverage for the
-static method itself, defining the method behaviour especially for
+static method itself, defining the method behavior especially for
 edge cases.
 
 

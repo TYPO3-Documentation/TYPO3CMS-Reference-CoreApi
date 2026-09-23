@@ -41,7 +41,7 @@ Defining global Fluid namespaces
 ..  versionchanged:: 15.0
     The deprecated configuration of Fluid namespaces via
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']` has been
-    removed in favour of using the extension-level configuration file
+    removed in favor of using the extension-level configuration file
     :file:`Configuration/Fluid/Namespaces.php`.
 
 The extension-level configuration file :file:`Configuration/Fluid/Namespaces.php`

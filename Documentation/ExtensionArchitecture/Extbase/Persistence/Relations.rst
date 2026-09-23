@@ -201,7 +201,7 @@ maintaining the relation, and its TCA, on both models.
     When you do need cardinality made explicit in TCA, the
     :ref:`relationship <t3tca:columns-select>` key
     (:php:`'oneToOne'`, :php:`'manyToOne'`, :php:`'oneToMany'`)
-    declares it on the field. Extbase honours it when deciding whether a column
+    declares it on the field. Extbase honors it when deciding whether a column
     is a single relation or a collection.
 
 
@@ -273,7 +273,7 @@ The rule of thumb:
     `When to drop out of the ORM <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository-dbal>`_ — using raw DBAL from a repository when relation loading creates a performance problem.
 
 The lazy-versus-eager decision is per relation and reversible — it is a property
-attribute, not a schema change — so measure with real data before optimising.
+attribute, not a schema change — so measure with real data before optimizing.
 
 ..  seealso::
 

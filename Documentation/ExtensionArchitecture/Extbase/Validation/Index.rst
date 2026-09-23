@@ -168,7 +168,7 @@ Without :php:`#[IgnoreValidation]`, the framework would see the invalid
 ..  _extbase-validation-error-action:
 ..  _extbase_error_action-howto:
 
-Customising `errorAction()`
+Customizing `errorAction()`
 ===========================
 
 The built-in :php:`errorAction()` adds a generic :ref:`flash message

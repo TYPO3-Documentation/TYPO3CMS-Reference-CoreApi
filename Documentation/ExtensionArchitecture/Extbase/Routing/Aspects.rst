@@ -43,7 +43,7 @@ versa when generating a URL.
     The field whose value is used as the URL segment. This should be a TCA
     :ref:`type slug <t3tca:columns-slug>` field so that values are guaranteed
     to be unique and URL-safe. Using a plain title field is possible but risky:
-    special characters are not sanitised automatically, and duplicates cause
+    special characters are not sanitized automatically, and duplicates cause
     resolution failures.
 
 :yaml:`routeValuePrefix`
@@ -182,7 +182,7 @@ Handling deleted or hidden records
 When a :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper` cannot
 resolve a slug — because the record has been deleted, hidden, or its slug
 changed — TYPO3 returns a 404 by default. The :yaml:`fallbackValue` property
-changes this behaviour.
+changes this behavior.
 
 ..  literalinclude:: _snippets/_aspects-fallback.yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml

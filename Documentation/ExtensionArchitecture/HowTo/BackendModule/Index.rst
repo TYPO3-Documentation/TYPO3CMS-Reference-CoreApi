@@ -27,13 +27,13 @@ backend. They are described in this chapter.
     ..  card:: :ref:`Create a module with Extbase <backend-modules-extbase>`
 
         How to create a module using Extbase and Fluid - the best option if you
-        need to do lots of data modelling.
+        need to do lots of data modeling.
 
     ..  card:: :ref:`Create a module with Core functionality <backend-modules-template-without-extbase>`
 
         How to create a module without Extbase (you can still use Fluid
         but with some limitations). The best option if you don't need to do any
-        data modelling.
+        data modeling.
 
     ..  card:: :ref:`Security Considerations <backend-modules-security>`
 

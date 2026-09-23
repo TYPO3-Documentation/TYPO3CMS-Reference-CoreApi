@@ -831,7 +831,7 @@ features
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
 
     New features of TYPO3 that are activated on new installations (but upgrading
-    installations may still use the old behaviour).
+    installations may still use the old behavior).
 
     These settings are :ref:`feature toggles <feature-toggles>` and can be
     changed in the Backend module :guilabel:`Settings` in the section

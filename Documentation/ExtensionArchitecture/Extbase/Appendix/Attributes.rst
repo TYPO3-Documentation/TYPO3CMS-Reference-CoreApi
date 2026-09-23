@@ -111,10 +111,10 @@ objects automatically via the repository.
     fires when you delete an object via a repository method (for example
     :php:`$repository->remove($object)`). Deleting a record through the TYPO3
     backend uses the DataHandler, which is unaware of :php:`#[Cascade]`. For
-    cascade behaviour in backend deletions, configure the corresponding TCA
-    relation with the appropriate delete behaviour.
+    cascade behavior in backend deletions, configure the corresponding TCA
+    relation with the appropriate delete behavior.
 
-    ..  Verify cascade remove behaviour in edge cases against the v14 extbase source.
+    ..  Verify cascade remove behavior in edge cases against the v14 extbase source.
 
 
 ..  _extbase-appendix-attributes-transient:
@@ -140,7 +140,7 @@ Validation attributes
 =====================
 
 These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute` namespace
-and control validation behaviour on model properties and controller action parameters.
+and control validation behavior on model properties and controller action parameters.
 
 
 ..  _extbase-appendix-attributes-validate:

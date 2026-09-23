@@ -12,7 +12,7 @@ When your plugin persists a change through a repository, the pages that display
 that record are already in the page cache and would keep serving the old
 content until their cache expired. Extbase prevents that: after a repository
 write, it clears the cache of the pages affected by the change. This is the
-default behaviour, and the write-side counterpart to the read-side
+default behavior, and the write-side counterpart to the read-side
 :ref:`cache tags <extbase-caching-cachetags>` of the previous page.
 
 ..  contents:: On this page
@@ -85,7 +85,7 @@ change, a cached page lives until its lifetime expires. That lifetime is not a
 single fixed number — it is resolved from several sources, each overriding or
 narrowing the previous:
 
-#.  **The page's Cache timeout field** (:guilabel:`Page > Behaviour > Cache
+#.  **The page's Cache timeout field** (:guilabel:`Page > Behavior > Cache
     timeout`). If set to a non-zero value, it wins.
 #.  **TypoScript** :typoscript:`config.cache_period`. Used when the page field is
     not set.
@@ -133,7 +133,7 @@ pages are cleared at the end of the request.
 This is a **global** TypoScript setting in :typoscript:`config.tx_extbase`. It
 applies to every repository write on the site for as long as it is set, and there
 is no supported way to toggle it temporarily from PHP for a single operation —
-unlike :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`, whose runtime behaviour
+unlike :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`, whose runtime behavior
 can be adjusted per instance. Setting it to :typoscript:`0` therefore means every
 repository write across the site stops refreshing the frontend, and clearing
 caches becomes your own responsibility through the
@@ -175,7 +175,7 @@ Extbase repository**. It does not cover:
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` is a different case: it is not
 covered by *this* mechanism, but it clears caches on its own. A DataHandler write
 registers the changed record for page-cache clearing through its own routine and
-honours the same :ref:`TCEMAIN.clearCacheCmd
+honors the same :ref:`TCEMAIN.clearCacheCmd
 <t3tsref:pagetcemain-clearcachecmd>` Page TSconfig — so records
 written through DataHandler do refresh the frontend, just not via the Extbase path
 described here.

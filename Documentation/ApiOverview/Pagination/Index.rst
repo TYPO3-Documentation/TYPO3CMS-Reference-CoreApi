@@ -100,7 +100,7 @@ shown.
 **Example**: Imagine 1000 records and 20 items per page which would lead to
 50 links. Using the `SlidingWindowPagination`, you will get something like
 this `< prev ... 21 22 23 24 ... next >` or `< 1 ... 21 22 23 24 ... 50 >` or
-simple `< 21 22 23 24 >`. Customise the template to suit your needs.
+simple `< 21 22 23 24 >`. Customize the template to suit your needs.
 
 
 ..  _pagination-sliding-window-usage:

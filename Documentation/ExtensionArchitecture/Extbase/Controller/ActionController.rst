@@ -38,7 +38,7 @@ Key rules:
 
 *   Extend :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
 *   Do not declare the class as :php:`final`. Third parties should be able to extend
-    controllers to customise behaviour.
+    controllers to customize behavior.
 *   Inject repositories and services via the constructor using
     :ref:`dependency injection <Dependency-Injection>`. Injected dependencies
     must be :php:`protected readonly`, not :php:`private readonly`, so

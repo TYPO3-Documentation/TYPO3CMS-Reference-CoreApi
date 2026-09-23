@@ -116,7 +116,7 @@ syntax.
 PHP attributes in Extbase domain models
 =======================================
 
-Extbase uses native PHP attribute syntax to control persistence behaviour and
+Extbase uses native PHP attribute syntax to control persistence behavior and
 validation.
 
 ..  versionchanged:: 14.0
@@ -205,8 +205,8 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM` namespace:
 ..  _extbase-domain-model-relations:
 ..  _extbase-model-relations:
 
-Modelling relations in Extbase
-==============================
+Modeling relations in Extbase
+=============================
 
 A relation is just a property, and Extbase offers two shapes for it: a property
 that holds **one other object**, and a property that holds **many objects** in an
@@ -236,13 +236,13 @@ A few things to note in the example above:
     is required for IDE autocompletion and static analysis, even though PHP does
     not enforce the generic type.
 
-*   **Each ObjectStorage must be initialised**, otherwise the first access
+*   **Each ObjectStorage must be initialized**, otherwise the first access
     to the typed property triggers a fatal error. Do this in
     :php:`initializeObject()` and call that method from the constructor. Extbase
     calls :php:`initializeObject()` itself after mapping a record from the
     database, so the storage is ready on loaded objects; calling it from
     :php:`__construct()` as well covers objects you create with :php:`new`. Both
-    code paths then end up with an initialised storage.
+    code paths then end up with an initialized storage.
 
 *   :php:`#[Lazy]` on an :php:`ObjectStorage` means Extbase loads the related
     records only when you first iterate over the storage or call a method on it.
@@ -282,7 +282,7 @@ The corresponding TCA column must be of :ref:`type=file <t3tca:columns-file>`.
 
 In a Fluid template, pass the
 :php-short:`\TYPO3\CMS\Extbase\Domain\Model\FileReference` object to
-:ref:`f:image <t3viewhelper:typo3-fluid-image>`. This will honour crop
+:ref:`f:image <t3viewhelper:typo3-fluid-image>`. This will honor crop
 configuration or any additional properties set in the TYPO3 backend for that file reference:
 
 ..  literalinclude:: _FileUpload/_Show.fluid.html
@@ -443,7 +443,7 @@ Value objects have three characteristics that make them useful:
 
 A :php:`Color` value object is a straightforward example: :php:`new Color('Midnight Blue', '#191970')`
 and another :php:`new Color('Midnight Blue', '#191970')` are equal and
-interchangeable. Neither has an identity. You never update a colour, you
+interchangeable. Neither has an identity. You never update a color, you
 just replace it with a new one.
 
 **In TYPO3 and Extbase**, value objects are implemented as plain PHP classes.
@@ -475,7 +475,7 @@ a value object — use :php:`AbstractEntity` instead.
     salutation, a status, a priority level — use a backed enum instead.
     Enums are simpler, Extbase maps them automatically, and PHP enforces
     the construction of only valid cases. Value objects are the right
-    choice when the value has structure, behaviour, or validation logic
+    choice when the value has structure, behavior, or validation logic
     beyond what an enum can express.
 
 ..  seealso::
