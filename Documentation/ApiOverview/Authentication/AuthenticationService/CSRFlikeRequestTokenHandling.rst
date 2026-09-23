@@ -41,8 +41,9 @@ Submitting request token value to application:
     15 minutes (900 seconds) after they have been issued.
 
 ..  seealso::
-    The event :ref:`BeforeRequestTokenProcessedEvent` is available to
-    intercept/adjust the request token.
+    The event
+    :ref:`BeforeRequestTokenProcessedEvent <BeforeRequestTokenProcessedEvent>`
+    is available to intercept/adjust the request token.
 
 ..  _JSON Web Token (JWT): https://jwt.io/
 ..  _nonce: https://en.wikipedia.org/wiki/Cryptographic_nonce

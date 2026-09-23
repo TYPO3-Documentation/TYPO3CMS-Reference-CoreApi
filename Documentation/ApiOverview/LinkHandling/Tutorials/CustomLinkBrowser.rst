@@ -56,7 +56,8 @@ The following options are of note here:
     stored in another way. In this example we hardcoded it. But you could also
     make it available by TypoScript Setup or as part of the link that is saved.
 
-For a complete list of available option see :ref:`link-handler-configuration`.
+For a complete list of available option see
+:ref:`Link handler configuration <link-handler-configuration>`.
 
 ..  _tutorial_backend_link_handler:
 
@@ -91,9 +92,10 @@ Initialization and dependencies
 ..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.php
     :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
-For technical reasons, not all dependencies needed by the backend link handler can
-be acquired by :ref:`DependencyInjection`. Therefore the following two methods
-are called by Core classes once the dependencies are available:
+For technical reasons, not all dependencies needed by the backend link handler
+can be acquired by :ref:`Dependency injection <DependencyInjection>`. Therefore
+the following two methods are called by Core classes once the dependencies are
+available:
 
 :php:`LinkHandlerInterface::initialize()` takes care of setting the
 :php:`\TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController`, the identifier and

@@ -6,7 +6,7 @@
 ===============================
 
 The :php:`TYPO3\CMS\Extbase\Utility\LocalizationUtility` class is used to
-translate strings within Extbase context. For an example
-see :ref:`extension-localization-extbase`.
+translate strings within Extbase context. For an example see
+:ref:`Localization in Extbase <extension-localization-extbase>`.
 
 ..  include:: _LocalizationUtilityApi.rst.txt

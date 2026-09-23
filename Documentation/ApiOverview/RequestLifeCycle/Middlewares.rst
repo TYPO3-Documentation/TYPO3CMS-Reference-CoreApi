@@ -47,7 +47,7 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 ..  rst-class:: bignums
 
-#.  TYPO3 will create a :ref:`typo3-request`.
+#.  TYPO3 will create a :ref:`TYPO3 request object <typo3-request>`.
 
 #.  TYPO3 will collect and sort all configured PSR-15 middlewares.
 
@@ -55,7 +55,8 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #.  TYPO3 will call the first middleware with request and the next middleware.
 
-#.  Each middleware can modify the request if needed, see :ref:`request-handling-middlewares`.
+#.  Each middleware can modify the request if needed, see
+    :ref:`Middlewares <request-handling-middlewares>`.
 
 #.  Final Request is passed to the last RequestHandler (`\TYPO3\CMS\Frontend\Http\RequestHandler`
     or `\TYPO3\CMS\Backend\Http\RequestHandler`) which generates PSR-7 response and passes

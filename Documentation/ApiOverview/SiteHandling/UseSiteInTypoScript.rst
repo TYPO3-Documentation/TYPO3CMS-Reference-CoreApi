@@ -71,7 +71,7 @@ In the Fluid template the properties of the site entity can be accessed with:
     <p>{site.rootPageId}</p>
     <p>{site.configuration.someCustomConfiguration}</p>
 
-Specific :ref:`sitehandling-settings` can be accessed via:
+Specific :ref:`Site settings <sitehandling-settings>` can be accessed via:
 
 ..  code-block:: html
 
@@ -90,7 +90,8 @@ Non-Extbase Fluid view
     :ref:`The Site object <sitehandling-site-object>`.
 
 In a non-Extbase Fluid view (:php:`\TYPO3\CMS\Core\View\ViewInterface`), created
-manually by the :ref:`generic-view-factory`, you can use the PHP API to access the
-site settings (see :ref:`sitehandling-site-object`), then assign that object
-to your Fluid standalone template, and finally access it through the same
-notation in the :ref:`Fluid template of a FLUIDTEMPLATE <sitehandling-fluidtemplate>`.
+manually by the :ref:`Using the generic view factory <generic-view-factory>`,
+you can use the PHP API to access the site settings (see
+:ref:`The Site object <sitehandling-site-object>`), then assign that object to
+your Fluid standalone template, and finally access it through the same notation
+in the :ref:`Fluid template of a FLUIDTEMPLATE <sitehandling-fluidtemplate>`.

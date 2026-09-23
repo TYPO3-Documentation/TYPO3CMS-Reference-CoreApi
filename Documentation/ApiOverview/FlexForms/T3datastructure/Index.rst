@@ -24,7 +24,7 @@ FlexForms. This documentation describes the general XML format.
 -   Can be divided into *sheets*, a one-dimensional categorization whose purpose
     depends on the application.
 -   Parsing to a PHP array is done via :php:`GeneralUtility::xml2array()` (see
-    :ref:`t3ds-parsing`).
+    :ref:`Parsing T3DataStructure XML <t3ds-parsing>`).
 -   “DS” is shorthand for Data Structure.
 
 **Next chapters**

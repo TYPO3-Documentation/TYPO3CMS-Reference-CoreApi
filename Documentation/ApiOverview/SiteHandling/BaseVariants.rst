@@ -43,9 +43,10 @@ would define a base variant to use in "Development" context.
     no need for :sql:`sys_domain` records anymore!
 
 ..  seealso::
-    *   Read :ref:`application-context` for more information on how to set the
+    *   Read :ref:`Application context <application-context>` for more
+        information on how to set the
         application context.
-    *   Read :ref:`yaml-api` for more information on YAML parsing.
+    *   Read :ref:`YAML API <yaml-api>` for more information on YAML parsing.
 
 ..  _Symfony expression language: https://symfony.com/doc/current/components/expression_language.html
 

@@ -15,8 +15,8 @@ Types of pages
 TYPO3 has predefined a number of pages types as constants in
 :file:`typo3/sysext/core/Classes/Domain/Repository/PageRepository.php`.
 
-What role each page type plays and when to use it is explained in more
-detail in :ref:`t3editors:pages-types`. Some of the page types require
+What role each page type plays and when to use it is explained in more detail in
+:ref:`Page types <t3editors:pages-types>`. Some of the page types require
 additional fields in pages to be filled out:
 
 ..  index:: Page types; DOKTYPE_DEFAULT

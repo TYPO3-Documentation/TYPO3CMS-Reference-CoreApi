@@ -28,9 +28,9 @@ Introduction
 ..  contents::
     :local:
 
-In TYPO3, Content elements and plugins are both stored as :ref:`database-records`
-in table :sql:`tt_content`. They are usually edited in the backend in module
-:guilabel:`Content > Page`.
+In TYPO3, Content elements and plugins are both stored as
+:ref:`Database records <database-records>` in table :sql:`tt_content`. They are
+usually edited in the backend in module :guilabel:`Content > Page`.
 
 Content elements and plugins are both used to present and manage
 content on a website, but they serve different purposes and have distinct
@@ -156,7 +156,8 @@ element into the page it also needs to be registered with
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 For a detailed explanation of Extbase plugins including examples for controllers
-see chapter :ref:`extbase-extension-framework`.
+see chapter
+:ref:`Extbase: extension framework in TYPO3 <extbase-extension-framework>`.
 
 ..  _plugins-non-extbase:
 
@@ -252,7 +253,8 @@ Creating custom content element types or plugins
 The following chapters handle how to create custom content element types and
 plugins:
 
-*   :ref:`Create a custom content element type (CType) <adding-your-own-content-elements>`
+*   :ref:`Create a custom content element type (CType)
+    <adding-your-own-content-elements>`
 *   :ref:`Registering frontend plugins in
     Extbase <extbase-registration-frontend-plugin>`
 

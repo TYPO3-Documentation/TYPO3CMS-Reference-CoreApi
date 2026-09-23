@@ -144,8 +144,8 @@ Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-This method supports the native database field declaration :sql:`json`,
-see :ref:`json_database_type`.
+This method supports the native database field declaration :sql:`json`, see
+:ref:`Native JSON database field type support <json_database_type>`.
 
 Arguments of the :php:`insert()` method:
 
@@ -223,8 +223,8 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 ..  literalinclude:: _MyTableRepository_update.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-This method supports the native database field declaration :sql:`json`,
-see :ref:`json_database_type`.
+This method supports the native database field declaration :sql:`json`, see
+:ref:`Native JSON database field type support <json_database_type>`.
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.

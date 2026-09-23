@@ -43,8 +43,9 @@ Environment PHP API
 `getProjectPath()`
 ------------------
 
-The environment provides the path to the folder containing the :file:`composer.json`.
-For projects without Composer setup, this is equal to :ref:`Environment-public-path`.
+The environment provides the path to the folder containing the
+:file:`composer.json`. For projects without Composer setup, this is equal to
+:ref:`getPublicPath() <Environment-public-path>`.
 
 
 ..  index::
@@ -57,7 +58,8 @@ For projects without Composer setup, this is equal to :ref:`Environment-public-p
 
 The environment provides the path to the public web folder with
 :file:`index.php` for the TYPO3 frontend. This was previously :php:`PATH_site`.
-For projects without Composer setup, this is equal to :ref:`Environment-project-path`.
+For projects without Composer setup, this is equal to
+:ref:`getProjectPath() <Environment-project-path>`.
 
 
 ..  index::
@@ -72,8 +74,9 @@ For projects without Composer setup, this is equal to :ref:`Environment-project-
 The environment provides the path to the :file:`var/` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
-For Composer-based installations, it returns :ref:`directory-var`, in Classic mode
-installations :ref:`classic-directory-typo3temp-var`.
+For Composer-based installations, it returns :ref:`var/ <directory-var>`, in
+Classic mode installations
+:ref:`typo3temp/var/ <classic-directory-typo3temp-var>`.
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
@@ -95,7 +98,7 @@ installations :ref:`classic-directory-typo3temp-var`.
 -----------------
 
 In Composer-based installation this method provides the path
-:ref:`directory-config`, in Classic mode installations
+:ref:`config/ <directory-config>`, in Classic mode installations
 :ref:`typo3conf/ <classic-directory-typo3conf>`.
 
 The directory returned by this method contains the folders :file:`system/`
@@ -126,9 +129,10 @@ containing the :ref:`configuration files <configuration-files>`
 `getLabelsPath()`
 -----------------
 
-The environment provides the path to :ref:`directory-var-labels` in
-Composer-based installations, respective :ref:`classic-directory-typo3conf-l10n`
-folder in Classic mode installations. This folder contains downloaded translation files.
+The environment provides the path to :ref:`var/labels/ <directory-var-labels>`
+in Composer-based installations, respective
+:ref:`typo3conf/l10n/ <classic-directory-typo3conf-l10n>` folder in Classic mode
+installations. This folder contains downloaded translation files.
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
@@ -156,8 +160,10 @@ Returns the path and filename to the current PHP script.
 `getContext()`
 --------------
 
-Returns the current :ref:`application-context`, usually defined via the `TYPO3_CONTEXT` environment variable.
-May be one of `Production`, `Testing`, or `Development` with optional sub-contexts like `Production/Staging`.
+Returns the current :ref:`Application context <application-context>`, usually
+defined via the `TYPO3_CONTEXT` environment variable. May be one of
+`Production`, `Testing`, or `Development` with optional sub-contexts like
+`Production/Staging`.
 
 Example, test for production context:
 

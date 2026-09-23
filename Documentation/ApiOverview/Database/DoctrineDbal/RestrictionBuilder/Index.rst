@@ -16,11 +16,12 @@ should be handled and displayed by the framework.
 
 The `ctrl` section of a table's TCA array specifies optional framework-internal
 handling of soft deletes and language overlays: For instance, when a row is
-deleted in the backend using the page or :guilabel:`Content > Records` module, many tables are configured
-to not drop that row entirely from the table, but to set a field (often
-`deleted`) for that row from `0` to `1`. Similar mechanisms apply for start and
-end times, and to language and workspace overlays as well. See the
-:ref:`t3tca:ctrl` chapter in the TCA reference for details on this topic.
+deleted in the backend using the page or :guilabel:`Content > Records` module,
+many tables are configured to not drop that row entirely from the table, but to
+set a field (often `deleted`) for that row from `0` to `1`. Similar mechanisms
+apply for start and end times, and to language and workspace overlays as well.
+See the :ref:`Table properties (ctrl) <t3tca:ctrl>` chapter in the TCA reference
+for details on this topic.
 
 However, these mechanisms come at a price: developers of extensions dealing with
 low-level queries must take care that overlaid or deleted rows are not included
@@ -217,8 +218,9 @@ following applies:
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\LimitToTablesRestrictionContainer`
     This restriction container applies added restrictions only to the given
-    table aliases. See :ref:`database-limit-restrictions-to-tables` for more
-    information. Enforced restrictions are treated equally to all other
+    table aliases. See
+    :ref:`Limit restrictions to tables <database-limit-restrictions-to-tables>`
+    for more information. Enforced restrictions are treated equally to all other
     restrictions.
 
 ..  _database-limit-restrictions-to-tables:

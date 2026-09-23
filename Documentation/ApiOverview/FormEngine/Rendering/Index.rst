@@ -329,9 +329,9 @@ Add the PHP class for rendering the control in
 ..  todo: switch from RequireJS to ES6
 
 ..  attention::
-    This example is still in RequireJS. RequireJS has been deprecated with
-    TYPO3 v12. Help us transferring the example into ES6.
-    See :ref:`h2document:contribute`.
+    This example is still in RequireJS. RequireJS has been deprecated with TYPO3
+    v12. Help us transferring the example into ES6. See
+    :ref:`Contribute to the TYPO3 documentation <h2document:contribute>`.
 
 Add the JavaScript for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:

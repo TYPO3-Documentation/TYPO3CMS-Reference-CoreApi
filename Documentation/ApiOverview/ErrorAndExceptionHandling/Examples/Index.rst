@@ -12,13 +12,15 @@ Debugging and development setup
 ===============================
 
 ..  attention::
-    Do not use **debug / development setup** in production. This setup generates error
-    messages in the Frontend and a number of log messages for low severity errors.
-    The messages in the Frontend will be visible to the user, give a potential attacker
-    more information about your system and the logging will fill your filesystem / DB,
-    which degrades performance and can potentially be used to bring down your system
-    by filling storage with log messages. See :ref:`security-staging-servers` for more
-    information.
+    Do not use **debug / development setup** in production. This setup generates
+    error messages in the Frontend and a number of log messages for low severity
+    errors. The messages in the Frontend will be visible to the user, give a
+    potential attacker more information about your system and the logging will
+    fill your filesystem / DB, which degrades performance and can potentially be
+    used to bring down your system by filling storage with log messages. See
+    :ref:`Use staging servers for developments and tests
+    <security-staging-servers>`
+    for more information.
 
 Very verbose configuration which logs and displays all errors and
 exceptions.

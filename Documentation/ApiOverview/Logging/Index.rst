@@ -18,7 +18,9 @@ If you're looking for production-level logging guidance (e.g., log rotation,
 monitoring, or security), see:
 :ref:`Logging considerations during production <production-logging>`.
 
-The chapter :ref:`logging-quickstart` helps you get started.
+The chapter
+:ref:`Quickstart: writing to the logger from PHP <logging-quickstart>` helps you
+get started.
 
 TYPO3 Logging consists of the following components:
 

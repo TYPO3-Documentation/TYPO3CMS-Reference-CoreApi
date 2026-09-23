@@ -42,7 +42,7 @@ Crowdin please contact either the maintainer of the extension or the
 
 ..  seealso::
     The language needs to be supported by TYPO3 itself as well, see
-    :ref:`i18n_languages` for a list of all languages.
+    :ref:`Supported languages <i18n_languages>` for a list of all languages.
 
 ..  _Localization Team: https://typo3.community/contribute/teams-committees/localization
 
@@ -80,8 +80,9 @@ Before switching, also check that your **translation workflow and tools**
 (Crowdin integration, offline editors, or automation scripts) are **compatible
 with XLIFF 2.x**. Some older tools might still expect XLIFF 1.2 files.
 
-You can convert existing files manually or by script — see :ref:`xliff` for
-examples — but there is no urgent need to migrate if XLIFF 1.2 works for your project.
+You can convert existing files manually or by script — see
+:ref:`Translation files (XLIFF format) <xliff>` for examples — but there is no
+urgent need to migrate if XLIFF 1.2 works for your project.
 
 ..  _crowdin-faq-pootle:
 
@@ -330,7 +331,9 @@ you can import them.
     :xml:`original="EXT:news/Resources/Private/Language/locallang.xlf"`
 
 #.  **Upload the Translations**
-    Have a look at :ref:`crowdin-faq-upload-xliff-files`.
+    Have a look at
+    :ref:`Can I upload translated XLIFF files?
+    <crowdin-faq-upload-xliff-files>`.
 
 ..  _crowdin-faq-crowdin-yml:
 

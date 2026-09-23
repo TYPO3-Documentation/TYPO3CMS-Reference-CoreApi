@@ -9,8 +9,8 @@ TCA definition
 This chapter explains how to create a field that makes it possible to
 create relations to files.
 
-The TCA field type :ref:`t3tca:columns-file` can be used to provide a field
-in which files can be referenced and/or uploaded:
+The TCA field type :ref:`File <t3tca:columns-file>` can be used to provide a
+field in which files can be referenced and/or uploaded:
 
 ..  literalinclude:: _Tca/_my_table.php
     :caption: EXT:my_extension/Configuration/TCA/my_table.php

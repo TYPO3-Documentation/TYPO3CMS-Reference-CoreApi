@@ -73,7 +73,7 @@ string.
 
     $flexFormStructure = GeneralUtility::xml2array($flexFormString);
 
-See also section :ref:`modify-flexforms-php`.
+See also section :ref:`How to modify FlexForms from PHP <modify-flexforms-php>`.
 
 ..  index:: pair: FlexForms; TypoScript
 ..  _read-flexforms-ts:

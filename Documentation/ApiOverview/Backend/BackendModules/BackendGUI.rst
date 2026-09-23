@@ -43,8 +43,10 @@ The backend interface is divided into the following main areas:
 
     The module menu can be toggled using the icon in the top-left corner (7).
 
-    The chapter :ref:`backend-modules-configuration` describes how new
-    main or submodules are registered.
+    The chapter
+    :ref:`Modules.php - backend module configuration
+    <backend-modules-configuration>`
+    describes how new main or submodules are registered.
 
     ..  note::
 

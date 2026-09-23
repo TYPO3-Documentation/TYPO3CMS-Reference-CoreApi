@@ -185,7 +185,8 @@ attribute in the request is a first step, it does not fully replicate the
 frontend behavior.
 
 ..  seealso::
-    See chapter :ref:`frontend-requests-simulation`.
+    See chapter
+    :ref:`Simulating a frontend request <frontend-requests-simulation>`.
 
 A minimal request configuration may be sufficient for
 generating simple links or using `FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_:

@@ -23,8 +23,9 @@ integrator can define the priority of the providers for his project.
 
 ..  seealso::
 
-    The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
-    and :ref:`sitehandling-basics-websiteTitle`.
+    The page title is further influenced by
+    :ref:`Properties of 'config' <t3tsref:setup-config-pagetitle>` and
+    :ref:`websiteTitle <sitehandling-basics-websiteTitle>`.
 
 ..  contents:: Table of contents
     :local:

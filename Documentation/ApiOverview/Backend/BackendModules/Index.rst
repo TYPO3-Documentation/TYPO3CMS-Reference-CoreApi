@@ -42,9 +42,9 @@ custom backend modules <backend-modules-how-to>`.
 
     ..  card:: :ref:`BeforeModuleCreationEvent <BeforeModuleCreationEvent>`
 
-        The PSR-14 :ref:`BeforeModuleCreationEvent` allows extension authors
-        to manipulate the module configuration before it is used to create and
-        register the module.
+        The PSR-14 :ref:`BeforeModuleCreationEvent <BeforeModuleCreationEvent>`
+        allows extension authors to manipulate the module configuration before
+        it is used to create and register the module.
 
 
     ..  card:: :ref:`Button components <button-components>`
