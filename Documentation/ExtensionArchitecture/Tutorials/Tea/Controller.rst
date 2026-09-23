@@ -55,5 +55,6 @@ a different HTTP header. If a different rendering from the standard view is
 necessary you can just pass the rendered HTML content to this method. There
 is also a shorthand method for returning JSON called :php:`jsonResponse()`.
 
-This basic example requires no actions that are forwarding or redirecting.
-Read more about those concepts here: :ref:`extbase-controller-action-redirect-forward`.
+This basic example requires no actions that are forwarding or redirecting. Read
+more about those concepts here:
+:ref:`ForwardResponse <extbase-controller-action-redirect-forward>`.

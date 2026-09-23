@@ -41,7 +41,8 @@ following contexts:
 The :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` can be used
 to instantiate. Please see the examples below.
 
-:ref:`The methods provided by the instantiated TranslatorInterface <translator-api>`
+:ref:`The methods provided by the instantiated TranslatorInterface
+<translator-api>`
 class then be used to translate texts using the language keys of XLIFF language
 files.
 
@@ -57,9 +58,10 @@ site language:
 ..  literalinclude:: _php/MyUserFunction.php
     :caption: EXT:my_extension/Classes/UserFunction/MyUserFunction.php
 
-:ref:`DependencyInjection` should be available in most contexts where you need
-translations. Also the current request is available in entry point such as
-custom non-Extbase controllers, user functions, data processors etc.
+:ref:`Dependency injection <DependencyInjection>` should be available in most
+contexts where you need translations. Also the current request is available in
+entry point such as custom non-Extbase controllers, user functions, data
+processors etc.
 
 ..  _extension-localization-php-backend:
 
@@ -105,7 +107,9 @@ text in the current language will be loaded from this extension's
 :file:`locallang.xlf` file.
 
 The method :php:`translate()` takes translation overrides from TypoScript into
-account. See :ref:`localization-typoscript-LOCAL_LANG`.
+account. See
+:ref:`Changing localized terms using TypoScript
+<localization-typoscript-LOCAL_LANG>`.
 
 ..  _extension-localization-extbase-example:
 
