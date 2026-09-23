@@ -45,8 +45,11 @@ The name passed to :php:`assign()` becomes the variable name in the template, fo
 configuration array. How that array is assembled — and how :typoscript:`view`,
 :typoscript:`persistence`, and :typoscript:`settings` relate to TypoScript paths
 and FlexForm overrides — is covered in the registration chapters:
-:ref:`extbase-registration-frontend-plugin-configuration-assembly` and
-:ref:`How the module configuration is assembled <extbase-registration-backend-module-configuration-assembly>`.
+:ref:`How the plugin configuration is assembled
+<extbase-registration-frontend-plugin-configuration-assembly>`
+and
+:ref:`How the module configuration is assembled
+<extbase-registration-backend-module-configuration-assembly>`.
 
 
 ..  _extbase-view-assign-shared:
@@ -187,10 +190,11 @@ Fluid searches from the highest key downward, so the path at key
 
 **Finding the TypoScript object path for a plugin:** open the TYPO3 backend,
 navigate to the site or page containing the plugin, and open
-:guilabel:`Site Management > TypoScript`. The Active TypoScript module shows
-the computed TypoScript tree including all registered plugin objects. See
-:ref:`extbase-registration-frontend-plugin-configuration-assembly` for how the
-extension-wide and plugin-specific paths are merged.
+:guilabel:`Site Management > TypoScript`. The Active TypoScript module shows the
+computed TypoScript tree including all registered plugin objects. See
+:ref:`How the plugin configuration is assembled
+<extbase-registration-frontend-plugin-configuration-assembly>`
+for how the extension-wide and plugin-specific paths are merged.
 
 
 ..  _extbase-view-third-party-override:

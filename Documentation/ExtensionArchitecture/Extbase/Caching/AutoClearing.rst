@@ -51,7 +51,8 @@ Which pages an Extbase record change clears
 For each changed record, Extbase clears three kinds of page:
 
 *   **Every page tagged with that record.** This is the primary mechanism and the
-    reverse of :ref:`cache tags <extbase-caching-cachetags>`. When a page renders
+    reverse of :ref:`cache tags
+    <extbase-caching-cachetags>`. When a page renders
     a record, its cache entry is tagged with :sql:`<table>_<uid>`. When that
     record changes, Extbase flushes the :sql:`<table>_<uid>` tag, which
     invalidates every page carrying it. A conference shown on ten different list
@@ -65,7 +66,8 @@ For each changed record, Extbase clears three kinds of page:
     Consider the impact before deciding where a record stores as to not invalidate
     page caches for pages that might not even display that record.
 
-*   **Any pages named in that page's** :ref:`TCEMAIN.clearCacheCmd <t3tsref:pagetcemain-clearcachecmd>`
+*   **Any pages named in that page's** :ref:`TCEMAIN.clearCacheCmd
+    <t3tsref:pagetcemain-clearcachecmd>`
     **Page TSconfig.** An integrator can name further page UIDs to flush whenever
     *any* record on the storage page changes. Unlike the per-record tag above,
     this is a coarse, page-level rule the integrator maintains by hand — useful
@@ -95,8 +97,8 @@ narrowing the previous:
     :sql:`starttime` or :sql:`endtime` of the records on the page, so a page
     expires no later than the moment its content becomes visible or hidden.
 #.  **Overridden by an event.** Finally, a listener on
-    :ref:`ModifyCacheLifetimeForPageEvent` receives the resolved value and may
-    replace it entirely.
+    :ref:`ModifyCacheLifetimeForPageEvent <ModifyCacheLifetimeForPageEvent>`
+    receives the resolved value and may replace it entirely.
 
 Because of this chain, do not rely on a hard-coded number for "how long a page is
 cached". If you need the real, effective value for a given page, verify it rather
@@ -107,9 +109,9 @@ than infer it:
     page. The remaining lifetime is :sql:`expires` minus the current time.
 
 *   **Observe the resolved value.** A listener on
-    :ref:`ModifyCacheLifetimeForPageEvent` is handed the fully resolved lifetime
-    for the page; logging it there reports exactly what the system computed,
-    after every source above has been applied.
+    :ref:`ModifyCacheLifetimeForPageEvent <ModifyCacheLifetimeForPageEvent>` is
+    handed the fully resolved lifetime for the page; logging it there reports
+    exactly what the system computed, after every source above has been applied.
 
 
 ..  _extbase-caching-autoclearing-setting:
@@ -135,7 +137,8 @@ unlike :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`, whose runtime behaviour
 can be adjusted per instance. Setting it to :typoscript:`0` therefore means every
 repository write across the site stops refreshing the frontend, and clearing
 caches becomes your own responsibility through the
-:ref:`cache-clearing helper <extbase-caching-cachetags-clearing>`. Leave it at its
+:ref:`cache-clearing helper
+<extbase-caching-cachetags-clearing>`. Leave it at its
 default unless a deliberate, site-wide cache strategy replaces it.
 
 
@@ -172,7 +175,8 @@ Extbase repository**. It does not cover:
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` is a different case: it is not
 covered by *this* mechanism, but it clears caches on its own. A DataHandler write
 registers the changed record for page-cache clearing through its own routine and
-honours the same :ref:`TCEMAIN.clearCacheCmd <t3tsref:pagetcemain-clearcachecmd>` Page TSconfig — so records
+honours the same :ref:`TCEMAIN.clearCacheCmd
+<t3tsref:pagetcemain-clearcachecmd>` Page TSconfig — so records
 written through DataHandler do refresh the frontend, just not via the Extbase path
 described here.
 

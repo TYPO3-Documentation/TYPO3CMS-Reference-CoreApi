@@ -81,8 +81,9 @@ Key points:
 *   Translation keys use the domain syntax introduced in TYPO3 v14:
     `my_extension.messages:some.key` resolves to
     :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. See
-    :ref:`extbase-upgrading-translation-domain-syntax` for the full syntax
-    including non-default language files.
+    :ref:`Translation domain syntax
+    <extbase-upgrading-translation-domain-syntax>`
+    for the full syntax including non-default language files.
 
 
 ..  _extbase-validation-custom-property-errors:
@@ -93,8 +94,9 @@ Reporting errors on a specific property
 
 :php:`$this->addErrorForProperty()` attaches the error to a named property of
 the validated object rather than to the object itself. The
-:ref:`t3viewhelper:typo3-fluid-form-validationresults` view helper can then
-display the message adjacent to the right form field:
+:ref:`f:form.validationResults
+<t3viewhelper:typo3-fluid-form-validationresults>`
+view helper can then display the message adjacent to the right form field:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/Conference/New.fluid.html
@@ -178,7 +180,10 @@ then replace the message at the call site:
 What to read next
 =================
 
-*   :ref:`extbase-validation-builtin` — check whether a built-in validator
+*   :ref:`Built-in validators and the #[Validate] attribute
+    <extbase-validation-builtin>`
+    — check whether a built-in validator
     already covers a constraint before writing a custom one.
-*   :ref:`extbase-validation-overview` — how the framework triggers
+*   :ref:`Validation in Extbase <extbase-validation-overview>` — how the
+    framework triggers
     :php:`errorAction()` and how to display errors in Fluid templates.

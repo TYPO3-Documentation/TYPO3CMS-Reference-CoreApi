@@ -171,5 +171,6 @@ expected clean URL, work through this list:
 *   **Stale cache** — after changing the site configuration, clear all caches
     via :guilabel:`Admin Tools > Maintenance`.
 
-With URLs generating correctly, see :ref:`extbase-routing-examples` for
+With URLs generating correctly, see
+:ref:`Routing examples and common mistakes <extbase-routing-examples>` for
 complete worked examples covering the most common plugin configurations.

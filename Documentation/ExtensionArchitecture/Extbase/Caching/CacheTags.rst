@@ -10,8 +10,10 @@ Cache tags for Extbase plugins and repository auto-tagging
 
 A cached plugin is fast, but its output must be refreshed when the records it
 shows change — otherwise visitors keep seeing stale data. The wrong fix is to
-disable the cache (see :ref:`extbase-caching-noncacheable`); the right one is to
-let the cache stay, and *invalidate* the caches of affected pages when a record changes.
+disable the cache (see
+:ref:`Non-cacheable Extbase plugin actions <extbase-caching-noncacheable>`); the
+right one is to let the cache stay, and *invalidate* the caches of affected
+pages when a record changes.
 
 Cache tags are how TYPO3 does that. Each page-cache entry can be tagged with the
 records it depends on; clearing a tag flushes every page tagged with it. Extbase
@@ -81,7 +83,8 @@ caches another way — for example with :ref:`automatic cache clearing
         :php:`frontend.cache.autoTagging` defaults to enabled on fresh
         installations. Upgraded instances keep their previous value — verify the
         toggle after upgrading. See
-        :ref:`Check relevant feature toggle defaults after upgrading (TYPO3 v14) <extbase-upgrading-feature-toggle-defaults>`.
+        :ref:`Check relevant feature toggle defaults after upgrading (TYPO3 v14)
+        <extbase-upgrading-feature-toggle-defaults>`.
 
 You set the toggle in :file:`settings.php` under
 :php:`SYS/features`, or through :guilabel:`Admin Tools > Settings > Feature
@@ -97,7 +100,8 @@ Automatic tagging covers the records a repository query returns. When a plugin's
 output depends on records that were *not* the query result — related records
 reached through a relation, an aggregate, or data fetched outside Extbase — those
 records produce no tag of their own. Add the tags yourself through the
-:ref:`frontend cache collector <typo3-request-attribute-frontend-cache-collector>`
+:ref:`frontend cache collector
+<typo3-request-attribute-frontend-cache-collector>`
 request attribute:
 
 ..  literalinclude:: _snippets/_ManualCacheTag.php
@@ -116,7 +120,8 @@ Adjusting an Extbase plugin's page cache tags while it renders
 ==============================================================
 
 Inside a plugin action you are building content for one page, and the
-:ref:`frontend cache collector <typo3-request-attribute-frontend-cache-collector>`
+:ref:`frontend cache collector
+<typo3-request-attribute-frontend-cache-collector>`
 request attribute controls the cache tags of *that* page — the one currently
 being rendered. Adding or removing a tag changes what the page's cache entry
 depends on and its lifetime; it does not touch any other page.
@@ -133,8 +138,8 @@ depends on and its lifetime; it does not touch any other page.
         -   Drop a tag from the page being rendered that it should not carry.
 
 Use it to tag the page being built — as in
-:ref:`extbase-caching-cachetags-manual` above — or to remove a tag it should not
-carry:
+:ref:`Adding cache tags manually <extbase-caching-cachetags-manual>` above — or
+to remove a tag it should not carry:
 
 ..  literalinclude:: _snippets/_RemoveCacheTag.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -174,7 +179,8 @@ which offers these operations:
 ..  note::
 
     This helper is marked :php:`@internal`. Prefer
-    :ref:`automatic cache clearing <extbase-caching-autoclearing>` or the frontend
+    :ref:`automatic cache clearing
+    <extbase-caching-autoclearing>` or the frontend
     cache collector where they fit; reach for the helper only when you genuinely
     need to flush already-cached pages from your own code.
 

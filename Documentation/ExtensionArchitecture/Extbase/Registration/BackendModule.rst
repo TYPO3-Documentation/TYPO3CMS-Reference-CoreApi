@@ -51,10 +51,10 @@ them for modules whose controllers do not extend
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Use the
 standard :confval:`routes <backend-module-routes>` key instead.
 
-The remaining keys — `parent`, `position`, `access`, `path`,
-`iconIdentifier`, `labels` — are standard backend module configuration and
-apply to all modules regardless of whether they use Extbase or not. See
-:ref:`backend-modules-api` for the full reference.
+The remaining keys — `parent`, `position`, `access`, `path`, `iconIdentifier`,
+`labels` — are standard backend module configuration and apply to all modules
+regardless of whether they use Extbase or not. See
+:ref:`Backend modules API <backend-modules-api>` for the full reference.
 
 
 ..  _extbase-registration-backend-module-access:
@@ -127,8 +127,9 @@ backend page frame, toolbar buttons, flash message area, and navigation
 components — but only when the Fluid template uses the backend Module Layout.
 Without it, :php:`renderResponse()` returns plain rendered HTML with no backend
 chrome. Using the Module Layout is strongly recommended for any module that
-should look like a native TYPO3 backend page. See :ref:`ModuleTemplateFactory`
-for the full :abbr:`API (Application Programming Interface)`.
+should look like a native TYPO3 backend page. See
+:ref:`ModuleTemplateFactory <ModuleTemplateFactory>` for the full
+:abbr:`API (Application Programming Interface)`.
 
 
 ..  _extbase-registration-backend-module-configuration-assembly:
@@ -163,9 +164,11 @@ The resulting array has three top-level keys that Extbase uses directly:
 
 ..  seealso::
 
-    *   :ref:`backend-modules-api` for the full reference for all module configuration
+    *   :ref:`Backend modules API <backend-modules-api>` for the full reference
+        for all module configuration
         keys including `parent`, `position`, `access`, `path`, and
         submodule definitions.
 
-    *   :ref:`ModuleTemplateFactory` for how to add buttons, menus, and
+    *   :ref:`ModuleTemplateFactory <ModuleTemplateFactory>` for how to add
+        buttons, menus, and
         navigation to the chrome module.
