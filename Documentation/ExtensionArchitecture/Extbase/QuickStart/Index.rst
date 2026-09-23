@@ -39,8 +39,9 @@ your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>
 
 ..  seealso::
 
-    :ref:`extension-create-new` covers the full scaffolding process, including
-    manual setup without the kickstarter.
+    :ref:`Creating a new extension from scratch <extension-create-new>` covers
+    the full scaffolding process, including manual setup without the
+    kickstarter.
 
 
 ..  _extbase-quickstart-model:
@@ -121,7 +122,7 @@ The TCA column names must match the property names of your model
 
 ..  seealso::
 
-    :ref:`t3tca:start` for the full TCA reference.
+    :ref:`TCA Reference <t3tca:start>` for the full TCA reference.
 
 
 ..  _extbase-quickstart-controller:
@@ -131,8 +132,12 @@ Step 5: create the controller
 
 Controllers live in :file:`Classes/Controller/` and extend
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Each public method
-ending in :php:`Action` is automatically available as a plugin action.
-Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies via the constructor. In Extbase, repositories and other services are injected this way — see also :ref:`extbase-domain-repository-di`.
+ending in :php:`Action` is automatically available as a plugin action. Use
+:ref:`dependency injection <Dependency-Injection>` to receive dependencies via
+the constructor. In Extbase, repositories and other services are injected this
+way — see also
+:ref:`Injecting repositories with dependency injection
+<extbase-domain-repository-di>`.
 
 ..  literalinclude:: _snippets/_ConferenceController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -145,7 +150,8 @@ Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies v
 
 ..  seealso::
 
-    :ref:`ActionController: actions, arguments and responses <extbase-controller-action>`
+    :ref:`ActionController: actions, arguments and responses
+    <extbase-controller-action>`
 
 
 ..  _extbase-quickstart-templates:
@@ -192,8 +198,8 @@ directly in the template.
 
     :ref:`View layer in Extbase <extbase-view-overview>`
 
-    :ref:`fluid` — the full Fluid templating reference, including all built-in
-    ViewHelpers.
+    :ref:`Fluid <fluid>` — the full Fluid templating reference, including all
+    built-in ViewHelpers.
 
 
 ..  _extbase-quickstart-plugin:
@@ -234,7 +240,8 @@ instead of `content-plugin` in the :php:`registerPlugin()` call above.
 
 ..  seealso::
 
-    :ref:`Registering an Extbase frontend plugin <extbase-registration-frontend-plugin>`
+    :ref:`Registering an Extbase frontend plugin
+    <extbase-registration-frontend-plugin>`
 
 
 ..  _extbase-quickstart-routing:
@@ -252,8 +259,8 @@ clean URLs like :samp:`/conferences/my-conference`.
 
 ..  seealso::
 
-    :ref:`extbase-routing` — the full routing chapter with detailed
-    examples and common mistakes.
+    :ref:`Routing for Extbase plugins <extbase-routing>` — the full routing
+    chapter with detailed examples and common mistakes.
 
 
 ..  _extbase-quickstart-install:
@@ -288,7 +295,8 @@ Then in the TYPO3 backend:
 4.  Open the page in the frontend — you should see your list view.
 
 If the list is empty, check the storagePid first. See
-:ref:`The storagePid constraint on repository queries <extbase-domain-repository-storagepid>`.
+:ref:`The storagePid constraint on repository queries
+<extbase-domain-repository-storagepid>`.
 
 
 ..  _extbase-quickstart-next:
@@ -298,11 +306,15 @@ What next?
 
 You have a working extension. From here:
 
-*   :ref:`extbase-concepts` — understand the MVC and ORM patterns
+*   :ref:`Core concepts of Extbase <extbase-concepts>` — understand the MVC and
+    ORM patterns
     underlying everything above.
-*   :ref:`extbase-persistence-queries` — write custom repository
+*   :ref:`Querying the database with Extbase <extbase-persistence-queries>` —
+    write custom repository
     queries with ordering, filtering, and limits.
-*   :ref:`extbase-validation-overview` — validate model properties and action
+*   :ref:`Validation in Extbase <extbase-validation-overview>` — validate model
+    properties and action
     arguments automatically.
-*   :ref:`extbase-caching-overview` — understand how caching works for your
+*   :ref:`Caching for Extbase plugins <extbase-caching-overview>` — understand
+    how caching works for your
     plugin and what your responsibilities are.

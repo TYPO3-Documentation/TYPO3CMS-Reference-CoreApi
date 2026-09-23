@@ -148,7 +148,8 @@ The key properties:
           - routePath: '/{conference_slug}'
             _controller: 'Conference::show'
 
-    See :ref:`extbase-routing-routes` for the full route syntax.
+    See :ref:`Defining routes for Extbase plugins <extbase-routing-routes>` for
+    the full route syntax.
 
 :yaml:`aspects`
     Maps placeholder names to mappers that translate between internal values
@@ -164,7 +165,7 @@ The key properties:
             tableName: tx_myextension_domain_model_conference
             routeFieldName: slug
 
-    See :ref:`extbase-routing-aspects`.
+    See :ref:`Routing aspects <extbase-routing-aspects>`.
 
 
 ..  _extbase-routing-enhancer-variants:

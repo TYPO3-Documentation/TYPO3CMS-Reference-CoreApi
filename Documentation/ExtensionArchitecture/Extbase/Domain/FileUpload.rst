@@ -124,7 +124,7 @@ The :php:`#[FileUpload]` attribute accepts named arguments as follows:
 
 :php:`validation`
     Array configuring built-in file upload validators. See
-    :ref:`extbase-domain-fileupload-validation` below.
+    :ref:`File upload validation <extbase-domain-fileupload-validation>` below.
 
 :php:`uploadFolder`
     Destination as a FAL storage path, for example
@@ -163,11 +163,14 @@ File upload validation
 Two validators are enforced automatically for every :php:`#[FileUpload]`
 property and cannot be removed:
 
-*   :ref:`extbase-validation-builtin-filename` — rejects files with names
+*   :ref:`FileName validator <extbase-validation-builtin-filename>` — rejects
+    files with names
     matching dangerous executable extensions such as :file:`.php` or
     :file:`.phar`. This is a hard security boundary. There is no legitimate
     reason to bypass it.
-*   :ref:`extbase-validation-builtin-fileextensionmimetypeconsistency` —
+*   :ref:`FileExtensionMimeTypeConsistency validator
+    <extbase-validation-builtin-fileextensionmimetypeconsistency>`
+    —
     cross-checks that the file extension and the detected MIME type are
     consistent, guarding against disguised uploads such as a PHP script renamed
     to :file:`image.jpg`.
@@ -270,9 +273,10 @@ configuration object instead of creating a new one:
 
 To strip all application-level validators and start from a clean slate, call
 :php:`$configuration->resetValidators()`. The two mandatory validators
-(:ref:`extbase-validation-builtin-filename` and
-:ref:`extbase-validation-builtin-fileextensionmimetypeconsistency`) are always
-re-added and cannot be removed. Calling :php:`resetValidators()` on a
+(:ref:`FileName validator <extbase-validation-builtin-filename>` and
+:ref:`FileExtensionMimeTypeConsistency validator
+<extbase-validation-builtin-fileextensionmimetypeconsistency>`)
+are always re-added and cannot be removed. Calling :php:`resetValidators()` on a
 public-facing upload form without immediately adding back type and size
 restrictions will leave the upload open to any file content. Do this only when
 you have a deliberate, application-specific reason and compensate with other
@@ -286,7 +290,8 @@ Deleting uploaded files
 =======================
 
 The
-:ref:`f:form.uploadDeleteCheckbox <t3viewhelper:typo3-fluid-form-uploaddeletecheckbox>`
+:ref:`f:form.uploadDeleteCheckbox
+<t3viewhelper:typo3-fluid-form-uploaddeletecheckbox>`
 ViewHelper renders a :guilabel:`Delete file` checkbox. When submitted, Extbase
 deletes the :sql:`sys_file_reference` record and the underlying file before
 persisting the updated model:
@@ -342,6 +347,8 @@ persistence, two patterns will work:
 
 ..  seealso::
 
-    *   :ref:`extbase-validation-builtin-file` — full reference for all
+    *   :ref:`File upload validators <extbase-validation-builtin-file>` — full
+        reference for all
         file upload validators and their options.
-    *   :ref:`t3coreapi:using-fal` — the File Abstraction Layer in TYPO3.
+    *   :ref:`Using FAL <t3coreapi:using-fal>` — the File Abstraction Layer in
+        TYPO3.

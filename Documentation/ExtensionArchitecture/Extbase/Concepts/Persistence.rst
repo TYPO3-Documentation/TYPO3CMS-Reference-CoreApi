@@ -54,10 +54,10 @@ Extbase loads those related objects automatically when you access the property
 
 This convenience comes with a trade-off: the ORM is optimised for working with
 individual domain objects, not for bulk operations or complex aggregate queries.
-When you need those, dropping down to raw queries and result sets
-directly is the right choice. That is not a failure — it is the intended design.
-See :ref:`extbase-domain-repository-dbal` for how to do this from within a
-repository.
+When you need those, dropping down to raw queries and result sets directly is
+the right choice. That is not a failure — it is the intended design. See
+:ref:`When to drop out of ORM <extbase-domain-repository-dbal>` for how to do
+this from within a repository.
 
 
 ..  _extbase-concepts-persistence-mapping:
@@ -82,7 +82,8 @@ Property names map to column names by converting camelCase to snake_case:
 These conventions work automatically. When the defaults do not fit — for example
 when mapping to an existing table with its own naming — you can override them in
 :file:`Configuration/Extbase/Persistence/Classes.php`. See
-:ref:`extbase-domain-model-mapping` for the full syntax and examples.
+:ref:`Table and field mapping <extbase-domain-model-mapping>` for the full
+syntax and examples.
 
 
 ..  _extbase-concepts-persistence-repository:
@@ -163,7 +164,7 @@ Or override it in PHP inside a repository method:
     $query->getQuerySettings()->setRespectStoragePage(false);
 
 The full storagePid resolution order and how to override it in PHP are covered
-in :ref:`extbase-persistence-queries`.
+in :ref:`Querying the database with Extbase <extbase-persistence-queries>`.
 
 
 ..  _extbase-concepts-persistence-lifecycle:

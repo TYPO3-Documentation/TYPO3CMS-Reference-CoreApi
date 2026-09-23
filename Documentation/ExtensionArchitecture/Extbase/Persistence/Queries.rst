@@ -494,4 +494,4 @@ the Extbase debugger:
 
 Once you can query confidently, the next step is understanding how Extbase loads
 *related* objects — and the performance trade-off that comes with them. That is
-covered in :ref:`extbase-persistence-relations`.
+covered in :ref:`Object relations in Extbase <extbase-persistence-relations>`.

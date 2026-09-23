@@ -101,11 +101,11 @@ happens:
 3.  **The dispatcher resolves the controller**
 
     :php:`\TYPO3\CMS\Extbase\Mvc\Dispatcher` looks up which controller class
-    corresponds to the requested controller name and instantiates it via
-    the :abbr:`DI (Dependency Injection)` container — the component responsible
-    for constructing objects and automatically providing their dependencies,
-    so your controller receives everything it needs without wiring it up
-    manually. See :ref:`dependency-injection` for details.
+    corresponds to the requested controller name and instantiates it via the
+    :abbr:`DI (Dependency Injection)` container — the component responsible for
+    constructing objects and automatically providing their dependencies, so your
+    controller receives everything it needs without wiring it up manually. See
+    :ref:`Dependency injection <dependency-injection>` for details.
 
 4.  **The controller action runs**
 
@@ -157,8 +157,9 @@ This has two practical consequences:
     to avoid collisions.
 *   **Extbase does not control the page URL.** Clean URLs require a route
     enhancer configured in the site's :file:`config.yaml`. Without one, plugin
-    arguments appear as query parameters. See :ref:`extbase-routing` for the
-    full configuration.
+    arguments appear as query parameters. See
+    :ref:`Routing for Extbase plugins <extbase-routing>` for the full
+    configuration.
 
 If you are used to a framework where every route maps to exactly one
 controller, it helps to think of an Extbase plugin as a self-contained
@@ -215,9 +216,13 @@ For redirects and forwards:
 
 ..  seealso::
 
-    :ref:`extbase-controller-action` — the full controller reference,
-    including argument handling, error actions, and backend controllers.
+    :ref:`ActionController: actions, arguments and responses
+    <extbase-controller-action>`
+    — the full controller reference, including argument handling, error actions,
+    and backend controllers.
 
-    :ref:`extbase-domain-model` — how models and repositories work.
+    :ref:`Extbase domain model <extbase-domain-model>` — how models and
+    repositories work.
 
-    :ref:`extbase-view-overview` — Fluid templates and response types.
+    :ref:`View layer in Extbase <extbase-view-overview>` — Fluid templates and
+    response types.

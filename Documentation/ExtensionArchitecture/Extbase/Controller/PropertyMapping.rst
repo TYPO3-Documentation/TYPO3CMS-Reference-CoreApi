@@ -66,7 +66,8 @@ If conversion fails, for example, because a UID does not exist in the
 database, Extbase calls :php:`errorAction()` instead of the action method.
 
 For any type not covered by the built-in converters, you can register a custom
-type converter — see :ref:`extbase-appendix-typeconverters-custom`.
+type converter — see
+:ref:`Writing a custom type converter <extbase-appendix-typeconverters-custom>`.
 
 
 ..  _extbase-controller-propertymapping-trusted:
@@ -89,7 +90,8 @@ token automatically, based on whether an `__identity` field is present.
 For the standard Extbase workflow, Fluid form → controller action, no
 additional configuration is needed. If your request does not originate from
 a :html:`<f:form>` (URL parameters, hand-built forms, JSON payloads), see
-:ref:`Manually allowing properties on Extbase action arguments <extbase-controller-propertymapping-allowproperties>`.
+:ref:`Manually allowing properties on Extbase action arguments
+<extbase-controller-propertymapping-allowproperties>`.
 
 
 ..  _extbase-controller-propertymapping-typeconverters:
@@ -178,10 +180,11 @@ goes inside the same :php:`initializeCreateAction()` method:
         $mappingConfig->forProperty('speaker')->allowProperties('name');
     }
 
-If a domain object arrives with all properties set to
-their default values even though the form contains data, see
-:ref:`extbase-appendix-pitfalls-property-mapping-denied` in the common
-pitfalls appendix.
+If a domain object arrives with all properties set to their default values even
+though the form contains data, see
+:ref:`Property mapping denied
+<extbase-appendix-pitfalls-property-mapping-denied>`
+in the common pitfalls appendix.
 
 
 ..  _extbase-controller-propertymapping-creation-modification:
