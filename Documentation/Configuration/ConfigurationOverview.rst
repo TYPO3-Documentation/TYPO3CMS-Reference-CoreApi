@@ -124,7 +124,8 @@ customizing editing interfaces—without writing PHP. It can be applied at the
 page level (Page TSconfig) or to users and groups (User TSconfig).
 
 TSconfig shares the same syntax as Frontend TypoScript, detailed in
-:ref:`t3tsref:typoscript-syntax`, but uses entirely different properties.
+:ref:`TypoScript syntax <t3tsref:typoscript-syntax>`, but uses entirely
+different properties.
 
 For full usage, API details, and load order, refer to:
 
@@ -159,7 +160,8 @@ integrators.
     For getting started:
 
     *   :ref:`TypoScript guide <t3tsref:guide>` – Introduction to TypoScript
-    *   :ref:`t3sitepackage:start` – Create a site theme using TypoScript and
+    *   :ref:`TYPO3 site package tutorial <t3sitepackage:start>` – Create a site
+        theme using TypoScript and
         Fluid
 
     The complete reference:
@@ -175,8 +177,9 @@ TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
 
 :doc:`$GLOBALS['TCA'] <t3tca:Index>`:
     Defines how backend forms, fields, and data handling behave. It’s essential
-    for developers and integrators. Full reference: :ref:`TCA Reference <t3tca:start>`.
-    See also: :ref:`extending-tca`.
+    for developers and integrators. Full reference:
+    :ref:`TCA Reference <t3tca:start>`. See also:
+    :ref:`Extending the TCA array <extending-tca>`.
 
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
     Stores system-wide settings. Most can be changed in
@@ -189,7 +192,7 @@ TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
     :php:`TYPO3_CONF_VARS['EXTENSIONS']`. Used for extension-specific settings.
     Editable in the backend. Use the :ref:`API <extension-options-api>`.
 
-:ref:`feature-toggles`:
+:ref:`Feature toggle API <feature-toggles>`:
     Enable or disable TYPO3 features via
     :php:`TYPO3_CONF_VARS['SYS']['features']`. Toggle in the backend with
     admin rights. Use the :ref:`Feature Toggle API <feature-toggles-api>`.
@@ -232,7 +235,8 @@ Several system extensions use YAML for configuration:
   :file:`config/sites/<identifier>/config.yaml` and editable via the
   :guilabel:`Sites` backend module or directly in the file.
 
-* :ref:`routing` is also defined in the same YAML file.
+* :ref:`Routing - readable, SEO-friendly URLs <routing>` is also defined in the
+  same YAML file.
 
 * :ref:`form <ext_form:concepts-configuration>` provides frontend forms via YAML.
 

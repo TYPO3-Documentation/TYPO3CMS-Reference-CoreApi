@@ -516,7 +516,10 @@ additionalCanonicalizedUrlParameters
     :Default: []
 
     The given parameters will be included when calculating canonicalized URL.
-    See :ref:`canonicalapi-additionalparameters` for details.
+    See
+    :ref:`Including specific arguments for the URL generation
+    <canonicalapi-additionalparameters>`
+    for details.
 
 ..  _typo3ConfVars_fe_cacheHash:
 
