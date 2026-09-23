@@ -19,7 +19,7 @@ When you are using DataHandler from your backend applications you need to
 prepare two arrays of information which contain the instructions to
 DataHandler (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
-:ref:`data <datahandler-data>` and :ref:`commands <datahandler-commands>`.
+:ref:`data <datahandler-data>` and :ref:`commands <tce-database-basics-commands-array>`.
 
 "Data" is when you want to write information to a database table or
 create a new record.
@@ -550,12 +550,35 @@ value
 
 ..  confval:: value
     :name: datahandler-data-value
-    :Data type: string
+    :Data type: string, int, :php:`\DateTimeInterface`
 
     Value for "fieldname".
 
-    For fields of type :ref:`inline <t3tca:columns-inline>` this is a
+    For fields of TCA type :ref:`inline <t3tca:columns-inline>` this is a
     comma-separated list of UIDs of referenced records.
+
+    For fields of TCA type :ref:`datetime <t3tca:columns-datetime>` use one
+    of these values:
+
+    *   An ISO 8601 date without a timezone offset, for example
+        `1999-11-11T11:11:11`. It is taken as the local time of the server.
+    *   An ISO 8601 date with a timezone offset, for example
+        `1999-11-11T11:11:11+01:00` or `1999-11-11T10:11:11Z`.
+    *   A :php:`\DateTimeInterface` object.
+    *   An integer Unix timestamp, for example `942315071`. This is mainly
+        intended for copy and import operations.
+
+    The DataHandler resolves the datetime value to an absolute point in time and
+    stores that as UTC in integer fields, or as
+    server local time in native :sql:`DATETIME` fields. The timezone offset
+    is not kept.
+
+    ..  versionchanged:: 14.0
+        A timezone offset is now respected. Previously, `Z` was taken to mean
+        server local time, see
+        `Breaking: #105549 - Improved ISO8601 Date Handling in TYPO3
+        DataHandler
+        <https://docs.typo3.org/permalink/changelog:breaking-105549-1742214899>`_.
 
 
 ..  note::
