@@ -86,4 +86,4 @@ still valid for legacy, file-based labels.
 ..  literalinclude:: _servicesBackendControllerHook.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-See also: :ref:`knowing-what-to-make-public`
+See also: :ref:`What to make public? <knowing-what-to-make-public>`

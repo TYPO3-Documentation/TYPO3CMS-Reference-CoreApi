@@ -203,8 +203,9 @@ this cache:
     or unload extensions in (non-Composer) classic mode.
 
 *   Another way to quickly drop this cache during development is to remove all
-    :file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in classic mode
-    instances or elsewhere in composer mode instances (see :ref:`Environment`).
+    :file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in
+    classic mode instances or elsewhere in composer mode instances (see
+    :ref:`Environment <Environment>`).
 
 The main takeaway is: When a developer fiddles with container configuration,
 the cache needs to be manually cleared. And if some configuration issue slipped in,

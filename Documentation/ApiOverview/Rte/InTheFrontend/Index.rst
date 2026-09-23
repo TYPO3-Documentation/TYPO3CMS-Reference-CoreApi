@@ -75,9 +75,9 @@ The optional features
     It's advised to allow only required input and to disallow any further
     content and features.
 
-    The chapter :ref:`security-threats` informs about possible vulnerabilities
-    and concerning forms especially the paragraph about
-    :ref:`Cross Site Scripting (XSS) <security-xss>` is important.
+    The chapter :ref:`Types of security threats <security-threats>` informs
+    about possible vulnerabilities and concerning forms especially the paragraph
+    about :ref:`Cross Site Scripting (XSS) <security-xss>` is important.
 
 ..  _rte-frontend-introduction-technical:
 

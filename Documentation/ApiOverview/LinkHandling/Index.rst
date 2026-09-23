@@ -23,9 +23,10 @@ For example, a link to the page with uid 42 is stored in a backend field as
     Make a chapter that describes the extended formats containing titles,
     targets, link classes, etc
 
-Such links must be converted before they are output as HTML in the frontend.
-For example, in :ref:`Fluid <fluid>` all input from the RTE should be output by the ViewHelper
-:ref:`t3viewhelper:typo3-fluid-format-html`:
+Such links must be converted before they are output as HTML in the frontend. For
+example, in :ref:`Fluid <fluid>` all input from the RTE should be output by the
+ViewHelper
+:ref:`f:format.html ViewHelper <t3viewhelper:typo3-fluid-format-html>`:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.fluid.html
@@ -33,7 +34,8 @@ For example, in :ref:`Fluid <fluid>` all input from the RTE should be output by 
     <f:format.html>{myContent.bodytext}</f:format.html>
 
 Links provided in backend fields like the :sql:`header_link` can be used as
-input in the ViewHelper :ref:`t3viewhelper:typo3-fluid-link-typolink`:
+input in the ViewHelper
+:ref:`f:link.typolink ViewHelper <t3viewhelper:typo3-fluid-link-typolink>`:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.fluid.html
@@ -42,18 +44,21 @@ input in the ViewHelper :ref:`t3viewhelper:typo3-fluid-link-typolink`:
       {myContent.header_link}
     </f:link.typolink>
 
-In TypoScript, RTE content can be converted by the function :ref:`t3tsref:parsefunc`,
-link fields can be converted into HTML by the function :ref:`t3tsref:typolink`.
+In TypoScript, RTE content can be converted by the function
+:ref:`parseFunc <t3tsref:parsefunc>`, link fields can be converted into HTML by
+the function :ref:`typolink <t3tsref:typolink>`.
 
 In PHP context links are usually stored in an array format. Each link type is
-handled by a :ref:`core-link-handler` which maps between different formats.
+handled by a :ref:`Core link handler <core-link-handler>` which maps between
+different formats.
 
 To generate links from PHP, use the :ref:`frontend link factory <link-factory>`.
 
-The :ref:`link browser <linkbrowser-api>` is the modal in which users can configure
-links in both the :ref:`rte` and the :ref:`FormEngine`. The link browser offers
-tabs for the different types of links like page, external, file, email, phone
-record and possibly more. Each tab of the link browser has an associated
+The :ref:`link browser <linkbrowser-api>` is the modal in which users can
+configure links in both the :ref:`Rich text editors (RTE) <rte>` and the
+:ref:`FormEngine <FormEngine>`. The link browser offers tabs for the different
+types of links like page, external, file, email, phone record and possibly more.
+Each tab of the link browser has an associated
 :ref:`backend link handler <linkhandler>` that renders the tab and handles
 editing links. The link browser can be extended by
 :ref:`custom links to different record types <TableRecordLinkBrowserTutorials>`

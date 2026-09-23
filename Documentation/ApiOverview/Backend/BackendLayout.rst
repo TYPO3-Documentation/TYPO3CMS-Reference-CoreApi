@@ -127,8 +127,10 @@ Using  `data = pagelayout` is the same as using as
     ifEmpty.data = levelfield:-2,backend_layout_next_level,slide
     ifEmpty.ifEmpty = default
 
-In the Fluid template the column positions can be accessed now via content mapping as described here
-:ref:`t3sitepackage:content-mapping`.
+In the Fluid template the column positions can be accessed now via content
+mapping as described here
+:ref:`Display the content elements on your page
+<t3sitepackage:content-mapping>`.
 
 
 ..  index:: Backend layout; Reference implementation

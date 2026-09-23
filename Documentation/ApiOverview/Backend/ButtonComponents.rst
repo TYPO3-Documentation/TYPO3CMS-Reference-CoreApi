@@ -103,8 +103,9 @@ This button type is a container for dropdown items. It will render a dropdown
 containing all items attached to it. There are different kinds available, each
 item needs to implement the
 :php:`\TYPO3\CMS\Backend\Template\Components\Buttons\DropDown\DropDownItemInterface`.
-When this type contains elements of type :ref:`dropdown-button-components-radio`
-it will use the icon of the first active item of this type.
+When this type contains elements of type
+:ref:`DropDownRadio <dropdown-button-components-radio>` it will use the icon of
+the first active item of this type.
 
 Example:
 

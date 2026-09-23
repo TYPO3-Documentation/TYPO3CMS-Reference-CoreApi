@@ -26,11 +26,11 @@ links.
 ..  note::
     For rendering links in :ref:`Fluid <fluid>` templates or TypoScript, the
     established path is still recommended: the ViewHelper
-    :ref:`t3viewhelper:typo3-fluid-link-typolink` or the TypoScript function
-    :ref:`t3tsref:typolink`. Use
-    :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` when an extension needs
-    the raw result programmatically, with access to more than just the anchor
-    tag.
+    :ref:`f:link.typolink ViewHelper <t3viewhelper:typo3-fluid-link-typolink>`
+    or the TypoScript function :ref:`typolink <t3tsref:typolink>`. Use
+    :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` when an extension
+    needs the raw result programmatically, with access to more than just the
+    anchor tag.
 
 ..  _link-factory-methods:
 

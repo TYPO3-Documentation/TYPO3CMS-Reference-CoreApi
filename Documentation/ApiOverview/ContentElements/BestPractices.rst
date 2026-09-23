@@ -22,8 +22,9 @@ Coding / structure
   whether they might be merged into one extension.
 * Do not use deprecated functionality. Read the :doc:`Core Changelog <ext_core:Index>`
   to check for deprecations and breaking changes between TYPO3 versions.
-* Some naming conventions are described in the chapter :ref:`extension-naming`.
-* Read (or skim) the :ref:`cgl`.
+* Some naming conventions are described in the chapter
+  :ref:`Naming conventions <extension-naming>`.
+* Read (or skim) the :ref:`Coding guidelines <cgl>`.
 
 ..  _best-practices-backend-usability:
 

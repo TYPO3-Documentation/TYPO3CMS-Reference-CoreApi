@@ -6,7 +6,7 @@
 Canonical API
 =============
 
-A brief explanation happens in :ref:`seo`.
+A brief explanation happens in :ref:`Search engine optimization (SEO) <seo>`.
 
 In general the system will generate the canonical using the same logic as for
 cHash.
@@ -40,8 +40,9 @@ It is possible to include nested arguments:
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
 
-Non-vital arguments in general should be excluded from cHash and not be listed as `additionalCanonicalizedUrlParameters`.
-See the possible options in :ref:`caching` regarding excluding arguments from cHash.
+Non-vital arguments in general should be excluded from cHash and not be listed
+as `additionalCanonicalizedUrlParameters`. See the possible options in
+:ref:`Caching <caching>` regarding excluding arguments from cHash.
 
 The idea behind that is:
 
@@ -54,4 +55,6 @@ The idea behind that is:
 Using an event to define the URL
 ================================
 
-The process will trigger the event :ref:`ModifyUrlForCanonicalTagEvent` which can be used to set the actual URL to use.
+The process will trigger the event
+:ref:`ModifyUrlForCanonicalTagEvent <ModifyUrlForCanonicalTagEvent>` which can
+be used to set the actual URL to use.

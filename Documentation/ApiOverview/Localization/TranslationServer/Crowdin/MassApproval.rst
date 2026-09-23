@@ -180,6 +180,8 @@ appropriate:
 See also
 ========
 
-*   :ref:`crowdin-extension-integration` — Integrate extensions with Crowdin
-*   :ref:`crowdin-workflow` — Complete Crowdin translation workflow
+*   :ref:`Integrate Crowdin in your extension <crowdin-extension-integration>` —
+    Integrate extensions with Crowdin
+*   :ref:`From new Crowdin translations to the installation <crowdin-workflow>`
+    — Complete Crowdin translation workflow
 *   `Crowdin API Documentation <https://developer.crowdin.com/api/v2/>`__

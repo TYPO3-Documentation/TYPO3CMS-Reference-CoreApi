@@ -386,4 +386,6 @@ You can configure the sudo mode in your backend module like this:
 ..  literalinclude:: _ModuleConfiguration/_sudo_modules.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-See also :ref:`backend-module-sudo-modules`.
+See also
+:ref:`Custom backend modules requiring the sudo mode
+<backend-module-sudo-modules>`.

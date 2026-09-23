@@ -29,7 +29,8 @@ The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table
 
     $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
-See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
+See :ref:`TYPO3 site package tutorial <t3sitepackage:start>` and
+:ref:`Storing in the Overrides/ folder <storing-changes-extension-overrides>` .
 
 ..  note::
 
@@ -589,7 +590,9 @@ Scenario: discard record workspace modifications
     28,-1,**1**,640,**0**,27,-1,0,0,Article #5 discarded
 
 * previously records :code:`uid = 27` and :code:`uid = 28` have been created in workspace
-  (similar to :ref:`scenario-create-new-record-on-existing-page`)
+  (similar to
+  :ref:`Scenario: create new record on existing page
+  <scenario-create-new-record-on-existing-page>`)
 * both records represent the discarded state by having assigned :code:`deleted = 1` and :code:`t3ver_wsid = 0`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-3:
@@ -630,8 +633,11 @@ Scenario: create new record, then move to different page
     26,-1,0,512,1,25,-1,0,0,Article #4 new & moved
 
 * previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
-  (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
-  has been moved to target target page :code:`pid = 30`
+  (exactly like in
+  :ref:`Scenario: create new record on existing page
+  <scenario-create-new-record-on-existing-page>`),
+  then record :code:`uid = 25` has been moved to target target page
+  :code:`pid = 30`
 * record :code:`uid = 25` directly uses target page :code:`pid = 30`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-5:
@@ -649,7 +655,11 @@ Scenario: create new record, then delete
     26,-1,**1**,512,**0**,25,-1,0,0,Article #4 new & deleted
 
 * previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
-  (exactly like in :ref:`scenario-create-new-record-on-existing-page`), then record :code:`uid = 25`
-  has been deleted
+  (exactly like in
+  :ref:`Scenario: create new record on existing page
+  <scenario-create-new-record-on-existing-page>`),
+  then record :code:`uid = 25` has been deleted
 * records :code:`uid = 25` and :code:`uid = 26` are directly discarded in workspace
-  (similar to :ref:`scenario-discard-record-workspace-modifications`)
+  (similar to
+  :ref:`Discarding workspace modifications of a record
+  <scenario-discard-record-workspace-modifications>`)

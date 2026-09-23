@@ -46,8 +46,8 @@ data format that is as human readable as possible while still offering
 an RTE for editing if applicable.
 
 To know the details of those transformations, please refer to the
-:ref:`transformations-overview`. Here is a short example of a
-hybrid mode:
+:ref:`Transformation overview <transformations-overview>`. Here is a short
+example of a hybrid mode:
 
 
 ..  _transformations-hybrid-modes-db:
@@ -67,15 +67,15 @@ This is how the content in the database could look for a hybrid mode
     This line is just plain
 
 
-As you can see the TYPO3-specific tag,
-:code:`<a href="t3://page?uid=123">` is used for the link to page 123.
-This tag is designed to be easy for editors to insert and easy for TYPO3
-to parse and understand. The t3:// scheme is later resolved to a real
-link in the frontend by the :ref:`linkhandler`. Further line 2 shows
-bold text. In line 3 the situation is that the paragraph should be
-centered - and there seems to be no other way than wrapping the line
-in a :code:`<p>` tag with the "align" attribute. Not so human readable but we
-can do no better without an RTE. Line 4 is just plain.
+As you can see the TYPO3-specific tag, :code:`<a href="t3://page?uid=123">` is
+used for the link to page 123. This tag is designed to be easy for editors to
+insert and easy for TYPO3 to parse and understand. The t3:// scheme is later
+resolved to a real link in the frontend by the
+:ref:`The LinkHandler API <linkhandler>`. Further line 2 shows bold text. In
+line 3 the situation is that the paragraph should be centered - and there seems
+to be no other way than wrapping the line in a :code:`<p>` tag with the "align"
+attribute. Not so human readable but we can do no better without an RTE. Line 4
+is just plain.
 
 Generally this content will be processed before output on a page of
 course. Typically the rule will be this: "Wrap each line in a :code:`<p>` tag
@@ -138,4 +138,5 @@ The transformations are invoked in two cases:
 - **Before content is saved in the database** This is done by calling the method
   :code:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForPersistence()`.
 
-The rationale for transformations is discussed in :ref:`appendix-a`.
+The rationale for transformations is discussed in
+:ref:`Historical perspective on RTE transformations <appendix-a>`.

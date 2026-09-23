@@ -205,7 +205,7 @@ settings
 
 The `settings` section can be used to define custom site settings. These values
 are available in PHP code, TypoScript and Fluid templates. For further details,
-see :ref:`sitehandling-settings`.
+see :ref:`Site settings <sitehandling-settings>`.
 
 ..  note::
     If a folder contains a `settings.yaml` file, all `settings` defined in

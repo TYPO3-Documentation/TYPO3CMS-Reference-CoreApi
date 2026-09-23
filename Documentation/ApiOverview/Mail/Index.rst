@@ -30,8 +30,8 @@ Configuration
 
 Several settings are available via :guilabel:`System > Settings > Configure
 Installation-Wide Options > Mail` which are stored into
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`. See :ref:`typo3ConfVars_mail` for
-an overview of all settings.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`. See
+:ref:`MAIL settings <typo3ConfVars_mail>` for an overview of all settings.
 
 ..  note::
     If you want to send emails using Microsoft 365 or Office 365, you have to
@@ -343,8 +343,9 @@ Either method can be used to send emails with HTML content, text content or both
 Send email with `FluidEmail`
 ----------------------------
 
-This sends an email using a Fluid template :file:`TipsAndTricks.html`, make
-sure the paths are setup as described in :ref:`mail-configuration-fluid`:
+This sends an email using a Fluid template :file:`TipsAndTricks.html`, make sure
+the paths are setup as described in
+:ref:`Fluid paths <mail-configuration-fluid>`:
 
 ..  literalinclude:: _codesnippets/_MyClassWithFluidEmail.php
     :caption: EXT:my_extension/Classes/MyClass.php
@@ -385,7 +386,8 @@ In Fluid, you can now use the defined language key ("language"):
 Set the current request object for `FluidEmail`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to use ViewHelpers that need a valid current request, such as :ref:`t3viewhelper:typo3-fluid-uri-page`,
+In order to use ViewHelpers that need a valid current request, such as
+:ref:`f:uri.page ViewHelper <t3viewhelper:typo3-fluid-uri-page>`,
 pass the current request to the FluidEmail instance:
 
 ..  code-block:: php
@@ -524,9 +526,11 @@ PSR-14 events on sending messages
 
 Some PSR-14 events are available:
 
--   :ref:`BeforeMailerSentMessageEvent` to manipulate messages before they are
+-   :ref:`BeforeMailerSentMessageEvent <BeforeMailerSentMessageEvent>` to
+    manipulate messages before they are
     sent by the mailer.
--   :ref:`AfterMailerSentMessageEvent` to further process a sent message.
+-   :ref:`AfterMailerSentMessageEvent <AfterMailerSentMessageEvent>` to further
+    process a sent message.
 
 
 ..  index:: pair: Mail; Symfony

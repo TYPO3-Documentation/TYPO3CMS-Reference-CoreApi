@@ -36,9 +36,9 @@ LinkHandlers:
     :caption: EXT:my_extension/Classes/LinkHandler/GitHubLinkHandler.php
 
 ..  versionchanged:: 14.0
-    Use the :ref:`generic-view-factory` to create a view, previously
-    used :php:`TYPO3\CMS\Fluid\View\StandaloneView` was deprecated with TYPO3
-    v13.3 and removed with v14.0.
+    Use the :ref:`Using the generic view factory <generic-view-factory>` to
+    create a view, previously used :php:`TYPO3\CMS\Fluid\View\StandaloneView`
+    was deprecated with TYPO3 v13.3 and removed with v14.0.
 
 The LinkHandler then has to be registered via page TSconfig:
 
@@ -52,9 +52,9 @@ And the JavaScript, has to be added in a file
     :caption: EXT:my_extension/Resources/Public/JavaScript/GitHubLinkHandler.js
 
 ..  attention::
-    This example is still in RequireJS. RequireJS has been deprecated with
-    TYPO3 v12. Help us transferring the example into ES6.
-    See :ref:`h2document:contribute`.
+    This example is still in RequireJS. RequireJS has been deprecated with TYPO3
+    v12. Help us transferring the example into ES6. See
+    :ref:`Contribute to the TYPO3 documentation <h2document:contribute>`.
 
 This would create a link looking like this:
 

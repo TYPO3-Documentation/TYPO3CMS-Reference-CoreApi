@@ -47,8 +47,9 @@ ViewHelpers:
     TYPO3 adds some more ViewHelpers for TYPO3 specific functionality.
 
     ViewHelpers can do simple processing such as remove spaces with the
-    :ref:`t3viewhelper:typo3fluid-fluid-spaceless` ViewHelper or create a link
-    as is done in the TYPO3 Fluid Viewhelper :ref:`t3viewhelper:typo3-fluid-link-page`.
+    :ref:`f:spaceless ViewHelper <t3viewhelper:typo3fluid-fluid-spaceless>`
+    ViewHelper or create a link as is done in the TYPO3 Fluid Viewhelper
+    :ref:`f:link.page ViewHelper <t3viewhelper:typo3-fluid-link-page>`.
 
 Expressions, variables:
     Fluid uses placeholders to fill content in specified areas in the template
@@ -57,7 +58,7 @@ Expressions, variables:
 
 Conditions:
     The conditions are supplied here by the
-    :ref:`If ViewHelper <f:if> <t3viewhelper:typo3fluid-fluid-if>` ViewHelper.
+    :ref:`f:if ViewHelper <t3viewhelper:typo3fluid-fluid-if>` ViewHelper.
 
 
 ..  _fluid-variables:
@@ -190,12 +191,12 @@ With a Layout
     anything that's not inside a section is ignored. When a
     Layout is used, the Layout determines which sections will be rendered
     from the template through the use of the
-    :ref:`Render ViewHelper <f:render> <t3viewhelper:typo3-fluid-render>`
+    :ref:`f:render ViewHelper <t3viewhelper:typo3-fluid-render>`
     in the layout file.
 Without a Layout
     anything that's not inside a section is rendered. You
     can still use sections of course, but you then must use
-    :ref:`Render ViewHelper <f:render> <t3viewhelper:typo3-fluid-render>` in the
+    :ref:`f:render ViewHelper <t3viewhelper:typo3-fluid-render>` in the
     template file itself, outside of a section, to render a section.
 
 For example, the layout may like this

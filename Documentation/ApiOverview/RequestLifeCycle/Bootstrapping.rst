@@ -199,7 +199,7 @@ this will typically go through such important steps like:
 ..  note::
 
     For more information on the middleware stack, you can continue reading the
-    chapter :ref:`request-handling`.
+    chapter :ref:`Middlewares (request handling) <request-handling>`.
 
 ..  _bootstrapping-context:
 
