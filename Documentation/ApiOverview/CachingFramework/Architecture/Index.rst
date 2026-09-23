@@ -148,7 +148,7 @@ Caches in the TYPO3 Core
 ========================
 
 The TYPO3 Core defines and uses several caching framework caches by default.
-This section gives an overview of default caches, its usage and behaviour. If
+This section gives an overview of default caches, its usage and behavior. If
 not stated otherwise, the default :ref:`database backend <caching-backend-db>`
 with :ref:`variable frontend <caching-frontend-variable>` is used.
 

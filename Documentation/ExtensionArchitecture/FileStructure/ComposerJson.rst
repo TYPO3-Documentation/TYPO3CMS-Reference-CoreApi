@@ -395,7 +395,7 @@ in classic mode has the disadvantage that Composer pulls in
 this version also for branches (for example dev versions).
 Extension authors would then need
 to update this field constantly for branches and/ or releases,
-which would have a bigger impact on behaviour in Composer-managed
+which would have a bigger impact on behavior in Composer-managed
 TYPO3 systems and extension authors than initially intended.
 
 To prevent this behavior declare the version number in the extra section (see

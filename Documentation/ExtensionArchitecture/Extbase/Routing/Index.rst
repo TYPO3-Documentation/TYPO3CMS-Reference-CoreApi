@@ -23,7 +23,7 @@ Routing configuration transforms these into readable, :abbr:`SEO (Search Engine 
     https://example.org/conferences/typo3camp-2025
 
 TYPO3's routing system is built on top of Symfony routing components. The
-Extbase plugin enhancer is a specialised layer on top — it handles the
+Extbase plugin enhancer is a specialized layer on top — it handles the
 controller/action namespace automatically. Moving plugin arguments out of the
 query string and into the path also simplifies
 :ref:`cHash <extbase-routing-enhancer-chash>` handling considerably — a fully

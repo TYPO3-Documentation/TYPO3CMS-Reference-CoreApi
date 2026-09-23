@@ -20,7 +20,7 @@ Major upgrade
     ..  card:: :ref:`Pre-upgrade tasks <PreupgradeTasks>`
 
         Before upgrading TYPO3 to a major release, there are several tasks that can be performed
-        to help ensure a successful upgrade and help minimise any potential downtime.
+        to help ensure a successful upgrade and help minimize any potential downtime.
 
     ..  card:: :ref:`Upgrade the Core <UpgradeCore>`
 

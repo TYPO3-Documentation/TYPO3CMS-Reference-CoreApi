@@ -25,7 +25,7 @@ Frontend rendering
 
 The glue between these three pillars is :ref:`TCA (Table Configuration Array) <t3tca:tca-what-is>`: It defines how
 database tables are constructed, which localization or workspace facilities exist, how it should be displayed in the
-backend, how it should be written to the database, and - next to TypoScript - which behaviour it has in the frontend.
+backend, how it should be written to the database, and - next to TypoScript - which behavior it has in the frontend.
 
 This chapter is about FormEngine. It is important to understand this construct is based on TCA and is usually
 used in combination with the DataHandler. However, FormEngine is constructed in a way that it can work without

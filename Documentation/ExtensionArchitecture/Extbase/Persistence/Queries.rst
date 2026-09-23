@@ -285,8 +285,8 @@ than what you expect, and it has its own page:
 ..  _extbase-repository-localization:
 ..  _extbase-repository-query-setting:
 
-Overriding query behaviour with query settings
-==============================================
+Overriding query behavior with query settings
+=============================================
 
 Every query carries a
 :php:`query settings <\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface>`
@@ -333,7 +333,7 @@ The remaining settings control language and visibility:
         :default: `false`
 
         When :php:`true`, hidden, start/stop-scheduled and access-restricted
-        records are included. By default these :sql:`enable fields` are honoured.
+        records are included. By default these :sql:`enable fields` are honored.
 
     ..  confval:: setIncludeDeleted(bool)
         :name: qs-includeDeleted

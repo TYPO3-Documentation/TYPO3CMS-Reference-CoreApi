@@ -108,7 +108,7 @@ template paths only make sense for individual extensions. Do not put either ther
 
 ..  warning::
 
-    Use this scope sparingly. Values set here will change the behaviour of plugins
+    Use this scope sparingly. Values set here will change the behavior of plugins
     that you did not write — every installed
     Extbase extension — and will do so via a global block that the extension maintainers
     have no reason to inspect. Plugin-specific configuration is self-documenting;
@@ -310,7 +310,7 @@ position you give it instead of being prepended:
     20  EXT:my_sitepackage/.../Templates/        <- checked first
     10  EXT:my_extension/Resources/Private/Templates/
 
-The same prepend-and-override behaviour applies to
+The same prepend-and-override behavior applies to
 :typoscript:`partialRootPaths` and :typoscript:`layoutRootPaths`.
 
 ..  _extbase-configuration-typoscript-view-pluginnamespace:
@@ -405,7 +405,7 @@ different:
     :php:`\TYPO3\CMS\Extbase\Mvc\Exception\RequiredArgumentMissingException`; with
     it, the 404 page is shown.
 
-For behaviour beyond "show the 404 page", for example, logging, redirects, custom error
+For behavior beyond "show the 404 page", for example, logging, redirects, custom error
 views, override :php:`handleArgumentMappingExceptions()` in your controller. The
 default implementation is in
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`; copy its
@@ -461,7 +461,7 @@ Output format, language overrides and FlexForm handling
 Extbase feature toggles (not TypoScript)
 ========================================
 
-Two Extbase behaviours are controlled by global
+Two Extbase behaviors are controlled by global
 :ref:`feature toggles
 <feature-toggles>` rather than by TypoScript. They are set in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` (configured through

@@ -8,12 +8,12 @@
 Non-cacheable Extbase plugin actions and developer responsibility
 =================================================================
 
-Consider a real project: a shop with a large product catalogue and an extensive
+Consider a real project: a shop with a large product catalog and an extensive
 filter form, whose visitors abandon a page that does not respond almost
 immediately. Rendered fully uncached, the product list takes *tens of seconds*.
 Rendered from cache, it comes back in a fraction of a second. That gap is not a
 benchmark curiosity — on a shop it is the difference between a sale and a closed
-tab. Performance is not an optimisation to add later; it is the feature.
+tab. Performance is not an optimization to add later; it is the feature.
 
 Because the filter runs over POST, none of TYPO3's built-in caching applies to
 that list — the same situation as the first example below. The performance has to
@@ -159,7 +159,7 @@ is the wrong tool for it:
     the cache entirely.
 
 *   Only when the output truly differs per request does non-cacheable rendering
-    become the right choice — and then the optimisation techniques below keep the
+    become the right choice — and then the optimization techniques below keep the
     cost down.
 
 
@@ -211,7 +211,7 @@ Cache it on two layers:
 
 *   **The outer layer** is the whole rendered list. Its identifier is built from
     every option that shapes the result — the search word, every active filter,
-    the sorting, and the pagination page. Hashing the whole normalised demand
+    the sorting, and the pagination page. Hashing the whole normalized demand
     object captures all of them at once. The first visitor with a given
     combination waits for the list to render; the next visitor with the same
     combination is served the stored HTML.
@@ -279,7 +279,7 @@ know nothing about, and possibly unlimited. Passing an explicit lifetime, sized 
 how the data actually changes, keeps that decision in your hands:
 
 *   The **outer list** works well with a rather short lifetime — a day in the example,
-    less for a busy, fast-moving catalogue — because an addition will not flush
+    less for a busy, fast-moving catalog — because an addition will not flush
     it. That lifetime becomes the ceiling on how long a newly added record can
     stay invisible. Decide by how long stale or invisible data is acceptable and set this
     as the value.

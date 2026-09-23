@@ -55,7 +55,7 @@ data providers from FormEngine that add all the information needed for the rende
 is then passed onto FormEngine rendering to produce a result array containing all the HTML, CSS and JavaScript.
 
 ..  deprecated:: 14.2
-    The `outerWrapContainer` render type has been deprecated in favour of
+    The `outerWrapContainer` render type has been deprecated in favor of
     `formWrapContainer`. The new container no longer renders the record
     heading or the record identity footer (icon, table title, uid) — that
     responsibility has moved to the controllers. If your controller relied on

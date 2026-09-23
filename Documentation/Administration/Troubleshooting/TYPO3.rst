@@ -45,7 +45,7 @@ when TYPO3 was installed.
     Enter the install tool password
 
 Once logged in to the Admin Tool go to :guilabel:`Maintenance > Create Administrative User`
-and select :guilabel:`Create Administrator`. In this dialogue you
+and select :guilabel:`Create Administrator`. In this dialog you
 can create a new administrative user.
 
 ..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministrator.png
@@ -87,7 +87,7 @@ Before editing this file, visit:
     https://example.com/typo3/install
 
 
-Enter the new password into the dialogue box. As the new password is not correct,
+Enter the new password into the dialog box. As the new password is not correct,
 the following response will be returned:
 
 ..  code-block:: none
@@ -178,7 +178,7 @@ cache files become damaged and your system is not running correctly. The
 Install Tool won't load any of these caches or any extension, so it
 should be safe to use regardless of the corrupt state of the Caches.
 
-Amongst other caches, under :file:`<var-path>/cache/code/core/`
+Among other caches, under :file:`<var-path>/cache/code/core/`
 you will find:
 
 ..  code-block:: bash

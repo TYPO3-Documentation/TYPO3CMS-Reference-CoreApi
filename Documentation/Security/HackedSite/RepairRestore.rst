@@ -25,7 +25,7 @@ will be only a matter of time, until the website is hacked again.
 
 So called "backdoors" are another important thing you should keep in
 mind: if an attacker had access to your site, it is possible and common
-practise that it implemented a way to gain unauthorized access to
+practice that it implemented a way to gain unauthorized access to
 the system at a later time (again). Even if the original security
 vulnerability has been fixed (entry point secured), all passwords
 changed, etc., such a backdoor could be as simple as a new backend user

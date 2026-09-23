@@ -206,7 +206,7 @@ Having more than one DB or File Mount will just result in more than
 one mount point appearing in the trees. However the backend users
 records have two flags which determine whether the DB/File Mounts of
 *the groups* the user belongs to will be mounted as well! This is
-the default behaviour. So make sure to unset these flags if users
+the default behavior. So make sure to unset these flags if users
 should see only their "private" mount points and not those from their
 groups:
 

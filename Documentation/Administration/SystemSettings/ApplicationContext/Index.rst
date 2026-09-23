@@ -15,7 +15,7 @@ pre-configure TYPO3 to a certain extent and can also be queried again at
 various points such as the site configuration, e.g. to provoke a different
 :ref:`base variants <sitehandling-baseVariants>`.
 
-TYPO3 is delivered with 3 different modes, which affect the behaviour of TYPO3
+TYPO3 is delivered with 3 different modes, which affect the behavior of TYPO3
 as follows:
 
 *   Production
@@ -30,7 +30,7 @@ as follows:
         CLI command :bash:`cache:flush`.
     *   Calling up the install tool menu items requires the additional entry
         of a password ("sudo mode").
-    *   Only admins with system maintainer authorisation can see the
+    *   Only admins with system maintainer authorization can see the
         install tool menu items in the TYPO3 backend.
     *   This mode offers the most performance and is most secure.
 
@@ -47,7 +47,7 @@ as follows:
         the :ref:`Dependency injection <Dependency-Injection>` cache.
     *   The menu items in the backend for the install tool no longer require an
         additional password entry.
-    *   Admins without system maintainer authorisation can also see the menu
+    *   Admins without system maintainer authorization can also see the menu
         items for the install tool.
 
 *   Testing
@@ -124,10 +124,10 @@ Nginx
 It is possible to import `.env` files into the root directory of your project.
 All contained values are then made available as environment variables. The
 basis for this is the Symfony `.env loader` :composer:`symfony/dotenv`. However,
-this package requires a few method calls for initialisation. You can either
+this package requires a few method calls for initialization. You can either
 build this yourself or use the
 `HelHum .env connector` :composer:`helhum/dotenv-connector`. This will
-initialise the Symfony package for you.
+initialize the Symfony package for you.
 
 ..  _set-application-context-env-installation:
 
@@ -229,7 +229,7 @@ few examples:
 *   Testing/UnitTest
 *   Production/1und1
 
-You can use this subdivision to realise different acceptance domains for
+You can use this subdivision to realize different acceptance domains for
 customers. Using the option of composer files described above, you can create
 a file to set the `ApplicationContext` individually depending on the
 domain name. In the site configuration, you can query the `ApplicationContext`

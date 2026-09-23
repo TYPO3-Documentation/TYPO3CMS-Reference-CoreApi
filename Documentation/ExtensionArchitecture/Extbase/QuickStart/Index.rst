@@ -62,7 +62,7 @@ Key points:
     the door open for getter/setter logic and makes lazy-loaded relations easier
     to reason about. Private properties are never populated by Extbase — use
     :php:`protected`, not :php:`private`.
-*   Do not initialise properties in the constructor. Extbase populates them
+*   Do not initialize properties in the constructor. Extbase populates them
     directly when loading objects from the database, bypassing the constructor.
 *   Use typed properties. Extbase reads the type declarations to map values
     correctly.

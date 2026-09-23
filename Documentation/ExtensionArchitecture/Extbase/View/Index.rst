@@ -282,7 +282,7 @@ Commonly used ViewHelpers (with links to their full reference) are:
 *   :ref:`f:form <t3viewhelper:typo3-fluid-form>`
     — build forms with automatic `__trustedProperties` token generation.
 *   :ref:`f:translate <t3viewhelper:typo3-fluid-translate>`
-    — render localised labels from :file:`locallang.xlf`.
+    — render localized labels from :file:`locallang.xlf`.
 *   :ref:`f:debug <t3viewhelper:typo3-fluid-debug>`
     — dump a variable's type and value during development; remove before
     deploying to production. By default output is prepended to the page top;

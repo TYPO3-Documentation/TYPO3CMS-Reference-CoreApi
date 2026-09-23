@@ -8,7 +8,7 @@
 Event dispatcher (PSR-14 events)
 ================================
 
-The event dispatcher system was added to extend TYPO3's Core behaviour in
+The event dispatcher system was added to extend TYPO3's Core behavior in
 TYPO3 v10.0. In the past, this was done via Extbase's signal/slot and TYPO3's
 custom hook system. The event dispatcher system is a fully-capable replacement
 for new code in TYPO3, as well as a possibility to migrate away from previous

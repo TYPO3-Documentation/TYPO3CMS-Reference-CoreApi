@@ -112,7 +112,7 @@ Slug
 
     A slug is usually added to a TCA-based database table, containing rules for evaluation and definition.
 
-    The default behaviour of a slug is as follows:
+    The default behavior of a slug is as follows:
 
     *   A slug only contains characters which are allowed within URLs. Spaces,
         commas and other special characters are converted to a fallback character.

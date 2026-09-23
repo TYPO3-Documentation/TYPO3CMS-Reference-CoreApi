@@ -43,7 +43,7 @@ previously required implementations to always return an :php:`array` or
 :php:`string`. Implementations returned an empty :php:`array` or empty
 :php:`string` in case they did not want to set a data structure.
 
-This behaviour has now changed. As soon as a listener sets a data structure
+This behavior has now changed. As soon as a listener sets a data structure
 using the :php:`setDataStructure()` method, the event propagation is stopped
 immediately and no further listeners are called.
 

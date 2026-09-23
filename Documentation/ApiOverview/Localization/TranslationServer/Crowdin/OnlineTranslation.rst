@@ -70,7 +70,7 @@ underlying language files. Each system extension contains one or more
 While you are translating an XLIFF file, Crowdin supports you with valuable
 information:
 
-*   You get a clear overview on the progress. A grey bar means that work needs
+*   You get a clear overview on the progress. A gray bar means that work needs
     to be done. The blue bar shows how many words have been translated, and the
     green bar shows how many words have been approved.
 *   The system offers you suggestions on terms and translations from the
@@ -135,7 +135,7 @@ How to create (good) translations
     look at how the localization is done – there might be things to learn and
     adapt.
 
-#.  Be consistent. Localization of high quality is characterised by the
+#.  Be consistent. Localization of high quality is characterized by the
     consistency. Make extensive use of the terms and glossary.
 
 #.  Use machine translation carefully. It is tempting but dangerous to do

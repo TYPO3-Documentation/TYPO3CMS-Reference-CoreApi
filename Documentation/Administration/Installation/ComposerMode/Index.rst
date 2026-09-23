@@ -318,7 +318,7 @@ An email address for this user can also be specified and a name can be given.
 Initialize
 ----------
 
-TYPO3 offers two options for initialisation: creating an empty starting page or
+TYPO3 offers two options for initialization: creating an empty starting page or
 it can go directly to the backend administrative interface.
 
 Beginners should
