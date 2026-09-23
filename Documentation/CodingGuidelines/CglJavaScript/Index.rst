@@ -41,7 +41,8 @@ Format
 More information
 ================
 
-* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
+* See :ref:`Setup IDE / editor <cgl-ide>` in this manual for information about
+  setting up your Editor / IDE to adhere to
   the coding guidelines.
 * `AirBnb JavaScript Style Guide: Whitespace <https://github.com/airbnb/javascript#whitespace>`__
 * `AirBnb JavaScript Style Guide: Strings <https://github.com/airbnb/javascript#strings>`__

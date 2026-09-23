@@ -68,9 +68,12 @@ on GitHub <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/iss
 
 You can find more about this in Writing Documentation:
 
-- :ref:`h2document:docs-contribute` : Make a change by editing directly on
+- :ref:`Contribute to the TYPO3 documentation <h2document:docs-contribute>` :
+  Make a change by editing directly on
   GitHub and creating a pull request
-- :ref:`h2document:docs-contribute-git-docker` : If you are experienced
+- :ref:`Local editing and rendering with Docker
+  <h2document:docs-contribute-git-docker>`
+  : If you are experienced
   with Docker and Git you can edit and render locally.
 
 If you are currently not reading the online version, go to
