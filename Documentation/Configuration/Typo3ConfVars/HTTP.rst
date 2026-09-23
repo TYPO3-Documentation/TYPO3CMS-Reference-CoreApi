@@ -155,8 +155,9 @@ proxy
     for details.
 
     The configuration with an array must be made in the
-    :file:`config/system/additional.php`; see :ref:`typo3ConfVars-additional`
-    for details.
+    :file:`config/system/additional.php`; see
+    :ref:`File config/system/additional.php <typo3ConfVars-additional>` for
+    details.
 
 ..  _typo3ConfVars_http_ssl_key:
 

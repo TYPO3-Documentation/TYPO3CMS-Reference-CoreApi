@@ -815,8 +815,9 @@ passwordHashing
         :type: array
         :Default: []
 
-        Special settings for specific hash algorithms.
-        See :ref:`password-hashing-available-algorithms` for the different options.
+        Special settings for specific hash algorithms. See
+        :ref:`Available hash algorithms <password-hashing-available-algorithms>`
+        for the different options.
 
 ..  _typo3ConfVars_be_passwordPolicy:
 

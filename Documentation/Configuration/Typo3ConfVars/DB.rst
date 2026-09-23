@@ -39,8 +39,10 @@ additionalQueryRestrictions
     :Default: []
 
     It is possible to add additional query restrictions by adding class names as
-    key to :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']`.
-    Have a look into the chapter :ref:`database-custom-restrictions` for details.
+    key to
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']`.
+    Have a look into the chapter
+    :ref:`Custom restrictions <database-custom-restrictions>` for details.
 
 ..  _typo3ConfVars_db_connections:
 
