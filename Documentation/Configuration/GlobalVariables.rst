@@ -11,7 +11,8 @@ $GLOBALS
 
 ..  seealso::
     Most global variables described here can be viewed in module
-    :guilabel:`System > Configuration`: :ref:`globals-exploring`
+    :guilabel:`System > Configuration`:
+    :ref:`Exploring global variables in array $GLOBALS <globals-exploring>`
 
 ..  confval:: TYPO3_CONF_VARS
     :name: globals-typo3-conf-vars
@@ -20,8 +21,9 @@ $GLOBALS
     :Defined: :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
     :Frontend: yes
 
-    TYPO3 configuration array. Please refer to the chapter :ref:`typo3ConfVars`
-    where each option is described in detail.
+    TYPO3 configuration array. Please refer to the chapter
+    :ref:`System configuration in settings.php <typo3ConfVars>` where each
+    option is described in detail.
 
     Most values in this array can be accessed through the tool
     :guilabel:`System > Settings > Configure Installation-Wide Options`.
@@ -87,7 +89,7 @@ BE_USER
     :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
     :Frontend: (depends)
 
-    Backend user object. See :ref:`be-user`.
+    Backend user object. See :ref:`Backend user object <be-user>`.
 
 
 

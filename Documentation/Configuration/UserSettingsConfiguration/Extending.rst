@@ -64,8 +64,8 @@ Available field types:
 "On Click" / "On Confirmation" JavaScript callbacks
 ===================================================
 
-PSR-14 event :ref:`AddJavaScriptModulesEvent` can be used
-to inject a JavaScript module to handle custom JavaScript events.
+PSR-14 event :ref:`AddJavaScriptModulesEvent <AddJavaScriptModulesEvent>` can be
+used to inject a JavaScript module to handle custom JavaScript events.
 
 ..  _user-settings-extending-migration:
 
