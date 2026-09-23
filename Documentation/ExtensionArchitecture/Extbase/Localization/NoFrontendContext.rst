@@ -8,8 +8,8 @@
 Extbase language handling outside the frontend
 ==============================================
 
-Everything in this chapter so far assumed a rendered frontend request, which
-resolves a site and a language before any Extbase code runs. Backend modules,
+When Extbase is used in Frontend Context, a site and a language are resolved
+before any Extbase code runs. Backend modules,
 command line commands and middlewares do not necessarily have that, and the
 language is one of the things they may be missing.
 
@@ -18,7 +18,8 @@ those contexts at all, and what else has to be established first, is a broader
 question covered in :ref:`extbase-no-frontend`.
 
 Extbase asks the Context API for a language aspect wherever it runs, and
-gets one created, if none exists yet. Knowing what it gets explains a class of surprises.
+gets one created, if none exists yet. Knowing what it gets explains
+a class of surprises.
 
 ..  _extbase-localisation-no-frontend-default:
 
@@ -30,12 +31,12 @@ The language aspect is created on first access, with the default values of
 overlay type :php:`OVERLAYS_ON_WITH_FLOATING`.
 
 In practice this means a backend module or a command behaves as though it were
-a site configured with `fallbackType: strict` in the default language, thus only default language
-records are considered.
+a site configured with `fallbackType: strict` in the default language, thus
+only default language records are considered.
 
-This is rarely what a command wants. A command that sends mails to users, generates a
-report or exports data usually needs a language chosen per record or per
-recipient, and no part of the environment will supply it.
+This is rarely what a command wants. A command that sends mails to users,
+generates a report or exports data usually needs a language chosen per record
+or per recipient, and no part of the environment will supply it.
 
 ..  _extbase-localisation-no-frontend-explicit:
 
@@ -58,8 +59,9 @@ each user's language looked up in it. The aspect built from that language is
 handed to :php:`findAllForLanguageAspect()` from
 :ref:`extbase-localisation-query-settings-aspect`.
 
-The same repository method is therefore usable from the frontend, where the aspect
-comes from the site, and from a command, where it comes from the caller.
+The same repository method is therefore usable from the frontend, where
+the aspect comes from the site, and from a command, where it comes from
+the caller.
 
 ..  note::
 

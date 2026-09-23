@@ -26,11 +26,13 @@ first that supplies a value:
     readable `pid` and it is set, that page is used. This overrides everything
     else, so an object that carries a `pid` decides its own storage page.
 #.  **`newRecordStoragePid` for the object's class.** The TypoScript setting
-    :typoscript:`persistence.classes.<FQCN>.newRecordStoragePid` names a fixed
-    page for every new record of one domain class. Note that it is keyed by the
-    fully qualified class name of the model, not by the table.
+    :ref:`persistence.classes.<FQCN>.newRecordStoragePid <t3tsref:confval-plugin-persistence-classes-classname-newrecordstoragepid>`
+    names a fixed page for every new record of one domain class.
+    Note that it is keyed by the fully qualified class name of the model,
+    not by the table.
 #.  **The first entry of the read `storagePid`.** With nothing above set,
-    Extbase takes the storagePid it reads from and uses its **first** page.
+    Extbase takes the :ref:`storagePid <t3tsref:confval-plugin-persistence-storagepid>`
+    it reads from and uses its **first** page.
 
 ..  warning::
 

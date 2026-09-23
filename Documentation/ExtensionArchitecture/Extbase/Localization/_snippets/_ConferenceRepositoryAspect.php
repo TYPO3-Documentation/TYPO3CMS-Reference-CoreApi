@@ -2,6 +2,7 @@
 
 namespace MyVendor\MyExtension\Domain\Repository;
 
+use MyVendor\MyExtension\Domain\Model\Conference;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;

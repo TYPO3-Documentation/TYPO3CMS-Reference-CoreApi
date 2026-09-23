@@ -49,7 +49,8 @@ each language of a site carries:
         -   Polish conferences, plus the English originals of those that have
             no Polish translation.
     *   -   `strict`
-        -   Only conferences that have a Polish translation. Untranslated ones
+        -   Only conferences that exist in Polish (both with a tranlation
+            default and stand alone). Untranslated ones
             disappear from the list.
 
 
@@ -60,8 +61,8 @@ every language, whichever setting is in use.
 
 ..  _extbase-localisation-overlay-types:
 
-Overlay types
--------------
+Language Overlay types
+----------------------
 
 Internally each of those settings becomes an *overlay type* on the language
 aspect. The names appear in query settings, in
@@ -93,10 +94,10 @@ constructed in PHP, as described in
 
     Extbase previously ignored `fallbackType` when fetching records and always
     behaved like `fallback`. It now follows the site configuration, so a
-    `strict` site probably returns fewer records than before: :php:`findByUid()` on an
-    untranslated record returns :php:`null` rather than the default language
-    record, and untranslated related records are dropped from relations. See
-    :ref:`Important: #88886 Extbase persistence respects the language overlay type <changelog:important-88886-1784901300>`.
+    `strict` site probably returns fewer records than before: :php:`findByUid()`
+    on an  untranslated record returns :php:`null` rather than the default
+    language record, and untranslated related records are dropped from
+    relations. See :ref:`Important: #88886 Extbase persistence respects the language overlay type <changelog:important-88886-1784901300>`.
     To keep a single query behaving as before, set an aspect with
     :php:`OVERLAYS_MIXED` on it as shown in
     :ref:`extbase-localisation-query-settings`.
@@ -153,27 +154,28 @@ make it.
 Deriving the aspect from a site language
 ----------------------------------------
 
-Where the language you want is one the site configuration declares, derive the
-aspect from it rather than assembling one.
+If your site configuration declares the language configuration you want, create
+the language aspect from it. If there is none, you can create the aspect manually.
 
 ..  literalinclude:: _snippets/_ConferenceLanguageController_site.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 :php:`LanguageAspectFactory::createFromSiteLanguage()` is the same call the
-frontend uses internally. It reads the language UID, the `fallbackType` and the fallback
-chain from that one site language, so the three values stay consistent with
-each other.
+frontend uses internally. It reads the language UID, the `fallbackType` and
+the fallback chain from that one site language, so the three values stay
+consistent with each other.
 
 ..  _extbase-localisation-query-settings-custom:
 
 Building an aspect that no site configuration produces
 ------------------------------------------------------
 
-Constructing the aspect by hand, as the action `translatedOnlyAction` does, is the right
-move only when you deliberately want behaviour outside what a site language can
-express. :php:`LanguageAspect::OVERLAYS_ON` is the clearest case: it returns
-translations that have a default language original, and leaves out records that
-exist only in the requested language without a valid default language parent.
+Constructing the aspect by hand, as the action `translatedOnlyAction` does,
+is the right move only when you deliberately want behaviour outside what
+a site language can express. :php:`LanguageAspect::OVERLAYS_ON` is the
+clearest case: it returns translations that have a default language original,
+and leaves out records that exist only in the requested language without
+a valid default language parent.
 
 ..  literalinclude:: _snippets/_ConferenceLanguageController_manual.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -210,16 +212,16 @@ implies the language, and when
 Which record you are holding
 ----------------------------
 
-Once translation handling is involved, the :php:`uid` of a domain object is no
-longer simply the :sql:`uid` of the row it came from. Extbase keeps both, in
+Once translation handling is involved, the `uid` of a domain object is no
+longer simply the `uid` of the row it came from. Extbase keeps both, in
 two properties every domain object has:
 
-:php:`uid`
+`uid`
     The identifier of the default language record. This is the one to use when
     building links or storing a reference, because it stays the same in every
     language.
 
-:php:`_localizedUid`
+`_localizedUid`
     The identifier of the record the values actually came from — the
     translation, where one was used.
 
@@ -297,7 +299,8 @@ request. Three situations depart from that, each on its own page:
 
 :ref:`extbase-cross-site`
     Reading records that belong to another site, where language IDs and
-    fallback settings may no longer be the same as for the site you are currently handling.
+    fallback settings may no longer be the same as for the site you are
+    currently handling.
 
 :ref:`extbase-localisation-writing`
     Creating records from frontend forms, where Extbase decides the language

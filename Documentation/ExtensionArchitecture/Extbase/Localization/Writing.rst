@@ -26,7 +26,8 @@ When Extbase persists a new object it fills in the language fields itself:
 
 A record submitted by a visitor browsing the Polish version of a site is
 therefore stored as a default-language record, not as a Polish one. Setting the
-language explicitely on the object before persisting it stores the record in that language:
+language explicitely on the object before persisting it stores the record in
+that language:
 
 ..  literalinclude:: _snippets/_ConferenceControllerLanguage.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -63,8 +64,8 @@ On a site using `fallbackType: strict`, records without a translation are not
 shown. Records created through a frontend form are default-language records
 without a translation. A visitor who submits a conference proposal on the
 Polish site will therefore not see it on the Polish site afterwards — it
-exists, but the language configuration hides it until somebody actually relates it to
-its default language parent and so translates it.
+exists, but the language configuration hides it until somebody actually relates
+it to its default language parent and so translates it.
 
 On `fallback` the same record stays visible in every language, because
 untranslated records show through from the default language.
@@ -103,9 +104,10 @@ same limitation as everywhere else: the related records are written as
 default-language records too, and no translation relationship is established
 between them and anything else. An object graph created from a frontend form
 is therefore entirely default-language, however the form was labelled. This goes
-with the exception of language setting being applied explicitely in the query, so
-it is the developers responsibility to provide that. But still no valid translation
-record, connected to its default language record, can be created purely by Extbase.
+with the exception of language setting being applied explicitely in the query,
+so it is the developers responsibility to provide that. But still no valid
+translation record, connected to its default language record, can be created
+purely by Extbase.
 
 Where a frontend form has to create or modify a translated object together
 with its relations, the DataHandler is the appropriate tool, rather than

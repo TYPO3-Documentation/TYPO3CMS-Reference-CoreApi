@@ -29,7 +29,8 @@ class ConferenceListController extends ActionController
       $currentLanguage,
     );
 
-    // storage site does not offer the visitor's locale - fall back to storage default language
+    // storage site does not offer the visitor's locale
+    // fall back to storage default language
     $storageLanguage ??= $storageSite->getDefaultLanguage();
 
     $conferences = $this->conferenceRepository->findAllInStorage(
@@ -37,8 +38,7 @@ class ConferenceListController extends ActionController
       LanguageAspectFactory::createFromSiteLanguage($storageLanguage),
     );
 
-    return $this->htmlResponse(
-      $this->view->assign('conferences', $conferences)->render(),
-    );
+    $this->view->assign('conferences', $conferences);
+    return $this->htmlResponse();
   }
 }

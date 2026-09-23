@@ -32,8 +32,10 @@ class SharedStorageResolver
    * which is a case the caller has to decide about — see the fallback
    * section of this chapter.
    */
-  public function resolveStorageLanguage(Site $storageSite, SiteLanguage $currentLanguage): ?SiteLanguage
-  {
+  public function resolveStorageLanguage(
+    Site $storageSite,
+    SiteLanguage $currentLanguage,
+  ): ?SiteLanguage {
     $wanted = (string)$currentLanguage->getLocale();
 
     foreach ($storageSite->getLanguages() as $candidate) {

@@ -28,9 +28,10 @@ class ConferenceController extends ActionController
       [],
     );
 
-    return $this->htmlResponse($this->view->assign(
+    $this->view->assign(
       'conferences',
       $this->conferenceRepository->findAllForLanguageAspect($languageAspect),
-    )->render());
+    );
+    return $this->htmlResponse();
   }
 }

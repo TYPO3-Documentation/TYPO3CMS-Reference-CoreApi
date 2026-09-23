@@ -277,7 +277,7 @@ UID and the overlay behaviour together:
     +    LanguageAspectFactory::createFromSiteLanguage($siteLanguage),
     +);
 
-The two settings were removed from :php:`QuerySettingsInterface` one version
+The two settings were removed from :php-short:`TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface` one version
 earlier, in v12, so a custom implementation of that interface has to provide
 :php:`getLanguageAspect()` and :php:`setLanguageAspect()` instead. See
 :ref:`Breaking: #97926 — Extbase QuerySettings methods removed <changelog:breaking-97926-1657726187>`.
@@ -288,7 +288,7 @@ earlier, in v12, so a custom implementation of that interface has to provide
     old UID and overlay values. The language UID, the `fallbackType` and the
     fallback chain belong together as one language's configuration, and mixing
     values from different languages produces behaviour no site declares. See
-    :ref:`extbase-localisation-query-settings-aspect`.
+    :ref:`Setting a language aspect <extbase-localisation-query-settings-aspect>`.
 
 :php:`setRespectSysLanguage()` is *not* affected and remains available. It
 decides whether the language restriction is applied at all, which is a separate

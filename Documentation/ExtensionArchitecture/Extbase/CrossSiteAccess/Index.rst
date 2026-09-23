@@ -4,9 +4,9 @@
 ..  index:: pair: Extbase; Cross-site access
 ..  _extbase-cross-site:
 
-======================================
-Reading records across site boundaries
-======================================
+================================================
+Reading localized records across site boundaries
+================================================
 
 An Extbase plugin normally reads records that belong to the site displaying
 them. The storage folder sits in the site's own page tree, the language comes
