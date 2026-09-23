@@ -40,7 +40,7 @@ The four arguments are:
     the extension. Combined with the extension name, it forms the plugin
     signature used in TypoScript and routing (`myextension_conferencelist`).
     The combined length must not exceed 32 characters. snake_case is also
-    accepted and normalised internally, but UpperCamelCase is the convention.
+    accepted and normalized internally, but UpperCamelCase is the convention.
 3.  **Allowed controller actions** — an array mapping controller class names to
     a comma-separated list of action names. The first entry and its first action
     are the default. Only actions listed here are available via this plugin.

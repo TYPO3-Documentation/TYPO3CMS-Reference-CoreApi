@@ -40,7 +40,7 @@ lowerCamelCase
 
 TER
     The `"TYPO3 Extension Repository" <https://extensions.typo3.org/>`__:
-    A catalogue of extensions where you can find information about
+    A catalog of extensions where you can find information about
     extensions and where you can search and filter by TYPO3 version
     etc. Once registered on https://my.typo3.org, you can login and register
     an extension key for your extension in https://extensions.typo3.org

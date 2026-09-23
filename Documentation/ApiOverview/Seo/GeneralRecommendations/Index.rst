@@ -20,7 +20,7 @@ Besides that, there are lots of tools you can use to optimize your rankings.
 If you install additional SEO extensions in TYPO3, make sure you check the following recommendations:
 
 *   The extension **should** stick to the Core fields where possible
-*   The extension **should** stick to the Core behaviour where possible
+*   The extension **should** stick to the Core behavior where possible
 *   The extension **could** extend TCA with additional helpers for your editors, like:
 
     *   Readability checks

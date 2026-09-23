@@ -87,9 +87,9 @@ which contains an example how to implement a custom event listener based on
 
 In case that :php:`PageTypeSource` for page type `0` results in a different
 source, the :php:`PlainSlugReplacementSource` is not removed to keep the original
-behaviour, which some instances may rely on.
+behavior, which some instances may rely on.
 
-This behaviour can be modified by adding an event listener for
+This behavior can be modified by adding an event listener for
 :php:`SlugRedirectChangeItemCreatedEvent`:
 
 ..  _slug-redirect-change-item-created-event-default-event-listeners-remove:

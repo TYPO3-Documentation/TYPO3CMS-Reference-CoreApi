@@ -13,7 +13,7 @@ Implementing an upgrade wizard
 
 ..  deprecated:: 14.0
     The attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard` has been
-    deprecated in favour of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
+    deprecated in favor of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
 
     The interfaces and classes used for upgrade wizards have been moved from
     namespace `\TYPO3\CMS\Install\Updates` to `\TYPO3\CMS\Core\Upgrades`.
@@ -46,7 +46,7 @@ The class *may* implement other interfaces (optional):
     TYPO3 v13 support.
 
     The attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard` has been
-    deprecated in favour of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
+    deprecated in favor of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
 
 Each upgrade wizard consists of a single PHP file containing a single PHP class.
 This class has to implement :php:`\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface`

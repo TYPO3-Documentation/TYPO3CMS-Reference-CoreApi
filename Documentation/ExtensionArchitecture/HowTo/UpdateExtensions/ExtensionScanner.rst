@@ -235,7 +235,7 @@ Project developers
 ==================
 
 Project developers are developers who maintain a project that consists of third party extensions
-(eg. from TER) together with some custom, project-specific extensions. When analysing the output of
+(eg. from TER) together with some custom, project-specific extensions. When analyzing the output of
 an extension scanner run the following points should be considered:
 
 * It is not necessary for all scanned extensions to report green status. Due to the nature of the

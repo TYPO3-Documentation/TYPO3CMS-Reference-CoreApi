@@ -943,7 +943,7 @@ returning a list of backend user names!
     :php:`->set()` automatically converts the second mandatory parameter into
     a named parameter of a prepared statement. If the second parameter is
     wrapped in a :php:`->createNamedParameter()` call, this will result in an
-    error during execution. This behaviour can be disabled by passing
+    error during execution. This behavior can be disabled by passing
     :php:`false` as third parameter to :php:`->set()`.
 
 ..  _database-query-builder-create-named-parameter-examples:

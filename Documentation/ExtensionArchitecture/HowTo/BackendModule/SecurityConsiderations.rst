@@ -89,7 +89,7 @@ To enforce appropriate HTTP methods, the revised examples make use of the
 :php:`listAction`, and `POST` is required for :php:`deleteAction`.
 
 Besides that, the vague and unspecific :php:`handleRequest` intermediate
-dispatch method has been dropped in favour of having dedicated routes to
+dispatch method has been dropped in favor of having dedicated routes to
 each controller action.
 
 ..  code-block:: diff

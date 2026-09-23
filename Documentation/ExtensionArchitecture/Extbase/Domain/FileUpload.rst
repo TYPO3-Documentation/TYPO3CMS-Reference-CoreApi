@@ -140,7 +140,7 @@ The :php:`#[FileUpload]` attribute accepts named arguments as follows:
     the persisted filename to prevent enumeration. Recommended to keep enabled.
 
 :php:`duplicationBehavior`
-    FAL behaviour when a file with the same name already exists in the target
+    FAL behavior when a file with the same name already exists in the target
     folder:
     :php-short:`\TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior::RENAME`
     (default),
@@ -224,7 +224,7 @@ upload count. For the full option reference see
     <t3tca:columns-file>` on the same column. If they diverge, a file accepted
     by the frontend form may be rejected by the TYPO3 backend, or a file
     uploaded through the backend may not match the frontend validation rules.
-    Either mismatch leads to confusing behaviour that is hard to debug. Define
+    Either mismatch leads to confusing behavior that is hard to debug. Define
     the allowed types once, in both places.
 
     Also set the same list on :html:`<f:form.upload accept="...">` so the

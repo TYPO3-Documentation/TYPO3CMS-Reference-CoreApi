@@ -133,7 +133,7 @@ The string in the translation file is defined like this:
 The :php:`arguments` will be replaced in the localized strings by
 the `PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__.
 
-This behaviour is the same like in a
+This behavior is the same like in a
 :ref:`Fluid translate ViewHelper with arguments <extension-localization-fluid-arguments>`.
 
 ..  _example-localization-middleware:

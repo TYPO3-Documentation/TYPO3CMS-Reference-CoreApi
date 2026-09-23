@@ -37,7 +37,7 @@ Some tools can also be used to access the quality of custom TYPO3 extensions.
 Core updater
 ============
 
-In classic mode TYPO3 installations that fulfil certain criteria you can use
+In classic mode TYPO3 installations that fulfill certain criteria you can use
 this function to automatically do patch level TYPO3 Core updates.
 
 ..  seealso::

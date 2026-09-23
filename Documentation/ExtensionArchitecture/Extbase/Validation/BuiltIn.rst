@@ -523,7 +523,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 
 ..  _extbase-validation-builtin-custom-messages:
 
-Customising error messages
+Customizing error messages
 ==========================
 
 Every built-in validator accepts one or more message options that replace the

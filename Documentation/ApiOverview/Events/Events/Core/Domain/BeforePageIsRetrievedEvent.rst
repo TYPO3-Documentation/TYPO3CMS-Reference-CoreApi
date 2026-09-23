@@ -11,7 +11,7 @@ allows to modify the resolving of page records within
 :php:`\TYPO3\CMS\Core\Domain\PageRepository->getPage()`.
 
 It can be used to alter the incoming page ID or to even fetch a fully-loaded
-page object before the default TYPO3 behaviour is executed, effectively
+page object before the default TYPO3 behavior is executed, effectively
 bypassing the default page resolving.
 
 ..  _before-page-is-retrieved-event-example:

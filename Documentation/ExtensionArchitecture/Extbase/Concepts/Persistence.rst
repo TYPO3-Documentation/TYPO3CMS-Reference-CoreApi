@@ -52,7 +52,7 @@ objects stored in an :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
 Extbase loads those related objects automatically when you access the property
 — without you writing any :sql:`JOIN`.
 
-This convenience comes with a trade-off: the ORM is optimised for working with
+This convenience comes with a trade-off: the ORM is optimized for working with
 individual domain objects, not for bulk operations or complex aggregate queries.
 When you need those, dropping down to raw queries and result sets directly is
 the right choice. That is not a failure — it is the intended design. See
@@ -115,7 +115,7 @@ The cause is almost always the **storagePid**.
 
 Extbase does not query all records in a table by default. It restricts queries
 to records stored on a specific TYPO3 page — the *storage page* (or
-*storagePid*). This mirrors how TYPO3 editors organise records: they create a
+*storagePid*). This mirrors how TYPO3 editors organize records: they create a
 sysfolder, store domain records there, and point the plugin at that folder.
 
 If the storagePid is not configured, or points at the wrong page, the

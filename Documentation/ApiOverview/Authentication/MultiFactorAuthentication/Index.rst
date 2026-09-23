@@ -109,7 +109,7 @@ Each provider is displayed with its icon, the name and a short description in
 the MFA configuration module. In case a provider is active, this is indicated by
 a corresponding label, next to the provider's title. The same goes for a locked
 provider - an active provider, which can currently not be used since the
-provider-specific implementation detected some unusual behaviour, for example,
+provider-specific implementation detected some unusual behavior, for example,
 too many false authentication attempts. Additionally, the configured default
 provider indicates this state with a "star" icon, next to the provider's title.
 

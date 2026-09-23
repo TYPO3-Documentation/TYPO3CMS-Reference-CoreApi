@@ -30,7 +30,7 @@ extension is missing, check if you installed it properly.
 `Enter the command name to execute on CLI [myextension:dosomething]:`
     This name will be used to call the command later on. It should be
     prefixed with your extensions name without special signs. It is considered
-    best practise to use the same name as for the controller, in lowercase.
+    best practice to use the same name as for the controller, in lowercase.
 
 `Should the command be schedulable? (yes/no) [no]:`
     If you want the command to be available in the backend in module

@@ -303,7 +303,7 @@ FAL type converters
 ..  warning::
 
     These three converter classes are :php:`@internal` at the class level
-    and are not part of the public Extbase API. Their behaviour or existence
+    and are not part of the public Extbase API. Their behavior or existence
     may change without notice.
 
 :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\FileConverter`
