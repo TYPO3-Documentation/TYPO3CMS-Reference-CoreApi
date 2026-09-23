@@ -35,7 +35,8 @@ variables:
 
 The next step is to retrieve these values in the TYPO3 application bootstrap
 process. The best place for this is inside :file:`system/additional.php` (see
-:ref:`t3coreapi:configuration-files`). The PHP code for this could look like:
+:ref:`System configuration files <t3coreapi:configuration-files>`). The PHP code
+for this could look like:
 
 ..  literalinclude:: _codesnippets/_additional.php
     :caption: config/system/additional.php
@@ -55,18 +56,19 @@ You should only store environment-specific configuration values in such a
 configuration file. Do not use this to manage all the TYPO3 configuration options.
 Examples of well-suited configuration options:
 
-* :ref:`t3coreapi:password-policies`
-* :ref:`t3coreapi:error-handling-configuration`
-* :ref:`t3coreapi:typo3ConfVars_mail`
-* :ref:`t3coreapi:typo3ConfVars_sys_encryptionKey`
-* :ref:`t3coreapi:security-install-tool`
+* :ref:`Password policies <t3coreapi:password-policies>`
+* :ref:`Configuration <t3coreapi:error-handling-configuration>`
+* :ref:`MAIL settings <t3coreapi:typo3ConfVars_mail>`
+* :ref:`encryptionKey <t3coreapi:typo3ConfVars_sys_encryptionKey>`
+* :ref:`Securing the Install Tool <t3coreapi:security-install-tool>`
 * Settings, tokens and URLs to additional services (Redis, Solr, third-party systems, ...)
 
 ..  note::
     The URL of your environment must be configured through
-    :ref:`site configuration <t3coreapi:sitehandling>` variables, and
-    those can actually refer to environment variables as outlined in
-    :ref:`t3coreapi:sitehandling-using-env-vars`.
+    :ref:`site configuration <t3coreapi:sitehandling>` variables, and those can
+    actually refer to environment variables as outlined in
+    :ref:`Using environment variables in the site configuration
+    <t3coreapi:sitehandling-using-env-vars>`.
 
 The following sections describe this implementation process in depth.
 
@@ -75,10 +77,10 @@ The following sections describe this implementation process in depth.
 .env / dotenv files
 ===================
 
-A central advantage of :file:`.env` files is that environment variables can
-also be set in :ref:`t3coreapi:cli-mode` CLI context or injected via
-Continuous Integration/Deployment (CI/CD) systems (GitLab/GitHub) or even
-webserver configuration. It is also helpful to have a central place for
+A central advantage of :file:`.env` files is that environment variables can also
+be set in :ref:`Console commands (CLI) <t3coreapi:cli-mode>` CLI context or
+injected via Continuous Integration/Deployment (CI/CD) systems (GitLab/GitHub)
+or even webserver configuration. It is also helpful to have a central place for
 environment-specific configuration.
 
 To let your TYPO3 configuration parse keys and values stored in such a file,
@@ -143,8 +145,8 @@ workflow (which can be kept in your versioning control system):
     :caption: config/system/additional.php
 
 Of course, you can move such a file to a special :file:`Shared/Data/` directory
-(see :ref:`deploytypo3`), as long as you take care the file is outside
-your public web root directory scope.
+(see :ref:`Deploying TYPO3 <deploytypo3>`), as long as you take care the file is
+outside your public web root directory scope.
 
 The file :file:`additional.php` can still contain custom changes that shall
 be applied to every environment of yours, and that is not managed through

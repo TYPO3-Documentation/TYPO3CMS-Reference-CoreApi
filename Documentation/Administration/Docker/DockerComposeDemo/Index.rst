@@ -12,7 +12,9 @@ Classic TYPO3 demo installation using Docker Compose
     This setup is intended for **local testing and learning**.
 
 This guide shows how to run the same TYPO3 demo environment from the
-:ref:`classic-docker-installation` using **Docker Compose**.
+:ref:`Classic TYPO3 demo installation using Docker only
+<classic-docker-installation>`
+using **Docker Compose**.
 
 Instead of running each container manually with `docker run`, we define the
 entire setup in a single `docker-compose.yml` file. This makes it easier
@@ -75,7 +77,7 @@ Visit:
     http://localhost:8081
 
 (This URL works because port 8081 on your host maps to port 80 in the container;
-see :ref:`docker-compose-port-mapping`)
+see :ref:`About port mapping in Docker Compose <docker-compose-port-mapping>`)
 
 Use these installer settings:
 
@@ -137,4 +139,5 @@ To also remove volumes (e.g. the database):
 
 ..  seealso::
 
-    If you encounter file permission issues, see :ref:`classic-docker-permissions`.
+    If you encounter file permission issues, see
+    :ref:`Solving file permission issues <classic-docker-permissions>`.

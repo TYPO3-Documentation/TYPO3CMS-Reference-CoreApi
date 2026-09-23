@@ -36,9 +36,9 @@ Some hosting environments also allow multiple PHP versions. Try changes in a
 staging or relaunch setup before updating production.
 
 You can use the following tools in module :guilabel:`System > Environment`:
-:ref:`environment-overview` so see which PHP version you are currently running
-and :ref:`environment-php-info` to get an overview of installed PHP
-extensions and settings.
+:ref:`Environment overview <environment-overview>` so see which PHP version you
+are currently running and :ref:`PHP info tool <environment-php-info>` to get an
+overview of installed PHP extensions and settings.
 
 ..  _upgradecore-extension:
 
@@ -153,4 +153,5 @@ manually adjust :file:`composer.json` and run:
     composer install
 
 Once the upgrade is complete, there are a set of tasks that need to actioned to
-complete the process. See :ref:`postupgradetasks`.
+complete the process. See
+:ref:`Post-upgrade tasks for major TYPO3 Core updates <postupgradetasks>`.

@@ -153,7 +153,9 @@ And they can contain changes to more than one system extension. Furthermore
 they often contain changes to files in the directory :file:`Tests` that is not
 present in a Composer based installation.
 
-When you plan to apply the diff by :ref:`cweagans-composer-patches`
+When you plan to apply the diff by
+:ref:`Automatic patch application with cweagans/composer-patches
+<cweagans-composer-patches>`
 you will need to manually adjust the patch file:
 
 Remove all changes to the directory :file:`Tests` and other files or directories

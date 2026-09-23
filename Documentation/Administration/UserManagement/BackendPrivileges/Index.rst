@@ -11,9 +11,9 @@ Backend privileges: administrators and System Maintainers
 The following chapters cover modules that will only be available for backend
 users with specific access privileges.
 
-In addition to configuring access
-rights for backend users or groups as described in :ref:`permissions`, there
-are "superuser" rights which can be activated for each user.
+In addition to configuring access rights for backend users or groups as
+described in :ref:`Setting up user group permissions <permissions>`, there are
+"superuser" rights which can be activated for each user.
 
 If a backend user has been created for editing in the backend, he or she should
 usually not get access to admin or system modules.

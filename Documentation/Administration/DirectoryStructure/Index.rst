@@ -43,8 +43,8 @@ Directories in a typical Composer mode TYPO3 project
 The overview below describes the directory structure of a typical
 Composer-based TYPO3 installation.
 
-Also see the chapter :ref:`Environment` for details on how to retrieve paths in
-PHP code.
+Also see the chapter :ref:`Environment <Environment>` for details on how to
+retrieve paths in PHP code.
 
 ..  note::
 
@@ -72,8 +72,8 @@ contains folder :path:`config/system/` for installation-wide configuration and
 `config/sites/`
 ~~~~~~~~~~~~~~~
 
-The folder :path:`config/sites/` contains subfolders, one for each site
-in the installation. See chapter :ref:`site-folder`.
+The folder :path:`config/sites/` contains subfolders, one for each site in the
+installation. See chapter :ref:`The site folder config/sites/ <site-folder>`.
 
 ..  _directory-config-system:
 
@@ -229,8 +229,9 @@ backend and the install tool.
 ..  versionchanged:: 14.0
     The PHP files :file:`public/typo3/index.php` and
     :file:`public/typo3/install.php` have been removed. The backend and the
-    install tool can be accessed via the :ref:`backend-entry-point`: the
-    install tool is at :samp:`/typo3/install`.
+    install tool can be accessed via the
+    :ref:`Backend entry point <backend-entry-point>`: the install tool is at
+    :samp:`/typo3/install`.
 
 ..  _directory-public-typo3temp:
 
@@ -250,7 +251,8 @@ for temporary files of extensions and TYPO3 components.
     and can be regenerated automatically.
 
     For proper handling and steps to safely regenerate required subdirectories,
-    see: :ref:`regeneration-temporary-folders` (section to be written)
+    see: :ref:`Regenerating temporary folders <regeneration-temporary-folders>`
+    (section to be written)
 
 ..  _directory-public-typo3temp-assets:
 

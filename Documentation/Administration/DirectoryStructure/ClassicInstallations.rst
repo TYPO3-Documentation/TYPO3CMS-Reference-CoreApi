@@ -74,7 +74,7 @@ This directory contains TYPO3 Core system extensions.
 ..  versionchanged:: 14.0
     The PHP files :file:`typo3/index.php` and :file:`typo3/install.php` have
     been removed. The backend and the install tool can be accessed via the
-    :ref:`backend-entry-point`: the install tool is at
+    :ref:`Backend entry point <backend-entry-point>`: the install tool is at
     :samp:`/typo3/install`.
 
 ..  _classic-directory-typo3-sysext:
@@ -92,11 +92,12 @@ All system extensions, supplied by the TYPO3 Core, are stored here.
 ------------
 
 It is a common practice in Classic mode installations to use symlinks to quickly
-change between TYPO3 Core versions. In many installations you will find a symlink or folder
-called :path:`typo3_src` that contains the folders :ref:`classic-directory-typo3`,
-and :ref:`classic-directory-vendor` and the file :file:`index.php`. In this case,
-those directories and files only symlink to :path:`typo3_src`. This way
-the Core can be updated quickly by changing the symlink.
+change between TYPO3 Core versions. In many installations you will find a
+symlink or folder called :path:`typo3_src` that contains the folders
+:ref:`typo3/ <classic-directory-typo3>`, and
+:ref:`vendor/ <classic-directory-vendor>` and the file :file:`index.php`. In
+this case, those directories and files only symlink to :path:`typo3_src`. This
+way the Core can be updated quickly by changing the symlink.
 
 Assuming your webroot is a directory called :path:`public` you could have
 the following symlink structure:
@@ -169,8 +170,9 @@ This path can be retrieved from the Environment API, see
 `typo3conf/sites/`
 ~~~~~~~~~~~~~~~~~~
 
-The folder :path:`typo3conf/sites/` contains subfolders, one for each site
-in the installation. See chapter :ref:`site-folder`.
+The folder :path:`typo3conf/sites/` contains subfolders, one for each site in
+the installation. See chapter
+:ref:`The site folder config/sites/ <site-folder>`.
 
 ..  _classic-directory-typo3conf-system:
 ..  _legacy-directory-typo3conf-system:

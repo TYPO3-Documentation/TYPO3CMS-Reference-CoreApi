@@ -299,7 +299,8 @@ Composer commands to make the changes, like this:
 The Git repository must point to a TYPO3 extension with a
 :file:`composer.json`.
 
-See :ref:`t3coreapi:files-composer-json` for details on what these files should look like.
+See :ref:`composer.json <t3coreapi:files-composer-json>` for details on what
+these files should look like.
 
 Git tags in the repository are used as version numbers.
 
@@ -424,8 +425,12 @@ files to a new directory than TYPO3 v11:
 | :file:`public/typo3conf/ext/.../Resources/Public`    | :file:`public/_assets` (new)                                    |
 +------------------------------------------------------+-----------------------------------------------------------------+
 
-The directory :file:`public/_assets/` and how to migrate public web assets from extensions and your
-:ref:`sitepackage <t3sitepackage:start>` is described in: :ref:`migrate-public-assets` .
+The directory :file:`public/_assets/` and how to migrate public web assets from
+extensions and your :ref:`sitepackage <t3sitepackage:start>` is described in:
+:ref:`Migrating public web assets to public/_assets <migrate-public-assets>` .
 
-Have a look at :ref:`t3coreapi:directory-structure` in "TYPO3 Explained". Developers
-should also be familiar with the :ref:`Environment API <t3coreapi:Environment>`.
+Have a look at
+:ref:`Directory structure of a typical TYPO3 project
+<t3coreapi:directory-structure>`
+in "TYPO3 Explained". Developers should also be familiar with the
+:ref:`Environment API <t3coreapi:Environment>`.

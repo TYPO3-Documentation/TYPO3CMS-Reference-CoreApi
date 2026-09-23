@@ -21,7 +21,8 @@ To ensure a secure installation of TYPO3 on a production server, the following s
       $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'] = '0';
       $GLOBALS['TYPO3_CONF_VARS']['BE']['debug'] = '0';
 
-  These can be set for example through the :ref:`environment-configuration`.
+  These can be set for example through the
+  :ref:`Configuring environments <environment-configuration>`.
 - `HTTPS` should be used on production servers and :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']` should be set to `true`.
 - Enforce HSTS (Strict-Transport-Security header) in the web servers configuration.
 - The `TYPO3_CONTEXT` environment variable should be set to a main context of `Production` (can be verified on the top right in the TYPO3 backend :guilabel:`Application Information`). It should be used to select the appropriate `base variant` for the target system in the Site Configuration.
