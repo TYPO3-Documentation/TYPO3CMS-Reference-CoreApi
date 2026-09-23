@@ -74,5 +74,5 @@ Extension development
     Kickstarter/Index
     HowTo/Index
     Extbase/Index
-    BestPractises/Index
+    BestPractices/Index
     Tutorials/Index
