@@ -20,9 +20,11 @@ Each is a complete, working configuration you can adapt directly.
 List, pagination, and detail
 ============================
 
-The most common Extbase plugin pattern: a list page with pagination and a
-detail view. The list and detail actions are on the same page here; for
-separate pages see :ref:`extbase-routing-examples-separate-pages`.
+The most common Extbase plugin pattern: a list page with pagination and a detail
+view. The list and detail actions are on the same page here; for separate pages
+see
+:ref:`List and detail on separate pages
+<extbase-routing-examples-separate-pages>`.
 
 **URLs produced:**
 
@@ -40,11 +42,14 @@ Key points:
     the prefix, :samp:`/conferences/page-2` would match the detail route first
     and try to resolve `page-2` as a conference slug.
 *   :yaml:`fallbackValue: null` on the :yaml:`PersistedAliasMapper` means a
-    deleted or hidden conference returns :php:`null` to the action rather
-    than a 404. The action must declare the argument nullable and handle it
-    explicitly — see :ref:`extbase-routing-aspects-fallback`.
+    deleted or hidden conference returns :php:`null` to the action rather than a
+    404. The action must declare the argument nullable and handle it explicitly
+    — see
+    :ref:`Handling deleted or hidden records
+    <extbase-routing-aspects-fallback>`.
 *   Route order matters: pagination before detail, most specific before most
-    general — see :ref:`extbase-routing-routes-order`.
+    general — see
+    :ref:`Route order and specificity <extbase-routing-routes-order>`.
 
 
 ..  _extbase-routing-examples-separate-pages:
@@ -167,8 +172,8 @@ Common mistakes
 **Wrong route order**
     A catch-all placeholder route (:yaml:`/{slug}`) is listed before a more
     specific route (:yaml:`/page-{page}`). The catch-all matches first and the
-    specific route is never reached. Most-specific routes must come first —
-    see :ref:`extbase-routing-routes-order`.
+    specific route is never reached. Most-specific routes must come first — see
+    :ref:`Route order and specificity <extbase-routing-routes-order>`.
 
 **limitToPages missing**
     Without :yaml:`limitToPages`, TYPO3 evaluates the enhancer for every page

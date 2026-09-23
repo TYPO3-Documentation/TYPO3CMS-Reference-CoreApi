@@ -35,16 +35,18 @@ The configuration "surfaces" of an Extbase extension
     :ref:`configuration reference <extbase-configuration-reference>`.
 
 :ref:`FlexForm <t3coreapi:flexforms>`
-    Content element configuration that an editor sets in the backend. A
-    FlexForm field named :samp:`settings.<name>` is merged straight into
+    Content element configuration that an editor sets in the backend. A FlexForm
+    field named :samp:`settings.<name>` is merged straight into
     :php:`$this->settings`, meaning editors can override individual TypoScript
     settings in a single content element without having to touch any code. See
-    :ref:`extbase-configuration-typoscript-settings` for how it is merged into
-    :php:`$this->settings`.
+    :ref:`Custom settings: the settings block
+    <extbase-configuration-typoscript-settings>`
+    for how it is merged into :php:`$this->settings`.
 
 :ref:`Site settings <sitehandling-settings>`
     Installation- and site-wide values, defined by a
-    :ref:`site set <t3coreapi:site-sets>` and editable for each site in the backend.
+    :ref:`site set
+    <t3coreapi:site-sets>` and editable for each site in the backend.
     Site settings are the recommended way to ship configuration that can easily
     be modified by integrators without having to edit TypoScript; they are
     referenced from TypoScript through
@@ -56,7 +58,8 @@ The configuration "surfaces" of an Extbase extension
     than per plugin — for example consistent :php:`\DateTime` handling and
     record-history tracking. This is not done by TypoScript; it is set in
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']`. See
-    :ref:`Extbase feature toggles (not TypoScript) <extbase-configuration-feature-toggles>`.
+    :ref:`Extbase feature toggles (not TypoScript)
+    <extbase-configuration-feature-toggles>`.
 
 :file:`Configuration/Extbase/Persistence/Classes.php`
     The class-mapping surface. A domain model maps to a table or columns
@@ -100,7 +103,8 @@ whole installation and are not part of the per-plugin merge.
 
 ..  seealso::
 
-    *   :ref:`extbase-configuration-reference` — the reference guide for
+    *   :ref:`Extbase configuration reference <extbase-configuration-reference>`
+        — the reference guide for
         all the configuration blocks that are used in Extbase extensions.
 
     *   `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_ —
@@ -111,9 +115,10 @@ whole installation and are not part of the per-plugin merge.
 
 Now we have looked at configuration surfaces, continue to the
 :ref:`configuration reference <extbase-configuration-reference>` to see how each
-block is used in practice. Then move on to :ref:`extbase-persistence-overview` and
-:ref:`extbase-view-overview`, where these settings are converted into queries and
-rendered output.
+block is used in practice. Then move on to
+:ref:`Persistence layer in Extbase <extbase-persistence-overview>` and
+:ref:`View layer in Extbase <extbase-view-overview>`, where these settings are
+converted into queries and rendered output.
 
 ..  toctree::
     :titlesonly:

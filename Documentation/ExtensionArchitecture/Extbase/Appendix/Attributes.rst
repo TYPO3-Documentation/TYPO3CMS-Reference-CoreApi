@@ -194,7 +194,9 @@ where partial state is forwarded between actions:
 
 Place :php:`#[IgnoreValidation]` directly on the parameter — method-level
 placement with :php:`argumentName` is deprecated in TYPO3 v14 and removed in
-v15. See :ref:`extbase-upgrading-ignorevalidation-parameter`.
+v15. See
+:ref:`moving #[Validate] and #[IgnoreValidation] to parameter level
+<extbase-upgrading-ignorevalidation-parameter>`.
 
 
 ..  _extbase-appendix-attributes-controller:

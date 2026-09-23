@@ -57,10 +57,11 @@ Key rules:
     :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`, create a
     :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` instance per action,
     assign variables via :php:`$moduleTemplate->assignMultiple()`, and return
-    :php:`$moduleTemplate->renderResponse('ControllerName/ActionName')`.
-    Do not use
-    :php:`$this->view` or :php:`$this->htmlResponse()` in a module controller.
-    See :ref:`extbase-registration-backend-module`.
+    :php:`$moduleTemplate->renderResponse('ControllerName/ActionName')`. Do not
+    use :php:`$this->view` or :php:`$this->htmlResponse()` in a module
+    controller. See
+    :ref:`Registering an Extbase backend module
+    <extbase-registration-backend-module>`.
 
 
 ..  _extbase-controller-action-arguments:
@@ -108,7 +109,8 @@ do for a missing argument. Always combine the nullable type with a default:
 
 If an argument is missing from the request and there is no default value, Extbase
 calls :php:`errorAction()` instead. See
-:ref:`errorAction: Extbase validation and argument-mapping errors <extbase-controller-action-error>`.
+:ref:`errorAction: Extbase validation and argument-mapping errors
+<extbase-controller-action-error>`.
 
 ..  seealso::
 
@@ -147,7 +149,8 @@ into TypoScript constants via the :typoscript:`{$...}` syntax, but that is an
 explicit mapping, not an automatic merge. Only values that flow through
 :typoscript:`plugin.tx_myextension.settings.*` end up in
 :php:`$this->settings`. The full resolution order is covered in
-:ref:`Extbase TypoScript configuration <extbase-configuration-typoscript-scopes>`.
+:ref:`Extbase TypoScript configuration
+<extbase-configuration-typoscript-scopes>`.
 
 
 ..  _extbase-controller-action-responses:
@@ -415,9 +418,11 @@ it automatically before the corresponding action:
 ..  literalinclude:: _snippets/_ConferenceControllerInitialize.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-The per-action initializer is the standard place to configure property
-mapping, for example, to allow specific properties or to set custom date
-formats for arguments. See :ref:`extbase-controller-propertymapping-typeconverters`.
+The per-action initializer is the standard place to configure property mapping,
+for example, to allow specific properties or to set custom date formats for
+arguments. See
+:ref:`Configuring Extbase type converters
+<extbase-controller-propertymapping-typeconverters>`.
 
 
 ..  _extbase-controller-action-authorize:

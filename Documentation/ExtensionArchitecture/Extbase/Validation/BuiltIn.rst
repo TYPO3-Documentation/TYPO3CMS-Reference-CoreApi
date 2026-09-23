@@ -76,7 +76,7 @@ Built-in validator reference
 
 The following validators are provided out of the box. This list covers the
 validators available for general use. File upload validators are listed
-separately in :ref:`extbase-validation-builtin-file`.
+separately in :ref:`File upload validators <extbase-validation-builtin-file>`.
 
 ..  _extbase-validation-builtin-notempty:
 ..  _extbase-validator-notempty:
@@ -223,7 +223,7 @@ Checks that the value is a syntactically valid email address using
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator`
 
 No options beyond the optional `message` override (see
-:ref:`extbase-validation-builtin-custom-messages`).
+:ref:`Customising error messages <extbase-validation-builtin-custom-messages>`).
 
 
 ..  _extbase-validation-builtin-url:
@@ -508,16 +508,17 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 
 ..  important::
 
-    `FileName` is enforced automatically for every `#[FileUpload]`
-    parameter — you do not need to declare it manually. If you want to
-    restrict uploads to specific extensions, use
-    :ref:`extbase-validation-builtin-fileextension` (`FileExtension`)
-    instead, which is designed for that purpose.
+    `FileName` is enforced automatically for every `#[FileUpload]` parameter —
+    you do not need to declare it manually. If you want to restrict uploads to
+    specific extensions, use
+    :ref:`FileExtension validator <extbase-validation-builtin-fileextension>`
+    (`FileExtension`) instead, which is designed for that purpose.
 
 ..  seealso::
 
-    :ref:`extbase-domain-fileupload` — how to wire up upload handling with
-    :php:`#[FileUpload]`, configure validators, and handle deletion.
+    :ref:`File uploads in Extbase domain models <extbase-domain-fileupload>` —
+    how to wire up upload handling with :php:`#[FileUpload]`, configure
+    validators, and handle deletion.
 
 
 ..  _extbase-validation-builtin-custom-messages:
@@ -562,7 +563,9 @@ visitors.
 What to read next
 =================
 
-*   :ref:`extbase-validation-custom` — write a validator for domain rules that
+*   :ref:`Writing a custom Extbase validator <extbase-validation-custom>` —
+    write a validator for domain rules that
     the built-in validators cannot express.
-*   :ref:`extbase-validation-overview` — how validation fits into the request
+*   :ref:`Validation in Extbase <extbase-validation-overview>` — how validation
+    fits into the request
     lifecycle and how :php:`errorAction()` is triggered.

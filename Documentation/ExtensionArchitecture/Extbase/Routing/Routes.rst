@@ -143,5 +143,6 @@ corresponding :yaml:`aspects` entry — the aspect takes precedence.
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
     :emphasize-lines: 22-23
 
-The next step is configuring the :yaml:`aspects` entries that translate placeholder
-values into human-readable URL segments — see :ref:`extbase-routing-aspects`.
+The next step is configuring the :yaml:`aspects` entries that translate
+placeholder values into human-readable URL segments — see
+:ref:`Routing aspects <extbase-routing-aspects>`.

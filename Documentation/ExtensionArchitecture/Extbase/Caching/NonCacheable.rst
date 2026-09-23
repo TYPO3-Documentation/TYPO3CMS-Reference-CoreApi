@@ -95,10 +95,12 @@ render is cached.
 ..  note::
 
     Within a single non-cacheable render, the whole output of that render is
-    uncached — :typoscript:`USER_INT` is all or nothing for the request it applies to. You
-    cannot keep *part* of a non-cached action's output in the page cache through
-    this mechanism. To avoid repeating expensive work inside such an action, cache
-    it yourself — see :ref:`extbase-caching-noncacheable-optimise`.
+    uncached — :typoscript:`USER_INT` is all or nothing for the request it
+    applies to. You cannot keep *part* of a non-cached action's output in the
+    page cache through this mechanism. To avoid repeating expensive work inside
+    such an action, cache it yourself — see
+    :ref:`Keeping a non-cached Extbase plugin fast
+    <extbase-caching-noncacheable-optimise>`.
 
 A redirect or an error response is also never cached, even from an action you
 declared cacheable: Extbase avoids caching a plugin whose action redirects, so
@@ -168,7 +170,8 @@ Keeping a non-cached Extbase plugin fast
 
 A non-cacheable action loses the page cache, but it does not have to redo *all*
 of its work on every request. You can cache the expensive parts yourself. TYPO3
-ships a :ref:`caching framework <caching>` for exactly this: you store a computed
+ships a :ref:`caching framework
+<caching>` for exactly this: you store a computed
 value under an identifier and read it back on the next request instead of
 recomputing it.
 
@@ -176,7 +179,8 @@ The one decision that shapes everything is, for each piece of output: **does the
 cached value need to survive the request?** Output that every visitor shares and
 that only changes when a record changes should outlive the request and be reused
 across visitors — that calls for a persistent cache of your own, invalidated with
-:ref:`cache tags <extbase-caching-cachetags>`. Output that must differ per visitor
+:ref:`cache tags
+<extbase-caching-cachetags>`. Output that must differ per visitor
 and only needs to stay consistent *within* one render should die with the request
 — that is what the built-in runtime cache is for. The two examples below apply
 this test: the first uses a persistent cache throughout; the second combines both,
@@ -194,7 +198,8 @@ sorting options, and pagination. The form submits by **POST**.
 
 This is the case that forces you off the page cache. TYPO3 builds the page cache
 identifier from the page arguments — the page ID, the page type, and the
-:abbr:`GET (query string)` parameters covered by the :ref:`cHash <caching-architecture-identifier>`.
+:abbr:`GET (query string)` parameters covered by the :ref:`cHash
+<caching-architecture-identifier>`.
 The `POST` body is **not** part of that identifier. Two visitors who POST different
 searches to the same URL therefore resolve to the *same* page cache entry: the
 second visitor would be served the first visitor's results. A detail view that
@@ -216,7 +221,8 @@ Cache it on two layers:
     teasers that did not change are reused from this layer instead of being
     rendered again.
 
-Tie the two together with :ref:`cache tags <extbase-caching-cachetags>`: tag each
+Tie the two together with :ref:`cache tags
+<extbase-caching-cachetags>`: tag each
 teaser with its own :sql:`<table>_<uid>`, and tag the outer list entry with the
 identifier of every teaser it contains. This is what makes invalidation
 automatic. Register both caches into the :php:`pages` cache **group**, and
@@ -231,11 +237,12 @@ inner cache.
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 Both caches here are ones you register yourself, because their entries must
-survive the request and be shared between visitors. Registering a custom cache is
-a caching-framework task, not an Extbase one — just make sure
-to put them in the :php:`pages` group so record changes clear them along with the
-page cache. See :ref:`caching-quickstart` and :ref:`caching-developer-registration`
-for the :php:`ext_localconf.php` configuration and the service names used above.
+survive the request and be shared between visitors. Registering a custom cache
+is a caching-framework task, not an Extbase one — just make sure to put them in
+the :php:`pages` group so record changes clear them along with the page cache.
+See :ref:`Quick start for integrators <caching-quickstart>` and
+:ref:`Cache registration <caching-developer-registration>` for the
+:php:`ext_localconf.php` configuration and the service names used above.
 
 
 ..  _extbase-caching-noncacheable-optimise-lifetime:

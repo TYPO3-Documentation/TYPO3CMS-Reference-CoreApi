@@ -29,16 +29,19 @@ during bootstrap — no database records, no install steps.
 In this chapter
 ===============
 
-:ref:`Registering an Extbase frontend plugin <extbase-registration-frontend-plugin>`
+:ref:`Registering an Extbase frontend plugin
+<extbase-registration-frontend-plugin>`
     How to register an Extbase plugin as a frontend content element:
     :php:`configurePlugin()`, :php:`registerPlugin()`, allowed actions,
     non-cacheable actions, and the TypoScript plugin object path.
 
-:ref:`Registering an Extbase backend module <extbase-registration-backend-module>`
+:ref:`Registering an Extbase backend module
+<extbase-registration-backend-module>`
     How to register an Extbase-based backend module via
     :file:`Configuration/Backend/Modules.php`: the
-    :confval:`controllerActions <backend-module-controllerActions>` key,
-    access control, icons, and the full module API at :ref:`backend-modules-api`.
+    :confval:`controllerActions <backend-module-controllerActions>` key, access
+    control, icons, and the full module API at
+    :ref:`Backend modules API <backend-modules-api>`.
 
 ..  toctree::
     :titlesonly:
