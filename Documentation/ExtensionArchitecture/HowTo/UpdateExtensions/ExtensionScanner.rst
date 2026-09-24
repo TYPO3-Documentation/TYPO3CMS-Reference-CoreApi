@@ -58,7 +58,7 @@ Quick start
 
 3. View the report:
 
-   The tags :guilabel:`weak`, :guilabel:`strong`, etc. will give you an idea
+   The tags **weak**, **strong**, etc. will give you an idea
    of how well the extension scanner was able to match. Hover over the tags
    with the mouse to see a tooltip.
 

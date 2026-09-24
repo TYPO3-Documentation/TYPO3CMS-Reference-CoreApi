@@ -149,8 +149,8 @@ the providers later in the order are ignored.
 
 Therefore our custom provider should be loaded before `record`, the
 default provider which always returns a value. If the system extension
-:composer:`typo3/cms-seo` is loaded the default :guilabel:`SEO Title` has a particular format,
-you can change this by loading your custom provider before `seo`.
+:composer:`typo3/cms-seo` is loaded the default **SEO Title** has a particular
+format, you can change this by loading your custom provider before `seo`.
 
 ..  index:: PageTitle; Priority
 

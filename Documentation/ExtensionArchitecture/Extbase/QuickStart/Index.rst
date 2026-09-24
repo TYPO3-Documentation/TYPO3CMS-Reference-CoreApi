@@ -289,7 +289,7 @@ Then in the TYPO3 backend:
 1.  Create a sysfolder page and add your conference records there.
 2.  Create or edit a regular page, add a content element, and select your
     plugin from the content element type list.
-3.  Set the :guilabel:`Record Storage Page` on the plugin content element to
+3.  Set the **Record Storage Page** on the plugin content element to
     the sysfolder from step 1 (or configure
     :typoscript:`plugin.tx_myextension.persistence.storagePid` in TypoScript).
 4.  Open the page in the frontend — you should see your list view.
