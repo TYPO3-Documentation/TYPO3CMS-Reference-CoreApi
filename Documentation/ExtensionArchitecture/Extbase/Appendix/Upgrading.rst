@@ -171,7 +171,8 @@ v14 the attribute requires named arguments instead:
 
 ..  seealso::
 
-    *   :ref:`extbase-domain-fileupload` — full reference for the :php:`#[FileUpload]`
+    *   :ref:`File uploads in Extbase domain models <extbase-domain-fileupload>` —
+        full reference for the :php:`#[FileUpload]`
         attribute and its named arguments.
 
 
@@ -235,7 +236,8 @@ available.
 
 ..  seealso::
 
-    :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration` — the
+    :ref:`Migrating away from the magic findBy*() methods
+    <t3coreapi/13:extbase-repository-find-by-magic-migration>` — the
     migration guide in the TYPO3 v13 branch of this manual.
 
 
@@ -347,7 +349,8 @@ The resource name is derived from the file name:
 
 ..  seealso::
 
-    *   :ref:`label-reference-domain` for a full syntax reference and resolution
+    *   :ref:`Translation domain mapping for label reference
+        <label-reference-domain>` for a full syntax reference and resolution
         rules including the :bash:`language:domain:list` CLI command.
 
 
@@ -420,10 +423,12 @@ may not match what your code now expects.
 
 ..  seealso::
 
-    *   :ref:`extbase-domain-property-types-datetime-consistency` for the full list of DateTime
+    *   :ref:`Consistent DateTime handling
+        <extbase-domain-property-types-datetime-consistency>` for the full list of DateTime
         behaviour activated by the toggle.
 
-    *   :ref:`extbase-caching-cachetags-featureflag` for what automatic cache
+    *   :ref:`Enabling automatic cache tagging in Extbase
+        <extbase-caching-cachetags-featureflag>` for what automatic cache
         tagging does and how to enable it.
 
     *   `Feature toggles (TYPO3 Explained) <https://docs.typo3.org/permalink/t3coreapi:feature-toggles>`_

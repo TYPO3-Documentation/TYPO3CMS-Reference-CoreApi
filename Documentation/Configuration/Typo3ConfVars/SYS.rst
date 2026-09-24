@@ -917,7 +917,9 @@ features
         longer used in the TYPO3 core.
 
         It is disabled by default and it is strongly recommended to leave it
-        turned off. For details see :ref:`<changelog:important-103306-1714976257>`. To enable it:
+        turned off. For details see
+        :ref:`Important: #103306 <changelog:important-103306-1714976257>`. To
+        enable it:
 
         ..  code-block:: php
 

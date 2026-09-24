@@ -180,8 +180,9 @@ and the general principles are similar across platforms.
     *   `CI/CD: Automatic deployment for TYPO3 Projects
         <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_
 
-Depending on the container registry you choose (see:
-https://docs.typo3.org/permalink/t3coreapi:docker-image-distribution-hub)
+Depending on the container registry you choose (see
+`Distributing the image through a registry
+<https://docs.typo3.org/permalink/t3coreapi:docker-image-distribution-hub>`_)
 and the CI/CD tool in use, the scripts will differ accordingly.
 
 In the TYPO3 documentation project, we currently use a GitHub Actions workflow
