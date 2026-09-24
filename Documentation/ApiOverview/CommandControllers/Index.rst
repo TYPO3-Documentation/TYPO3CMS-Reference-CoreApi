@@ -204,7 +204,7 @@ Executing commands from the scheduler
 By default, it is possible to run a command from the
 `TYPO3 Scheduler <https://docs.typo3.org/permalink/typo3/cms-scheduler:start>`_
 as well. To do this, select the task :guilabel:`Execute console commands`
-followed by your command in the :guilabel:`Schedulable Command` field.
+followed by your command in the **Schedulable Command** field.
 
 ..  note::
     You need to save and reopen the task to define command arguments.
