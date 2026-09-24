@@ -23,7 +23,7 @@ Set your backend language
 One of the available backend languages can be selected in your user account.
 
 Go to :guilabel:`Toolbar (top right) > User Avatar > User Settings` and select
-the new language from the field :guilabel:`Language`:
+the new language in the **Language** field:
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Users/UserSettingsLanguage.png
     :alt: The tab "Personal data" of the User settings, including field "Language"

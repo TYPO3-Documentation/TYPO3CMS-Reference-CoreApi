@@ -136,7 +136,7 @@ Or per plugin instance:
     plugin.tx_myextension_eventlist.persistence.storagePid = 42
 
 Editors can also set it per plugin content element via the
-:guilabel:`Record Storage Page` field in the plugin's properties.
+**Record Storage Page** field in the plugin's properties.
 
 ..  tip::
 
