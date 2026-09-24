@@ -18,8 +18,12 @@ class ConferenceController extends ActionController
 
   public function createAction(Conference $conference): ResponseInterface
   {
-    $languageId = $this->context->getPropertyFromAspect('language', 'contentId');
-    $conference->_setProperty(AbstractDomainObject::PROPERTY_LANGUAGE_UID, $languageId);
+    $languageId = $this->context
+      ->getPropertyFromAspect('language', 'contentId');
+    $conference->_setProperty(
+      AbstractDomainObject::PROPERTY_LANGUAGE_UID,
+      $languageId,
+    );
 
     $this->conferenceRepository->add($conference);
 

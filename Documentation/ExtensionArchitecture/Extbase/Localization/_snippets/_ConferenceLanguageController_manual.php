@@ -15,9 +15,9 @@ class ConferenceController extends ActionController
 
   /**
    * Lists only genuine translations: conferences that have a default
-   * language original, leaving out those that exist without default language parent.
-   * No site configuration produces OVERLAYS_ON, so the aspect is built here
-   * rather than derived from a site language.
+   * language original, leaving out those that exist without a default
+   * language parent. No site configuration produces OVERLAYS_ON, so the
+   * aspect is built here rather than derived from a site language.
    */
   public function translatedOnlyAction(int $languageId): ResponseInterface
   {

@@ -89,21 +89,25 @@ every translated language until somebody translates them.
 
 ..  hint::
 
-    To restore the old behaviour for one query, set a language aspect using
+    To restore the old behavior for one query, set a language aspect using
     :php:`LanguageAspect::OVERLAYS_MIXED` on its query settings. Do this
     deliberately and per query: it makes that query diverge from what the rest
     of the site shows.
 
 ..  seealso::
 
-    *   `Important: #88886 — Extbase persistence respects the language overlay type <https://docs.typo3.org/permalink/changelog:important-88886-1784901300>`_
+    *   `Important: #88886 — Extbase persistence respects the language overlay
+        type
+        <https://docs.typo3.org/permalink/changelog:important-88886-1784901300>`_
         — the full description of what changed per `fallbackType`.
 
-    *   `What the site configuration decides <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-site-configuration>`_
+    *   `What the site configuration decides
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-site-configuration>`_
         — which records each `fallbackType` returns.
 
-    *   `Setting a language aspect <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-query-settings-aspect>`_
-        — how to override the behaviour for a single query.
+    *   `Setting a language aspect
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-query-settings-aspect>`_
+        — how to override the behavior for a single query.
 
 
 ..  _extbase-appendix-pitfalls-annotations:

@@ -27,8 +27,10 @@ class ConferenceReminderCommand extends Command
     parent::__construct();
   }
 
-  protected function execute(InputInterface $input, OutputInterface $output): int
-  {
+  protected function execute(
+    InputInterface $input,
+    OutputInterface $output,
+  ): int {
     // There is no site in a command, so the site the mails belong to has
     // to be named explicitly.
     $site = $this->siteFinder->getSiteByIdentifier('my-site');
@@ -40,7 +42,9 @@ class ConferenceReminderCommand extends Command
 
       // The language's own configuration, exactly as the frontend of
       // this site would apply it.
-      $languageAspect = LanguageAspectFactory::createFromSiteLanguage($siteLanguage);
+      $languageAspect = LanguageAspectFactory::createFromSiteLanguage(
+        $siteLanguage,
+      );
 
       $conferences = $this->conferenceRepository
           ->findAllForLanguageAspect($languageAspect);

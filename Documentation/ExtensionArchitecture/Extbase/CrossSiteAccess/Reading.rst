@@ -22,18 +22,17 @@ The storage pages of another site are ordinary page UIDs, and the
 :ref:`storagePid <extbase-persistence-storagepid>` configuration accepts them.
 Nothing checks that they belong to the current site.
 
-For a setup with matching language configuration this is all it takes: configure the shared folder as the
-storagePid in TypoScript, or let an editor choose it in the
-:guilabel:`Behaviour > Starting point` field of the plugin, and every query the
-repository builds reads from there.
+For a setup with matching language configuration this is all it takes:
+configure the shared folder as the storagePid in TypoScript, or let an editor
+choose it in the :guilabel:`Behavior > Starting point` field of the plugin, and
+every query the repository builds reads from there.
 
 ..  hint::
 
-    Hard-coding a page UID in TypoScript ties the extension to one installation,
-    so prefer a
-    :ref:`site setting <sitehandling-settings>` or a plugin FlexForm field that
-    names the page, and read the value from :php:`$this->settings` in the
-    controller.
+    Hard-coding a page UID in TypoScript ties the extension to one
+    installation, so prefer a :ref:`site setting <sitehandling-settings>` or a
+    plugin FlexForm field that names the page, and read the value from
+    :php:`$this->settings` in the controller.
 
 
 ..  _extbase-cross-site-reading-per-query:
@@ -90,19 +89,20 @@ matters:
 
 ..  seealso::
 
-    * full documentation of `<https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
+    `Finding a site object with the SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
+    — full documentation of :php-short:`\TYPO3\CMS\Core\Site\SiteFinder`.
 
 ..  _extbase-cross-site-reading-relations:
 
 What this means for relations
-=============================
+-----------------------------
 
 Relation queries ignore the storagePid entirely: Extbase sets
 :php:`setRespectStoragePage(false)` on them. Relations therefore reach records
 the parent query could never have returned, wherever in the page tree they are
 stored.
 
-For cross-site reading this works in your favour — a conference in the shared
+For cross-site reading this works in your favor — a conference in the shared
 folder keeps its categories regardless of which site reads it, and you need do
 nothing to make that happen. The same mechanism also means a relation can pull
 in a record from a storage folder you did not intend to expose, which is worth

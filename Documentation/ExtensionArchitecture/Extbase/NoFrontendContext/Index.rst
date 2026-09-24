@@ -27,8 +27,9 @@ Outside that context, that preparation has not happened, and Extbase reacts in
 two different ways depending on which part of it is used. Controllers, views
 and anything else resolving :typoscript:`plugin.tx_<extension>` configuration
 fail outright. The persistence layer is deliberately allowed to run without a
-request, but with no configuration to draw on it limits it queries to storagePid :php:`0` alone,
-so repositories might return nothing rather than report a problem.
+request, but with no configuration to draw on it limits it queries to
+storagePid :php:`0` alone, so repositories might return nothing rather than
+report a problem.
 
 Three contexts run into this, each with a different amount of the frontend
 available:
@@ -40,17 +41,17 @@ available:
     :class: pb-4
     :card-height: 100
 
-    ..  card:: :ref:`extbase-no-frontend-backend-module`
+    ..  card:: :ref:`Extbase in backend modules <extbase-no-frontend-backend-module>`
 
         A request, but not a frontend one. The backend provides its own
         configuration, and Extbase runs in a supported but different mode.
 
-    ..  card:: :ref:`extbase-no-frontend-command`
+    ..  card:: :ref:`Extbase on the command line <extbase-no-frontend-command>`
 
         No request at all. Nothing of the frontend exists unless the command
         establishes it.
 
-    ..  card:: :ref:`extbase-no-frontend-middleware`
+    ..  card:: :ref:`Extbase in middlewares <extbase-no-frontend-middleware>`
 
         Anything or nothing, depending on where in the middleware chain the
         middleware runs — the frontend may not have been prepared yet.

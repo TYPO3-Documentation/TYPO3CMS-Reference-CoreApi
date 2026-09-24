@@ -51,5 +51,5 @@ The essentials:
 
 ..  seealso::
 
-    :ref:`request-handling` for the middleware chain and how middlewares are
-    registered and ordered.
+    :ref:`Middlewares (request handling) <request-handling>` for the middleware
+    chain and how middlewares are registered and ordered.

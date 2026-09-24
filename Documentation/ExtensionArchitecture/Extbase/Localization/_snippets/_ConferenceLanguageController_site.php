@@ -15,7 +15,7 @@ class ConferenceController extends ActionController
 
   /**
    * Lists conferences in a chosen language with that language's own
-   * translation behaviour.
+   * translation behavior.
    */
   public function listInLanguageAction(int $languageId): ResponseInterface
   {

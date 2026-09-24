@@ -15,8 +15,9 @@ class ConferenceRepository extends Repository
    *
    * @return QueryResultInterface<Conference>
    */
-  public function findAllForLanguageAspect(LanguageAspect $languageAspect): QueryResultInterface
-  {
+  public function findAllForLanguageAspect(
+    LanguageAspect $languageAspect,
+  ): QueryResultInterface {
     $query = $this->createQuery();
     $query->getQuerySettings()->setLanguageAspect($languageAspect);
 

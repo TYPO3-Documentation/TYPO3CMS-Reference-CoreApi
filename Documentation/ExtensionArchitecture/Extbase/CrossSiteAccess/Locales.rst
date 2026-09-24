@@ -22,7 +22,8 @@ A language UID is a number assigned inside one site configuration. It carries
 no meaning outside it. Two sites offering the same three languages may number
 them differently, and nothing in TYPO3 keeps them aligned.
 
-Consider a shared conference folder, located in the main site and read by the country site as well:
+Consider a shared conference folder, located in the main site and read by the
+country site as well:
 
 ..  list-table::
     :header-rows: 1
@@ -56,12 +57,12 @@ No error is raised, because from the database's point of view nothing is wrong.
 The locale is the stable identifier
 ===================================
 
-What *probably is* stable across sites is the locale. A site language for Italian is
-`it-IT` in every site that offers Italian, whatever UID it was given there. The
-locale is set in the site configuration, is meaningful outside the site that
-declares it, and is exactly what two site configurations have in common. If the locales
-are really the same across the sites is responsibility of the integrator, so verify
-the match before relying on it.
+What *probably is* stable across sites is the locale. A site language for
+Italian is `it-IT` in every site that offers Italian, whatever UID it was given
+there. The locale is set in the site configuration, is meaningful outside the
+site that declares it, and is exactly what two site configurations have in
+common. If the locales are really the same across the sites is responsibility
+of the integrator, so verify the match before relying on it.
 
 So resolve the language by matching locales, and use the matched language's own
 UID for the query:
@@ -83,11 +84,11 @@ module that deliberately shows them.
 
 ..  important::
 
-    It is not advisable to build a hand-maintained mapping array between the sites' language
-    UIDs or to keep the mapping in a site setting. Both encode a
-    relationship that the site configurations already state, and both go stale
-    the moment somebody adds a language — silently, and in exactly the way
-    described above. The locale is the join key; read it at runtime.
+    It is not advisable to build a hand-maintained mapping array between the
+    sites' language UIDs or to keep the mapping in a site setting. Both encode
+    a relationship that the site configurations already state, and both go
+    stale the moment somebody adds a language — silently, and in exactly the
+    way described above. The locale is the join key; read it at runtime.
 
 ..  _extbase-cross-site-locales-aspect:
 
@@ -97,7 +98,7 @@ Building the query from the matched language
 The matched language is turned into a language aspect with
 :php:`\TYPO3\CMS\Core\Context\LanguageAspectFactory::createFromSiteLanguage()`,
 the same call the frontend uses. The aspect then carries the storage site's
-language UID *and* the storage site's translation behaviour:
+language UID *and* the storage site's translation behavior:
 
 ..  literalinclude:: _snippets/_ConferenceListController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceListController.php
@@ -140,7 +141,7 @@ Which one applies is decided by where the aspect came from:
     :header-rows: 1
 
     *   -   The aspect is built from
-        -   Translation behaviour follows
+        -   Translation behavior follows
     *   -   The rendered site's language, the default when you do nothing
         -   The rendered site. Records are shown or hidden according to the
             site the visitor is on, using a language UID that does not belong
@@ -160,20 +161,20 @@ them.
 Where the reading site should keep control — a country site that must hide
 untranslated content even though the storage site shows it — construct the
 aspect explicitly instead: take the language UID from the matched storage
-language, and the overlay type and fallback chain manually constructed to suit your needs. See
-:ref:`extbase-localisation-query-settings-aspect` for building an aspect by
-hand.
+language, and the overlay type and fallback chain manually constructed to suit
+your needs. See :ref:`Setting a language aspect on a query
+<extbase-localisation-query-settings-aspect>` for building an aspect by hand.
 
 ..  _extbase-cross-site-locales-relations:
 
 What this means for relations
-=============================
+-----------------------------
 
 Relations do not follow the aspect you set. Extbase configures relation queries
 itself and passes down **the language of the parent record**, not the language
 of the request.
 
-For cross-site reading this is the behaviour you want, and it falls out for
+For cross-site reading this is the behavior you want, and it falls out for
 free: a conference resolved to the storage site's Italian record fetches its
 categories in that same language, without the extension arranging anything.
 
@@ -184,4 +185,6 @@ rather than being corrected afterwards.
 
 ..  seealso::
 
-    `Localization in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation>`_ — overlay types, the `fallbackType` settings and what each one returns.
+    `Localization in Extbase
+    <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation>`_ —
+    overlay types, the `fallbackType` settings and what each one returns.

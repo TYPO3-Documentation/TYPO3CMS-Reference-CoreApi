@@ -17,15 +17,19 @@ class ConferenceModuleController extends ActionController
     protected readonly SiteFinder $siteFinder,
   ) {}
 
-  public function indexAction(int $pageUid = 0, int $languageId = 0): ResponseInterface
-  {
+  public function indexAction(
+    int $pageUid = 0,
+    int $languageId = 0,
+  ): ResponseInterface {
     // The page selected in the page tree determines the site, and with it
     // the available languages and their fallback configuration.
     $site = $this->siteFinder->getSiteByPageId($pageUid);
     $siteLanguage = $site->getLanguageById($languageId);
 
     // The same aspect the frontend would use for this site language.
-    $languageAspect = LanguageAspectFactory::createFromSiteLanguage($siteLanguage);
+    $languageAspect = LanguageAspectFactory::createFromSiteLanguage(
+      $siteLanguage,
+    );
 
     $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
     $moduleTemplate->assign('languages', $site->getLanguages());

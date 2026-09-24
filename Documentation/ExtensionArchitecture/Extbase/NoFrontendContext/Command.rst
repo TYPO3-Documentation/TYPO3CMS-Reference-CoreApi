@@ -33,18 +33,19 @@ The essentials:
     storagePid to work with and queries fall back to searching page :php:`0`
     alone. Ordinary records are stored on real pages, so a command typically
     finds nothing without explicit configuration.
-*   The :typoscript:`recursive` setting that expands a storagePid
-    down the page tree is applied while the configuration is resolved, which
-    does not happen here. Setting a storagePid on the query settings therefore
-    selects exactly the pages named, with no descendants. Expanding storagePids therefore is
-    an explicit step as well. See
-    :ref:`extbase-persistence-storagepid-override`.
+*   The :typoscript:`recursive` setting that expands a storagePid down the page
+    tree is applied while the configuration is resolved, which does not happen
+    here. Setting a storagePid on the query settings therefore selects exactly
+    the pages named, with no descendants. Expanding storagePids therefore is an
+    explicit step as well. See :ref:`Overriding the storagePid for a single
+    query <extbase-persistence-storagepid-override>`.
 *   The rest of Extbase has a hard dependency on the request. Controllers,
     views and everything resolving :typoscript:`plugin.tx_<extension>`
     configuration cannot be used, and attempting it fails rather than
     degrading.
 *   The language is not established either, and has to be chosen explicitly.
-    See :ref:`extbase-localisation-no-frontend-explicit`.
+    See :ref:`Setting the language explicitly
+    <extbase-localisation-no-frontend-explicit>`.
 *   Where a command only needs to read or write database rows, the
     :ref:`database API <database>` does that without Extbase, and without
     anything to establish first.

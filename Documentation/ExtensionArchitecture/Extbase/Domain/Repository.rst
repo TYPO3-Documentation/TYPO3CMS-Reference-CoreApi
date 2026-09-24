@@ -144,10 +144,16 @@ not override the order. Set the :php:`$defaultOrderings` class property as follo
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
-    protected $defaultOrderings = [
-      'conferenceDate' => QueryInterface::ORDER_ASCENDING,
-      'title' => QueryInterface::ORDER_ASCENDING,
-    ];
+    use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+    use TYPO3\CMS\Extbase\Persistence\Repository;
+
+    class ConferenceRepository extends Repository
+    {
+        protected $defaultOrderings = [
+            'conferenceDate' => QueryInterface::ORDER_ASCENDING,
+            'title'     => QueryInterface::ORDER_ASCENDING,
+        ];
+    }
 
 **Method-level ordering** applies only to queries built inside the method,
 overriding the default for that call. Use :php:`$query->setOrderings()`:

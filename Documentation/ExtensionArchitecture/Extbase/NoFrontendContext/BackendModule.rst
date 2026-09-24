@@ -31,16 +31,19 @@ a module without rewriting them against a lower-level API.
 The essentials:
 
 *   Registration is a separate topic and is already documented. See
-    :ref:`extbase-registration-backend-module`.
+    :ref:`Registering an Extbase backend module
+    <extbase-registration-backend-module>`.
 *   Configuration
     comes from :typoscript:`module.tx_<extension>` rather than
     :typoscript:`plugin.tx_<extension>`.
 *   The storagePid is resolved differently than in the frontend. See
-    :ref:`extbase-persistence-storagepid-backend`.
+    :ref:`Resolving the storagePid in a backend module
+    <extbase-persistence-storagepid-backend>`.
 *   Language handling differs as well, and depends on whether the module works
-    with a page tree. See :ref:`extbase-localisation-no-frontend-backend`.
+    with a page tree. See :ref:`Localization in backend modules
+    <extbase-localisation-no-frontend-backend>`.
 
 ..  seealso::
 
-    :ref:`extbase-localisation-no-frontend` for the language side of running
-    Extbase outside the frontend.
+    :ref:`Localization outside the frontend <extbase-localisation-no-frontend>`
+    for the language side of running Extbase outside the frontend.

@@ -25,8 +25,8 @@ inherited and working towards the cases you control in code.
 
 ..  _extbase-localisation-site-configuration:
 
-What the site configuration decides
-===================================
+How the site configuration decides the language of Extbase records
+==================================================================
 
 Extbase does not decide which language your records are fetched in. It reads
 the :ref:`language aspect <context_api_aspects_language>` from the
@@ -49,20 +49,19 @@ each language of a site carries:
         -   Polish conferences, plus the English originals of those that have
             no Polish translation.
     *   -   `strict`
-        -   Only conferences that exist in Polish (both with a tranlation
-            default and stand alone). Untranslated ones
-            disappear from the list.
-
+        -   Only conferences that exist in Polish: translations of an English
+            original, and conferences created directly in Polish without one.
+            Untranslated ones disappear from the list.
 
 If a site language sets no `fallbackType`, it is `strict`.
 
-Records marked as *all languages* (:sql:`sys_language_uid = -1`) are returned in
-every language, whichever setting is in use.
+Records marked as *all languages* (:sql:`sys_language_uid = -1`) are returned
+in every language, whichever setting is in use.
 
 ..  _extbase-localisation-overlay-types:
 
-Language Overlay types
-----------------------
+Language overlay types behind fallbackType
+------------------------------------------
 
 Internally each of those settings becomes an *overlay type* on the language
 aspect. The names appear in query settings, in
@@ -84,23 +83,26 @@ topic, so it is worth knowing which is which:
 A fourth overlay type, :php:`LanguageAspect::OVERLAYS_ON`, exists in the class
 but no site configuration produces it. It appears only where an aspect is
 constructed in PHP, as described in
-:ref:`extbase-localisation-query-settings`.
+:ref:`Deciding the language per query <extbase-localisation-query-settings>`.
 
 ..  seealso::
 
-    `Overlay types <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-overlay-types>`_ — what each of the four does, independently of Extbase.
+    `Overlay types
+    <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-overlay-types>`_
+    — what each of the four does, independently of Extbase.
 
 ..  versionchanged:: 14.3
 
     Extbase previously ignored `fallbackType` when fetching records and always
     behaved like `fallback`. It now follows the site configuration, so a
-    `strict` site probably returns fewer records than before: :php:`findByUid()`
-    on an  untranslated record returns :php:`null` rather than the default
-    language record, and untranslated related records are dropped from
-    relations. See :ref:`Important: #88886 Extbase persistence respects the language overlay type <changelog:important-88886-1784901300>`.
+    `strict` site probably returns fewer records than before:
+    :php:`findByUid()` on an  untranslated record returns :php:`null` rather
+    than the default language record, and untranslated related records are
+    dropped from relations. See :ref:`Important: #88886 Extbase persistence
+    respects the language overlay type <changelog:important-88886-1784901300>`.
     To keep a single query behaving as before, set an aspect with
-    :php:`OVERLAYS_MIXED` on it as shown in
-    :ref:`extbase-localisation-query-settings`.
+    :php:`OVERLAYS_MIXED` on it as shown in :ref:`Deciding the language per
+    query <extbase-localisation-query-settings>`.
 
 ..  _extbase-localisation-site-configuration-relations:
 
@@ -121,8 +123,8 @@ switched off" for your whole object graph, only for its roots.
 
 ..  _extbase-localisation-query-settings:
 
-Deciding per query in your own extension
-========================================
+Setting the language for a single Extbase query
+===============================================
 
 When you maintain the extension, a single query can depart from the site
 configuration. Every query carries
@@ -131,12 +133,12 @@ language aspect is one of them.
 
 ..  _extbase-localisation-query-settings-aspect:
 
-Setting a language aspect
--------------------------
+Setting a language aspect on Extbase query settings
+---------------------------------------------------
 
-Put a :php-short:`\TYPO3\CMS\Core\Context\LanguageAspect` on the query settings.
-This is the supported way to fetch records in a language, or with a translation
-behaviour, that differs from the one the site asked for.
+Put a :php-short:`\TYPO3\CMS\Core\Context\LanguageAspect` on the query
+settings. This is the supported way to fetch records in a language, or with a
+translation behavior, that differs from the one the site asked for.
 
 Give the repository one method that accepts a finished aspect, rather than one
 method per way of choosing a language:
@@ -151,11 +153,12 @@ make it.
 
 ..  _extbase-localisation-query-settings-from-site:
 
-Deriving the aspect from a site language
-----------------------------------------
+Deriving the language aspect from a site language
+-------------------------------------------------
 
 If your site configuration declares the language configuration you want, create
-the language aspect from it. If there is none, you can create the aspect manually.
+the language aspect from it. If there is none, you can create the aspect
+manually.
 
 ..  literalinclude:: _snippets/_ConferenceLanguageController_site.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -167,11 +170,11 @@ consistent with each other.
 
 ..  _extbase-localisation-query-settings-custom:
 
-Building an aspect that no site configuration produces
-------------------------------------------------------
+Building a custom language aspect in PHP
+----------------------------------------
 
 Constructing the aspect by hand, as the action `translatedOnlyAction` does,
-is the right move only when you deliberately want behaviour outside what
+is the right move only when you deliberately want behavior outside what
 a site language can express. :php:`LanguageAspect::OVERLAYS_ON` is the
 clearest case: it returns translations that have a default language original,
 and leaves out records that exist only in the requested language without
@@ -192,25 +195,25 @@ so this is not a way to exclude them.
 
 ..  warning::
 
-    Constructing a :php-short:`\TYPO3\CMS\Core\Context\LanguageAspect` manually with
-    languageUid, overlay type and fallback chain in a combination not declared by
-    any site configuration can lead to unexpected results in the delivered record set.
-    Make sure to verify especially the fallback chain in such a case, as it relies
-    on languageUids that can change in the site configuration without the code ever
-    learning about it.
+    Constructing a :php-short:`\TYPO3\CMS\Core\Context\LanguageAspect` manually
+    with languageUid, overlay type and fallback chain in a combination not
+    declared by any site configuration can lead to unexpected results in the
+    delivered record set. Make sure to verify especially the fallback chain in
+    such a case, as it relies on languageUids that can change in the site
+    configuration without the code ever learning about it.
 
-Both routes are used elsewhere in this manual: from
-:ref:`outside the frontend <extbase-localisation-no-frontend>`, where no site
-implies the language, and when
-:ref:`reading records that belong to another site <extbase-cross-site-locales>`.
+Both routes are used elsewhere in this manual: from :ref:`outside the frontend
+<extbase-localisation-no-frontend>`, where no site implies the language, and
+when :ref:`reading records that belong to another site
+<extbase-cross-site-locales>`.
 
 ..  _extbase-localisation-model:
 ..  _extbase-model-localization:
 ..  _extbase-localisation-localized-uid:
 ..  _extbase-model-localizedUid:
 
-Which record you are holding
-----------------------------
+uid and _localizedUid of localized Extbase objects
+--------------------------------------------------
 
 Once translation handling is involved, the `uid` of a domain object is no
 longer simply the `uid` of the row it came from. Extbase keeps both, in
@@ -246,19 +249,19 @@ a `free` site the object carries the translated record's own identifier, while
 everywhere else it carries the default language one.
 
 A third property, :php:`_languageUid`, holds the language the record belongs
-to. It is the property to set when
-:ref:`writing a record in a specific language <extbase-localisation-writing-default>`.
+to. It is the property to set when :ref:`writing a record in a specific
+language <extbase-localisation-writing-default>`.
 
 ..  hint::
     If your project uses :composer:`typo3/cms-workspaces` there is yet another
-    additional property, :php:`_versionedUid`. Refer to the
-    :doc:`Workspaces documentation <ext_workspaces:Index>` for details on
+    additional property, :php:`_versionedUid`. Refer to
+    :ref:`Versioning in workspaces <ext_workspaces:versioning>` for details on
     workspace overlays.
 
 ..  _extbase-localisation-query-settings-all-languages:
 
-Fetching records of all languages
----------------------------------
+Fetching Extbase records in all languages
+-----------------------------------------
 
 :php:`setRespectSysLanguage(false)` removes the language restriction from the
 query. Records of every language are returned side by side, so a conference
@@ -291,69 +294,29 @@ translation handling off for them.
 
 ..  _extbase-localisation-beyond:
 
-Beyond reading in the frontend
-==============================
+Localization beyond reading in the frontend
+===========================================
 
 The rules above describe a plugin reading records in a rendered frontend
 request. Three situations depart from that, each on its own page:
 
-:ref:`extbase-cross-site`
+:ref:`Reading localized records across sites <extbase-cross-site>`
     Reading records that belong to another site, where language IDs and
     fallback settings may no longer be the same as for the site you are
     currently handling.
 
-:ref:`extbase-localisation-writing`
+:ref:`Writing records from the frontend <extbase-localisation-writing>`
     Creating records from frontend forms, where Extbase decides the language
     itself and cannot produce translations.
 
-:ref:`extbase-localisation-no-frontend`
+:ref:`Localization outside the frontend <extbase-localisation-no-frontend>`
     Backend modules, command line commands and middlewares, where the site and
     language the frontend would have supplied are missing.
 
-..  _extbase-localisation-model:
-..  _extbase-model-localization:
-
-Localization of Extbase models
-==============================
-
-..  _extbase-localisation-localized-uid:
-..  _extbase-model-localizedUid:
-
-Identifiers in localized models
--------------------------------
-
-Domain models have a main identifier :php:`uid` and an additional property
-:php:`_localizedUid`.
-
-Depending on whether the `overlay type <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-overlay-types>`_
-language aspect is enabled (:typoscript:`LanguageAspect::OVERLAYS_ON` or
-:typoscript:`LanguageAspect::OVERLAYS_MIXED`) or disabled (:typoscript:`LanguageAspect::OVERLAYS_OFF`),
-the identifier contains different values.
-
-When the overlay language aspect is enabled, then the :php:`uid`
-property contains the :php:`uid` value of the default language record and
-the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
-
-+------------------------------------------------------------+----------------------------+---------------------------+
-| Context                                                    | Record in default language | Translated record         |
-+============================================================+============================+===========================+
-| Database                                                   | uid:2                      | uid:11, l10n_parent:2     |
-+------------------------------------------------------------+----------------------------+---------------------------+
-| Domain object values with Overlay language aspect enabled  | uid:2, _localizedUid:2     | uid:2, _localizedUid:11   |
-+------------------------------------------------------------+----------------------------+---------------------------+
-| Domain object values with Overlay language aspect disabled | uid:2, _localizedUid:2     | uid:11, _localizedUid:11  |
-+------------------------------------------------------------+----------------------------+---------------------------+
-
-..  hint::
-    If your project uses :composer:`typo3/cms-workspaces` there is yet another
-    additional property, :php:`_versionedUid`. Refer to the
-    :doc:`Workspaces documentation <ext_workspaces:Index>` for details on
-    workspace overlays.
-
 ..  _extbase-localisation-translate:
 
-Translating labels
-==================
+Translating labels in Extbase extensions
+========================================
 
 This chapter covers how Extbase handles *records* across languages. Translating
 the *labels* of an extension — button captions, flash messages, validation

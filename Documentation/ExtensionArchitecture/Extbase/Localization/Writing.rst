@@ -26,12 +26,12 @@ When Extbase persists a new object it fills in the language fields itself:
 
 A record submitted by a visitor browsing the Polish version of a site is
 therefore stored as a default-language record, not as a Polish one. Setting the
-language explicitely on the object before persisting it stores the record in
+language explicitly on the object before persisting it stores the record in
 that language:
 
 ..  literalinclude:: _snippets/_ConferenceControllerLanguage.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-    :emphasize-lines: 21-22
+    :emphasize-lines: 21-26
 
 That is enough to file a record under a language. It is not enough to make it
 a translation.
@@ -85,7 +85,7 @@ Beyond it, other tools are a better fit:
 *   The :ref:`DataHandler <tce-database-basics>` creates real
     translations, maintains relations and respects workspaces and record
     history. Anything that has to produce a translated record belongs here.
-*   :doc:`EXT:form <ext_form:Index>` covers form-shaped work — building,
+*   :composer:`typo3/cms-form` covers form-shaped work — building,
     validating and processing forms — without hand-writing a controller for
     it.
 *   A mixture is often the right answer: Extbase for reading and for the
@@ -95,7 +95,7 @@ Beyond it, other tools are a better fit:
 ..  _extbase-localisation-writing-relations:
 
 What this means for relations
-=============================
+-----------------------------
 
 Relations are where frontend writing most often outgrows Extbase.
 
@@ -103,11 +103,10 @@ Extbase can persist relations of an object it creates, but it does so with the
 same limitation as everywhere else: the related records are written as
 default-language records too, and no translation relationship is established
 between them and anything else. An object graph created from a frontend form
-is therefore entirely default-language, however the form was labelled. This goes
-with the exception of language setting being applied explicitely in the query,
-so it is the developers responsibility to provide that. But still no valid
-translation record, connected to its default language record, can be created
-purely by Extbase.
+is therefore entirely default-language, however the form was labeled. The
+exception is a language you set explicitly on each object before persisting
+it, which is the developer's responsibility. Even then, Extbase alone cannot
+create a valid translation record connected to its default language record.
 
 Where a frontend form has to create or modify a translated object together
 with its relations, the DataHandler is the appropriate tool, rather than

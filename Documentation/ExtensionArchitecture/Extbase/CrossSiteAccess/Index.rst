@@ -13,12 +13,12 @@ them. The storage folder sits in the site's own page tree, the language comes
 from the site being rendered, and the two agree because they describe the same
 site.
 
-As soon as the records are stored outside the current site, they might stop agreeing
-on their language configuration. A company-wide list of conferences is
+As soon as the records are stored outside the current site, they might stop
+agreeing on their language configuration. A company-wide list of conferences is
 maintained once and shown on every brand site. A group of country sites shares
 one product catalogue. A campaign site displays the news of the main site
-without maintaining its own. In each case a plugin reads records that belong
-to a *different* site than the one being rendered.
+without maintaining its own. In each case a plugin reads records that belong to
+a *different* site than the one being rendered.
 
 There is no separate concept to learn for this. A shared storage folder is not
 a special kind of folder — **any site becomes a shared storage the moment
@@ -70,26 +70,31 @@ What this chapter covers
     :class: pb-4
     :card-height: 100
 
-    ..  card:: :ref:`extbase-cross-site-reading`
+    ..  card:: :ref:`Reading records stored in another site <extbase-cross-site-reading>`
 
-        Finding the storage pages of another site and querying them, including the
-        case where the folder lies outside the current site's page tree entirely.
+        Finding the storage pages of another site and querying them,
+        including the case where the folder lies outside the current site's
+        page tree entirely.
 
-    ..  card:: :ref:`extbase-cross-site-locales`
+    ..  card:: :ref:`Matching languages between sites <extbase-cross-site-locales>`
 
-        Resolving *which language to ask for* when the UIDs differ between sites,
-        and what to do when the two sites' fallback configurations disagree.
+        Resolving *which language to ask for* when the UIDs differ between
+        sites, and what to do when the two sites' fallback configurations disagree.
 
-    ..  card:: :ref:`extbase-cross-site-writing`
+    ..  card:: :ref:`Writing records into a shared storage <extbase-cross-site-writing>`
 
-        Where a new record lands when a repository reads from more than one site,
-        and how to pin that target deliberately.
+        Where a new record lands when a repository reads from more than one
+        site, and how to pin that target deliberately.
 
 ..  seealso::
 
-    *   `The storagePid: where Extbase looks for records <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-storagepid>`_ — how the storage pages are resolved in the ordinary, single-site case.
+    *   `The storagePid: where Extbase looks for records
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-storagepid>`_
+        — how the storage pages are resolved in the ordinary, single-site case.
 
-    *   `Localization in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation>`_ — how language handling works before site boundaries complicate it.
+    *   `Localization in Extbase
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation>`_ —
+        how language handling works before site boundaries complicate it.
 
 ..  toctree::
     :titlesonly:

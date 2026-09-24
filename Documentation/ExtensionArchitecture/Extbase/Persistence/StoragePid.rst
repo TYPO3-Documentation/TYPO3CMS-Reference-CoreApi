@@ -252,4 +252,7 @@ applies internally.
 
     *   `Querying the database with Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries>`_ — building queries, constraints, ordering and the other query settings.
 
-    *   `Reading records across site boundaries <https://docs.typo3.org/permalink/t3coreapi:extbase-cross-site>`_ — pointing the storagePid at another site's storage folder, and the language handling that has to accompany it.
+    *   `Reading records across site boundaries
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-cross-site>`_ —
+        pointing the storagePid at another site's storage folder, and the
+        language handling that has to accompany it.
