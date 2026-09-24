@@ -1,0 +1,15 @@
+<!-- A relation without "relationship" contains a collection of records -->
+<f:for each="{record.categories}" as="category">
+  <span>{category.title}</span>
+</f:for>
+
+<!-- With "relationship" set to "manyToOne" the field contains one record -->
+<h2>{record.author.title}</h2>
+
+<!-- A field of TCA type "file" contains file references -->
+<f:for each="{record.image}" as="image">
+  <f:image image="{image}" width="400" />
+</f:for>
+
+<!-- A field of TCA type "datetime" contains a \DateTimeImmutable object -->
+<f:format.date format="d.m.Y">{record.publish_date}</f:format.date>
