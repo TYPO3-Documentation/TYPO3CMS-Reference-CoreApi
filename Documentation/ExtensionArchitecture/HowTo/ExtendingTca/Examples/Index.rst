@@ -125,7 +125,7 @@ instead of :code:`ExtensionManagementUtility::addToAllTCAtypes()`.
 We need to specify the palette key as the second argument (:code:`access`).
 The new field is positioned by the fourth parameter
 (:code:`before:editlock`). This will position the "no print" field before the
-:guilabel:`Restrict editing by non-Admins` field, instead of putting it in the
+**Restrict editing by non-Admins** field, instead of putting it in the
 :guilabel:`Extended` tab.
 
 The result is the following:

@@ -98,7 +98,7 @@ The key properties:
           - 'page["backend_layout"] == "pagets__conferences"'
 
     A robust, UID-free approach is to register a custom value for the
-    :guilabel:`Contains Plugin` page property (the :sql:`module` field) in
+    **Contains Plugin** page property (the :sql:`module` field) in
     :file:`EXT:my_extension/Configuration/TCA/Overrides/pages.php`:
 
     ..  literalinclude:: _snippets/_pages.php
