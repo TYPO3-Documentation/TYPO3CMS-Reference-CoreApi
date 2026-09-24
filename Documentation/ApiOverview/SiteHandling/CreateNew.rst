@@ -35,7 +35,7 @@ The site configuration form looks like this:
 
 It is recommended to change the following fields:
 
-:guilabel:`Site Identifier`
+**Site Identifier**
     The site identifier is the name of the folder within
     :file:`<project-root>/config/sites/` that will hold your configuration
     file(s). When choosing an identifier, make sure to stick to ASCII, but for
@@ -43,7 +43,7 @@ It is recommended to change the following fields:
 
     Examples: `main-site` and `landing-page`.
 
-:guilabel:`Entry Point`
+**Entry Point**
     Be as specific as you can for your sites without losing flexibility. So, if
     you have a choice between using :samp:`https://example.org`,
     :samp:`example.org` or :samp:`/`, then choose :samp:`https://example.org`.
