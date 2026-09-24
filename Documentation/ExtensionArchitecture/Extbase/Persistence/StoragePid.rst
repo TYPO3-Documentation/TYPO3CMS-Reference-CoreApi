@@ -65,9 +65,10 @@ handles the request:
     :typoscript:`plugin.tx_myextension_conferencelist.persistence.storagePid`
     overrides the extension-wide value for that one plugin.
 #.  **The Startingpoint field** on a plugin's content element. When an editor
-    fills in the :guilabel:`Behaviour > Starting point` field, the chosen pages
-    override the TypoScript value. The label hides the real database column,
-    which is :sql:`pages` — useful to know when inspecting records or writing
+    fills in the **Starting point** field on the :guilabel:`Behaviour` tab,
+    the chosen pages override the TypoScript value. The label hides the real
+    database column, which is :sql:`pages` — useful to know when inspecting
+    records or writing
     overrides, as the label is not guaranteed to read the same on every instance
     or in every language.
 #.  **FlexForm** — only if a plugin's FlexForm defines a field bound to
@@ -95,7 +96,7 @@ An Extbase repository behaves the same way inside a backend module as it does in
 the frontend: every query is restricted to the configured storage pages. What
 differs is *how* the storagePid is resolved. A backend module is not a content
 element on a page, so there is no plugin record, no FlexForm and no
-:guilabel:`Starting point` field to draw from. The chain is therefore much
+**Starting point** field to draw from. The chain is therefore much
 shorter:
 
 #.  **Framework TypoScript** —
@@ -154,7 +155,7 @@ TypoScript-configured storagePids:
 ..  literalinclude:: _snippets/_recursive.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
-The :guilabel:`Starting point` field has its own :guilabel:`Recursive` selector
+The **Starting point** field has its own :guilabel:`Recursive` selector
 next to it that does the same for the editor-chosen pages.
 
 ..  warning::

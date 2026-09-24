@@ -177,7 +177,7 @@ their active providers are locked, MFA needs to be disabled by an administrator
 for this specific user.
 
 Administrators are able to manage the user's MFA providers in the corresponding
-user record. The new :guilabel:`Multi-factor authentication` field displays a
+user record. The new **Multi-factor authentication** field displays a
 list of active providers and a button to deactivate MFA for the user, or
 only a specific MFA provider.
 
