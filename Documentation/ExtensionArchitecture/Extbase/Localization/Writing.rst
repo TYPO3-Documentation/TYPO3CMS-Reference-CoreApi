@@ -92,10 +92,7 @@ Beyond it, other tools are a better fit:
     simple write, the DataHandler for the step that creates or updates a
     translation.
 
-..  _extbase-localisation-writing-relations:
-
-What this means for relations
------------------------------
+..  rubric:: What this means for relations
 
 Relations are where frontend writing most often outgrows Extbase.
 

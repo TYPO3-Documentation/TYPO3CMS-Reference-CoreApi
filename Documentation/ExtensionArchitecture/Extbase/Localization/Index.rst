@@ -104,10 +104,7 @@ constructed in PHP, as described in
     :php:`OVERLAYS_MIXED` on it as shown in :ref:`Deciding the language per
     query <extbase-localisation-query-settings>`.
 
-..  _extbase-localisation-site-configuration-relations:
-
-What this means for relations
------------------------------
+..  rubric:: What this means for relations
 
 The site configuration governs the records a repository fetches directly. It
 does not fully govern their relations.
@@ -271,10 +268,7 @@ This is what you want for a listing that deliberately spans languages, such as
 a backend overview of all translations of a record. In a frontend list it looks
 like duplicates.
 
-..  _extbase-localisation-query-settings-relations:
-
-What this means for relations
------------------------------
+..  rubric:: What this means for relations
 
 An aspect set on a query applies to the records that query returns. Relations
 are fetched by separate queries, which Extbase configures itself, and it
