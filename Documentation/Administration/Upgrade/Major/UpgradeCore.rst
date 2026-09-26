@@ -148,10 +148,10 @@ installed and running the above command can create dependency errors.
 
 For example, when upgrading from TYPO3 v12 LTS to v13 LTS an error can occur
 stating that `"helhum/typo3-console": "^8.1"` is only compatible with v12 LTS,
-with the new version `^9.1` supporting TYPO3 v13 LTS.
+with the new version `^8.2` supporting TYPO3 v13 LTS.
 
 For each of these dependency errors, add the version requirement
-`"helhum/typo3-console:^9.1"` to the end of your :bash:`composer require` string
+`"helhum/typo3-console:^8.2"` to the end of your :bash:`composer require` string
 and retry the command.
 
 Sometimes version upgrades disrupt Composer’s file structure. If issues persist,
