@@ -1,4 +1,5 @@
 :navigation-title: Basics
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Site handling; Basics

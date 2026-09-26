@@ -1,4 +1,5 @@
 :navigation-title: PHP
+
 ..  include:: /Includes.rst.txt
 ..  _cgl-php-file-formatting:
 ..  _cgl-php:
