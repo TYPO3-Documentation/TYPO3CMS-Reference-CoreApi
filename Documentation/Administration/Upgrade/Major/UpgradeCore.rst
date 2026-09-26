@@ -53,8 +53,18 @@ issues are caused by the TYPO3 core or the extension itself.
 ..  tip::
     Check each extension's changelog (if it exists) before you update an extension.
 
-Ensure all extensions you use are available for the TYPO3 version you're
-upgrading to. If a third-party extension isn’t ready, consider supporting or
+Ensure all extensions you use are available for the TYPO3 version you are
+upgrading to:
+
+*   For third-party extensions, check the
+    `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`_ or
+    `Packagist <https://packagist.org/>`_, as well as the extension's code
+    repository (for example, on GitHub or GitLab).
+*   For system extensions, use the
+    `TYPO3 Composer Helper <https://get.typo3.org/misc/composer/helper>`_
+    to verify which system packages are available for your target TYPO3 version.
+
+If a third-party extension is not ready, consider supporting or
 sponsoring the author to update it. Some agencies offer early access to updated
 extensions for a fee.
 
