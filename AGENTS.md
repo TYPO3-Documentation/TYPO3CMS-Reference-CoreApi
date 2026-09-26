@@ -18,7 +18,7 @@ convention an agent carries from a user-level `CLAUDE.md` or similar:
 Why the change is needed. The diff shows what changed.
 
 Releases: main, 14.3
-Assisted-by: Claude Sonnet 5 <noreply@anthropic.com>
+Assisted-by: Some AI Model <noreply@someai.com>
 Signed-off-by: Firstname Lastname <email>
 ```
 
