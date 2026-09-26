@@ -1,0 +1,16 @@
+plugin.tx_myextension.persistence {
+
+  # 84 is outside the current site
+  # 12 is a folder inside the site
+
+  # Read from the shared folder and from the local one.
+  storagePid = 84,12
+
+  # Without the setting below, new conferences would be written to page 84 —
+  # the first entry of the list above. Pin the write target explicitly.
+  classes {
+    MyVendor\MyExtension\Domain\Model\Conference {
+      newRecordStoragePid = 12
+    }
+  }
+}

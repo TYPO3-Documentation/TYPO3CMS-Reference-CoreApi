@@ -15,8 +15,8 @@ class TeaSupplyController extends ActionController
   // ...
 
   public function __construct(
-    private readonly CountryProvider $countryProvider,
-    private readonly TeaRepository $teaRepository,
+    protected readonly CountryProvider $countryProvider,
+    protected readonly TeaRepository $teaRepository,
   ) {}
 
   public function showCountryFormAction(Tea $tea): ResponseInterface
