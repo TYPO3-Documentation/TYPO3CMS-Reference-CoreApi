@@ -31,7 +31,7 @@ All aspects derive from the interface :php:`\TYPO3\CMS\Core\Routing\Aspect\Aspec
 
 To write a custom **modifier**, your aspect has to
 extend :php:`\TYPO3\CMS\Core\Routing\Aspect\ModifiableAspectInterface` and implement the :php:`modify` method
-(see `\TYPO3\CMS\Core\Routing\Aspect\LocaleModifier` as example).
+(see :php:`\TYPO3\CMS\Core\Routing\Aspect\LocaleModifier` as example).
 
 To write a custom **mapper**, your aspect should either implement
 :php:`\TYPO3\CMS\Core\Routing\Aspect\StaticMappableAspectInterface`

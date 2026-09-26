@@ -60,7 +60,7 @@ methods, both returning a
         :param $linkText: the text to be used as the link text
         :param $linkConfiguration: the TypoLink configuration array
         :param $contentObjectRenderer: the current content object renderer
-        :returns: `\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
+        :returns: :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
 
     ..  php:method:: createUri(string $urlParameter, ?ContentObjectRenderer $contentObjectRenderer = null)
 
@@ -73,7 +73,7 @@ methods, both returning a
 
         :param $urlParameter: the TypoLink parameter string
         :param $contentObjectRenderer: the current content object renderer, optional
-        :returns: `\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
+        :returns: :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
 
 ..  _link-factory-instance:
 

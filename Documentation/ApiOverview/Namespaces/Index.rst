@@ -65,7 +65,7 @@ names – don't use special characters:
 
 .. attention::
 
-   The vendor name `TYPO3\CMS` is reserved and may not be used by extensions!
+   The vendor name :php:`TYPO3\CMS` is reserved and may not be used by extensions!
 
 The package name corresponds to the extension key. Underscores in the extension
 key are removed in the namespace and replaced by upper camel-case. So extension key:
