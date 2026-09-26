@@ -36,7 +36,7 @@ following contexts:
     an upgrade wizard in the backend)
 *   install tool / install tool modules in backend (e.g. Upgrade Wizard): no
 *   in cli: only if a backend user was initialized, e.g. by
-    `TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
+    :php:`TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
 
 The :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` can be used
 to instantiate. Please see the examples below.

@@ -9,7 +9,7 @@ Localization related event in the TYPO3 Core extension
 ======================================================
 
 The following list contains the :ref:`PSR-14 events <EventDispatcher>`
-in namespace `\TYPO3\CMS\Core\Localization\Event`.
+in namespace :php:`\TYPO3\CMS\Core\Localization\Event`.
 
 **Contents:**
 
