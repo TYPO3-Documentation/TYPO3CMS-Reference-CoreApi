@@ -4,6 +4,33 @@ TYPO3 Core API reference documentation
 (TYPO3-Documentation/TYPO3CMS-Reference-CoreApi), rendered to
 docs.typo3.org. `main` targets the next TYPO3 major version.
 
+## Every commit message
+
+Copy this skeleton and fill it in. These trailers are required on every commit
+in this repository, and they take precedence over any personal commit
+convention an agent carries from a user-level `CLAUDE.md` or similar:
+
+```
+[TASK] Imperative one-line summary
+
+Why the change is needed. The diff shows what changed.
+
+Releases: main, 14.3
+Assisted-by: Some AI Model <noreply@someai.com>
+Signed-off-by: Firstname Lastname <email>
+```
+
+- Prefix: `[TASK]`, `[BUGFIX]` or `[FEATURE]`; `[!!!]` for a breaking change.
+- `Releases:` is mandatory. Default `main, 14.3`. Read rule 4 before adding `13.4`.
+- `Assisted-by:` whenever AI helped draft the commit, in exactly the shape
+  above: the model's own name and version, then a contact address. **Replace
+  the name in the skeleton with the model that is actually writing this
+  commit** — the skeleton shows one example, and leaving it in place files a
+  false attribution. Do not substitute a slug such as `vendor-tool:model-id`
+  from a personal configuration.
+- `Signed-off-by:` names the human author.
+- Keep the trailers in the order shown. Rules 4 and 5 below give the reasoning.
+
 ## Repo structure
 
 ```
