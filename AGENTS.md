@@ -22,7 +22,14 @@ Assisted-by: Some AI Model <noreply@someai.com>
 Signed-off-by: Firstname Lastname <email>
 ```
 
-- Prefix: `[TASK]`, `[BUGFIX]` or `[FEATURE]`; `[!!!]` for a breaking change.
+- Prefix: a commit that documents a change in TYPO3 Core copies the subject of
+  that change including its tags, for example
+  `[!!!][TASK] Use stronger cryptographic algorithm for HMAC`. The `[!!!]`
+  marker belongs to the TYPO3 Core commit rules and only ever arrives here as
+  part of a copied subject. A subject of our own takes `[DOCS]` for
+  documentation of something the manual did not cover yet, `[TASK]` for a
+  cleanup, a style fix or tooling, and `[BUGFIX]` for a correction of wrong
+  content.
 - `Releases:` is mandatory. Default `main, 14.3`. Read rule 4 before adding `13.4`.
 - `Assisted-by:` whenever AI helped draft the commit, in exactly the shape
   above: the model's own name and version, then a contact address. **Replace
@@ -119,8 +126,8 @@ Makefile                    # local install/build/test commands
 5.  **Commit trailers**: end every commit message with, in this order —
     the `Resolves:`/`References:` line for a `Changelog-To-Doc` issue if
     applicable (see rule 4's changelog note), `Releases:`, then
-    `Assisted-by: Claude Sonnet 5 <noreply@anthropic.com>` (or the actual
-    assisting model) whenever AI assisted in drafting the commit, then
+    `Assisted-by: Some AI Model <noreply@someai.com>`, naming the model that
+    actually assisted, whenever AI assisted in drafting the commit, then
     the human author's `Signed-off-by: <Name>`. This isn't a DCO
     requirement tracked elsewhere in this repo — it's an observed
     convention from merged commit history, so follow the trailer order
