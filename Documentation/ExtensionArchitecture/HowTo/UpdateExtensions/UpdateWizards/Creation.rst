@@ -16,7 +16,8 @@ Implementing an upgrade wizard
     deprecated in favor of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
 
     The interfaces and classes used for upgrade wizards have been moved from
-    namespace `\TYPO3\CMS\Install\Updates` to `\TYPO3\CMS\Core\Upgrades`.
+    namespace :php:`\TYPO3\CMS\Install\Updates` to
+    :php:`\TYPO3\CMS\Core\Upgrades`.
 
     Using the old locations is deprecated in v14 but can be used to provide
     compatibility with both TYPO3 v13 and v14.

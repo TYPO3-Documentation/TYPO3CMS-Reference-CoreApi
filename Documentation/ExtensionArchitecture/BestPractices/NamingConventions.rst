@@ -116,7 +116,7 @@ Derived names are:
 * package name in :file:`composer.json <extension-composer-json>` `<vendor-name>/<package-name>`.
   Underscores (`_`) should be replaced by dashes (`-`)
 * namespaces: Underscores in the extension key are removed by converting the extension key
-  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `MyVendor\CoolShop`).
+  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`MyVendor\CoolShop`).
 
 
 ..  attention::

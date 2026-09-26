@@ -973,8 +973,8 @@ Rules
 
 *   The second argument of :php:`->createNamedParameter()` specifies the type of
     input. For string, this can be omitted, but it is good practice to add
-    `\TYPO3\CMS\Core\Database\Connection::PARAM_INT` for integers or similar for
-    other field types. This is not strict rule currently, but if you follow it
+    :php:`\TYPO3\CMS\Core\Database\Connection::PARAM_INT` for integers or
+    similar for other field types. This is not strict rule currently, but if you follow it
     you will have fewer headaches in the future, especially with :abbr:`DBMSes
     (Database management systems)` that are not as relaxed as MySQL when it
     comes to field types. The :php:`Connection` constants can be used for simple
