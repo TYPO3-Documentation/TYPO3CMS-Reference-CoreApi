@@ -141,35 +141,16 @@ purposes.
 repository — :php:`findAll()`, :php:`findBy()`, and custom methods that do
 not override the order. Set the :php:`$defaultOrderings` class property as follows:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceRepositoryOrdering.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-    use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-    use TYPO3\CMS\Extbase\Persistence\Repository;
-
-    class ConferenceRepository extends Repository
-    {
-        protected $defaultOrderings = [
-            'conferenceDate' => QueryInterface::ORDER_ASCENDING,
-            'title'     => QueryInterface::ORDER_ASCENDING,
-        ];
-    }
+    :visible-lines: 14-17
 
 **Method-level ordering** applies only to queries built inside the method,
 overriding the default for that call. Use :php:`$query->setOrderings()`:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceRepositoryOrdering.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-    public function findUpcomingByTitle(): QueryResultInterface
-    {
-        $query = $this->createQuery();
-        $query->matching(
-            $query->greaterThanOrEqual('conferenceDate', new \DateTimeImmutable('today'))
-        );
-        $query->setOrderings(['title' => QueryInterface::ORDER_ASCENDING]);
-        return $query->execute();
-    }
+    :visible-lines: 19-31
 
 In both cases the keys are **property names**, not column names. Order
 direction is set by :php:`QueryInterface::ORDER_ASCENDING` (:php:`'ASC'`) or
