@@ -1,4 +1,5 @@
 :navigation-title: Usage in TypoScript + Fluid
+
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; TypoScript
 ..  _sitehandling-inTypoScript:

@@ -1,4 +1,5 @@
 :navigation-title: DBAL
+
 ..  include:: /Includes.rst.txt
 ..  index:: ! Database
 ..  _doctrine-dbal:

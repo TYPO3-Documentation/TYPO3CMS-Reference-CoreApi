@@ -1,4 +1,5 @@
 :navigation-title: General Recommendations
+
 ..  include:: /Includes.rst.txt
 
 ..  _seo-recommendations:
