@@ -632,6 +632,28 @@ cacheHash
         :ref:`excludedParameters <typo3ConfVars_fe_cacheHash_excludedParameters>`
         for the cache hash calculation of the given query parameters.
 
+    ..  _typo3ConfVars_fe_cacheHash_fallbackToLegacyHash:
+
+    ..  confval:: fallbackToLegacyHash
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['fallbackToLegacyHash']
+        :name: typo3-conf-vars-fe-cacheHash-fallbackToLegacyHash
+        :type: bool
+        :Default: true
+
+        If true, legacy cHash values (based on MD5) are accepted during frontend
+        requests as fallback.
+
+        TYPO3 v14.0 signs a cHash value with SHA3-256, see
+        `Breaking: #106307 - Use stronger cryptographic algorithm for HMAC
+        <https://docs.typo3.org/permalink/changelog:breaking-106307-1763824774>`_.
+        A URL that an indexed page or an external site still carries holds a
+        cHash of the previous algorithm. TYPO3 answers such a URL with an HTTP
+        404 error once this option is disabled. Keep the option enabled until
+        the search engines crawled the new URLs.
+
+        ..  deprecated:: 15.0
+            TYPO3 v15.0 removes the option with the legacy cHash values.
+
 
 ..  index::
     TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
