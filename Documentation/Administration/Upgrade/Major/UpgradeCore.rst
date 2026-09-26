@@ -138,7 +138,7 @@ would upgrade each of them to version 14.3.
     "typo3/cms-form:^14.3" "typo3/cms-frontend:^14.3" "typo3/cms-impexp:^14.3" \
     "typo3/cms-info:^14.3" "typo3/cms-install:^14.3" "typo3/cms-linkvalidator:^14.3" \
     "typo3/cms-lowlevel:^14.3" "typo3/cms-reactions:^14.3" "typo3/cms-recycler:^14.3" \
-    "typo3/cms-rte-ckeditor:^14.3" "typo3/cms-seo:^14.3"  "typo3/cms-setup:^14.3" \
+    "typo3/cms-rte-ckeditor:^14.3" "typo3/cms-seo:^14.3" \
     "typo3/cms-sys-note:^14.3" "typo3/cms-tstemplate:^14.3" \
     "typo3/cms-viewpage:^14.3" "typo3/cms-webhooks:^14.3"
 
