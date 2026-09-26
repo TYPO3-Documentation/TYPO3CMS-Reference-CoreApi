@@ -89,7 +89,7 @@ Makefile                    # local install/build/test commands
 
 - **Do not guess a rendered path or an anchor.** Every manual publishes its
   object inventory, so the target of a `:ref:` and the page a section sits on
-  can be looked up in one call — 7433 labels for this manual:
+  can be looked up in one call:
 
   ```bash
   curl -s https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/objects.inv.json \
@@ -108,6 +108,15 @@ Makefile                    # local install/build/test commands
   ```bash
   curl -sI https://docs.typo3.org/permalink/t3coreapi:sitehandling-base-variants-functions | grep -Ei '^(HTTP|Location)'
   ```
+
+- **A permalink can name a version.** Append `@<version>` to link the page as
+  it stands on a release branch, for example
+  `…:sitehandling-base-variants-functions@13.4`. Read the `Location` header to
+  confirm which version answered: an unknown version does not fail, it
+  redirects to `main`, so `@99.9` looks like a working link to the wrong page.
+  The inventory of that version sits at the same URL with `main` replaced,
+  `…/reference-coreapi/13.4/en-us/objects.inv.json`, which is how an anchor is
+  checked for a branch before a backport links it.
 
 ## Rules
 
@@ -152,9 +161,11 @@ Makefile                    # local install/build/test commands
 6.  **Taking over someone else's commits**: this repository merges by
     squash, so a contributor whose commits you carry into your own branch
     survives on the target branch only as a `Co-authored-by:` trailer in the
-    squash message. A rebase keeps them as authors in the branch history, and
-    the merge does not transplant that. When continuing someone's pull
-    request, add the trailer yourself rather than relying on the history.
+    squash message. GitHub writes those trailers itself, because the squash
+    message is composed from the commit messages — PR #7017 reached `main`
+    with `Co-authored-by: Sarah McCarthy` that way. They are lost when the
+    person merging replaces the proposed message, so keep the generated
+    `Co-authored-by:` lines when editing it, and add a missing one by hand.
 7.  **Merging the bot's backport PRs**: once a labelled PR is merged,
     `typo3-docs-backport-bot` opens the `[Backport <version>]` PRs.
     Afterwards confirm the commit actually reached the release branch
