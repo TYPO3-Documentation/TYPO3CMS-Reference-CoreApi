@@ -9,6 +9,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class ConferenceController extends ActionController
 {
+  #[\Override]
   protected function errorAction(): ResponseInterface
   {
     $errors = $this->arguments->validate();
