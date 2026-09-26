@@ -101,8 +101,8 @@ Here are some examples:
 
 ..  _hooks-creation-object:
 
-Using `\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
---------------------------------------------------------------
+Using `\\TYPO3\\CMS\\Core\\Utility\\GeneralUtility::makeInstance()`
+-------------------------------------------------------------------
 
 Data submission to extensions:
 
@@ -111,8 +111,8 @@ Data submission to extensions:
 
 ..  _hooks-creation-function:
 
-Using with `\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
------------------------------------------------------------------------
+Using with `\\TYPO3\\CMS\\Core\\Utility\\GeneralUtility::callUserFunction()`
+----------------------------------------------------------------------------
 
 Constructor post-processing:
 

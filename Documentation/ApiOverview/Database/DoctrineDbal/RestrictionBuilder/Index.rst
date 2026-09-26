@@ -173,7 +173,7 @@ Restrictions
     :php:`\TYPO3\CMS\Core\DataHandling\PlainDataResolver`.
 
 When a restriction needs to be enforced, a restriction could implement the
-interface `\TYPO3\CMS\Core\Database\Query\Restriction\EnforceableQueryRestrictionInterface`.
+interface :php:`\TYPO3\CMS\Core\Database\Query\Restriction\EnforceableQueryRestrictionInterface`.
 If a restriction implements :php:`EnforceableQueryRestrictionInterface`, the
 following applies:
 
