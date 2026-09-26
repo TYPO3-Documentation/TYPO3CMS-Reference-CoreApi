@@ -14,8 +14,8 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class CalculatorController extends ActionController
 {
   public function __construct(
-    private readonly BmiCalculatorService $bmiCalculatorService,
-    private readonly MeasurementsRepository $measurementsRepository,
+    protected readonly BmiCalculatorService $bmiCalculatorService,
+    protected readonly MeasurementsRepository $measurementsRepository,
   ) {}
   public function resultAction(MeasurementsDto $measurements): ResponseInterface
   {

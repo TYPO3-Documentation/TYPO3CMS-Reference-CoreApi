@@ -12,7 +12,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class CalculatorController extends ActionController
 {
   public function __construct(
-    private readonly BmiCalculatorService $bmiCalculatorService,
+    protected readonly BmiCalculatorService $bmiCalculatorService,
   ) {}
 
   public function formAction(): ResponseInterface

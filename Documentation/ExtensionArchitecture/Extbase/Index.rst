@@ -111,6 +111,8 @@ APIs are the best choice.
     Caching/Index
     Configuration/Index
     Localization/Index
+    CrossSiteAccess/Index
+    NoFrontendContext/Index
     Appendix/Attributes
     Appendix/TypeConverters
     Appendix/CommonPitfalls

@@ -19,7 +19,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class CalculatorController extends ActionController
 {
   public function __construct(
-    private readonly UserSessionService $userSessionService,
+    protected readonly UserSessionService $userSessionService,
   ) {}
 
   public function formAction(): ResponseInterface

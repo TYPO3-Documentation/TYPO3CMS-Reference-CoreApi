@@ -67,6 +67,49 @@ records live on a different page than expected, the query returns nothing.
     `The storagePid <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-storagepid>`_ — the page restriction explained in full: the resolution chain, the recursive setting, and how to override or drop it.
 
 
+..  _extbase-appendix-pitfalls-strict-untranslated:
+
+Untranslated records disappear after upgrading to TYPO3 v14.3
+=============================================================
+
+**Symptom:** After an upgrade, a plugin shows fewer records in translated
+languages than before. :php:`findByUid()` returns :php:`null` for a record that
+exists, and related records such as categories or tags vanish from a translated
+object. Nothing changed in the extension, and no error is raised.
+
+**Why:** Extbase used to apply `fallback` semantics to every query, whatever
+the site configuration said. Since v14.3 it follows the `fallbackType` of the
+site language. Sites set to `strict` — which is also the default when no
+`fallbackType` is configured — now hide records that have no translation,
+exactly as pages and content elements already did.
+
+This most often surfaces on records created by a frontend form. Extbase writes
+them as default-language records, so on a `strict` site they stay invisible in
+every translated language until somebody translates them.
+
+..  hint::
+
+    To restore the old behavior for one query, set a language aspect using
+    :php:`LanguageAspect::OVERLAYS_MIXED` on its query settings. Do this
+    deliberately and per query: it makes that query diverge from what the rest
+    of the site shows.
+
+..  seealso::
+
+    *   `Important: #88886 — Extbase persistence respects the language overlay
+        type
+        <https://docs.typo3.org/permalink/changelog:important-88886-1784901300>`_
+        — the full description of what changed per `fallbackType`.
+
+    *   `What the site configuration decides
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-site-configuration>`_
+        — which records each `fallbackType` returns.
+
+    *   `Setting a language aspect
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-localisation-query-settings-aspect>`_
+        — how to override the behavior for a single query.
+
+
 ..  _extbase-appendix-pitfalls-annotations:
 
 Annotations silently ignored in TYPO3 v14
