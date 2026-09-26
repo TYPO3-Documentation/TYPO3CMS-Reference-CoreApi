@@ -71,6 +71,7 @@ Required extensions:
 *   `tokenizer`
 *   `mbstring`
 *   `intl`
+*   `sodium`
 
 Optional but commonly used:
 
