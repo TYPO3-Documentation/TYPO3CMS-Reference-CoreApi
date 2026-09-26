@@ -691,7 +691,7 @@ errorHandler
     :name: globals-typo3-conf-vars-sys-errorHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
     :type: phpClass
-    :Default: `\TYPO3\CMS\Core\Error\ErrorHandler::class`
+    :Default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler::class`
 
     Classname to handle PHP errors.
     This class displays and logs all errors that are registered as

@@ -57,8 +57,8 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #.  Each middleware can modify the request if needed, see :ref:`request-handling-middlewares`.
 
-#.  Final Request is passed to the last RequestHandler (`\TYPO3\CMS\Frontend\Http\RequestHandler`
-    or `\TYPO3\CMS\Backend\Http\RequestHandler`) which generates PSR-7 response and passes
+#.  Final Request is passed to the last RequestHandler (:php:`\TYPO3\CMS\Frontend\Http\RequestHandler`
+    or :php:`\TYPO3\CMS\Backend\Http\RequestHandler`) which generates PSR-7 response and passes
     it back to the last middleware.
 
 #.  Each middleware gets back a PSR-7 response from middleware later in the stack and passes it up the stack to the previous middleware.

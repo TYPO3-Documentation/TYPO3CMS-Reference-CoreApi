@@ -60,7 +60,7 @@ The custom error handlers have the properties
 ..  option:: errorPhpClassFQCN
 
     :type: string
-    :Example: `\MyVendor\MySitePackage\Error\MyErrorHandler`
+    :Example: :php:`\MyVendor\MySitePackage\Error\MyErrorHandler`
 
     Fully-qualified class name of a custom error handler implementing
     :php:`PageErrorHandlerInterface`.
