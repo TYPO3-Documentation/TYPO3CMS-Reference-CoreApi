@@ -174,7 +174,8 @@ Manual import from the TYPO3 backend
        export module you find the import module in the page tree context menu
        :guilabel:`More options... -> Import`. Choose the page whose subpage
        the imported page should be as starting point for the import. If you
-       want to import the data at root-level, choose the
+       want to import the data at root-level, choose the root page of the
+       page tree.
 
        ..  include:: /Images/ManualScreenshots/ImportExport/UploadImport.rst.txt
 
