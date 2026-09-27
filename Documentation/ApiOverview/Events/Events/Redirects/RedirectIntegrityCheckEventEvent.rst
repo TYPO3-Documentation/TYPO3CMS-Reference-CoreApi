@@ -18,9 +18,9 @@ for each redirect record.
 
 Additionally, the following class constants allow the
 shared reuse of conflict statuses that extensions developers can set in custom
-event listeners: :php:`\TYPO3\CMS\Redirects\Utility\RedirectConflict::INVALID_TARGET`,
-:php:`\TYPO3\CMS\Redirects\Utility\RedirectConflict::NO_CONFLICT`,
-
+event listeners: :php-short:`\TYPO3\CMS\Redirects\Utility\RedirectConflict::INVALID_TARGET`,
+:php-short:`\TYPO3\CMS\Redirects\Utility\RedirectConflict::NO_CONFLICT` and
+:php-short:`\TYPO3\CMS\Redirects\Utility\RedirectConflict::SELF_REFERENCE`.
 
 Extensions can now validate redirects during an integrity check by listening
 to this event. Broken or invalid redirects are reported as well as
