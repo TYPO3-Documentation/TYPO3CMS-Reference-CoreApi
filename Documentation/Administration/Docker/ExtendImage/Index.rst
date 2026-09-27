@@ -228,5 +228,4 @@ all dependencies (including TYPO3 and extensions) in version control.
 
 If you want to go one step further and automate the initial TYPO3 installation
 (using the CLI instead of the web-based install wizard), see
-
-`Automated TYPO3 installation using the CLI <https://docs.typo3.org/permalink/t3coreapi:docker-cli-automated-setup>`_
+`Automated TYPO3 installation using the CLI <https://docs.typo3.org/permalink/t3coreapi:docker-cli-automated-setup>`_.

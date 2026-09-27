@@ -119,7 +119,7 @@ To get the correct backend layout, the following TypoScript code can be used:
 ..  literalinclude:: _backendLayoutFluidTemplate.typoscript
     :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
 
-Using  `data = pagelayout` is the same as using as
+Using `data = pagelayout` is the same as using:
 
 ..  code-block:: typoscript
 

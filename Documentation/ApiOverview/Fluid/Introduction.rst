@@ -199,7 +199,7 @@ Without a Layout
     :ref:`f:render ViewHelper <t3viewhelper:typo3-fluid-render>` in the
     template file itself, outside of a section, to render a section.
 
-For example, the layout may like this
+For example, the layout may look like this:
 
 ..  literalinclude:: _Introduction/_LayoutExtensionDefault.fluid.html
     :caption: EXT:my_extension/Resources/Private/Layouts/Default.fluid.html
