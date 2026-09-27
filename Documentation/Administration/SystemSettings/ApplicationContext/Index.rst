@@ -143,7 +143,7 @@ Installation
 .env
 ~~~~
 
-Please make sure not to insert any spaces before and after the `=`
+Please make sure not to insert any spaces before and after the `=`:
 
 ..  code-block:: bash
     :caption: `[web root]/.env`
