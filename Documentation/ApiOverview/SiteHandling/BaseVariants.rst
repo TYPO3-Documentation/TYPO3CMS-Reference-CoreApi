@@ -67,30 +67,34 @@ Example
 Properties
 ==========
 
-..  option:: typo3.version
-
+..  confval:: typo3.version
+    :name: site-base-variants-typo3-version
+    :searchFacet: Expression Language Variable
     :type: string
     :Example: `13.4.0`
 
     The current TYPO3 version.
 
-..  option:: typo3.branch
-
+..  confval:: typo3.branch
+    :name: site-base-variants-typo3-branch
+    :searchFacet: Expression Language Variable
     :type: string
     :Example: `13.4`
 
     The current TYPO3 branch.
 
-..  option:: typo3.devIpMask
-
+..  confval:: typo3.devIpMask
+    :name: site-base-variants-typo3-devIpMask
+    :searchFacet: Expression Language Variable
     :type: string
     :Example: `203.0.113.*`
 
     The configured devIpMask taken from
     :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] <typo3ConfVars_sys_devIPmask>`.
 
-..  option:: applicationContext
-
+..  confval:: applicationContext
+    :name: site-base-variants-applicationContext
+    :searchFacet: Expression Language Variable
     :type: string
     :Example: `Development`
 
@@ -133,23 +137,26 @@ exception:
 
 The following request-independent functions are available:
 
-..  option:: compatVersion
-
+..  confval:: compatVersion
+    :name: site-base-variants-compatVersion
+    :searchFacet: Expression Language Function
     :type: string
     :Example: `compatVersion("13.4.0")`, `compatVersion("12.4")`
 
     Match a TYPO3 version.
 
-..  option:: like
-
+..  confval:: like
+    :name: site-base-variants-like
+    :searchFacet: Expression Language Function
     :type: string
     :Example: `like("foobarbaz", "*bar*")`
 
     A comparison function to compare two strings. The first parameter is the
     "haystack", the second the "needle". Wildcards are allowed.
 
-..  option:: getenv
-
+..  confval:: getenv
+    :name: site-base-variants-getenv
+    :searchFacet: Expression Language Function
     :type: string
     :Example: `getenv("TYPO3_BASE_URL")`
 
@@ -158,23 +165,26 @@ The following request-independent functions are available:
 
     ..  _getenv(): https://www.php.net/manual/en/function.getenv.php
 
-..  option:: date
-
+..  confval:: date
+    :name: site-base-variants-date
+    :searchFacet: Expression Language Function
     :type: string
     :Example: checking the day of the month: `date("j") == 7`
 
     Get the current date in given format.
 
-..  option:: feature
-
+..  confval:: feature
+    :name: site-base-variants-feature
+    :searchFacet: Expression Language Function
     :type: string
     :Example: `feature("redirects.hitCount")`
 
     Check whether a feature (":ref:`feature toggle <feature-toggles>`") is
     enabled in TYPO3.
 
-..  option:: traverse
-
+..  confval:: traverse
+    :name: site-base-variants-traverse
+    :searchFacet: Expression Language Function
     :type: array|string
 
     This function has two parameters:
