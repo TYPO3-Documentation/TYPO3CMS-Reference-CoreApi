@@ -37,7 +37,7 @@ The only built-in methods that skip it are :php:`findByUid()` and
 regardless of page.
 
 This matters for two reasons. First, a repository with no configured storagePid
-queries page :sql:`0` and finds nothing — see
+queries page :sql:`0` — see
 :ref:`why storagePid = 0 does not disable the restriction
 <extbase-persistence-storagepid-zero>`. Second, the constraint is resolved
 from several configuration sources that override one another, so the page a query
@@ -119,13 +119,15 @@ shorter:
     the frontend. See :ref:`overriding the storagePid for a single query
     <extbase-persistence-storagepid-override>`.
 
-..  literalinclude:: _snippets/_module_storagepid.typoscript
-    :caption: EXT:my_extension/ext_typoscript_setup.typoscript
+..  literalinclude:: ../BackendModule/_snippets/_ext_localconf_module_typoscript.php
+    :caption: EXT:my_extension/ext_localconf.php
 
-Module TypoScript is conventionally registered in the extension's
-:file:`ext_typoscript_setup.typoscript`, as shown above, so the configuration is
-global and does not depend on which page the module happens to be viewing. This
-is the recommended placement, see :ref:`module <t3tsref:tlo-module>` TypoScript reference.
+Register module TypoScript globally with
+:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup()`,
+as shown above. The configuration then does not depend on which page the module
+happens to be viewing, and a module without a page tree sees it at all. See
+:ref:`Which TypoScript an Extbase backend module sees
+<extbase-backend-module-basics-typoscript>`.
 
 ..  note::
 
@@ -217,10 +219,9 @@ Why `storagePid = 0` does not disable the restriction
 =====================================================
 
 A common misconception is that setting the storagePid to :typoscript:`0` switches
-off the page restriction. It does not. For an ordinary table, :sql:`0` is the UID of
-the page tree root, a level no editor ever stores records on — so the query looks
-for records on page 0 and finds none. The effect is an empty result, not an
-unrestricted query.
+off the page restriction. It does not. :sql:`0` is the UID of the page tree
+root, and the query looks for records stored on page 0 and nowhere else. The
+effect is a query restricted to that page, not an unrestricted query.
 
 To search the whole table irrespective of page, drop the restriction in PHP
 instead:

@@ -118,7 +118,8 @@ to records stored on a specific TYPO3 page — the *storage page* (or
 *storagePid*). This mirrors how TYPO3 editors organize records: they create a
 sysfolder, store domain records there, and point the plugin at that folder.
 
-If the storagePid is not configured, or points at the wrong page, the
+If the storagePid is not configured, the repository searches page :sql:`0`.
+If the records are stored on a different page than the one searched, the
 repository returns an empty result — silently.
 
 The storagePid is configured in TypoScript:

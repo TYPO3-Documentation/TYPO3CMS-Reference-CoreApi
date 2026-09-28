@@ -105,6 +105,7 @@ APIs are the best choice.
     Controller/Index
     View/Index
     Registration/Index
+    BackendModule/Index
     Routing/Index
     Validation/Index
     Persistence/Index

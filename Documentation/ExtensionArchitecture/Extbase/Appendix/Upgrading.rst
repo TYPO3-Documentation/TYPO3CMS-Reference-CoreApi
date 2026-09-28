@@ -379,6 +379,37 @@ approaches no longer work in TYPO3 v14.
         for common pitfalls.
 
 
+..  _extbase-upgrading-module-global-typoscript:
+
+Backend modules without a page tree use global TypoScript only (TYPO3 v14)
+==========================================================================
+
+..  versionchanged:: 14.0
+
+    Extbase backend modules without page context no longer search for the
+    first page with a TypoScript record. They compile their configuration from
+    global TypoScript only. See :ref:`Breaking: #105728 — Extbase backend
+    modules not in page context rely on global TypoScript only
+    <changelog:breaking-105728-1732882067>`.
+
+Nothing fails after the upgrade. A module that has no page tree, or is opened
+with no page selected, simply stops seeing :typoscript:`module.tx_*` values
+that were set in a TypoScript record. Its storagePid falls back to :sql:`0` and
+loses the context it previously got to see.
+
+**What to do:** move the module's configuration into global TypoScript,
+registered with
+:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup()`
+in :file:`ext_localconf.php`. Do not move it into
+:file:`ext_typoscript_setup.typoscript`, which sites using site sets do not load.
+
+..  seealso::
+
+    *   `Which TypoScript an Extbase backend module sees
+        <https://docs.typo3.org/permalink/t3coreapi:extbase-backend-module-basics-typoscript>`_
+        — both configuration regimes and a complete registration example.
+
+
 ..  _extbase-upgrading-translation-domain-syntax:
 
 Translation domain syntax as shorter alternative to LLL:EXT: (TYPO3 v14)
