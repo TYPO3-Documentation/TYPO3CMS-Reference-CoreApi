@@ -58,9 +58,11 @@ lazy-loading proxies and dirty-state tracking, which can matter for relations.
 an empty result, but the records clearly exist in the database.
 
 **Why:** Every repository query is filtered to one or more storage pages
-(the :php:`storagePid`) by default. If no storage page is configured, or the
-records live on a different page than expected, the query returns nothing.
-:php:`findByUid()` is the only method that ignores storagePid.
+(the :php:`storagePid`) by default. If the records live on a different page
+than the one searched — without a configured storage page, that is page
+:sql:`0` — the query returns nothing. :php:`findByUid()` and
+:php:`findByIdentifier()` are the only built-in methods that ignore the
+storagePid.
 
 ..  seealso::
 
