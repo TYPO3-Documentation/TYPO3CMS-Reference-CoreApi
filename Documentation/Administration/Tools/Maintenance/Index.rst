@@ -36,7 +36,7 @@ or PHP files.
 
 It is also necessary to flush caches after installing or updating extensions.
 
-You can achieve the same effect by calling
+You can achieve the same effect by calling:
 
 ..  code-block:: bash
 

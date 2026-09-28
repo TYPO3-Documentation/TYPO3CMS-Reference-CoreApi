@@ -109,7 +109,7 @@ Running `composer require` with new major version dependencies
     a `deployment strategy <https://docs.typo3.org/permalink/t3coreapi:deployment>`_.
 
     If you have to work on the server, work on a copy of the production website
-    **including a copy of the database**
+    **including a copy of the database**.
 
 To upgrade a Composer package, run :bash:`composer require` with the package
 name and version number.

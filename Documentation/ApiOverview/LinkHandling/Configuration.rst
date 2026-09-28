@@ -70,7 +70,7 @@ Enable the field with the following page TSConfig:
 
     TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
 
-or by configuring the link button in your ckeditor configuration
+or by configuring the link button in your ckeditor configuration:
 
 ..  literalinclude:: _rtePageIdSelector.yaml
     :caption: EXT:some_extension/Configuration/RTE/Default.yaml

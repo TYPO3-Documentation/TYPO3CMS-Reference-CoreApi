@@ -254,7 +254,7 @@ Caveats
 There is a problem with PHP `flock()
 <https://www.php.net/manual/en/function.flock.php>`__ on NFS systems.
 This problem may or may not affect you, if you use NFS. See this
-issue for more information
+issue for more information:
 
 * :forge:`Forge Issue: FileLockStrategy fails on NFS folders <72074>`
 
