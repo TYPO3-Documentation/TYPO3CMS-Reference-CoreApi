@@ -103,7 +103,7 @@ Once a localized string appears in a released version of TYPO3, it
 cannot be changed (unless it needs grammar or spelling fixes).
 
 A localization string can be deprecated in one major TYPO3 version and be
-removed with the next one
+removed with the next one.
 
 If the label of a localized string has to be changed, a
 new one should be introduced instead.

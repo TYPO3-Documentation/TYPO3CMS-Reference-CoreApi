@@ -199,7 +199,7 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM` namespace:
 ..  seealso::
 
     `Extbase PHP attributes <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_ for all Extbase PHP attributes
-    with parameters and usage examples
+    with parameters and usage examples.
 
 
 ..  _extbase-domain-model-relations:

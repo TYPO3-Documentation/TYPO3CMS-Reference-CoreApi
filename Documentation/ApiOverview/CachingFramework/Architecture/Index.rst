@@ -33,7 +33,7 @@ tags
     `vendor/bin/typo3 cache:flushtags <tag>`.
 
 ..  versionadded:: 14.0
-    Command `vendor/bin/typo3 cache:flushtags <tag>` has been introduced
+    Command `vendor/bin/typo3 cache:flushtags <tag>` has been introduced.
 
 ..  tip::
     The difference between identifier and tags is quite simple: an identifier
@@ -97,7 +97,7 @@ About tags
 ----------
 
 ..  versionadded:: 14.0
-    Command `vendor/bin/typo3 cache:flushtags <tag>` has been introduced
+    Command `vendor/bin/typo3 cache:flushtags <tag>` has been introduced.
 
 Tags are used to drop specific cache entries when some information they are
 based on is changed.

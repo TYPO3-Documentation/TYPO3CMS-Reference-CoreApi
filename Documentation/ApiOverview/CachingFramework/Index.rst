@@ -125,7 +125,7 @@ requireCacheHashPresenceParameters
 
     Configure parameters that require a cHash. If no cHash is given, but one of
     the parameters are set, then TYPO3 triggers the configured cHash error
-    behavior
+    behavior.
 
 
 ..  _chash-excludedparameters:

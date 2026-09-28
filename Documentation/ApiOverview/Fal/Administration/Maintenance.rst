@@ -95,7 +95,7 @@ The console command `vendor/bin/typo3 cleanup:localprocessedfiles
 <https://docs.typo3.org/permalink/t3coreapi:console-command-cleanup-localprocessedfiles>`_
 from system extension :composer:`typo3/cms-lowlevel` removes processed files
 that are no longer needed from local storage (`Local` driver rather than cloud
-storage). It deletes
+storage). It deletes:
 
 *   files in the processing folders that are not referred to by any
     :sql:`sys_file_processedfile` records, and

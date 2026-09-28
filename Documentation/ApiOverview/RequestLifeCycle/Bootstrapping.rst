@@ -292,7 +292,7 @@ necessary settings while the `Production/Live` context is used on the live insta
 
 ..  attention::
 
-    `Testing` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests
+    `Testing` Is reserved for internal use when executing TYPO3 **Core** functional and unit tests.
     It must not be used otherwise. Instead sub-contexts must be used:
     `Production/Testing` or `Development/Testing`
 

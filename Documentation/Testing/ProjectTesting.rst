@@ -14,12 +14,12 @@ Differences between project and extension testing
 =================================================
 
 **Projects** usually needs to support only one PHP version, Database vendor
-and version and TYPO3 core version
+and version and TYPO3 core version.
 
 Version raises for upgrades are usually prepared on a branch and changed
 instead of parallel execution.
 
-Project may have different places for tests
+Project may have different places for tests:
 
 *   local path extension tests `packages/*/Tests/*`
 *   global (root) tests `Tests/*`
@@ -60,7 +60,7 @@ The :file:`composer.json` looks like this:
 Install testing dependencies
 ============================
 
-As a bare minimum it is suggested to use
+As a bare minimum it is suggested to use:
 
 *   One coding style fixer for PHP, for example :composer:`friendsofphp/php-cs-fixer`
 *   One static code analyzer for PHP, for example :composer:`phpstan/phpstan`

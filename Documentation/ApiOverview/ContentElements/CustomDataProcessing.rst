@@ -99,12 +99,12 @@ The main method :php:`process()` gets called with the following parameters:
 
 :php:`array $contentObjectConfiguration`
     Contains the configuration of the calling content element. In this example it is
-    the configuration :typoscript:`tt_content.examples_dataproccustom`
+    the configuration :typoscript:`tt_content.examples_dataproccustom`.
 
 :php:`array $processorConfiguration`
     Contains the configuration of the currently called data processor. In this
     example it is the value of :typoscript:`as` and the :typoscript:`stdWrap`
-    configuration of the :typoscript:`categoryList`
+    configuration of the :typoscript:`categoryList`.
 
 
 :php:`array $processedData`

@@ -10,7 +10,7 @@ Password generator
 
 ..  versionadded::  14.2
     Introduced to replace the now deprecated `passwordRules` option
-    of the `passwordGenerator` field control
+    of the `passwordGenerator` field control.
 
 ..  contents::
 
