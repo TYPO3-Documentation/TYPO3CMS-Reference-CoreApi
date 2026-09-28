@@ -118,7 +118,7 @@ to records stored on a specific TYPO3 page — the *storage page* (or
 *storagePid*). This mirrors how TYPO3 editors organize records: they create a
 sysfolder, store domain records there, and point the plugin at that folder.
 
-If the storagePid is not configured, the repository searches page :sql:`0`.
+If the storagePid is not configured, the repository searches page `0`.
 If the records are stored on a different page than the one searched, the
 repository returns an empty result — silently.
 
@@ -149,7 +149,7 @@ Editors can also set it per plugin content element via the
     Extbase only looks at the configured page itself, not its children.
 
 To disable the storagePid restriction entirely — for example in a backend
-context or when querying across all pages — set it to :typoscript:`0`:
+context or when querying across all pages — set it to `0`:
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript

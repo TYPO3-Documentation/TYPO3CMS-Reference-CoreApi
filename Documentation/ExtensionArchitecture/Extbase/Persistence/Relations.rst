@@ -200,7 +200,7 @@ maintaining the relation, and its TCA, on both models.
 
     When you do need cardinality made explicit in TCA, the
     :ref:`relationship <t3tca:columns-select>` key
-    (:php:`'oneToOne'`, :php:`'manyToOne'`, :php:`'oneToMany'`)
+    (`'oneToOne'`, `'manyToOne'`, `'oneToMany'`)
     declares it on the field. Extbase honors it when deciding whether a column
     is a single relation or a collection.
 

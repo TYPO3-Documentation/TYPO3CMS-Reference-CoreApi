@@ -580,7 +580,7 @@ Remarks:
     identifiers are quoted automatically.
 
 *   The second, optional argument of both methods specifies the sort order. The
-    two allowed values are :php:`'ASC'` and :php:`'DESC'`, where :php:`'ASC'`
+    two allowed values are `'ASC'` and `'DESC'`, where `'ASC'`
     is default and can be omitted.
 
 *   To create a chain of orders, use :php:`->orderBy()` and then multiple

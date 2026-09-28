@@ -350,7 +350,7 @@ list_type plugin removed; fifth parameter of `configurePlugin()` restricted (TYP
     The :php:`list_type` / "General Plugin" content element was removed. All
     plugins must be registered as dedicated :php:`CType` content elements. The
     fifth parameter :php:`$pluginType` of :php:`ExtensionUtility::configurePlugin()`
-    now only accepts :php:`'CType'` (or being omitted); any other value throws an
+    now only accepts `'CType'` (or being omitted); any other value throws an
     :php:`\InvalidArgumentException` (:ref:`Important #105538 <changelog:important-105538-1730752784>`).
 
 Older extensions could pass
@@ -394,7 +394,7 @@ Backend modules without a page tree use global TypoScript only (TYPO3 v14)
 
 Nothing fails after the upgrade. A module that has no page tree, or is opened
 with no page selected, simply stops seeing :typoscript:`module.tx_*` values
-that were set in a TypoScript record. Its storagePid falls back to :sql:`0` and
+that were set in a TypoScript record. Its storagePid falls back to `0` and
 loses the context it previously got to see.
 
 **What to do:** move the module's configuration into global TypoScript,

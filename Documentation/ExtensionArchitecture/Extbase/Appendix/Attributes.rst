@@ -91,7 +91,7 @@ the proxy in any way triggers resolution automatically.
 :Parameters: :php:`string|null $value = null`
 
 Controls what happens to related objects when the parent object is deleted.
-Currently only :php:`'remove'` is supported:
+Currently only `'remove'` is supported:
 
 ..  literalinclude:: _snippets/_ConferenceCascade.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
@@ -102,8 +102,8 @@ objects automatically via the repository.
 
 ..  note::
 
-    Only :php:`'remove'` is supported. Other Doctrine cascade operations
-    (:php:`'persist'`, :php:`'merge'`, etc.) are not implemented in Extbase.
+    Only `'remove'` is supported. Other Doctrine cascade operations
+    (`'persist'`, `'merge'`, etc.) are not implemented in Extbase.
 
 ..  important::
 
@@ -156,8 +156,8 @@ and control validation behavior on model properties and controller action parame
 :Parameters:
 
     :php:`string $validator`
-        The validator class name or short name (for example :php:`'NotEmpty'`,
-        :php:`'StringLength'`). Short names resolve against the built-in
+        The validator class name or short name (for example `'NotEmpty'`,
+        `'StringLength'`). Short names resolve against the built-in
         validators in :php:`\TYPO3\CMS\Extbase\Validation\Validator`.
 
     :php:`array $options = []`

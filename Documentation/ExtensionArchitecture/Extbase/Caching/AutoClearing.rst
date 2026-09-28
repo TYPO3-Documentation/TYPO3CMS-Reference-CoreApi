@@ -134,7 +134,7 @@ This is a **global** TypoScript setting in :typoscript:`config.tx_extbase`. It
 applies to every repository write on the site for as long as it is set, and there
 is no supported way to toggle it temporarily from PHP for a single operation —
 unlike :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`, whose runtime behavior
-can be adjusted per instance. Setting it to :typoscript:`0` therefore means every
+can be adjusted per instance. Setting it to `0` therefore means every
 repository write across the site stops refreshing the frontend, and clearing
 caches becomes your own responsibility through the
 :ref:`cache-clearing helper
