@@ -38,7 +38,7 @@ By its combined identifier
 ..  literalinclude:: _ExamplesFileFolder/_GetFileByCombinedIdentifier.php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-The syntax of argument 1 for :php:`getFileObjectFromCombinedIdentifier()` is
+The syntax of argument 1 for :php:`getFileObjectFromCombinedIdentifier()` is:
 
 ..  code-block:: none
 

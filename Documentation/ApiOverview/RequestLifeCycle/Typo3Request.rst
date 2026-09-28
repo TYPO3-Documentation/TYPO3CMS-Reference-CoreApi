@@ -156,7 +156,7 @@ Attributes
 Attributes enriches the request with further information. TYPO3 provides
 attributes which can be used in custom implementations.
 
-The attributes can be retrieved via
+The attributes can be retrieved via:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)

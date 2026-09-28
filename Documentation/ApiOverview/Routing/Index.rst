@@ -55,7 +55,7 @@ order.
 Key terminology
 ===============
 
-Given a complex link (`URI`, `Uniform Resource Identificator`) like
+Given a complex link (`URI`, `Uniform Resource Identificator`) like:
 
 ..  code-block:: plaintext
 

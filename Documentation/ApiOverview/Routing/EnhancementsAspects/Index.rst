@@ -35,11 +35,8 @@ be registered for a specific enhancer to modify placeholders, adding static,
 human readable names within the route path or dynamically generated values.
 
 To give you an overview of what the distinction is, imagine a web page which
-is available at
-
-:samp:`https://example.org/path-to/my-page`
-
-(the path mirrors the page structure in the backend) and has page ID *13*.
+is available at :samp:`https://example.org/path-to/my-page` (the path mirrors
+the page structure in the backend) and has page ID *13*.
 
 Enhancers can transform this route to:
 
