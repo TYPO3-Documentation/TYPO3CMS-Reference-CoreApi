@@ -134,6 +134,10 @@ happens:
     how multi-step flows (for example: form → validate → confirm) work within a
     single page request.
 
+A backend module reaches the same dispatcher by a different route, without a
+content element and without an argument namespace. See :ref:`How a backend
+module request flows through Extbase <extbase-backend-module-basics-dispatch>`.
+
 
 ..  _extbase-concepts-mvc-typo3-difference:
 

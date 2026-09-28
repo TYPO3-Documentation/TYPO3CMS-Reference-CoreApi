@@ -158,11 +158,16 @@ The resulting array has three top-level keys that Extbase uses directly:
 *   :typoscript:`persistence` — controls record loading; the most relevant
     sub-key is :typoscript:`storagePid`, which limits which page(s) the
     repository queries.
-*   :typoscript:`view` — overrides template file resolution via
-    :typoscript:`templateRootPaths`, :typoscript:`layoutRootPaths`, and
-    :typoscript:`partialRootPaths`.
+*   :typoscript:`view` — template paths for :php:`$this->view`. A module
+    renders through :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
+    instead, which ignores this key: its templates are overridden through the
+    :ref:`templates <t3tsref:pagetemplates>` option of page TSconfig.
 
 ..  seealso::
+
+    *   :ref:`How an Extbase backend module works
+        <extbase-backend-module-basics>` for the request flow, the TypoScript
+        a module sees, and how storage pages are resolved.
 
     *   :ref:`Backend modules API <backend-modules-api>` for the full reference
         for all module configuration
