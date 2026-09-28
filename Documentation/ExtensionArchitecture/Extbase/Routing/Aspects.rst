@@ -112,8 +112,8 @@ status flags, type identifiers, named steps in a wizard.
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
 
 The :yaml:`map` keys are the URL segments; the values are what Extbase receives
-as the argument. A request to :samp:`/conferences/status/upcoming` passes :yaml:`1`
-to the action. A URL generated for status :yaml:`3` produces
+as the argument. A request to :samp:`/conferences/status/upcoming` passes `1`
+to the action. A URL generated for status `3` produces
 :samp:`/conferences/status/past`.
 
 Because the full set of valid values is known, TYPO3 treats the parameter as
@@ -165,7 +165,7 @@ as static, which eliminates `cHash` from paginated URLs.
         end: '100'
 
 Set :yaml:`end` to the maximum sensible value for your use case. The example uses
-:yaml:`100` pages; TYPO3 enforces a hard upper limit of 1000. Requests with a value
+`100` pages; TYPO3 enforces a hard upper limit of 1000. Requests with a value
 outside the configured range do not match the route — TYPO3 returns a 404
 rather than silently passing through an out-of-range value.
 

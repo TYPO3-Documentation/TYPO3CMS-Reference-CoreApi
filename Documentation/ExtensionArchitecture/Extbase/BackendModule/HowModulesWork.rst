@@ -193,12 +193,12 @@ The storagePid in an Extbase backend module
 ===========================================
 
 The defaults are the opposite of the frontend. A frontend plugin without a
-configured storagePid searches page :sql:`0`; other page uids have to come from
+configured storagePid searches page `0`; other page uids have to come from
 configuration, usually the editor's **Starting point**. A backend module
 without a configured storagePid searches the page selected in the page tree,
-and only falls back to :sql:`0` when there is none.
+and only falls back to `0` when there is none.
 
-A module without a page tree therefore searches page :sql:`0` until a
+A module without a page tree therefore searches page `0` until a
 storagePid is configured. The full resolution chain is described in
 :ref:`The storagePid resolution chain in a backend module
 <extbase-persistence-storagepid-backend>`.

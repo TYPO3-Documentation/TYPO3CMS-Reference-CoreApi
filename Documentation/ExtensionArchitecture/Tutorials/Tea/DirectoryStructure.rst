@@ -42,7 +42,7 @@ automatically loaded from the :file:`Classes/` directory:
 ..  literalinclude:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.json
     :caption: EXT:tea/composer.json, extract
 
-The key of the psr-4 array, here :php:`'TTN\\Tea\\'`, defines the namespace
+The key of the psr-4 array, here `"TTN\\\\Tea\\\\"`, defines the namespace
 for all classes in order to be found by
 :ref:`PSR-4 autoloading <autoload>`.
 

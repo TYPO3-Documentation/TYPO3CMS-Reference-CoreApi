@@ -147,7 +147,7 @@ The four possible attributes on model properties are:
         :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
 
         Deletes related objects automatically when the owning object is
-        deleted. Only :php:`'remove'` is supported.
+        deleted. Only `'remove'` is supported.
 
     ..  confval:: #[Transient]
         :name: extbase-attr-transient
@@ -317,8 +317,8 @@ Use it as a model property:
 ..  literalinclude:: _snippets/_ConferenceWithEnum.php
     :caption: EXT:my_extension/Classes/Domain/Model/Speaker.php
 
-The database column stores the raw backing value (:php:`''`, :php:`'mr'`,
-:php:`'ms'`, :php:`'mx'`). Extbase converts it to the enum case on read and
+The database column stores the raw backing value (`''`, `'mr'`,
+`'ms'`, `'mx'`). Extbase converts it to the enum case on read and
 back to the string on write.
 
 ..  note::

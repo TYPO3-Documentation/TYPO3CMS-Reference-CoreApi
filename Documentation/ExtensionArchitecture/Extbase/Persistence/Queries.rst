@@ -239,7 +239,7 @@ To return a slice of the result, combine :php:`setLimit()` and
 ..  literalinclude:: _snippets/_LimitOffset.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
-:php:`setLimit()` expects a positive integer. Passing :php:`0` throws an
+:php:`setLimit()` expects a positive integer. Passing `0` throws an
 exception rather than returning an empty result, so guard against it if the
 value is computed.
 

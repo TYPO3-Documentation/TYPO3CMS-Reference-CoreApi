@@ -264,7 +264,7 @@ The full signature is:
      - :php:`null`
      - UID of the target page. :php:`null` keeps the current page.
    * - :php:`$statusCode`
-     - :php:`303`
+     - `303`
      - HTTP status code. Change only when you have a specific reason.
 
 ..  note::
@@ -508,18 +508,18 @@ like form submissions.
 Options:
 
 :php:`limit`
-    Maximum number of calls allowed within the interval. Default: :php:`5`.
+    Maximum number of calls allowed within the interval. Default: `5`.
 
 :php:`interval`
     Time window as a string parseable by
     `\DateInterval <https://www.php.net/manual/en/class.dateinterval.php>`_ or
     `strtotime() <https://www.php.net/manual/en/function.strtotime.php>`_, for
-    example :php:`'15 minutes'` or :php:`'1 hour'`.
-    Default: :php:`'15 minutes'`.
+    example `'15 minutes'` or `'1 hour'`.
+    Default: `'15 minutes'`.
 
 :php:`policy`
-    Throttling algorithm. Only :php:`'sliding_window'` is available.
-    Default: :php:`'sliding_window'`.
+    Throttling algorithm. Only `'sliding_window'` is available.
+    Default: `'sliding_window'`.
 
 :php:`message`
     :abbr:`LLL (Locallang label)` key for the message shown when the limit is

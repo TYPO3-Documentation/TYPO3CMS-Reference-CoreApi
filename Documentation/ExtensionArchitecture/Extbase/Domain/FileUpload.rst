@@ -128,7 +128,7 @@ The :php:`#[FileUpload]` attribute accepts named arguments as follows:
 
 :php:`uploadFolder`
     Destination as a FAL storage path, for example
-    :php:`'1:/user_upload/conference_logos/'`. The folder is created
+    `'1:/user_upload/conference_logos/'`. The folder is created
     automatically unless :php:`createUploadFolderIfNotExist` is set to
     :php:`false`.
 

@@ -132,7 +132,7 @@ Extbase finds a template file by searching through three configurable path lists
 Each list is a numerically keyed array; Fluid searches from the highest key
 downward and uses the first match it finds.
 
-**Default paths** are always appended at key :php:`0` if not already present:
+**Default paths** are always appended at key `0` if not already present:
 
 *   :file:`EXT:my_extension/Resources/Private/Templates/`
 *   :file:`EXT:my_extension/Resources/Private/Layouts/`
@@ -186,7 +186,7 @@ defaults for every plugin of the extension:
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 Fluid searches from the highest key downward, so the path at key
-:typoscript:`10` above takes precedence over a default at key :typoscript:`0`.
+`10` above takes precedence over a default at key `0`.
 
 **Finding the TypoScript object path for a plugin:** open the TYPO3 backend,
 navigate to the site or page containing the plugin, and open
@@ -206,8 +206,8 @@ To replace a template provided by an extension you do not control, add the
 override paths to your own extension or site package. Never modify a
 third-party extension directly. Add a path at a key higher than the one used in the
 original extension. Most extensions register their paths at key
-:typoscript:`10` or leave the default at key :typoscript:`0`. Using key
-:typoscript:`20` in your sitepackage is therefore safe in the majority of
+`10` or leave the default at key `0`. Using key
+`20` in your sitepackage is therefore safe in the majority of
 cases:
 
 ..  literalinclude:: _thirdPartyViewRootPaths.typoscript

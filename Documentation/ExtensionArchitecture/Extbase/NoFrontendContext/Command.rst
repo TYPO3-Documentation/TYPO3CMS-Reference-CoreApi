@@ -30,7 +30,7 @@ The essentials:
     and no language.
 *   The persistence layer is explicitly allowed to run without a request, so
     repositories can be used. Without configuration, though, Extbase has no
-    storagePid to work with and queries fall back to searching page :php:`0`
+    storagePid to work with and queries fall back to searching page `0`
     alone.
 *   The :typoscript:`recursive` setting that expands a storagePid down the page
     tree is applied while the configuration is resolved, which does not happen
