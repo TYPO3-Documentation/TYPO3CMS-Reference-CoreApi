@@ -79,7 +79,7 @@ The following sections contain examples of different types of deployment for TYP
     ..  card:: :ref:`Tools <deployment-tools>`
 
         The following tools can be used to deploy TYPO3 either manually or in an automated
-        :abbr:`CI (Continuos Integration)` pipeline
+        :abbr:`CI (Continuos Integration)` pipeline:
 
         *   `Rsync deployment of TYPO3 <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_
         *   `Deployer for TYPO3 Deployment <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_

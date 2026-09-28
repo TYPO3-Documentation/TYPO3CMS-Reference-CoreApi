@@ -196,7 +196,7 @@ to limit the reverse proxy settings to the production environment:
 ..  literalinclude:: _codesnippets/_additional.php
     :caption: config/system/additional.php
 
-You can also use environment variables for configuration
+You can also use environment variables for configuration.
 
 ..  seealso::
 

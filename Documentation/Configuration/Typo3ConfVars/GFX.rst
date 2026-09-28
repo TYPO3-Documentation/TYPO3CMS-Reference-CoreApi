@@ -157,7 +157,7 @@ processor_effects
     :type: bool
     :Default: false
 
-    If enabled, apply blur and sharpening in ImageMagick/GraphicsMagick functions
+    If enabled, apply blur and sharpening in ImageMagick/GraphicsMagick functions.
 
 ..  _typo3ConfVars_gfx_processor_allowUpscaling:
 

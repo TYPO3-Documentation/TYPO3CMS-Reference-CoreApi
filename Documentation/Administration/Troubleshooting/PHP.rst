@@ -76,7 +76,7 @@ This opcode cache is marked as malfunctioning by the TYPO3 CMS team.
 This will be shown if an opcode cache system is found and activated,
 which is known to have "too many" errors and won't be supported by TYPO3
 CMS (no bugfixes, security fixes or anything else). In current TYPO3
-versions only OPcache is supported
+versions only OPcache is supported.
 
 ..  _troubleshooting-php-troubleshooting-opcode-opcode-cache-2:
 

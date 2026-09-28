@@ -367,7 +367,7 @@ Module "Directory Status" in the "Environment" module
     <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Alternatively, a system maintainer can go to :guilabel:`System > Environment > Directory Status`
-and recreate the missing folders with the necessary permissions
+and recreate the missing folders with the necessary permissions.
 
 ..  toctree::
     :titlesonly:

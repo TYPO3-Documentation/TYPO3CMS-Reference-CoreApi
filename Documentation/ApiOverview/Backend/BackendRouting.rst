@@ -11,7 +11,7 @@ Each request to the backend is eventually executed by a controller.
 A list of routes is defined which maps a given request to a controller
 and an action.
 
-Routes are defined inside extensions, in the files
+Routes are defined inside extensions, in the files:
 
 *   :ref:`Configuration/Backend/Routes.php <extension-configuration-backend-routes>`
     for general requests

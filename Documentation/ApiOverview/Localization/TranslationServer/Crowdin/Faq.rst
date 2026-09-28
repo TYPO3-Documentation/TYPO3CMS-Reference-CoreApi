@@ -253,7 +253,7 @@ might happen. In this case, to prevent overwrites, Crowdin renames the existing
 master branch to [repo_name] master and it allows you to keep [repo_name] master
 and [another_repo] master in the same project, but if you delete all existing
 integrations, the system forgets about the multi-repo logic in the project, and
-it will upload just master branch to Crowdin
+it will upload just master branch to Crowdin.
 
 What to do:
 

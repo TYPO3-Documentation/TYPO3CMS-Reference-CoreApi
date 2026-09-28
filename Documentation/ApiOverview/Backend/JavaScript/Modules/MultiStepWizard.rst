@@ -30,7 +30,7 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
         :Required: true
         :type: string
 
-        A unique identifier for the slide
+        A unique identifier for the slide.
 
     ..  confval:: title
         :name: multi-step-wizard-settings-title

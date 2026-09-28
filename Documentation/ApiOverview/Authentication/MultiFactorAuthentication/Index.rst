@@ -12,7 +12,7 @@ Multi-factor authentication
 TYPO3 is capable of authentication via multiple factors, in short
 "multi-factor authentication" or "MFA". This is sometimes also referred to
 "2FA" as a 2-factor authentication process, where - in order to log in - the
-user needs
+user needs:
 
 1.  "something to know" (= the password) and
 2.  "something to own" (= an authenticator device, or an authenticator app

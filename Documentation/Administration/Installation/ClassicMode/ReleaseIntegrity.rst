@@ -242,7 +242,7 @@ Public keys for release integrity checks
     Release Team directly, namely `Benni Mack <mailto:benni@typo3.org>`_ and
     `Oliver Hader <mailto:oliver@typo3.org>`_.
 
-You can download the used public keys from `get.typo3.org.keys`_
+You can download the used public keys from `get.typo3.org.keys`_:
 
 *   TYPO3 Release Team <typo3cms@typo3.org>
 

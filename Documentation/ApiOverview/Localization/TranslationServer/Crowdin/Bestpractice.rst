@@ -207,7 +207,7 @@ and which ones are missing. And most important: the extension gives you context
 to the string, you currently translate, because you can see right away where
 it is used in TYPO3.
 
-You find the Extension here: `Extension Crowdin | TER`_
+You find the Extension here: `Extension Crowdin | TER`_.
 
 ..  _Extension Crowdin | TER: https://extensions.typo3.org/extension/crowdin
 
@@ -235,7 +235,7 @@ For a detailed presentation of the translation view, see Crowdin Docs. Here you
 will also find guides to the different editor options and tips on how to get the
 most out of the tool.
 
-You find the Crowdin Docs here: `Crowdin Docs`_
+You find the Crowdin Docs here: `Crowdin Docs`_.
 
 ..  _Crowdin Docs: https://support.crowdin.com/
 
@@ -257,7 +257,7 @@ your preferred language. If you come across new terms or see opportunities to
 improve definitions, you can contribute directly in Crowdin. This strengthens
 collaboration and makes it easier for future translators to deliver high quality.
 
-You can read more about creating and using Glossary on Crowdin Docs: `Glossary | Crowdin Docs`_
+You can read more about creating and using Glossary on Crowdin Docs: `Glossary | Crowdin Docs`_.
 
 ..  _Glossary | Crowdin Docs: https://support.crowdin.com/glossary/
 
@@ -283,7 +283,7 @@ in TM. It means a lot for the quality of TM that we do not mix up too many 'almo
 identical' words and sentences in the same TM. A good TM makes it easier to achieve
 consistency in translations, and you don't have to reinvent the wheel repeatedly.
 
-Read more about Translation Memory on Crowdin Docs: `Translation Memory | Crowdin Docs`_
+Read more about Translation Memory on Crowdin Docs: `Translation Memory | Crowdin Docs`_.
 
 ..  _Translation Memory | Crowdin Docs: https://support.crowdin.com/translation-memory/
 
@@ -375,7 +375,7 @@ should be checked. UA Checks is highligted on the project Dashboard. A common is
 Crowdin consider as spell errors. By going through the spellchecks, you can ignore words and
 Crowdin should remember and ignore them in the future.
 
-Read more about QA: `QA Check | Crowdin Docs`_
+Read more about QA: `QA Check | Crowdin Docs`_.
 
 ..  _QA Check | Crowdin Docs: https://support.crowdin.com/project-settings/qa-checks/
 
@@ -383,7 +383,7 @@ Use the batch approval view in the Editor view, to get many translations done in
 view from "Comfortable" to "Side-by-side", you get a full view of the translated strings and words.
 You can select more/all strings and approve all selected strings in one click.
 
-Reviewing translation is explained here: `Side-by-side | Crowdin Docs`_
+Reviewing translation is explained here: `Side-by-side | Crowdin Docs`_.
 
 ..  _Side-by-side | Crowdin Docs: https://support.crowdin.com/online-editor/#proofreading
 
@@ -392,7 +392,7 @@ little feature we will share with you: The fabulous "Auto-approve" feature! As a
 higher, translations added by you will be automatically approved, when you save. You find the
 feature under the "Editor Settings" just beside your logo in the top right corner.
 
-Aoto-approval is explained here: `Editor Settings | Crowdin Docs`_
+Aoto-approval is explained here: `Editor Settings | Crowdin Docs`_.
 
 ..  _Editor Settings | Crowdin Docs: https://support.crowdin.com/online-editor/#editor-settings
 
@@ -416,6 +416,6 @@ Further readings
 ----------------
 
 Get inspired by Martin Pribyl's article about how he did a full translation and
-proofreading of TYPO3 CMS into Czech language: `Bringing Czech to TYPO3 - My Translation Journey`_
+proofreading of TYPO3 CMS into Czech language: `Bringing Czech to TYPO3 - My Translation Journey`_.
 
 ..  _Bringing Czech to TYPO3 - My translation Journey: https://news.typo3.com/archive/bringing-czech-to-typo3-my-translation-journey
