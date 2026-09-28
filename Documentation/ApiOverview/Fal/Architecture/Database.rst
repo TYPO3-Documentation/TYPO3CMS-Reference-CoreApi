@@ -49,7 +49,7 @@ Some important fields:
 
 :sql:`metadata`
     Foreign side of the :ref:`sys_file_metadata <fal-architecture-database-sys-file-metadata>`
-    relation. Always :sql:`0` in the database, but necessary for the
+    relation. Always `0` in the database, but necessary for the
     :ref:`TCA <t3tca:start>` of the :sql:`sys_file` table.
 
 

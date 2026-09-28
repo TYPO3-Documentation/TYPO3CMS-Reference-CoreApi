@@ -28,7 +28,7 @@ two different ways depending on which part of it is used. Controllers, views
 and anything else resolving :typoscript:`plugin.tx_<extension>` configuration
 fail outright. The persistence layer is deliberately allowed to run without a
 request, but with no configuration to draw on it limits its queries to
-storagePid :php:`0` alone.
+storagePid `0` alone.
 
 Three contexts run into this, each with a different amount of the frontend
 available:

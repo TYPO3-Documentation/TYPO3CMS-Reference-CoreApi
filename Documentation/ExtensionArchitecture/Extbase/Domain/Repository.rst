@@ -153,8 +153,8 @@ overriding the default for that call. Use :php:`$query->setOrderings()`:
     :visible-lines: 19-31
 
 In both cases the keys are **property names**, not column names. Order
-direction is set by :php:`QueryInterface::ORDER_ASCENDING` (:php:`'ASC'`) or
-:php:`QueryInterface::ORDER_DESCENDING` (:php:`'DESC'`).
+direction is set by :php:`QueryInterface::ORDER_ASCENDING` (`'ASC'`) or
+:php:`QueryInterface::ORDER_DESCENDING` (`'DESC'`).
 
 As an alternative to using the :php:`setOrderings()` array, the query offers an
 easier to read form: :php:`$query->orderBy('title')` sets a single order (replacing

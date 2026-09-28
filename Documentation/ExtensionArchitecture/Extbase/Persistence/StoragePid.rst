@@ -37,7 +37,7 @@ The only built-in methods that skip it are :php:`findByUid()` and
 regardless of page.
 
 This matters for two reasons. First, a repository with no configured storagePid
-queries page :sql:`0` — see
+queries page `0` — see
 :ref:`why storagePid = 0 does not disable the restriction
 <extbase-persistence-storagepid-zero>`. Second, the constraint is resolved
 from several configuration sources that override one another, so the page a query
@@ -57,7 +57,7 @@ handles the request:
     :typoscript:`config.tx_extbase.persistence.storagePid`. This is the
     framework-level default that applies to every Extbase plugin, and the same
     key a backend module reads (see below). When nothing sets it, the frontend
-    default is :sql:`0`.
+    default is `0`.
 #.  **Extension plugin TypoScript** —
     :typoscript:`plugin.tx_myextension.persistence.storagePid` overrides the
     framework value for all plugins of one extension.
@@ -108,7 +108,7 @@ shorter:
     to the **page the module is currently showing**, taken from the `id`
     request parameter (the page selected in the page tree). When no page is
     selected — or the module has no page tree at all, as many backend modules do
-    not — this falls back to :sql:`0`.
+    not — this falls back to `0`.
 #.  **Module TypoScript** —
     :typoscript:`module.tx_myextension.persistence.storagePid`, overridden by the
     module-specific
@@ -133,7 +133,7 @@ happens to be viewing, and a module without a page tree sees it at all. See
 
     Because the current-page fallback depends on the `id` request parameter, a
     module without a page tree (or with no page selected) resolves its storagePid
-    to :sql:`0`. If your module is not meant to be scoped to the current page or the root,
+    to `0`. If your module is not meant to be scoped to the current page or the root,
     set an explicit storagePid in :typoscript:`module.tx_*` TypoScript, or drop
     the restriction per query with :php:`setRespectStoragePage(false)` — see
     :ref:`Overriding the storagePid for a single query <extbase-persistence-storagepid-override>`.
@@ -218,8 +218,8 @@ records, which are independent of the storagePid:
 Why `storagePid = 0` does not disable the restriction
 =====================================================
 
-A common misconception is that setting the storagePid to :typoscript:`0` switches
-off the page restriction. It does not. :sql:`0` is the UID of the page tree
+A common misconception is that setting the storagePid to `0` switches
+off the page restriction. It does not. `0` is the UID of the page tree
 root, and the query looks for records stored on page 0 and nowhere else. The
 effect is a query restricted to that page, not an unrestricted query.
 

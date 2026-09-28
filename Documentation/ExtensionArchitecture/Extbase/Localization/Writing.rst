@@ -20,9 +20,9 @@ New records are created in the default language
 
 When Extbase persists a new object it fills in the language fields itself:
 
-*   The language field is set to :php:`0`, the default language, unless the
+*   The language field is set to `0`, the default language, unless the
     object already carries a language of its own.
-*   The translation parent field is set to :php:`0`.
+*   The translation parent field is set to `0`.
 
 A record submitted by a visitor browsing the Polish version of a site is
 therefore stored as a default-language record, not as a Polish one. Setting the
@@ -42,7 +42,7 @@ Extbase does not create translations
 ====================================
 
 A translation is a record that points at the record it translates, through the
-translation parent field. Extbase always writes :php:`0` into that field when
+translation parent field. Extbase always writes `0` into that field when
 it creates a record, and never writes anything else into it.
 
 The consequence is that Extbase can create a record *in* a language, but it

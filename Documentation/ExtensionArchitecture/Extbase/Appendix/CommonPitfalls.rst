@@ -60,7 +60,7 @@ an empty result, but the records clearly exist in the database.
 **Why:** Every repository query is filtered to one or more storage pages
 (the :php:`storagePid`) by default. If the records live on a different page
 than the one searched — without a configured storage page, that is page
-:sql:`0` — the query returns nothing. :php:`findByUid()` and
+`0` — the query returns nothing. :php:`findByUid()` and
 :php:`findByIdentifier()` are the only built-in methods that ignore the
 storagePid.
 
@@ -364,9 +364,9 @@ customised template is ignored and the original one is used instead.
 **Why:** Template resolution is based on a numerically keyed path array
 searched from the highest key downward. Several things can go wrong:
 
-*   **Wrong key order:** a customisation registered at key :typoscript:`5` is
-    ignored in favour of the original at key :typoscript:`10`, because
-    :typoscript:`10` is higher and wins.
+*   **Wrong key order:** a customisation registered at key `5` is
+    ignored in favour of the original at key `10`, because
+    `10` is higher and wins.
 *   **Case mismatch on Linux:** :file:`List.fluid.html` and
     :file:`list.fluid.html` are different files. The convention requires an
     uppercase first letter for both the controller subdirectory and the action
@@ -376,7 +376,7 @@ searched from the highest key downward. Several things can go wrong:
     :php:`ConferenceController` requires :file:`Conference/`, not
     :file:`Conferences/` or :file:`conference/`.
 *   **Path array key too low:** the overriding path is registered at a key
-    lower than the original (for example :typoscript:`5` vs :typoscript:`10`),
+    lower than the original (for example `5` vs `10`),
     so the original wins. The numeric key is the only thing that determines
     precedence — use a key higher than whatever the original extension uses.
 
