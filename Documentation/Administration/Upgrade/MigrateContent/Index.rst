@@ -23,7 +23,7 @@ If the menu entries :guilabel:`Export` and :guilabel:`Import` are missing
 from your page tree's context menu check that the system extension
 :php:`impexp` is loaded and installed.
 
-On composer based installations it can be required via
+On composer based installations it can be required via:
 
 ..  code-block:: bash
     :caption: typo3_root$

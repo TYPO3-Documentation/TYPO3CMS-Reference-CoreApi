@@ -83,7 +83,7 @@ TYPO3 has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default
 for warnings (:php:`LogLevel::WARNING`) and higher severity, so all matching log
 entries are written to a file.
 
-If the filename is not set, then the file will contain a hash like
+If the filename is not set, then the file will contain a hash like:
 
 ..  tabs::
 
