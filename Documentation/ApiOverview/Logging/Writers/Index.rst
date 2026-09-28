@@ -191,9 +191,9 @@ maxFiles
     :name: rotating-file-writer-maxFiles
     :type: integer
     :Mandatory: non
-    :Default: :php:`5`
+    :Default: `5`
 
-    This option configured how many files should be retained (use :php:`0` to
+    This option configured how many files should be retained (use `0` to
     never delete any file).
 
 ..  note::

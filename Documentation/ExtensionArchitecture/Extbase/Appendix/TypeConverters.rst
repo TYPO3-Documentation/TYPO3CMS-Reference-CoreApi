@@ -62,11 +62,11 @@ thousands separator and decimal point characters can be configured:
 
 :php:`FloatConverter::CONFIGURATION_THOUSANDS_SEPARATOR`
     Character used as the thousands separator in the input string (for
-    example :php:`'.'` for German locale). Default: none.
+    example `'.'` for German locale). Default: none.
 
 :php:`FloatConverter::CONFIGURATION_DECIMAL_POINT`
     Character used as the decimal separator in the input string (for
-    example :php:`','` for German locale). Default: :php:`'.'`.
+    example `','` for German locale). Default: `'.'`.
 
 
 ..  _extbase-appendix-typeconverters-boolean:
@@ -124,7 +124,7 @@ splits it on a configurable delimiter:
 
 :php:`ArrayConverter::CONFIGURATION_LIMIT`
     Maximum number of elements to return (passed as the third argument to
-    :php:`explode()`). Default: :php:`0` (no limit).
+    :php:`explode()`). Default: `0` (no limit).
 
 
 ..  _extbase-appendix-typeconverters-datetime:
@@ -143,7 +143,7 @@ Converts a string, Unix timestamp, or array of date parts into a
 :php:`DateTimeConverter::CONFIGURATION_DATE_FORMAT`
     The format string passed to :php:`\DateTime::createFromFormat()`. Defaults
     to :php:`\DateTime::W3C`. Set this if your form sends a date in a locale
-    format (for example :php:`'d.m.Y'`).
+    format (for example `'d.m.Y'`).
 
 ..  literalinclude:: _snippets/_DateTimeConverterController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -286,13 +286,13 @@ No configuration constants.
 :Priority: 10
 
 Looks up a :php-short:`\TYPO3\CMS\Core\Country\Country` object by ISO code.
-Defaults to matching alpha-2 codes (for example :php:`'DE'`):
+Defaults to matching alpha-2 codes (for example `'DE'`):
 
 :php:`CountryConverter::CONFIGURATION_FROM`
     How to match the source string. Accepted values:
 
-    *   :php:`'alpha2IsoCode'` (default) — two-letter ISO 3166-1 alpha-2 code.
-    *   :php:`'alpha3IsoCode'` — three-letter ISO 3166-1 alpha-3 code.
+    *   `'alpha2IsoCode'` (default) — two-letter ISO 3166-1 alpha-2 code.
+    *   `'alpha3IsoCode'` — three-letter ISO 3166-1 alpha-3 code.
 
 
 ..  _extbase-appendix-typeconverters-fal:
