@@ -129,7 +129,7 @@ defaultScheme
     :Default: 'http'
 
     Set the default URI scheme. This is used in links if no scheme is set.
-    It can be set to :php:`'https'` for the default setting.
+    It can be set to `'https'` for the default setting.
 
 ..  _typo3ConfVars_sys_encryptionKey:
 

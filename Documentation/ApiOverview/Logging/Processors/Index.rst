@@ -75,7 +75,7 @@ shiftBackTraceLevel
 ..  confval:: shiftBackTraceLevel
     :name: logging-processors-introspection-shiftBackTraceLevel
     :Mandatory: no
-    :Default: :php:`0`
+    :Default: `0`
 
     Removes the given number of entries from the top of the backtrace stack.
 

@@ -91,8 +91,8 @@ will be handled. After that the meta tags defined in TypoScript will be handled.
 It is possible to override earlier set meta tags by TypoScript if you explicitly say this should happen. Therefore the
 :typoscript:`meta.*.replace` option was introduced. It is a boolean flag with these values:
 
-* :typoscript:`1`: The meta tag set by TypoScript will replace earlier set meta tags
-* :typoscript:`0`: (default) If the meta tag is not set before, the meta tag will be created. If it is already set, it will ignore the meta tag set by TypoScript.
+* `1`: The meta tag set by TypoScript will replace earlier set meta tags
+* `0`: (default) If the meta tag is not set before, the meta tag will be created. If it is already set, it will ignore the meta tag set by TypoScript.
 
 .. code-block:: typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
@@ -103,7 +103,7 @@ It is possible to override earlier set meta tags by TypoScript if you explicitly
         og:site_name.replace = 1
     }
 
-When you set the property replace to :typoscript:`1` at the specific tag, the tag will replace tags that are set from plugins.
+When you set the property replace to `1` at the specific tag, the tag will replace tags that are set from plugins.
 
 By using the new API it is not possible to have duplicate metatags, unless this is explicitly allowed. If you use custom
 meta tags and want to have multiple occurrences of the same meta tag, you have to create your own :php:`MetaTagManager`.

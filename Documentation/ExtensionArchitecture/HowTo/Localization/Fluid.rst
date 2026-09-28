@@ -232,11 +232,11 @@ Common are:
 
 :php:`%d`
     The argument is treated as an integer and presented as a (signed)
-    decimal number. Example: :html:`-42`
+    decimal number. Example: `-42`
 
 :php:`%f`
     The argument is treated as a float and presented as a floating-point
-    number (locale aware). Example: :html:`3.14159`
+    number (locale aware). Example: `3.14159`
 
 :php:`%s`
     The argument is treated and presented as a string. This can also be

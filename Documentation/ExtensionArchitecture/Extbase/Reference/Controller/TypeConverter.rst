@@ -11,7 +11,7 @@ into another. They are usually applied in the Extbase controller in the
 :php:`initialize<actionName>Action()` method.
 
 For example a date might be given as string in some language,
-:php:`"October 7th, 2022"` or as UNIX time stamp: :php:`1665159559`.
+`"October 7th, 2022"` or as UNIX time stamp: `1665159559`.
 Your action method, however, expects a :php:`\DateTime` object. Extbase tries to
 match the data coming from the frontend automatically.
 

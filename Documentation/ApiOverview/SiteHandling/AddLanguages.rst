@@ -64,10 +64,10 @@ languageId
 ..  confval:: languageId
     :name: sitehandling-addingLanguages-languageId
     :type: integer
-    :Example: :yaml:`1`
+    :Example: `1`
 
-    For the default/main language of the given site, use value :yaml:`0`. For
-    additional languages use a number greater than :yaml:`0`. Every site must
+    For the default/main language of the given site, use value `0`. For
+    additional languages use a number greater than `0`. Every site must
     have at last one language configured with :yaml:`languageId: 0`.
 
     ..  attention::

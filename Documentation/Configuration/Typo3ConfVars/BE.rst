@@ -269,7 +269,7 @@ loginRateLimit
     Maximum amount of login attempts in time interval
     :ref:`[BE][loginRateLimitInterval]<typo3ConfVars_be_loginRateLimitInterval>`
     before further login requests will be denied. Setting this value to
-    :php:`"0"` will disable login rate limiting.
+    `"0"` will disable login rate limiting.
 
 ..  _typo3ConfVars_be_loginRateLimitInterval:
 
