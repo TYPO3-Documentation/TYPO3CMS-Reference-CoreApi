@@ -57,8 +57,9 @@ The custom error handlers have the properties
 :ref:`sitehandling-errorHandling_errorCode` and
 :ref:`sitehandling-errorHandling_errorHandler` and the following:
 
-..  option:: errorPhpClassFQCN
-
+..  confval:: errorPhpClassFQCN
+    :name: site-error-handling-errorPhpClassFQCN
+    :searchFacet: Site Configuration
     :type: string
     :Example: :php:`\MyVendor\MySitePackage\Error\MyErrorHandler`
 

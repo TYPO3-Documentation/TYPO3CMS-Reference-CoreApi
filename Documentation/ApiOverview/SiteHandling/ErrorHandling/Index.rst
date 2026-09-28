@@ -47,8 +47,9 @@ These properties apply to all error handlers.
 
 ..  _sitehandling-errorHandling_errorCode:
 
-..  option:: errorCode
-
+..  confval:: errorCode
+    :name: site-error-handling-errorCode
+    :searchFacet: Site Configuration
     :type: int
     :Example: `404`
 
@@ -61,8 +62,9 @@ These properties apply to all error handlers.
 
 .. _sitehandling-errorHandling_errorHandler:
 
-..  option:: errorHandler
-
+..  confval:: errorHandler
+    :name: site-error-handling-errorHandler
+    :searchFacet: Site Configuration
     :type: string / enum
     :Example: `Fluid`
 

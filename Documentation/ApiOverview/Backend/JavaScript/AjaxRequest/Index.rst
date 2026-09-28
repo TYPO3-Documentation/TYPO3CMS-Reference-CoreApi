@@ -56,16 +56,17 @@ Each of these methods set the corresponding request method (GET, POST, PUT,
 DELETE). :js:`post()`, :js:`put()` and :js:`delete()` accept the following
 arguments:
 
-..  option:: data
-
+..  confval:: data
+    :name: modules-ajax-request-data
+    :searchFacet: JavaScript Option
     :Required: true
     :type: string | object
 
     The payload to be sent as body in the request.
 
-..  option:: init
-
-    :Required: false
+..  confval:: init
+    :name: modules-ajax-request-init
+    :searchFacet: JavaScript Option
     :type: object
     :Default: :js:`{}`
 
