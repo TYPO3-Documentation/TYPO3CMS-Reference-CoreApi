@@ -353,19 +353,19 @@ Plugin signature
 
 ..  deprecated:: 13.4
     Adding frontend plugins as a "General Plugin", setting the content
-    record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
+    record :sql:`CType` to `'list'` and `list_type` to the plugin signature
     is deprecated. See :ref:`plugins-list_type-migration`.
 
 The plugin signature of non-Extbase plugins, registered via
 :php:`ExtensionManagementUtility::addPlugin()`, is an arbitrary string.
 By convention it should be the extension name with all underscores removed,
 followed by one underscore and the alphanumeric plugin key in lowercase.
-Examples: :php:`"myextension_coolplugin"`, :php:`"examples_pi1"`.
+Examples: `"myextension_coolplugin"`, `"examples_pi1"`.
 
 Extbase based plugins are registered via :php:`ExtensionUtility::registerPlugin()`.
 This method expects the extension key (UpperCamelCase or with underscores) as
-the first parameter and a plugin name in UpperCamelCase (for example :php:`"Pi1"` or
-:php:`"CoolPlugin"`). The method then returns the new plugin signature.
+the first parameter and a plugin name in UpperCamelCase (for example `"Pi1"` or
+`"CoolPlugin"`). The method then returns the new plugin signature.
 
 .. versionadded:: 12.0
    Starting with TYPO3 v12.0 the method :php:`ExtensionUtility::registerPlugin()`

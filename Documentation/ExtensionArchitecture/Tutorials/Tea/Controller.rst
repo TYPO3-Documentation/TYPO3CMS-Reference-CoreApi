@@ -24,7 +24,7 @@ This action would be displayed if an URL like the following would be requested:
 :samp:`https://www.example.org/myfrontendplugin?tx_tea[action]=show&tx_tea[controller]=tea&tx_tea[tea]=42&chash=whatever`.
 
 So where does the model :php:`Tea $tea` come from? The only reference we had
-to the actual tea to be displayed was the ID :php:`42`. In most cases, the
+to the actual tea to be displayed was the ID `42`. In most cases, the
 parent class :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` will take care of matching parameters to
 objects or models. In more advanced scenarios it is necessary to influence
 the parameter matching. But in our scenario it is sufficient to know that this

@@ -152,7 +152,7 @@ proxy
     :type: mixed
     :Default: null
 
-    Enter a single proxy server as string, for example :php:`'proxy.example.org'`
+    Enter a single proxy server as string, for example `'proxy.example.org'`
 
     Multiple proxies for different protocols can be added separately as an
     array as authentication and port; see
@@ -195,7 +195,7 @@ timeout
 
     Should be greater than the
     :ref:`connection timeout<typo3ConfVars_http_connect_timeout>` or
-    :php:`0` to not set a limit.
+    `0` to not set a limit.
 
 ..  _typo3ConfVars_http_verify:
 

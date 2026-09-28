@@ -65,7 +65,7 @@ imagefile_ext
         with WebP support by installing the "cwebp" or "dwebp" libraries.
 
     Comma-separated list of file extensions recognized as images by TYPO3.
-    List should be set to :php:`'gif,png,jpeg,jpg,webp'`, if ImageMagick /
+    List should be set to `'gif,png,jpeg,jpg,webp'`, if ImageMagick /
     GraphicsMagick is not available.
 
     ..  caution::

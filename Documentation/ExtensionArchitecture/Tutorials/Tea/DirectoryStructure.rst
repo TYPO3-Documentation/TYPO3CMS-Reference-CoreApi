@@ -54,7 +54,7 @@ defined in file:`ext_emconf.php` in Classic mode installations):
            :caption: EXT:tea/ext_emconf.php, extract
            :emphasize-lines: 4
 
-The key of the psr-4 array, here :php:`'TTN\\Tea\\'`, defines the namespace
+The key of the psr-4 array, here `"TTN\\\\Tea\\\\"`, defines the namespace
 for all classes in order to be found by
 :ref:`PSR-4 autoloading <autoload>`.
 

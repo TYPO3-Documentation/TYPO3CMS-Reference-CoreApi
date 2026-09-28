@@ -214,7 +214,7 @@ record):
 The above example comes from the "examples" extension
 (reference: https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/Controller/ModuleController.php).
 
-Here, the :php:`'fieldname'` :php:`'assets'` is used instead of
+Here, the `'fieldname'` `'assets'` is used instead of
 :php:`image`. Content elements of ctype 'textmedia' use the field 'assets'.
 
 For another table than :sql:`tt_content`, you need to define

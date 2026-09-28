@@ -92,7 +92,7 @@ calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. The parameters ar
     :ref:`showitem property of types in TCA <t3tca:types-properties-showitem>`.
 3.  Optional: record types of the table where the fields should be added,
     see :ref:`types in TCA <t3tca:types>` for details.
-4.  Optional: position (:php:`'before'` or :php:`'after'`) in relation
+4.  Optional: position (`'before'` or `'after'`) in relation
     to an existing field (:php:`after:myfield`) or
     palette (:php:`after:palette:mypalette`).
 

@@ -10,7 +10,7 @@ Frontend plugin
 
 ..  deprecated:: 13.4
     Adding frontend plugins as a "General Plugin", setting the content
-    record :sql:`CType` to :sql:`'list'` is deprecated. See :ref:`plugins-list_type-migration`.
+    record :sql:`CType` to `'list'` is deprecated. See :ref:`plugins-list_type-migration`.
 
 The term "frontend plugin" describes a part of a TYPO3 extension that is
 handled like a content element (can be inserted like a record/element in

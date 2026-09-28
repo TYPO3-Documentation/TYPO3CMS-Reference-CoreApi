@@ -376,7 +376,7 @@ Example:
 
 The example shows how to modify the file upload configuration for the argument
 :php:`item` and the property :php:`file`. The minimum amount of files to be
-uploaded is set to :php:`2` and a custom validator is added.
+uploaded is set to `2` and a custom validator is added.
 
 To remove all defined validators except the mandatory :php:`FileNameValidator`
 and :php:`FileExtensionMimeTypeConsistencyValidator, use the :php:`resetValidators()` method.
@@ -515,9 +515,9 @@ can be set as sub-keys:
         'uploadFolder' => '1:/user_upload/files/',
     ])]
 
-The shorthand notation via :php:`'allowedMimeTypes'` continues to
+The shorthand notation via `'allowedMimeTypes'` continues to
 exist, in case only the mime type validation is needed. However, it is recommended
-to utilize the full :php:`'mimeType'` configuration array.
+to utilize the full `'mimeType'` configuration array.
 
 
 ..  _extbase_fileupload_attribute-deletion:

@@ -43,8 +43,8 @@ Use the following steps to add the plugin as content element:
 
     Use the following parameters:
 
-    #.  Extension key :php:`'blog_example'` or name :php:`BlogExample`.
-    #.  A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
+    #.  Extension key `'blog_example'` or name :php:`BlogExample`.
+    #.  A unique identifier for your plugin in UpperCamelCase: `'PostSingle'`
     #.  An array of allowed combinations of controllers and actions stored in an array
     #.  (Optional) an array of controller name and  action names which should not be cached
     #.  Using any value but `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT` is
@@ -91,8 +91,8 @@ Use the following steps to add the plugin as content element:
 
     Use the following parameters:
 
-    #.  Extension key :php:`'blog_example'` or name :php:`BlogExample`.
-    #.  A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`,
+    #.  Extension key `'blog_example'` or name :php:`BlogExample`.
+    #.  A unique identifier for your plugin in UpperCamelCase: `'PostSingle'`,
         must be the same as used in :php:`configurePlugin()` or the plugin will
         not render.
     #.  Plugin title in the backend: Can be a string or a localized string starting

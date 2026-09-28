@@ -441,7 +441,7 @@ This variable can be set in one of the following files:
 
         This default email address is used when no other "reply-to" address is set
         for a TYPO3-generated email. You can specify an email address only
-        (for example :php:`'info@example.org'`).
+        (for example `'info@example.org'`).
 
     ..  _typo3ConfVars_mail_defaultMailReplyToName:
 
