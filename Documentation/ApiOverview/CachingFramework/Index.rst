@@ -199,7 +199,7 @@ Example (excerpt of `config/system/additional.php`)
 ..  literalinclude:: _additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-For instance instead of having exclude items like
+For instance instead of having exclude items like:
 
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
@@ -213,7 +213,7 @@ For instance instead of having exclude items like
     ],
 
 partial matches allow to simplify the configuration and consider all items having
-:php:`tx_my[data]` (or :php:`tx_my[data][` to be more specific) as prefix like
+:php:`tx_my[data]` (or :php:`tx_my[data][` to be more specific) as prefix like:
 
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php

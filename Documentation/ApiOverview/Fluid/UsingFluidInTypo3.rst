@@ -55,7 +55,7 @@ For example, we can define two global namespaces with the identifiers
 
 Assuming you have defined a Fluid component in
 `EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`
-then you can access the Button component via
+then you can access the Button component via:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html

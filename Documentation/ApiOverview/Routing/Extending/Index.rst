@@ -91,7 +91,7 @@ Manipulating generated slugs
 The "slug" TCA type includes a possibility to hook into the generation of a slug
 via custom TCA generation options.
 
-Hooks can be registered via
+Hooks can be registered via:
 
 ..  code-block:: php
 

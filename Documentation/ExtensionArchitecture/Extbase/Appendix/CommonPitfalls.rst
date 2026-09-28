@@ -458,7 +458,7 @@ framework setting is in the global :typoscript:`config.tx_extbase` scope
 instead of in a plugin scope. Because :typoscript:`config.tx_extbase` is the
 lowest-precedence layer that applies to **every** Extbase plugin in the
 frontend, a value intended to fix one extension silently reconfigures all of
-them. A common trigger is copying an MVC error-handling line such as
+them. A common trigger is copying an MVC error-handling line such as:
 
 ..  code-block:: typoscript
 
