@@ -36,7 +36,7 @@ additionalQueryRestrictions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
     :name: typo3-conf-vars-db-additionalQueryRestrictions
     :type: array
-    :Default: []
+    :default: []
 
     It is possible to add additional query restrictions by adding class names as
     key to
@@ -96,7 +96,7 @@ Connections
         :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
         :name: typo3-conf-vars-db-connection-name-charset
         :type: string
-        :Default: 'utf8'
+        :default: 'utf8'
 
         The charset used when connecting to the database. Can be used with
         MySQL/MariaDB and PostgreSQL.
@@ -220,7 +220,7 @@ TableMapping
     :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
     :name: globals-typo3-conf-vars-db-tableMapping
     :type: array
-    :Default: []
+    :default: []
 
     When a TYPO3 table is swapped to another database (either on the same host
     or another host) this table must be mapped to the other database.

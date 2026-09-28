@@ -47,7 +47,7 @@ allow_redirects
         :name: globals-typo3-conf-vars-sys-http-allow_redirects-strict
         :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
         :type: bool
-        :Default: false
+        :default: false
 
         Whether to keep request method on redirects via status 301 and 302
 
@@ -65,7 +65,7 @@ allow_redirects
         :name: globals-typo3-conf-vars-sys-http-allow_redirects-max
         :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
         :type: int
-        :Default: 5
+        :default: 5
 
         Maximum number of tries before an exception is thrown.
 
@@ -90,7 +90,7 @@ allowed_hosts
         :name: globals-typo3-conf-vars-sys-http-allowed_hosts-webhooks
         :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']['webhooks']
         :type: array / null
-        :Default: null
+        :default: null
 
         For now, the only supported array key is `webhooks` to configure an array
         of valid hostnames that webhooks of `EXT:webhooks` are allowed to connect to
@@ -114,7 +114,7 @@ cert
     :name: globals-typo3-conf-vars-sys-http-cert
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
     :type: mixed
-    :Default: null
+    :default: null
 
     Set to a string to specify the path to a file containing a
     PEM formatted client side certificate. See
@@ -130,7 +130,7 @@ connect_timeout
     :name: globals-typo3-conf-vars-sys-http-connect_timeout
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
     :type: int
-    :Default: 10
+    :default: 10
 
     Default timeout for connection in seconds. Exception will be thrown if
     connecting to a remote host.
@@ -145,7 +145,7 @@ proxy
     :name: globals-typo3-conf-vars-sys-http-proxy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
     :type: mixed
-    :Default: null
+    :default: null
 
     Enter a single proxy server as string, for example `'proxy.example.org'`
 
@@ -169,7 +169,7 @@ ssl_key
     :name: globals-typo3-conf-vars-sys-http-ssl_key
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
     :type: mixed
-    :Default: null
+    :default: null
 
     Local certificate and an optional passphrase, see
     `Guzzle option ssl-key <https://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
@@ -184,7 +184,7 @@ timeout
     :name: globals-typo3-conf-vars-sys-http-timeout
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
     :type: int
-    :Default: 0
+    :default: 0
 
     Default timeout for whole request. Exception will be thrown if sending the
     request takes more than this number of seconds.
@@ -203,7 +203,7 @@ verify
     :name: globals-typo3-conf-vars-sys-http-verify
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
     :type: mixed
-    :Default: true
+    :default: true
 
     Describes the SSL certificate verification behavior of a request, see
     `Guzzle option verify <https://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
@@ -218,6 +218,6 @@ version
     :name: globals-typo3-conf-vars-sys-http-version
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
     :type: text
-    :Default: '1.1'
+    :default: '1.1'
 
     Default HTTP protocol version. Use either "1.0" or "1.1".
