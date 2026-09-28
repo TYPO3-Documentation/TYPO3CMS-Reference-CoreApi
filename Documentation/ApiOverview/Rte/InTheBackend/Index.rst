@@ -13,8 +13,11 @@ Rich text editors in the TYPO3 backend
 
     PlugRte
 
-When you configure a table in :php:`$TCA` and add a field of the type `text`
-you can configure
+When you configure a table in :php:`$GLOBALS['TCA']` and add a field of the
+type `text`, which is edited by a :html:`<textarea>`, you can choose to use a
+rich text editor (RTE) instead of the simple form field. An RTE enables
+editors to use visual formatting aids to create bold and italic text,
+paragraphs, tables and more.
 
 ..  figure:: /Images/ManualScreenshots/Rte/RteBackend.png
     :zoom: lightbox
