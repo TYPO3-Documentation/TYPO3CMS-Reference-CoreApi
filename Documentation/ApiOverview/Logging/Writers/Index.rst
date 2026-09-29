@@ -48,8 +48,7 @@ The following option is available:
 ..  confval:: logTable
     :name: database-writer-logTable
     :type: string
-    :Mandatory: no
-    :Default: :sql:`sys_log`
+    :default: :sql:`sys_log`
 
     The database table to write to.
 
@@ -117,8 +116,7 @@ logFile
 ..  confval:: logFile
     :name: file-writer-logFile
     :type: string
-    :Mandatory: no
-    :Default: :file:`typo3temp/logs/typo3_<hash>.log`
+    :default: :file:`typo3temp/logs/typo3_<hash>.log`
               (for example, like :file:`typo3temp/logs/typo3_7ac500bce5.log`)
 
     The path to the log file.
@@ -132,8 +130,7 @@ logFileInfix
 ..  confval:: logFileInfix
     :name: file-writer-logFileInfix
     :type: string
-    :Mandatory: no
-    :Default: (empty string)
+    :default: (empty string)
 
     This option allows to set a different name for the log file that is created
     by the :php:`FileWriter` without having to define a full path to the file.
@@ -195,8 +192,7 @@ interval
 ..  confval:: interval
     :name: rotating-file-writer-interval
     :type: :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval`, string
-    :Mandatory: no
-    :Default: :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::DAILY`
+    :default: :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::DAILY`
 
     The interval defines how often logs should be rotated. Use one of the
     following options:
@@ -215,8 +211,7 @@ maxFiles
 ..  confval:: maxFiles
     :name: rotating-file-writer-maxFiles
     :type: integer
-    :Mandatory: non
-    :Default: `5`
+    :default: `5`
 
     This option configured how many files should be retained (use `0` to
     never delete any file).
@@ -261,8 +256,7 @@ The following option is available:
 ..  confval:: facility
     :name: syslog-writer-facility
     :type: string
-    :Mandatory: no
-    :Default: ``USER``
+    :default: ``USER``
 
     The syslog `facility`_ to log into.
 

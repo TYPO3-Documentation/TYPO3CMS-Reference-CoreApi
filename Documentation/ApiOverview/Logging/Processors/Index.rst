@@ -61,8 +61,7 @@ Options
 
 ..  confval:: appendFullBackTrace
     :name: logging-processors-introspection-appendFullBackTrace
-    :Mandatory: no
-    :Default: :php:`false`
+    :default: :php:`false`
 
     Adds a full backtrace stack to the log.
 
@@ -74,8 +73,7 @@ shiftBackTraceLevel
 
 ..  confval:: shiftBackTraceLevel
     :name: logging-processors-introspection-shiftBackTraceLevel
-    :Mandatory: no
-    :Default: `0`
+    :default: `0`
 
     Removes the given number of entries from the top of the backtrace stack.
 
@@ -98,8 +96,7 @@ Options
 
 ..  confval:: realMemoryUsage
     :name: logging-processors-memory-realMemoryUsage
-    :Mandatory: no
-    :Default: :php:`true`
+    :default: :php:`true`
 
     Use the `real size of memory <https://www.php.net/manual/en/function.memory-get-usage.php#refsect1-function.memory-get-usage-parameters>`__
     allocated from system instead of :php:`emalloc()` value.
@@ -112,8 +109,7 @@ formatSize
 
 ..  confval:: formatSize
     :name: logging-processors-memory-formatSize
-    :Mandatory: no
-    :Default: :php:`true`
+    :default: :php:`true`
 
     Whether the size is formatted with :php:`GeneralUtility::formatSize()`.
 
@@ -136,8 +132,7 @@ Options
 
 ..  confval:: realMemoryUsage
     :name: logging-processors-memory-peak-realMemoryUsage
-    :Mandatory: no
-    :Default: :php:`true`
+    :default: :php:`true`
 
     Use the `real size of memory <https://www.php.net/manual/en/function.memory-get-peak-usage.php#refsect1-function.memory-get-peak-usage-parameters>`__
     allocated from system instead of :php:`emalloc()` value.
@@ -150,8 +145,7 @@ formatSize
 
 ..  confval:: formatSize
     :name: logging-processors-memory-peak-formatSize
-    :Mandatory: no
-    :Default: :php:`true`
+    :default: :php:`true`
 
     Whether the size is formatted with :php:`GeneralUtility::formatSize()`.
 

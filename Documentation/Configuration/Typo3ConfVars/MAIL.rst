@@ -34,7 +34,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-format
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']
         :type: dropdown
-        :Default: 'both'
+        :default: 'both'
 
         ..  rubric:: Allowed values
 
@@ -112,7 +112,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-validators
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators']
         :type: array
-        :Default: :php:`[\Egulias\EmailValidator\Validation\RFCValidation::class]`
+        :default: :php:`[\Egulias\EmailValidator\Validation\RFCValidation::class]`
 
         List of validators used to validate an email address.
 
@@ -131,7 +131,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-transport
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport']
         :type: text
-        :Default: 'sendmail'
+        :default: 'sendmail'
 
         smtp
             Sends messages over the (standardized) Simple Message Transfer Protocol.
@@ -172,7 +172,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_server
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server']
             :type: text
-            :Default: 'localhost:25'
+            :default: 'localhost:25'
 
             *only with transport=smtp* server port of mail server to connect to. port
             defaults to "25".
@@ -183,7 +183,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_domain
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_domain']
             :type: text
-            :Default: ''
+            :default: ''
 
             Some smtp-relay-servers require the domain to be set from which the sender is
             sending an email. By default, the EsmtpTransport from Symfony will use the
@@ -222,7 +222,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_stream_options
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_stream_options']
             :type: array
-            :Default: null
+            :default: null
 
             *only with transport=smtp* Sets additional stream options.
 
@@ -252,7 +252,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_encrypt
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_encrypt']
             :type: bool
-            :Default: false
+            :default: false
 
             *only with transport=smtp* Connects to the server using SSL/TLS
             (disables STARTTLS which is used by default if supported by the server).
@@ -266,7 +266,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_username
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_username']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport=smtp* If your SMTP server requires authentication,
             enter your username here.
@@ -277,7 +277,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_password
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_password']
             :type: password
-            :Default: ''
+            :default: ''
 
             *only with transport=smtp* If your SMTP server requires authentication,
             enter your password here.
@@ -288,7 +288,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_restart_threshold
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport=smtp* Sets the maximum number of messages to send
             before re-starting the transport.
@@ -299,7 +299,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_restart_threshold_sleep
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_restart_threshold_sleep']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport=smtp* Sets the number of seconds to sleep
             between stopping and re-starting the transport.
@@ -310,7 +310,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_smtp_ping_threshold
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_ping_threshold']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport=smtp* Sets the minimum number of seconds required
             between two messages, before the server is pinged. If the transport
@@ -334,7 +334,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_sendmail_command
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport=sendmail* The command to call to send a mail locally.
 
@@ -347,7 +347,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_mbox_file
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_mbox_file']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport=mbox* The file where to write the mails into.
             This file will be conforming the mbox format described in RFC 4155. It is
@@ -363,7 +363,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_spool_type
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_type']
             :type: text
-            :Default: ''
+            :default: ''
 
             file
                 Messages get stored to the file system till they get sent through the
@@ -380,7 +380,7 @@ This variable can be set in one of the following files:
             :name: globals-typo3-conf-vars-mail-transport_spool_filepath
             :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath']
             :type: text
-            :Default: ''
+            :default: ''
 
             *only with transport_spool_type=file* Path where messages get temporarily
             stored. Ensure that this is stored outside of your webroot.
@@ -391,7 +391,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-dsn
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['dsn']
         :type: text
-        :Default: ''
+        :default: ''
 
         *only with transport=dsn* The DSN configuration of the Symfony mailer
         (for example `smtp://userpass@smtp.example.org:25`). Symfony provides different
@@ -414,7 +414,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-defaultMailFromAddress
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress']
         :type: text
-        :Default: ''
+        :default: ''
 
         This default email address is used when no other "from" address is
         set for a TYPO3-generated email. You can specify an email address only
@@ -426,7 +426,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-defaultMailFromName
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName']
         :type: text
-        :Default: ''
+        :default: ''
 
         This default name is used when no other "from" name is set for a
         TYPO3-generated email.
@@ -437,7 +437,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-defaultMailReplyToAddress
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToAddress']
         :type: text
-        :Default: ''
+        :default: ''
 
         This default email address is used when no other "reply-to" address is set
         for a TYPO3-generated email. You can specify an email address only
@@ -449,7 +449,7 @@ This variable can be set in one of the following files:
         :name: globals-typo3-conf-vars-mail-defaultMailReplyToName
         :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailReplyToName']
         :type: text
-        :Default: ''
+        :default: ''
 
         This default name is used when no other "reply-to" name is set for a
         TYPO3-generated email.

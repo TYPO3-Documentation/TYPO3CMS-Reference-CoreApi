@@ -59,7 +59,7 @@ arguments:
 ..  confval:: data
     :name: modules-ajax-request-data
     :searchFacet: JavaScript Option
-    :Required: true
+    :required: true
     :type: string | object
 
     The payload to be sent as body in the request.
@@ -68,7 +68,7 @@ arguments:
     :name: modules-ajax-request-init
     :searchFacet: JavaScript Option
     :type: object
-    :Default: :js:`{}`
+    :default: :js:`{}`
 
     Additional `request configuration`_ to be set.
 

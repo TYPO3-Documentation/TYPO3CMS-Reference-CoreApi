@@ -111,35 +111,35 @@ The following options are available:
 ..  confval:: minimumLength
 
     :type: int
-    :Default: 8
+    :default: 8
 
     The minimum length of a given password.
 
 ..  confval:: upperCaseCharacterRequired
 
     :type: bool
-    :Default: true
+    :default: true
 
     If set to :php:`true` at least one upper case character (`A`-`Z`) is required.
 
 ..  confval:: lowerCaseCharacterRequired
 
     :type: bool
-    :Default: true
+    :default: true
 
     If set to :php:`true` at least one lower case character (`a`-`z`) is required.
 
 ..  confval:: digitCharacterRequired
 
     :type: bool
-    :Default: true
+    :default: true
 
     If set to :php:`true` at least one digit character (`0`-`9`) is required.
 
 ..  confval:: specialCharacterRequired
 
     :type: bool
-    :Default: true
+    :default: true
 
     If set to :php:`true` at least one special character (not `0`-`9`, `a`-`z`,
     `A`-`Z`) is required.
