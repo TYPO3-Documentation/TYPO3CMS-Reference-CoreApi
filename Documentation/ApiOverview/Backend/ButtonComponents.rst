@@ -71,6 +71,29 @@ rather than a generic button if you only need a few attributes:
     $buttonBar->addButton($previewButton, ButtonBar::BUTTON_POSITION_RIGHT, 2);
 
 
+..  _button-components-disabled:
+
+Disabling a backend button
+==========================
+
+..  versionadded:: 13.4
+    :changelog: important-107681-1760427687
+
+An action that is not available right now reads better as a disabled
+button than as a missing one: the button bar keeps its layout, and the
+user still sees that the action exists.
+
+`setDisabled()` sets the state and `isDisabled()` reads it back. The
+link, input and split buttons inherit both from
+:php-short:`\TYPO3\CMS\Backend\Template\Components\Buttons\AbstractButton`,
+and
+:php-short:`\TYPO3\CMS\Backend\Template\Components\Buttons\DropDownButton`
+implements them as well. The generic button has no disabled state:
+
+..  literalinclude:: _ButtonComponents/_DisabledButton.php
+    :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
+    :visible-lines: 43-49
+
 ..  _dropdown-button-components:
 
 Dropdown button components
