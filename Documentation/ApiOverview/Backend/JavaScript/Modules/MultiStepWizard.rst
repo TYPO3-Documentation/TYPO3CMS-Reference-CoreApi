@@ -27,21 +27,21 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
 
     ..  confval:: identifier
         :name: multi-step-wizard-settings-identifier
-        :Required: true
+        :required: true
         :type: string
 
         A unique identifier for the slide
 
     ..  confval:: title
         :name: multi-step-wizard-settings-title
-        :Required: true
+        :required: true
         :type: string
 
         The title of the slide. Will be shown as header of the slide.
 
     ..  confval:: content
         :name: multi-step-wizard-settings-content
-        :Required: true
+        :required: true
         :type: string|JQuery|Element|DocumentFragment
 
         The content of the slide. If `string` any HTML will be escaped. To
@@ -69,7 +69,7 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
 
     ..  confval:: severity
         :name: multi-step-wizard-settings-severity
-        :Required: true
+        :required: true
         :type: SeverityEnum
 
         Set severity color for sheet. Color will only affect title bar and
@@ -77,7 +77,7 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
 
     ..  confval:: progressBarTitle
         :name: multi-step-wizard-settings-progressBarTitle
-        :Required: true
+        :required: true
         :type: string
 
         Set a title for the progress bar. The progress bar will only be shown
@@ -86,7 +86,7 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
 
     ..  confval:: callback
         :name: multi-step-wizard-settings-callback
-        :Required: true
+        :required: true
         :type: SlideCallback
 
         A JavaScript callback function which will be called after the slide was

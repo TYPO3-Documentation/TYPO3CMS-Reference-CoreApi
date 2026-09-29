@@ -17,7 +17,7 @@ takes precedence. The variable names you can use are:
 
 ..  confval:: data
     :name: datahandler-commit-data
-    :Data type: array
+    :type: array
 
     Data array on the form `[tablename][uid][fieldname] = value`.
 
@@ -34,7 +34,7 @@ cmd
 
 ..  confval:: cmd
     :name: datahandler-commit-cmd
-    :Data type: array
+    :type: array
 
     Command array on the form `[tablename][uid][command] = value`. This
     array may get additional data set internally based on clipboard
@@ -53,7 +53,7 @@ cacheCmd
 
 ..  confval:: cacheCmd
     :name: datahandler-commit-cacheCmd
-    :Data type: string
+    :type: string
 
     Cache command sent to :php:`DataHandler->clear_cacheCmd()`.
 
@@ -66,7 +66,7 @@ redirect
 
 ..  confval:: redirect
     :name: datahandler-commit-redirect
-    :Data type: string
+    :type: string
 
     Redirect URL. The script will redirect to this location after performing
     operations (unless errors has occurred).
@@ -80,7 +80,7 @@ flags
 
 ..  confval:: flags
     :name: datahandler-commit-flags
-    :Data type: array
+    :type: array
 
     Accepts options to be set in DataHandler object. Currently, it supports
     "reverseOrder" (boolean).
@@ -94,7 +94,7 @@ mirror
 
 ..  confval:: mirror
     :name: datahandler-commit-mirror
-    :Data type: array
+    :type: array
 
     Example: `[mirror][table][11] = '22,33'` will look for content in
     `[data][table][11]` and copy it to `[data][table][22]` and
@@ -107,7 +107,7 @@ CB
 
 ..  confval:: CB
     :name: datahandler-commit-cb
-    :Data type: array
+    :type: array
 
     Clipboard command array. May trigger changes in "cmd".
 
@@ -118,6 +118,6 @@ vC
 
 ..  confval:: vC
     :name: datahandler-commit-vc
-    :Data type: string
+    :type: string
 
     Verification code.

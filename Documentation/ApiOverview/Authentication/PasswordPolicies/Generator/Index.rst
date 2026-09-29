@@ -56,40 +56,40 @@ The default password generator supports the following options:
 ..  confval-menu::
     :display: table
     :type:
-    :Default:
+    :default:
 
     ..  confval:: length
         :name: password-generator-length
         :type: integer
-        :Default: 12
+        :default: 12
 
         Defines the length of the generated password.
 
     ..  confval:: upperCaseCharacters
         :name: password-generator-upperCaseCharacters
         :type: boolean
-        :Default: true
+        :default: true
 
         Whether uppercase characters should be used.
 
     ..  confval:: lowerCaseCharacters
         :name: password-generator-lowerCaseCharacters
         :type: boolean
-        :Default: true
+        :default: true
 
         Whether lowercase characters should be used.
 
     ..  confval:: digitCharacters
         :name: password-generator-digitCharacters
         :type: boolean
-        :Default: true
+        :default: true
 
         Whether digits should be used.
 
     ..  confval:: specialCharacters
         :name: password-generator-specialCharacters
         :type: boolean
-        :Default: true
+        :default: true
 
         Whether special characters should be used.
 

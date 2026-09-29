@@ -78,7 +78,7 @@ Description of keywords in syntax:
 
 ..  confval:: tablename
     :name: datahandler-cmd-tablename
-    :Data type: string
+    :type: string
 
     Name of the database table. It must be configured in the
     :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
@@ -91,7 +91,7 @@ uid
 
 ..  confval:: uid
     :name: datahandler-cmd-uid
-    :Data type: integer
+    :type: integer
 
     The UID of the record that is manipulated. This is always an integer.
 
@@ -103,7 +103,7 @@ command
 
 ..  confval:: command
     :name: datahandler-cmd-command
-    :Data type: string (command keyword)
+    :type: string (command keyword)
 
     The command type you want to execute.
 
@@ -121,7 +121,7 @@ value
 
 ..  confval:: value
     :name: datahandler-cmd-value
-    :Data type: mixed
+    :type: mixed
 
     The value for the command.
 
@@ -137,7 +137,7 @@ Command keywords and values
 
 ..  confval:: copy
     :name: datahandler-cmd-copy
-    :Data type: integer or array
+    :type: integer or array
 
     The significance of the value depends on whether it is positive or
     negative:
@@ -180,7 +180,7 @@ move
 
 ..  confval:: move
     :name: datahandler-cmd-move
-    :DataType: integer
+    :type: integer
 
     Works like :confval:`datahandler-cmd-copy` but moves the record instead of
     making a copy.
@@ -194,7 +194,7 @@ delete
 
 ..  confval:: delete
     :name: datahandler-cmd-delete
-    :Data Type: integer (1)
+    :type: integer (1)
 
     Value should always be "1".
 
@@ -211,7 +211,7 @@ undelete
 
 ..  confval:: undelete
     :name: datahandler-cmd-undelete
-    :Data Type: integer (1)
+    :type: integer (1)
 
     Value should always be "1".
 
@@ -226,7 +226,7 @@ localize
 
 ..  confval:: localize
     :name: datahandler-cmd-localize
-    :Data type: integer
+    :type: integer
 
     The value is the :yaml:`languageId` (defined in the
     :ref:`site configuration <sitehandling-addingLanguages>`) to localize the
@@ -268,7 +268,7 @@ copyToLanguage
 
 ..  confval:: copyToLanguage
     :name: datahandler-cmd-copyToLanguage
-    :Data type: integer
+    :type: integer
 
     It behaves like :confval:`datahandler-cmd-localize` command (both record and
     child records are copied to given language), but does not set
@@ -289,7 +289,7 @@ inlineLocalizeSynchronize
 
 ..  confval:: inlineLocalizeSynchronize
     :name: datahandler-cmd-inlineLocalizeSynchronize
-    :Data type: array
+    :type: array
 
     Performs localization or synchronization of child records.
     The command structure is like:
@@ -314,7 +314,7 @@ discard
 
 ..  confval:: discard
     :name: datahandler-cmd-discard
-    :Data type: boolean (true)
+    :type: boolean (true)
 
     Value should always be `true`.
 
@@ -343,7 +343,7 @@ version
 
 ..  confval:: version
     :name: datahandler-cmd-version
-    :Data type: array
+    :type: array
 
     Versioning action.
 
@@ -497,7 +497,7 @@ Description of keywords in syntax:
 
 ..  confval:: tablename
     :name: datahandler-data-tablename
-    :Data type: string
+    :type: string
 
     Name of the database table. There must be a configuration for the table in
     :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
@@ -511,7 +511,7 @@ uid
 
 ..  confval:: uid
     :name: datahandler-data-uid
-    :Data type: string|int
+    :type: string|int
 
     The UID of the record that is modified. If the record already exists,
     this is an integer.
@@ -535,7 +535,7 @@ fieldname
 
 ..  confval:: fieldname
     :name: datahandler-data-fieldname
-    :Data type: string
+    :type: string
 
     Name of the database field you want to set a value for. The columns of the
     table must be configured in
@@ -550,7 +550,7 @@ value
 
 ..  confval:: value
     :name: datahandler-data-value
-    :Data type: string, int, :php:`\DateTimeInterface`
+    :type: string, int, :php:`\DateTimeInterface`
 
     Value for "fieldname".
 
@@ -814,8 +814,8 @@ commands or data submission.
 
 ..  confval:: ->reverseOrder
     :name: datahandler-flags-reverseOrder
-    :Data type: boolean
-    :Default: false
+    :type: boolean
+    :default: false
 
     If set, the data array is reversed in the order, which is a nice thing
     if you are creating a whole bunch of new records.

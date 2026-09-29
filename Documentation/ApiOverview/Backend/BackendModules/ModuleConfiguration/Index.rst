@@ -51,7 +51,7 @@ Module configuration options
     ..  confval:: path
         :name: backend-module-path
         :type: string
-        :Default: `/module/<mainModule>/<subModule>`
+        :default: `/module/<mainModule>/<subModule>`
 
         Define the path to the default endpoint. The path can be anything, but
         will fallback to the known  `/module/<mainModule>/<subModule>` pattern,
@@ -87,7 +87,7 @@ Module configuration options
         ..  confval:: appearance.dependsOnSubmodules
             :name: backend-module-appearance-dependsOnSubmodules
             :type: bool
-            :Default: false
+            :default: false
 
             ..  versionadded:: 14.0
 
@@ -113,7 +113,7 @@ Module configuration options
     ..  confval:: showSubmoduleOverview
         :name: backend-module-showSubmoduleOverview
         :type: bool
-        :Default: false
+        :default: false
 
         ..  versionadded:: 14.0
             See `Feature: #107712 - Introduce card-based sub module overview
@@ -171,7 +171,7 @@ Module configuration options
     ..  confval:: component
         :name: backend-module-component
         :type: string
-        :Default: TYPO3/CMS/Backend/Module/Iframe
+        :default: TYPO3/CMS/Backend/Module/Iframe
 
         The view component, responsible for rendering the module.
 
@@ -213,7 +213,7 @@ Module configuration options
     ..  confval:: inheritNavigationComponentFromMainModule
         :name: backend-module-inheritNavigationComponentFromMainModule
         :type: bool
-        :Default: true
+        :default: true
 
         Whether the module should use the parents navigation component.
         This option defaults to :php:`true` and can therefore be used to

@@ -590,7 +590,7 @@ Options for the file backend
 ..  confval:: cacheDirectory
     :name: caching-backend-redis-cacheDirectory
     :type: array
-    :Default: `var/cache/`
+    :default: `var/cache/`
 
     The directory where the cache files are stored. By default, it is assumed
     that the directory is below :code:`TYPO3_DOCUMENT_ROOT`. However, an
