@@ -11,95 +11,69 @@ Create a backend module with Extbase
 
 ..  tip::
 
-    If you don't want to do extensive data modeling templates can be written
-    :ref:`without Extbase. <backend-modules-template-without-extbase>`
+    A module that mainly shows and changes a few records does not need Extbase.
+    See :ref:`Create a backend module with Core functionality
+    <backend-modules-template-without-extbase>`.
 
-See also the :ref:`Backend module API <backend-modules>`.
+A backend module can be built with Extbase and Fluid. The module's controller
+is an Extbase :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`,
+and the domain models, repositories and validators of the extension work in
+the module as they do in a frontend plugin. This is the better choice when the
+module works with a domain model of its own.
 
-Backend modules can be written using the Extbase/Fluid combination.
+Building such a module is described in a dedicated chapter:
 
-The factory :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` can be used
-to retrieve the :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
-class which is - more or less - the old backend module template,
-cleaned up and refreshed. This class performs a number of basic
-operations for backend modules, like loading base JS libraries,
-loading stylesheets, managing a flash message queue and - in general -
-performing all kind of necessary setups.
-
-To access these resources, inject the
-:php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` into your backend module
-controller:
-
-..  literalinclude:: _MyController.php
-    :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-..  note::
-    A backend controller should be tagged with the
-    :php:`\TYPO3\CMS\Backend\Attribute\AsController` (php:`#[AsController]`) attribute.
-
-..  versionchanged:: 14.0
-    The class alias for :php:`\TYPO3\CMS\Backend\Attribute\Controller` has been
-    removed. :php:`\TYPO3\CMS\Backend\Attribute\AsController` is still in place.
-
-After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/MyController.php (excerpt)
-
-    // use Psr\Http\Message\ResponseInterface
-    public function myAction(): ResponseInterface
-    {
-        $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-
-        // Example of assignung variables to the view
-        $moduleTemplate->assign('someVar', 'someContent');
-
-        // Example of adding a page-shortcut button
-        $routeIdentifier = 'web_examples'; // array-key of the module-configuration
-        $buttonBar = $moduleTemplate->getDocHeaderComponent()->getButtonBar();
-        $shortcutButton = $buttonBar->makeShortcutButton()->setDisplayName('Shortcut to my action')->setRouteIdentifier($routeIdentifier);
-        $shortcutButton->setArguments(['controller' => 'MyController', 'action' => 'my']);
-        $buttonBar->addButton($shortcutButton, ButtonBar::BUTTON_POSITION_RIGHT);
-        // Adding title, menus and more buttons using $moduleTemplate ...
-
-        return $moduleTemplate->renderResponse('MyController/MyAction');
-    }
-
-..  seealso::
-    :ref:`Dropdown button components <dropdown-button-components>`
+*   :ref:`Registering an Extbase backend module
+    <extbase-registration-backend-module>` — the Extbase-specific keys in
+    :file:`Configuration/Backend/Modules.php`, and rendering with
+    :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` instead of
+    :php:`$this->view`.
+*   :ref:`How an Extbase backend module works <extbase-backend-module-basics>`
+    — how a request reaches the controller, which TypoScript the module sees,
+    and how storage pages and language are resolved.
+*   :ref:`Building an Extbase backend module without a page tree
+    <extbase-backend-module-no-page-tree>` — a list with search, filters and
+    pagination, and filters kept across requests.
+*   :ref:`Editing records from an Extbase backend module
+    <extbase-backend-module-editing>` — creating, editing and deleting records
+    through FormEngine and DataHandler instead of own actions.
+*   :ref:`Building an Extbase backend module with a page tree
+    <extbase-backend-module-page-tree>` — a module that takes its storage
+    folder, site and language from the selected page.
 
 
-Using this :php:`ModuleTemplate` class, the Fluid templates for
-your module need only take care of the actual content of your module.
-TYPO3 even comes with a default Fluid layout, that can easily be used:
+..  _backend-modules-extbase-template:
 
-..  code-block:: html
+Fluid templates of an Extbase backend module
+============================================
 
-    <f:layout name="Module" />
+A module template uses the :html:`Module` layout and puts its content into
+the :html:`Content` section. The layout belongs to the backend, not to the
+extension: the view :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
+renders with searches :path:`EXT:backend/Resources/Private/` first and then
+the extension that registered the module, so :html:`<f:layout name="Module" />`
+finds the backend's :file:`Layouts/Module.fluid.html` without any
+configuration. :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
+supplies the document header and flash messages the layout renders:
 
-and the actual Template needs to render the title and the content only.
-For example, here is an extract of the "Index" action template of
-the "beuser" extension:
+..  literalinclude:: /ExtensionArchitecture/Extbase/BackendModule/_snippets/_ConferenceList.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
+    :visible-lines: 1-12,77-79
 
-..  code-block:: html
-    :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.fluid.html
+..  warning::
 
-    <html
-       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-       xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
-       xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
-       data-namespace-typo3-fluid="true">
+    Do not add a :file:`Layouts/Module.fluid.html` to your extension unless
+    you mean to replace the backend's layout. The extension's paths are
+    searched after the backend's, so its file wins, and a copied layout no
+    longer follows changes in Core. To change templates of a module
+    deliberately, use the :ref:`templates <t3tsref:pagetemplates>` option of
+    page TSconfig.
 
-       <f:layout name="Module" />
+The same layout serves modules without Extbase. Buttons, menus and the
+breadcrumb in the document header are not Extbase-specific either, see
+:ref:`Button components <button-components>` and :ref:`DocHeaderComponent
+<docheadercomponent>`.
 
-       <f:section name="Content">
-           <h1><f:translate key="backendUserListing" /></h1>
-           ...
-       </f:section>
-
-    </html>
-
-
-The best resources for learning is to look at existing modules
-from TYPO3 CMS. With the information given here, you should be
-able to find your way around the code.
+The best way to learn more is to read the modules that ship with TYPO3. The
+backend user module (:composer:`typo3/cms-beuser`) and the log module
+(:composer:`typo3/cms-belog`) are built with Extbase.
