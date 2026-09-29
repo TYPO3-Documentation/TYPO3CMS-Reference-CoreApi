@@ -34,7 +34,7 @@ fileadminDir
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
     :name: globals-typo3-conf-vars-be-fileadminDir
     :type: text
-    :Default: 'fileadmin/'
+    :default: 'fileadmin/'
 
     Path to the main file directory for editors. This is relative to
     the public web directory. DefaultStorage will be created with this configuration.
@@ -51,7 +51,7 @@ lockBackendFile
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']
     :name: globals-typo3-conf-vars-be-lockBackendFile
     :type: string (file path)
-    :Default: `"var/lock/LOCK_BACKEND"` (Composer mode) | `"config/LOCK_BACKEND"` (Classic mode)
+    :default: `"var/lock/LOCK_BACKEND"` (Composer mode) | `"config/LOCK_BACKEND"` (Classic mode)
 
     Defines the location of the flag file :file:`LOCK_BACKEND`. The file
     temporarily restricts backend access to prevent unauthorized
@@ -67,7 +67,7 @@ lockRootPath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
     :name: globals-typo3-conf-vars-be-lockRootPath
     :type: array of file paths
-    :Default: :php:`[]`
+    :default: :php:`[]`
 
     These absolute paths are used to check if paths outside of the project
     path should be allowed. This restriction also applies to the local driver
@@ -92,7 +92,7 @@ userHomePath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
     :name: globals-typo3-conf-vars-be-userHomePath
     :type: text
-    :Default: ''
+    :default: ''
 
     Combined folder identifier pointing to the directory where TYPO3 backend users have
     their home-dirs. A combined folder identifier looks like this:
@@ -109,7 +109,7 @@ groupHomePath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
     :name: globals-typo3-conf-vars-be-groupHomePath
     :type: text
-    :Default: ''
+    :default: ''
 
     Combined folder identifier pointing to the directory where TYPO3 backend groups have
     their home-dirs. A combined folder identifier looks like this:
@@ -126,7 +126,7 @@ userUploadDir
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']
     :name: globals-typo3-conf-vars-be-userUploadDir
     :type: text
-    :Default: ''
+    :default: ''
 
     Suffix which as added to the user home dir path when mounted in TYPO3.
     For example, if the user dir is :file:`../123_user/`  and the suffix
@@ -142,7 +142,7 @@ warning_email_addr
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
     :name: globals-typo3-conf-vars-be-warning_email_addr
     :type: text
-    :Default: ''
+    :default: ''
 
     Email address that will receive notifications whenever there is an attempt to
     login to the Install Tool. This address will also receive warnings
@@ -162,7 +162,7 @@ warning_mode
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']
     :name: globals-typo3-conf-vars-be-warning_mode
     :type: int
-    :Default: 0
+    :default: 0
     :Allowed values:
        0:
            Default: Do not send notification-emails upon backend-login
@@ -186,7 +186,7 @@ passwordReset
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordReset']
     :name: globals-typo3-conf-vars-be-passwordReset
     :type: bool
-    :Default: true
+    :default: true
 
     Enable password reset in the backend login for TYPO3 Backend
     users. Can be disabled for systems where only LDAP or OAuth login is allowed.
@@ -203,7 +203,7 @@ passwordResetForAdmins
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']
     :name: globals-typo3-conf-vars-be-passwordResetForAdmins
     :type: bool
-    :Default: true
+    :default: true
 
     Enable password reset for TYPO3 Administrators. This will
     affect both backend login and CLI. Disable this option for
@@ -219,7 +219,7 @@ requireMfa
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']
     :name: globals-typo3-conf-vars-be-requireMfa
     :type: int
-    :Default: 0
+    :default: 0
     :Allowed values: 0-4
 
     0:
@@ -246,7 +246,7 @@ recommendedMfaProvider
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider']
     :name: globals-typo3-conf-vars-be-recommendedMfaProvider
     :type: text
-    :Default: 'totp'
+    :default: 'totp'
 
     Set the identifier of the
     :ref:`multi-factor authentication provider <multi-factor-authentication-included-providers>`.
@@ -262,7 +262,7 @@ loginRateLimit
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit']
     :name: globals-typo3-conf-vars-be-loginRateLimit
     :type: int
-    :Default: 5
+    :default: 5
 
     Maximum amount of login attempts in time interval
     :ref:`[BE][loginRateLimitInterval]<typo3ConfVars_be_loginRateLimitInterval>`
@@ -279,7 +279,7 @@ loginRateLimitInterval
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
     :name: globals-typo3-conf-vars-be-loginRateLimitInterval
     :type: string, PHP relative format
-    :Default: '15 minutes'
+    :default: '15 minutes'
     :Allowed values: '1 minute', '5 minutes', '15 minutes', '30 minutes'
 
     Time interval for the configured rate limit. Individual values
@@ -297,7 +297,7 @@ loginRateLimitIpExcludeList
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitIpExcludeList']
     :name: globals-typo3-conf-vars-be-loginRateLimitIpExcludeList
     :type: string
-    :Default: ''
+    :default: ''
 
     IP addresses (with :php:`*`-wildcards) that are excluded from rate limiting.
     Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`.
@@ -313,7 +313,7 @@ lockIP
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']
     :name: globals-typo3-conf-vars-be-lockIP
     :type: int
-    :Default: 0
+    :default: 0
     :Allowed values: 0-4
 
     0:
@@ -342,7 +342,7 @@ lockIPv6
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']
     :name: globals-typo3-conf-vars-be-lockIPv6
     :type: int
-    :Default: 0
+    :default: 0
     :Allowed values: 0-8
 
     0:
@@ -376,7 +376,7 @@ sessionTimeout
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['sessionTimeout']
     :name: globals-typo3-conf-vars-be-sessionTimeout
     :type: int
-    :Default: 28800
+    :default: 28800
 
     Session timeout for backend users (in seconds). The value must be at least
     180 to avoid side effects. The default is 28800 seconds = 8 hours.
@@ -391,7 +391,7 @@ IPmaskList
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']
     :name: globals-typo3-conf-vars-be-IPmaskList
     :type: list
-    :Default: ''
+    :default: ''
 
     Lets you define a list of IP addresses (with \*-wildcards) that are the
     ONLY IP addresses that are allowed access to ANY backend activity. On error,
@@ -414,7 +414,7 @@ lockSSL
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']
     :name: globals-typo3-conf-vars-be-lockSSL
     :type: bool
-    :Default: false
+    :default: false
 
     If set, the backend can only be accessed via an SSL-encrypted
     connection (https). If a user tries to access non-https admin-urls,
@@ -433,7 +433,7 @@ lockSSLPort
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSLPort']
     :name: globals-typo3-conf-vars-be-lockSSLPort
     :type: int
-    :Default: 0
+    :default: 0
 
     Use a non-standard HTTPS port for lockSSL. Set this value if you use
     lockSSL and the HTTPS port of your webserver is not 443.
@@ -448,7 +448,7 @@ cookieDomain
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieDomain']
     :name: globals-typo3-conf-vars-be-cookieDomain
     :type: text
-    :Default: ''
+    :default: ''
 
     Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
     but for BE cookies. If empty, the :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
@@ -464,7 +464,7 @@ cookieName
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieName']
     :name: globals-typo3-conf-vars-be-cookieName
     :type: text
-    :Default: 'be_typo_user'
+    :default: 'be_typo_user'
 
     Set the cookie name for the back-end user session.
 
@@ -478,7 +478,7 @@ cookieSameSite
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieSameSite']
     :name: globals-typo3-conf-vars-be-cookieSameSite
     :type: text
-    :Default: 'strict'
+    :default: 'strict'
     :Allowed values: 'lax', 'strict', 'none'
 
     lax:
@@ -505,7 +505,7 @@ showRefreshLoginPopup
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['showRefreshLoginPopup']
     :name: globals-typo3-conf-vars-be-showRefreshLoginPopup
     :type: bool
-    :Default: false
+    :default: false
 
     If set, the Ajax relogin will show a popup window for relogin after
     a countdown. Some authorization services need this as they add custom validation
@@ -522,7 +522,7 @@ adminOnly
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly']
     :name: globals-typo3-conf-vars-be-adminOnly
     :type: int
-    :Default: 0
+    :default: 0
 
     :Allowed values: -1 - +2
 
@@ -547,7 +547,7 @@ disable_exec_function
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['disable_exec_function']
     :name: globals-typo3-conf-vars-be-disable_exec_function
     :type: bool
-    :Default: false
+    :default: false
 
     Don't use exec() function (except for ImageMagick which is disabled by
     :ref:`[GFX][processor_enabled] <typo3ConfVars_gfx_processor_enabled>` = false). If set, all file operations are done
@@ -582,7 +582,7 @@ installToolPassword
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']
     :name: globals-typo3-conf-vars-be-installToolPassword
     :type: string
-    :Default: ''
+    :default: ''
 
     Hash of the install tool password. See also
     `Enabling and accessing the Install Tool <https://docs.typo3.org/permalink/t3coreapi:security-install-tool-access>`_.
@@ -603,7 +603,7 @@ defaultPermissions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
     :name: globals-typo3-conf-vars-be-defaultPermissions
     :type: array
-    :Default: []
+    :default: []
 
     This option defines the default page permissions (`show`, `edit`, `delete`,
     `new`, `editcontent`). The following order applies:
@@ -637,7 +637,7 @@ defaultUC
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
     :name: globals-typo3-conf-vars-be-defaultUC
     :type: array
-    :Default: []
+    :default: []
 
     Defines default user settings. The following order applies:
 
@@ -663,7 +663,7 @@ customPermOptions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
     :name: globals-typo3-conf-vars-be-customPermOptions
     :type: array
-    :Default: []
+    :default: []
 
     Array with sets of custom permission options. The syntax is:
 
@@ -683,7 +683,7 @@ fileDenyPattern
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
     :name: globals-typo3-conf-vars-be-fileDenyPattern
     :type: text
-    :Default: ''
+    :default: ''
 
     A perl and JavaScript-compatible regular expression that will block ('deny')
     operations on files with matching filenames (without delimiters `/`), for
@@ -710,7 +710,7 @@ versionNumberInFilename
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
     :name: globals-typo3-conf-vars-be-versionNumberInFilename
     :type: bool
-    :Default: false
+    :default: false
 
     If enabled, CSS and JS files loaded in the TYPO3 Backend will
     have a timestamp in their filename, i.e. :php:`filename.1269312081.js` .
@@ -734,7 +734,7 @@ debug
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
     :name: globals-typo3-conf-vars-be-debug
     :type: bool
-    :Default: false
+    :default: false
 
     If enabled, login refresh is disabled and pageRenderer is set to debug
     mode. Also, fieldnames are appended to field labels. Use
@@ -792,7 +792,7 @@ passwordHashing
         :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']
         :name: globals-typo3-conf-vars-be-passwordHashing-className
         :type: string
-        :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
+        :default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
 
         Allowed values:
 
@@ -813,7 +813,7 @@ passwordHashing
         :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['options']
         :name: globals-typo3-conf-vars-be-passwordHashing-options
         :type: array
-        :Default: []
+        :default: []
 
         Special settings for specific hash algorithms. See
         :ref:`Available hash algorithms <password-hashing-available-algorithms>`
@@ -829,7 +829,7 @@ passwordPolicy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy']
     :name: globals-typo3-conf-vars-be-passwordPolicy
     :type: string
-    :Default: default
+    :default: default
 
     Defines the :ref:`password policy <password-policies>` in the backend context.
 
@@ -843,7 +843,7 @@ stylesheets
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']
     :name: globals-typo3-conf-vars-be-stylesheets
     :type: string
-    :Default: default
+    :default: default
 
     Load additional CSS files for the TYPO3 backend interface. This can be set
     for a site or in an extension :file:`ext_localconf.php` file.
@@ -874,7 +874,7 @@ contentSecurityPolicyReportingUrl
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
     :name: globals-typo3-conf-vars-be-contentSecurityPolicyReportingUrl
     :type: string
-    :Default: ''
+    :default: ''
 
     Configure the reporting HTTP endpoint of
     :ref:`Content Security Policy <content-security-policy>` violations in the
@@ -913,7 +913,7 @@ entryPoint
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint']
     :name: globals-typo3-conf-vars-be-entryPoint
     :type: string
-    :Default: '/typo3'
+    :default: '/typo3'
 
     A custom backend entry point can be configured by specifying a custom URL
     path or domain name.

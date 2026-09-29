@@ -18,7 +18,7 @@ LANG - language configuration
     :name: globals-typo3-conf-vars-sys-lang-requireApprovedLocalizations
     :Path: $GLOBALS['TYPO3_CONF_VARS']['LANG']['requireApprovedLocalizations']
     :type: bool
-    :Default: true
+    :default: true
 
     ..  versionchanged:: 14.0
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['requireApprovedLocalizations']`.
@@ -73,7 +73,7 @@ format
     :name: globals-typo3-conf-vars-lang-format
     :Path: $GLOBALS['TYPO3_CONF_VARS']['LANG']['format']
     :type: bool
-    :Default: true
+    :default: true
 
     ..  versionchanged:: 14.0
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['format']`.
@@ -88,7 +88,7 @@ availableLocales
     :name: globals-typo3-conf-vars-lang-availableLocales
     :Path: $GLOBALS['TYPO3_CONF_VARS']['LANG']['availableLocales']
     :type: array
-    :Default: `['default']`
+    :default: `['default']`
 
     ..  versionchanged:: 14.0
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['lang']['availableLanguages']`.
@@ -103,7 +103,7 @@ resourceOverrides
     :name: globals-typo3-conf-vars-lang-resourceOverrides
     :Path: $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']
     :type: array
-    :Default: `[]`
+    :default: `[]`
 
     ..  versionchanged:: 14.0
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']`.
