@@ -42,13 +42,13 @@ caching
     :name: globals-typo3-conf-vars-sys-caching
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']
     :type: array
-    :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
+    :default: See :t3src:`core/Configuration/DefaultConfiguration.php`
 
     ..  confval:: cacheConfigurations
         :name: globals-typo3-conf-vars-sys-caching-cacheConfigurations
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
         :type: array
-        :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
+        :default: See :t3src:`core/Configuration/DefaultConfiguration.php`
 
         Registry of configured caches. Each cache is identified by its array
         key. Each cache key can contain sub-keys `frontend`, `backend` and
@@ -67,7 +67,7 @@ fileCreateMask
     :name: globals-typo3-conf-vars-sys-fileCreateMask
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
     :type: text
-    :Default: 0664
+    :default: 0664
 
     File mode mask for Unix file systems (when files are uploaded/created).
 
@@ -81,7 +81,7 @@ folderCreateMask
     :name: globals-typo3-conf-vars-sys-folderCreateMask
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
     :type: text
-    :Default: 2775
+    :default: 2775
 
     As above, but for folders.
 
@@ -95,7 +95,7 @@ createGroup
     :name: globals-typo3-conf-vars-sys-createGroup
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
     :type: text
-    :Default: ''
+    :default: ''
 
     Group for newly created files and folders (Unix only). Group ownership can
     be changed on Unix file systems (see above). Set this if you want to change
@@ -118,7 +118,7 @@ sitename
     :name: globals-typo3-conf-vars-sys-sitename
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
     :type: text
-    :Default: 'TYPO3'
+    :default: 'TYPO3'
 
     Name of the base site.
 
@@ -132,7 +132,7 @@ defaultScheme
     :name: globals-typo3-conf-vars-sys-defaultScheme
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
     :type: text
-    :Default: 'http'
+    :default: 'http'
 
     Set the default URI scheme. This is used in links if no scheme is set.
     It can be set to `'https'` for the default setting.
@@ -147,7 +147,7 @@ encryptionKey
     :name: globals-typo3-conf-vars-sys-encryptionKey
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
     :type: text
-    :Default: ''
+    :default: ''
 
     This is a "salt" used for encryption, CRC checksums and
     validations. You can enter any string here but try to keep it
@@ -167,7 +167,7 @@ cookieDomain
     :name: globals-typo3-conf-vars-sys-cookieDomain
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
     :type: text
-    :Default: ''
+    :default: ''
 
     Restricts the domain name for FE and BE session cookies. When setting the
     value to ".example.org" (replace example.org with your domain!), login
@@ -194,7 +194,7 @@ trustedHostsPattern
     :name: globals-typo3-conf-vars-sys-trustedHostsPattern
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
     :type: text
-    :Default: 'SERVER_NAME'
+    :default: 'SERVER_NAME'
 
     Regular expression pattern that matches all valid hostnames (including
     their ports) of this TYPO3 installation, or the string :php:`SERVER_NAME`
@@ -234,7 +234,7 @@ devIPmask
     :name: globals-typo3-conf-vars-sys-devIPmask
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
     :type: text
-    :Default: '127.0.0.1,::1'
+    :default: '127.0.0.1,::1'
 
     Defines a list of IP addresses which allows development output to
     be displayed. The :php:`debug()` function will use this as a filter. See the
@@ -255,7 +255,7 @@ ddmmyy
     :name: globals-typo3-conf-vars-sys-ddmmyy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
     :type: text
-    :Default: 'Y-m-d'
+    :default: 'Y-m-d'
 
     On how to format a date, see PHP function
     `date() <https://www.php.net/manual/en/function.date.php>`__.
@@ -270,7 +270,7 @@ hhmm
     :name: globals-typo3-conf-vars-sys-hhmm
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
     :type: text
-    :Default: 'H:i'
+    :default: 'H:i'
 
     Format of Hours-Minutes - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
 
@@ -284,7 +284,7 @@ loginCopyrightWarrantyProvider
     :name: globals-typo3-conf-vars-sys-loginCopyrightWarrantyProvider
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyProvider']
     :type: text
-    :Default: ''
+    :default: ''
 
     If you provide a warranty for TYPO3 to your customers insert your (company)
     name here. It will appear in the login dialog as the warranty provider.
@@ -300,7 +300,7 @@ loginCopyrightWarrantyURL
     :name: globals-typo3-conf-vars-sys-loginCopyrightWarrantyURL
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyURL']
     :type: text
-    :Default: ''
+    :default: ''
 
     Add the URL of the page describing the extent of the warranty provided.
     This URL is displayed in the login dialog as the place where people can
@@ -319,7 +319,7 @@ textfile_ext
     :name: globals-typo3-conf-vars-sys-textfile_ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']
     :type: text
-    :Default: 'txt,ts,typoscript,html,htm,css,tmpl,js,sql,xml,csv,xlf,yaml,yml'
+    :default: 'txt,ts,typoscript,html,htm,css,tmpl,js,sql,xml,csv,xlf,yaml,yml'
 
     Text file extensions (files that can be edited). Executable PHP files may not
     be editable if disallowed!
@@ -334,7 +334,7 @@ mediafile_ext
     :name: globals-typo3-conf-vars-sys-mediafile_ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
     :type: text
-    :Default: '3gp,aac,ai,aif,avif,bmp,flac,gif,heic,ico,jpeg,jpg,m4a,m4v,mov,mp3,mp4,ogg,opus,pdf,png,psd,svg,vimeo,wav,webm,webp,youtube'
+    :default: '3gp,aac,ai,aif,avif,bmp,flac,gif,heic,ico,jpeg,jpg,m4a,m4v,mov,mp3,mp4,ogg,opus,pdf,png,psd,svg,vimeo,wav,webm,webp,youtube'
 
     ..  versionadded:: 14.0
 
@@ -354,7 +354,7 @@ miscfile_ext
     :name: globals-typo3-conf-vars-sys-miscfile-ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['miscfile_ext']
     :type: text
-    :Default: 'zip'
+    :default: 'zip'
 
     Allows file extensions to be specified that don't belong to either `textfile_ext`
     or `mediafile_ext`, such as `zip` or `xz`.
@@ -369,7 +369,7 @@ binPath
     :name: globals-typo3-conf-vars-sys-binPath
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['binPath']
     :type: text
-    :Default: ''
+    :default: ''
 
     List of absolute paths as search locations for external programs,
     for example :php:`/usr/local/webbin/,/home/xyz/bin/`. (ImageMagick paths have to
@@ -387,7 +387,7 @@ binSetup
     :name: globals-typo3-conf-vars-sys-binSetup
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
     :type: multiline
-    :Default: ''
+    :default: ''
 
     List of programs separated by newlines or commas. By default, programs
     will be searched in default paths and the special paths defined by
@@ -406,7 +406,7 @@ setMemoryLimit
     :name: globals-typo3-conf-vars-sys-setMemoryLimit
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['setMemoryLimit']
     :type: int
-    :Default: 0
+    :default: 0
 
     Memory limit in MB: if more than 16, TYPO3 will try to use :php:`ini_set()`
     to set the memory limit of PHP. This works only if the function
@@ -422,7 +422,7 @@ phpTimeZone
     :name: globals-typo3-conf-vars-sys-phpTimeZone
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['phpTimeZone']
     :type: text
-    :Default: ''
+    :default: ''
 
     Timezone to force for all :php:`date()` and :php:`mktime()` functions.
     A list of supported values can be found at
@@ -443,7 +443,7 @@ UTF8filesystem
     :name: globals-typo3-conf-vars-sys-UTF8filesystem
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
     :type: bool
-    :Default: true
+    :default: true
 
     If set to :php:`true`, TYPO3 uses UTF-8 to store file names. This allows for accented
     latin letters as well as other non-latin characters, like Cyrillic and
@@ -469,7 +469,7 @@ systemLocale
     :name: globals-typo3-conf-vars-sys-systemLocale
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
     :type: text
-    :Default: ''
+    :default: ''
 
     Locale used for certain system related functions, for example escaping shell
     commands. If there are problems due to filenames containing special characters,
@@ -486,8 +486,8 @@ reverseProxyIP
     :name: globals-typo3-conf-vars-sys-reverseProxyIP
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP']
     :type: list
-    :Default: ''
-    :allowedValues:
+    :default: ''
+    :Allowed values:
         `''`, `'*'` or a comma separated list of IPv4 or IPv6 addresses in CIDR-notation.
         For IPv4 addresses wildcards are additionally supported.
 
@@ -516,7 +516,7 @@ reverseProxyHeaderMultiValue
     :name: globals-typo3-conf-vars-sys-reverseProxyHeaderMultiValue
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
     :type: text
-    :allowedValues:
+    :Allowed values:
         none
             Do not evaluate the reverse proxy header
 
@@ -526,7 +526,7 @@ reverseProxyHeaderMultiValue
         last
             Use the last IP address in the proxy header
 
-    :Default: 'none'
+    :default: 'none'
 
     Position of the authoritative IP address within the `X-Forwarded-For` header
     (for example, `X-Forwarded-For: 1.2.3.4, 2.3.4.5, 3.4.5.6` uses `1.2.3.4`
@@ -542,7 +542,7 @@ reverseProxyPrefix
     :name: globals-typo3-conf-vars-sys-reverseProxyPrefix
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
     :type: text
-    :Default: ''
+    :default: ''
 
     Optional prefix to be added to the internal URL (SCRIPT_NAME and
     REQUEST_URI).
@@ -560,8 +560,8 @@ reverseProxySSL
     :name: globals-typo3-conf-vars-sys-reverseProxySSL
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL']
     :type: text
-    :Default: ''
-    :allowedValues:
+    :default: ''
+    :Allowed values:
         `''`, `'*'` or a comma separated list of IPv4 or IPv6 addresses in CIDR-notation.
         For IPv4 addresses, wildcards are supported.
 
@@ -588,7 +588,7 @@ reverseProxyPrefixSSL
     :name: globals-typo3-conf-vars-sys-reverseProxyPrefixSSL
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
     :type: text
-    :Default: ''
+    :default: ''
 
     Prefix added to the internal URL (SCRIPT_NAME and REQUEST_URI)
     when accessing the server via an SSL proxy. This setting overrides
@@ -604,8 +604,8 @@ displayErrors
     :name: globals-typo3-conf-vars-sys-displayErrors
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']
     :type: int
-    :Default: -1
-    :allowedValues:
+    :default: -1
+    :Allowed values:
         `-1`
             TYPO3 does not touch the PHP setting. If
             :ref:`[SYS][devIPmask] <typo3ConfVars_sys_devIPmask>` matches the users
@@ -648,7 +648,7 @@ productionExceptionHandler
     :name: globals-typo3-conf-vars-sys-productionExceptionHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
     :type: phpClass
-    :Default: :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler::class`
+    :default: :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler::class`
 
     Classname to handle exceptions that occur in the TYPO3 code. Leave
     this empty to disable exception handling.  The default exception handler displays
@@ -670,7 +670,7 @@ debugExceptionHandler
     :name: globals-typo3-conf-vars-sys-debugExceptionHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler']
     :type: phpClass
-    :Default: :php:`\TYPO3\CMS\Core\Error\DebugExceptionHandler::class`
+    :default: :php:`\TYPO3\CMS\Core\Error\DebugExceptionHandler::class`
 
     Classname to handle exceptions that occur in the TYPO3 code. Leave
     empty to disable exception handling. The default exception handler
@@ -692,7 +692,7 @@ errorHandler
     :name: globals-typo3-conf-vars-sys-errorHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
     :type: phpClass
-    :Default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler::class`
+    :default: :php:`\TYPO3\CMS\Core\Error\ErrorHandler::class`
 
     Classname to handle PHP errors.
     This class displays and logs all errors that are registered as
@@ -714,7 +714,7 @@ errorHandlerErrors
     :name: globals-typo3-conf-vars-sys-errorHandlerErrors
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
     :type: errors
-    :Default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR)`
+    :default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR)`
 
     The E_* constants that will be handled by the
     :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Not all PHP error
@@ -735,7 +735,7 @@ exceptionalErrors
     :name: globals-typo3-conf-vars-sys-exceptionalErrors
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
     :type: errors
-    :Default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
+    :default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
 
     The E_* constant that will be converted into an exception by the default
     :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
@@ -754,7 +754,7 @@ belogErrorReporting
     :name: globals-typo3-conf-vars-sys-belogErrorReporting
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
     :type: errors
-    :Default: `E_ALL & ~(E_STRICT | E_NOTICE)`
+    :default: `E_ALL & ~(E_STRICT | E_NOTICE)`
 
     Configures which PHP errors should be logged to the "syslog" database table
     (extension belog). If set to "0" no PHP errors are logged to the
@@ -772,7 +772,7 @@ generateApacheHtaccess
     :name: globals-typo3-conf-vars-sys-generateApacheHtaccess
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']
     :type: bool
-    :Default: 1
+    :default: 1
 
     TYPO3 can create :file:`.htaccess` files which are used by Apache Webserver.
     They are useful for access protection and performance improvements. Currently, if
@@ -791,8 +791,8 @@ ipAnonymization
     :name: globals-typo3-conf-vars-sys-ipAnonymization
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ipAnonymization']
     :type: int
-    :Default: 1
-    :allowedValues:
+    :default: 1
+    :Allowed values:
         0
             Disabled - Do not modify IP addresses at all
         1
@@ -816,7 +816,7 @@ systemMaintainers
     :name: globals-typo3-conf-vars-sys-systemMaintainers
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']
     :type: array
-    :Default: null
+    :default: null
 
     A list of backend user IDs that are allowed to access the Install Tool
 
@@ -843,7 +843,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-form-legacyUploadMimeTypes
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
         :type: bool
-        :Default: true
+        :default: true
 
        If enabled, some mime types are predefined for the "FileUpload" and "ImageUpload"
        elements of the "form" extension which always allows file uploads of these
@@ -855,7 +855,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-redirects-hitCount
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
         :type: bool
-        :Default: false
+        :default: false
 
        If enabled, and extension "redirects" is loaded, each redirect is
        counted and the last hit time is logged to the database.
@@ -866,7 +866,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-security-backend-enforceReferrer
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer']
         :type: bool
-        :Default: true
+        :default: true
 
        If enabled, HTTP referrer headers are enforced for backend and install tool requests to mitigate
        potential same-site request forgery attacks. The behavior can be disabled if HTTP proxies filter
@@ -878,7 +878,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.enforceContentSecurityPolicy']
         :type: bool
-        :Default: false
+        :default: false
 
         If enabled, the :ref:`Content Security Policy <content-security-policy>`
         is enforced in frontend scope (HTTP header `Content-Security-Policy`).
@@ -893,7 +893,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.reportContentSecurityPolicy']
         :type: bool
-        :Default: false
+        :default: false
 
         If enabled, the :ref:`Content Security Policy <content-security-policy>`
         is applied in the frontend scope as report-only (HTTP header
@@ -909,7 +909,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-security-frontend-allowInsecureFrameOptionInShowImageController
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureFrameOptionInShowImageController']
         :type: bool
-        :Default: false
+        :default: false
 
         This option configures whether the show image controller (eID
         `tx_cms_showpic`) is allowed to supply an insecure `&frame` URI
@@ -931,7 +931,7 @@ features
         :name: globals-typo3-conf-vars-sys-features-security-frontend-allowInsecureSiteResolutionByQueryParameters
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters']
         :type: bool
-        :Default: false
+        :default: false
 
         Resolving sites with the `id` and `L` HTTP query parameters is now denied by
         default. However, it is still allowed for particular pages, for
@@ -954,7 +954,7 @@ availablePasswordHashAlgorithms
     :name: globals-typo3-conf-vars-sys-availablePasswordHashAlgorithms
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
     :type: array
-    :Default:
+    :default:
 
    A list of available password hash mechanisms. Extensions may register
    additional mechanisms here.
@@ -1124,7 +1124,7 @@ FileInfo
         :name: globals-typo3-conf-vars-sys-FileInfo-mimeTypeCompatibility
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']
         :type: array
-        :Default: see `EXT:core/Configuration/DefaultConfiguration.php <https://github.com/TYPO3/typo3/blob/006db645e4716529390fc3f07d84fe36b8694c43/typo3/sysext/core/Configuration/DefaultConfiguration.php#L369>`_
+        :default: see `EXT:core/Configuration/DefaultConfiguration.php <https://github.com/TYPO3/typo3/blob/006db645e4716529390fc3f07d84fe36b8694c43/typo3/sysext/core/Configuration/DefaultConfiguration.php#L369>`_
 
         For each generic MIME type (as detected by PHP MIME type detection) a
         map from file extension to a valid MIME type can be supplied.
@@ -1166,7 +1166,7 @@ allowedPhpDisableFunctions
     :name: globals-typo3-conf-vars-sys-allowedPhpDisableFunctions
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['allowedPhpDisableFunctions']
     :type: array
-    :Default: `[]`
+    :default: `[]`
 
     A configuration option to modify the environment check in
     :guilabel:`System > Environment` to incorporate a list of sanctioned
@@ -1189,7 +1189,7 @@ allowedPhpDisableFunctions
     :name: globals-typo3-conf-vars-sys-rateLimiter
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter']
     :type: array
-    :Default: `[]`
+    :default: `[]`
 
     Override rate limiter configuration by limiter ID. Each key is a limiter ID
     (for example, `login-be`, `backend-password-recovery`), and each value is an
