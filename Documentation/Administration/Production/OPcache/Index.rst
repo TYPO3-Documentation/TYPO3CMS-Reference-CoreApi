@@ -33,7 +33,7 @@ Tuning OPcache
 Below is list a of OPcache features with information on how they can impact TYPO3's performance.
 
 ..  confval:: opcache.save_comments
-
+    :name: opcache-save-comments
     :default: 1
     :Recommended: 1
 
@@ -47,7 +47,7 @@ opcache.use_cwd
 ---------------
 
 ..  confval:: opcache.use_cwd
-
+    :name: opcache-use-cwd
     :default: 1
     :Recommended: 1
 
@@ -63,7 +63,7 @@ opcache.validate_timestamps
 ---------------------------
 
 ..  confval:: opcache.validate_timestamps
-
+    :name: opcache-validate-timestamps
     :default: 1
     :Recommended: 1
 
@@ -79,7 +79,7 @@ opcache.revalidate_freq
 -----------------------
 
 ..  confval:: opcache.revalidate_freq
-
+    :name: opcache-revalidate-freq
     :default: 2
     :Recommended: 30
 
@@ -93,7 +93,7 @@ opcache.revalidate_path
 -----------------------
 
 ..  confval:: opcache.revalidate_path
-
+    :name: opcache-revalidate-path
     :default: 1
     :Recommended: 0
 
@@ -108,7 +108,7 @@ opcache.max_accelerated_files
 -----------------------------
 
 ..  confval:: opcache.max_accelerated_files
-
+    :name: opcache-max-accelerated-files
     :default: 10000
     :Recommended: 10000
 

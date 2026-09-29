@@ -25,7 +25,7 @@ minimum length and four individual requirements.
 The following options are available:
 
 ..  confval:: minimumLength
-
+    :name: password-validator-minimumLength
     :type: int
     :default: 8
 
@@ -38,7 +38,7 @@ upperCaseCharacterRequired
 --------------------------
 
 ..  confval:: upperCaseCharacterRequired
-
+    :name: password-validator-upperCaseCharacterRequired
     :type: bool
     :default: true
 
@@ -51,7 +51,7 @@ lowerCaseCharacterRequired
 --------------------------
 
 ..  confval:: lowerCaseCharacterRequired
-
+    :name: password-validator-lowerCaseCharacterRequired
     :type: bool
     :default: true
 
@@ -64,7 +64,7 @@ digitCharacterRequired
 ----------------------
 
 ..  confval:: digitCharacterRequired
-
+    :name: password-validator-digitCharacterRequired
     :type: bool
     :default: true
 
@@ -77,7 +77,7 @@ specialCharacterRequired
 ------------------------
 
 ..  confval:: specialCharacterRequired
-
+    :name: password-validator-specialCharacterRequired
     :type: bool
     :default: true
 
