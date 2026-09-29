@@ -138,8 +138,8 @@ structure for a middleware configuration is:
 
 ..  confval:: target
 
-    :Data type: string
-    :Required: yes
+    :type: string
+    :required: true
 
     The fully-qualified class name of the driver middleware.
 
@@ -151,9 +151,8 @@ before
 
 ..  confval:: before
 
-    :Data type: list of strings
-    :Required: no
-    :Default: :php:`[]`
+    :type: list of strings
+    :default: :php:`[]`
 
     A list of middleware identifiers the current middleware should be registered
     before.
@@ -166,9 +165,8 @@ after
 
 ..  confval:: after
 
-    :Data type: list of strings
-    :Required: no
-    :Default: :php:`[]`
+    :type: list of strings
+    :default: :php:`[]`
 
     A list of middleware identifiers the current middleware should be registered
     after.
@@ -187,9 +185,8 @@ disabled
 
 ..  confval:: disabled
 
-    :Data type: boolean
-    :Required: no
-    :Default: :php:`false`
+    :type: boolean
+    :default: :php:`false`
 
     It can be used to disable a global middleware for a specific connection.
 

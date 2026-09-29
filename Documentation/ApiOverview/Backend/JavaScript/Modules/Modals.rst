@@ -52,14 +52,14 @@ Modal settings
 
     ..  confval:: title
         :name: modules-modals-settings-title
-        :Required: true
+        :required: true
         :type: string
 
         The title displayed in the modal
 
     ..  confval:: content
         :name: modules-modals-settings-content
-        :Required: true
+        :required: true
         :type: string|jQuery
 
         The content displayed in the modal
@@ -67,7 +67,7 @@ Modal settings
     ..  confval:: severity
         :name: modules-modals-settings-severity
         :type: int
-        :Default: :js:`TYPO3.Severity.info`
+        :default: :js:`TYPO3.Severity.info`
 
         Represents the severity of a modal. Please see :js:`TYPO3.Severity`.
 
@@ -81,7 +81,7 @@ Modal settings
     ..  confval:: staticBackdrop
         :name: modules-modals-settings-staticBackdrop
         :type: bool
-        :Default: :js:`false`
+        :default: :js:`false`
 
         Controls whether a static backdrop should be rendered, which prevents
         closing the modal by clicking outside of it.
@@ -98,14 +98,14 @@ Button settings
 
     ..  confval:: text
         :name: modules-modals-button-settings-text
-        :Required: true
+        :required: true
         :type: string
 
         The text rendered into the button.
 
     ..  confval:: trigger / action
         :name: modules-modals-button-settings-trigger
-        :Required: true
+        :required: true
         :type: function
 
         Callback that is triggered on button click - either a simple function or
