@@ -34,7 +34,7 @@ Below is list a of OPcache features with information on how they can impact TYPO
 
 ..  confval:: opcache.save_comments
 
-    :Default: 1
+    :default: 1
     :Recommended: 1
 
     Setting this to 0 may improve performance but some parts of TYPO3 (including Extbase)
@@ -48,7 +48,7 @@ opcache.use_cwd
 
 ..  confval:: opcache.use_cwd
 
-    :Default: 1
+    :default: 1
     :Recommended: 1
 
     Setting the value to 0 may cause problems in certain applications because files
@@ -64,7 +64,7 @@ opcache.validate_timestamps
 
 ..  confval:: opcache.validate_timestamps
 
-    :Default: 1
+    :default: 1
     :Recommended: 1
 
     While setting this to 0 may speed up performance, you **must** make sure to
@@ -80,7 +80,7 @@ opcache.revalidate_freq
 
 ..  confval:: opcache.revalidate_freq
 
-    :Default: 2
+    :default: 2
     :Recommended: 30
 
     Setting this to a high value can improve performance but shares the same issue
@@ -94,7 +94,7 @@ opcache.revalidate_path
 
 ..  confval:: opcache.revalidate_path
 
-    :Default: 1
+    :default: 1
     :Recommended: 0
 
     Setting this value to 0 should be safe with TYPO3. This may be a problem if
@@ -109,7 +109,7 @@ opcache.max_accelerated_files
 
 ..  confval:: opcache.max_accelerated_files
 
-    :Default: 10000
+    :default: 10000
     :Recommended: 10000
 
     The default setting should be enough for TYPO3, but this depends
