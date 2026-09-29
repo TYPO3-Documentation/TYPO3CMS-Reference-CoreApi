@@ -96,7 +96,7 @@ The following configuration options are available:
 ..  confval:: <identifier>
     :name: code-editor-register-addon-identifier
     :type: string
-    :Required: true
+    :required: true
 
     Represents the unique identifier of the module (:php:`my/addon` in this
     example).
@@ -110,7 +110,7 @@ module
 ..  confval:: module
     :name: code-editor-register-addon-module
     :type: string
-    :Required: true
+    :required: true
 
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
@@ -166,7 +166,7 @@ The following configuration options are available:
 ..  confval:: <identifier>
     :name: code-editor-register-mode-identifier
     :type: string
-    :Required: true
+    :required: true
 
     Represents the unique identifier and format code of the mode
     (`css` in this example). The format code is used in TCA to
@@ -187,7 +187,7 @@ module
 ..  confval:: module
     :name: code-editor-register-mode-module
     :type: string
-    :Required: true
+    :required: true
 
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
