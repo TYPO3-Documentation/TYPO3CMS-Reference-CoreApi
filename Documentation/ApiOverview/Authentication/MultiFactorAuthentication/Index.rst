@@ -188,6 +188,21 @@ user TSconfig options.
 ..  include:: /Images/ManualScreenshots/Authentication/MfaConfigurationModule.rst.txt
 
 
+..  _multi-factor-authentication-reset:
+
+Resetting a user's MFA provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a user locked himself out, an administrator can reset the MFA provider
+so that it is not locked anymore:
+
+1. As admin, switch to the user
+2. On the top right, click "User Settings"
+3. Open tab "Account security"
+4. Click "Manage multi-factor authentication"
+5. Click "Unlock"
+
+
 ..  _multi-factor-authentication-introduction-configuration:
 
 Configuration
