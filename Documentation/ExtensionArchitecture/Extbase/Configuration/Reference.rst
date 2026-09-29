@@ -422,7 +422,7 @@ Output format, language overrides and FlexForm handling
 ..  confval:: format
     :name: extbase-configuration-typoscript-format
     :type: string
-    :Default: html
+    :default: html
 
     Sets the default template file format which determines the template file
     extension that Extbase looks for. Prefer a dedicated action per output format
