@@ -638,7 +638,7 @@ cacheHash
         :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['fallbackToLegacyHash']
         :name: typo3-conf-vars-fe-cacheHash-fallbackToLegacyHash
         :type: bool
-        :Default: true
+        :default: true
 
         If true, legacy cHash values (based on MD5) are accepted during frontend
         requests as fallback.

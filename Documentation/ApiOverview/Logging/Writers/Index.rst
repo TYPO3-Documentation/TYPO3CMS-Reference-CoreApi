@@ -56,8 +56,7 @@ The following option is available:
 ..  confval:: logTable
     :name: database-writer-logTable
     :type: string
-    :Mandatory: no
-    :Default: :sql:`sys_log`
+    :default: :sql:`sys_log`
 
     ..  deprecated:: 14.2
         `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
