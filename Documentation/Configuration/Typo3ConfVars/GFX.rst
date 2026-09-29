@@ -39,7 +39,7 @@ thumbnails
     :name: globals-typo3-conf-vars-sys-gfx-thumbnails
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails']
     :type: bool
-    :Default: true
+    :default: true
 
     Enables the use of thumbnails in the backend interface.
 
@@ -55,7 +55,7 @@ imagefile_ext
     :name: globals-typo3-conf-vars-sys-gfx-imagefile_ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
     :type: list
-    :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg,webp'
+    :default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg,webp'
 
     Comma-separated list of file extensions recognized as images by TYPO3.
     List should be set to `'gif,png,jpeg,jpg,webp'`, if ImageMagick /
@@ -75,7 +75,7 @@ imageFileConversionFormats
     :name: globals-typo3-conf-vars-sys-gfx-imageFileConversionFormats
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats']
     :type: `array<string,string>`
-    :Default: ['jpg' => 'jpg', 'jpeg' => 'jpeg', 'gif' => 'gif', 'png' => 'png', 'svg' => 'svg', 'default' => 'png']
+    :default: ['jpg' => 'jpg', 'jpeg' => 'jpeg', 'gif' => 'gif', 'png' => 'png', 'svg' => 'svg', 'default' => 'png']
 
     ..  versionadded:: 14.0
 
@@ -107,7 +107,7 @@ processor_enabled
     :name: globals-typo3-conf-vars-sys-gfx-processor_enabled
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_enabled']
     :type: bool
-    :Default: true
+    :default: true
 
     Enables the use of Image- or GraphicsMagick.
 
@@ -121,7 +121,7 @@ processor_path
     :name: globals-typo3-conf-vars-sys-gfx-processor_path
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path']
     :type: text
-    :Default: '/usr/bin/'
+    :default: '/usr/bin/'
 
     Path to the IM tools convert, combine, identify.
 
@@ -135,8 +135,8 @@ processor
     :name: globals-typo3-conf-vars-sys-gfx-processor
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor']
     :type: dropdown
-    :Default: 'ImageMagick'
-    :allowedValues:
+    :default: 'ImageMagick'
+    :Allowed values:
        ImageMagick
            Choose ImageMagick for processing images
        GraphicsMagick
@@ -155,7 +155,7 @@ processor_effects
     :name: globals-typo3-conf-vars-sys-gfx-processor_effects
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_effects']
     :type: bool
-    :Default: false
+    :default: false
 
     If enabled, apply blur and sharpening in ImageMagick/GraphicsMagick functions.
 
@@ -169,7 +169,7 @@ processor_allowUpscaling
     :name: globals-typo3-conf-vars-sys-gfx-processor_allowUpscaling
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowUpscaling']
     :type: bool
-    :Default: true
+    :default: true
 
     If set, images can be scaled up if told so (in
     :php:`\TYPO3\CMS\Core\Imaging\GraphicalFunctions`)
@@ -184,7 +184,7 @@ processor_allowFrameSelection
     :name: globals-typo3-conf-vars-sys-gfx-processor_allowFrameSelection
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowFrameSelection']
     :type: bool
-    :Default: true
+    :default: true
 
     If set, the [x] frame selector is appended to input filenames in
     stdgraphic. This speeds up image processing for PDF files considerably.
@@ -201,7 +201,7 @@ processor_stripColorProfileByDefault
     :name: globals-typo3-conf-vars-sys-gfx-processor_stripColorProfileByDefault
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileByDefault']
     :type: bool
-    :Default: true
+    :default: true
 
     If set, the processor_stripColorProfileCommand is used with all processor
     image operations by default. See tsRef for setting this parameter explicitly
@@ -246,7 +246,7 @@ processor_stripColorProfileParameters
     :name: globals-typo3-conf-vars-sys-gfx-processor_stripColorProfileParameters
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters']
     :type: array of strings
-    :Default: :php:`['+profile', '*']`
+    :default: :php:`['+profile', '*']`
 
     Specifies the parameters to strip the profile information, which can reduce
     thumbnail size up to 60KB. Command can differ in IM/GM, IM also knows the
@@ -264,7 +264,7 @@ processor_colorspace
     :name: globals-typo3-conf-vars-sys-gfx-processor_colorspace
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
     :type: text
-    :Default: ''
+    :default: ''
 
     Specifies the colorspace to use. Defaults to "RGB" when using GraphicsMagick
     as :ref:`processor <typo3ConfVars_gfx_processor>` and "sRGB" when using
@@ -288,7 +288,7 @@ processor_interlace
     :name: globals-typo3-conf-vars-sys-gfx-processor_interlace
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_interlace']
     :type: text
-    :Default: 'None'
+    :default: 'None'
 
     Specifies the interlace option to use. The result differs in different
     GM / IM versions. See manual of GraphicsMagick or ImageMagick for
@@ -306,7 +306,7 @@ jpg_quality
     :name: globals-typo3-conf-vars-sys-gfx-jpg_quality
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
     :type: int
-    :Default: 85
+    :default: 85
     :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size)
 
     Default JPEG generation quality
@@ -321,7 +321,7 @@ webp_quality
     :name: globals-typo3-conf-vars-sys-gfx-webp_quality
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['webp_quality']
     :type: int | string
-    :Default: 85
+    :default: 85
     :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size), or "lossless"
 
     Default WebP generation quality. Setting the quality to "lossless"

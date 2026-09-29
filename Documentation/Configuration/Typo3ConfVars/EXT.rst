@@ -42,7 +42,7 @@ excludeForPackaging
     :name: globals-typo3-conf-vars-excludeForPackaging
     :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
     :type: list
-    :Default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
+    :default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
 
     List of directories and files which will not be packaged into extensions nor
     taken into account otherwise by the Extension Manager. Perl regular
