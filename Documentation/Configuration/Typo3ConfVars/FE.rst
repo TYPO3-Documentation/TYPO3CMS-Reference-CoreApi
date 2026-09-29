@@ -778,6 +778,7 @@ passwordHashing
 ---------------
 
 ..  confval:: passwordHashing
+    :name: typo3-conf-vars-fe-passwordHashing
 
 
 ..  index::
