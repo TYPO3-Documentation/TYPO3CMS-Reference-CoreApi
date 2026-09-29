@@ -36,7 +36,7 @@ your `image` field configuration of tt_content records:
     ]
 
 Please note, you need to specify the target column name as array key. Most of the time this will be `crop`
-as this is the default field name for image manipulation in `sys_file_reference`
+as this is the default field name for image manipulation in `sys_file_reference`.
 
 It is also possible to set the cropping configuration only for a **specific tt_content element type** by using the
 `columnsOverrides` feature:

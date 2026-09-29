@@ -548,7 +548,7 @@ reverseProxyPrefix
     REQUEST_URI).
 
     Example: When proxying `external.example.org` to `internal.example.org/prefix` this has to
-    be set to :php:`prefix`
+    be set to :php:`prefix`.
 
 ..  _typo3ConfVars_sys_reverseProxySSL:
 
@@ -818,7 +818,7 @@ systemMaintainers
     :type: array
     :default: null
 
-    A list of backend user IDs that are allowed to access the Install Tool
+    A list of backend user IDs that are allowed to access the Install Tool.
 
 ..  _typo3ConfVars_sys_features:
 
@@ -1148,7 +1148,7 @@ FileInfo
 
         Below is a generic example which allows a file ending in `*.foo`, that is detected
         to contain text/plain contents, to be mapped to the MIME type text/x-foo.
-        Other contents (e.g. if the file contains binary data) will not be mapped
+        Other contents (e.g. if the file contains binary data) will not be mapped:
 
         ..  code-block:: php
             :caption: config/system/additional.php

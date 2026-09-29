@@ -46,14 +46,14 @@ Modal settings
         :required: true
         :type: string
 
-        The title displayed in the modal
+        The title displayed in the modal.
 
     ..  confval:: content
         :name: modules-modals-settings-content
         :required: true
         :type: string|jQuery
 
-        The content displayed in the modal
+        The content displayed in the modal.
 
     ..  confval:: severity
         :name: modules-modals-settings-severity
@@ -101,7 +101,7 @@ Button settings
         :type: function
 
         Callback that is triggered on button click - either a simple function or
-        :js:`DeferredAction` / :js:`ImmediateAction`
+        :js:`DeferredAction` / :js:`ImmediateAction`.
 
     ..  confval:: active
         :name: modules-modals-button-settings-active

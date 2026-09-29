@@ -175,7 +175,7 @@ Please contact the Localization Team via email at `localization@typo3.org`_ to r
 
 ..  _localization@typo3.org: mailto:localization@typo3.org
 
-Or join the Slack channel of the Localization Team: `#typo3-localization-team`_
+Or join the Slack channel of the Localization Team: `#typo3-localization-team`_.
 
 ..  _#typo3-localization-team: https://typo3.slack.com/archives/CR75200FL
 
@@ -214,7 +214,7 @@ Strings are translated, but when are they taken into account and available for d
 As soon as a string is proofread, it is ready for export to the Crowdin Bridge.
 This is done every two hours. Afterwards it will be taken into account at the next language
 update process started from a TYPO3 backend.
-If it takes too long, please write an email to localization@typo3.org
+If it takes too long, please write an email to localization@typo3.org.
 
 ..  _crowdin-crowdin-translation-to-be-translated:
 

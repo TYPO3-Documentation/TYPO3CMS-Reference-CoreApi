@@ -306,7 +306,7 @@ different techniques for the declarations):
     instructions. The :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy`
     object is used for compiling the CSP in a :ref:`middleware <request-handling>`.
     Thus, custom controllers or middlewares could use this approach; the last
-    line
+    line:
 
     ..  code-block:: php
 

@@ -377,7 +377,7 @@ cookieName
     :type: text
     :default: 'fe_typo_user'
 
-    Sets the name for the cookie used for the front-end user session
+    Sets the name for the cookie used for the front-end user session.
 
 ..  _typo3ConfVars_fe_cookieSameSite:
 
@@ -557,7 +557,7 @@ cacheHash
 
         Configure Parameters that require a cHash. If no cHash is given but one of
         the parameters are set, then TYPO3 triggers the configured cHash Error
-        behavior
+        behavior.
 
     ..  _typo3ConfVars_fe_cacheHash_excludedParameters:
 

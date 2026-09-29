@@ -133,7 +133,7 @@ connect_timeout
     :default: 10
 
     Default timeout for connection in seconds. Exception will be thrown if
-    connecting to a remote host
+    connecting to a remote host.
 
 ..  _typo3ConfVars_http_proxy:
 

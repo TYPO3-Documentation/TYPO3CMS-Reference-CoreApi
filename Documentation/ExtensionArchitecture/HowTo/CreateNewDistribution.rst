@@ -203,7 +203,7 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
 ..  note::
 
     A TYPO3 issue prevents loading :file:`data.xml` larger than
-    10MB. In this case the only option left is going with :file:`data.t3d`
+    10MB. In this case the only option left is going with :file:`data.t3d`.
 
 ..  warning::
 

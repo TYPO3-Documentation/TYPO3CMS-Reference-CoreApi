@@ -535,7 +535,7 @@ adminOnly
     2:
         Only administrators / system maintainers have access to the TYPO3 Backend. CLI executions are allowed
 
-    Restricts access to the TYPO3 Backend. Useful when doing maintenance or updates
+    Restricts access to the TYPO3 Backend. Useful when doing maintenance or updates.
 
 ..  _typo3ConfVars_be_disable_exec_function:
 
@@ -949,7 +949,7 @@ installToolSessionHandler
         ..  versionadded:: 14.0
 
         Store Install Tool sessions in Redis by setting `className` to
-        :php:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
+        :php:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`.
 
         Custom session handlers can be implemented using the PHP
         :php:`\SessionHandlerInterface`.

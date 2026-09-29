@@ -93,7 +93,7 @@ is performed in such a case.
 
     A :ref:`CSRF-like request token handling <authentication-request-token>`
     is in place to mitigate potential cross-site requests on actions with
-    side effects
+    side effects.
 
 `JSON Web Tokens (JWT) <https://jwt.io/>`__ are used to transport user
 session identifiers in `be_typo_user` and `fe_typo_user` cookies.

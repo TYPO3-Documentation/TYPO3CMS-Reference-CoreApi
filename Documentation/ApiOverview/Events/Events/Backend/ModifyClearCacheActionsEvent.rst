@@ -122,7 +122,7 @@ iconIdentifier
     :required: true
     :type: string
 
-    An icon to be displayed in the clear cache menu
+    An icon to be displayed in the clear cache menu.
 
 
 ..  _ModifyClearCacheActionsEvent-api-add-cache-action-description:

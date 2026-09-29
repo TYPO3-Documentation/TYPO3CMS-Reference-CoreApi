@@ -112,7 +112,7 @@ The default storage uses :file:`fileadmin/` unless this was configured
 differently, as explained in :ref:`Storages and drivers <fal-concepts-storages-drivers>`.
 
 So, for this example, the resulting file path would typically be
-:file:`<document-root>/fileadmin/final_file_name.ext`
+:file:`<document-root>/fileadmin/final_file_name.ext`.
 
 To store the file in a sub-folder use :php:`$storage->getFolder()`:
 
@@ -120,7 +120,7 @@ To store the file in a sub-folder use :php:`$storage->getFolder()`:
     :caption: EXT:my_extension/Classes/MyClass.php
 
 In this example, the file path would likely be
-:file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
+:file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`.
 
 ..  _fal-using-fal-examples-file-folder-add-file-security:
 

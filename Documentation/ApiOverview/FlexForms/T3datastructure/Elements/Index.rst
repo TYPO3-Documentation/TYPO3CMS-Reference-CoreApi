@@ -52,7 +52,7 @@ must be arrays.)
     :name: t3datastructure-root
     :type: array
 
-    Defines an "object" in the Data Structure
+    Defines an "object" in the Data Structure.
 
     Tag `<ROOT>` is reserved for the first element in the Data
     Structure. The `<ROOT>` tag must have a `<type>` tag with the value
