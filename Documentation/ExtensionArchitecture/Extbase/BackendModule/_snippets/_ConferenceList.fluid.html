@@ -1,0 +1,79 @@
+<html
+  xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+  <f:asset.module identifier="@typo3/backend/modal.js" />
+
+  <h1>Conferences</h1>
+
+  <f:form action="list" name="demand" object="{demand}">
+    <f:form.textfield property="searchWord" placeholder="Search" />
+    <f:form.select
+      property="status"
+      options="{published: 'Published', unpublished: 'Unpublished'}"
+      prependOptionLabel="All"
+      prependOptionValue=""
+    />
+    <f:form.submit value="Filter" />
+    <f:link.action action="list" arguments="{operation: 'reset-filters'}">
+      Reset filters
+    </f:link.action>
+  </f:form>
+
+  <be:link.newRecord table="tx_myextension_domain_model_conference" pid="{newRecordPid}">
+    New conference
+  </be:link.newRecord>
+
+  <table class="table table-striped">
+    <f:for each="{paginator.paginatedItems}" as="conference">
+      <tr>
+        <td>
+          <be:link.editRecord
+            table="tx_myextension_domain_model_conference"
+            uid="{conference.uid}"
+            fields="title"
+            contextual="true"
+          >
+            {conference.title}
+          </be:link.editRecord>
+        </td>
+        <td>
+          <div class="btn-group">
+            <be:link.editRecord
+              table="tx_myextension_domain_model_conference"
+              uid="{conference.uid}"
+              class="btn btn-default"
+            >
+              Edit
+            </be:link.editRecord>
+            <a
+              href="{be:moduleLink(route: 'tce_db', query: 'cmd[tx_myextension_domain_model_conference][{conference.uid}][delete]=1', currentUrlParameterName: 'redirect')}"
+              class="btn btn-default t3js-modal-trigger"
+              data-severity="warning"
+              data-title="Delete conference"
+              data-content="This conference will be deleted."
+              data-button-close-text="Cancel"
+              data-button-ok-text="Delete"
+            >
+              Delete
+            </a>
+          </div>
+        </td>
+      </tr>
+    </f:for>
+  </table>
+
+  <nav aria-label="Pagination">
+    <f:for each="{pagination.allPageNumbers}" as="page">
+      <f:link.action action="list" arguments="{currentPage: page}">
+        {page}
+      </f:link.action>
+    </f:for>
+  </nav>
+</f:section>
+
+</html>
