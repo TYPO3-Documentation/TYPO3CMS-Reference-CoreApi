@@ -1,4 +1,4 @@
 errorHandling:
   - errorCode: '404'
     errorHandler: PHP
-    errorPhpClassFQCN: MyVendor\MySitePackage\Error\MyErrorHandler
+    errorPhpClassFQCN: MyVendor\MySitepackage\Error\MyErrorHandler

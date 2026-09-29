@@ -73,4 +73,4 @@ Example for EXT:form
 Translate options via :yaml:`siteLanguage` condition:
 
 ..  literalinclude:: _form-condition.yaml
-    :caption: EXT:my_site_package/Resources/Private/Forms/MyForm.form.yaml
+    :caption: EXT:my_sitepackage/Resources/Private/Forms/MyForm.form.yaml
