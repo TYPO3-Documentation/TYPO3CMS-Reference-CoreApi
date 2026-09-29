@@ -206,19 +206,14 @@ architectural constraints and guidelines must be observed:
 
 ..  _extbase-configuration-settings-outside-controller-frontend-only:
 
-Frontend context only
----------------------
+Frontend context and backend modules only
+-----------------------------------------
 
 Extbase settings (:typoscript:`plugin.tx_<extensionkey>.settings`) are designed
-strictly for frontend rendering.
-
-In backend contexts (such as backend modules, CLI commands, or scheduler tasks),
-frontend TypoScript is either not loaded or behaves unpredictably. Backend
-requests lack an active frontend user session and page context, while handling
-record visibility flags such as :sql:`starttime`, :sql:`endtime`,
-:sql:`hidden`, and workspace overlays differently. Attempting to evaluate
-frontend TypoScript in the backend triggers unnecessary overhead and leads to
-unreliable results.
+strictly for frontend rendering. Backend modules read their own settings from
+:typoscript:`module.tx_<extensionkey>.settings`. In other contexts, such as CLI
+commands, scheduler tasks or middlewares, see :ref:`Reading configuration
+outside a frontend request <extbase-no-frontend-configuration>`.
 
 ..  _extbase-configuration-settings-outside-controller-plugin-context:
 
@@ -239,7 +234,9 @@ attribute
 (:php:`$request->getAttribute('frontend.typoscript')->getSetupArray()`)
 only provides the raw TypoScript configuration. Any content-element-specific
 FlexForm values set by editors in the backend are omitted because the content
-record is not part of that lookup.
+record is not part of that lookup. On a page delivered from the page cache, the
+setup array is not built at all, and :php:`getSetupArray()` throws an
+exception.
 
 ..  _extbase-configuration-settings-outside-controller-internal:
 
@@ -257,6 +254,7 @@ and :php-short:`\TYPO3\CMS\Extbase\Configuration\ConfigurationManager` are
 annotated with:
 
 ..  code-block:: php
+    :caption: EXT:extbase/Classes/Configuration/ConfigurationManagerInterface.php (excerpt)
 
     /**
      * @internal only to be used within Extbase, not part of TYPO3 Core API.
@@ -265,11 +263,14 @@ annotated with:
 The :php:`getConfiguration()` method is explicitly marked as a low-level
 method intended exclusively for Extbase framework internals. It is **not part
 of the public TYPO3 API**, offers no backwards-compatibility guarantees, and
-must not be used in third-party extension code.
+must not be used in third-party extension code. The same applies to the
+:php:`$configurationManager` property of
+:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`, which is
+marked `@internal` as well.
 
 ..  _extbase-configuration-settings-outside-controller-recommended:
 
-Recommended approach: Pass settings from the controller
+Recommended approach: pass settings from the controller
 -------------------------------------------------------
 
 Because :php:`$this->settings` in the controller is already fully merged and
@@ -317,36 +318,13 @@ This approach provides several advantages:
 In Fluid templates and custom ViewHelpers, pass settings explicitly via
 arguments (such as :html:`<my:customHelper limit="{settings.itemsPerPage}" />`).
 
-Because PHP attributes are evaluated statically at compile time, the
-:php:`#[Validate]` attribute only accepts constant expressions and cannot
-access :php:`$this->settings`. If validation rules depend on dynamic Extbase
-settings, handle the validation in the controller or a domain service where
-:php:`$this->settings` is available, or dynamically attach a configured
-validator to the argument in :php:`initializeAction()`
-(see :ref:`extbase-validation`).
+If validation rules depend on dynamic Extbase settings, see
+:ref:`Setting validator options from Extbase settings
+<extbase-validation-custom-options-settings>`.
 
-..  _extbase-configuration-settings-outside-controller-site-settings:
-
-Global configuration: Use site settings
----------------------------------------
-
-If a configuration value does not belong to a specific content element or
-plugin instance, but applies globally to a site or extension (for example, API
-keys, external endpoint URLs, or global defaults), do not use Extbase TypoScript
-settings.
-
-Instead, use :ref:`site settings <sitehandling-settings>`. Site settings can be
-retrieved in any service, middleware, or console command using the
-:php-short:`\TYPO3\CMS\Core\Site\Entity\Site` object:
-
-..  code-block:: php
-
-    $apiKey = $site->getSettings()->get('myExtension.apiKey');
-
-The site object can be obtained from the PSR-7 request
-(:php:`$request->getAttribute('site')`) or by injecting
-:php-short:`\TYPO3\CMS\Core\Site\SiteFinder`. See
-:ref:`sitehandling-settings-access` for details.
+For configuration that applies globally to a site or extension, see
+:ref:`Global configuration: use site settings
+<extbase-no-frontend-configuration-site-settings>`.
 
 ..  _extbase-configuration-typoscript-persistence:
 
