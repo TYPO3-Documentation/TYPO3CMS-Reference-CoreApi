@@ -79,7 +79,7 @@ Minimal example for a Fluid-based email template
 ..  directory-tree::
     :show-file-icons: true
 
-    *  EXT:my_site_package/
+    *  EXT:my_sitepackage/
 
         *   Resources
 
@@ -94,7 +94,7 @@ Minimal example for a Fluid-based email template
 :file:`MyCustomEmail.fluid.html`:
 
 ..  code-block:: html
-    :caption: EXT:my_site_package/Resources/Private/Templates/Email/MyCustomEmail.fluid.html
+    :caption: EXT:my_sitepackage/Resources/Private/Templates/Email/MyCustomEmail.fluid.html
 
     <f:layout name="SystemEmail" />
 
@@ -430,7 +430,7 @@ without using Fluid. The email can then be sent via the injected interface
 :php:`\TYPO3\CMS\Core\Mail\MailerInterface`.
 
 ..  literalinclude:: _codesnippets/_MyMailerController.php
-    :caption: EXT:site_package/Classes/Controller/MyMailerController.php
+    :caption: EXT:my_extension/Classes/Controller/MyMailerController.php
 
 ..  index:: Mail; Attachments
 ..  _mail-attachments:
@@ -441,7 +441,7 @@ How to add attachments
 Attach files that exist in your file system:
 
 ..  code-block:: php
-    :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
+    :caption: EXT:my_extension/Classes/Utility/MyMailUtility.php
 
     // Attach file to message
     $email->attachFromPath('/path/to/documents/privacy.pdf');
@@ -462,7 +462,7 @@ How to add inline media
 Add some inline media like images in an email:
 
 ..  code-block:: php
-    :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
+    :caption: EXT:my_extension/Classes/Utility/MyMailUtility.php
 
     // Get the image contents from a PHP resource
     $email->embed(fopen('/path/to/images/logo.png', 'r'), 'logo');
@@ -494,7 +494,7 @@ It is possible to define a default email sender ("From:") in
 This is how you can use these defaults:
 
 ..  literalinclude:: _codesnippets/_MyMailerControllerDefault.php
-    :caption: EXT:site_package/Classes/Controller/MyMailerController.php
+    :caption: EXT:my_extension/Classes/Controller/MyMailerController.php
 
 ..  index::
     Mail; Custom mailer
@@ -513,10 +513,10 @@ After implementing your custom mailer, add the following lines into the
 mailer is used.
 
 ..  code-block:: yaml
-    :caption: EXT:site_package/Configuration/Services.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
     TYPO3\CMS\Core\Mail\MailerInterface:
-        alias: MyVendor\SitePackage\Mail\MyCustomMailer
+        alias: MyVendor\MyExtension\Mail\MyCustomMailer
 
 
 ..  _mail-psr-14-events:

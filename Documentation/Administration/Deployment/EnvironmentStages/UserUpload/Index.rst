@@ -55,7 +55,7 @@ These locations can contain:
     package or TYPO3 extension. This ensures that versioned, developer-maintained
     resources are properly managed through your project’s codebase.
 
-    Example: :file:`packages/site_package/Resources/Public/Images/logo.svg`
+    Example: :file:`packages/my_sitepackage/Resources/Public/Images/logo.svg`
 
 ..  _multi-stage-environment-file-challenges:
 

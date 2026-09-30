@@ -29,7 +29,7 @@ clear-cache post-processing. The objective of this could be to perform
 additional actions whenever the cache is cleared for a specific page:
 
 ..  literalinclude:: _ext_localconf_addhook.php
-    :caption: EXT:site_package/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
 This hook registers the class/method name to a hook inside of
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook calls the user

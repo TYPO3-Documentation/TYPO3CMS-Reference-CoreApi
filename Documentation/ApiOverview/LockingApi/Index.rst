@@ -159,7 +159,7 @@ Examples
 Acquire and use an exclusive, blocking lock:
 
 ..  code-block:: php
-    :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/SomeRepository.php
 
     use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
     use TYPO3\CMS\Core\Locking\LockFactory;
@@ -186,7 +186,7 @@ Acquire and use an exclusive, blocking lock:
 Acquire and use an exclusive, non-blocking lock:
 
 ..  code-block:: php
-    :caption: EXT:site_package/Classes/Domain/Repository/SomeRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/SomeRepository.php
 
     use TYPO3\CMS\Core\Locking\LockingStrategyInterface;
     use TYPO3\CMS\Core\Locking\LockFactory;

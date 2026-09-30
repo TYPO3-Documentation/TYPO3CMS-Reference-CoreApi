@@ -28,7 +28,7 @@ Each set must be in its own directory and consist of at least a
 Example:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.yaml
-    :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/config.yaml
 
 ..  _extension-configuration-sets-settings-yaml:
 
@@ -45,7 +45,7 @@ Example:
     be defined by an active set before code relies on it.
 
     ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
-        :caption: EXT:site_package/Configuration/Sets/SitePackage/settings.yaml
+        :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/settings.yaml
 
 ..  _extension-configuration-sets-settings-definitions-yaml:
 
