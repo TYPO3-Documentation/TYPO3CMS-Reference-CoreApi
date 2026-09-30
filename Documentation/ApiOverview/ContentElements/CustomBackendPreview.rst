@@ -117,6 +117,32 @@ The standard renderer may be composed and its rendering methods delegated to whe
 is desired, as :php-short:`\TYPO3\CMS\Form\Preview\FormPagePreviewRenderer` demonstrates.
 
 
+..  _configure-ce-preview-field-processor:
+
+Render single fields with the record field preview processor
+============================================================
+
+..  versionadded:: 14.2
+    :changelog: feature-108819-1738329600
+
+    These methods used to sit in
+    :php-short:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`,
+    so reaching them meant extending that class.
+
+A preview renderer injects the service
+:php-short:`\TYPO3\CMS\Backend\Preview\RecordFieldPreviewProcessor` to render
+a single field of a record:
+
+..  literalinclude:: _codesnippets/_ConferenceRenderer.php
+    :caption: EXT:my_extension/Classes/Preview/ConferenceRenderer.php
+    :visible-lines: 35-46
+
+Every method returns HTML that is ready to be output, or `null` when the
+record has no such field or the field is empty. There is one for a field with
+and one without its label from TCA, one for a shortened text, one for escaped
+and one for sanitized HTML, one for thumbnails of file references, and one
+that wraps a text in a link to the edit form of the record.
+
 ..  _configure-ce-preview-configuring-implementation:
 
 Configuring the implementation
