@@ -45,7 +45,7 @@ Using :yaml:`default: true`, "myremote" will be used as the default remote.
 Setting :yaml:`default: true` only works if the defined service
 implements :php:`ListableRemoteInterface`.
 
-Please note that :php:`Vendor\SitePackage\Remote\MyRemote` must implement
+Please note that :php:`MyVendor\MySitepackage\Remote\MyRemote` must implement
 :php:`ExtensionDownloaderRemoteInterface` to be registered as remote.
 
 To disable an already registered remote, :yaml:`enabled: false` can be set.

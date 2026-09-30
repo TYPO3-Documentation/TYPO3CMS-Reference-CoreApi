@@ -61,7 +61,7 @@ The custom error handlers have the properties
     :name: site-error-handling-errorPhpClassFQCN
     :searchFacet: Site Configuration
     :type: string
-    :Example: :php:`\MyVendor\MySitePackage\Error\MyErrorHandler`
+    :Example: :php:`\MyVendor\MySitepackage\Error\MyErrorHandler`
 
     Fully-qualified class name of a custom error handler implementing
     :php:`PageErrorHandlerInterface`.

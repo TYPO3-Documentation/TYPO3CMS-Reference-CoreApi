@@ -16,7 +16,7 @@ used to fetch translations from a translation file and output it
 in the current language:
 
 ..  literalinclude:: _blogListTitle.typoscript
-    :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
 
 ..  _extension-localization-typoscript-conditions:
 
@@ -30,7 +30,7 @@ languages. You can query for any property of the language in the
 site configuration.
 
 ..  literalinclude:: _TypoScript/_currentLanguageCondition.typoscript
-    :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
 
 ..  _localization-typoscript-LOCAL_LANG:
 

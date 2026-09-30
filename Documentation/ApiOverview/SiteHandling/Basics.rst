@@ -233,7 +233,7 @@ parts or to share common configuration parts between multiple sites. The path
 is relative to the site configuration folder.
 
 ..  code-block:: yaml
-    :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/config.yaml
 
     imports:
       - { resource: 'RouteEnhancers.yaml', glob: true }

@@ -29,14 +29,14 @@ It is possible to additionally include specific arguments.
 This is achieved by adding those arguments to the configuration:
 
 ..  code-block:: php
-    :caption: EXT:site_package/ext_localconf.php
+    :caption: EXT:my_sitepackage/ext_localconf.php
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name';
 
 It is possible to include nested arguments:
 
 ..  code-block:: php
-    :caption: EXT:site_package/ext_localconf.php
+    :caption: EXT:my_sitepackage/ext_localconf.php
 
     $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
 

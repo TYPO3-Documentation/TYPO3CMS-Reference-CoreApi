@@ -26,7 +26,7 @@ Example Fluid snippet
 This is how a simple Fluid snippet could look like:
 
 ..  literalinclude:: _Introduction/_SomeTemplate.fluid.html
-    :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.fluid.html
+    :caption: EXT:my_sitepackage/Resources/Private/Templates/SomeTemplate.fluid.html
 
 The resulting HTML may look like this:
 

@@ -196,11 +196,11 @@ rules:
 The following examples show how typical language file paths map to translation
 domains in custom extensions:
 
-*   :file:`EXT:my_site/Resources/Private/Language/locallang.xlf`
-    → `my_site.messages`
+*   :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`
+    → `my_extension.messages`
 
-*   :file:`EXT:my_site/Resources/Private/Language/locallang_module.xlf`
-    → `my_site.module`
+*   :file:`EXT:my_extension/Resources/Private/Language/locallang_module.xlf`
+    → `my_extension.module`
 
 *   :file:`EXT:my_blog/Resources/Private/Language/Backend/locallang_dashboard.xlf`
     → `my_blog.backend.dashboard`
@@ -293,7 +293,7 @@ The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be used to
 fetch translations from a language file and render them in the current language.
 
 ..  literalinclude:: _blogListTitleGetText.typoscript
-    :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
 
 Make sure to leave spaces around the colon following `LLL` (as required by
 general getText syntax).

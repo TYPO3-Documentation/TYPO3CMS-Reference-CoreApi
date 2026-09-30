@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MySitePackage\Error;
+namespace MyVendor\MySitepackage\Error;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
