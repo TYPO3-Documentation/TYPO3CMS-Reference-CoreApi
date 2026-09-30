@@ -5,7 +5,7 @@ page {
       if.isFalse.field = og_image
       typolink {
         parameter.cObject = IMG_RESOURCE
-        parameter.cObject.file = EXT:my_site_package/Resources/Public/Backend/OgImage.svg
+        parameter.cObject.file = EXT:my_sitepackage/Resources/Public/Backend/OgImage.svg
         returnLast = url
         forceAbsoluteUrl = 1
       }
@@ -15,7 +15,7 @@ page {
       if.isFalse.field = twitter_image
       typolink {
         parameter.cObject = IMG_RESOURCE
-        parameter.cObject.file = EXT:my_site_package/Resources/Public/Backend/TwitterCardImage.svg
+        parameter.cObject.file = EXT:my_sitepackage/Resources/Public/Backend/TwitterCardImage.svg
         returnLast = url
         forceAbsoluteUrl = 1
       }

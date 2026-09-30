@@ -337,7 +337,7 @@ or :file:`<project_root>/extensions/` (and no longer in :file:`typo3conf/ext/`),
     :caption: typo3_root$
 
     composer config repositories.local_packages path './packages/*'
-    composer require myvendor/sitepackage
+    composer require myvendor/my-sitepackage
 
 Your sitepackage needs to be contained in its own directory like
 :file:`<project_root>/packages/my_sitepackage/` and provide a :file:`composer.json` file

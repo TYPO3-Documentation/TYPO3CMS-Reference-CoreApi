@@ -186,7 +186,7 @@ like any other package.
         :caption: typo3_root$
 
         # Require a custom site package
-        composer require myvendor/my-site-package:"@dev"
+        composer require myvendor/my-sitepackage:"@dev"
 
         # Require a custom extension
         composer require myvendor/my-local-extension:"@dev"
