@@ -214,7 +214,7 @@ The configuration is provided within
 :file:`Configuration/RequestMiddlewares.php` of an extension:
 
 ..  literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
-    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:my_extension/Configuration/RequestMiddlewares.php
 
 TYPO3 has multiple stacks where one middleware might only be necessary in one
 of them. Therefore the configuration defines the context on its first level to define the
@@ -269,17 +269,17 @@ To change the ordering of middlewares shipped by the Core an extension can overr
 :file:`Configuration/RequestMiddlewares.php`:
 
 ..  literalinclude:: _Middlewares/_RequestMiddlewaresOrdering.php
-    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:my_extension/Configuration/RequestMiddlewares.php
 
 However, this could lead to circular ordering depending on the ordering constraints of other
 middlewares. Alternatively an existing middleware can be disabled and reregistered again with a new
 identifier. This will circumvent the risk of circularity:
 
 ..  literalinclude:: _Middlewares/_RequestMiddlewaresDisable.php
-    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:my_extension/Configuration/RequestMiddlewares.php
 
 ..  literalinclude:: _Middlewares/_RequestMiddlewaresOrdering.php
-    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:my_extension/Configuration/RequestMiddlewares.php
 
 ..  attention::
 
@@ -308,7 +308,7 @@ PSR-17_ response factory interface (the concrete TYPO3 implementation is injecte
 dependency) to create a new PSR-7_ response object:
 
 ..  literalinclude:: _Middlewares/_StatusCheckMiddleware.php
-    :caption: EXT:some_extension/Classes/Middleware/StatusCheckMiddleware.php
+    :caption: EXT:my_extension/Classes/Middleware/StatusCheckMiddleware.php
 
 ..  index:: Request handling; Execution
 ..  _request-handling-psr-18:
@@ -356,7 +356,7 @@ response to be returned to the user. All of these interface implementations are 
 as constructor dependencies:
 
 ..  literalinclude:: _Middlewares/_ExampleMiddleware.php
-    :caption: EXT:some_extension/Classes/Middleware/ExampleMiddleware.php
+    :caption: EXT:my_extension/Classes/Middleware/ExampleMiddleware.php
 
 ..  index:: Request handling; Debugging
 ..  _request-handling-debugging:

@@ -6,7 +6,7 @@ return [
       'disabled' => true,
     ],
     'overwrite-middleware-identifier' => [
-      'target' => \MyVendor\SomeExtension\Middleware\MyMiddleware::class,
+      'target' => \MyVendor\MyExtension\Middleware\MyMiddleware::class,
       'after' => [
         'another-middleware-identifier',
       ],

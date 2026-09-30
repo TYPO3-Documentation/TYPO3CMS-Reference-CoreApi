@@ -124,7 +124,7 @@ Nested structure
 You can also define nested options using the TypoScript notation:
 
 ..  literalinclude:: _extConfTemplateNested.typoscript
-    :caption: EXT:some_extension/ext_conf_template.txt
+    :caption: EXT:my_extension/ext_conf_template.txt
 
 This will result in a multidimensional array:
 

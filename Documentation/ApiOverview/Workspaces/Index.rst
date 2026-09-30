@@ -25,7 +25,7 @@ You might want to turn the workspace off for certain tables.
 The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table.php`:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Configuration/TCA/Overrides/example_table.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/example_table.php
 
     $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
@@ -147,7 +147,7 @@ frontend:
    them):
 
    ..  code-block:: php
-       :caption: EXT:some_extension/Classes/SomeClass.php
+       :caption: EXT:my_extension/Classes/SomeClass.php
 
        // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
        // use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -257,7 +257,7 @@ Workspace-related API for backend modules
    **Example:**
 
    ..  code-block:: php
-       :caption: EXT:some_extension/Classes/SomeClass.php
+       :caption: EXT:my_extension/Classes/SomeClass.php
 
        // use TYPO3\CMS\Backend\Utility\BackendUtility
        // use TYPO3\CMS\Core\Database\Connection;
@@ -281,7 +281,7 @@ Workspace-related API for backend modules
    **Example:**
 
    ..  code-block:: php
-       :caption: EXT:some_extension/Classes/SomeClass.php
+       :caption: EXT:my_extension/Classes/SomeClass.php
 
        // use \TYPO3\CMS\Backend\Utility\BackendUtility
        $row = BackendUtility::getRecordWSOL($table, $uid);

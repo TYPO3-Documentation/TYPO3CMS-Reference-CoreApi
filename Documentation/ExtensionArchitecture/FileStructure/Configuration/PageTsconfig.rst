@@ -21,6 +21,6 @@
     :ref:`Setting the page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
 ..  code-block:: typoscript
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1

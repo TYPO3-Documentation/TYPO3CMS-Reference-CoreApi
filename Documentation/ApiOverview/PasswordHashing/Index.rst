@@ -310,7 +310,7 @@ To create a new password hash from a given plain-text password, these are the st
 Example implementation for TYPO3 frontend:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     // Given plain text password
     $password = 'someHopefullyGoodAndLongPassword';
@@ -330,7 +330,7 @@ To check a plain-text password against a password hash, these are the steps to b
 Example implementation for TYPO3 frontend:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
     // ...

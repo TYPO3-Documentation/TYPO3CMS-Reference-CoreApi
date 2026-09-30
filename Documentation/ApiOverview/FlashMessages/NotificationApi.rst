@@ -64,7 +64,7 @@ actions
 Example:
 
 ..  literalinclude:: _ES6/_flash-message-demo.js
-    :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-demo.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/flash-message-demo.js
 
 ..  _notification_api-actions:
 
@@ -113,7 +113,7 @@ The class accepts a callback method executing very simple logic.
 Example:
 
 ..  literalinclude:: _ES6/_flash-message-immediate-action-demo.js
-    :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-immediate-action-demo.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/flash-message-immediate-action-demo.js
 
 ..  _notification_api_deferred_action:
 
@@ -133,4 +133,4 @@ notification, which will **not stop** the execution.
 Example:
 
 ..  literalinclude:: _ES6/_flash-message-deferred-action-demo.js
-    :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-deferred-action-demo.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/flash-message-deferred-action-demo.js

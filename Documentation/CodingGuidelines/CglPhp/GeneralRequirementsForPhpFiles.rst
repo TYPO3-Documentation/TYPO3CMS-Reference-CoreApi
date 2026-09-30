@@ -53,7 +53,7 @@ PHP tag. There must be exactly one opening tag (no closing and opening
 tags in the middle of the file). Example:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     <?php
     declare(strict_types = 1);
@@ -86,7 +86,7 @@ possible. Each line fragment starting from the second must - compared
 to the first one - be indented with four space characters more. Example:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     BackendUtility::viewOnClick(
         (int)$this->pageInfo['uid'],

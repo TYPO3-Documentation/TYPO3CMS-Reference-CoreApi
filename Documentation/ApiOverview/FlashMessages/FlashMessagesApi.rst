@@ -15,7 +15,7 @@ Creating a flash message is achieved by instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     use TYPO3\CMS\Core\Messaging\FlashMessage;
     use TYPO3\CMS\Core\Utility\GeneralUtility;

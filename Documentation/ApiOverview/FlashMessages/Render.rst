@@ -27,10 +27,10 @@ All new rendering classes have to implement the :php:`TYPO3\CMS\Core\Messaging\R
 If you need a special output format, you can implement your own renderer class and use it:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use MyVendor\SomeExtension\Messaging\MySpecialRenderer;
+    use MyVendor\MyExtension\Messaging\MySpecialRenderer;
 
     $out = GeneralUtility::makeInstance(MySpecialRenderer::class)
        ->render($flashMessages);
@@ -41,7 +41,7 @@ Any third party extension should use the provided :php:`FlashMessageViewHelper`
 or the new :php:`FlashMessageRendererResolver` class:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Messaging\FlashMessageRendererResolver;

@@ -23,4 +23,4 @@
     for details.
 
 ..  literalinclude:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.php
-    :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
+    :caption: EXT:my_extension/Configuration/RequestMiddlewares.php

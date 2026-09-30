@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Vendor\SomeExtension\Hook\DataHandlerHook;
+use MyVendor\MyExtension\Hook\DataHandlerHook;
 
 defined('TYPO3') or die();
 
