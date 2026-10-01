@@ -77,11 +77,10 @@ compressionLevel
     :Range: 0-9
 
     ..  versionchanged:: 14.0
+        :changelog: breaking-108055-1762346705
 
         Frontend HTTP response compression has been removed. Response compression
         should be applied by web servers and not by the application layer.
-
-        See also: `Breaking: #108055 - Removed frontend asset concatenation and compression <https://docs.typo3.org/permalink/changelog:breaking-108055-1762346705>`_.
 
 ..  _typo3confvars-fe-pagenotfoundonchasherror:
 

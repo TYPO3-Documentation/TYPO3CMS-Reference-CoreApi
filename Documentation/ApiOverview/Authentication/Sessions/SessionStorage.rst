@@ -89,21 +89,17 @@ The available options are:
     Redis 6.0 or later. Optional.
 
     ..  versionadded:: 14.2
-
-        See `Feature: #107802 - Support username and password in Redis session
-        backend
-        <https://docs.typo3.org/permalink/changelog:feature-107802-1770827507>`_.
+        :changelog: feature-107802-1770827507
 
 `password`
     The password to use when connecting to the specified database. Optional.
 
     ..  deprecated:: 14.2
+        :changelog: deprecation-107802-1770827443
 
         Setting this option to an array with `user` and `pass` keys is
-        deprecated and will be removed in 15.0. Use the separate `username`
-        and `password` options instead. See `Deprecation: #107802 - Deprecate
-        usage of array in password for authentication in Redis session backend
-        <https://docs.typo3.org/permalink/changelog:deprecation-107802-1770827443>`_.
+        deprecated and will be removed in 15.0. Use the separate `username` and
+        `password` options instead.
 
 `keyPrefix`
     Prefix added to all Redis keys used by this session backend. Allows the
@@ -111,9 +107,7 @@ The available options are:
     instances, as long as the prefix is unique. Optional, default: empty.
 
     ..  versionadded:: 13.3
-
-        See `Feature: #104451 - Redis backends support for key prefixing
-        <https://docs.typo3.org/permalink/changelog:feature-104451-1721646565>`_.
+        :changelog: feature-104451-1721646565
 
 ..  tip::
     If a Redis instance is running on the same machine as the webserver

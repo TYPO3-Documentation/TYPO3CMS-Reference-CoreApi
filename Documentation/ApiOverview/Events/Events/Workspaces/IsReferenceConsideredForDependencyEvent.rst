@@ -7,7 +7,7 @@
 =========================================
 
 ..  versionadded:: 14.2
-    See `Feature: #108992 - New PSR-14 event for workspace dependency resolution <https://docs.typo3.org/permalink/changelog:feature-108992-1739706000>`_.
+    :changelog: feature-108992-1739706000
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Workspaces\Event\IsReferenceConsideredForDependencyEvent`

@@ -116,8 +116,7 @@ Validating Extbase model properties with Symfony constraints
 ============================================================
 
 ..  versionadded:: 14.0
-    See `Feature: #106945 - Allow usage of Symfony validators in Extbase
-    <https://docs.typo3.org/permalink/changelog:feature-106945-1750757664>`_.
+    :changelog: feature-106945-1750757664
 
 Domain model properties also accept the constraint attributes of the
 Symfony Validator component, for example `#[Assert\\NotBlank]` or

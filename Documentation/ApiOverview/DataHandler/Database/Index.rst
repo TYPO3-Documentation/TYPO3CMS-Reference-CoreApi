@@ -329,10 +329,10 @@ discard
         $cmd['pages'][123]['discard'] = true;
 
     ..  versionadded:: 14.0
+        :changelog: feature-107519-1742215067
+
         The command replaces the actions `clearWSID` and `flush` of the
-        :ref:`version <datahandler-cmd-version>` command, see
-        `Feature: #107519 - Add "discard" command to DataHandler
-        <https://docs.typo3.org/permalink/changelog:feature-107519-1742215067>`_.
+        :ref:`version <datahandler-cmd-version>` command.
 
 
 
@@ -574,11 +574,10 @@ value
     is not kept.
 
     ..  versionchanged:: 14.0
+        :changelog: breaking-105549-1742214899
+
         A timezone offset is now respected. Previously, `Z` was taken to mean
-        server local time, see
-        `Breaking: #105549 - Improved ISO8601 Date Handling in TYPO3
-        DataHandler
-        <https://docs.typo3.org/permalink/changelog:breaking-105549-1742214899>`_.
+        server local time.
 
 
 ..  note::
@@ -792,15 +791,13 @@ Flags in the DataHandler
 ========================
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-107856-1763715381
+
     The following public properties of the PHP class :php-short:`TYPO3\CMS\Core\DataHandling\DataHandler` have been removed:
 
     *   `copyWhichTables`
     *   `neverHideAtCopy`
     *   `copyTree`
-
-    See `Breaking: #107856 - DataHandler: Remove internal property
-    copyWhichTables and properties neverHideAtCopy and
-    copyTree <https://docs.typo3.org/permalink/changelog:breaking-107856-1763715381>`_
 
 
 There are a few internal variables you can set prior to executing

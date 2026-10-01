@@ -55,8 +55,9 @@ module header to switch back to the "Backend Users" submodule. There is a
 button to create a new backend user there.
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107628-1729026000
+
     Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
-    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserCreate.png
     :alt: The main submodule Backend users of the backend user module

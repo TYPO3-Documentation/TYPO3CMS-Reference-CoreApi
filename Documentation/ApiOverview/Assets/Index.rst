@@ -211,11 +211,10 @@ Resulting in the following HTML output:
     <link rel="stylesheet" href="/styles/main.css" />
 
 ..  versionchanged:: 14.0
-    The `external` option has been removed. Every other resource is
-    rendered with a cache busting parameter. See
-    `Breaking: #107927 - Remove "external" property / option from TypoScript
-    and AssetRenderer
-    <https://docs.typo3.org/permalink/changelog:breaking-107927-1763052738>`_.
+    :changelog: breaking-107927-1763052738
+
+    The `external` option has been removed. Every other resource is rendered
+    with a cache busting parameter.
 
 ..  index::
     pair: Assets; Events

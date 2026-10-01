@@ -37,8 +37,7 @@ Setting the breadcrumb of a backend module
 ==========================================
 
 ..  versionadded:: 14.0
-    See `Feature: #107794 - Improved breadcrumb navigation in backend
-    <https://docs.typo3.org/permalink/changelog:feature-107794-1730000000>`_.
+    :changelog: feature-107794-1730000000
 
 The breadcrumb shows where the user is, and each of its nodes links back to
 that level. A module tells the
@@ -67,9 +66,7 @@ Layout of the backend module header
 ===================================
 
 ..  versionchanged:: 14.0
-    See `Feature: #107875 - Improved DocHeader layout and unified language
-    selector
-    <https://docs.typo3.org/permalink/changelog:feature-107875-1762212144>`_.
+    :changelog: feature-107875-1762212144
 
 The module header consists of two rows:
 

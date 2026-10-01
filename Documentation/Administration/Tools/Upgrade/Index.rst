@@ -8,9 +8,10 @@ Module "Upgrade" (System)
 =========================
 
 ..  versionchanged:: 14.0
-    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`.
-    See also: `Feature: #107628 - Improved backend module naming and structure
-    <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
+    :changelog: feature-107628-1729026000
+
+    This module has been moved from :guilabel:`Admin tools` to
+    :guilabel:`Settings`.
 
 Only available if :composer:`typo3/cms-install` is installed with system
 maintainer permissions.

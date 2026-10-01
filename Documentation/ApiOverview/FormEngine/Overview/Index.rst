@@ -55,14 +55,15 @@ data providers from FormEngine that add all the information needed for the rende
 is then passed onto FormEngine rendering to produce a result array containing all the HTML, CSS and JavaScript.
 
 ..  deprecated:: 14.2
+    :changelog: deprecation-109192-1741560000
+
     The `outerWrapContainer` render type has been deprecated in favor of
-    `formWrapContainer`. The new container no longer renders the record
-    heading or the record identity footer (icon, table title, uid) — that
-    responsibility has moved to the controllers. If your controller relied on
+    `formWrapContainer`. The new container no longer renders the record heading
+    or the record identity footer (icon, table title, uid) — that responsibility
+    has moved to the controllers. If your controller relied on
     :php-short:`\TYPO3\CMS\Backend\Form\Container\OuterWrapContainer` rendering
     those elements, you need to render them in your controller code after
     switching.
-    See `Deprecation: #109192 - FormEngine OuterWrapContainer <https://docs.typo3.org/permalink/changelog:deprecation-109192-1741560000>`_.
 
 In code, the basic workflow looks like this:
 
@@ -70,8 +71,10 @@ In code, the basic workflow looks like this:
     :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  deprecated:: 14.2
+    :changelog: deprecation-109230-1773404000
+
     The class :php:`TYPO3\CMS\Backend\Form\FormResultCompiler` has been
-    deprecated. See `Deprecation: #109230 - FormResultCompiler <https://docs.typo3.org/permalink/changelog:deprecation-109230-1773404000>`_.
+    deprecated.
 
 Basically, behind the FormEngine concept is a 2-step process: first create an array to gather all
 rendering-relevant information, then call the rendering engine using this array to produce output.

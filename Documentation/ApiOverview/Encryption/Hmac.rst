@@ -8,11 +8,10 @@ Sign a value with an HMAC of the hash service
 =============================================
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-106307-1763824774
 
-    TYPO3 Core signs cHash values, password reset tokens, file dump URLs,
-    form protection tokens and session identifiers with SHA3-256 now. See
-    `Breaking: #106307 - Use stronger cryptographic algorithm for HMAC
-    <https://docs.typo3.org/permalink/changelog:breaking-106307-1763824774>`_.
+    TYPO3 Core signs cHash values, password reset tokens, file dump URLs, form
+    protection tokens and session identifiers with SHA3-256 now.
 
 An HMAC proves that TYPO3 created a value itself. Add such a signature to a
 value that leaves the installation and comes back later, for example a

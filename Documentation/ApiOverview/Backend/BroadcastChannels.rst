@@ -79,13 +79,13 @@ Example code:
     :caption: EXT:my_extension/Classes/Hooks/BackendControllerHook.php
 
 ..  deprecated:: 14.2
+    :changelog: deprecation-108963-1770907005
+
     :php:`\TYPO3\CMS\Core\Page\PageRenderer->addInlineLanguageDomain()`, which
     loaded labels from a language domain into the :javascript:`TYPO3.lang`
     object, has been deprecated. Import the labels in the JavaScript module
-    instead, see
-    :ref:`Importing language labels <backend-javascript-es6-labels>`. See
-    `Deprecation: #108963 - Deprecate PageRenderer->addInlineLanguageDomain()
-    <https://docs.typo3.org/permalink/changelog:deprecation-108963-1770907005>`_.
+    instead, see :ref:`Importing language labels
+    <backend-javascript-es6-labels>`.
 
     The method
     :php:`\TYPO3\CMS\Core\Page\PageRenderer->addInlineLanguageLabelFile()`

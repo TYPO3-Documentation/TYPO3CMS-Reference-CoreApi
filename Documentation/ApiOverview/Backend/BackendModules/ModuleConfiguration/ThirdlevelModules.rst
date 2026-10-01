@@ -38,8 +38,7 @@ Showing third-level backend modules as cards
 ============================================
 
 ..  versionadded:: 14.0
-    See `Feature: #107712 - Introduce card-based sub module overview
-    <https://docs.typo3.org/permalink/changelog:feature-107712-1760548718>`_.
+    :changelog: feature-107712-1760548718
 
 By default, if you click on a module that has third-level modules, the first
 third-level module is opened. Setting the `showSubmoduleOverview` module option

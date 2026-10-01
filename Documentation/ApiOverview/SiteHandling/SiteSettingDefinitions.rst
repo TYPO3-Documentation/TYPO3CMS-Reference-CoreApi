@@ -141,8 +141,9 @@ Site setting definition properties
             :types: :confval:`site-setting-type-string`
 
             ..  versionadded:: 14.2
-                Enum labels can be localized, see
-                `Feature: #106640 - Localize enum labels in site settings definitions <https://docs.typo3.org/permalink/changelog:feature-106640-1766572100>`_.
+                :changelog: feature-106640-1766572100
+
+                Enum labels can be localized.
 
             Site settings can provide possible options via the `enum` specifier,
             which are selectable in the editor. `enum` is not a separate

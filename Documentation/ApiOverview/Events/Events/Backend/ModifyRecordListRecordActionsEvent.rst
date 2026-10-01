@@ -14,11 +14,11 @@ allows the displayed record actions (for example
 table in the record list.
 
 ..  versionchanged:: 14.0
-    Actions are now button components instead of HTML strings, and
-    primary and secondary actions are set by the
-    :php-short:`\TYPO3\CMS\Backend\Template\Components\ActionGroup` enum. See
-    `Breaking: #107884 - Rework actions to use Buttons API with Components
-    <https://docs.typo3.org/permalink/changelog:breaking-107884-1730135000>`_.
+    :changelog: breaking-107884-1730135000
+
+    Actions are now button components instead of HTML strings, and primary and
+    secondary actions are set by the
+    :php-short:`\TYPO3\CMS\Backend\Template\Components\ActionGroup` enum.
 
 ..  _modify-record-list-record-actions-event-usage:
 

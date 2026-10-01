@@ -273,7 +273,7 @@ Route enhancers
 ---------------
 
 ..  versionadded:: 14.1
-    See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
+    :changelog: feature-107837-1732800000
 
 Put route enhancer presets below the `routeEnhancers` key in
 :file:`route-enhancers.yaml`:
