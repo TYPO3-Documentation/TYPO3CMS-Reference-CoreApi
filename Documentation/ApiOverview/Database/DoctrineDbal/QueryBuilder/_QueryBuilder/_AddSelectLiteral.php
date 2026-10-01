@@ -18,10 +18,10 @@ final readonly class MyDbalRepository
   {
     // SELECT `uid`,
     //    6371.41 * ACOS(COS(RADIANS(:dcValue1))
-    //    * COS(RADIANS(tx_geosearch_lat))
-    //    * COS(RADIANS(tx_geosearch_lng) - RADIANS(:dcValue2))
+    //    * COS(RADIANS(tx_myextension_lat))
+    //    * COS(RADIANS(tx_myextension_lng) - RADIANS(:dcValue2))
     //    + SIN(RADIANS(:dcValue3))
-    //    * SIN(RADIANS(tx_geosearch_lat))) AS distance
+    //    * SIN(RADIANS(tx_myextension_lat))) AS distance
     //    FROM `tt_address`
     $lat = '51.2442656';
     $lng = '6.7374966';
@@ -38,14 +38,14 @@ final readonly class MyDbalRepository
                     COS(
                         RADIANS(' . $latParameter . ')
                     ) * COS(
-                        RADIANS(tx_geosearch_lat)
+                        RADIANS(tx_myextension_lat)
                     ) * COS(
-                        RADIANS(tx_geosearch_lng)
+                        RADIANS(tx_myextension_lng)
                         - RADIANS(' . $lngParameter . ')
                     ) + SIN(
                         RADIANS(' . $latParameter . ')
                     ) * SIN(
-                        RADIANS(tx_geosearch_lat)
+                        RADIANS(tx_myextension_lat)
                     )
                 ) AS distance
             ')

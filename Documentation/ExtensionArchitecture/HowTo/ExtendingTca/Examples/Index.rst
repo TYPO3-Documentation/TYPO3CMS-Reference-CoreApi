@@ -72,8 +72,8 @@ this, the new fields must be defined in the :file:`ext_tables.sql` file of the e
     :caption: EXT:my_extension/ext_tables.sql
 
     CREATE TABLE fe_users (
-        tx_examples_options int(11) DEFAULT '0' NOT NULL,
-        tx_examples_special varchar(255) DEFAULT '' NOT NULL
+        tx_myextension_options int(11) DEFAULT '0' NOT NULL,
+        tx_myextension_special varchar(255) DEFAULT '' NOT NULL
     );
 
 
@@ -106,7 +106,7 @@ element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
 ..  code-block:: sql
-    :caption: EXT:my_extension/ext_tables.sql
+    :caption: EXT:examples/ext_tables.sql
 
     CREATE TABLE tt_content (
         tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL
@@ -115,7 +115,7 @@ element types. First of all, we add its SQL definition in
 Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrides/tt_content.php`:
 
 ..  literalinclude:: _tt_content.php
-    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+    :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
 The code is similar to the first example, but the last method call
 is different. The tables :code:`pages` and

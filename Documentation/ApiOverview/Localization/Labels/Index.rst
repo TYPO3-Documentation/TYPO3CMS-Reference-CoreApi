@@ -202,14 +202,14 @@ domains in custom extensions:
 *   :file:`EXT:my_extension/Resources/Private/Language/locallang_module.xlf`
     → `my_extension.module`
 
-*   :file:`EXT:my_blog/Resources/Private/Language/Backend/locallang_dashboard.xlf`
-    → `my_blog.backend.dashboard`
+*   :file:`EXT:my_extension/Resources/Private/Language/Backend/locallang_dashboard.xlf`
+    → `my_extension.backend.dashboard`
 
-*   :file:`EXT:my_blog/Resources/Private/Language/Frontend/locallang_forms.xlf`
-    → `my_blog.frontend.forms`
+*   :file:`EXT:my_extension/Resources/Private/Language/Frontend/locallang_forms.xlf`
+    → `my_extension.frontend.forms`
 
-*   :file:`EXT:news_comments/Configuration/Sets/Blog/labels.xlf`
-    → `news_comments.sets.blog`
+*   :file:`EXT:my_extension/Configuration/Sets/Blog/labels.xlf`
+    → `my_extension.sets.blog`
 
 ..  _label-reference-legacy:
 

@@ -35,7 +35,7 @@ final readonly class MyEventListener
     if ($event->getElementData()['inlineParentTableName'] === 'tt_content') {
       $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
       $event->setControl(
-        'tx_my_control',
+        'tx_myextension_control',
         '<a href="/some/url" class="btn btn-default t3js-modal-trigger">'
           . $iconFactory->getIcon('my-icon-identifier', IconSize::SMALL)->render()
           . '</a>',

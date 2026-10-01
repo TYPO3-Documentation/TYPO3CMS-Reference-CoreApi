@@ -125,11 +125,11 @@ following example shows how to add a sitemap for news records:
                             url {
                                 pageId = <your detail page id>
                                 fieldToParameterMap {
-                                    uid = tx_extension_pi1[news]
+                                    uid = tx_myextension_pi1[news]
                                 }
                                 additionalGetParameters {
-                                    tx_extension_pi1.controller = News
-                                    tx_extension_pi1.action = detail
+                                    tx_myextension_pi1.controller = News
+                                    tx_myextension_pi1.action = detail
                                 }
                             }
                         }

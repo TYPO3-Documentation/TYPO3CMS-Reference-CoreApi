@@ -516,7 +516,7 @@ the user's perspective.
 Creating model objects with constructor arguments
 -------------------------------------------------
 
-Imagine you have a table :sql:`tx_extension_domain_codesnippets_blog` and a
+Imagine you have a table :sql:`tx_myextension_domain_model_blog` and a
 corresponding model or entity (entity is used as a synonym here)
 :php:`\MyVendor\MyExtension\Domain\Model\Blog`.
 
