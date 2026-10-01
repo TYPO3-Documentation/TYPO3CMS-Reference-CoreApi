@@ -80,13 +80,13 @@ files:
 *   Localized strings must not be split into several parts to include
     stuff in their middle. Rather use a single string with
     `sprintf() <https://www.php.net/manual/en/function.sprintf.php>`__
-    markers (:code:`%s`, :code:`%d`, etc.).
+    markers (`%s`, `%d`, etc.).
 
 *   When a localized string contains several :php:`sprintf()` markers, it
-    **must** use numbered arguments (for example, :code:`%1$d`).
+    **must** use numbered arguments (for example, `%1$d`).
 
 *   Localized strings should never contain configuration options (for example,
-    :code:`index_config:timer_frequency`, which would display a link or
+    `index_config:timer_frequency`, which would display a link or
     :file:`EXT:wizard_crpages/cshimages/wizards_1.png`, which would show
     an image). Configuration like this does not belong in language
     labels, but in TypoScript.

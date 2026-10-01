@@ -16,7 +16,7 @@ The :php:`frontend.cache.instruction` frontend request attribute can be used by
 :ref:`middlewares <request-handling>` to disable :ref:`cache <caching>`
 mechanics of frontend rendering.
 
-In early middlewares before :code:`typo3/cms-frontend/page-argument-validator`,
+In early middlewares before `typo3/cms-frontend/page-argument-validator`,
 the attribute may or may not exist already. A safe way to interact with it is
 like this:
 
@@ -24,7 +24,7 @@ like this:
     :caption: EXT:my_extension/Classes/Middleware/MyEarlyMiddleware.php
 
 Extension with middlewares or other code after
-:code:`typo3/cms-frontend/page-argument-validator` can assume the attribute to
+`typo3/cms-frontend/page-argument-validator` can assume the attribute to
 be set already. Usage example:
 
 ..  literalinclude:: _FrontendCacheInstruction/_MyLaterMiddleware.php

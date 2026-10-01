@@ -17,7 +17,7 @@ slow down your TYPO3 installation.
 Backend API
 ===========
 
-All backends must implement the :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
+All backends must implement the :php-short:`\TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
 
 ..  versionchanged:: 14.0
     The :php-short:`\TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface`
@@ -90,7 +90,7 @@ The Core takes care of creating and updating database tables "on the fly".
     change the caching backend to a non-database one.
 
 For caches with a lot of read and write operations, it is important to tune your MySQL setup.
-The most important setting is :code:`innodb_buffer_pool_size`. It is a good idea to give MySQL
+The most important setting is `innodb_buffer_pool_size`. It is a good idea to give MySQL
 as much RAM as needed so that the main table space is completely loaded in memory.
 
 The database backend tends to slow down if there are many write operations
@@ -141,7 +141,7 @@ compressionLevel
     :type: integer from -1 to 9
     :default: -1
 
-    Gzip compression level (if the :code:`compression` option is set to :code:`true`).
+    Gzip compression level (if the `compression` option is set to `true`).
     The default compression level is usually sufficient.
 
     `-1`
@@ -183,7 +183,7 @@ This leads to structural problems:
     key/value pairs on this system will just vanish from cache.
 
 Both cases lead to corrupted caches. If, for example, a tags->identifier entry is lost,
-:code:`dropByTag()` will not be able to find the corresponding identifier->data entries
+`dropByTag()` will not be able to find the corresponding identifier->data entries
 to be removed and they will not be deleted. This results in old data being delivered by the cache.
 There is currently **no** implementation of garbage collection that
 could rebuild cache integrity.
@@ -229,7 +229,7 @@ Options for the memcached backend
 
     `hostname or IP`
         TCP connect to host on memcached default port
-        (usually 11211, defined by PHP ini variable :code:`memcache.default_port`)
+        (usually 11211, defined by PHP ini variable `memcache.default_port`)
     `hostname:port`
         TCP connect to host on port
     `tcp://hostname:port`
@@ -575,9 +575,9 @@ not use this backend if cached data has many tags.
 
 ..  warning::
 
-    The performance of :code:`flushByTag()` is bad and scales just O(n).
+    The performance of `flushByTag()` is bad and scales just O(n).
 
-    On the contrary, performance of :code:`get()` and :code:`set()` operations
+    On the contrary, performance of `get()` and `set()` operations
     is good and scales well. Of course, if there are many entries, this might
     still slow down after a while and a different storage strategy should be used
     (e.g. RAM disks, battery backed up RAID systems or SSD hard disks).
@@ -593,7 +593,7 @@ Options for the file backend
     :default: `var/cache/`
 
     The directory where the cache files are stored. By default, it is assumed
-    that the directory is below :code:`TYPO3_DOCUMENT_ROOT`. However, an
+    that the directory is below `TYPO3_DOCUMENT_ROOT`. However, an
     absolute path could be selected. Every cache should be assigned
     its own directory, otherwise flushing of one cache would flush all other
     caches in the same directory.
@@ -604,7 +604,7 @@ Simple file backend
 ===================
 
 The simple file backend is the small brother of the :ref:`file backend <caching-backend-file>`. In contrast to most
-other backends, it does not implement the :code:`TaggableInterface`, so cache entries cannot be tagged and flushed
+other backends, it does not implement the `TaggableInterface`, so cache entries cannot be tagged and flushed
 by tag. This improves performance if cache entries do not need such tagging. The TYPO3 Core uses this backend
 for its central Core cache (it holds autoloader cache entries and other important cache entries). The Core cache is
 usually flushed completely and does not need specific cache entry eviction.
@@ -682,7 +682,7 @@ Since caches are available system-wide and shared between Core and extensions,
 they can share the same information.
 
 Since the data is stored directly in memory, this backend is the quickest. The stored data adds to
-the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP setting.
+the memory consumed by the PHP process and can hit the `memory_limit` PHP setting.
 
 
 ..  _caching-backend-null:
@@ -690,5 +690,5 @@ the memory consumed by the PHP process and can hit the :code:`memory_limit` PHP 
 Null backend
 ============
 
-The null backend is a dummy backend which doesn't store any data and always returns :code:`false`
-on :code:`get()`. This backend is useful in a development context to "switch off" a cache.
+The null backend is a dummy backend which doesn't store any data and always returns `false`
+on `get()`. This backend is useful in a development context to "switch off" a cache.

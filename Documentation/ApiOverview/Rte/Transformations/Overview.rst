@@ -52,7 +52,7 @@ Transformation filters
     saving in the database. The name "css_transform" is historical; earlier
     TYPO3 versions had a long since removed "ts_transform" mode, which basically
     only saved a minimum amount of HTML in the database and produced a lot of
-    nowadays outdated markup like :code:`<font>` tag style rendering in the
+    nowadays outdated markup like :html:`<font>` tag style rendering in the
     frontend.
 
 

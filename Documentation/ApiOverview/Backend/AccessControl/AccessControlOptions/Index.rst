@@ -169,7 +169,7 @@ upon installation.
     The :file:`fileadmin` directory is the default place where
     TYPO3 CMS expects media resources to be located. It can be
     changed using the global configuration option
-    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/FileStorage.png
     :zoom: lightbox

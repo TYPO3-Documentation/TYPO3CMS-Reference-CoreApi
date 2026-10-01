@@ -118,13 +118,13 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
 The code is similar to the first example, but the last method call
-is different. The tables :code:`pages` and
-:code:`tt_content` use :ref:`palettes <t3tca:palettes>` extensively. Therefore,
-we call :code:`ExtensionManagementUtility::addFieldsToPalette()`
-instead of :code:`ExtensionManagementUtility::addToAllTCAtypes()`.
-We need to specify the palette key as the second argument (:code:`access`).
+is different. The tables `pages` and
+`tt_content` use :ref:`palettes <t3tca:palettes>` extensively. Therefore,
+we call :php-short:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette()`
+instead of :php-short:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes()`.
+We need to specify the palette key as the second argument (`access`).
 The new field is positioned by the fourth parameter
-(:code:`before:editlock`). This will position the "no print" field before the
+(`before:editlock`). This will position the "no print" field before the
 **Restrict editing by non-Admins** field, instead of putting it in the
 :guilabel:`Extended` tab.
 

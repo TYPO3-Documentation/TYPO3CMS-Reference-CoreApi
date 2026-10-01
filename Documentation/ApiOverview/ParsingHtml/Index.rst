@@ -8,7 +8,7 @@ Parsing HTML
 ============
 
 TYPO3 provides its own HTML parsing class:
-:code:`\TYPO3\CMS\Core\Html\HtmlParser`. This chapter
+:php:`\TYPO3\CMS\Core\Html\HtmlParser`. This chapter
 shows some example uses.
 
 
@@ -53,7 +53,7 @@ Consider the following code:
     $result = $parseObj->splitIntoBlock('div,table', $testHTML);
 
 After loading some dummy HTML code into a variable, we create an instance of
-:code:`\TYPO3\CMS\Core\Html\HtmlParser` and ask it to split the HTML structure
+:php-short:`\TYPO3\CMS\Core\Html\HtmlParser` and ask it to split the HTML structure
 on "div" and "table" tags. A debug output of the result shows the following:
 
 ..  figure:: /Images/ManualScreenshots/Frontend/ParsingHtml/HtmlParsingBlocks.png
@@ -106,9 +106,11 @@ Cleaning HTML content
 =====================
 
 The HTML parsing class also provides a tool for manipulating HTML
-with the :code:`HTMLcleaner()` method. The cleanup configuration
+with the
+:php-short:`\TYPO3\CMS\Core\Html\HtmlParser::HTMLcleaner()` method.
+The cleanup configuration
 is quite extensive. Please refer to the phpDoc comments of the
-:code:`HTMLcleaner()` method for more details.
+:php-short:`\TYPO3\CMS\Core\Html\HtmlParser::HTMLcleaner()` method for more details.
 
 Here is a sample usage:
 
@@ -142,7 +144,7 @@ Here is a sample usage:
 
 We first define our cleanup/transformation configuration.
 We define that only five tags should be kept ("b", "img", "div",
-"br" and "p"). All others are removed (:code:`HTMLcleaner()`
+"br" and "p"). All others are removed (:php-short:`\TYPO3\CMS\Core\Html\HtmlParser::HTMLcleaner()`
 can be configured to keep all possible tags).
 
 Additionally we indicate that "b" tags should be changed to "strong"
@@ -152,7 +154,8 @@ Also no attributed are allowed on "b" tags.
 For "p" tags we indicate that the "attribute" should be added with
 value "bodytext".
 
-Lastly - in the call to :code:`HTMLcleaner()` itself, we request
+Lastly - in the call to
+:php-short:`\TYPO3\CMS\Core\Html\HtmlParser::HTMLcleaner()` itself, we request
 "xhtml" cleanup.
 
 This is the result:
@@ -169,7 +172,7 @@ Advanced processing
 ===================
 
 There's much more that can be achieved with
-:code:`\TYPO3\CMS\Core\Html\HtmlParser` in particular
+:php-short:`\TYPO3\CMS\Core\Html\HtmlParser` in particular
 more advanced processing using callback methods that
 can perform additional work on each parsed element, including
 calling the HTML parser recursively.
