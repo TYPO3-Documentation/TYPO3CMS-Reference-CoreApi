@@ -46,7 +46,7 @@ To check if a custom permission option is set call the following API
 function from the user object:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     $GLOBALS['BE_USER']->check('custom_options', $catKey . ':' . $itemKey);
 

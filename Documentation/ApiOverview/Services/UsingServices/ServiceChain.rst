@@ -18,7 +18,7 @@ priority and quality.
 The following example is an extract of the user authentication process:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -57,7 +57,7 @@ also taken from the authentication process – the loop is exited only
 when a certain value is returned by the method called:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     foreach ($tempuserArr as $tempuser) {
        // Use 'auth' service to authenticate the user.

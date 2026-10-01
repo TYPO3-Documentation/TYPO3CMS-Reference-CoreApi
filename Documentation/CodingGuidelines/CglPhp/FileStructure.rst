@@ -53,7 +53,7 @@ to the license text must be included at the top of every TYPO3 PHP class
 file. User files must have this copyright notice as well. Example:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     <?php
     declare(strict_types = 1);
@@ -71,7 +71,7 @@ file. User files must have this copyright notice as well. Example:
      * The TYPO3 project - inspiring people to share!
      */
 
-     namespace Vendor\SomeExtension\SomeFolder;
+     namespace MyVendor\MyExtension\SomeFolder;
 
 The wording must not be changed/updated/extended, under any circumstances.
 
@@ -87,7 +87,7 @@ Necessary PHP classes should be imported like explained in the
 PER-CS2.0):
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Utility\HttpUtility;
@@ -105,7 +105,7 @@ The class information block provides basic information about the class
 in the file. It should include a description of the class. Example:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     /**
      * This class provides XYZ plugin implementation.
@@ -138,7 +138,7 @@ with the class :php:`AliasesController` is in the namespace
 A PHP class declaration looks like the following:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     class SomeClass extends AbstractBackend implements BackendInterface
     {
@@ -156,7 +156,7 @@ Typically this code can be found in :code:`eID` scripts and old Backend
 modules. Here is how it may look like:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     $someClass = GeneralUtility::makeInstance(SomeClass::class);
     $someClass->main();

@@ -67,7 +67,7 @@ The suite file (for instance :file:`Backend.suite.yml`) should contain a line
 to load and configure the backend login module:
 
 ..  literalinclude:: _AcceptanceTests/_Backend.suite.yml
-    :caption: EXT:some_extension/Tests/Acceptance/Backend.suite.yml
+    :caption: EXT:my_extension/Tests/Acceptance/Backend.suite.yml
 
 This allows an editor and an admin user to easily log into the TYPO3 backend
 without further fuzz. An acceptance test can use it like this:
@@ -108,7 +108,7 @@ instance in an own extension based namespace. If this is done, the PageTree supp
 class can be injected into a test:
 
 ..  literalinclude:: _AcceptanceTests/_ElementsBasicInputDateCest.php
-    :caption: EXT:some_extension/Tests/Acceptance/Backend/SomeCest.php
+    :caption: EXT:my_extension/Tests/Acceptance/Backend/SomeCest.php
 
 The example above (adapt to your namespaces!) instructs the PageTree helper to find
 a page called "styleguide TCA demo" at root level, to extend that part of the tree if

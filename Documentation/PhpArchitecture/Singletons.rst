@@ -22,7 +22,7 @@ via :php:`GeneralUtility::makeInstance()`.
 Example:
 
 ..  literalinclude:: _MySingletonService.php
-    :caption: EXT:some_extension/Classes/MySingletonService.php
+    :caption: EXT:my_extension/Classes/MySingletonService.php
 
 :php:`SingletonInterface` has no methods to implement. Services implementing the
 interface are automatically declared :ref:`public <What-to-make-public>`.

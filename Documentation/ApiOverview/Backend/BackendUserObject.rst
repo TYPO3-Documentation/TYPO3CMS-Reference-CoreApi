@@ -38,7 +38,7 @@ If you know the module key you can check if the module is included in
 the access list by this function call:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->check('modules', 'web_list');
 
@@ -59,14 +59,14 @@ inside :php:`$GLOBALS['BE_USER']`. For instance:
 Checking modify access to the table "pages":
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->check('tables_modify', 'pages');
 
 Checking read access to the table "tt\_content":
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->check('tables_select', 'tt_content');
 
@@ -74,7 +74,7 @@ Checking if a table/field pair is allowed explicitly through the
 "Allowed Excludefields":
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     $GLOBALS['BE_USER']->check('non_exclude_fields', $table . ':' . $field);
 
@@ -88,7 +88,7 @@ If you want to know if a user is an "admin" user (has complete
 access), just call this method:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->isAdmin();
 
@@ -105,7 +105,7 @@ This function call will return true if the user has read access to a
 page (represented by its database record, :php:`$pageRec`):
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->doesUserHaveAccess($pageRec, 1);
 
@@ -128,7 +128,7 @@ but also if a page is found within a DB mount for ther user. This can
 be checked by this function call (:php:`$id` is the page uid):
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->isInWebMount($id)
 
@@ -146,7 +146,7 @@ access to, you can have a proper WHERE clause returned by this
 function call:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->getPagePermsClause(1);
 
@@ -183,7 +183,7 @@ This gets the module data with the key
 "tools\_beuser/index.php/compare" (lasting only for the session) :
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $compareFlags = $GLOBALS['BE_USER']->getModuleData('tools_beuser/index.php/compare', 'ses');
 
@@ -200,7 +200,7 @@ This function can return a value from the "user TSconfig" structure of
 the user. In this case the value for "options.clipboardNumberPads":
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $tsconfig = $GLOBALS['BE_USER']->getTSConfig();
     $clipboardNumberPads = $tsconfig['options.']['clipboardNumberPads'] ?? '';
@@ -216,7 +216,7 @@ The full "be\_users" record of a authenticated user is available in
 :php:`$GLOBALS['BE_USER']`->user as an array. This will return the "username":
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->user['username']
 
@@ -232,7 +232,7 @@ the :php:`$GLOBALS['BE_USER']->uc` array. This will return the current state of
 "Notify me by email, when somebody logs in from my account" for the user:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
     $GLOBALS['BE_USER']->uc['emailMeAtLogin']
 

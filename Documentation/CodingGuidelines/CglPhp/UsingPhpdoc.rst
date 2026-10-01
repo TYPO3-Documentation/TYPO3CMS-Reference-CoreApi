@@ -65,7 +65,7 @@ Function information block
 Functions should have *parameters* and *the return type* documented. Example:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     /**
      * Initializes the plugin.

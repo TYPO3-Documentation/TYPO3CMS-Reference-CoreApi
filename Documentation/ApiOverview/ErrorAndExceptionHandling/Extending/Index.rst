@@ -45,9 +45,9 @@ This uses the default Core exception handler `DebugExceptionHandler` and overrid
 of the functionality:
 
 ..  literalinclude:: _PostExceptionsOnTwitter.php
-    :caption: EXT:some_extension/Classes/Error/PostExceptionsOnTwitter.php
+    :caption: EXT:my_extension/Classes/Error/PostExceptionsOnTwitter.php
 
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \MyVendor\MyExtension\Error\PostExceptionsOnTwitter::class;

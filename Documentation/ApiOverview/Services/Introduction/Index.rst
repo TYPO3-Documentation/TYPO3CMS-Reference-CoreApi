@@ -43,7 +43,7 @@ Services are PHP classes packaged inside an extension.
 The usual way to instantiate a class in TYPO3 CMS is:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -56,7 +56,7 @@ PHP class is not directly referenced. Instead a service is identified
 by its type, sub type and exclude service keys:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
 

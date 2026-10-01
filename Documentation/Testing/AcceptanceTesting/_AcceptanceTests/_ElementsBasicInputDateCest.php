@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\SomeExtension\Tests\Acceptance\Backend\FormEngine;
+namespace MyVendor\MyExtension\Tests\Acceptance\Backend\FormEngine;
 
 use TYPO3\CMS\Core\Tests\Acceptance\Support\BackendTester;
 use TYPO3\CMS\Core\Tests\Acceptance\Support\Helper\PageTree;
