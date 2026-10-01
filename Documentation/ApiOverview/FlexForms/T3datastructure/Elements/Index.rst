@@ -27,7 +27,7 @@ must be arrays.)
     :type: array
 
     This is the root element of a T3DataStructure. It may contain tags
-    `<meta>` and `<ROOT>` or `<sheets>`
+    :xml:`<meta>` and :xml:`<ROOT>` or :xml:`<sheets>`
 
 
 ..  _t3datastructure-meta:
@@ -54,11 +54,11 @@ must be arrays.)
 
     Defines an "object" in the Data Structure.
 
-    Tag `<ROOT>` is reserved for the first element in the Data
-    Structure. The `<ROOT>` tag must have a `<type>` tag with the value
-    "array" as child and then define other objects nested in `<el>` tags.
+    Tag :xml:`<ROOT>` is reserved for the first element in the Data
+    Structure. The :xml:`<ROOT>` tag must have a :xml:`<type>` tag with the value
+    "array" as child and then define other objects nested in :xml:`<el>` tags.
 
-    Can have the following child tags: `<type>`, `<section>`, `<el>`
+    Can have the following child tags: :xml:`<type>`, :xml:`<section>`, :xml:`<el>`
     `<[application tag]>`.
 
 
@@ -74,7 +74,7 @@ must be arrays.)
     Defines an "object" in the Data Structure, `[field name]` defines the
     objects name.
 
-    Can have the same child tags like `<ROOT>`.
+    Can have the same child tags like :xml:`<ROOT>`.
 
 
 ..  _t3datastructure-sheets:
@@ -132,7 +132,7 @@ must be arrays.)
     :name: t3datastructure-sheet-ident
     :type: array
 
-    Defines an independent data structure starting with a `<ROOT>` tag.
+    Defines an independent data structure starting with a :xml:`<ROOT>` tag.
 
     Alternatively, it can be a plain value referring to another
     XML file which contains the <ROOT> structure. See example later.
@@ -179,14 +179,14 @@ must be strings or integers.)
     `"array"`
         The parent tag contains a collection of other
         objects defined inside the <el> tag on the same level. If the value is
-         `"array"` you can use the tag `<section>`. See below.
+         `"array"` you can use the tag :xml:`<section>`. See below.
 
     `""` (blank)
         The parent does not contain sub objects. The
         meaning of an object is determined by the application using the
         data structure. For FlexForms this object would draw a form element.
 
-    If the parent is `<ROOT>` this tag must have the value `"array"`.
+    If the parent is :xml:`<ROOT>` this tag must have the value `"array"`.
 
 
 ..  _t3datastructure-section:

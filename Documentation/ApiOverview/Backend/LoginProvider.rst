@@ -84,9 +84,9 @@ Later on, the view renders the complete login screen.
 View requirements:
 
 *   The template must use the `Login`-layout provided by the
-    Core `<f:layout name="Login">`.
+    Core :fluid:`<f:layout name="Login">`.
 *   Form fields must be provided within the section
-    `<f:section name="loginFormFields">`.
+    :fluid:`<f:section name="loginFormFields">`.
 
 ..  literalinclude:: _LoginProvider/_MyLoginForm.fluid.html
     :caption: EXT:my_sitepackage/Resources/Private/Templates/MyLoginForm.fluid.html
