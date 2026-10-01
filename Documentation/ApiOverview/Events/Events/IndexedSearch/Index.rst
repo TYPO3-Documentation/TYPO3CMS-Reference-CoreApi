@@ -6,7 +6,7 @@
 Indexed search
 ==============
 
-The following list contains :ref:`PSR-14 events <EventDispatcher>`
+The following list contains :ref:`PSR-14 events <eventdispatcher>`
 in :composer:`typo3/cms-indexed-search`.
 
 **Contents:**

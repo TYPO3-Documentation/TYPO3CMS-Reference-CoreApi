@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: Extension development; Localization
-..  _extension_localization:
+..  _extension-localization:
 
 =========================
 Localizing your extension
@@ -14,7 +14,7 @@ You will find a comprehensive description of all concepts and options in the
 
 For the following sections, we assume a correct configuration of the
 localization, which is normally done in the
-:ref:`site configuration <sitehandling-addingLanguages>`.
+:ref:`site configuration <sitehandling-addinglanguages>`.
 
 ..  toctree::
     :titlesonly:

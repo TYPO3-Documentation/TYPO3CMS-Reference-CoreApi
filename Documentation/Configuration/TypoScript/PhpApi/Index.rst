@@ -29,7 +29,7 @@ TYPO3 already provides frontend TypoScript and TSconfig. Use these APIs for othe
 
 
 ..  index:: TSconfig; PHP
-..  _typoscript-access_page_tsconfig:
+..  _typoscript-access-page-tsconfig:
 
 Page TSconfig
 =============
@@ -47,7 +47,7 @@ the array representation of the parsed TypoScript:
     // Get the page TSconfig for the page with uid 42
     $pageTsConfig = BackendUtility::getPagesTSconfig(42);
 
-..  _typoscript-access_frontend_typoscript:
+..  _typoscript-access-frontend-typoscript:
 
 Frontend TypoScript
 ===================

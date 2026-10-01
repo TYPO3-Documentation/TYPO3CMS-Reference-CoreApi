@@ -25,7 +25,7 @@ System groups
 =============
 
 System groups have the lowest level of permissions without which other groups
-like :ref:`Access Control List (ACL) <_acl-groups>` and :ref:`Role <_role_groups>`
+like :ref:`Access Control List (ACL) <acl-groups>` and :ref:`Role <role-groups>`
 groups will not work. They enable access to individual pages based on user
 and group IDs, allow definition of accessible sections of pages and categories
 tree for users, and determine access to files and folders within storages (via File Mounts).
@@ -94,7 +94,7 @@ The situation could worsen with multiple administrators managing group and user
 permissions. Without naming conventions for groups that all administrators adhere to,
 it may become challenging to identify the responsibilities of each group.
 
-As detailed in the :ref:`Access Control Options in TYPO3 <_available_acl_options>` chapter,
+As detailed in the :ref:`Access Control Options in TYPO3 <available-acl-options>` chapter,
 these options can be categorized into types like access lists, mounts, page permissions,
 etc. This categorization can also aid in organizing backend user groups.
 Let’s explore how implementing prefixes in group names can help streamline their organization.

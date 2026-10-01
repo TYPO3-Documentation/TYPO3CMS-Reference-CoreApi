@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: JavaScript; Throttle event
-..  _Events_JavaScript_Throttle:
+..  _events-javascript-throttle:
 
 ==============
 Throttle event

@@ -8,7 +8,7 @@
 Using and dispatching events in extensions
 ==========================================
 
-:ref:`PSR-14 events <EventDispatcher>` can be used to extend the TYPO3 Core
+:ref:`PSR-14 events <eventdispatcher>` can be used to extend the TYPO3 Core
 or third-party extensions.
 
 You can find a complete list of events provided by the TYPO3 Core in the
@@ -16,7 +16,7 @@ following chapter: :ref:`Event list <eventlist>`.
 
 Events provided by third-party extensions should be described in the extension's
 manual. You can also search for events by looking for classes that inject the
-:ref:`Psr\\EventDispatcher\\EventDispatcherInterface <EventDispatcherObject>`.
+:ref:`Psr\\EventDispatcher\\EventDispatcherInterface <eventdispatcherobject>`.
 
 ..  _extension-development-event-listener:
 
@@ -44,5 +44,5 @@ You can dispatch events in your own extension's code to enable other extensions
 to extend your code. Events are the preferred method of making code in TYPO3
 extensions extendable.
 
-See :ref:`Event Dispatcher, Quickstart <EventDispatcherQuickStart>` on how
+See :ref:`Event Dispatcher, Quickstart <eventdispatcherquickstart>` on how
 to create a custom event and dispatch it.

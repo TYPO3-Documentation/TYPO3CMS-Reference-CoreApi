@@ -43,7 +43,7 @@ The registry API
 ================
 
 TYPO3 provides an API for using the registry. You can inject an instance of
-the :php:`Registry` class via :ref:`dependency injection <DependencyInjection>`.
+the :php:`Registry` class via :ref:`dependency injection <dependencyinjection>`.
 The instance returned will always be the same, as the registry is a singleton:
 
 ..  literalinclude:: _Injection.php

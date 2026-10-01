@@ -2,7 +2,7 @@
 ..  index::
     Extension development; Configuration/user.tsconfig
     Path; EXT:{extkey}/Configuration/user.tsconfig
-..  _extension-configuration-user_tsconfig:
+..  _extension-configuration-user-tsconfig:
 
 ===============
 `user.tsconfig`

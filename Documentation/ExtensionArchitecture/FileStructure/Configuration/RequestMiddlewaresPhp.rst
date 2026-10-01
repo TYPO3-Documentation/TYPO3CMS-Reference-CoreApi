@@ -2,7 +2,7 @@
 ..  index::
     Extension development; Configuration/RequestMiddlewares.php
     Path; EXT:{extkey}/Configuration/RequestMiddlewares.php
-..  _extension-configuration-RequestMiddlewares-php:
+..  _extension-configuration-requestmiddlewares-php:
 
 
 ========================

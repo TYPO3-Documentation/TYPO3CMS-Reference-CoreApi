@@ -7,7 +7,7 @@ Create a custom link browser
 ============================
 
 In this tutorial we create a custom link browser and an associated
-:ref:`backend link handler <tutorial_backend_link_handler>`.
+:ref:`backend link handler <tutorial-backend-link-handler>`.
 
 We create a new tab in the link browser window in the TYPO3 backend:
 
@@ -18,7 +18,7 @@ We create a new tab in the link browser window in the TYPO3 backend:
 
 ..  tip::
     If you want to link to a record in a custom table, configure the
-    :ref:`RecordLinkBrowser <TableRecordLinkBrowserTutorials>`. You do not
+    :ref:`RecordLinkBrowser <tablerecordlinkbrowsertutorials>`. You do not
     need a custom link browser in that scenario.
 
 We introduce a :ref:`custom link format <tutorial-core-link-handler>` to store
@@ -35,7 +35,7 @@ automatically.
 ..  contents::
     :local:
 
-..  _tutorial_backend_link_handler-tsconfig:
+..  _tutorial-backend-link-handler-tsconfig:
 
 1.  Register the custom link browser tab in page TSconfig
 =========================================================
@@ -46,7 +46,7 @@ automatically.
 The following options are of note here:
 
 :typoscript:`handler`
-    The :ref:`backend link handler <tutorial_backend_link_handler>` that we
+    The :ref:`backend link handler <tutorial-backend-link-handler>` that we
     create in step 2.
 
 :typoscript:`configuration`
@@ -59,7 +59,7 @@ The following options are of note here:
 For a complete list of available option see
 :ref:`Link handler configuration <link-handler-configuration>`.
 
-..  _tutorial_backend_link_handler:
+..  _tutorial-backend-link-handler:
 
 2. Create a link browser tab
 ============================
@@ -93,7 +93,7 @@ Initialization and dependencies
     :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
 For technical reasons, not all dependencies needed by the backend link handler
-can be acquired by :ref:`Dependency injection <DependencyInjection>`. Therefore
+can be acquired by :ref:`Dependency injection <dependencyinjection>`. Therefore
 the following two methods are called by Core classes once the dependencies are
 available:
 
@@ -138,7 +138,7 @@ be marked as :yaml:`shared: false`:
 ..  literalinclude:: _CustomLinkBrowser/_Services.yaml
     :caption: EXT:examples/Configuration/Services.yaml
 
-..  _tutorial_backend_link_handler_render:
+..  _tutorial-backend-link-handler-render:
 
 Render the link browser tab
 ---------------------------
@@ -150,7 +150,7 @@ variables to the view and returns the rendered HTML.
 ..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.php
     :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
-..  _tutorial_backend_link_handler_javascript:
+..  _tutorial-backend-link-handler-javascript:
 
 Set the link via JavaScript
 ---------------------------
@@ -183,7 +183,7 @@ when the link browser is opened later from within a form, for example from
 an inline record.
 
 
-..  _tutorial_backend_link_handler_canHandleLink:
+..  _tutorial-backend-link-handler-canhandlelink:
 
 Can we handle this link?
 ------------------------
@@ -197,7 +197,7 @@ field with the old value).
 ..  literalinclude:: /ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.php
     :caption: Class T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
 
-..  _tutorial_backend_link_handler_formatCurrentUrl:
+..  _tutorial-backend-link-handler-formatcurrenturl:
 
 Format current URL
 ------------------
@@ -218,7 +218,7 @@ the link browser window.
 You can find the complete class in the extension EXT:examples on GitHub:
 `GitHubLinkHandling <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/LinkHandler/GitHubLinkHandling.php>`__.
 
-Our :ref:`backend link handler implementation from step 1 <tutorial_backend_link_handler>`
+Our :ref:`backend link handler implementation from step 1 <tutorial-backend-link-handler>`
 saves the link in the custom format `t3://github?issue=123` via JavaScript.
 
 This format is only an arbitrary string until we tell TYPO3 how to handle links
@@ -286,13 +286,13 @@ If the link cannot be built, it should throw a
 :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`.
 
 ..  attention::
-    :ref:`Page TSconfig configuration <tutorial_backend_link_handler-tsconfig>` (step 1)
+    :ref:`Page TSconfig configuration <tutorial-backend-link-handler-tsconfig>` (step 1)
     is **not available in the frontend**. Therefore the information about which
     repository to use must be stored in another way. In this example we
     have hardcoded it but you could also make it available in TypoScript
     setup or as part of the link format that is saved.
 
-..  _AbstractTypolinkBuilder-migration:
+..  _abstracttypolinkbuilder-migration:
 
 Migration from `AbstractTypolinkBuilder::build()` to `TypolinkBuilderInterface`
 ===============================================================================

@@ -27,7 +27,7 @@ various processes (saving to the database, rendering to the frontend, etc.)
     Transformations/Index
     HistoricalRteTransformations/Index
 
-..  _rte_ckeditor:
+..  _rte-ckeditor:
 
 CKEditor rich text editor
 =========================

@@ -28,7 +28,7 @@ emoji (UTF-8 representation).
 Using the PHP API
 =================
 
-:ref:`Dependency injection <DependencyInjection>` can be used to retrieve the
+:ref:`Dependency injection <dependencyinjection>` can be used to retrieve the
 :php:`\TYPO3\CMS\Core\Country\CountryProvider` class:
 
 ..  literalinclude:: _MyClass.php

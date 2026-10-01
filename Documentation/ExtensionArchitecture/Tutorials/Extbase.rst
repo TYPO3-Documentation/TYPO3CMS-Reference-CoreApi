@@ -4,7 +4,7 @@
 ..  include:: /Includes.rst.txt
 
 ..  index:: Extbase; Tutorials
-..  _extbase_tutorials:
+..  _extbase-tutorials:
 
 ==================================
 Extension development with Extbase

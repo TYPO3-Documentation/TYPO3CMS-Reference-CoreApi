@@ -166,7 +166,7 @@ Without :php:`#[IgnoreValidation]`, the framework would see the invalid
 
 
 ..  _extbase-validation-error-action:
-..  _extbase_error_action-howto:
+..  _extbase-error-action-howto:
 
 Customizing `errorAction()`
 ===========================

@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; Languages
-..  _sitehandling-addingLanguages:
+..  _sitehandling-addinglanguages:
 
 ================
 Adding languages
@@ -41,7 +41,7 @@ Example of a language configuration (excerpt):
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 ..  index:: pair: Site handling; Languages properties
-..  _sitehandling-addingLanguages-properties:
+..  _sitehandling-addinglanguages-properties:
 
 Configuration properties
 ========================
@@ -55,7 +55,7 @@ Configuration properties
     backend will still be able to translate content for the language.
 
 
-..  _sitehandling-addingLanguages-languageId:
+..  _sitehandling-addinglanguages-languageid:
 
 languageId
 ----------
@@ -74,7 +74,7 @@ languageId
         :yaml:`languageId` must not be changed anymore.
 
 
-..  _sitehandling-addingLanguages-title:
+..  _sitehandling-addinglanguages-title:
 
 title
 -----
@@ -87,7 +87,7 @@ title
     The internal human-readable name for this language.
 
 
-..  _sitehandling-addingLanguages-websiteTitle:
+..  _sitehandling-addinglanguages-websitetitle:
 
 websiteTitle
 ------------
@@ -100,7 +100,7 @@ websiteTitle
     Overrides the global website title for this language.
 
 
-..  _sitehandling-addingLanguages-navigationTitle:
+..  _sitehandling-addinglanguages-navigationtitle:
 
 navigationTitle
 ---------------
@@ -114,7 +114,7 @@ navigationTitle
     :typoscript:`HMENU.special = language`.
 
 
-..  _sitehandling-addingLanguages-base:
+..  _sitehandling-addinglanguages-base:
 
 base
 ----
@@ -127,7 +127,7 @@ base
     The language base accepts either a URL or a path segment like :yaml:`/en/`.
 
 
-..  _sitehandling-addingLanguages-baseVariants:
+..  _sitehandling-addinglanguages-basevariants:
 
 baseVariants
 ------------
@@ -137,7 +137,7 @@ baseVariants
     :type: array
 
     Allows different base URLs for the same language. They follow the same
-    syntax as the :ref:`base variants <sitehandling-baseVariants>` on the root
+    syntax as the :ref:`base variants <sitehandling-basevariants>` on the root
     level of the site config and they get active, if the condition matches.
 
     Example:
@@ -145,7 +145,7 @@ baseVariants
     ..  literalinclude:: _baseVariants.yaml
         :caption: config/sites/my-site/config.yaml (excerpt)
 
-..  _sitehandling-addingLanguages-locale:
+..  _sitehandling-addinglanguages-locale:
 
 ..  confval:: locale
     :name: sitehandling-addingLanguages-locale
@@ -160,7 +160,7 @@ baseVariants
     is installed on the server.
 
 
-..  _sitehandling-addingLanguages-hreflang:
+..  _sitehandling-addinglanguages-hreflang:
 
 hreflang
 ~~~~~~~~
@@ -174,7 +174,7 @@ hreflang
     language.
 
     The information is automatically derived from the
-    :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+    :ref:`locale <sitehandling-addinglanguages-locale>` setting.
 
     **Example setups:**
 
@@ -186,7 +186,7 @@ hreflang
         which is clearly not a valid language key.
 
 
-..  _sitehandling-addingLanguages-flag:
+..  _sitehandling-addinglanguages-flag:
 
 flag
 ~~~~
@@ -200,7 +200,7 @@ flag
     module.
 
 
-..  _sitehandling-addingLanguages-fallbackType:
+..  _sitehandling-addinglanguages-fallbacktype:
 
 fallbackType
 ~~~~~~~~~~~~
@@ -236,7 +236,7 @@ fallbackType
         It behaves like old :typoscript:`config.sys_language_overlay = 0`.
 
 
-..  _sitehandling-addingLanguages-fallbacks:
+..  _sitehandling-addinglanguages-fallbacks:
 
 fallbacks
 ~~~~~~~~~

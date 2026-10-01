@@ -27,7 +27,7 @@ Readonly services
 =================
 
 Readonly properties align seamlessly with services using
-:ref:`constructor injection <Constructor-injection>`, e.g.:
+:ref:`constructor injection <constructor-injection>`, e.g.:
 
 ..  code-block:: php
     :caption: A service with an injected dependency

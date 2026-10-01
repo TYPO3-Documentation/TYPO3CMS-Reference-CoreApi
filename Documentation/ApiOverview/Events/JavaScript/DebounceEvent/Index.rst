@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: JavaScript; Debounce event
-..  _Events_JavaScript_Debounce:
+..  _events-javascript-debounce:
 
 ==============
 Debounce event

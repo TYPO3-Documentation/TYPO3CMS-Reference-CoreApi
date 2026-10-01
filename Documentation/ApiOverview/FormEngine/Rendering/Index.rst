@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: FormEngine; Rendering
-..  _FormEngine-Rendering:
+..  _formengine-rendering:
 
 =========
 Rendering
@@ -43,7 +43,7 @@ array as :php:`$data['renderType']` and then gives the data array to the :php:`N
 an appropriate class name, instantiates and initializes the class, gives it the data array, and calls :php:`render()`
 on it.
 
-..  _FormEngine-Rendering-ClassInheritance:
+..  _formengine-rendering-classinheritance:
 
 Class inheritance
 =================
@@ -60,7 +60,7 @@ implement helpers for containers and elements respectively.
 The call concept is simple: A first container is called, which either calls a container below or a single element. A
 single element never calls a container again.
 
-..  _FormEngine-Rendering-DependencyInjection:
+..  _formengine-rendering-dependencyinjection:
 
 Dependency injection in nodes
 -----------------------------
@@ -71,7 +71,7 @@ then hands the data array to the :php:`setData()` method (rather than having the
 data array handed in via the constructor), implemented in
 :php-short:`\TYPO3\CMS\Backend\Form\AbstractNode`. The
 constructor of the node is therefore freed up to use
-:ref:`dependency injection <DependencyInjection>`. Classes implementing
+:ref:`dependency injection <dependencyinjection>`. Classes implementing
 :php-short:`\TYPO3\CMS\Backend\Form\NodeInterface` are available as public
 services, and each node is its own instance so does not need an entry in
 :file:`Configuration/Services.yaml`.
@@ -86,7 +86,7 @@ the constructor:
     :caption: EXT:my_extension/Classes/Backend/Form/StatusIconElement.php
 
 
-..  _FormEngine-Rendering-NodeFactory:
+..  _formengine-rendering-nodefactory:
 
 `NodeFactory`
 =============
@@ -147,12 +147,12 @@ The trick here is that CKEditor registers his resolver with a higher priority (5
 "ckeditor" resolver is called first and wins if both extensions are loaded and if both return a valid class name.
 
 
-..  _FormEngine-Rendering-ResultArray:
+..  _formengine-rendering-resultarray:
 
 Result array
 ============
 
-Each node, no matter if it is a container, an element, or a :ref:`node expansion <FormEngine-Rendering-NodeExpansion>`,
+Each node, no matter if it is a container, an element, or a :ref:`node expansion <formengine-rendering-nodeexpansion>`,
 must return an array with specific data keys it wants to add. It is the job of the parent node that calls the sub node to
 merge child node results into its own result. This typically happens by merging :php:`$childResult['html']`
 into an appropriate position of own HTML, and then calling :php:`$this->mergeChildReturnIntoExistingResult()` to add
@@ -161,7 +161,7 @@ other array child demands like :php:`stylesheetFiles` into its own result.
 Container and element nodes should use the helper method :php:`$this->initializeResultArray()` to
 have a result array initialized that is understood by a parent node.
 
-Only if extending existing element via :ref:`node expansion <FormEngine-Rendering-NodeExpansion>`, the result array
+Only if extending existing element via :ref:`node expansion <formengine-rendering-nodeexpansion>`, the result array
 of a child can be slightly different. For instance, a :php:`FieldControl` "wizards" must have a :php:`iconIdentifier`
 result key key. Using :php:`$this->initializeResultArray()` is not appropriate in these cases but depends on the specific
 expansion type. See below for more details on node expansion.
@@ -210,7 +210,7 @@ Or a controller:
     :caption: EXT:my_extension/Classes/Backend/Controller/SomeController.php
 
 ..  index:: FormEngine; fieldChangeFunc
-..  _FormEngine-Rendering-OnFieldChange:
+..  _formengine-rendering-onfieldchange:
 
 Reacting to field changes
 =========================
@@ -246,7 +246,7 @@ the `data` array and the browser event:
 The module has to be part of the import map, see
 :ref:`Loading ES6 modules <backend-javascript-es6-loading>`.
 
-..  _FormEngine-Rendering-NodeExpansion:
+..  _formengine-rendering-nodeexpansion:
 
 Node expansion
 ==============

@@ -4,9 +4,9 @@
 ..  index:: pair: Extbase; Custom validators
 ..  _extbase-validation-custom:
 ..  _extbase-validation-manual-creation:
-..  _extbase_domain_validator:
-..  _extbase_domain_validator-di:
-..  _extbase_domain_validator-request:
+..  _extbase-domain-validator:
+..  _extbase-domain-validator-di:
+..  _extbase-domain-validator-request:
 
 ==================================
 Writing a custom Extbase validator
@@ -47,7 +47,7 @@ first, and action-parameter validators run afterwards.
 
 
 ..  _extbase-validation-custom-structure:
-..  _extbase_domain_validator-model-complete:
+..  _extbase-domain-validator-model-complete:
 
 Structure of a custom validator
 ===============================
@@ -87,7 +87,7 @@ Key points:
 
 
 ..  _extbase-validation-custom-property-errors:
-..  _extbase_domain_validator-model:
+..  _extbase-domain-validator-model:
 
 Reporting errors on a specific property
 =======================================

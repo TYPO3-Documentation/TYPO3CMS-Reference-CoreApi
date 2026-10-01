@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; CLI tools
-..  _sitehandling-cliTools:
+..  _sitehandling-clitools:
 
 ===========================
 CLI tools for site handling

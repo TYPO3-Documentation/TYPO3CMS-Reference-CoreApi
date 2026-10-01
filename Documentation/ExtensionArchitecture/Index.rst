@@ -52,7 +52,7 @@ Extension development
         and TYPO3 backend modules.
 
 
-    ..  card:: :ref:`Best practises and conventions <extension-Best-practises>`
+    ..  card:: :ref:`Best practises and conventions <extension-best-practises>`
 
         Explains how to choose an extension key, naming conventions
         and how to best use the configuration file

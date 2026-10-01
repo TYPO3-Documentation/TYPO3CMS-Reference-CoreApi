@@ -72,20 +72,20 @@ The following folder and file structure is typical for a TYPO3 extension:
             *   constants.typoscript
             *   setup.typoscript
 
-        *   :ref:`Icons.php <extension-configuration-Icons-php>`
-        *   :ref:`page.tsconfig <extension-configuration-page_tsconfig>`
+        *   :ref:`Icons.php <extension-configuration-icons-php>`
+        *   :ref:`page.tsconfig <extension-configuration-page-tsconfig>`
         *   :ref:`Services.yaml <extension-configuration-services-yaml>`
-        *   :ref:`user.tsconfig <extension-configuration-user_tsconfig>`
+        *   :ref:`user.tsconfig <extension-configuration-user-tsconfig>`
 
     *   :ref:`Documentation <extension-files-documentation>`
 
         *   ...
 
-    *   :ref:`Resources <extension-files-Resources>`
+    *   :ref:`Resources <extension-files-resources>`
 
-        *   :ref:`Private <extension-Resources-Private>`
+        *   :ref:`Private <extension-resources-private>`
 
-            *   :ref:`Language <extension-Resources-Private-Language>`
+            *   :ref:`Language <extension-resources-private-language>`
 
                 *   ...
 
@@ -103,7 +103,7 @@ The following folder and file structure is typical for a TYPO3 extension:
 
             *   ...
 
-        *   :ref:`Public <extension-Resources-Public>`
+        *   :ref:`Public <extension-resources-public>`
 
             *   ...
 
@@ -121,7 +121,7 @@ The following folder and file structure is typical for a TYPO3 extension:
 
     *   :ref:`composer.json <files-composer-json>`
     *   :ref:`ext_localconf.php <ext-localconf-php>`
-    *   :ref:`ext_tables.sql <ext_tables-sql>`
+    *   :ref:`ext_tables.sql <ext-tables-sql>`
 
 
 ..  _extension-files:

@@ -24,7 +24,7 @@ version control, and easier environment automation than a :ref:`Classic mode
 TYPO3 installation <legacyinstallation>`.
 
 For more information on how to deploy TYPO3 to a live environment, visit the
-:ref:`deploying TYPO3 <DeployTYPO3>` chapter.
+:ref:`deploying TYPO3 <deploytypo3>` chapter.
 
 ..  contents::
     :local:

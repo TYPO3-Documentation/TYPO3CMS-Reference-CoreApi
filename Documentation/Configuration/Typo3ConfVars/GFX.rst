@@ -3,7 +3,7 @@
 ..  index::
     TYPO3_CONF_VARS; GFX
     TYPO3_CONF_VARS GFX
-..  _typo3ConfVars_gfx:
+..  _typo3confvars-gfx:
 
 ============================
 GFX - graphics configuration
@@ -21,15 +21,15 @@ The configuration values listed here are keys in the global PHP array
 
 This variable can be set in one of the following files:
 
-*   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-*   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+*   :ref:`config/system/settings.php <typo3confvars-settings>`
+*   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-gfx
     :display: tree
     :type:
 
-..  _typo3ConfVars_gfx_thumbnails:
+..  _typo3confvars-gfx-thumbnails:
 
 
 thumbnails
@@ -45,7 +45,7 @@ thumbnails
 
 ..  index::
     TYPO3_CONF_VARS GFX; imagefile_ext
-..  _typo3ConfVars_gfx_imagefile_ext:
+..  _typo3confvars-gfx-imagefile-ext:
 
 
 imagefile_ext
@@ -66,7 +66,7 @@ imagefile_ext
         between the commas and the file extensions!
 
 
-..  _globals-typo3-conf-vars-sys-gfx-imageFileConversionFormats:
+..  _globals-typo3-conf-vars-sys-gfx-imagefileconversionformats:
 
 imageFileConversionFormats
 --------------------------
@@ -97,7 +97,7 @@ imageFileConversionFormats
     ..  literalinclude:: _codesnippets/_GfxImageFileConversionFormats.php
         :caption: config/system/additional.php
 
-..  _typo3ConfVars_gfx_processor_enabled:
+..  _typo3confvars-gfx-processor-enabled:
 
 
 processor_enabled
@@ -111,7 +111,7 @@ processor_enabled
 
     Enables the use of Image- or GraphicsMagick.
 
-..  _typo3ConfVars_gfx_processor_path:
+..  _typo3confvars-gfx-processor-path:
 
 
 processor_path
@@ -125,7 +125,7 @@ processor_path
 
     Path to the IM tools convert, combine, identify.
 
-..  _typo3ConfVars_gfx_processor:
+..  _typo3confvars-gfx-processor:
 
 
 processor
@@ -145,7 +145,7 @@ processor
     Select which external software on the server should process images -
     see also the preset functionality to see what is available.
 
-..  _typo3ConfVars_gfx_processor_effects:
+..  _typo3confvars-gfx-processor-effects:
 
 
 processor_effects
@@ -159,7 +159,7 @@ processor_effects
 
     If enabled, apply blur and sharpening in ImageMagick/GraphicsMagick functions.
 
-..  _typo3ConfVars_gfx_processor_allowUpscaling:
+..  _typo3confvars-gfx-processor-allowupscaling:
 
 
 processor_allowUpscaling
@@ -174,7 +174,7 @@ processor_allowUpscaling
     If set, images can be scaled up if told so (in
     :php:`\TYPO3\CMS\Core\Imaging\GraphicalFunctions`)
 
-..  _typo3ConfVars_gfx_processor_allowFrameSelection:
+..  _typo3confvars-gfx-processor-allowframeselection:
 
 
 processor_allowFrameSelection
@@ -191,7 +191,7 @@ processor_allowFrameSelection
     Disable if your image processor or environment cant cope with the
     frame selection.
 
-..  _typo3ConfVars_gfx_processor_stripColorProfileByDefault:
+..  _typo3confvars-gfx-processor-stripcolorprofilebydefault:
 
 
 processor_stripColorProfileByDefault
@@ -207,7 +207,7 @@ processor_stripColorProfileByDefault
     image operations by default. See tsRef for setting this parameter explicitly
     for IMAGE generation.
 
-..  _typo3ConfVars_gfx_processor_stripColorProfileCommand:
+..  _typo3confvars-gfx-processor-stripcolorprofilecommand:
 
 
 processor_stripColorProfileCommand
@@ -220,13 +220,13 @@ processor_stripColorProfileCommand
 
     ..  note::
         This string-based configuration option has been superseded by
-        :ref:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
+        :ref:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] <typo3confvars-gfx-processor-stripcolorprofileparameters>`
         for `security reasons <https://typo3.org/security/advisory/typo3-core-sa-2024-002>`__.
 
     This option expected a string of command line parameters. The defined
     parameters had to be shell-escaped beforehand, while the new option
     :ref:`processor_stripColorProfileParameters
-    <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
+    <typo3confvars-gfx-processor-stripcolorprofileparameters>`
     expects an array of strings that will be shell-escaped by TYPO3 when used.
 
     The existing configuration will continue to be supported. Still, it is
@@ -236,7 +236,7 @@ processor_stripColorProfileCommand
     ..  literalinclude:: _codesnippets/_GfxStripColorProfile.php
         :caption: config/system/additional.php (before and after)
 
-..  _typo3ConfVars_gfx_processor_stripColorProfileParameters:
+..  _typo3confvars-gfx-processor-stripcolorprofileparameters:
 
 
 processor_stripColorProfileParameters
@@ -254,7 +254,7 @@ processor_stripColorProfileParameters
     `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
     for details.
 
-..  _typo3ConfVars_gfx_processor_colorspace:
+..  _typo3confvars-gfx-processor-colorspace:
 
 
 processor_colorspace
@@ -267,7 +267,7 @@ processor_colorspace
     :default: ''
 
     Specifies the colorspace to use. Defaults to "RGB" when using GraphicsMagick
-    as :ref:`processor <typo3ConfVars_gfx_processor>` and "sRGB" when using
+    as :ref:`processor <typo3confvars-gfx-processor>` and "sRGB" when using
     ImageMagick.
 
     ..  note::
@@ -278,7 +278,7 @@ processor_colorspace
     Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
     Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
 
-..  _typo3ConfVars_gfx_processor_interlace:
+..  _typo3confvars-gfx-processor-interlace:
 
 
 processor_interlace
@@ -296,7 +296,7 @@ processor_interlace
 
     Possible values: None, Line, Plane, Partition
 
-..  _typo3ConfVars_gfx_jpg_quality:
+..  _typo3confvars-gfx-jpg-quality:
 
 
 jpg_quality
@@ -311,7 +311,7 @@ jpg_quality
 
     Default JPEG generation quality
 
-..  _typo3ConfVars_gfx_webp_quality:
+..  _typo3confvars-gfx-webp-quality:
 
 
 webp_quality

@@ -2,7 +2,7 @@
 ..  index::
     Extension development; Configuration/page.tsconfig
     Path; EXT:{extkey}/Configuration/page.tsconfig
-..  _extension-configuration-page_tsconfig:
+..  _extension-configuration-page-tsconfig:
 
 ===============
 `page.tsconfig`

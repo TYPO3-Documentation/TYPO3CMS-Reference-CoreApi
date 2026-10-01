@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: DataHandler; Usage
-..  _Using-DataHandler:
+..  _using-datahandler:
 ..  _using-tcemain:
 
 ================================
@@ -23,7 +23,7 @@ methods.
 
 
 ..  index:: pair: DataHandler; Symfony command
-..  _dataHandler-cli-command:
+..  _datahandler-cli-command:
 
 Using the DataHandler in a Symfony command
 ==========================================
@@ -52,7 +52,7 @@ will occur:
 
 
 ..  index:: pair: DataHandler; PHP
-..  _dataHandler-examples:
+..  _datahandler-examples:
 ..  _tcemain-examples:
 
 DataHandler examples
@@ -72,7 +72,7 @@ The syntax for these two arrays is explained in the
     multiple time on the same instance.
 
     The :php:`DataHandler` class **must not** be injected into the constructor via
-    :ref:`dependency injection <DependencyInjection>`. This can cause unexpected
+    :ref:`dependency injection <dependencyinjection>`. This can cause unexpected
     side effects.
 
 ..  _tcemain-submit-data:

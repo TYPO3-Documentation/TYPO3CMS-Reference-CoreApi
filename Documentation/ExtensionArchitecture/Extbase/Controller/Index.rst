@@ -63,7 +63,7 @@ Injecting dependencies into Extbase controllers
 ===============================================
 
 Dependencies are added to controllers via
-:ref:`dependency injection <Dependency-Injection>`. Two mechanisms are
+:ref:`dependency injection <dependency-injection>`. Two mechanisms are
 available:
 
 **Constructor injection** is the standard approach. Declare dependencies as

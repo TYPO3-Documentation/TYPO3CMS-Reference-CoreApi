@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: JavaScript; Events
-..  _Events_JavaScript:
+..  _events-javascript:
 
 ====================
 JavaScript event API

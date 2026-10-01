@@ -4,8 +4,8 @@
 ..  index::
     Extension development; Conventions
     Extension development; Best practices
-..  _extension-Conventions:
-..  _extension-Best-practises:
+..  _extension-conventions:
+..  _extension-best-practises:
 
 ==============================
 Best practices and conventions

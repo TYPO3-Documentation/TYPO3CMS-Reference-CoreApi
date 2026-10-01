@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; Custom error handler
-..  _sitehandling-customErrorHandler:
+..  _sitehandling-customerrorhandler:
 
 ===================================
 Writing a custom page error handler
@@ -8,8 +8,8 @@ Writing a custom page error handler
 
 The error handling configuration for sites allows implementing a custom error
 handler, if the existing options of rendering a
-:ref:`Fluid template <sitehandling-errorHandling_fluid>` or
-:ref:`page <sitehandling-errorHandling_page>` are not enough. An example would
+:ref:`Fluid template <sitehandling-errorhandling-fluid>` or
+:ref:`page <sitehandling-errorhandling-page>` are not enough. An example would
 be an error page that uses the requested page or its parameters to search for
 relevant content on the website.
 
@@ -54,8 +54,8 @@ Properties
 ==========
 
 The custom error handlers have the properties
-:ref:`errorCode <sitehandling-errorHandling_errorCode>` and
-:ref:`errorHandler <sitehandling-errorHandling_errorHandler>` and the following:
+:ref:`errorCode <sitehandling-errorhandling-errorcode>` and
+:ref:`errorHandler <sitehandling-errorhandling-errorhandler>` and the following:
 
 ..  confval:: errorPhpClassFQCN
     :name: site-error-handling-errorPhpClassFQCN

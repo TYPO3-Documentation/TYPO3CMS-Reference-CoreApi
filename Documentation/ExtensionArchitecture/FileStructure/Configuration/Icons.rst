@@ -2,7 +2,7 @@
 ..  index::
     Extension development; Configuration/Icons.php
     Path; EXT:{extkey}/Configuration/Icons.php
-..  _extension-configuration-Icons-php:
+..  _extension-configuration-icons-php:
 
 ===========
 `Icons.php`

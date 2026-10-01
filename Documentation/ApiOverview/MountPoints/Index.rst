@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Mount points
-..  _MountPoints:
+..  _mountpoints:
 
 ============
 Mount points

@@ -124,7 +124,7 @@ contain an object-oriented representation of a database record.
 A record object can be used to output a database record in :ref:`Fluid <fluid>`
 when no :ref:`Extbase domain model <database-records-models>` is available.
 
-Read more in chapter :ref:`Record objects <record_objects>`.
+Read more in chapter :ref:`Record objects <record-objects>`.
 
 ..  _database-records-models:
 

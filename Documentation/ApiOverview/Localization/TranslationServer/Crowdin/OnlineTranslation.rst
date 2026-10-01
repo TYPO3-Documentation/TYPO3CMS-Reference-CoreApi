@@ -58,7 +58,7 @@ the strings have been proofread by team members with the "Proofreader" role,
 the translation will be available for all TYPO3 instances via the
 "Managing Language Packs" section in the TYPO3 backend.
 
-..  _crowdin-crowdin-translation-Core:
+..  _crowdin-crowdin-translation-core:
 
 The language files in Core
 ==========================

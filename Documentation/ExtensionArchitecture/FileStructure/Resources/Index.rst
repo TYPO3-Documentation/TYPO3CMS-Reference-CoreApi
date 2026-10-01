@@ -2,8 +2,8 @@
 ..  index::
     Extension development; Resources
     Folder; Resources
-..  _extension-files-Resources:
-..  _extension-Resources:
+..  _extension-files-resources:
+..  _extension-resources:
 
 ===========
 `Resources`

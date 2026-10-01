@@ -31,7 +31,7 @@ Configuration
 Several settings are available via :guilabel:`System > Settings > Configure
 Installation-Wide Options > Mail` which are stored into
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`. See
-:ref:`MAIL settings <typo3ConfVars_mail>` for an overview of all settings.
+:ref:`MAIL settings <typo3confvars-mail>` for an overview of all settings.
 
 ..  note::
     If you want to send emails using Microsoft 365 or Office 365, you have to

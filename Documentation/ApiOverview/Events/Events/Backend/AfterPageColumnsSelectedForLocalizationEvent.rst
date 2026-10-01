@@ -10,7 +10,7 @@
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterPageColumnsSelectedForLocalizationEvent`
-is available to listen for after the :ref:`form engine <FormEngine>` has been
+is available to listen for after the :ref:`form engine <formengine>` has been
 initialized (and all data has been persisted). It will be dispatched after
 records and columns are collected in the
 :php:`\TYPO3\CMS\Backend\Controller\Wizard\LocalizationController`.

@@ -120,19 +120,19 @@ The namespace here is 'my'. For further information visit
 `ViewHelper namespaces <https://docs.typo3.org/permalink/fluid:viewhelper-namespaces-syntax>`_
 in Fluid explained.
 
-..  _using_fluid_components:
+..  _using-fluid-components:
 
 Using Fluid components
 ======================
 
-..  _description_fluid_components:
+..  _description-fluid-components:
 
 Description
 -----------
 
 With version 4.3 the concept of components was introduced into Fluid.
 
-..  _what_is_fluid_components:
+..  _what-is-fluid-components:
 
 Introduction to Fluid components
 --------------------------------
@@ -191,7 +191,7 @@ You can learn more about components in
 that this is part of the Fluid Standalone documentation, which means that it doesn't mention
 TYPO3 specifics.
 
-..  _register_fluid_components:
+..  _register-fluid-components:
 
 Registering component collections
 ---------------------------------
@@ -246,7 +246,7 @@ Using this example, :html:`<my:organism.header.navigation />` would point to
 It is possible to influence certain aspects of Fluid components using PSR-14 events,
 see `PSR-14 events for Fluid components <https://docs.typo3.org/permalink/changelog:feature-108508-1765987847>`_.
 
-..  _history_fluid_components:
+..  _history-fluid-components:
 
 History of Fluid components
 ---------------------------
@@ -257,7 +257,7 @@ to a Fluid ViewHelper namespace. Using that class it is also possible to use an
 alternative folder structure for a component collection and to allow
 arbitrary arguments to be passed to components in that collection.
 
-..  _migration_co-existence_fluid_components:
+..  _migration-co-existence-fluid-components:
 
 Migration and co-existence with class-based collections
 -------------------------------------------------------
@@ -278,7 +278,7 @@ if a specific component collection is
 defined both by class and by configuration, in TYPO3 v13 the class will be used,
 while in TYPO3 v14 the configuration will be used and the class will be ignored completely.
 
-..  _extending_component-collections_fluid_components:
+..  _extending-component-collections-fluid-components:
 
 Extending component collections from other extensions
 -----------------------------------------------------
@@ -299,7 +299,7 @@ keys and will be processed in reverse order. In this example, if `my_extension`
 defines a component that already exists in `vendor_extension`, it will override
 the original component in `vendor_extension`.
 
-..  _psr-14-events_fluid_components:
+..  _psr-14-events-fluid-components:
 
 PSR-14 events related to Fluid components
 -----------------------------------------

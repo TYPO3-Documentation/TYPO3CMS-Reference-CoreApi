@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: JavaScript; Regular event
-..  _Events_JavaScript_Regular:
+..  _events-javascript-regular:
 
 =============
 Regular event

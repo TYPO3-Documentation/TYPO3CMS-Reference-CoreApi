@@ -17,7 +17,7 @@ Logger
 Instantiation
 =============
 
-:ref:`Constructor injection <Constructor-injection>` can be used to
+:ref:`Constructor injection <constructor-injection>` can be used to
 automatically instantiate the logger:
 
 ..  literalinclude:: _MyClassLoggerInjection.php
@@ -26,7 +26,7 @@ automatically instantiate the logger:
 ..  tip::
     For examples of instantiation with :php:`LoggerAwareTrait` or
     :php:`GeneralUtility::makeInstance()`, switch to an older TYPO3 version for
-    this page. Instantiation with :ref:`dependency injection <DependencyInjection>`
+    this page. Instantiation with :ref:`dependency injection <dependencyinjection>`
     is now the recommended procedure. Also see the section on
     :ref:`channels <logging-channels>` for information on grouping classes in
     channels.
@@ -114,7 +114,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 
 ..  _RFC 3164: https://datatracker.ietf.org/doc/html/rfc3164
 
-..  _label-Debug:
+..  _label-debug:
 ..  confval:: Debug
     :name: logger-debug
     :Class constant: :php:`\Psr\Log\LogLevel::DEBUG`
@@ -123,7 +123,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
     For debug information: give detailed status information during the
     development of PHP code.
 
-..  _label-Informational:
+..  _label-informational:
 
 Informational
 -------------
@@ -247,7 +247,7 @@ a channel system as often used in `Monolog`_.
 ..  _Monolog: https://packagist.org/packages/monolog/monolog
 
 The :php:`\TYPO3\CMS\Core\Log\Channel` attribute is supported for
-:ref:`constructor argument injection <Constructor-injection>` as a class and
+:ref:`constructor argument injection <constructor-injection>` as a class and
 parameter-specific attribute and for :php:`\Psr\Log\LoggerAwareInterface`
 dependency injection services as a class attribute.
 

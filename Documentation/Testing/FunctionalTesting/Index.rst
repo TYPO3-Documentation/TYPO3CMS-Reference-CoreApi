@@ -144,7 +144,7 @@ on can be linked into the test instance:
 It is also possible to *copy* the files to the test instance instead of only linking it
 using :php:`$pathsToProvideInTestInstance`.
 
-..  _testing-writing-functional-TYPO3_CONF_VARS:
+..  _testing-writing-functional-typo3-conf-vars:
 
 Setting TYPO3_CONF_VARS
 =======================

@@ -14,7 +14,7 @@ just a starting point. Details about the single methods can be found in the
 following chapters, especially :ref:`QueryBuilder <database-query-builder>` and
 :ref:`Connection <database-connection>`.
 
-All examples use :ref:`dependency injection <DependencyInjection>` to provide
+All examples use :ref:`dependency injection <dependencyinjection>` to provide
 the :ref:`ConnectionPool <database-connection-pool>` in the classes.
 
 

@@ -190,7 +190,7 @@ Example:
         Example of the configuration of driver middlewares
 
 
-..  _database-middleware-UsableForConnectionInterface:
+..  _database-middleware-usableforconnectioninterface:
 
 The interface `UsableForConnectionInterface`
 ============================================

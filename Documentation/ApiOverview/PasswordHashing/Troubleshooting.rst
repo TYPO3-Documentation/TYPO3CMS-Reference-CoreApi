@@ -3,7 +3,7 @@
     Password hashing
     Troubleshooting
     pair: Password; Troubleshooting
-..  _password-hashing_troubleshooting:
+..  _password-hashing-troubleshooting:
 
 ===============
 Troubleshooting

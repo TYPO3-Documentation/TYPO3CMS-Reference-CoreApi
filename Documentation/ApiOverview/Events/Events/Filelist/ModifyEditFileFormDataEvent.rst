@@ -9,7 +9,7 @@
 The PSR-14 event :php:`\TYPO3\CMS\Filelist\Event\ModifyEditFileFormDataEvent`
 allows to modify the form data, used to render the file edit form in the
 :guilabel:`Media` module using
-:ref:`FormEngine data compiling <FormEngine-DataCompiling>`.
+:ref:`FormEngine data compiling <formengine-datacompiling>`.
 
 
 ..  _modify-edit-file-form-data-event-example:

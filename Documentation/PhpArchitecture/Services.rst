@@ -28,7 +28,7 @@ Modern PHP programming primarily involves two types of classes: Services and
 data objects (DO).
 
 This distinction has gained significance with the introduction of
-:ref:`dependency injection <Dependency-Injection>` in the TYPO3 core.
+:ref:`dependency injection <dependency-injection>` in the TYPO3 core.
 
 A well-designed service class comprise of one or more methods that process
 data, or just provide a data sink. For example, a
@@ -38,7 +38,7 @@ repository service that accepts an identifier (e.g. the uid of a product) and re
 a data object (the product).
 
 Services may depend on other services and should use dependency injection to obtain
-these dependencies, typically using :ref:`constructor injection <Constructor-injection>`
+these dependencies, typically using :ref:`constructor injection <constructor-injection>`
 for "leaf" classes and :ref:`method injection <method-injection>` for abstract classes.
 
 In TYPO3, most classes are service classes unless they function as data objects to

@@ -51,14 +51,14 @@ files.
 Localization in frontend context
 --------------------------------
 
-In plain PHP use the class :ref:`LanguageServiceFactory <LanguageServiceFactory-api>`
+In plain PHP use the class :ref:`LanguageServiceFactory <languageservicefactory-api>`
 to create a :ref:`TranslatorInterface <translator-api>` from the current
 site language:
 
 ..  literalinclude:: _php/MyUserFunction.php
     :caption: EXT:my_extension/Classes/UserFunction/MyUserFunction.php
 
-:ref:`Dependency injection <DependencyInjection>` should be available in most
+:ref:`Dependency injection <dependencyinjection>` should be available in most
 contexts where you need translations. Also the current request is available in
 entry point such as custom non-Extbase controllers, user functions, data
 processors etc.
@@ -69,7 +69,7 @@ Localization in backend context
 -------------------------------
 
 In the backend context you should use the
-:ref:`LanguageServiceFactory <LanguageServiceFactory-api>`
+:ref:`LanguageServiceFactory <languageservicefactory-api>`
 to create the required :ref:`TranslatorInterface <translator-api>`.
 
 ..  literalinclude:: _php/MyBackendClass.php
@@ -109,7 +109,7 @@ text in the current language will be loaded from this extension's
 The method :php:`translate()` takes translation overrides from TypoScript into
 account. See
 :ref:`Changing localized terms using TypoScript
-<localization-typoscript-LOCAL_LANG>`.
+<localization-typoscript-local-lang>`.
 
 ..  _extension-localization-extbase-example:
 
@@ -152,8 +152,8 @@ As we do not need a full frontend context with TypoScript the JSON is returned
 by :ref:`PSR-15 middleware <request-handling>`.
 
 Beside other factories needed by our response, we inject the
-:ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
-:ref:`constructor dependency injection <Constructor-injection>`.
+:ref:`LanguageServiceFactory <languageservicefactory-api>` with
+:ref:`constructor dependency injection <constructor-injection>`.
 
 ..  literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/_LanguageServiceFactoryDI.php
     :caption: Class T3docs\\Examples\\Middleware\\HaikuSeasonList

@@ -424,7 +424,7 @@ set to either:
     to use the given value as external reporting endpoint
 
 If defined, the site-specific configuration takes precedence over
-the global configuration :ref:`contentSecurityPolicyReportingUrl <content-security-policy-reporting-contentSecurityPolicyReportingUrl>`.
+the global configuration :ref:`contentSecurityPolicyReportingUrl <content-security-policy-reporting-contentsecuritypolicyreportingurl>`.
 
 In case the explicitly disabled endpoint still would be called, the
 server-side process responds with a 403 HTTP error message.
@@ -845,7 +845,7 @@ apply this suggestion, or to mute or delete the specific violation.
     need to manually remove entries in the :sql:`sys_csp_resolution` database
     table.
 
-..  _content-security-policy-reporting-contentSecurityPolicyReportingUrl:
+..  _content-security-policy-reporting-contentsecuritypolicyreportingurl:
 
 Using a third-party service
 ---------------------------

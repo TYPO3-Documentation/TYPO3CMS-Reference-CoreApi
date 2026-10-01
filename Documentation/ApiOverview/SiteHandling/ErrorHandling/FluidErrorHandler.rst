@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Error handling; fluid
-..  _sitehandling-errorHandling_fluid:
+..  _sitehandling-errorhandling-fluid:
 
 =========================
 Fluid-based error handler
@@ -15,8 +15,8 @@ Properties
 ==========
 
 The Fluid-based error handler has the properties
-:ref:`errorCode <sitehandling-errorHandling_errorCode>` and
-:ref:`errorHandler <sitehandling-errorHandling_errorHandler>`, and the
+:ref:`errorCode <sitehandling-errorhandling-errorcode>` and
+:ref:`errorHandler <sitehandling-errorhandling-errorhandler>`, and the
 following:
 
 ..  confval:: errorFluidTemplate

@@ -123,7 +123,7 @@ Unit tests are executing the code to be tested and define input and their
 expected outcome. They are run on an isolated classes or methods.
 All relations and services such as database calls, API and curl call **must**
 be mocked. Not full instance setup is available. Therefore
-:ref:`Dependency injection <Dependency-Injection>`, the database,
+:ref:`Dependency injection <dependency-injection>`, the database,
 configurations and settings and everything done during
 :ref:`Bootstrapping <bootstrapping>` is not available.
 
@@ -154,7 +154,7 @@ Functional tests
 Functional tests, like Unit tests, also execute the code to be tested.
 Functional test execute the test code within a fully composed TYPO3
 instance (non-composer mode) with configured extensions and configuration,
-having full :ref:`dependency <Dependency-Injection>` and extension logic
+having full :ref:`dependency <dependency-injection>` and extension logic
 on board and Database backend available.
 
 For this, the

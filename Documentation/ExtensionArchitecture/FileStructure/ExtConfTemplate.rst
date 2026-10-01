@@ -103,7 +103,7 @@ file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['
 
 To retrieve the configuration use the API provided by the
 :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class via
-:ref:`constructor injection <Constructor-injection>`:
+:ref:`constructor injection <constructor-injection>`:
 
 ..  literalinclude:: _ExtConfTemplate/_MyClass.php
     :caption: EXT:my_extension/Classes/MyClass.php

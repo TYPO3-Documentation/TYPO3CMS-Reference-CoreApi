@@ -17,7 +17,7 @@ configuration.
 
 Steps:
 
-..  _prepare_updated_version_locally:
+..  _prepare-updated-version-locally:
 
 Prepare the updated version locally:
 ------------------------------------
@@ -29,7 +29,7 @@ Prepare the updated version locally:
 
         composer install --no-dev
 
-..  _transfer_updated_files:
+..  _transfer-updated-files:
 
 Transfer only updated files to the server
 -----------------------------------------
@@ -50,7 +50,7 @@ You can speed up the transfer using archive tools like zip or tar, or use
 `rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_
 to copy only changed files.
 
-..  _if_database_changes_required:
+..  _if-database-changes-required:
 
 If database changes are required:
 ---------------------------------
@@ -58,7 +58,7 @@ If database changes are required:
 -   Run the Upgrade Wizard in the TYPO3 backend
 -   Or apply schema changes via CLI tools
 
-..  _incremental_deploy_flush_caches:
+..  _incremental-deploy-flush-caches:
 
 Flush TYPO3 caches:
 -------------------

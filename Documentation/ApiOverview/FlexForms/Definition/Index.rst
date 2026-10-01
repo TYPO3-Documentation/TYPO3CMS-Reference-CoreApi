@@ -58,7 +58,7 @@ Select field
 
     *   :ref:`Select fields <t3tca:columns-select>` in TCA reference.
 
-..  _flexforms-itemsProcFunc:
+..  _flexforms-itemsprocfunc:
 
 Populate a `select` field using a PHP function (`itemsProcFunc`)
 ----------------------------------------------------------------
@@ -93,7 +93,7 @@ The function :php:`user_orderBy` populates the select field in
 
 
 ..  index:: FlexForms; Display conditions
-..  _flexformDisplayCond:
+..  _flexformdisplaycond:
 
 Display fields/sheets conditionally (`displayCond`)
 ---------------------------------------------------
@@ -151,13 +151,13 @@ in the TCA reference:
     * :ref:`Display conditions in TCA columns <t3tca:columns-properties-displaycond>` in TCA Reference
 
 
-..  _flexformReload:
+..  _flexformreload:
 
 Reload on change
 ----------------
 
 When displaying settings using
-:ref:`displayCond <flexformDisplayCond>`, you may want to trigger
+:ref:`displayCond <flexformdisplaycond>`, you may want to trigger
 a form reload when some settings are changed. You can do that with:
 
 ..  code-block:: xml
@@ -184,7 +184,7 @@ When a new content element with a FlexForm is created, the
 default value of each FlexForm attribute is fetched from the
 :xml:`<default>` XML attribute inside the specification of each
 FlexForm attribute. If that is missing, an empty value will be
-shown in the backend (:ref:`FormEngine <FormEngine>`)
+shown in the backend (:ref:`FormEngine <formengine>`)
 fields.
 
 While you can use page TSconfig's :ref:`TCAdefaults <t3tsref:pageTsTcaDefaults>`

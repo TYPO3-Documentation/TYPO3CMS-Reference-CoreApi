@@ -349,7 +349,7 @@ other properties:
 ..  _extbase-persistance-record-types:
 ..  _extbase-persistence:
 ..  _extbase-persistence-database-connection:
-..  _extbase_manual_mapping:
+..  _extbase-manual-mapping:
 
 Table and field mapping
 =======================
@@ -634,7 +634,7 @@ child classes, hence the need to have protected or public properties.
 Dependency injection
 --------------------
 
-Without digging too deep into :ref:`dependency injection <DependencyInjection>`
+Without digging too deep into :ref:`dependency injection <dependencyinjection>`
 the following statements have to be made:
 
 *   Extbase expects entities to be so-called prototypes, that means classes that

@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Links
-..  _LinkHandling:
+..  _linkhandling:
 
 =============
 Link handling
@@ -56,12 +56,12 @@ To generate links from PHP, use the :ref:`frontend link factory <link-factory>`.
 
 The :ref:`link browser <linkbrowser-api>` is the modal in which users can
 configure links in both the :ref:`Rich text editors (RTE) <rte>` and the
-:ref:`FormEngine <FormEngine>`. The link browser offers tabs for the different
+:ref:`FormEngine <formengine>`. The link browser offers tabs for the different
 types of links like page, external, file, email, phone record and possibly more.
 Each tab of the link browser has an associated
 :ref:`backend link handler <linkhandler>` that renders the tab and handles
 editing links. The link browser can be extended by
-:ref:`custom links to different record types <TableRecordLinkBrowserTutorials>`
+:ref:`custom links to different record types <tablerecordlinkbrowsertutorials>`
 and :ref:`custom link handler implementations <tutorial-github-link-handler>`.
 
 ..  figure:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.png

@@ -17,16 +17,16 @@ Major upgrade
     :class: pb-4
     :card-height: 100
 
-    ..  card:: :ref:`Pre-upgrade tasks <PreupgradeTasks>`
+    ..  card:: :ref:`Pre-upgrade tasks <preupgradetasks>`
 
         Before upgrading TYPO3 to a major release, there are several tasks that can be performed
         to help ensure a successful upgrade and help minimize any potential downtime.
 
-    ..  card:: :ref:`Upgrade the Core <UpgradeCore>`
+    ..  card:: :ref:`Upgrade the Core <upgradecore>`
 
         This chapter details how to perform a major upgrade using Composer.
 
-    ..  card:: :ref:`Post-upgrade tasks <PostUpgradeTasks>`
+    ..  card:: :ref:`Post-upgrade tasks <postupgradetasks>`
 
         Once TYPO3's Core has been upgraded, there are a few tasks that need to be followed
         to complete the process.

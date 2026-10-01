@@ -23,11 +23,11 @@ global configuration of TYPO3.
     for system maintainers.
 
 The module displays all relevant global variables, such as
-:ref:`TYPO3_CONF_VARS <typo3ConfVars>`, :ref:`TCA <t3tca:start>` and many more,
+:ref:`TYPO3_CONF_VARS <typo3confvars>`, :ref:`TCA <t3tca:start>` and many more,
 in a tree format which is easy to browse through. Over time, this module has been
 extended to also display configuration of newly introduced features like the
 :ref:`middleware stack <request-handling>` and
-:ref:`event listeners <EventDispatcherListeners>`.
+:ref:`event listeners <eventdispatcherlisteners>`.
 
 ..  seealso::
 

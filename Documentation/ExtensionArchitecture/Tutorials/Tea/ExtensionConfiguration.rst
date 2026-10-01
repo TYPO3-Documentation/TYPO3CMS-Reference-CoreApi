@@ -2,7 +2,7 @@
 
 ..  index::
     Tutorial Tea; Extension configuration
-..  _extbase_tutorial_tea_extension_configuration:
+..  _extbase-tutorial-tea-extension-configuration:
 
 ===================
 Create an extension

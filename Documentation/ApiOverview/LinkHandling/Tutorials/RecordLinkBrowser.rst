@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: LinkBrowser; record links
-..  _TableRecordLinkBrowserTutorials:
+..  _tablerecordlinkbrowsertutorials:
 
 =========================
 Browse records of a table
@@ -45,7 +45,7 @@ available:
 
 You can find all available options here:
 :ref:`RecordLinkHandler page TSconfig options
-<linkhandler-pagetsconfig_options>`.
+<linkhandler-pagetsconfig-options>`.
 
 When an editor now selects a haiku poem as link it will then be saved
 as `t3://record?identifier=haiku&uid=1` in backend link
@@ -69,4 +69,4 @@ parameters this plugin expects:
     :caption: EXT:examples/Configuration/TypoScript/RecordLinks/Haiku.typoscript
 
 You can find the available options here:
-:ref:`LinkHandler TypoScript options <linkhandler-typoscript_options>`.
+:ref:`LinkHandler TypoScript options <linkhandler-typoscript-options>`.

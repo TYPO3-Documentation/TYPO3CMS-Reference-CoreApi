@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; Conditions
-..  _sitehandling-inConditions:
+..  _sitehandling-inconditions:
 
 ======================================
 Using site configuration in conditions

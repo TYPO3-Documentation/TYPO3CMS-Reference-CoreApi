@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; TypoScript
-..  _sitehandling-inTypoScript:
+..  _sitehandling-intyposcript:
 
 ==========================================================
 Using site configuration in TypoScript and Fluid templates
@@ -44,7 +44,7 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
     While this sounds similar to using TypoScript constants, site configuration
     values may also be used from backend or CLI context as long as the rootPageId of a site is known.
 
-Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>` and as
+Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inconditions>` and as
 :ref:`TypoScript constants <sitehandling-settings>`.
 
 

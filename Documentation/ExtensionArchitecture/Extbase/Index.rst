@@ -7,7 +7,7 @@
 ..  _extbase-introduction:
 ..  _extbase-introduction-what-is:
 ..  _extbase-start-overview:
-..  _extbase_reference:
+..  _extbase-reference:
 
 =====================================
 Extbase: extension framework in TYPO3

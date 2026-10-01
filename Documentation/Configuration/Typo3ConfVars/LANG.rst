@@ -1,7 +1,7 @@
 ..  include:: /Includes.rst.txt
 
-..  _typo3ConfVars_sys_lang:
-..  _typo3ConfVars_lang:
+..  _typo3confvars-sys-lang:
+..  _typo3confvars-lang:
 
 =============================
 LANG - language configuration
@@ -12,7 +12,7 @@ LANG - language configuration
     :display: tree
     :type:
 
-..  _typo3ConfVars_sys_lang_requireApprovedLocalizations:
+..  _typo3confvars-sys-lang-requireapprovedlocalizations:
 
 ..  confval:: requireApprovedLocalizations
     :name: globals-typo3-conf-vars-sys-lang-requireApprovedLocalizations
@@ -79,7 +79,7 @@ format
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['format']`.
 
 
-..  _globals-typo3-conf-vars-lang-availableLocales:
+..  _globals-typo3-conf-vars-lang-availablelocales:
 
 availableLocales
 ----------------
@@ -94,7 +94,7 @@ availableLocales
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['lang']['availableLanguages']`.
 
 
-..  _globals-typo3-conf-vars-lang-resourceOverrides:
+..  _globals-typo3-conf-vars-lang-resourceoverrides:
 
 resourceOverrides
 -----------------

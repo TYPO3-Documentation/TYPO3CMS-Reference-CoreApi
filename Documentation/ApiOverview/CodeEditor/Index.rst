@@ -115,7 +115,7 @@ module
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
 
-..  _code-editor-register-addon-cssFiles:
+..  _code-editor-register-addon-cssfiles:
 
 cssFiles
 ~~~~~~~~

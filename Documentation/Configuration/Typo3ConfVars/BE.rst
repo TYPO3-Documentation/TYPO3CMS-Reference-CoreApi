@@ -2,7 +2,7 @@
 
 ..  index::
    TYPO3_CONF_VARS; BE
-..  _typo3ConfVars_be:
+..  _typo3confvars-be:
 
 ==========================
 BE - backend configuration
@@ -16,15 +16,15 @@ The following configuration variables can be used to configure the TYPO3 backend
 
     This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+    *   :ref:`config/system/settings.php <typo3confvars-settings>`
+    *   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-be
     :display: table
     :type:
 
-..  _typo3ConfVars_be_fileadminDir:
+..  _typo3confvars-be-fileadmindir:
 
 
 fileadminDir
@@ -41,7 +41,7 @@ fileadminDir
     Do not access manually but via
     :php:`\TYPO3\CMS\Core\Resource\StorageRepository::getDefaultStorage()`.
 
-..  _typo3ConfVars_be_lockBackendFile:
+..  _typo3confvars-be-lockbackendfile:
 
 
 lockBackendFile
@@ -57,7 +57,7 @@ lockBackendFile
     temporarily restricts backend access to prevent unauthorized
     changes or during critical updates.
 
-..  _typo3ConfVars_be_lockRootPath:
+..  _typo3confvars-be-lockrootpath:
 
 
 lockRootPath
@@ -82,7 +82,7 @@ lockRootPath
     ..  attention::
         Trailing slashes are enforced automatically.
 
-..  _typo3ConfVars_be_userHomePath:
+..  _typo3confvars-be-userhomepath:
 
 
 userHomePath
@@ -99,7 +99,7 @@ userHomePath
     :php:`[storageUid]:[folderIdentifier]`, for example, :php:`2:users/`.
     The home directory identifier of backend user 2 would be: :php:`2:users/2/`. End slash required!
 
-..  _typo3ConfVars_be_groupHomePath:
+..  _typo3confvars-be-grouphomepath:
 
 
 groupHomePath
@@ -116,7 +116,7 @@ groupHomePath
     :php:`[storageUid]:[folderIdentifier]`, for example, :php:`2:groups/`.
     The home directory identifier of backend group 1 would be: :php:`2:groups/1/`. End slash required!
 
-..  _typo3ConfVars_be_userUploadDir:
+..  _typo3confvars-be-useruploaddir:
 
 
 userUploadDir
@@ -132,7 +132,7 @@ userUploadDir
     For example, if the user dir is :file:`../123_user/`  and the suffix
     is :file:`/upload`  then :file:`../123_user/upload` will be mounted.
 
-..  _typo3ConfVars_be_warning_email_addr:
+..  _typo3confvars-be-warning-email-addr:
 
 
 warning_email_addr
@@ -152,7 +152,7 @@ warning_email_addr
     See also :ref:`security guidelines
     <security-global-typo3-options-warning-email-addr>`.
 
-..  _typo3ConfVars_be_warning_mode:
+..  _typo3confvars-be-warning-mode:
 
 
 warning_mode
@@ -176,7 +176,7 @@ warning_mode
     See also :ref:`security guidelines
     <security-global-typo3-options-warning-mode>`.
 
-..  _typo3ConfVars_be_passwordReset:
+..  _typo3confvars-be-passwordreset:
 
 
 passwordReset
@@ -193,7 +193,7 @@ passwordReset
 
     Password reset will still work via CLI and for admins in the backend.
 
-..  _typo3ConfVars_be_passwordResetForAdmins:
+..  _typo3confvars-be-passwordresetforadmins:
 
 
 passwordResetForAdmins
@@ -209,7 +209,7 @@ passwordResetForAdmins
     affect both backend login and CLI. Disable this option for
     increased security.
 
-..  _typo3ConfVars_be_requireMfa:
+..  _typo3confvars-be-requiremfa:
 
 
 requireMfa
@@ -236,7 +236,7 @@ requireMfa
     Define users that should be required to set up
     :ref:`multi-factor authentication <multi-factor-authentication>`.
 
-..  _typo3ConfVars_be_recommendedMfaProvider:
+..  _typo3confvars-be-recommendedmfaprovider:
 
 
 recommendedMfaProvider
@@ -252,7 +252,7 @@ recommendedMfaProvider
     :ref:`multi-factor authentication provider <multi-factor-authentication-included-providers>`.
     Recommended for all users.
 
-..  _typo3ConfVars_be_loginRateLimit:
+..  _typo3confvars-be-loginratelimit:
 
 
 loginRateLimit
@@ -265,11 +265,11 @@ loginRateLimit
     :default: 5
 
     Maximum amount of login attempts in time interval
-    :ref:`[BE][loginRateLimitInterval]<typo3ConfVars_be_loginRateLimitInterval>`
+    :ref:`[BE][loginRateLimitInterval]<typo3confvars-be-loginratelimitinterval>`
     before further login requests will be denied. Setting this value to
     `"0"` will disable login rate limiting.
 
-..  _typo3ConfVars_be_loginRateLimitInterval:
+..  _typo3confvars-be-loginratelimitinterval:
 
 
 loginRateLimitInterval
@@ -287,7 +287,7 @@ loginRateLimitInterval
     `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
     can be set in :file:`config/system/additional.php`.
 
-..  _typo3ConfVars_be_loginRateLimitIpExcludeList:
+..  _typo3confvars-be-loginratelimitipexcludelist:
 
 
 loginRateLimitIpExcludeList
@@ -300,10 +300,10 @@ loginRateLimitIpExcludeList
     :default: ''
 
     IP addresses (with :php:`*`-wildcards) that are excluded from rate limiting.
-    Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`.
+    Syntax similar to :ref:`[BE][IPmaskList]<typo3confvars-be-ipmasklist>`.
     An empty value disables the exclude list check.
 
-..  _typo3ConfVars_be_lockIP:
+..  _typo3confvars-be-lockip:
 
 
 lockIP
@@ -327,12 +327,12 @@ lockIP
     4:
         Use the editors full IPv4 address (for example "192.168.13.84") as part of the session locking of Backend Users (highest security)
 
-    Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3ConfVars_fe_lockIP>` for details.
+    Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3confvars-fe-lockip>` for details.
 
     See also :ref:`security guidelines
-    <security-global-typo3-options-lockIP>`.
+    <security-global-typo3-options-lockip>`.
 
-..  _typo3ConfVars_be_lockIPv6:
+..  _typo3confvars-be-lockipv6:
 
 
 lockIPv6
@@ -364,9 +364,9 @@ lockIPv6
     8:
         Use the editors full IPv6 address (for example "2001:0db8:85a3:08d3:1319:8a2e:0370:7344") as part of the session locking of Backend Users (highest security)
 
-    Session IPv6 locking for backend users. See :ref:`[FE][lockIPv6]<typo3ConfVars_fe_lockIPv6>` for details.
+    Session IPv6 locking for backend users. See :ref:`[FE][lockIPv6]<typo3confvars-fe-lockipv6>` for details.
 
-..  _typo3ConfVars_be_sessionTimeout:
+..  _typo3confvars-be-sessiontimeout:
 
 
 sessionTimeout
@@ -381,7 +381,7 @@ sessionTimeout
     Session timeout for backend users (in seconds). The value must be at least
     180 to avoid side effects. The default is 28800 seconds = 8 hours.
 
-..  _typo3ConfVars_be_IPmaskList:
+..  _typo3confvars-be-ipmasklist:
 
 
 IPmaskList
@@ -402,9 +402,9 @@ IPmaskList
     :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP())`
 
     See also :ref:`security guidelines
-    <security-global-typo3-options-IPmaskList>`.
+    <security-global-typo3-options-ipmasklist>`.
 
-..  _typo3ConfVars_be_lockSSL:
+..  _typo3confvars-be-lockssl:
 
 
 lockSSL
@@ -421,9 +421,9 @@ lockSSL
     they will be redirected to the SSL version of the URL.
 
     See also :ref:`security guidelines
-    <security-global-typo3-options-lockSSL>`.
+    <security-global-typo3-options-lockssl>`.
 
-..  _typo3ConfVars_be_lockSSLPort:
+..  _typo3confvars-be-locksslport:
 
 
 lockSSLPort
@@ -438,7 +438,7 @@ lockSSLPort
     Use a non-standard HTTPS port for lockSSL. Set this value if you use
     lockSSL and the HTTPS port of your webserver is not 443.
 
-..  _typo3ConfVars_be_cookieDomain:
+..  _typo3confvars-be-cookiedomain:
 
 
 cookieDomain
@@ -450,11 +450,11 @@ cookieDomain
     :type: text
     :default: ''
 
-    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
+    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3confvars-sys-cookiedomain>`
     but for BE cookies. If empty, the :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
-..  _typo3ConfVars_be_cookieName:
+..  _typo3confvars-be-cookiename:
 
 
 cookieName
@@ -468,7 +468,7 @@ cookieName
 
     Set the cookie name for the back-end user session.
 
-..  _typo3ConfVars_be_cookieSameSite:
+..  _typo3confvars-be-cookiesamesite:
 
 
 cookieSameSite
@@ -495,7 +495,7 @@ cookieSameSite
     Configures how cookies can be shared in the TYPO3 Backend (first-party
     cookies vs. third-party cookies)
 
-..  _typo3ConfVars_be_showRefreshLoginPopup:
+..  _typo3confvars-be-showrefreshloginpopup:
 
 
 showRefreshLoginPopup
@@ -512,7 +512,7 @@ showRefreshLoginPopup
     to the login form. If it is not set, the Ajax relogin will show an inline
     relogin window.
 
-..  _typo3ConfVars_be_adminOnly:
+..  _typo3confvars-be-adminonly:
 
 
 adminOnly
@@ -537,7 +537,7 @@ adminOnly
 
     Restricts access to the TYPO3 Backend. Useful when doing maintenance or updates.
 
-..  _typo3ConfVars_be_disable_exec_function:
+..  _typo3confvars-be-disable-exec-function:
 
 
 disable_exec_function
@@ -550,11 +550,11 @@ disable_exec_function
     :default: false
 
     Don't use exec() function (except for ImageMagick which is disabled by
-    :ref:`[GFX][processor_enabled] <typo3ConfVars_gfx_processor_enabled>` = false). If set, all file operations are done
+    :ref:`[GFX][processor_enabled] <typo3confvars-gfx-processor-enabled>` = false). If set, all file operations are done
     by the default PHP functions. This is necessary under Windows! On Unix
     system commands using exec() can be used, unless this is disabled.
 
-..  _typo3ConfVars_be_compressionLevel:
+..  _typo3confvars-be-compressionlevel:
 
 
 compressionLevel
@@ -572,7 +572,7 @@ compressionLevel
         See also: `Breaking: #107943 - Frontend and backend HTTP response
         compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
 
-..  _typo3ConfVars_be_installToolPassword:
+..  _typo3confvars-be-installtoolpassword:
 
 
 installToolPassword
@@ -593,7 +593,7 @@ installToolPassword
         <https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
         to change the install tool password.
 
-..  _typo3ConfVars_be_defaultPermissions:
+..  _typo3confvars-be-defaultpermissions:
 
 
 defaultPermissions
@@ -627,7 +627,7 @@ defaultPermissions
             'everybody' => 'show',
         ];
 
-..  _typo3ConfVars_be_defaultUC:
+..  _typo3confvars-be-defaultuc:
 
 
 defaultUC
@@ -653,7 +653,7 @@ defaultUC
     Visit the :ref:`setup <t3tsref:usersetup>` chapter of the User TSconfig guide for
     a list of available options.
 
-..  _typo3ConfVars_be_customPermOptions:
+..  _typo3confvars-be-custompermoptions:
 
 
 customPermOptions
@@ -673,7 +673,7 @@ customPermOptions
 
     Keys cannot contain any of the following characters: :php:`:|,`.
 
-..  _typo3ConfVars_be_fileDenyPattern:
+..  _typo3confvars-be-filedenypattern:
 
 
 fileDenyPattern
@@ -698,9 +698,9 @@ fileDenyPattern
     :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
 
     See also :ref:`security guidelines
-    <security-global-typo3-options-fileDenyPattern>`.
+    <security-global-typo3-options-filedenypattern>`.
 
-..  _typo3ConfVars_be_versionNumberInFilename:
+..  _typo3confvars-be-versionnumberinfilename:
 
 
 versionNumberInFilename
@@ -724,7 +724,7 @@ versionNumberInFilename
 
     If disabled, the last modification date of the file will be appended as a query-string.
 
-..  _typo3ConfVars_be_debug:
+..  _typo3confvars-be-debug:
 
 
 debug
@@ -740,7 +740,7 @@ debug
     mode. Also, fieldnames are appended to field labels. Use
     this to debug the backend only!
 
-..  _typo3ConfVars_be_HTTP:
+..  _typo3confvars-be-http:
 
 
 HTTP
@@ -772,12 +772,12 @@ HTTP
 
     ..  note::
         `Strict-Transport-Security` is only active if the option
-        :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][lockSSL] <typo3ConfVars_be_lockSSL>`
+        :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][lockSSL] <typo3confvars-be-lockssl>`
         is enabled.
 
 
 
-..  _globals-typo3-conf-vars-be-passwordHashing:
+..  _globals-typo3-conf-vars-be-passwordhashing:
 
 passwordHashing
 ---------------
@@ -819,7 +819,7 @@ passwordHashing
         :ref:`Available hash algorithms <password-hashing-available-algorithms>`
         for the different options.
 
-..  _typo3ConfVars_be_passwordPolicy:
+..  _typo3confvars-be-passwordpolicy:
 
 
 passwordPolicy
@@ -833,7 +833,7 @@ passwordPolicy
 
     Defines the :ref:`password policy <password-policies>` in the backend context.
 
-..  _typo3ConfVars_be_stylesheets:
+..  _typo3confvars-be-stylesheets:
 
 
 stylesheets
@@ -864,7 +864,7 @@ stylesheets
         $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['my_extension']
             = 'EXT:my_extension/Resources/Public/Css/';
 
-..  _typo3ConfVars_be_contentSecurityPolicyReportingUrl:
+..  _typo3confvars-be-contentsecuritypolicyreportingurl:
 
 
 contentSecurityPolicyReportingUrl
@@ -903,7 +903,7 @@ contentSecurityPolicyReportingUrl
     Use :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl'] <t3coreapi:confval-typo3-conf-vars-fe-contentsecuritypolicyreportingurl>`
     to configure Content Security Policy reporting for the frontend.
 
-..  _typo3ConfVars_be_entryPoint:
+..  _typo3confvars-be-entrypoint:
 
 
 entryPoint
@@ -928,7 +928,7 @@ entryPoint
         :ref:`Backend entry point <backend-entry-point>`
 
 
-..  _globals-typo3-conf-vars-be-installToolSessionHandler:
+..  _globals-typo3-conf-vars-be-installtoolsessionhandler:
 
 installToolSessionHandler
 -------------------------

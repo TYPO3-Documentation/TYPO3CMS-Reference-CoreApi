@@ -8,8 +8,8 @@
 Example configuration of backend user groups
 ============================================
 
-How backend user groups can be :ref:`categorized <_available-acl-options>`,
-and organized using :ref:`naming conventions <_naming-convention>`
+How backend user groups can be :ref:`categorized <available-acl-options>`,
+and organized using :ref:`naming conventions <naming-convention>`
 to distinguish their purpose or context as well as following best practice
 and more advanced examples of group structures for projects with a single or multisite setup
 are discussed.
@@ -39,8 +39,8 @@ The following conditions should be met:
 * The Survey Manager role does not need access to any system categories
 
 With these requirements in mind, the backend groups structure can be planned.
-Following best practice of having :ref:`System Groups <_system-groups>`
-and :ref:`Access Control List Groups <_acl-groups>`, it could look like this:
+Following best practice of having :ref:`System Groups <system-groups>`
+and :ref:`Access Control List Groups <acl-groups>`, it could look like this:
 
 ..  uml:: _backend-groups-simple-project.plantuml
     :align: center
@@ -65,7 +65,7 @@ Backend group structure for a multi-site project
 ================================================
 
 When creating backend user groups for a multi-site project, the approach is
-the same as that of smaller, :ref:`single-site projects <_single-site-structure>`.
+the same as that of smaller, :ref:`single-site projects <single-site-structure>`.
 Adhering to recommended best practice from the start simplifies building the website
 and prepares for a more advanced setup.
 

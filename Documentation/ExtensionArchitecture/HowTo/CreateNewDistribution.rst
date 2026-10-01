@@ -11,7 +11,7 @@ Creating a new distribution
 This chapter describes the main steps in creating a new distribution.
 
 
-..  _distribution_concept:
+..  _distribution-concept:
 
 Concept of distributions
 ========================

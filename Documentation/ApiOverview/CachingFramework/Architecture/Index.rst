@@ -252,8 +252,8 @@ The following caches exist in the TYPO3 Core:
     **group**: system
 
     *   Cache for the `Symfony rate limiter`_ component (for example, used for
-        :ref:`backend <typo3ConfVars_be_loginRateLimit>` or
-        :ref:`frontend <typo3ConfVars_fe_loginRateLimit>` login rate limiting).
+        :ref:`backend <typo3confvars-be-loginratelimit>` or
+        :ref:`frontend <typo3confvars-fe-loginratelimit>` login rate limiting).
 
 ..  _Symfony rate limiter: https://symfony.com/doc/current/rate_limiter.html
 

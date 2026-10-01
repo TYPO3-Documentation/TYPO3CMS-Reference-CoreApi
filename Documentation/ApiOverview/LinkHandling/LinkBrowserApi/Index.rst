@@ -1,7 +1,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: LinkBrowser
 ..  _linkbrowser-api:
-..  _LinkBrowser:
+..  _linkbrowser:
 
 =================
 `LinkBrowser` API
@@ -25,7 +25,7 @@ Here is an example for a custom link handler in the link browser:
 
 In most use cases, you can use one of the link handlers provided by the Core.
 For an example, see :ref:`Tutorial: Custom record link
-browser <TableRecordLinkBrowserTutorials>`.
+browser <tablerecordlinkbrowsertutorials>`.
 
 If no link handler is available to deal with your link type, you can create
 a custom link handler. See :ref:`Tutorial: Create a custom link
