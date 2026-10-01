@@ -75,9 +75,9 @@ option for relative or absolute paths.
 
 "Relative" means that the given path is relative to the :file:`fileadmin/`
 folder (or whatever other folder was configured using
-:code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 Absolute paths are full paths starting at the root of the file system
-(i.e. :code:`/` on Unix systems).
+(i.e. `/` on Unix systems).
 
 ..  attention::
 
@@ -90,16 +90,17 @@ Absolute paths are full paths starting at the root of the file system
 
 Absolute paths outside of the web root
 must be explicitly declared in the global configuration option
-:code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`. Any absolute
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`. Any absolute
 path that you want to declare in a file storage needs to have its
-first part match the value of :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`
-(or of the web root, which can be retrieved with :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`).
+first part match the value of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`
+(or of the web root, which can be retrieved with
+:php-short:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`).
 
 As an example, let's say you want to define two storages, one
 pointing to :file:`/home/foo/bar` and one pointing to
 :file:`/home/foo/baz`. You could declare
-:code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']` to be
-equal to :code:`/home/foo/`.
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']` to be
+equal to `/home/foo/`.
 
 ..  index::
     TYPO3_CONF_VARS; BE userHomePath
@@ -125,8 +126,8 @@ directory to be present.
 
 
 The parent directory of user/group home directories is defined by
-:code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']` and
-:code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']` and
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']`
 respectively. Let's say we define the following:
 
 ..  code-block:: php
@@ -134,7 +135,7 @@ respectively. Let's say we define the following:
     $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath'] = '1:user_homes/';
 
 
-The first part of the definition (before the colon :code:`:`) is
+The first part of the definition (before the colon `:`) is
 the id of a file storage. The second part is a path relative to
 that file storage. Assuming file storage with a uid of "1" is the
 default one pointing to :file:`fileadmin/`, the following path
@@ -173,9 +174,9 @@ A different icon visually distinguishes automatic file mounts.
 
 ..  note::
 
-    If the :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']` option is
+    If the :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']` option is
     also used, it is appended to the user home directory name. Thus a value
-    of :code:`_uploads` would mean that our home directories become
+    of `_uploads` would mean that our home directories become
     :file:`/path/to/web/root/fileadmin/user_homes/3_uploads/`
     or :file:`/path/to/web/root/fileadmin/user_homes/3_editor_uploads/`.
 

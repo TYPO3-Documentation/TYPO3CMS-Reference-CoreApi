@@ -19,7 +19,7 @@ given service type:
 
 In this example a service of type "textLang" is requested. If such a
 service is indeed available an object will be returned. Then the
-:code:`guessLanguage()` - which would be part of the "textLang" service
+`guessLanguage()` - which would be part of the "textLang" service
 type public API - is called.
 
 There's no certainty that an object will be returned, for a number of

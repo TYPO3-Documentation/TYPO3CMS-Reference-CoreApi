@@ -25,7 +25,7 @@ services:
 addService
   This method is used to register services with TYPO3 CMS. It checks for
   availability of a service with regards to OS dependency (if any) and
-  fills the :code:`$GLOBALS['T3_SERVICES']` array, where information
+  fills the :php:`$GLOBALS['T3_SERVICES']` array, where information
   about all registered services is kept.
 
 findService
@@ -34,13 +34,13 @@ findService
   availability based on executables dependencies, if any.
 
   This method is normally called by
-  :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService()`,
+  :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstanceService()`,
   so you shouldn't have to worry about calling it directly, but it can be useful to check if
   there's at least one service available.
 
 deactivateService
   Marks a service as unavailable. It is called internally by
-  :code:`addService()` and :code:`findService()` and should probably not
+  `addService()` and `findService()` and should probably not
   be called directly unless you're sure of what you're doing.
 
 
@@ -57,7 +57,8 @@ useful one, used to get an instance of a service.
 
 makeInstanceService
   This method is used to get an instance of a service class of a given
-  type and subtype. It calls on :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::findService()`
+  type and subtype. It calls on
+  :php-short:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::findService()`
   to find the best possible service (in terms of priority and quality).
 
   As described above it keeps a registry of all instantiated service

@@ -25,7 +25,7 @@ A basic call looks like this:
     $formData = $formDataCompiler->compile($formDataCompilerInput, $formDataGroup);
 
 The above code is a simplified version of the relevant part of the :php:`EditDocumentController`. This controller
-knows by its :code:`GET` or :code:`POST` parameters which record ("vanillaUid") of which specific table ("tableName")
+knows by its `GET` or `POST` parameters which record ("vanillaUid") of which specific table ("tableName")
 should be edited (command="edit") or created (command="new"), and sets this as init data to the DataCompiler. The
 controller also knows that it should render a full database record and not only parts of it, so it uses the
 :php:`TcaDatabaseRecord` data provider group to trigger all data providers relevant for this case. By calling :php:`->compile()`
@@ -54,7 +54,7 @@ The variable :php:`$formData` roughly consists of this data after calling :php:`
 
 *   A list of relevant localizations.
 
-*   Information of expanded :code:`inline` record details if needed.
+*   Information of expanded `inline` record details if needed.
 
 *   Resolved flex form data structures and data.
 

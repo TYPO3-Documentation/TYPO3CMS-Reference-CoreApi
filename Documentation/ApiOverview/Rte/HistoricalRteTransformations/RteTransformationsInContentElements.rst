@@ -27,7 +27,7 @@ In order to understand this, here is an outline of what typically
 happens with the content of the two Text-types when rendered by
 TypoScript for frontend display:
 
-#. All line breaks are converted to :code:`<br />` codes.
+#. All line breaks are converted to :html:`<br />` codes.
 
    (Doing this enables us to edit the text in the field rather naturally
    in the backend because line breaks in the edit field comes out as line
@@ -39,20 +39,20 @@ TypoScript for frontend display:
    (This is a quick way to insert links to URLs and email address)
 
 #. The text is parsed for special tags, so called 'typotags', configured
-   in TypoScript. The default typotags tags are :code:`<LINK>` (making links),
-   :code:`<TYPOLIST>` (making bulletlists), :code:`<TYPOHEAD>` (making headlines) and
-   :code:`<TYPOCODE>` (making monospaced formatting).
+   in TypoScript. The default typotags tags are `<LINK>` (making links),
+   `<TYPOLIST>` (making bulletlists), `<TYPOHEAD>` (making headlines) and
+   `<TYPOCODE>` (making monospaced formatting).
 
-   (The :code:`<LINK>` tag is used to create links between pages inside TYPO3.
+   (The `<LINK>` tag is used to create links between pages inside TYPO3.
    Target and additional parameters are automatically added which makes
-   it a very easy way to make sure, links are correct. :code:`<TYPOLIST>` renders
+   it a very easy way to make sure, links are correct. `<TYPOLIST>` renders
    each line between the start and end tag as a line in a bulletlist,
    formatted like the content element type 'Bulletlist' would be. This
    would typically result in a bulletlist placed in a table and not using
-   the bullet-list tags from HTML. :code:`<TYPOHEAD>` would display the tag
+   the bullet-list tags from HTML. `<TYPOHEAD>` would display the tag
    content as a headline. The type-parameter allows to select between the
    five default layout types of content element headlines. This might
-   include graphical headers. :code:`<TYPOCODE>` is not converted).
+   include graphical headers. `<TYPOCODE>` is not converted).
 
 #. All other 'tags' found in the content are converted to regular text
    (with htmlspecialchars) unless the tag is found in the 'allowTags'
@@ -69,7 +69,7 @@ TypoScript for frontend display:
    page is linked to from a search result page.)
 
 #. And finally the result of this processing may be wrapped in
-   :code:`<font>`-tags, :code:`<p>`-tags or whatever is configured. This depends on
+   :html:`<font>`-tags, :html:`<p>`-tags or whatever is configured. This depends on
    whether a stylesheet is used or not. If a stylesheet is used the
    individual sections between the typotags are usually wrapped
    separately.
@@ -79,13 +79,13 @@ describes how the situation is handled regarding the two Text-types as
 mentioned above. (Numbers refer to the previous bulletlist):
 
 #. Line breaks: The RTE removes all line breaks and makes line breaks
-   itself by either inserting a :code:`<P>...</P>` section or :code:`<DIV>...</DIV>`.
-   This means we'll have to convert existing lines to :code:`<P>...</P>` before
-   passing the content to the RTE and further we need to revert the :code:`<DIV>`
-   and :code:`<P>` sections in addition to the :code:`<BR>`-tagsto line breaks when the
+   itself by either inserting a :html:`<P>...</P>` section or :html:`<DIV>...</DIV>`.
+   This means we'll have to convert existing lines to :html:`<P>...</P>` before
+   passing the content to the RTE and further we need to revert the :html:`<DIV>`
+   and :html:`<P>` sections in addition to the :html:`<BR>`-tagsto line breaks when the
    content is returned to the database from the RTE.
 
-   The greatest challenge here is however what to do if a :code:`<DIV>` or :code:`<P>`
+   The greatest challenge here is however what to do if a :html:`<DIV>` or :html:`<P>`
    tag has parameters like 'class' or 'align'. In that case we can't just
    discard the tag. So the tag is preserved.
 
@@ -95,21 +95,21 @@ mentioned above. (Numbers refer to the previous bulletlist):
 #. "Typotags": The typotags are not real HTML tags so they would be
    removed by the RTE. Therefore those tags must be converted into
    something else. This is actually an opportunity and the solution to
-   the problem is that all :code:`<LINK>`-tags are converted into regular
-   :code:`<A>`-tags, all :code:`<TYPOLIST>` tags are converted into :code:`<OL>` or :code:`<UL>` sections
+   the problem is that all `<LINK>`-tags are converted into regular
+   :html:`<A>`-tags, all `<TYPOLIST>` tags are converted into :html:`<OL>` or :html:`<UL>` sections
    (ordered/unordered lists, type depends on the type set for the
-   :code:`<TYPOLIST>` tag!), :code:`<TYPOHEAD>`-tags are converted to <Hx> tags where the
-   number is determined by the type-parameter set for the :code:`<TYPOHEAD>`-tag.
+   `<TYPOLIST>` tag!), `<TYPOHEAD>`-tags are converted to <Hx> tags where the
+   number is determined by the type-parameter set for the `<TYPOHEAD>`-tag.
    The align/class-parameter - if set - is also preserved. When the HTML-
    tags are returned to the database they need to be reverted to the
    specific typotags.
 
    Other typotags (non-standard) can be preserved by being converted to a
-   :code:`<SPAN>`-section and back. This must be configured through Page
+   :html:`<SPAN>`-section and back. This must be configured through Page
    TSconfig.
 
    (Update: With "css\_styled\_content" and the transformation "ts\_css"
-   only the :code:`<link>` typotag is left. The :code:`<typolist>` and :code:`<typohead>` tags
+   only the `<link>` typotag is left. The `<typolist>` and `<typohead>` tags
    are obsolete and regular HTML is used instead)
 
 #. Allowed tags: As not all tags are allowed in the display on the
@@ -145,7 +145,7 @@ Conclusion
 ==========
 
 These actions are done by so called *transformations* which are
-configured in the :code:`$TCA`. Basically these transformations are admittedly
+configured in the `$TCA`. Basically these transformations are admittedly
 very customized to the default behavior of the TYPO3 frontend. And
 they are by nature "fragile" constructions because the content is
 transformed back and forth for each interaction between the RTE and

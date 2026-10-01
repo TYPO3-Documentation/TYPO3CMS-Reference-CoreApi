@@ -12,7 +12,7 @@ above there were mentions of the "auth" and "metaExtract" service types.
 
 Each service type will implement its own API corresponding to the task
 it is designed to handle. For example the "auth" service type requires
-the two methods :code:`getUser()` and :code:`authUser()`. If you
+the two methods `getUser()` and `authUser()`. If you
 introduce a new service type you should think well about its API
 before starting development. Ideally you should discuss with other
 developers. Services are meant to be reusable. A badly designed

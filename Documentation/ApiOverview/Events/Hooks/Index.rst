@@ -41,14 +41,14 @@ user function can take additional actions as needed.
 The class has to follow the PSR-4 class name scheme to be available in
 :ref:`autoloading <autoloading_classes>`.
 
-If we take a look inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
+If we take a look inside of :php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
 find the hook to be activated like this:
 
 ..  literalinclude:: _DataHandler.php
-    :caption: :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` (excerpt)
+    :caption: :php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler` (excerpt)
 
 This is how hooks are typically constructed. The main action happens in line 5
-where the function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
+where the function :php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
 is called. The user function is called with two arguments, an array with
 variable parameters and the parent object.
 
@@ -136,7 +136,7 @@ naming scheme should be used:
     pair: Hooks; Extensions
 ..  _hooks-extensions:
 
-`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']`
 ----------------------------------------
 
 **Configuration space for third-party extensions.**
@@ -174,7 +174,7 @@ particular extension.
     pair: Hooks; Core
 ..  _hooks-core:
 
-`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']`
 ===========================================
 
 **Configuration space for Core extensions.**

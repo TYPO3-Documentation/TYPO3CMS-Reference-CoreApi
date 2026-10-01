@@ -31,7 +31,7 @@ file. Let's look at what is inside.
     :caption: EXT:my_extension/ext_localconf.php
 
 A service is registered with TYPO3 CMS by calling
-:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService()`.
+:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService()`.
 This method takes the following parameters:
 
 $extKey
@@ -86,7 +86,7 @@ $info
         be performed when the service is requested and the service class is
         initialized.
 
-        Defaults to :code:`true`.
+        Defaults to `true`.
 
     priority
         (integer) The priority of the service. A service of higher priority will be
@@ -138,7 +138,7 @@ $info
     exec
         (string / comma-separated list) List of external programs which are needed to run the service.
         Absolute paths are allowed but not recommended, because the programs
-        are searched for automatically by :code:`\TYPO3\CMS\Core\Utility\CommandUtility`.
+        are searched for automatically by :php-short:`\TYPO3\CMS\Core\Utility\CommandUtility`.
         Leave empty if no external programs are needed.
 
         **Examples:**

@@ -80,7 +80,7 @@ Typical cases for exceptions that should not be caught
 ------------------------------------------------------
 
 *   Wrong configuration: A :ref:`FlexForm <FlexForms>` contains a
-    :code:`type=inline` field. At the time of this writing, this case was not
+    `type=inline` field. At the time of this writing, this case was not
     implemented, so the code checks for this case and throws a top-level PHP
     built-in exception (:php:`\RuntimeException` in this case) to point
     developers to an invalid configuration scenario.
@@ -113,7 +113,7 @@ The standard exception signature:
 TYPO3 typically uses a meaningful exception message and a unique code.
 Uniqueness of :php:`$code` is created by using a Unix timestamp of :php:`now`
 (the time when the exception is created): This can be easily created,
-for instance using the trivial shell command :code:`date +%s`. The resulting
+for instance using the trivial shell command `date +%s`. The resulting
 number of this command should be directly used as the exception code and never
 changed again.
 

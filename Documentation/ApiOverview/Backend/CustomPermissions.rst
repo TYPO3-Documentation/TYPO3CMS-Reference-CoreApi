@@ -50,11 +50,11 @@ function from the user object:
 
     $GLOBALS['BE_USER']->check('custom_options', $catKey . ':' . $itemKey);
 
-:code:`$catKey` is the category in which the option resides. From the example
-above this would be :code:`tx_styleguide_custom`.
+`$catKey` is the category in which the option resides. From the example
+above this would be `tx_styleguide_custom`.
 
-:code:`$itemKey` is the key of the item in the category you are evaluating.
-From the example above this could be :code:`key1`, :code:`key2` or :code:`key3`
+`$itemKey` is the key of the item in the category you are evaluating.
+From the example above this could be `key1`, `key2` or `key3`
 depending on which one of them you want to evaluate.
 
 The function returns true if the option is set, otherwise false.
@@ -65,7 +65,7 @@ The function returns true if the option is set, otherwise false.
 Keys for options
 ================
 
-It is good practice to use the extension keys prefixed with :code:`tx_` on
+It is good practice to use the extension keys prefixed with `tx_` on
 the first level of the array to avoid potential conflicts with other
 custom options.
 
