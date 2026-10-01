@@ -30,7 +30,7 @@ File names
 
 The file name describes the functionality included in the file. It
 consists of one or more nouns, written in UpperCamelCase. For example
-in the :code:`frontend` system extension there is the file
+in the `frontend` system extension there is the file
 :file:`ContentObject/ContentObjectRenderer.php`.
 
 It is recommended to use only PHP classes and avoid non-class files.
@@ -40,7 +40,7 @@ Files that contain PHP interfaces must have the file name end on
 
 One file can contain only one class or interface.
 
-Extension for PHP files is always :code:`php`.
+Extension for PHP files is always `php`.
 
 
 ..  _cgl-general-requirements-for-php-files-php-tags:

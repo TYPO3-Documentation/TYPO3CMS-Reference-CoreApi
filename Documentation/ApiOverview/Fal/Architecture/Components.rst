@@ -43,8 +43,8 @@ A file may be referenced by its uid in the :ref:`sys_file table <fal-architectur
 but is often referred to by its identifier, which is the path to the
 file from the root of the storage the file belongs to. The
 **combined identifier** includes the file's identifier prepended
-by the storage's uid and a colon (:code:`:`). Example:
-:code:`1:/path/to/file/filename.foo`.
+by the storage's uid and a colon (`:`). Example:
+`1:/path/to/file/filename.foo`.
 
 
 ..  index:: File abstraction layer; File reference

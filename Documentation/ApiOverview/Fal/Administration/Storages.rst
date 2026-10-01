@@ -25,7 +25,7 @@ Is publicly available?
     When this box is unchecked, the :php:`publicUrl` property of files is
     replaced by an eID call pointing to a file dumping script provided
     by the TYPO3 Core. The public URL looks something like
-    :code:`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
+    `index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
     Behind the scenes, the class :php:`\TYPO3\CMS\Core\Controller\FileDumpController`
     is invoked to manage the download. The class itself does not implement
     any access checks, but provides the PSR-14 event

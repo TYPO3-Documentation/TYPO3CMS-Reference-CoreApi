@@ -53,7 +53,7 @@ inside extensions. The most important classes are:
     This class models the static file collection. It is important to note
     that collections returned by the repository (described above) are "empty".
     If you need to access their records, you need to load them first, using
-    method :code:`loadContents()`. On top of some specific API methods,
+    method `loadContents()`. On top of some specific API methods,
     this class includes all setters and getters that you may need to access
     the collection's data. For accessing the selected files, just loop
     on the collection (see example).

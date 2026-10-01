@@ -44,7 +44,7 @@ problems can appear with old extensions;
 -  First of all the "Live workspace" is no different from how TYPO3 has
    been working for years so that will be supported out of the box
    (except placeholder records must be filtered out in the frontend with
-   :code:`t3ver_state !=` , see below).
+   `t3ver_state !=` , see below).
 
 -  Secondly, all permission related issues are implemented in DataHandler so
    the worst your users can experience is an error message.
@@ -70,7 +70,8 @@ The most basic form of a preview is when a live record is selected and
 you lookup a future version of that record belonging to the current
 workspace of the logged in backend user. This is very easy as long as
 a record is selected based on its "uid" or "pid" fields which are not
-subject to versioning: call :code:`sys_page->versionOL()` after
+subject to versioning: call
+:php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` after
 record selection.
 
 However, when other fields are involved in the where clause it gets
@@ -80,7 +81,9 @@ configuration! What if the future version is hidden and the live
 version is not? Since the live version is selected first (not hidden)
 and then overlaid with the content of the future version (hidden) the
 effect of the hidden field we wanted to preview is lost unless we also
-check the overlaid record for its hidden field (:code:`->versionOL()` actually
+check the overlaid record for its hidden field
+(:php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()`
+actually
 does this). But what about the opposite; if the live record was hidden
 and the future version not? Since the live version is never selected
 the future version will never have a chance to display itself! So we
@@ -90,7 +93,7 @@ and if so exclude it. The same problem applies to all other
 "enableFields", future versions with "delete" flags and current
 versions which are invisible placeholders for future records. Anyway,
 all that is handled by the
-:code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` class which includes
+:php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` class which includes
 functions for "enableFields" and "deleted" so it will work out of the
 box for you. But as soon as you do selection based on other fields
 like email, username, alias etc. it will fail.
@@ -102,10 +105,10 @@ Summary
 
 **Challenge:** How to preview elements which are disabled by
 "enableFields" in the live version but not necessarily in the offline
-version. Also, how to filter out new live records with :code:`t3ver_state`
+version. Also, how to filter out new live records with `t3ver_state`
 set to 1 (placeholder for new elements) but only when not previewed.
 
-**Solution:** Disable check for :code:`enableFields`/:code:`where_del_hidden` on
+**Solution:** Disable check for `enableFields`/`where_del_hidden` on
 live records and check for them in versionOL on input record.
 
 
@@ -115,12 +118,12 @@ Frontend implementation guidelines
 ==================================
 
 Any place where enableFields() are not used for selecting in the
-frontend you must at least check that :code:`t3ver_state != 1` so
+frontend you must at least check that `t3ver_state != 1` so
 placeholders for new records are not displayed.
 
 If you need to detect preview mode for versioning and workspaces you
 can use the Context object.
-:code:`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
+`GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('workspace', 'id', 0);`
 gives you the id of the workspace of the current backend user. Used
 for preview of workspaces.
 
@@ -162,10 +165,12 @@ frontend:
            // ...
        }
 
-   When the live record is selected, call :code:`->versionOL()` and make
+   When the live record is selected, call
+   :php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()`
+   and make
    sure to check if the input row (passed by reference) is still an array.
 
-   The third argument, :code:`$unsetMovePointers = FALSE`, can be set to
+   The third argument, `$unsetMovePointers = FALSE`, can be set to
    TRUE when selecting records for display ordered by their position in
    the page tree. Difficult to explain easily, so only use this option if you
    don't get a correct preview of records that has been moved in a
@@ -185,7 +190,7 @@ These issues are not planned to be supported for preview:
 
    -  This problem can largely be avoided for  *versions of new records*
       because versions of a "New"-placeholder can mirror certain fields down
-      onto the placeholder record. For the :code:`tt_content` table this is
+      onto the placeholder record. For the `tt_content` table this is
       configured as:
 
       :php:`shadowColumnsForNewPlaceholders'=> 'sys_language_uid,l18n_parent,colPos,header'`
@@ -200,15 +205,16 @@ These issues are not planned to be supported for preview:
 
    -  When changing the type of a page (e.g. from "Standard" to "External
       URL") the preview might fail in cases where a look up is done on the
-      :code:`doktype` field of the live record.
+      `doktype` field of the live record.
 
       -  Page shortcuts might not work properly in preview.
 
       -  Mount Points might not work properly in preview.
 
--  It is impossible to preview the value of :code:`count(*)` selections since
+-  It is impossible to preview the value of `count(*)` selections since
    we would have to traverse all records and pass them through
-   :php:`->versionOL()` before we would have a reliable result!
+   :php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()`
+   before we would have a reliable result!
 
 -  In :php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
    :php:`PageRepository->getMenu()` is called with an
@@ -500,9 +506,9 @@ Scenario: create new page
     41,**30**,0,128,1,0,**1**,0,0,Topic #1 new
     42,-1,0,128,1,**41**,**-1**,0,0,Topic #2 new
 
-* record :code:`uid = 41` defines :code:`sorting` insertion point page :code:`pid = 30` in live workspace, :code:`t3ver_state = 1`
-* record :code:`uid = 42` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 41`,
-  indicating new version state :code:`t3ver_state = -1`
+* record `uid = 41` defines `sorting` insertion point page `pid = 30` in live workspace, `t3ver_state = 1`
+* record `uid = 42` contains actual version information, pointing back to new placeholder, `t3ver_oid = 41`,
+  indicating new version state `t3ver_state = -1`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-modify-record:
 
@@ -518,8 +524,8 @@ Scenario: modify record
     ...,...,...,...,...,...,...,...,...,...,...
     21,-1,0,128,1,**11**,0,0,0,Article #1 modified
 
-* record :code:`uid = 21` contains actual version information, pointing back to live pendant, :code:`t3ver_oid = 11`,
-  using default version state :code:`t3ver_state = 0`
+* record `uid = 21` contains actual version information, pointing back to live pendant, `t3ver_oid = 11`,
+  using default version state `t3ver_state = 0`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-delete-record:
 
@@ -535,7 +541,7 @@ Scenario: delete record
     ...,...,...,...,...,...,...,...,...,...,...
     22,-1,0,256,1,**12**,**2**,0,0,Article #2 deleted
 
-* record :code:`uid = 22` represents delete placeholder :code:`t3ver_state = 2`, pointing back to live pendant, :code:`t3ver_oid = 12`
+* record `uid = 22` represents delete placeholder `t3ver_state = 2`, pointing back to live pendant, `t3ver_oid = 12`
 
 
 ..  _scenario-create-new-record-on-existing-page:
@@ -552,9 +558,9 @@ Scenario: create new record on existing page
     25,**20**,0,512,1,0,**1**,0,0,Article #4 new
     26,-1,0,512,1,**25**,**-1**,0,0,Article #4 new
 
-* record :code:`uid = 25` defines :code:`sorting` insertion point on page :code:`pid = 20` in live workspace, :code:`t3ver_state = 1`
-* record :code:`uid = 26` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 25`,
-  indicating new version state :code:`t3ver_state = -1`
+* record `uid = 25` defines `sorting` insertion point on page `pid = 20` in live workspace, `t3ver_state = 1`
+* record `uid = 26` contains actual version information, pointing back to new placeholder, `t3ver_oid = 25`,
+  indicating new version state `t3ver_state = -1`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-2:
 
@@ -570,10 +576,10 @@ Scenario: create new record on page that is new in workspace
     29,**41**,0,128,1,0,**1**,0,0,Topic #1 Article new
     30,-1,0,128,1,**29**,**-1**,0,0,Topic #1 Article new
 
-* record :code:`uid = 29` defines :code:`sorting` insertion point on page :code:`pid = 41` in live workspace, :code:`t3ver_state = 1`
-* record :code:`uid = 30` contains actual version information, pointing back to new placeholder, :code:`t3ver_oid = 29`,
-  indicating new version state :code:`t3ver_state = -1`
-* side-note: :code:`pid = 41` points to new placeholder of a page that has been created in workspace
+* record `uid = 29` defines `sorting` insertion point on page `pid = 41` in live workspace, `t3ver_state = 1`
+* record `uid = 30` contains actual version information, pointing back to new placeholder, `t3ver_oid = 29`,
+  indicating new version state `t3ver_state = -1`
+* side-note: `pid = 41` points to new placeholder of a page that has been created in workspace
 
 ..  _scenario-discard-record-workspace-modifications:
 
@@ -589,11 +595,11 @@ Scenario: discard record workspace modifications
     27,20,**1**,640,**0**,0,1,0,0,Article #5 discarded
     28,-1,**1**,640,**0**,27,-1,0,0,Article #5 discarded
 
-* previously records :code:`uid = 27` and :code:`uid = 28` have been created in workspace
+* previously records `uid = 27` and `uid = 28` have been created in workspace
   (similar to
   :ref:`Scenario: create new record on existing page
   <scenario-create-new-record-on-existing-page>`)
-* both records represent the discarded state by having assigned :code:`deleted = 1` and :code:`t3ver_wsid = 0`
+* both records represent the discarded state by having assigned `deleted = 1` and `t3ver_wsid = 0`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-3:
 
@@ -613,10 +619,10 @@ Scenario: create new record localization
     34,-1,0,224,1,33,-1,**11**,**2**,Beitrag #1 (de)
 
 * *principles of creating new records with according placeholders applies in this scenario*
-* records :code:`uid = 31` and :code:`uid = 32` represent localization to French :code:`sys_language_uid = 1`,
-  pointing back to their localization origin :code:`l10n_parent = 11`
-* records :code:`uid = 33` and :code:`uid = 34` represent localization to German :code:`sys_language_uid = 2`,
-  pointing back to their localization origin :code:`l10n_parent = 11`
+* records `uid = 31` and `uid = 32` represent localization to French `sys_language_uid = 1`,
+  pointing back to their localization origin `l10n_parent = 11`
+* records `uid = 33` and `uid = 34` represent localization to German `sys_language_uid = 2`,
+  pointing back to their localization origin `l10n_parent = 11`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-4:
 
@@ -632,13 +638,13 @@ Scenario: create new record, then move to different page
     25,**30**,0,512,1,0,1,0,0,Article #4 new & moved
     26,-1,0,512,1,25,-1,0,0,Article #4 new & moved
 
-* previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
+* previously records `uid = 25` and `uid = 26` have been created in workspace
   (exactly like in
   :ref:`Scenario: create new record on existing page
   <scenario-create-new-record-on-existing-page>`),
-  then record :code:`uid = 25` has been moved to target target page
-  :code:`pid = 30`
-* record :code:`uid = 25` directly uses target page :code:`pid = 30`
+  then record `uid = 25` has been moved to target target page
+  `pid = 30`
+* record `uid = 25` directly uses target page `pid = 30`
 
 ..  _workspaces-persistence-depth-scenarios-scenario-create-new-5:
 
@@ -654,12 +660,12 @@ Scenario: create new record, then delete
     25,20,**1**,512,**0**,0,1,0,0,Article #4 new & deleted
     26,-1,**1**,512,**0**,25,-1,0,0,Article #4 new & deleted
 
-* previously records :code:`uid = 25` and :code:`uid = 26` have been created in workspace
+* previously records `uid = 25` and `uid = 26` have been created in workspace
   (exactly like in
   :ref:`Scenario: create new record on existing page
   <scenario-create-new-record-on-existing-page>`),
-  then record :code:`uid = 25` has been deleted
-* records :code:`uid = 25` and :code:`uid = 26` are directly discarded in workspace
+  then record `uid = 25` has been deleted
+* records `uid = 25` and `uid = 26` are directly discarded in workspace
   (similar to
   :ref:`Discarding workspace modifications of a record
   <scenario-discard-record-workspace-modifications>`)

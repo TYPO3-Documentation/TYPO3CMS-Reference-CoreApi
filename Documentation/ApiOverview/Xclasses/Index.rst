@@ -40,7 +40,7 @@ How does it work?
 
 In general every class instance in the Core and in extensions that sticks to
 the recommended :ref:`coding guidelines <cgl>` is created with the API call
-:code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
+:php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
 This method takes care of singletons and also searches for existing XCLASSes.
 If there is an XCLASS registered for the specific class that should be instantiated,
 an instance of that XCLASS is returned instead of an instance of the original class.
@@ -77,7 +77,7 @@ Limitations
 Declaration
 ===========
 
-The :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` global array acts as a registry
+The :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects']` global array acts as a registry
 of overloaded (XCLASSed) classes.
 
 The syntax is as follows and is commonly located in an extension's
@@ -86,8 +86,9 @@ The syntax is as follows and is commonly located in an extension's
 ..  literalinclude:: _ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php
 
-In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
-will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`
+In this example, we declare that the
+:php-short:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
+will be overridden by the :php-short:`\T3docs\Examples\Xclass\NewRecordController`
 class, the latter being part of the :composer:`t3docs/examples` extension.
 
 When XCLASSing a class that does not use namespaces, use that class name
@@ -131,7 +132,7 @@ XCLASS breaking after a code update.
 
 ..  tip::
     You are even safer if you can do your changes before or after the parent method
-    and call the latter with :code:`parent::`.
+    and call the latter with `parent::`.
 
 The example below extends the new record wizard screen. It first calls the original
 method and then adds its own content:
