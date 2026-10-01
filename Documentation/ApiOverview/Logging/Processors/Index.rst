@@ -157,10 +157,10 @@ formatSize
 --------------------
 
 ..  versionadded:: 15.0
-    The request ID is added to the log record by this processor instead of
-    being passed through the logger. See `Breaking: #110219 - Log request ID
-    provided by log processor
-    <https://docs.typo3.org/permalink/changelog:breaking-110219-1784306184>`_.
+    :changelog: breaking-110219-1784306184
+
+    The request ID is added to the log record by this processor instead of being
+    passed through the logger.
 
 The request ID processor
 :php:`\TYPO3\CMS\Core\Log\Processor\RequestIdProcessor` adds the unique ID of

@@ -202,9 +202,9 @@ Adding query parameters to a page link
 ======================================
 
 ..  versionadded:: 14.2
-    The `queryParameters` configuration key has been added. See `Feature:
-    #109370 - Array-based queryParameters for page links
-    <https://docs.typo3.org/permalink/changelog:feature-109370-1742911200>`_.
+    :changelog: feature-109370-1742911200
+
+    The `queryParameters` configuration key has been added.
 
 Query parameters are appended to a page link either as a URL-encoded string
 via `additionalParams` or as an array via `queryParameters`. The array form

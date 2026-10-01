@@ -7,7 +7,7 @@
 ============================
 
 ..  versionadded:: 14.2
-    See `Feature: #92780 - Introduce event after page URI generation <https://docs.typo3.org/permalink/changelog:feature-92780-1761709200>`_.
+    :changelog: feature-92780-1761709200
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Routing\Event\AfterPageUriGeneratedEvent`

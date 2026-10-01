@@ -66,13 +66,12 @@ This :php:`MetaTagManager` must implement :php:`\TYPO3\CMS\Core\MetaTag\MetaTagM
 extending :php-short:`\TYPO3\CMS\Core\MetaTag\AbstractMetaTagManager`).
 
 ..  versionchanged:: 15.0
+    :changelog: feature-110287-1784904501
 
     Meta tag managers are now registered as tagged services via dependency
     injection instead of calling
-    :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::registerManager()`
-    in :file:`ext_localconf.php`. See `Feature: #110287 - Register meta tag
-    managers as tagged services
-    <https://docs.typo3.org/permalink/changelog:feature-110287-1784904501>`_.
+    :php:`\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::registerManager()` in
+    :file:`ext_localconf.php`.
 
 To register the manager, add the PHP attribute :php-short:`\TYPO3\CMS\Core\Attribute\AsMetaTagManager` to the class,
 and declare the properties it handles via the :php:`$handledProperties` array:

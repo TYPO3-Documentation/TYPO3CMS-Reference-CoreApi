@@ -110,11 +110,10 @@ Overriding or extending translations
     to `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_.
 
 ..  versionchanged:: 14.3
-    The overridden file can also be addressed by its
-    :ref:`translation domain <label-reference-domain>` instead of its path.
-    See `Important: #109672 - Translation domain syntax supported in
-    resourceOverrides
-    <https://docs.typo3.org/permalink/changelog:important-109672-1745000000>`_.
+    :changelog: important-109672-1745000000
+
+    The overridden file can also be addressed by its :ref:`translation domain
+    <label-reference-domain>` instead of its path.
 
 Option `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_
 allows overriding XLIFF files. This applies to both translations and default

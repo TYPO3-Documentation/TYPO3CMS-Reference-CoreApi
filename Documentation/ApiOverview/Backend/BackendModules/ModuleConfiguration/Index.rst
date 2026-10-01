@@ -116,8 +116,7 @@ Module configuration options
         :default: false
 
         ..  versionadded:: 14.0
-            See `Feature: #107712 - Introduce card-based sub module overview
-            <https://docs.typo3.org/permalink/changelog:feature-107712-1760548718>`_.
+            :changelog: feature-107712-1760548718
 
         If true and if a module has
         :ref:`submodules <backend-modules-third-level-module>`, the submodules
@@ -155,9 +154,9 @@ Module configuration options
         `title`, `description` and `short_description`.
 
         ..  versionadded:: 14.0
-            Referencing labels by their translation domain, see
-            `Feature: #93334 - Translation domain mapping
-            <https://docs.typo3.org/permalink/changelog:feature-93334-1729000000>`_.
+            :changelog: feature-93334-1729000000
+
+            Referencing labels by their translation domain.
 
         Alternatively, pass an :php:`array` with the keys `title`,
         `description` and `shortDescription`. The value of each key is either

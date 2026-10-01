@@ -33,8 +33,9 @@ TYPO3 requires PHP with a supported version and specific configuration
 values and extensions.
 
 ..  versionchanged:: 15.0
+    :changelog: breaking-110211-1784210220
+
     The minimum required PHP version was raised to PHP 8.5.
-    See `Breaking: #110211 - Raise minimum PHP version to 8.5 <https://docs.typo3.org/permalink/changelog:breaking-110211-1784210220>`_.
 
 ..  _system-requirements-php-configuration:
 

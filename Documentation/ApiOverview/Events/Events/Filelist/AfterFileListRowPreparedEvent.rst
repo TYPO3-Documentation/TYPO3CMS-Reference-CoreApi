@@ -7,9 +7,7 @@
 ===============================
 
 ..  versionadded:: 15.0
-
-    See `Feature: #110259 - New PSR-14 AfterFileListRowPreparedEvent
-    <https://docs.typo3.org/permalink/changelog:feature-110259-1784666471>`_.
+    :changelog: feature-110259-1784666471
 
 The PSR-14 event :php:`\TYPO3\CMS\Filelist\Event\AfterFileListRowPreparedEvent`
 is fired after a file or folder row has been fully prepared for the

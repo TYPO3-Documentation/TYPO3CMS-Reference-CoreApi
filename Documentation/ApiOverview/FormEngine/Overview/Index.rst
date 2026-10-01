@@ -60,8 +60,10 @@ In code, the basic workflow looks like this:
     :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  deprecated:: 14.2
+    :changelog: deprecation-109230-1773404000
+
     The class :php:`TYPO3\CMS\Backend\Form\FormResultCompiler` has been
-    deprecated. See `Deprecation: #109230 - FormResultCompiler <https://docs.typo3.org/permalink/changelog:deprecation-109230-1773404000>`_.
+    deprecated.
 
 Basically, behind the FormEngine concept is a 2-step process: first create an array to gather all
 rendering-relevant information, then call the rendering engine using this array to produce output.

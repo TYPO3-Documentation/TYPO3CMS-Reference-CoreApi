@@ -20,7 +20,7 @@ TYPO3 v15
 ------------------------------------
 
 ..  deprecated:: 14.2
-    See `Deprecation: #108345 - Deprecation of ext_emconf.php <https://docs.typo3.org/permalink/changelog:deprecation-108345-1774126701>`_
+    :changelog: deprecation-108345-1774126701
 
 
 :file:`ext_emconf.php` files in extensions are no longer evaluated for package
@@ -36,7 +36,7 @@ loading the extension throws an exception.
 ---------------------------------------------------------------------------------
 
 ..  deprecated:: 14.2
-    See `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
+    :changelog: deprecation-109295-1742407200
 
 The `DatabaseWriter <https://docs.typo3.org/permalink/t3coreapi:logging-writers-database>`_
 can only be used with the :sql:`sys_log` table starting with TYPO3 v15.
@@ -49,7 +49,7 @@ Page module section markup events removed
 -----------------------------------------
 
 ..  deprecated:: 14.3
-    `Deprecation: #109529 - Page module section markup events <https://docs.typo3.org/permalink/changelog:deprecation-109529-1775733107>`_
+    :changelog: deprecation-109529-1775733107
 
 The events :php-short:`\TYPO3\CMS\Backend\View\Event\BeforeSectionMarkupGeneratedEvent` and
 :php-short:`\TYPO3\CMS\Backend\View\Event\AfterSectionMarkupGeneratedEvent`
@@ -76,7 +76,7 @@ backend layout columns with these events should be removed.
 ------------------------------------------------------------------------------
 
 ..  versionchanged:: 14.3
-    See `Deprecation: #109517 - PSR-14 event \TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent <https://docs.typo3.org/permalink/changelog:deprecation-109517-1744105201>`_.
+    :changelog: deprecation-109517-1744105201
 
 The event :php:`TYPO3\CMS\Backend\Event\AddUserSettingsJavaScriptModulesEvent`
 was moved from :php:`TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent`
@@ -88,7 +88,7 @@ as the system extension `setup` was integrated into :composer:`typo3/cms-backend
 ---------------------------------------------------------------------------------------
 
 ..  deprecated:: 14.2
-    See `Deprecation: #109027 - Move language:update command and events to EXT:core <https://docs.typo3.org/permalink/changelog:deprecation-109027-1771514240>`_.
+    :changelog: deprecation-109027-1771514240
 
 
 The events
@@ -149,11 +149,11 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['`additionalAbsRefPrefixDirectories`'] has no 
 ==============================================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-108114-1763085569
+
     Global search and replace code for links has been removed, which means setting
     :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']`
     is obsolete as well.
-
-    See `Breaking: #108114 - Global frontend content link prefixing removed <https://docs.typo3.org/permalink/changelog:breaking-108114-1763085569>`_
 
 
 ..  _not-found-12:

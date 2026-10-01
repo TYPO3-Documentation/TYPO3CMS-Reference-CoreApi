@@ -8,10 +8,7 @@ Encrypt and decrypt sensitive data with the cipher service
 ==========================================================
 
 ..  versionadded:: 14.0
-
-    See `Feature: #108002 - Introduce built-in symmetric encryption/decryption
-    cipher service
-    <https://docs.typo3.org/permalink/changelog:feature-108002-1762466108>`_.
+    :changelog: feature-108002-1762466108
 
 An extension sometimes has to store a value that it needs again in plain text,
 for example an API token of a third-party service. The

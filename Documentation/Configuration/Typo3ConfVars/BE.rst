@@ -565,12 +565,10 @@ compressionLevel
     :name: globals-typo3-conf-vars-be-compressionLevel
 
     ..  versionchanged:: 14.0
+        :changelog: breaking-107943-1761860828
 
         Backend HTTP response compression has been removed. Response compression
         should be applied by web servers and not by the application layer.
-
-        See also: `Breaking: #107943 - Frontend and backend HTTP response
-        compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
 
 ..  _typo3confvars-be-installtoolpassword:
 

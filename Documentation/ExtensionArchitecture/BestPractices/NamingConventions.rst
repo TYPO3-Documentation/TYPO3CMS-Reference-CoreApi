@@ -315,8 +315,9 @@ Example usage:
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107628-1729026000
+
     The main module `web` has been renamed to `content`.
-    See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
 
 For more details have a look into the
 :ref:`Modules.php - backend module configuration
