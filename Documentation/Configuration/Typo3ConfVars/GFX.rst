@@ -80,7 +80,7 @@ imageFileConversionFormats
     ..  versionadded:: 14.0
 
     Map source image extensions to the processing/output format used by
-    TYPO3 when images are rendered (for example via `<f:image>`). Keys are
+    TYPO3 when images are rendered (for example via :fluid:`<f:image>`). Keys are
     original file extensions, values are target file extensions. The special key
     `default` is used file extensions that are not explicitly listed.
 

@@ -52,8 +52,8 @@ Why do XLIFF files on Crowdin look different now?
 -------------------------------------------------
 
 TYPO3 v14 and newer can use the modern **XLIFF 2.x** format for translation files.
-This version introduces a cleaner structure with `<unit>` and `<segment>`
-elements and uses the `<target state="…">` attribute instead of the older
+This version introduces a cleaner structure with :xml:`<unit>` and :xml:`<segment>`
+elements and uses the :xml:`<target state="…">` attribute instead of the older
 `approved="yes"` attribute used in XLIFF 1.2.
 
 Crowdin supports both formats, and TYPO3 automatically detects which version is
