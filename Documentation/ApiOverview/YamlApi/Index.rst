@@ -97,7 +97,7 @@ from different sources. To do so, register a custom processor via
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']
-        [\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [];
+        [\MyVendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [];
 
 There are some options available to sort or disable placeholder processors, if
 necessary:

@@ -58,11 +58,11 @@ The revised example below uses dedicated target handlers for each controller
 action instead of a generic `handleRequest` handler.
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Configuration/Backend/Modules.php
+    :caption: **Revised** EXT:my_extension/Configuration/Backend/Modules.php
     :linenos:
 
       <?php
-      use Example\Demo\Controller\CustomModuleController;
+      use MyVendor\MyExtension\Controller\CustomModuleController;
 
       return [
           'demo' => [
@@ -93,13 +93,13 @@ dispatch method has been dropped in favor of having dedicated routes to
 each controller action.
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Classes/Controller/CustomModuleController.php
+    :caption: **Revised** EXT:my_extension/Classes/Controller/CustomModuleController.php
     :linenos:
 
       <?php
-      namespace Example\Demo\Controller;
+      namespace MyVendor\MyExtension\Controller;
 
-      use Example\Demo\Domain\Repository\ThingRepository;
+      use MyVendor\MyExtension\Domain\Repository\ThingRepository;
       use TYPO3\CMS\Backend\Routing\UriBuilder;
       use TYPO3\CMS\Backend\Template\ModuleTemplate;
     + use TYPO3\CMS\Core\Http\AllowedMethodsTrait;
@@ -169,7 +169,7 @@ instead of `GET` links for delete actions:
     template.
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.fluid.html
+    :caption: **Revised** EXT:my_extension/Resources/Private/Templates/ExtbaseModule/List.fluid.html
     :linenos:
 
       <ul>
@@ -211,14 +211,14 @@ The following example demonstrates enforcing HTTP methods in Extbase module
 controllers using :php:`AllowedMethodsTrait`:
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Classes/Controller/ExtbaseModuleController.php
+    :caption: **Revised** EXT:my_extension/Classes/Controller/ExtbaseModuleController.php
     :linenos:
 
       <?php
-      namespace Example\Demo\Controller;
+      namespace MyVendor\MyExtension\Controller;
 
-      use Example\Demo\Domain\Model\Thing;
-      use Example\Demo\Domain\Repository\ThingRepository;
+      use MyVendor\MyExtension\Domain\Model\Thing;
+      use MyVendor\MyExtension\Domain\Repository\ThingRepository;
     + use TYPO3\CMS\Core\Http\AllowedMethodsTrait;
       use TYPO3\CMS\Backend\Template\ModuleTemplate;
       use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -264,7 +264,7 @@ In the revised template, `POST`-based form buttons are used
 instead of `GET` action links for delete actions:
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Resources/Private/Templates/ExtbaseModule/List.fluid.html
+    :caption: **Revised** EXT:my_extension/Resources/Private/Templates/ExtbaseModule/List.fluid.html
     :linenos:
 
       <ul>

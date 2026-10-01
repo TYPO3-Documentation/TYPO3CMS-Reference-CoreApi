@@ -4,11 +4,11 @@ services:
     autoconfigure: true
     public: false
 
-  Vendor\MyExtension\EventListener\SkipSudoModeDialog:
+  MyVendor\MyExtension\EventListener\SkipSudoModeDialog:
     tags:
       - name: event.listener
         identifier: 'ext-myextension/skip-sudo-mode-dialog'
-  Vendor\MyExtension\EventListener\StaticPasswordVerification:
+  MyVendor\MyExtension\EventListener\StaticPasswordVerification:
     tags:
       - name: event.listener
         identifier: 'ext-myextension/static-password-verification'

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\MyExtension\Imaging\EventListener;
+namespace MyVendor\MyExtension\Imaging\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Imaging\Event\ModifyRecordOverlayIconIdentifierEvent;

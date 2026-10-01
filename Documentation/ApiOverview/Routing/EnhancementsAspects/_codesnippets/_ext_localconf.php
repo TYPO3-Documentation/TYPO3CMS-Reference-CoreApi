@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MyVendor\MyPackage\Routing\CustomEnhancer;
+use MyVendor\MyExtension\Routing\CustomEnhancer;
 
 defined('TYPO3') or die();
 

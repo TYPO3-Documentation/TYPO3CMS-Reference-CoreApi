@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\MyExtension\EventListener;
+namespace MyVendor\MyExtension\EventListener;
 
 use TYPO3\CMS\Backend\Hooks\DataHandlerAuthenticationContext;
 use TYPO3\CMS\Backend\Security\SudoMode\Access\AccessSubjectInterface;

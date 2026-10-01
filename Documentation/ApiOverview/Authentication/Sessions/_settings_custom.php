@@ -4,7 +4,7 @@ return [
   'SYS' => [
     'session' => [
       'FE' => [
-        'backend' => \Vendor\Sessions\MyCustomSessionBackend::class,
+        'backend' => \MyVendor\MyExtension\Session\MyCustomSessionBackend::class,
         'options' => [
           'foo' => 'bar',
         ],

@@ -96,16 +96,16 @@ Hooks can be registered via:
 ..  code-block:: php
 
     $GLOBALS['TCA'][$tableName]['columns'][$fieldName]['config']['generatorOptions']['postModifiers'][]
-        = My\Class::class . '->method';
+        = \MyVendor\MyExtension\MyClass::class . '->method';
 
-in :file:`EXT:myextension/Configuration/TCA/Overrides/table.php`, where
+in :file:`EXT:my_extension/Configuration/TCA/Overrides/table.php`, where
 `$tableName` can be a table like `pages` and `$fieldName` matches the slug
 field name, for example `slug`.
 
 ..  code-block:: php
 
     $GLOBALS['TCA']['pages']['columns']['slug']['config']['generatorOptions']['postModifiers'][]
-        = My\Class::class . '->modifySlug';
+        = \MyVendor\MyExtension\MyClass::class . '->modifySlug';
 
 The method then receives a parameter array with the following values:
 
