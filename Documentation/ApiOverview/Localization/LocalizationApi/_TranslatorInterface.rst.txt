@@ -51,7 +51,7 @@
             $translator->label('myext.messages:button.save');
 
             // Simple reference (discouraged with file reference)
-            $translator->label('LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:button.save');
+            $translator->label('LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:button.save');
 
             // With arguments
             $translator->label('core.messages:record.count', [5]);

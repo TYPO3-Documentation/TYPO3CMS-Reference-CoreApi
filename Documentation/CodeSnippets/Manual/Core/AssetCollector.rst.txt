@@ -60,6 +60,8 @@
     ..  php:method:: addMedia(string $fileName, array $additionalInformation)
         :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
+        **Deprecated:** since TYPO3 v15.0, will be removed in TYPO3 v16.0. Listen to the PSR-14 AfterFileProcessingEvent instead.
+
         :param $fileName: the fileName
         :param $additionalInformation: One dimensional hash map (array with non-numerical keys) with scalar values
 
@@ -86,10 +88,14 @@
     ..  php:method:: removeMedia(string $identifier)
         :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
+        **Deprecated:** since TYPO3 v15.0, will be removed in TYPO3 v16.0. Listen to the PSR-14 AfterFileProcessingEvent instead.
+
         :param $identifier: the identifier
 
     ..  php:method:: getMedia()
         :returns: `array`
+
+        **Deprecated:** since TYPO3 v15.0, will be removed in TYPO3 v16.0. Listen to the PSR-14 AfterFileProcessingEvent instead.
 
     ..  php:method:: getJavaScripts(?bool $priority = NULL)
         :returns: `array`
@@ -136,5 +142,7 @@
 
     ..  php:method:: hasMedia(string $fileName)
         :returns: `bool`
+
+        **Deprecated:** since TYPO3 v15.0, will be removed in TYPO3 v16.0. Listen to the PSR-14 AfterFileProcessingEvent instead.
 
         :param $fileName: the fileName
