@@ -580,7 +580,7 @@ cacheHash
         ..  code-block:: php
             :caption: config/system/additional.php | typo3conf/system/additional.php
 
-            $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
+            $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_myextension_pi1[query]'];
 
     ..  _typo3ConfVars_fe_cacheHash_excludedParametersIfEmpty:
 

@@ -1,7 +1,7 @@
 settings:
   example.types.text:
     type: text
-    default: 'EXT:example/Resources/Private/Templates/'
+    default: 'EXT:my_extension/Resources/Private/Templates/'
     category: Example.types
     label: 'Type text'
     description: 'Uses the same validation and conversion as the `string` type,

@@ -57,9 +57,9 @@ as simple as moving the ViewHelper around.
 
 By default, all messages are put into the scope of the
 current plugin namespace with a prefix `extbase.flashmessages.`. So
-if your plugin namespace is computed as `tx_myvendor_myplugin`, the
+if your plugin namespace is computed as `tx_myextension_myplugin`, the
 flash message queue identifier will be
-`extbase.flashmessages.tx_myvendor_myplugin`.
+`extbase.flashmessages.tx_myextension_myplugin`.
 
 ..  _flash-messages-extbase-distinct:
 
@@ -77,7 +77,7 @@ and operate on that queue:
 ..  code-block:: php
     :caption: EXT:examples/Classes/Controller/ModuleController.php (excerpt)
 
-    $customQueue = $this->getFlashMessageQueue('tx_myvendor_customqueue');
+    $customQueue = $this->getFlashMessageQueue('tx_myextension_customqueue');
     // Instead of using $this->addFlashMessage() you will instead directly
     // access the custom queue:
     $flashMessage = GeneralUtility::makeInstance(
@@ -100,4 +100,4 @@ same identifier in the `FlashMessages ViewHelper <f:flashMessages> <https://docs
 
 ..  code-block:: html
 
-    <f:flashMessages queueIdentifier="tx_myvendor_customqueue" />
+    <f:flashMessages queueIdentifier="tx_myextension_customqueue" />

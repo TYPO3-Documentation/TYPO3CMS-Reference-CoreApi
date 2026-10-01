@@ -21,7 +21,7 @@ final readonly class PresetListener
         new DownloadPreset('PSR-14 preset', ['title']),
         new DownloadPreset('Another PSR-14 preset', ['title', 'doktype']),
       ],
-      'tx_myvendor_myextension' => [new DownloadPreset('PSR-14 preset', ['uid', 'something'])],
+      'tx_myextension_mytable' => [new DownloadPreset('PSR-14 preset', ['uid', 'something'])],
     };
 
     foreach ($newPresets as $newPreset) {
