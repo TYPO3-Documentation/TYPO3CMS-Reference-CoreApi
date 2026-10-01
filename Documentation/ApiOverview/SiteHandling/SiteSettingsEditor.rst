@@ -109,8 +109,5 @@ appears:
 The corresponding definition is:
 
 ..  literalinclude:: _Settings/_blog_settings.definitions.yaml
-    :caption: EXT:blog_example/Configuration/Sets/BlogExample/settings.definitions.yaml (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/BlogExample/settings.definitions.yaml (excerpt)
     :linenos:
-
-See the complete example at
-`settings.definitions.yaml (GitHub) <https://github.com/TYPO3-Documentation/blog_example/blob/main/Configuration/Sets/BlogExample/settings.definitions.yaml>`__.
