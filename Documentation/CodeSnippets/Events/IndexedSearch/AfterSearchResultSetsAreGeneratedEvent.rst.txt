@@ -3,8 +3,11 @@
 
 ..  php:class:: AfterSearchResultSetsAreGeneratedEvent
 
-    Listeners to this event will be able to modify complete search result
-    sets after they have been generated.
+    Allows listeners to modify complete search result sets.
+
+    This event is dispatched in SearchController::searchAction() after all
+    result sets have been created. Listeners can modify complete result sets,
+    including pagination, rows, section data, and category metadata.
 
     ..  php:method:: getResultSets()
         :returns: `array`
