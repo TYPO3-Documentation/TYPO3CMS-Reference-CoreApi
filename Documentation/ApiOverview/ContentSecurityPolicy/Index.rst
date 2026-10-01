@@ -784,16 +784,18 @@ to content regarded as "safe".
 This can be done with sha256/sha384/sha512 hashing of referenced script, and including
 them as a valid directive, like this:
 
-..  code-block
-    :caption: Example YAML configuration directive, for example in config/sitepackage/csp.yaml
+..  code-block:: yaml
+    :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
     #...
     - mode: "extend"
       directive: "script-src"
       sources:
-        - "sha256-6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9"
+        - "'sha256-6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9'"
 
-The "sha256-..." block would be the SHA256 hash created from a file like 'script.js'.
+The source `'sha256-...'` is the hash of a file like :file:`script.js`. Write it
+with the single quotes inside the YAML string: TYPO3 reads only the quoted form
+as a hash and would send the value without them as a host name.
 
 For example, a file like this:
 
@@ -802,14 +804,19 @@ For example, a file like this:
 
     console.log('Hello.');
 
-would correspond to a SHA256 hash of `6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9`.
+has the SHA-256 hash `6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9`
+in hexadecimal notation. TYPO3 accepts the hash in hexadecimal or base64
+notation and sends it base64 encoded, the form browsers expect.
 
 ..  note::
-    These hashes can be created by shell scripts like `sha256` and several libraries,
-    also in nodeJS bundling tools.
+    These hashes can be created on the command line, for example with
+    `sha256sum script.js` (hexadecimal) or
+    `openssl dgst -sha256 -binary script.js | openssl base64` (base64), and by
+    many libraries and JavaScript bundling tools. The hash covers the exact
+    content of the file, including a final line break.
 
-The browser would evaluate a reference JavaScript file and calculate it's SHA256
-hash and compare it to the list of allowed hashes.
+The browser calculates the SHA-256 hash of the referenced JavaScript file and
+compares it to the list of allowed hashes.
 
 The downside of this is: Everytime an embedded file changes (like via build processes),
 the CSP SHA hash would need to be adopted. This could be automated by a PHP definition
