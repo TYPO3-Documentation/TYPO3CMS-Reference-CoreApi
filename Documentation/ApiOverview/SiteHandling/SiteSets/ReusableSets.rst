@@ -176,7 +176,7 @@ feature provided by the extension.
 Extensions other than site packages can also provide site sets. Sites or
 other sets can depend on them to load their TypoScript and settings.
 
-The example extension :composer:`t3docs/blog-example` offers one main site set
+For example, an extension `myvendor/my-extension` can offer one main site set
 and several sets for specific use cases. It has the following file structure:
 
 ..  directory-tree::
@@ -190,7 +190,7 @@ and several sets for specific use cases. It has the following file structure:
 
         *   Sets
 
-            *   BlogExample
+            *   MyExtension
 
                 *   config.yaml
                 *   constants.typoscript
@@ -225,15 +225,15 @@ Separate functionality into multiple site sets
 The main site set of the extension has the same name as the Composer package:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_config.yaml
-    :caption: EXT:blog_example/Configuration/Sets/BlogExample/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/config.yaml
 
 The other two sets require this set and therefore declare it as a dependency:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_default_config.yaml
-    :caption: EXT:blog_example/Configuration/Sets/DefaultStyles/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/DefaultStyles/config.yaml
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_rss_config.yaml
-    :caption: EXT:blog_example/Configuration/Sets/RssFeed/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/RssFeed/config.yaml
 
 The additional site sets provide TypoScript that depends on the base site set.
 They do not use :typoscript:`@include` statements for the base TypoScript. The

@@ -1,3 +1,0 @@
-The following example is extracted from the example Extbase extension
-:composer:`t3docs/blog-example`. See the complete source code at
-`t3doc/blog-example (GitHub) <https://github.com/TYPO3-Documentation/blog_example>`__.

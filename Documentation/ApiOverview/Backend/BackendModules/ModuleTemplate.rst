@@ -20,7 +20,5 @@ so values can be assigned to it in the actions.
 Example: create and use a `ModuleTemplate` in an Extbase controller
 ===================================================================
 
-..  include:: _AboutBlogExample.rst.txt
-
 ..  literalinclude:: /ApiOverview/Backend/BackendModules/_InitializeModuleTemplate.php
-    :caption: Class T3docs\\BlogExample\\Controller\\BackendController
+    :caption: Class MyVendor\\MyExtension\\Controller\\BackendController

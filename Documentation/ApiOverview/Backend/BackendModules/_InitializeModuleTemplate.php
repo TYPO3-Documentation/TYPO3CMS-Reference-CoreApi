@@ -1,8 +1,8 @@
 <?php
 
+use MyVendor\MyExtension\Domain\Model\Post;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use T3docs\BlogExample\Domain\Model\Post;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -17,7 +17,7 @@ class BackendController extends ActionController
     $this->modifyDocHeaderComponent($view, $context);
     $view->setFlashMessageQueue($this->getFlashMessageQueue());
     $view->setTitle(
-      $this->getLanguageService()->sL('blog_example.module.mod:mlang_tabs_tab'),
+      $this->getLanguageService()->sL('my_extension.module.mod:mlang_tabs_tab'),
       $context,
     );
 
