@@ -70,7 +70,7 @@ typolink\_tag
 ..  _soft-references-default-parsers-ext-fileref:
 
 ext\_fileref
-    Relative file reference, prefixed :code:`EXT:[extkey]/` - for finding
+    Relative file reference, prefixed `EXT:[extkey]/` - for finding
     extension dependencies.
 
 ..  _soft-references-default-parsers-email:

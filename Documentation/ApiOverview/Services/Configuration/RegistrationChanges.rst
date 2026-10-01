@@ -25,6 +25,6 @@ Registration options are described in more details in
 :ref:`Implementing a service <services-developer-implementing>`.
 Any of these options may be overridden using the above
 syntax. However caution should be used depending on the options.
-:code:`className` should not be overridden in such a way.
+`className` should not be overridden in such a way.
 Instead a new service should be implemented using an alternate
 class.

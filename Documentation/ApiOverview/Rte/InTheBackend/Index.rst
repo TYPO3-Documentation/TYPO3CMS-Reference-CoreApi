@@ -28,7 +28,7 @@ For full details about setting up a field to use an RTE, please refer to the
 chapter labeled 'special-configuration-options' in older versions of the
 TCA Reference.
 
-The short story is that it's enough to set the key :code:`enableRichtext` to true.
+The short story is that it's enough to set the key `enableRichtext` to true.
 
 ..  literalinclude:: _tca-rte.php
     :emphasize-lines: 11

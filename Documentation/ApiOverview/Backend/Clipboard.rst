@@ -36,14 +36,14 @@ tab is number 2. We can compare with the BE view of the clipboard:
 which indeed contains two files.
 
 Clipboard content should not be accessed directly, but using the
-:code:`elFromTable()` method of the clipboard object:
+:php-short:`\TYPO3\CMS\Backend\Clipboard\Clipboard::elFromTable()` method of the clipboard object:
 
 ..  literalinclude:: /CodeSnippets/Examples/Clipboard/GetCurrentClipboard.php
     :caption: Extension examples, file Classes/Controller/ModuleController.php
 
 Here we first try to get all files and then all page records on the
 current pad (which is pad 2). Then we change to the "Normal" pad, call
-the :code:`elFromTable()` method again.
+the :php-short:`\TYPO3\CMS\Backend\Clipboard\Clipboard::elFromTable()` method again.
 
 In the "examples" extension, this data is passed to a BE module view
 for display, which is really just information:

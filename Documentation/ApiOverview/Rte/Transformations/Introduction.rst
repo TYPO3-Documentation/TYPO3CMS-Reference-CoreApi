@@ -9,8 +9,8 @@ Introduction
 Transformation of content between the database and an RTE is needed if
 the format of the content in the database is different than the format
 understood by an RTE. A simple example could be that bold-tags in the
-database :code:`<b>` should be converted to :code:`<strong>` tags in the RTE or that
-references to images in :code:`<img>` tags in the database should be relative
+database :html:`<b>` should be converted to :html:`<strong>` tags in the RTE or that
+references to images in :html:`<img>` tags in the database should be relative
 while absolute in the RTE. In such cases a transformation is needed to
 do the conversion both ways: from database (DB) to RTE and from RTE to
 DB.
@@ -25,7 +25,7 @@ Generally transformations are needed for two reasons:
 - **RTE specifics:** If the RTE has special requirements to the content
   before it can be edited and if that format is different from what we
   want to store in the database. For instance an RTE could require a
-  full HTML document with :code:`<html>`, :code:`<head>` and :code:`<body>` - obviously we don't
+  full HTML document with :html:`<html>`, :html:`<head>` and :html:`<body>` - obviously we don't
   want that in the database and likewise we will have to wrap content in
   such a dummy-body before it can be edited.
 
@@ -38,10 +38,10 @@ Hybrid modes
 Many of the transformations performed back and forth in the TYPO3
 backend date back to when it was a challenge to incorporate a RTE
 in a browser. It was then sometimes needed to fall back to a simple
-:code:`<textarea>` where rich text had to be presented in a simple enough
+:html:`<textarea>` where rich text had to be presented in a simple enough
 way so that editors could work with it with no visual help.
 
-This is what the mode :code:`css_transform` tries to achieve: maintain a
+This is what the mode `css_transform` tries to achieve: maintain a
 data format that is as human readable as possible while still offering
 an RTE for editing if applicable.
 
@@ -56,7 +56,7 @@ In the database
 ---------------
 
 This is how the content in the database could look for a hybrid mode
-(such as :code:`css_transform`):
+(such as `css_transform`):
 
 ..  code-block:: html
     :caption: Content of tt_content.bodytext in the database
@@ -67,20 +67,20 @@ This is how the content in the database could look for a hybrid mode
     This line is just plain
 
 
-As you can see the TYPO3-specific tag, :code:`<a href="t3://page?uid=123">` is
+As you can see the TYPO3-specific tag, :html:`<a href="t3://page?uid=123">` is
 used for the link to page 123. This tag is designed to be easy for editors to
 insert and easy for TYPO3 to parse and understand. The t3:// scheme is later
 resolved to a real link in the frontend by the
 :ref:`The LinkHandler API <linkhandler>`. Further line 2 shows bold text. In
 line 3 the situation is that the paragraph should be centered - and there seems
-to be no other way than wrapping the line in a :code:`<p>` tag with the "align"
+to be no other way than wrapping the line in a :html:`<p>` tag with the "align"
 attribute. Not so human readable but we can do no better without an RTE. Line 4
 is just plain.
 
 Generally this content will be processed before output on a page of
-course. Typically the rule will be this: "Wrap each line in a :code:`<p>` tag
-which is not already wrapped in a :code:`<p>` tag and run all
-:code:`<a>`-tags with TYPO3-specific schemes through a Linkhandler to
+course. Typically the rule will be this: "Wrap each line in a :html:`<p>` tag
+which is not already wrapped in a :html:`<p>` tag and run all
+:html:`<a>`-tags with TYPO3-specific schemes through a Linkhandler to
 resolve them to real uris." and thus the final result will be valid HTML.
 
 
@@ -92,7 +92,7 @@ In RTE
 The content in the database can easily be edited as plain text thanks
 to the "hybrid-mode" used to store the content. But when the content
 above from the database has to go into the RTE it *will not* work if
-every line is not wrapped in a :code:`<p>` tag!
+every line is not wrapped in a :html:`<p>` tag!
 This is what eventually goes into the RTE:
 
 ..  code-block:: xml
@@ -127,16 +127,16 @@ Where transformations are performed
 ===================================
 
 The transformations you can do with TYPO3 are done in the class
-:code:`\TYPO3\CMS\Core\Html\RteHtmlParser`. There is typically a function for each
+:php:`\TYPO3\CMS\Core\Html\RteHtmlParser`. There is typically a function for each
 direction; From DB to RTE and from RTE to DB.
 
 The transformations are invoked in two cases:
 
 - **Before content enters the editing form** This is done by calling the method
-  :code:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForRichTextEditor()`.
+  :php-short:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForRichTextEditor()`.
 
 - **Before content is saved in the database** This is done by calling the method
-  :code:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForPersistence()`.
+  :php-short:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForPersistence()`.
 
 The rationale for transformations is discussed in
 :ref:`Historical perspective on RTE transformations <appendix-a>`.

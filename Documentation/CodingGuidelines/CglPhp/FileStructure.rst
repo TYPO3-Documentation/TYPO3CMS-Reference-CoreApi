@@ -127,7 +127,7 @@ class names of the TYPO3 Core files do.
 
 The namespace declaration of each user file should show where the file
 belongs inside its extension. The namespace starts with
-:code:`"Vendor\MyNamespace\"`, where "Vendor" is your vendor name and
+`"Vendor\\MyNamespace\\"`, where "Vendor" is your vendor name and
 "MyNamespace" is the extension name in UpperCamelCase. Then follows the
 name of the subfolder of :file:`Classes/`, in which the file is located
 (if any). E.g. the file
@@ -152,7 +152,7 @@ Optional module execution code
 ==============================
 
 Module execution code instantiates the class and runs its method(s).
-Typically this code can be found in :code:`eID` scripts and old Backend
+Typically this code can be found in `eID` scripts and old Backend
 modules. Here is how it may look like:
 
 ..  code-block:: php

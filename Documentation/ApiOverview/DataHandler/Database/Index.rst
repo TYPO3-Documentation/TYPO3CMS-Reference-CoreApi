@@ -372,12 +372,12 @@ version
                     (default)
 
                 *   0 ("page") means the page + content tables (defined by ctrl
-                    flag :code:`versioning_followPages` )
+                    flag `versioning_followPages` )
 
                 *   >0 ("branch") means the the whole branch is versioned
                     (*full copy* of all tables), down to the level indicated by
                     the value (1 = 1 level down, 2 = 2 levels down, etc.). The
-                    treeLevel is recorded in the field :code:`t3ver_swapmode`
+                    treeLevel is recorded in the field `t3ver_swapmode`
                     and will be observed when the record is swapped during
                     publishing.
 
@@ -446,7 +446,7 @@ Examples of commands
 Accessing the uid of copied records
 -----------------------------------
 
-The :php:`DataHandler` keeps track of records created by :code:`copy`
+The :php:`DataHandler` keeps track of records created by `copy`
 operations in its :php:`$copyMappingArray_merged` property. This
 property is public but marked as :php:`@internal`. So it is subject to change
 in future TYPO3 versions without notice.
@@ -709,8 +709,8 @@ Values for the :php:`$cacheCmd` argument:
 ..  confval:: "all"
     :name: datahandler-clear-cachecmd-all
 
-    Clears all cache tables (:code:`cache_pages`, :code:`cache_pagesection`,
-    :code:`cache_hash`).
+    Clears all cache tables (`cache_pages`, `cache_pagesection`,
+    `cache_hash`).
 
     Only available for admin-users unless explicitly allowed by User
     TSconfig "options.clearCache.all".
@@ -725,7 +725,7 @@ Values for the :php:`$cacheCmd` argument:
 ..  confval:: "pages"
     :name: datahandler-clear-cachecmd-pages
 
-    Clears all pages from :code:`cache_pages`.
+    Clears all pages from `cache_pages`.
 
     Only available for admin-users unless explicitly allowed by User
     TSconfig "options.clearCache.pages".

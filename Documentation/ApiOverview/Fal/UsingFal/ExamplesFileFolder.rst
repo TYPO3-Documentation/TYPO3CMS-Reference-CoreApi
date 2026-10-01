@@ -259,26 +259,26 @@ available to view or download. File retrieval is done via PHP and delivered
 through the `eID` script.
 
 An example URL looks like this:
-:code:`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
+`index.php?eID=dumpFile&t=f&f=1230&token=135b17c52f5e718b7cc94e44186eb432e0cc6d2f`.
 
 Following URI parameters are available:
 
-*   :code:`t` (*Type*): Can be one of :code:`f` (`sys_file`),
-    :code:`r` (`sys_file_reference`) or :code:`p` (`sys_file_processedfile`)
-*   :code:`f` (*File*): UID of table :sql:`sys_file`
-*   :code:`r` (*Reference*): UID of table :sql:`sys_file_reference`
-*   :code:`p` (*Processed*): UID of table :sql:`sys_file_processedfile`
-*   :code:`s` (*Size*): Size (width and height) of the file
-*   :code:`cv` (*CropVariant*): In case of :sql:`sys_file_reference`, you can
+*   `t` (*Type*): Can be one of `f` (`sys_file`),
+    `r` (`sys_file_reference`) or `p` (`sys_file_processedfile`)
+*   `f` (*File*): UID of table :sql:`sys_file`
+*   `r` (*Reference*): UID of table :sql:`sys_file_reference`
+*   `p` (*Processed*): UID of table :sql:`sys_file_processedfile`
+*   `s` (*Size*): Size (width and height) of the file
+*   `cv` (*CropVariant*): In case of :sql:`sys_file_reference`, you can
     assign a cropping variant
 
-You have to choose one of these parameters: :code:`f`, :code:`r` or :code:`p`.
+You have to choose one of these parameters: `f`, `r` or `p`.
 It is not possible to combine them in one request.
 
-The parameter :code:`s` has following syntax: `width:height:minW:minH:maxW:maxH`.
+The parameter `s` has following syntax: `width:height:minW:minH:maxW:maxH`.
 You can leave this parameter empty to load the file in its original size.
-The parameters :code:`width` and :code:`height` can feature the trailing
-:code:`c` or :code:`m` indicator, as known from TypoScript.
+The parameters `width` and `height` can feature the trailing
+`c` or `m` indicator, as known from TypoScript.
 
 The PHP class responsible for handling the file dumping is the
 :php:`\TYPO3\CMS\Core\Controller\FileDumpController`, which you may also use

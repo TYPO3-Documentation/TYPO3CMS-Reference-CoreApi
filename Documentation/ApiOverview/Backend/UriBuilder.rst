@@ -11,14 +11,14 @@ Use the backend `UriBuilder` to link to "Edit Records"
 It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
 TYPO3 provides an API for creating such links, namely
-:code:`\TYPO3\CMS\Backend\Routing\UriBuilder`.
+:php:`\TYPO3\CMS\Backend\Routing\UriBuilder`.
 
 ..  hint::
 
-    Make sure to use :code:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create
-    backend links and not :code:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
+    Make sure to use :php-short:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create
+    backend links and not :php-short:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
-    The variable available as :code:`$this->uriBuilder` in a controller is the
+    The variable available as `$this->uriBuilder` in a controller is the
     web routing UriBuilder and can only be used for frontend links.
 
 When using Fluid templates the URI
