@@ -126,8 +126,8 @@ Example:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Exceptions/MyException.php
 
-    use MyVendor\SomeExtension\File\FileNotAccessibleException;
-    use MyVendor\SomeExtension\File\FileNotFoundException;
+    use MyVendor\MyExtension\File\FileNotAccessibleException;
+    use MyVendor\MyExtension\File\FileNotFoundException;
 
     // ...
 

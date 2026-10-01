@@ -58,7 +58,7 @@ calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. The parameters ar
 Example code:
 
 ..  literalinclude:: _fe_users.php
-    :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/fe_users.php
 
 If the fourth parameter is omitted or the field is not found,
 new fields are added to the bottom of the form. If the table uses tabs,
@@ -69,7 +69,7 @@ These method calls do not create fields in the database. To do
 this, the new fields must be defined in the :file:`ext_tables.sql` file of the extension:
 
 ..  code-block:: sql
-    :caption: EXT:some_extension/ext_tables.sql
+    :caption: EXT:my_extension/ext_tables.sql
 
     CREATE TABLE fe_users (
         tx_examples_options int(11) DEFAULT '0' NOT NULL,
@@ -106,7 +106,7 @@ element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
 ..  code-block:: sql
-    :caption: EXT:some_extension/ext_tables.sql
+    :caption: EXT:my_extension/ext_tables.sql
 
     CREATE TABLE tt_content (
         tx_examples_noprint tinyint(4) DEFAULT '0' NOT NULL

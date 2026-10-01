@@ -75,7 +75,7 @@ any given test case:
 ..  literalinclude:: _FunctionalTests/_SomeTestExtensions.php
     :caption: EXT:my_extension/Tests/Functional/SomeTestExtensions.php
 
-In this case the fictional extension `some_extension` comes with an own fixture extension that should
+In this case the fictional extension `my_extension` comes with an own fixture extension that should
 be loaded, and another `base_extension` should be loaded. These extensions will be linked into
 `typo3conf/ext` of the test case instance.
 
@@ -114,7 +114,7 @@ In general, the methods need the absolute path to the fixture file to load them.
 keywords are allowed:
 
 ..  literalinclude:: _FunctionalTests/_SomeTestImportDataSet.php
-    :caption: EXT:some_extension/Tests/Functional/SomeTestImportDataSet.php
+    :caption: EXT:my_extension/Tests/Functional/SomeTestImportDataSet.php
 
 ..  _testing-writing-functional-assert-database:
 

@@ -71,14 +71,14 @@ To register a feature and set the default state, add the following to the
 :file:`ext_localconf.php` file of your extension:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] ??= true; // or false;
 
 To check if a feature is enabled, use this code:
 
 ..  literalinclude:: _SomeClass.php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  attention::
     Currently, only the Core features can be (de-)activated in the Install Tool.
@@ -164,7 +164,7 @@ One can check whether a feature is enabled in TypoScript with the function
 :typoscript:`feature()`:
 
 ..  code-block:: typoscript
-    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     [feature("unifiedPageTranslationHandling")]
         # This condition matches if the feature toggle "unifiedPageTranslationHandling" is true

@@ -26,7 +26,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
    be able to select records.
 
    ..  literalinclude:: _recordLinkHandler.tsconfig
-       :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
+       :caption: EXT:my_extension/Configuration/page.tsconfig (excerpt)
 
    You can position your own handlers in order as defined in the
    :ref:`LinkBrowser API <linkbrowser-api>`.
@@ -37,7 +37,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 #. TypoScript configures how the link will be displayed in the frontend.
 
    ..  literalinclude:: _recordLinkFrontend.typoscript
-       :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
+       :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
 
    ..  attention::
 
@@ -57,7 +57,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 The minimal page TSconfig configuration is:
 
 ..  literalinclude:: _recordLinkHandlerOptions.tsconfig
-    :caption: EXT:some_extension/Configuration/page.tsconfig (excerpt)
+    :caption: EXT:my_extension/Configuration/page.tsconfig (excerpt)
 
 The following optional configuration is available:
 
@@ -89,7 +89,7 @@ LinkHandler TypoScript options
 A configuration could look like this:
 
 ..  literalinclude:: _recordLinkOptions.typoscript
-    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
 
 The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.

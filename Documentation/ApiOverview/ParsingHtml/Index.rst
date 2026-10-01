@@ -21,7 +21,7 @@ The first example shows how to extract parts of a document.
 Consider the following code:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     use TYPO3\CMS\Core\Html\HtmlParser;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -84,7 +84,7 @@ Extracting single tags
 It is also possible to split by non-block tags, for example "img" and "br":
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     $result = $parseObj->splitTags('img,br', $testHTML);
 
@@ -113,7 +113,7 @@ is quite extensive. Please refer to the phpDoc comments of the
 Here is a sample usage:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     $tagCfg = array(
        'b' => array(

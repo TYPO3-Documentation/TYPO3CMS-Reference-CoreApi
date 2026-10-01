@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\SomeExtension;
+namespace MyVendor\MyExtension;
 
 class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface
 {

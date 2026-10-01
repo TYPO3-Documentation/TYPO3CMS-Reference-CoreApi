@@ -102,7 +102,7 @@ getServiceOption
    like this (inside your service's code):
 
    ..  code-block:: php
-       :caption: EXT:some_extension/Classes/Services/SomeService.php
+       :caption: EXT:my_extension/Classes/Services/SomeService.php
 
        $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
