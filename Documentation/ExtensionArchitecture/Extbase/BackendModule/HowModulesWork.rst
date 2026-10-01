@@ -153,13 +153,12 @@ Without page context
     has no TypoScript. The module sees **global TypoScript only**.
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-105728-1732882067
 
     A module without page context used to search for the first page with a
     TypoScript record and use its TypoScript. It now uses global TypoScript
-    only. See `Breaking: #105728 — Extbase backend modules not in page
-    context rely on global TypoScript only
-    <https://docs.typo3.org/permalink/changelog:breaking-105728-1732882067>`_
-    and :ref:`the upgrade entry <extbase-upgrading-module-global-typoscript>`.
+    only. See also :ref:`the upgrade entry
+    <extbase-upgrading-module-global-typoscript>`.
 
 Configuration a module needs in every situation — above all its storage
 pages — therefore has to be global. Register it with
