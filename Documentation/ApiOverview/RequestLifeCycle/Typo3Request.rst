@@ -187,7 +187,7 @@ The following attributes are available in **frontend** context:
 *   :ref:`Frontend user <typo3-request-attribute-frontend-user>`
 *   :ref:`Language <typo3-request-attribute-language>`
 *   :ref:`Nonce <typo3-request-attribute-nonce>`
-*   :ref:`Normalized parameters <typo3-request-attribute-normalizedParams>`
+*   :ref:`Normalized parameters <typo3-request-attribute-normalizedparams>`
 *   :ref:`Routing <typo3-request-attribute-routing>`
 *   :ref:`Site <typo3-request-attribute-site>`
 
@@ -197,7 +197,7 @@ The following attributes are available in **backend** context:
 *   :ref:`Module <typo3-request-attribute-module>`
 *   :ref:`Module data <typo3-request-attribute-module-data>`
 *   :ref:`Nonce <typo3-request-attribute-nonce>`
-*   :ref:`Normalized parameters <typo3-request-attribute-normalizedParams>`
+*   :ref:`Normalized parameters <typo3-request-attribute-normalizedparams>`
 *   :ref:`Route <typo3-request-attribute-route>`
 *   :ref:`Site <typo3-request-attribute-site>`
 *   :ref:`Target <typo3-request-attribute-target>`

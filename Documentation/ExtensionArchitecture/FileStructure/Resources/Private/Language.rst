@@ -4,7 +4,7 @@
     Resources; Language
     Resources; XLF
     Resources; locallang
-..  _extension-Resources-Private-Language:
+..  _extension-resources-private-language:
 
 ==========
 `Language`
@@ -15,7 +15,7 @@ Contains Language resources.
 ..  seealso::
 
     *   Read more about localizing extensions:
-        :ref:`Localizing your extension <extension_localization>`
+        :ref:`Localizing your extension <extension-localization>`
     *   Read more about the XLIFF format in the following chapter:
         :ref:`Translation files (XLIFF format) <xliff>`.
     *   Read more about applying localized labels in the following chapter:

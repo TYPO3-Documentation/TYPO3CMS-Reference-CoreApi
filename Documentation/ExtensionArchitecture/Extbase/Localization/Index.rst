@@ -29,12 +29,12 @@ How the site configuration decides the language of Extbase records
 ==================================================================
 
 Extbase does not decide which language your records are fetched in. It reads
-the :ref:`language aspect <context_api_aspects_language>` from the
+the :ref:`language aspect <context-api-aspects-language>` from the
 :ref:`Context API <context-api>` and follows it. In the frontend that
 aspect is built from the site configuration.
 
 The setting that decides it is
-:ref:`fallbackType <confval-sitehandling-addingLanguages-fallbackType>`, which
+:ref:`fallbackType <confval-sitehandling-addinglanguages-fallbacktype>`, which
 each language of a site carries:
 
 ..  list-table::
@@ -182,7 +182,7 @@ a valid default language parent.
 
 The constructor takes four parameters, each documented as a property of the
 aspect in
-:ref:`the Context API reference <context_api_aspects_language_properties>`: the
+:ref:`the Context API reference <context-api-aspects-language-properties>`: the
 requested language, the language records are fetched in, the overlay type and
 the fallback chain. The first two differ only when a page requested in one
 language should show the content of another.
@@ -207,7 +207,7 @@ when :ref:`reading records that belong to another site
 ..  _extbase-localisation-model:
 ..  _extbase-model-localization:
 ..  _extbase-localisation-localized-uid:
-..  _extbase-model-localizedUid:
+..  _extbase-model-localizeduid:
 
 uid and _localizedUid of localized Extbase objects
 --------------------------------------------------

@@ -114,7 +114,7 @@ Call the CLI script on the console:
 
 `May we add a basic service configuration for you? (yes/no) [yes]:`
     If you choose `yes` "Make" will create a basic
-    :file:`Configuration/Services.yaml` which configures :ref:`dependency injection <DependencyInjection>`.
+    :file:`Configuration/Services.yaml` which configures :ref:`dependency injection <dependencyinjection>`.
 
 ..  _extension-make-4-look-result:
 

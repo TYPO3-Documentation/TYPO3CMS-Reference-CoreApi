@@ -10,17 +10,17 @@ Publish your extension
 
 Follow these steps to release your extension publicly in the TYPO3 world:
 
-#. :ref:`Publish the source code on a public Git hosting platform <publishExtensionGit>`
-#. :ref:`Publish your extension on Packagist <publishExtensionPackagist>`
-#. :ref:`Publish your extension on TER <publishExtensionTer>`
-#. :ref:`Publish its documentation in the official TYPO3 documentation <publishExtensionDocumentation>`
-#. :ref:`Set up translations <publishExtensionTranslation>` on Crowdin
+#. :ref:`Publish the source code on a public Git hosting platform <publishextensiongit>`
+#. :ref:`Publish your extension on Packagist <publishextensionpackagist>`
+#. :ref:`Publish your extension on TER <publishextensionter>`
+#. :ref:`Publish its documentation in the official TYPO3 documentation <publishextensiondocumentation>`
+#. :ref:`Set up translations <publishextensiontranslation>` on Crowdin
 
 – *TYPO3 - Inspiring people to share*
 
 ..  index:: Extension development; Git
 
-..  _publishExtensionGit:
+..  _publishextensiongit:
 
 Git
 ===
@@ -41,7 +41,7 @@ repository name, but that is not necessary.
 
 ..  index:: Extension development; Packagist
 
-..  _publishExtensionPackagist:
+..  _publishextensionpackagist:
 
 Packagist
 =========
@@ -68,7 +68,7 @@ about the publishing process.
 
 ..  index:: Extension development; TER
 
-..  _publishExtensionTer:
+..  _publishextensionter:
 
 TER
 ===
@@ -104,7 +104,7 @@ at page `FAQ <https://extensions.typo3.org/faq/>`__.
 
 ..  index:: Extension development; webhook for documentation
 
-..  _publishExtensionDocumentation:
+..  _publishextensiondocumentation:
 
 Documentation
 =============
@@ -128,7 +128,7 @@ up an appropriate webhook.
 *  Easily find your extension documentation, which serves as a good companion
    for getting started with your extension.
 
-..  _publishExtensionTranslation:
+..  _publishextensiontranslation:
 
 Crowdin
 =======

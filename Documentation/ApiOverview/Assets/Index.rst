@@ -138,7 +138,7 @@ Examples
 --------
 
 The :php:`AssetCollector` can be injected in the constructor of a class via
-:ref:`dependency injection <DependencyInjection>` and then used in methods:
+:ref:`dependency injection <dependencyinjection>` and then used in methods:
 
 ..  literalinclude:: _MyClassWithAssetCollector.php
     :caption: EXT:my_extension/Classes/MyClass.php
@@ -240,7 +240,7 @@ Using the page renderer to add assets
 =====================================
 
 An instance of the :php-short:`\TYPO3\CMS\Core\Page\PageRenderer`
-class can be injected via :ref:`dependency injection <DependencyInjection>`:
+class can be injected via :ref:`dependency injection <dependencyinjection>`:
 
 ..  literalinclude:: _MyClassWithPageRenderer.php
     :caption: EXT:my_extension/Classes/MyClass.php

@@ -28,7 +28,7 @@ low-level queries must take care that overlaid or deleted rows are not included
 in the result set of a simple query.
 
 This is where this "automatic restriction" enters the picture: The construct is
-created on top of native :ref:`Doctrine DBAL <Database_Introduction>` as a
+created on top of native :ref:`Doctrine DBAL <database-introduction>` as a
 TYPO3-specific extension. It automatically adds `WHERE` expressions that
 suppress rows which are marked as deleted or have exceeded their "active"
 lifecycle. All this is based on the TCA configuration of the affected table.

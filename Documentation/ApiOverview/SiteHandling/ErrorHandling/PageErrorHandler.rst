@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Error handling; Page
-..  _sitehandling-errorHandling_page:
+..  _sitehandling-errorhandling-page:
 
 ========================
 Page-based error handler
@@ -25,7 +25,7 @@ will be shown on the error page.
 
 If dynamic content is required on the error page, it is recommended
 to implement a :ref:`custom PHP based error
-handler <sitehandling-customErrorHandler>`.
+handler <sitehandling-customerrorhandler>`.
 
 Error pages are always generated via a TYPO3-internal sub-request instead
 of an external HTTP request (cURL over Guzzle).
@@ -36,8 +36,8 @@ Properties
 ==========
 
 The page-based error handler has the properties
-:ref:`errorCode <sitehandling-errorHandling_errorCode>` and
-:ref:`errorHandler <sitehandling-errorHandling_errorHandler>` and the following:
+:ref:`errorCode <sitehandling-errorhandling-errorcode>` and
+:ref:`errorHandler <sitehandling-errorhandling-errorhandler>` and the following:
 
 ..  confval:: errorContentSource
     :name: site-error-handling-errorContentSource

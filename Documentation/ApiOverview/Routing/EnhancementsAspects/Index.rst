@@ -390,7 +390,7 @@ Aspects are registered within a single enhancer configuration with the option
 
 Let us start with some examples first:
 
-..  _routing-aspect-StaticValueMapper:
+..  _routing-aspect-staticvaluemapper:
 ..  index:: Routing; StaticValueMapper
 
 `StaticValueMapper`
@@ -415,7 +415,7 @@ locale of a value to use in multi-language setups:
 ..  literalinclude:: _codesnippets/_localeMap.yaml
     :caption: config/sites/my-site/config.yaml (excerpt)
 
-..  _routing-aspect-LocaleModifier:
+..  _routing-aspect-localemodifier:
 ..  index:: Routing; LocaleModifier
 
 `LocaleModifier`
@@ -434,7 +434,7 @@ The configuration could look like this:
 This aspect replaces the placeholder :yaml:`localized_archive` depending on the
 locale of the language of that page.
 
-..  _routing-aspect-StaticRangeMapper:
+..  _routing-aspect-staticrangemapper:
 ..  index:: Routing; StaticRangeMapper
 
 `StaticRangeMapper`
@@ -454,7 +454,7 @@ the placeholder.
 ..  note::
     A range larger than 1000 is not allowed.
 
-..  _routing-aspect-PersistedAliasMapper:
+..  _routing-aspect-persistedaliasmapper:
 ..  index:: Routing; PersistedAliasMapper
 
 `PersistedAliasMapper`
@@ -481,7 +481,7 @@ unique and suitable for the use in an URL. On top, special characters like
 spaces will not be converted automatically. Therefore, usage of a slug TCA field
 is recommended.
 
-..  _routing-aspect-PersistedPatternMapper:
+..  _routing-aspect-persistedpatternmapper:
 ..  index:: Routing; PersistedPatternMapper
 
 `PersistedPatternMapper`

@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; Static routes
-..  _sitehandling-staticRoutes:
+..  _sitehandling-staticroutes:
 
 =============
 Static routes

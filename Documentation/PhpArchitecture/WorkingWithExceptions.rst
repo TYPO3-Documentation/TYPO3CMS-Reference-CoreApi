@@ -79,7 +79,7 @@ Typical cases for exceptions that are designed to be caught
 Typical cases for exceptions that should not be caught
 ------------------------------------------------------
 
-*   Wrong configuration: A :ref:`FlexForm <FlexForms>` contains a
+*   Wrong configuration: A :ref:`FlexForm <flexforms>` contains a
     `type=inline` field. At the time of this writing, this case was not
     implemented, so the code checks for this case and throws a top-level PHP
     built-in exception (:php:`\RuntimeException` in this case) to point

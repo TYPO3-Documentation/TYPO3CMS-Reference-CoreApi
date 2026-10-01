@@ -39,7 +39,7 @@ FILE_DENY_PATTERN_DEFAULT
 -------------------------
 
 Default value of :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
-<typo3ConfVars_be_fileDenyPattern>`.
+<typo3confvars-be-filedenypattern>`.
 
 Defined in:
     :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`

@@ -21,7 +21,7 @@ deployment steps.
 Deployer recipes for TYPO3
 ==========================
 
-..  _deployer-SourceBroker:
+..  _deployer-sourcebroker:
 
 SourceBroker's Deployer - extended TYPO3
 ----------------------------------------

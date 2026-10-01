@@ -7,7 +7,7 @@
 Scheduler
 =========
 
-The following list contains :ref:`PSR-14 events <EventDispatcher>`
+The following list contains :ref:`PSR-14 events <eventdispatcher>`
 in system extension :composer:`typo3/cms-scheduler`.
 
 **Contents:**

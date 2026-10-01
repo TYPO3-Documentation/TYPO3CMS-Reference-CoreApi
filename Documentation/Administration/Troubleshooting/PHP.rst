@@ -54,7 +54,7 @@ illogical problems after an upgrade:
   and restart Apache.
 
 
-..  _troubleshooting-php-troubleshooting_opcode:
+..  _troubleshooting-php-troubleshooting-opcode:
 
 Opcode cache messages
 ---------------------

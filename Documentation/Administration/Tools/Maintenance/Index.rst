@@ -174,7 +174,7 @@ can avoid problems if something in the upgrade requires this. Open
 user preferences".
 
 
-..  _update_backend_translation:
+..  _update-backend-translation:
 ..  _update-translations:
 
 Manage language packs

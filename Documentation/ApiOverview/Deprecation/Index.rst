@@ -1,7 +1,7 @@
 :navigation-title: Deprecation Handling
 
 ..  include:: /Includes.rst.txt
-..  _deprecation_introduction:
+..  _deprecation-introduction:
 ..  _cgl-deprecation:
 ..  _deprecation:
 
@@ -62,7 +62,7 @@ selecting the :guilabel:`Live` preset instead.
 The debug preset also enables some other debug settings.
 
 ..  note::
-    These steps only enable/disable the :ref:`FileWriter <logging-writers-FileWriter>`,
+    These steps only enable/disable the :ref:`FileWriter <logging-writers-filewriter>`,
     which comes with the TYPO3 default configuration. If you manually configured
     **additional** writers for the `TYPO3.CMS.deprecations` logger, you need to
     manually remove them to completely disable deprecation logging.
@@ -92,7 +92,7 @@ For more information on how to configure the writing of deprecation logs see
 ..  index::
     Deprecation; Find deprecated functions
     Deprecation; Extension scanner
-..  _deprecation_finding_calls:
+..  _deprecation-finding-calls:
 
 Find calls to deprecated functions
 ==================================
@@ -110,7 +110,7 @@ corresponding TYPO3 version.
 
 
 ..  index:: Deprecation; Functions
-..  _deprecate_functions:
+..  _deprecate-functions:
 
 Deprecate functions in extensions
 =================================

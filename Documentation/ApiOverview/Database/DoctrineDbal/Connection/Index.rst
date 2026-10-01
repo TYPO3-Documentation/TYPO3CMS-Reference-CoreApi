@@ -63,7 +63,7 @@ Via dependency injection
 ------------------------
 
 Another way is to inject the :php:`Connection` object directly via
-:ref:`dependency injection <DependencyInjection>` if you only use one table.
+:ref:`dependency injection <dependencyinjection>` if you only use one table.
 
 ..  rst-class:: bignums-xxl
 
@@ -145,7 +145,7 @@ with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
 This method supports the native database field declaration :sql:`json`, see
-:ref:`Native JSON database field type support <json_database_type>`.
+:ref:`Native JSON database field type support <json-database-type>`.
 
 Arguments of the :php:`insert()` method:
 
@@ -224,7 +224,7 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 This method supports the native database field declaration :sql:`json`, see
-:ref:`Native JSON database field type support <json_database_type>`.
+:ref:`Native JSON database field type support <json-database-type>`.
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -445,7 +445,7 @@ The method can also be useful in loops to save some precious code characters:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-..  _json_database_type:
+..  _json-database-type:
 
 Native JSON database field type support
 =======================================

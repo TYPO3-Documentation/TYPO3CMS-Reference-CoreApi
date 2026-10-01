@@ -8,7 +8,7 @@
     File; config/system/services.yaml
     File; config/system/services.php
 
-..  _DependencyInjection:
+..  _dependencyinjection:
 ..  _dependency-injection:
 
 ====================
@@ -40,10 +40,10 @@ core and extensions to standardize the process of obtaining service dependencies
 
 By default all API services shipped with the TYPO3 Core system extensions offer dependency
 injection. The recommended usage is :ref:`constructor injection
-<Constructor-injection>`. Available as well are :ref:`method injection
-<Method-injection>` and :ref:`interface injection <Interface-injection>`.
+<constructor-injection>`. Available as well are :ref:`method injection
+<method-injection>` and :ref:`interface injection <interface-injection>`.
 To activate the Symfony component for dependency injection a few lines of
-:ref:`configuration <Configuration>` are necessary.
+:ref:`configuration <configuration>` are necessary.
 
 
 ..  _dependency-injection-introduction:
@@ -189,7 +189,7 @@ to calculate when it has to be rebuild, there is a limited list of options to fl
 this cache:
 
 *   The container cache entry is *not deleted* when a backend user clicks "Flush all caches"
-    in the backend top toolbar if the instance is configured as :ref:`production <Environment-context>`
+    in the backend top toolbar if the instance is configured as :ref:`production <environment-context>`
     application. For developer convenience, the container cache *is* flushed in development
     context, though.
 
@@ -205,7 +205,7 @@ this cache:
 *   Another way to quickly drop this cache during development is to remove all
     :file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in
     classic mode instances or elsewhere in composer mode instances (see
-    :ref:`Environment <Environment>`).
+    :ref:`Environment <environment>`).
 
 The main takeaway is: When a developer fiddles with container configuration,
 the cache needs to be manually cleared. And if some configuration issue slipped in,
@@ -264,7 +264,7 @@ Data object
 
 
 ..  _supported-ways-of-dependency-injection:
-..  _Using-DI:
+..  _using-di:
 
 Using DI
 ========
@@ -283,7 +283,7 @@ Constructor injection using :php:`__construct()` and method injection using
 is not dealing with complex abstract inheritance chains. The symfony service container
 can inject specific classes as well as instances of interfaces.
 
-..  _Constructor-injection:
+..  _constructor-injection:
 
 Constructor injection
 ---------------------
@@ -305,7 +305,7 @@ property promotion <https://www.php.net/manual/en/language.oop5.decon.php#langua
 and the property is declared :php:`readonly`.
 
 
-..  _Method-injection:
+..  _method-injection:
 
 Method injection
 ----------------
@@ -410,7 +410,7 @@ some service consumers:
 
 
 ..  _configure-dependency-injection-in-extensions:
-..  _dependency-injection-Configuration:
+..  _dependency-injection-configuration:
 
 Configuration
 =============
@@ -457,7 +457,7 @@ public
     :yaml:`public: false` is a performance optimization and should therefore be set
     in extensions. This settings controls which services are available through the
     dependency injection container used internally by :php:`GeneralUtility::makeInstance()`.
-    See :ref:`"What to make public?" <What-to-make-public>` for more information.
+    See :ref:`"What to make public?" <what-to-make-public>` for more information.
 
 Model exclusion
     The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
@@ -510,7 +510,7 @@ the "foreign" service as "public" in :file:`Services.yaml`:
 
 
 ..  _dependency-injection-autowire:
-..  _DependencyInjectionArguments:
+..  _dependencyinjectionarguments:
 
 Autowiring using attributes
 ---------------------------
@@ -609,7 +609,7 @@ FAQ
 ===
 
 ..  _knowing-what-to-make-public:
-..  _What-to-make-public:
+..  _what-to-make-public:
 ..  _errors-resulting-from-wrong-configuration:
 
 What to make public?
@@ -667,7 +667,7 @@ framework. The most common ones are:
     They are additionally declared :php:`shared: false`.
 
 *   :ref:`Fluid data processors <content-elements-custom-data-processor>`
-    tagged with :ref:`data.processor <content-elements-custom-data-processor_alias>`.
+    tagged with :ref:`data.processor <content-elements-custom-data-processor-alias>`.
 
 Examples of classes that must be made public:
 
@@ -877,7 +877,7 @@ shortcut notation for an alias as shown in the example below:
     TYPO3\CMS\Belog\Controller\BackendLogController: '@MyVendor\MyExtension\Controller\ExtendedBackendLogController'
 
 If the extended class is instantiated by :php:`GeneralUtility::makeInstance()` and
-:ref:`must be declared public <What_to_make_public>`, either use an additional
+:ref:`must be declared public <what-to-make-public>`, either use an additional
 :ref:`PHP attribute <dependency-injection-autoconfigure>` or the full alias
 notation including the `public` argument:
 

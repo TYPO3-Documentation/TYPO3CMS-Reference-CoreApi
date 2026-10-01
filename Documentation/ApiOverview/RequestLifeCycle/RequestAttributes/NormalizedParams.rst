@@ -2,7 +2,7 @@
 
 ..  index::
     Request attribute; Normalized parameters
-..  _typo3-request-attribute-normalizedParams:
+..  _typo3-request-attribute-normalizedparams:
 
 =====================
 Normalized parameters
@@ -15,7 +15,7 @@ It is available in frontend and backend context.
 ..  attention::
     The normalized parameters substitute
     :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv()`. See the
-    :ref:`migration guide <GeneralUtility-getIndpEnv-migration>` below.
+    :ref:`migration guide <generalutility-getindpenv-migration>` below.
 
 One can retrieve the normalized parameters like this:
 
@@ -35,7 +35,7 @@ API
 
 
 ..  index:: Request handling; Migration from getIndpEnv
-..  _GeneralUtility-getIndpEnv-migration:
+..  _generalutility-getindpenv-migration:
 
 Migrating from `GeneralUtility::getIndpEnv()`
 =============================================

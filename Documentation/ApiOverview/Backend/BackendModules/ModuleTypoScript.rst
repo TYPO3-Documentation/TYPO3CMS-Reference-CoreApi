@@ -29,7 +29,7 @@ in the extension's :file:`ext_localconf.php`:
       module.tx_myextension.settings.itemsPerPage = 25
     ');
 
-Do not use :ref:`ext_typoscript_setup.typoscript <ext_typoscript_setup_typoscript>`
+Do not use :ref:`ext_typoscript_setup.typoscript <ext-typoscript-setup-typoscript>`
 for this. It is not loaded on sites that use site sets, so a module showing a
 page of such a site does not see it. A module without a page tree only sees
 global TypoScript, see :ref:`Breaking: #105728

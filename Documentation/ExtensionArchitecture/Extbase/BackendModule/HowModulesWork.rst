@@ -176,7 +176,7 @@ site sets.
 ..  warning::
 
     Do not rely on :ref:`ext_typoscript_setup.typoscript
-    <ext_typoscript_setup_typoscript>` for module configuration. It is loaded
+    <ext-typoscript-setup-typoscript>` for module configuration. It is loaded
     for a module without page context and on sites built from TypoScript
     records, but not on sites that use site sets. A module with a page tree
     then loses its configuration as soon as the editor selects a page of such

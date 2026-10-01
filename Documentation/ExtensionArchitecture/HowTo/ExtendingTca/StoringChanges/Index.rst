@@ -89,4 +89,4 @@ Changing the TCA "on the fly"
 
 It is possible to manipulate
 :php:`$GLOBALS['TCA']` just before it is stored in the cache. Use the
-:ref:`PSR-14 event <EventDispatcher>` :ref:`AfterTcaCompilationEvent <AfterTcaCompilationEvent>`.
+:ref:`PSR-14 event <eventdispatcher>` :ref:`AfterTcaCompilationEvent <AfterTcaCompilationEvent>`.

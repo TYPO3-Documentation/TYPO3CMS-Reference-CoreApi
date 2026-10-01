@@ -85,8 +85,8 @@ This directory contains TYPO3 Core system extensions.
 
 All system extensions, supplied by the TYPO3 Core, are stored here.
 
-..  _classic-directory-typo3_source:
-..  _legacy-directory-typo3_source:
+..  _classic-directory-typo3-source:
+..  _legacy-directory-typo3-source:
 
 `typo3_src/`
 ------------
@@ -126,7 +126,7 @@ the following symlink structure:
 ------------
 
 This path can be retrieved from the Environment API, see
-:ref:`getConfigPath() <Environment-config-path>`.
+:ref:`getConfigPath() <environment-config-path>`.
 
 ..  _classic-directory-typo3conf-autoload:
 ..  _legacy-directory-typo3conf-autoload:
@@ -162,7 +162,7 @@ Directory for extension localizations. Contains all downloaded translation
 files.
 
 This path can be retrieved from the Environment API, see
-:ref:`getLabelsPath() <Environment-labels-path>`.
+:ref:`getLabelsPath() <environment-labels-path>`.
 
 ..  _classic-directory-typo3conf-sites:
 ..  _legacy-directory-typo3conf-sites:
@@ -183,16 +183,16 @@ the installation. See chapter
 The folder :path:`typo3conf/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
 
-*   :file:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
+*   :file:`settings.php`: :ref:`Configuration <typo3confvars-settings>` written
     by the :guilabel:`System > Settings` backend module
-*   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
+*   :file:`additional.php`: :ref:`Manually created file <typo3confvars-additional>`
     which can override settings from :file:`settings.php` file
 
 These files define a set of global settings stored in a global array called
-:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`.
+:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3confvars>`.
 
 This path can be retrieved from the Environment API, see
-:ref:`getConfigPath() <Environment-config-path>`.
+:ref:`getConfigPath() <environment-config-path>`.
 
 ..  _classic-directory-typo3temp:
 ..  _legacy-directory-typo3temp:

@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Backend modules; ModuleTemplateFactory
-..  _ModuleTemplateFactory:
+..  _moduletemplatefactory:
 
 =======================
 `ModuleTemplateFactory`
@@ -11,14 +11,14 @@ The template module factory should be used by backend controllers to create a
 
 ..  contents:: Table of contents
 
-..  _ModuleTemplateFactory-api:
+..  _moduletemplatefactory-api:
 
 `ModuleTemplateFactory` API
 ===========================
 
 ..  include:: _ModuleTemplateFactory.rst.txt
 
-..  _ModuleTemplateFactory-examples:
+..  _moduletemplatefactory-examples:
 
 Example: initialize module template
 ===================================

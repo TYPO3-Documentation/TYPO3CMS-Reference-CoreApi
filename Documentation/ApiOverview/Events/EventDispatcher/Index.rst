@@ -2,7 +2,7 @@
 ..  index::
     ! EventDispatcher
     Events; PSR-14
-..  _EventDispatcher:
+..  _eventdispatcher:
 
 ================================
 Event dispatcher (PSR-14 events)
@@ -31,19 +31,19 @@ extension development how-to section.
 ..  contents:: **Table of Contents**
     :local:
 
-..  _EventDispatcherQuickStart:
+..  _eventdispatcherquickstart:
 
 Quick start
 ===========
 
-..  _EventDispatcherQuickStartDispatching:
+..  _eventdispatcherquickstartdispatching:
 
 Dispatching an event
 --------------------
 
 This quick start section shows how to create your own event class and dispatch it.
 If you just want to listen on an existing event, see section
-:ref:`Implementing an event listener in your extension <EventDispatcherImplementation>`.
+:ref:`Implementing an event listener in your extension <eventdispatcherimplementation>`.
 
 ..  rst-class:: bignums
 
@@ -56,7 +56,7 @@ If you just want to listen on an existing event, see section
     ..  literalinclude:: _DoingThisAndThatEvent.php
         :caption: EXT:my_extension/Classes/Event/DoingThisAndThatEvent.php
 
-    Read more about :ref:`implementing event classes <EventDispatcherEvents>`.
+    Read more about :ref:`implementing event classes <eventdispatcherevents>`.
 
 #.  Inject the event dispatcher
 
@@ -77,7 +77,7 @@ If you just want to listen on an existing event, see section
         :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  index:: ! PSR-14
-..  _EventDispatcherDescription:
+..  _eventdispatcherdescription:
 
 Description of PSR-14 in the context of TYPO3
 =============================================
@@ -90,7 +90,7 @@ into existing PHP code (Frameworks, CMS, and the like).
 PSR-14 consists of the following four components:
 
 
-..  _EventDispatcherObject:
+..  _eventdispatcherobject:
 
 The event dispatcher object
 ---------------------------
@@ -105,7 +105,7 @@ PHP object which will then be handed to all available listeners.
 
 
 ..  index:: EventDispatcher; ListenerProvider
-..  _EventDispatcherListenerProvider:
+..  _eventdispatcherlistenerprovider:
 
 The listener provider
 ---------------------
@@ -117,7 +117,7 @@ TYPO3's Core Framework.
 
 
 ..  index:: EventDispatcher; Event
-..  _EventDispatcherEvents:
+..  _eventdispatcherevents:
 
 The events
 ----------
@@ -142,7 +142,7 @@ cannot be guaranteed to be immutable.
 ..  index::
     EventDispatcher; Listener
     Event listener
-..  _EventDispatcherListeners:
+..  _eventdispatcherlisteners:
 
 The listeners
 -------------
@@ -157,7 +157,7 @@ be configured or an existing event listener can also be overridden with a differ
 
 The :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires
 the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an overview of all registered
-event listeners, see :ref:`Debugging event handling <EventDebugging>`.
+event listeners, see :ref:`Debugging event handling <eventdebugging>`.
 
 
 ..  _event-dispatcher-advantages-event-dispatcher:
@@ -171,7 +171,7 @@ possibilities by having a strongly typed system based on PHP. In addition, it
 serves as a bridge to also incorporate other events provided by frameworks that
 support PSR-14.
 
-..  _EventDispatcherImpact:
+..  _eventdispatcherimpact:
 
 Impact on TYPO3 Core development in the future
 ==============================================
@@ -186,7 +186,7 @@ with a more robust or future-proof API.
 
 
 ..  index:: Event listener; Implementation
-..  _EventDispatcherImplementation:
+..  _eventdispatcherimplementation:
 
 Implementing an event listener in your extension
 ================================================
@@ -199,13 +199,13 @@ Implementing an event listener in your extension
 A `PHP attribute`_ :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` is
 available to autoconfigure a class as an event listener. If the PHP
 attribute is used, the :ref:`configuration of the event listener
-<EventDispatcherRegistration>` via the :file:`Configuration/Services.yaml`
+<eventdispatcherregistration>` via the :file:`Configuration/Services.yaml`
 file is not necessary anymore.
 
 ..  _PHP attribute: https://www.php.net/manual/en/language.attributes.overview.php
 
 ..  index:: Event listener; Implementation
-..  _EventDispatcherEventListenerClass:
+..  _eventdispatchereventlistenerclass:
 
 The event listener class
 ------------------------
@@ -271,7 +271,7 @@ be written as:
     Event Listener; Registration
     YAML; event.listener
     File; EXT:{extkey}/Configuration/Services.yaml
-..  _EventDispatcherRegistration:
+..  _eventdispatcherregistration:
 
 Registering the event listener via `Services.yaml`
 --------------------------------------------------
@@ -309,7 +309,7 @@ its :php:`__invoke()` method will be called:
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 ..  index:: Override Event Listener; Event override
-..  _EventListenerOverride:
+..  _eventlisteneroverride:
 
 Overriding event listeners
 --------------------------
@@ -357,7 +357,7 @@ in the original implementation, the service name (when unspecified, the fully-qu
 listener class) is used. You can inspect that identifier in the
 :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module
 (requires the system extension :doc:`lowlevel <ext_lowlevel:Index>`), see
-:ref:`Debugging event handling <EventDebugging>`. In this example,
+:ref:`Debugging event handling <eventdebugging>`. In this example,
 if :yaml:`identifier: 'ext-some-extension/modify-hreflang'` is not defined, the identifier
 will be set to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEventListener'` and you could
 use that identifier in your implementation.
@@ -370,7 +370,7 @@ use that identifier in your implementation.
     to override.
 
 ..  index:: Event listener; Best practices
-..  _EventDispatcherBestPractises:
+..  _eventdispatcherbestpractises:
 
 Best practices
 --------------
@@ -391,7 +391,7 @@ Best practices
     :file:`Classes/EventListener/`.
 
 *   Emitters (TYPO3 Core or extension authors) should always use
-    :ref:`Dependency Injection <DependencyInjection>` to receive the event
+    :ref:`Dependency Injection <dependencyinjection>` to receive the event
     dispatcher object as a constructor argument, where possible, by adding a
     type declaration for :php:`\Psr\EventDispatcher\EventDispatcherInterface`.
 
@@ -405,7 +405,7 @@ avoided whenever technically possible.
 
 
 ..  index:: Event listener; Best practices
-..  _EventDebugging:
+..  _eventdebugging:
 
 Debugging event handling
 ========================

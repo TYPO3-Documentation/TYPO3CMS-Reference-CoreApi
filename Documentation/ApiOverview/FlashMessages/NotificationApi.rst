@@ -5,7 +5,7 @@
     pair: Backend JavaScript; Notification API
     Notification API
 ..  _flash-messages-javascript:
-..  _notification_api:
+..  _notification-api:
 
 ==================================================
 JavaScript-based flash messages (notification API)
@@ -66,7 +66,7 @@ Example:
 ..  literalinclude:: _ES6/_flash-message-demo.js
     :caption: EXT:my_extension/Resources/Public/JavaScript/flash-message-demo.js
 
-..  _notification_api-actions:
+..  _notification-api-actions:
 
 Actions
 -------
@@ -89,16 +89,16 @@ action
     :sep:`|` :aspect:`Type:` ImmediateAction|DeferredAction
     :sep:`|`
 
-    An instance of either :ref:`ImmediateAction <notification_api_immediate_action>`
+    An instance of either :ref:`ImmediateAction <notification-api-immediate-action>`
     (:js:`@typo3/backend/action-button/immediate-action.js`)
-    or :ref:`DeferredAction <notification_api_deferred_action>`
+    or :ref:`DeferredAction <notification-api-deferred-action>`
     (:js:`@typo3/backend/action-button/deferred-action.js`).
 
 ..  attention::
     Any action **must** be optional to be executed. If triggering an action is
     mandatory, consider using a :ref:`modal <modules-modals>` instead.
 
-..  _notification_api_immediate_action:
+..  _notification-api-immediate-action:
 
 Immediate action
 ~~~~~~~~~~~~~~~~
@@ -115,7 +115,7 @@ Example:
 ..  literalinclude:: _ES6/_flash-message-immediate-action-demo.js
     :caption: EXT:my_extension/Resources/Public/JavaScript/flash-message-immediate-action-demo.js
 
-..  _notification_api_deferred_action:
+..  _notification-api-deferred-action:
 
 Deferred action
 ~~~~~~~~~~~~~~~

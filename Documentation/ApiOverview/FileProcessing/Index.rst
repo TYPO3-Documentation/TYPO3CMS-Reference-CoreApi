@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: File processors
-..  _file_processing:
+..  _file-processing:
 
 ======================
 Custom file processors
@@ -9,7 +9,7 @@ Custom file processors
 For custom needs in terms of file processing, registration of custom file processors is available.
 
 
-..  _file_processing-create:
+..  _file-processing-create:
 
 Create a new processor class
 ============================
@@ -23,7 +23,7 @@ The file must implement the :php:`\TYPO3\CMS\Core\Resource\Processing\ProcessorI
    Will then do whatever needs to be done to process the given file.
 
 
-..  _file_processing-register:
+..  _file-processing-register:
 
 Register the file processor
 ===========================

@@ -6,7 +6,7 @@
     Extbase; Tea
     Tutorial; Tea
     Tutorial Tea
-..  _extbase_tutorial_tea:
+..  _extbase-tutorial-tea:
 
 =================
 Tea in a nutshell
@@ -33,25 +33,25 @@ Steps in this tutorial:
 
 ..  rst-class:: bignums-xxl
 
-#.  :ref:`Extension configuration and installation <extbase_tutorial_tea_extension_configuration>`
+#.  :ref:`Extension configuration and installation <extbase-tutorial-tea-extension-configuration>`
 
     Create the files needed to have a minimal running extension and install it.
 
-#.  :ref:`Directory structure <extbase_tutorial_tea_extension_configuration>`
+#.  :ref:`Directory structure <extbase-tutorial-tea-extension-configuration>`
 
     Have a look at the directory structure of the example extension and learn
     which files should go where.
 
-#.  :ref:`The model <extbase_tutorial_tea_model>`
+#.  :ref:`The model <extbase-tutorial-tea-model>`
 
     We define a database schema and make it visible to TYPO3. Then we create
     a PHP class as a model of the real-life tea flavor.
 
-#.  :ref:`The Repository <extbase_tutorial_tea_repositoy>`
+#.  :ref:`The Repository <extbase-tutorial-tea-repositoy>`
 
     The repository helps us to fetch tea objects from the database.
 
-#.  :ref:`The controller <extbase_tutorial_tea_controller>`
+#.  :ref:`The controller <extbase-tutorial-tea-controller>`
 
     The controller controls the flow of data between the view and the
     data repository containing the model.

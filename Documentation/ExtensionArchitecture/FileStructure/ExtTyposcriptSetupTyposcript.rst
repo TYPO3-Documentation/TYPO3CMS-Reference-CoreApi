@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: File; EXT:{extkey}/ext_typoscript_setup.typoscript
-..  _ext_typoscript_setup_typoscript:
+..  _ext-typoscript-setup-typoscript:
 
 =================================
 `ext_typoscript_setup.typoscript`

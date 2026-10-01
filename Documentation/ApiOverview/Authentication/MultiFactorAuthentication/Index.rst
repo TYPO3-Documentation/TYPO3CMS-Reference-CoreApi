@@ -225,7 +225,7 @@ Enforcing MFA for users
 
 It seems reasonable to require MFA for specific users or user groups. This can
 be achieved with
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa'] <typo3ConfVars_be_requireMfa>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa'] <typo3confvars-be-requiremfa>`
 which allows five options:
 
 `0`
@@ -283,7 +283,7 @@ Recommended provider
 ~~~~~~~~~~~~~~~~~~~~
 
 To recommend a specific provider,
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider'] <typo3ConfVars_be_recommendedMfaProvider>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider'] <typo3confvars-be-recommendedmfaprovider>`
 can be used and is set to `totp` (time-based one-time password) by default.
 
 To set a recommended provider on a per user or user group basis, the user

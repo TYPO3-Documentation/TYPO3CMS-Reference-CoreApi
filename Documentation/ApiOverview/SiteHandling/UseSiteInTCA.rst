@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; TCA
-..  _sitehandling-inTCA:
+..  _sitehandling-intca:
 
 =====================================================
 Using site configuration in TCA `foreign_table_where`

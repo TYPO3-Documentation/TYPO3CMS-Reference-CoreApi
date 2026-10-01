@@ -16,12 +16,12 @@
 ..  _transformations-tsconfig-processing-denytags:
 ..  _transformations-tsconfig-processing-blockelementlist:
 ..  _transformations-tsconfig-processing-htmlparser:
-..  _transformations-tsconfig-processing-dontremoveunknowntags_db:
+..  _transformations-tsconfig-processing-dontremoveunknowntags-db:
 ..  _transformations-tsconfig-processing-allowedclasses:
 ..  _transformations-tsconfig-processing-keeppdivattribs:
 ..  _transformations-tsconfig-processing-dontfetchextpictures:
 ..  _transformations-tsconfig-processing-plainimagemode:
-..  _transformations-tsconfig-processing-exit_entry_htmlparser:
+..  _transformations-tsconfig-processing-exit-entry-htmlparser:
 ..  _transformations-tsconfig-processing-user:
 
 =======================

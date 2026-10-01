@@ -59,7 +59,7 @@ additional fields in pages to be filled out:
 
    The mounted page is specified in `pages.mount_pid`,
    while display options can be changed with `pages.mount_pid_ol`.
-   See :ref:`MountPoints documentation <MountPoints>`.
+   See :ref:`MountPoints documentation <mountpoints>`.
 
 ..  index:: Page types; DOKTYPE_SPACER
 ..  _list-of-page-types-spacer:

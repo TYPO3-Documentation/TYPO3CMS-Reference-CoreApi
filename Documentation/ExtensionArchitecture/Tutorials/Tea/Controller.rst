@@ -2,7 +2,7 @@
 
 ..  index::
     Tutorial Tea; Controller.rst
-..  _extbase_tutorial_tea_controller:
+..  _extbase-tutorial-tea-controller:
 
 ==========
 Controller
@@ -37,7 +37,7 @@ objects from the repository and hands them over to the view:
     :caption: Class TTN\\Tea\\Controller\\TeaController
 
 The controller has to access the :php:`TeaRepository` to find all available tea
-objects. We use :ref:`Dependency Injection <DependencyInjection>` to make the
+objects. We use :ref:`Dependency Injection <dependencyinjection>` to make the
 repository available to the controller: The constructor
 will be called automatically with an initialized :php:`TeaRepository` when
 the :php:`TeaController` is created.

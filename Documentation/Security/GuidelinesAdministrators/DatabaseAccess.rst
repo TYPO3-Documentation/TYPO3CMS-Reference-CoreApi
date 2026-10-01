@@ -78,7 +78,7 @@ Keep SQLite files out of the web root
 =====================================
 
 SQLite stores the database in a single file. By default, TYPO3 places this file
-in the :ref:`var/sqlite <Environment-var-path>` directory, derived from the
+in the :ref:`var/sqlite <environment-var-path>` directory, derived from the
 :php:`TYPO3_PATH_APP` environment variable.
 
 **Warning:** In non-Composer installations, if :php:`TYPO3_PATH_APP` is not set,

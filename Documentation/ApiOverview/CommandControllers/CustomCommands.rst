@@ -156,7 +156,7 @@ Using the DataHandler in CLI commands
 
 When using the :ref:`DataHandler <datahandler-basics>` in a CLI command,
 backend user authentication is required. For more information see:
-:ref:`Using the DataHandler in a Symfony command <dataHandler-cli-command>`.
+:ref:`Using the DataHandler in a Symfony command <datahandler-cli-command>`.
 
 ..  _writing-custom-commands-backend-user:
 
@@ -245,12 +245,12 @@ You can create a :php:`SymfonyStyle` console user interface using the
 The :php:`$io` variable can be used to generate output and prompt for
 input.
 
-..  _writing-custom-commands-dependencyInjection:
+..  _writing-custom-commands-dependencyinjection:
 
 Dependency injection in console commands
 ========================================
 
-You can use :ref:`dependency injection (DI) <Dependency-Injection>` in console
+You can use :ref:`dependency injection (DI) <dependency-injection>` in console
 commands via constructor injection or method injection.
 
 ..  literalinclude:: _Tutorial/_MeowInformationCommand.php

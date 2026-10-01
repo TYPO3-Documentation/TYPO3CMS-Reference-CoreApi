@@ -14,7 +14,7 @@ types.
 
 ..  seealso::
 
-    *   :ref:`Events to modify link handler <modifyLinkHandlers>`
+    *   :ref:`Events to modify link handler <modifylinkhandlers>`
     *   :ref:`ModifyLinkHandlersEvent <ModifyLinkHandlersEvent>`
 
 ..  _modify-allowed-items-event-example:

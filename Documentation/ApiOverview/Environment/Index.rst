@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: ! Environment
-..  _Environment:
+..  _environment:
 
 ===========
 Environment
@@ -20,7 +20,7 @@ be called to adjust the information.
     :local:
     :depth: 2
 
-..  _Environment-php-api:
+..  _environment-php-api:
 
 Environment PHP API
 ===================
@@ -38,20 +38,20 @@ Environment PHP API
 ..  index::
     Environment; getProjectPath
     File; composer.json
-..  _Environment-project-path:
+..  _environment-project-path:
 
 `getProjectPath()`
 ------------------
 
 The environment provides the path to the folder containing the
 :file:`composer.json`. For projects without Composer setup, this is equal to
-:ref:`getPublicPath() <Environment-public-path>`.
+:ref:`getPublicPath() <environment-public-path>`.
 
 
 ..  index::
     Environment; getPublicPath
     PATH_site
-..  _Environment-public-path:
+..  _environment-public-path:
 
 `getPublicPath()`
 -----------------
@@ -59,14 +59,14 @@ The environment provides the path to the folder containing the
 The environment provides the path to the public web folder with
 :file:`index.php` for the TYPO3 frontend. This was previously :php:`PATH_site`.
 For projects without Composer setup, this is equal to
-:ref:`getProjectPath() <Environment-project-path>`.
+:ref:`getProjectPath() <environment-project-path>`.
 
 
 ..  index::
     Environment; getVarPath
     Path; var
     Path; typo3temp/var
-..  _Environment-var-path:
+..  _environment-var-path:
 
 `getVarPath()`
 --------------
@@ -92,7 +92,7 @@ Classic mode installations
     Environment; getConfigPath
     Path; typo3conf
     Path; config
-..  _Environment-config-path:
+..  _environment-config-path:
 
 `getConfigPath()`
 -----------------
@@ -124,7 +124,7 @@ containing the :ref:`configuration files <configuration-files>`
     Environment; getConfigPath
     Path; var/labels
     Path; typo3conf/l10n
-..  _Environment-labels-path:
+..  _environment-labels-path:
 
 `getLabelsPath()`
 -----------------
@@ -144,7 +144,7 @@ installations. This folder contains downloaded translation files.
     $pathToLabels = Environment::getLabelsPath();
 
 ..  index:: Environment; getCurrentScript
-..  _Environment-current-script:
+..  _environment-current-script:
 
 `getCurrentScript()`
 --------------------
@@ -155,7 +155,7 @@ Returns the path and filename to the current PHP script.
     Environment; getContext
     Application context
     TYPO3_CONTEXT
-..  _Environment-context:
+..  _environment-context:
 
 `getContext()`
 --------------

@@ -46,7 +46,7 @@ For the implementation we need the
 additional link errors and the
 :php:`\TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory` so
 we can automatically parse for links. These two classes have to be injected via
-:ref:`dependency injection <Dependency-Injection>`:
+:ref:`dependency injection <dependency-injection>`:
 
 ..  literalinclude:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInject.php
     :caption: Class T3docs\\Examples\\EventListener\\LinkValidator\\CheckExternalLinksToLocalPagesEventListener
@@ -67,7 +67,7 @@ we add an entry to the :php:`BrokenLinkRepository` and to the result set of
     :caption: Class T3docs\\Examples\\EventListener\\LinkValidator\\CheckExternalLinksToLocalPagesEventListener
 
 The :php:`BrokenLinkRepository` is not an Extbase repository but a repository
-based on the :ref:`Doctrine database abstraction (DBAL) <Database_Introduction>`.
+based on the :ref:`Doctrine database abstraction (DBAL) <database-introduction>`.
 Therefore, it expects an array with the names of the table fields as argument
 and not an Extbase model. The method internally uses
 :ref:`\\TYPO3\\CMS\\Core\\Database\\Connection::insert <database-connection-insert>`.

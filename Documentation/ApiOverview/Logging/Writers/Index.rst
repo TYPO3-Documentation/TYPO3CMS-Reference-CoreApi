@@ -61,7 +61,7 @@ The following option is available:
     ..  deprecated:: 14.2
         `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
 
-..  _logging-writers-FileWriter:
+..  _logging-writers-filewriter:
 
 `FileWriter`
 ------------
@@ -73,11 +73,11 @@ Please make sure:
 
 *   Your web server has write permissions to that path.
 *   The path is below the root directory of your website (defined by
-    :ref:`Environment::getPublicPath() <Environment-public-path>`).
+    :ref:`Environment::getPublicPath() <environment-public-path>`).
 
 The filename is appended with a hash, that depends on the
-:ref:`encryption key <typo3ConfVars_sys_encryptionKey>`. If
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3ConfVars_sys_generateApacheHtaccess>`
+:ref:`encryption key <typo3confvars-sys-encryptionkey>`. If
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3confvars-sys-generateapachehtaccess>`
 is set, an :file:`.htaccess` file is added to the directory. It protects your
 log files from being accessed from the web. If the :php:`logFile` option is not
 set, TYPO3 will use a filename containing a random hash, like
@@ -86,7 +86,7 @@ set, TYPO3 will use a filename containing a random hash, like
 The following options are available:
 
 
-..  _file-writer-logFile:
+..  _file-writer-logfile:
 
 logFile
 ~~~~~~~
@@ -100,7 +100,7 @@ logFile
     The path to the log file.
 
 
-..  _file-writer-logFileInfix:
+..  _file-writer-logfileinfix:
 
 logFileInfix
 ~~~~~~~~~~~~
@@ -123,7 +123,7 @@ The corresponding configuration might look like this for the example class
     :caption: EXT:my_extension/ext_localconf.php
 
 
-..  _logging-writers-RotatingFileWriter:
+..  _logging-writers-rotatingfilewriter:
 
 `RotatingFileWriter`
 --------------------
@@ -155,7 +155,7 @@ Example of the :file:`var/log/` folder with rotated log files:
     typo3_<hash>.log.20230616094812
 
 The file writer :php:`\TYPO3\CMS\Core\Log\Writer\RotatingFileWriter` extends the
-:ref:`FileWriter <logging-writers-FileWriter>` class. The :php:`RotatingFileWriter`
+:ref:`FileWriter <logging-writers-filewriter>` class. The :php:`RotatingFileWriter`
 accepts all options of :php:`FileWriter` in addition of the following:
 
 
@@ -178,7 +178,7 @@ interval
     *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::YEARLY` or :php:`yearly`
 
 
-..  _rotating-file-writer-maxFiles:
+..  _rotating-file-writer-maxfiles:
 
 maxFiles
 ~~~~~~~~

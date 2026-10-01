@@ -17,11 +17,11 @@ section :guilabel:`Sites`.
 A site configuration consists of the following parts:
 
 *   Base URL configurations: the domain(s) to access my site.
-*   :ref:`Language configuration <sitehandling-addingLanguages>`: the languages
+*   :ref:`Language configuration <sitehandling-addinglanguages>`: the languages
     of my site.
-*   :ref:`Error handling <sitehandling-errorHandling>`: error behavior of my
+*   :ref:`Error handling <sitehandling-errorhandling>`: error behavior of my
     site (for example, configuration of custom 404 pages).
-*   :ref:`Static routes <sitehandling-staticRoutes>`: static routes of my site
+*   :ref:`Static routes <sitehandling-staticroutes>`: static routes of my site
     (for example, :file:`robots.txt` on a per site base).
 *   Routing configuration: How shall routing behave for this site.
 
@@ -110,7 +110,7 @@ Root pages are identified by one of these two properties:
     same root page ID is used multiple times.
 
 
-..  _sitehandling-basics-websiteTitle:
+..  _sitehandling-basics-websitetitle:
 
 `websiteTitle`
 --------------
@@ -162,10 +162,10 @@ languages
 
 Available languages for a site can be specified here. These settings determine
 both the availability of the language and the behavior. For a detailed
-description see :ref:`Language configuration <sitehandling-addingLanguages>`.
+description see :ref:`Language configuration <sitehandling-addinglanguages>`.
 
 
-..  _sitehandling-basics-errorHandling:
+..  _sitehandling-basics-errorhandling:
 
 `errorHandling`
 ---------------
@@ -173,7 +173,7 @@ description see :ref:`Language configuration <sitehandling-addingLanguages>`.
 The error handling section describes how to handle error status codes for this
 website. It allows you to configure custom redirects, rendering templates, and
 more. For a detailed description, see :ref:`error handling
-<sitehandling-errorHandling>`.
+<sitehandling-errorhandling>`.
 
 
 ..  _sitehandling-basics-routes:
@@ -184,10 +184,10 @@ routes
 The routes section is used to add static routes to a site, for example a
 :file:`robots.txt` or :file:`humans.txt` file that depends on the current site
 (an does not contain the same content for the whole TYPO3 installation).
-Read more at :ref:`static routes<sitehandling-staticRoutes>`.
+Read more at :ref:`static routes<sitehandling-staticroutes>`.
 
 
-..  _sitehandling-basics-routeEnhancers:
+..  _sitehandling-basics-routeenhancers:
 
 `routeEnhancers`
 ----------------

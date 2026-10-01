@@ -46,7 +46,7 @@ cmd
 
 
 
-..  _datahandler-commit-cacheCmd:
+..  _datahandler-commit-cachecmd:
 
 cacheCmd
 --------

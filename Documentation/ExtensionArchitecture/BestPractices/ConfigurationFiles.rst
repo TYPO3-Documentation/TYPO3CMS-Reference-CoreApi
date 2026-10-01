@@ -24,7 +24,7 @@ and directory names typically used in extensions.
     causing PHP errors that can only be solved by clearing the caches via the
     Install Tool.
 
-..  _rules_ext_tables_localconf_php:
+..  _rules-ext-tables-localconf-php:
 
 Rules and best practices
 ========================

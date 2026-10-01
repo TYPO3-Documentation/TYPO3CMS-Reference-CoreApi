@@ -2,7 +2,7 @@
 
 ..  index::
     TYPO3_CONF_VARS; EXT
-..  _typo3ConfVars_ext:
+..  _typo3confvars-ext:
 
 =====================================
 EXT - extension manager configuration
@@ -21,8 +21,8 @@ the Extension manager:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+    *   :ref:`config/system/settings.php <typo3confvars-settings>`
+    *   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 
 ..  confval-menu::
@@ -32,7 +32,7 @@ the Extension manager:
 
 ..  index::
     TYPO3_CONF_VARS SYS; excludeForPackaging
-..  _typo3ConfVars_ext_excludeForPackaging:
+..  _typo3confvars-ext-excludeforpackaging:
 
 
 excludeForPackaging

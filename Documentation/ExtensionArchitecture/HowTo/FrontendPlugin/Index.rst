@@ -2,7 +2,7 @@
 ..  index::
     pair: Extension development; Frontend plugin
 
-..  _frontend_plugin:
+..  _frontend-plugin:
 
 ===============
 Frontend plugin

@@ -79,7 +79,7 @@ password policy `default`:
 
 ..  seealso::
 
-    :ref:`Default password policy configuration <typo3ConfVars_sys_passwordPolicies>`
+    :ref:`Default password policy configuration <typo3confvars-sys-passwordpolicies>`
 
 A custom password policy with the identifier `simple` can be configured like:
 

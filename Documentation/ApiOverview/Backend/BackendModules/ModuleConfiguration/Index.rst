@@ -223,7 +223,7 @@ Module configuration options
         :name: backend-module-moduleData
         :type: array
 
-        All properties of the :ref:`module data object <backend-Module-data-object>`
+        All properties of the :ref:`module data object <backend-module-data-object>`
         that may be overridden by :php:`GET` / :php:`POST` parameters of the request
         get their default value defined here.
 
@@ -306,7 +306,7 @@ Default module configuration options (without Extbase)
 Extbase module configuration options
 ------------------------------------
 
-..  _backend-modules-configuration-extensionName:
+..  _backend-modules-configuration-extensionname:
 
 ..  note::
     Using these Extbase configurations tells the Core to bootstrap Extbase and expecting

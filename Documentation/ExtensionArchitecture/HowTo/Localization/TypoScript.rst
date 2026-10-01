@@ -32,7 +32,7 @@ site configuration.
 ..  literalinclude:: _TypoScript/_currentLanguageCondition.typoscript
     :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
 
-..  _localization-typoscript-LOCAL_LANG:
+..  _localization-typoscript-local-lang:
 
 Changing localized terms using TypoScript
 =========================================
@@ -77,7 +77,7 @@ itself.
 ..  literalinclude:: _TypoScript/_locallang_fluidtemplate.typoscript
     :caption: Fictional root template
 
-..  _localization-typoscript-stdWrap.lang:
+..  _localization-typoscript-stdwrap-lang:
 
 `stdWrap.lang`
 ==============

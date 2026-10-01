@@ -109,5 +109,5 @@ YAML
 Some extensions offer configuration in the format YAML, see
 :ref:`YAML <config-overview-yaml>`.
 
-There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
+There is a :ref:`YamlFileLoader <yamlfileloader>` which can be used to load YAML
 files.

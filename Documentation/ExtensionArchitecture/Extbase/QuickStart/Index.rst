@@ -133,7 +133,7 @@ Step 5: create the controller
 Controllers live in :file:`Classes/Controller/` and extend
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Each public method
 ending in :php:`Action` is automatically available as a plugin action. Use
-:ref:`dependency injection <Dependency-Injection>` to receive dependencies via
+:ref:`dependency injection <dependency-injection>` to receive dependencies via
 the constructor. In Extbase, repositories and other services are injected this
 way — see also
 :ref:`Injecting repositories with dependency injection

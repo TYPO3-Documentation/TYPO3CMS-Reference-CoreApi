@@ -13,7 +13,7 @@ e-mail addresses, SMTP access and similar to the public. The so-called
 `ApplicationContext` was introduced to prevent this. These contexts can
 pre-configure TYPO3 to a certain extent and can also be queried again at
 various points such as the site configuration, e.g. to provoke a different
-:ref:`base variants <sitehandling-baseVariants>`.
+:ref:`base variants <sitehandling-basevariants>`.
 
 TYPO3 is delivered with 3 different modes, which affect the behavior of TYPO3
 as follows:
@@ -24,7 +24,7 @@ as follows:
     *   There is no logging of obsolete (deprecated) function calls.
     *   In the event of an error, the frontend only displays:
         `Oops, an error occurred! Code: {code}`.
-    *   The :ref:`Dependency injection <Dependency-Injection>` cache can not be
+    *   The :ref:`Dependency injection <dependency-injection>` cache can not be
         cleared by :guilabel:`Clear All Cache` button, and has to be emptied
         using the :guilabel:`Flush Cache` button in the install tool or via
         CLI command :bash:`cache:flush`.
@@ -44,7 +44,7 @@ as follows:
     *   In the backend, the corresponding table field is also displayed in
         square brackets after each label when editing data records.
     *   The :guilabel:`Clear All Cache` button at the top right also clears
-        the :ref:`Dependency injection <Dependency-Injection>` cache.
+        the :ref:`Dependency injection <dependency-injection>` cache.
     *   The menu items in the backend for the install tool no longer require an
         additional password entry.
     *   Admins without system maintainer authorization can also see the menu
@@ -234,7 +234,7 @@ customers. Using the option of composer files described above, you can create
 a file to set the `ApplicationContext` individually depending on the
 domain name. In the site configuration, you can query the `ApplicationContext`
 again and use it to set a different base URI using the
-:ref:`base variants <sitehandling-baseVariants>`:
+:ref:`base variants <sitehandling-basevariants>`:
 
 *   Development/Dev1 -> dev1.example.com
 *   Development/Dev2 -> dev2.example.com

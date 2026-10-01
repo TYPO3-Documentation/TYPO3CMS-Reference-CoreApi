@@ -16,7 +16,7 @@ Quickstart: writing to the logger from PHP
 Instantiate a logger for the current class
 ==========================================
 
-:ref:`Constructor injection <Constructor-injection>` can be used to
+:ref:`Constructor injection <constructor-injection>` can be used to
 automatically instantiate the logger:
 
 ..  literalinclude:: _MyClass.php
@@ -79,7 +79,7 @@ specifying an invalid value) should use placeholders, denoted by
 Set logging output
 ==================
 
-TYPO3 has the :ref:`FileWriter <logging-writers-FileWriter>` enabled by default
+TYPO3 has the :ref:`FileWriter <logging-writers-filewriter>` enabled by default
 for warnings (:php:`LogLevel::WARNING`) and higher severity, so all matching log
 entries are written to a file.
 

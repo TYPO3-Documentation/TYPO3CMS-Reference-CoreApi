@@ -68,7 +68,7 @@ Is online?
 
     To grant **additional** access to directories, they must be explicitly
     configured in the system settings of
-    :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] <typo3ConfVars_be_lockRootPath>`
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] <typo3confvars-be-lockrootpath>`
     - either using the Install Tool or according to deployment techniques.
 
     Example:

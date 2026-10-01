@@ -33,7 +33,7 @@ Hreflang Tags
     The href is relative as long as the domain is the same. If the domain
     differs the href becomes absolute. The x-default href is the first supported
     language. The value of "hreflang" is the one set in the sites module (see
-    :ref:`Adding languages <sitehandling-addingLanguages>`)
+    :ref:`Adding languages <sitehandling-addinglanguages>`)
 
 
 

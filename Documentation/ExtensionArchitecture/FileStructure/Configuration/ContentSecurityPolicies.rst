@@ -2,7 +2,7 @@
 ..  index::
     Extension development; Configuration/ContentSecurityPolicies.php
     Path; EXT:{extkey}/Configuration/ContentSecurityPolicies.php
-..  _extension-configuration-ContentSecurityPolicies-php:
+..  _extension-configuration-contentsecuritypolicies-php:
 
 =============================
 `ContentSecurityPolicies.php`

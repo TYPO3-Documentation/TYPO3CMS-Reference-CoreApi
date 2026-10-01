@@ -28,7 +28,7 @@ Using the `MetaTag` API
 
 To use the API, first get the right :php:`MetaTagManager` for your tag from the :php:`MetaTagManagerRegistry`.
 You can use that manager to add your meta tag; see the example below for the :html:`og:title` meta tag.
-Inject the :php:`MetaTagManagerRegistry` via :ref:`Dependency Injection <DependencyInjection>`.
+Inject the :php:`MetaTagManagerRegistry` via :ref:`Dependency Injection <dependencyinjection>`.
 
 ..  literalinclude:: _MetaTagApi/_OgTitle.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
