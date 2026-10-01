@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  _LanguageService-loaders:
+..  _languageservice-loaders:
 
 ===================
 Translation loaders
@@ -20,7 +20,7 @@ TYPO3 overrides the default XLIFF loader provided by Symfony to implement
 special functionality like
 `$GLOBALS['TYPO3_CONF_VARS']['LANG']['requireApprovedLocalizations']  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-lang-requireapprovedlocalizations>`_.
 
-..  _LanguageService-loaders-custom:
+..  _languageservice-loaders-custom:
 
 Example: a custom json translation file loader
 ==============================================

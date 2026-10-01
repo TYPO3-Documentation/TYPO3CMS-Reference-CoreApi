@@ -1,7 +1,7 @@
 ..  include:: /Includes.rst.txt
 
 ..  _extension-declaration:
-..  _ext_emconf-php:
+..  _ext-emconf-php:
 
 =============================
 `ext_emconf.php` (Deprecated)
@@ -16,7 +16,7 @@
     compatibility with third-party tools such as TYPO3 TER and Tailor. For
     older `ext_emconf.php` documentation :ref:`see <t3coreapi/v13:ext_emconf-php>`.
 
-..  _ext_emconf-php-migration:
+..  _ext-emconf-php-migration:
 
 Migration from `ext_emconf.php` to `composer.json`
 --------------------------------------------------

@@ -8,7 +8,7 @@
     see: Digital assets management; FAL
     see: File abstraction layer; FAL
 ..  _fal:
-..  _fal_introduction:
+..  _fal-introduction:
 
 ============================
 File abstraction layer (FAL)

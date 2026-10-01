@@ -67,7 +67,7 @@ Production setup
 ================
 
 Example for a production configuration which displays only errors and
-exceptions, if the :ref:`devIPmask <typo3ConfVars_sys_devIPmask>` setting
+exceptions, if the :ref:`devIPmask <typo3confvars-sys-devipmask>` setting
 matches. Errors and exceptions are only logged, if their
 :ref:`log level <logging-logger-shortcuts>` is at least
 :php:`\Psr\Log\LogLevel::WARNING`.

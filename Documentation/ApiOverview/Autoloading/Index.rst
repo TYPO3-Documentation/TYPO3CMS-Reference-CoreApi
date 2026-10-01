@@ -29,7 +29,7 @@ over :php:`makeInstance()`, effectively dropping especially the direct ability
 to :ref:`XCLASS <xclasses>`:
 
 -   Data transfer objects are often created with :php:`new`. A good example are
-    :ref:`PSR-14 events <EventDispatcher>`: The calling class creates a data
+    :ref:`PSR-14 events <eventdispatcher>`: The calling class creates a data
     transfer object that is hand over to the consumer. These DTOs must never be
     changed by an extension, since they are a contract both caller and consumer
     must stick to. They are thus created using :php:`new` to prevent XCLASSing.
@@ -41,8 +41,8 @@ to :ref:`XCLASS <xclasses>`:
     example is the :ref:`PSR-15 middleware stack <request-handling>`.
 
 
-..  _autoloading_since_typo3_7:
-..  _autoloading_classes:
+..  _autoloading-since-typo3-7:
+..  _autoloading-classes:
 
 Autoloading classes
 ===================
@@ -53,7 +53,7 @@ resolve all class file locations.
 
 
 ..  index:: pair: Autoloader; Composer
-..  _autoloading_with_composer_mode:
+..  _autoloading-with-composer-mode:
 
 Loading classes with Composer mode
 ==================================
@@ -99,7 +99,7 @@ Example:
 
 
 ..  index:: Autoloader; Without Composer
-..  _autoloading_without_composer_mode:
+..  _autoloading-without-composer-mode:
 
 Loading classes without Composer mode
 =====================================

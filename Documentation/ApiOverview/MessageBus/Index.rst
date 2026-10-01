@@ -106,7 +106,7 @@ This will route all messages to the asynchronous transport (mind the :php:`*`).
     the :ref:`consume command <message-bus-consume-command>`.
 
 ..  seealso::
-    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] <typo3ConfVars_sys_messenger_routing>`
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] <typo3confvars-sys-messenger-routing>`
 
 
 ..  _message-bus-consume-command:

@@ -1,7 +1,7 @@
 ..  include:: /Includes.rst.txt
 ..  index::
     pair: Link handler; Events
-..  _modifyLinkHandlers:
+..  _modifylinkhandlers:
 
 =============================
 Events to modify link handler

@@ -73,7 +73,7 @@ Download the TYPO3 source package from `https://get.typo3.org/
 Ensure that the package is placed one level above the web server's document root.
 
 ..  note::
-    Make sure to check the :ref:`TYPO3 release integrity <release_integrity>` of
+    Make sure to check the :ref:`TYPO3 release integrity <release-integrity>` of
     the downloaded files.
 
 ..  _classic-symlink-installation-linux-untar:

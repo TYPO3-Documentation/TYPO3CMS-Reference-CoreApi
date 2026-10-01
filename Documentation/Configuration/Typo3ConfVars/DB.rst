@@ -3,7 +3,7 @@
 ..  index::
     TYPO3_CONF_VARS; DB
     Database; Connections
-..  _typo3ConfVars_db:
+..  _typo3confvars-db:
 
 =========================
 DB - database connections
@@ -18,15 +18,15 @@ the connection to the database:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+    *   :ref:`config/system/settings.php <typo3confvars-settings>`
+    *   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-db
     :display: tree
     :type:
 
-..  _typo3ConfVars_db_additionalQueryRestrictions:
+..  _typo3confvars-db-additionalqueryrestrictions:
 
 
 additionalQueryRestrictions
@@ -44,7 +44,7 @@ additionalQueryRestrictions
     Have a look into the chapter
     :ref:`Custom restrictions <database-custom-restrictions>` for details.
 
-..  _typo3ConfVars_db_connections:
+..  _typo3confvars-db-connections:
 
 
 Connections
@@ -210,7 +210,7 @@ Connections
         Initial commands to execute after connecting to the database.
         For example, database session options.
 
-..  _typo3ConfVars_db_tablemapping:
+..  _typo3confvars-db-tablemapping:
 
 
 TableMapping

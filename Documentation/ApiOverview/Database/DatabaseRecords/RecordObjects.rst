@@ -1,7 +1,7 @@
 :navigation-title: Record objects
 
 ..  include:: /Includes.rst.txt
-..  _record_objects:
+..  _record-objects:
 
 ==============
 Record objects
@@ -18,7 +18,7 @@ into account.
     The Record object is available but still considered experimental. Only the
     usage in Fluid is public API.
 
-..  _record_objects_typoscript:
+..  _record-objects-typoscript:
 
 Provide records in TypoScript
 =============================
@@ -28,7 +28,7 @@ In TypoScript you can use the
 usually in combination with the :ref:`DatabaseQueryProcessor <t3tsref:DatabaseQueryProcessor>`
 to pass record objects to the Fluid templating engine.
 
-..  _record_objects_php:
+..  _record-objects-php:
 
 Provide records in PHP
 ======================
@@ -39,14 +39,14 @@ In PHP a record object can be created by the
 The event :ref:`RecordCreationEvent <RecordCreationEvent>` can be used to
 influence or replace the Record object and its properties during creation.
 
-..  _record_objects_fluid:
+..  _record-objects-fluid:
 
 Use records in Fluid
 ====================
 
 In frontend templates the record object is provided by
-:ref:`TypoScript <record_objects_typoscript>` or passed to Fluid by a
-:ref:`PHP class <record_objects_php>`.
+:ref:`TypoScript <record-objects-typoscript>` or passed to Fluid by a
+:ref:`PHP class <record-objects-php>`.
 
 Content element preview templates automatically receive a record object
 representing the record of the content element that should currently be displayed.
@@ -68,7 +68,7 @@ Overview of all possibilities:
 ..  literalinclude:: _CodeSnippets/_FluidUsage.fluid.html
     :caption: Demonstration of available variables in Fluid
 
-..  _record_objects_fluid-raw:
+..  _record-objects-fluid-raw:
 
 Using the raw record
 --------------------
@@ -80,7 +80,7 @@ In case you need to access properties, which are not defined for the record
 type, the "raw" record can be used by accessing it via
 :fluid:`{record.rawRecord}`. Those properties are not transformed.
 
-..  _record_objects_resolved_values:
+..  _record-objects-resolved-values:
 
 Field values a record object resolves from TCA
 ==============================================
@@ -122,7 +122,7 @@ TYPO3 converts the other field types as well:
     `foreign_table` contains an array of the selected values. A field with
     `renderType = selectSingle` contains the single value.
 
-..  _record_objects_resolved_cardinality:
+..  _record-objects-resolved-cardinality:
 
 Cardinality of a relation in a record object
 --------------------------------------------
@@ -144,7 +144,7 @@ only.
     :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_item.php
     :visible-lines: 11-20
 
-..  _record_objects_resolved_example:
+..  _record-objects-resolved-example:
 
 Use the resolved relations of a record object in Fluid
 ------------------------------------------------------

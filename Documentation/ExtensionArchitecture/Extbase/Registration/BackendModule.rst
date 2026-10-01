@@ -128,7 +128,7 @@ components — but only when the Fluid template uses the backend Module Layout.
 Without it, :php:`renderResponse()` returns plain rendered HTML with no backend
 chrome. Using the Module Layout is strongly recommended for any module that
 should look like a native TYPO3 backend page. See
-:ref:`ModuleTemplateFactory <ModuleTemplateFactory>` for the full
+:ref:`ModuleTemplateFactory <moduletemplatefactory>` for the full
 :abbr:`API (Application Programming Interface)`.
 
 
@@ -174,6 +174,6 @@ The resulting array has three top-level keys that Extbase uses directly:
         keys including `parent`, `position`, `access`, `path`, and
         submodule definitions.
 
-    *   :ref:`ModuleTemplateFactory <ModuleTemplateFactory>` for how to add
+    *   :ref:`ModuleTemplateFactory <moduletemplatefactory>` for how to add
         buttons, menus, and
         navigation to the chrome module.

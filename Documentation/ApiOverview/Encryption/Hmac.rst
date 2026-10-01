@@ -20,7 +20,7 @@ parameter of a URL. The :php:`\TYPO3\CMS\Core\Crypto\HashService`
 creates and validates the signature.
 
 The service builds the secret from the
-:ref:`encryption key <typo3ConfVars_sys_encryptionKey>` of the installation
+:ref:`encryption key <typo3confvars-sys-encryptionkey>` of the installation
 and from an additional secret that the caller passes. The additional secret
 must not be empty. Pass a value that names the purpose of the signature, for
 example the class that creates it.

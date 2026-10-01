@@ -208,7 +208,7 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 ..  literalinclude:: _RepositoryConcat.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
-..  _database-expression-builder-castInt:
+..  _database-expression-builder-castint:
 
 `ExpressionBuilder::castInt()`
 ------------------------------
@@ -226,7 +226,7 @@ is used.
 ..  literalinclude:: _RepositoryCastInt.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
-..  _database-expression-builder-castText:
+..  _database-expression-builder-casttext:
 
 `ExpressionBuilder::castText()`
 -------------------------------
@@ -245,7 +245,7 @@ or similar methods based on the database engine.
 ..  literalinclude:: _RepositoryCastText.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
-..  _database-expression-builder-castVarchar:
+..  _database-expression-builder-castvarchar:
 
 `ExpressionBuilder::castVarchar()`
 ----------------------------------
@@ -317,7 +317,7 @@ to provide a compatible expression.
     can be used. Synopsis: :php:`getSubstringExpression(string $string, string $start, ?string $length = null): string`.
 
 
-..  _database-expression-builder-leftPad:
+..  _database-expression-builder-leftpad:
 
 `ExpressionBuilder::leftPad()`
 ------------------------------
@@ -392,7 +392,7 @@ database vendors except SQLite, which uses :sql:`substring("value", start_of_str
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableDbalRepository.php
 
 
-..  _database-expression-builder-rightPad:
+..  _database-expression-builder-rightpad:
 
 `ExpressionBuilder::rightPad()`
 -------------------------------

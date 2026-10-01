@@ -32,7 +32,7 @@ Backend usability
 =================
 
 * Make it easier for your editors by hiding the following by
-  :ref:`configuration <cePluginsCustomize>`
+  :ref:`configuration <cepluginscustomize>`
 
   * content elements that should not be used in the "Content Element Wizard"
   * fields that should not be filled out in the backend forms.

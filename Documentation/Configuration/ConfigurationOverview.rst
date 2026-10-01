@@ -28,7 +28,7 @@ Global files
 ------------
 
 :file:`config/system/settings.php`:
-    Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
+    Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3confvars>` array.
     Settings configured in the backend by system maintainers in
     :guilabel:`System > Settings > Configure Installation-Wide Options`
     are written to this file.
@@ -77,8 +77,8 @@ Extension files
 :file:`Configuration/Services.yaml`
     Can be used to configure :ref:`Console commands <symfony-console-commands>`,
     :ref:`Dashboard widgets <ext_dashboard:register-new-widget>`,
-    :ref:`Event listeners <EventDispatcher>` and
-    :ref:`Dependency injection <DependencyInjection>`.
+    :ref:`Event listeners <eventdispatcher>` and
+    :ref:`Dependency injection <dependencyinjection>`.
 
 :file:`Configuration/TCA`
     :ref:`TCA configuration <t3tca:start>`.
@@ -187,7 +187,7 @@ TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
     :ref:`TCA Reference <t3tca:start>`. See also:
     :ref:`Extending the TCA array <extending-tca>`.
 
-:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
+:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3confvars>`:
     Stores system-wide settings. Most can be changed in
     :guilabel:`System > Settings > Global Configuration`. Values are saved in
     :file:`config/system/settings.php` and can be overridden via
@@ -250,7 +250,7 @@ Several system extensions use YAML for configuration:
   backend rich text editor.
 
 * :file:`<extension>/Configuration/Services.yaml` configures
-  :ref:`Event listeners <EventDispatcher>` and
-  :ref:`Dependency injection <DependencyInjection>`.
+  :ref:`Event listeners <eventdispatcher>` and
+  :ref:`Dependency injection <dependencyinjection>`.
 
-YAML files can be loaded using the :ref:`YamlFileLoader <yamlFileLoader>`.
+YAML files can be loaded using the :ref:`YamlFileLoader <yamlfileloader>`.

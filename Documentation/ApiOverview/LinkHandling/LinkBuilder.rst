@@ -19,7 +19,7 @@ a link is rendered in the frontend.
 
 There are link builders for every type of link. Which link to call is determined
 by the respective class configured in global configuration, see
-:ref:`typolinkBuilder <typo3ConfVars_fe_typolinkBuilder>`.
+:ref:`typolinkBuilder <typo3confvars-fe-typolinkbuilder>`.
 
 Register a custom link builder in your extension's
 :ref:`ext_localconf.php <ext-localconf-php>`:

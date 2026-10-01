@@ -147,7 +147,7 @@ or even fetching all settings:
 
     $siteSettings->getAll();
 
-See :ref:`the site settings in TypoScript <sitehandling-inTypoScript>` for
+See :ref:`the site settings in TypoScript <sitehandling-intyposcript>` for
 other means of accessing the site settings.
 
 ..  _sitehandling-sitesetting-object-api:

@@ -233,7 +233,7 @@ specific item. This value is a UNIX timestamp. In addition, you can include
 :ref:`search engines a hint <xmlsitemap-changefreq-priority>`.
 
 
-..  _sitemap-xslFile:
+..  _sitemap-xslfile:
 
 Use a customized sitemap XSL file
 =================================

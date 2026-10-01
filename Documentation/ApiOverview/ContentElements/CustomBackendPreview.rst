@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 
-..  _ConfigureCE-Preview:
+..  _configurece-preview:
 
 ====================================================
 Configure custom backend preview for content element
@@ -17,15 +17,15 @@ class is responsible for generating the preview and the wrapping.
 The default preview renderer is :php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`
 and handles the Core's built-in content types (field :sql:`CType` in table :sql:`tt_content`).
 
-..  _ContentPreviewRenderer:
+..  _contentpreviewrenderer:
 
 Extend the default preview renderer
 ===================================
 
 There are two ways to provide previews for your custom content types:
-via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
+via page :ref:`TSconfig <configurece-preview-pagetsconfig>` or :ref:`event listener <configurece-preview-eventlistener>`.
 
-..  _ConfigureCE-Preview-PageTSconfig:
+..  _configurece-preview-pagetsconfig:
 
 Preview rendering with a Fluid template and page TSconfig
 ---------------------------------------------------------
@@ -66,7 +66,7 @@ In the Fluid template, the following variables are available:
     -<small>{pi_flexform_transformed.settings.welcome_header}</small>
     +<small>{record.pi_flexform.sheets.s_messages.settings.welcome_header}</small>
 
-..  _ConfigureCE-Preview-EventListener:
+..  _configurece-preview-eventlistener:
 
 Event listener
 --------------
@@ -80,9 +80,9 @@ event listener.
 
 Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEvent>`.
 
-For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
+For general information see the chapter on :ref:`implementing an event listener <eventdispatcherimplementation>`.
 
-..  _ConfigureCE-Preview-preview-renderer:
+..  _configurece-preview-preview-renderer:
 
 Writing a preview renderer
 ==========================
@@ -148,8 +148,8 @@ Like all other content types, `text`, `textpic`, `textmedia` and
 `image` use the standard
 :php-short:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`. To customize
 previews for these elements, use the
-:ref:`page TSconfig <ConfigureCE-Preview-PageTSconfig>` or
-:ref:`event listener <ConfigureCE-Preview-EventListener>` approach described
+:ref:`page TSconfig <configurece-preview-pagetsconfig>` or
+:ref:`event listener <configurece-preview-eventlistener>` approach described
 above (instead of registering type-specific preview renderers as in the past).
 
 ..  note::

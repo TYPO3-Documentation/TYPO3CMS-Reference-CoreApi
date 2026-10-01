@@ -54,7 +54,7 @@ It is recommended to change the following fields:
 
 If you need to use another domain in development, for example
 `https://example.ddev.site`, it is recommended to use
-:ref:`base variants <sitehandling-baseVariants>`.
+:ref:`base variants <sitehandling-basevariants>`.
 
 The next tab, :guilabel:`Languages`, lets you configure the default
 language settings for your site. You can also add additional languages for
@@ -89,6 +89,6 @@ That is all that is required for a new site.
     Just by having a site configuration, you get readable page URLs out of
     the box. Read more about how to configure :ref:`routing <routing>`.
 
-Learn more about :ref:`adding languages <sitehandling-addingLanguages>`,
-:ref:`error handling <sitehandling-errorHandling>` and :ref:`routing <routing>`
+Learn more about :ref:`adding languages <sitehandling-addinglanguages>`,
+:ref:`error handling <sitehandling-errorhandling>` and :ref:`routing <routing>`
 in the corresponding chapters.

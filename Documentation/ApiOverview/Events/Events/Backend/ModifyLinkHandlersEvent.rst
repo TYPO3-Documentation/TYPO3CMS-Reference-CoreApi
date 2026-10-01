@@ -12,7 +12,7 @@ is triggered before link handlers are executed, allowing listeners
 to modify the set of handlers that will be used.
 
 ..  seealso::
-    *   :ref:`Events to modify link handler <modifyLinkHandlers>`
+    *   :ref:`Events to modify link handler <modifylinkhandlers>`
     *   :ref:`ModifyAllowedItemsEvent <ModifyAllowedItemsEvent>`
 
 ..  _modify-link-handlers-event-example:

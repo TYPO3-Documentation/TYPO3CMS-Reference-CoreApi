@@ -9,8 +9,8 @@ Extending the TYPO3 Core
 Events and hooks provide an easy way to extend the functionality of the TYPO3
 Core and its extensions without blocking others to do the same.
 
-:ref:`Events <EventDispatcherEvents>` are being emitted by the TYPO3 Core or an
-extension via the :ref:`event dispatcher <EventDispatcher>`. The event will be
+:ref:`Events <eventdispatcherevents>` are being emitted by the TYPO3 Core or an
+extension via the :ref:`event dispatcher <eventdispatcher>`. The event will be
 received by all implemented event listeners for the event in question. Events
 are strongly typed. Events only allow changes to variables that are intended to
 be changed by the event.

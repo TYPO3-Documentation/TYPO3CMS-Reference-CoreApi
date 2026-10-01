@@ -3,7 +3,7 @@
 ..  index::
     TYPO3_CONF_VARS; MAIL
     TYPO3_CONF_VARS MAIL
-..  _typo3ConfVars_mail:
+..  _typo3confvars-mail:
 
 =============
 MAIL settings
@@ -21,8 +21,8 @@ The configuration values listed here are keys in the global PHP array
 
 This variable can be set in one of the following files:
 
-*   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-*   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+*   :ref:`config/system/settings.php <typo3confvars-settings>`
+*   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-mail
@@ -150,7 +150,7 @@ This variable can be set in one of the following files:
         dsn
             Sends messages with the Symfony mailer, see
             `Symfony mailer documentation <https://symfony.com/doc/current/mailer.html>`__.
-            Configure this mailer with the :ref:`[MAIL][dsn]<typo3ConfVars_mail_dsn>`
+            Configure this mailer with the :ref:`[MAIL][dsn]<typo3confvars-mail-dsn>`
             setting.
 
         mbox

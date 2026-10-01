@@ -20,7 +20,7 @@ Example: disable the hit count increment for monitoring tools
 
 TYPO3 already implements the :t3src:`redirects/Classes/EventListener/IncrementHitCount.php`
 listener. It is used to increment the hit count of the matching redirect record,
-if the :ref:`feature "redirects.hitCount" <typo3ConfVars_sys_features_redirects.hitCount>`
+if the :ref:`feature "redirects.hitCount" <typo3confvars-sys-features-redirects-hitcount>`
 is enabled. In case you want to prevent the increment in some
 cases, for example if the request was initiated by a monitoring tool, you
 can either implement your own listener with the same identifier

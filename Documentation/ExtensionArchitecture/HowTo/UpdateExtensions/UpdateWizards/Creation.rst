@@ -128,7 +128,7 @@ Wizard identifier
 
 The wizard identifier is used:
 
-*   when calling the wizard from the :ref:`command line <upgrade_wizard_execute>`.
+*   when calling the wizard from the :ref:`command line <upgrade-wizard-execute>`.
 *   when marking the wizard as done in the table :sql:`sys_registry`
 
 Since all upgrade wizards of TYPO3 Core and extensions are registered using the
@@ -249,7 +249,7 @@ this class:
 
 ..  index:: Upgrade wizards; Execution
 
-..  _upgrade_wizard_execute:
+..  _upgrade-wizard-execute:
 
 Executing the wizard
 ====================

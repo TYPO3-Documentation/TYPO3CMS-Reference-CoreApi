@@ -13,7 +13,7 @@ default password policy.
 
 ..  contents::
 
-..  _password-policies-validators-CorePasswordValidator:
+..  _password-policies-validators-corepasswordvalidator:
 
 `CorePasswordValidator`
 =======================
@@ -84,7 +84,7 @@ specialCharacterRequired
     If set to :php:`true` at least one special character (not `0`-`9`, `a`-`z`,
     `A`-`Z`) is required.
 
-..  _password-policies-validators-NotCurrentPasswordValidator:
+..  _password-policies-validators-notcurrentpasswordvalidator:
 
 `NotCurrentPasswordValidator`
 =============================

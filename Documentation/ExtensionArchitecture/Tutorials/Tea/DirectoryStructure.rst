@@ -2,7 +2,7 @@
 
 ..  index::
     Tutorial Tea; Directory structure
-..  _extbase_tutorial_tea_directory_structure:
+..  _extbase-tutorial-tea-directory-structure:
 
 ============================
 Create a directory structure
@@ -118,7 +118,7 @@ The :file:`Configuration` folder contains several subfolders:
 :file:`Configuration/Services.yaml`
     Is used to configure technical aspects of the extension, including
     automatic wiring, automatic configuration and options for
-    :ref:`dependency injection <Dependency-Injection>`. See also
+    :ref:`dependency injection <dependency-injection>`. See also
     :ref:`Services.yaml <extension-configuration-services-yaml>`.
 
 ..  _extbase-tutorial-tea-directory-structure-directory-documentation:
@@ -134,7 +134,7 @@ rendered. See :ref:`Documentation <extension-files-documentation>`.
 Directory `Resources/`
 ----------------------
 
-See also documentation on the :ref:`Resources <extension-Resources>` folder.
+See also documentation on the :ref:`Resources <extension-resources>` folder.
 
 The :file:`Resources/` folder contains two sub folders that are
 further divided up:

@@ -15,7 +15,7 @@ The :php:`nonce` request attribute is related to
     https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce
 
 It is always available in backend context and only in frontend context, if the
-according :ref:`feature <typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy>`
+according :ref:`feature <typo3confvars-sys-features-security-frontend-enforcecontentsecuritypolicy>`
 is enabled.
 
 One can retrieve the nonce like this:

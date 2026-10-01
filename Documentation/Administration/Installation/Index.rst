@@ -3,7 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: installation
 
-..  _installation_index:
+..  _installation-index:
 
 ===========================
 TYPO3 installation overview
@@ -60,11 +60,11 @@ As of now, there is **no official plan to deprecate the classic installation met
         server and database and how they should be configured prior to
         installation.
 
-    ..  card:: :ref:`Tuning TYPO3 <TuneTYPO3>`
+    ..  card:: :ref:`Tuning TYPO3 <tunetypo3>`
 
         This chapter contains information on how to configure and optimize the infrastructure running TYPO3.
 
-    ..  card:: :ref:`TYPO3 Release Integrity <release_integrity>`
+    ..  card:: :ref:`TYPO3 Release Integrity <release-integrity>`
 
         Every release of TYPO3 is electronically signed by the TYPO3 release team.
         In addition, every TYPO3 package also contains a unique file hash that

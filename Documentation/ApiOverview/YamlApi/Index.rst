@@ -10,8 +10,8 @@ YAML API
 
 YAML is used in TYPO3 for various configurations; most notable are
 
-*   :ref:`Event listeners <EventDispatcher>` in :file:`Configuration/Services.yaml`
-*   :ref:`Dependency injection <DependencyInjection>` information in
+*   :ref:`Event listeners <eventdispatcher>` in :file:`Configuration/Services.yaml`
+*   :ref:`Dependency injection <dependencyinjection>` information in
     :file:`Configuration/Services.yaml`
 *   :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
 *   System extension :doc:`form <ext_form:Index>` configuration
@@ -24,7 +24,7 @@ YAML is used in TYPO3 for various configurations; most notable are
     *
 
 ..  index:: YamlFileLoader
-..  _yamlFileLoader:
+..  _yamlfileloader:
 
 `YamlFileLoader`
 ================

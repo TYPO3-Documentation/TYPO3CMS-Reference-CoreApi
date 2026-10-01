@@ -15,17 +15,17 @@ track of, for example, the current time, if a user is logged in and which
 workspace is currently accessed.
 
 The :php:`\TYPO3\CMS\Core\Context\Context` object can be retrieved via
-:ref:`dependency injection <DependencyInjection>`:
+:ref:`dependency injection <dependencyinjection>`:
 
 ..  literalinclude:: _MyController.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 This information is separated in so-called
-":ref:`aspects <context_api_aspects>`", each being responsible for a certain
+":ref:`aspects <context-api-aspects>`", each being responsible for a certain
 area.
 
 
-..  _context_api_aspects:
+..  _context-api-aspects:
 
 Aspects
 =======
@@ -34,14 +34,14 @@ Aspects
     :depth: 1
     :local:
 
-..  _context_api_aspects_datetime:
+..  _context-api-aspects-datetime:
 
 Date time aspect
 ----------------
 
 Contains time, date and timezone information for the current request.
 
-..  _context_api_aspects_datetime_properties:
+..  _context-api-aspects-datetime-properties:
 
 The date time aspect, :php:`\TYPO3\CMS\Core\Context\DateTimeAspect`, accepts
 the following properties:
@@ -93,7 +93,7 @@ full
     object.
 
 
-..  _context_api_aspects_datetime_example:
+..  _context-api-aspects-datetime-example:
 
 Example
 ~~~~~~~
@@ -102,7 +102,7 @@ Example
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-..  _context_api_aspects_language:
+..  _context-api-aspects-language:
 
 Language aspect
 ---------------
@@ -110,7 +110,7 @@ Language aspect
 Contains information about language settings for the current
 :ref:`request <typo3-request>`, including fallback and overlay logic.
 
-..  _context_api_aspects_language_properties:
+..  _context-api-aspects-language-properties:
 
 The language aspect, :php:`\TYPO3\CMS\Core\Context\LanguageAspect` accepts the
 following properties:
@@ -122,7 +122,7 @@ following properties:
     Returns the requested language of the current page as integer (uid).
 
 
-..  _language-aspect-contentId:
+..  _language-aspect-contentid:
 
 contentId
 ~~~~~~~~~
@@ -135,7 +135,7 @@ contentId
     integer (uid).
 
 
-..  _language-aspect-fallbackChain:
+..  _language-aspect-fallbackchain:
 
 fallbackChain
 ~~~~~~~~~~~~~
@@ -147,7 +147,7 @@ fallbackChain
     Returns the fallback steps as array.
 
 
-..  _language-aspect-overlayType:
+..  _language-aspect-overlaytype:
 
 overlayType
 ~~~~~~~~~~~
@@ -163,11 +163,11 @@ overlayType
     *   :php:`LanguageAspect::OVERLAYS_ON` or
     *   :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default)
 
-    See :ref:`Overlay types <context_api_aspects_language_overlay-types>` for
+    See :ref:`Overlay types <context-api-aspects-language-overlay-types>` for
     more details.
 
 
-..  _language-aspect-legacyLanguageMode:
+..  _language-aspect-legacylanguagemode:
 
 legacyLanguageMode
 ~~~~~~~~~~~~~~~~~~
@@ -186,7 +186,7 @@ legacyLanguageMode
     necessary, the option will be removed rather sooner than later.
 
 
-..  _language-aspect-legacyOverlayType:
+..  _language-aspect-legacyoverlaytype:
 
 legacyOverlayType
 ~~~~~~~~~~~~~~~~~
@@ -205,7 +205,7 @@ legacyOverlayType
     necessary, the option will be removed rather sooner than later.
 
 
-..  _context_api_aspects_language_overlay-types:
+..  _context-api-aspects-language-overlay-types:
 
 Overlay types
 ~~~~~~~~~~~~~
@@ -230,7 +230,7 @@ Overlay types
     If a record is not translated, it will not be shown. Records without a
     default language parent are included.
 
-..  _context_api_aspects_language_example:
+..  _context-api-aspects-language-example:
 
 Example
 ~~~~~~~
@@ -239,7 +239,7 @@ Example
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-..  _context_api_aspects_preview:
+..  _context-api-aspects-preview:
 
 Preview aspect
 --------------
@@ -248,7 +248,7 @@ The preview aspect may be used to indicate that the frontend is in preview mode
 (for example, in case a workspace is previewed or hidden pages or records should
 be shown).
 
-..  _context_api_aspects_preview_properties:
+..  _context-api-aspects-preview-properties:
 
 The preview aspect, :php:`\TYPO3\CMS\Frontend\Aspect\PreviewAspect`, contains
 the following property:
@@ -260,7 +260,7 @@ the following property:
 Returns, whether the frontend is currently in preview mode.
 
 
-..  _context_api_aspects_user:
+..  _context-api-aspects-user:
 
 User aspect
 -----------
@@ -269,7 +269,7 @@ Contains information about authenticated users in the current
 :ref:`request <typo3-request>`. The aspect can be used for frontend and backend
 users.
 
-..  _context_api_aspects_user_properties:
+..  _context-api-aspects-user-properties:
 
 The user aspect, :php:`\TYPO3\CMS\Core\Context\UserAspect`, accepts the
 following properties:
@@ -295,7 +295,7 @@ username
     no user is logged in.
 
 
-..  _user-aspect-isLoggedIn:
+..  _user-aspect-isloggedin:
 
 isLoggedIn
 ~~~~~~~~~~
@@ -307,7 +307,7 @@ isLoggedIn
     Returns, whether a user is logged in, as boolean.
 
 
-..  _user-aspect-isAdmin:
+..  _user-aspect-isadmin:
 
 isAdmin
 ~~~~~~~
@@ -320,7 +320,7 @@ isAdmin
     for backend users.
 
 
-..  _user-aspect-groupIds:
+..  _user-aspect-groupids:
 
 groupIds
 ~~~~~~~~
@@ -332,7 +332,7 @@ groupIds
     Returns the groups the user is a member of, as array.
 
 
-..  _user-aspect-groupNames:
+..  _user-aspect-groupnames:
 
 groupNames
 ~~~~~~~~~~
@@ -343,7 +343,7 @@ groupNames
 
     Returns the names of all groups the user belongs to, as array.
 
-..  _context_api_aspects_user_example:
+..  _context-api-aspects-user-example:
 
 Example
 ~~~~~~~
@@ -352,7 +352,7 @@ Example
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-..  _context_api_aspects_visibility:
+..  _context-api-aspects-visibility:
 
 Visibility aspect
 -----------------
@@ -361,7 +361,7 @@ The aspect contains whether to show hidden pages, records (content) or even
 deleted records.
 
 
-..  _context_api_aspects_visibility_properties:
+..  _context-api-aspects-visibility-properties:
 
 The visibility aspect, :php:`\TYPO3\CMS\Core\Context\VisibilityAspect`, accepts
 the following properties:
@@ -373,7 +373,7 @@ the following properties:
     Returns, whether hidden pages should be displayed, as boolean.
 
 
-..  _visibility-aspect-includeHiddenContent:
+..  _visibility-aspect-includehiddencontent:
 
 includeHiddenContent
 ~~~~~~~~~~~~~~~~~~~~
@@ -385,7 +385,7 @@ includeHiddenContent
     Returns, whether hidden content should be displayed, as boolean.
 
 
-..  _visibility-aspect-includeDeletedRecords:
+..  _visibility-aspect-includedeletedrecords:
 
 includeDeletedRecords
 ~~~~~~~~~~~~~~~~~~~~~
@@ -397,7 +397,7 @@ includeDeletedRecords
     Returns, whether deleted records should be displayed, as boolean.
 
 
-..  _context_api_aspects_visibility_example:
+..  _context-api-aspects-visibility-example:
 
 Example
 ~~~~~~~
@@ -406,7 +406,7 @@ Example
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-..  _context_api_aspects_workspace:
+..  _context-api-aspects-workspace:
 
 Workspace aspect
 ----------------
@@ -414,7 +414,7 @@ Workspace aspect
 The aspect contains information about the currently accessed
 :ref:`workspace <workspaces>`.
 
-..  _context_api_aspects_workspace_properties:
+..  _context-api-aspects-workspace-properties:
 
 The workspace aspect, :php:`\TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts
 the following properties:
@@ -426,7 +426,7 @@ the following properties:
     Returns the UID of the currently accessed workspace, as integer.
 
 
-..  _workspace-aspect-isLive:
+..  _workspace-aspect-islive:
 
 isLive
 ~~~~~~
@@ -439,7 +439,7 @@ isLive
     workspace, as boolean.
 
 
-..  _workspace-aspect-isOffline:
+..  _workspace-aspect-isoffline:
 
 isOffline
 ~~~~~~~~~
@@ -450,7 +450,7 @@ isOffline
 
     Returns, whether the current workspace is offline, as boolean.
 
-..  _context_api_aspects_workspace_example:
+..  _context-api-aspects-workspace-example:
 
 Example
 ~~~~~~~

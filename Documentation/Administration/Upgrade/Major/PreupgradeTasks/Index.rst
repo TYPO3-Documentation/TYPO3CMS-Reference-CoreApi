@@ -31,7 +31,7 @@ Check that all system requirements for upgrading are met:
 
 ..  contents:: Table of contents
 
-..  _preupgradetasks_make_a_backup:
+..  _preupgradetasks-make-a-backup:
 
 Make a backup
 =============
@@ -51,7 +51,7 @@ See the :doc:`changelog <ext_core:Index>` to check that.
 For more detailed information about TYPO3 backups see
 :ref:`Backups and recovery <t3coreapi:security-backups>` in *TYPO3 Explained*.
 
-..  _update_reference_index:
+..  _update-reference-index:
 
 Update reference index
 ======================

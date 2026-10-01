@@ -12,7 +12,7 @@ and best practices of how hooks should be implemented the hook concept itself
 does not prevent it from being used in any way.
 
 Hooks are being phased-out and no new ones should be created. Dispatch a
-:ref:`PSR-14 event <EventDispatcher>` instead.
+:ref:`PSR-14 event <eventdispatcher>` instead.
 
 
 ..  index::
@@ -39,7 +39,7 @@ performed and typically also an object reference to the parent object. Then the
 user function can take additional actions as needed.
 
 The class has to follow the PSR-4 class name scheme to be available in
-:ref:`autoloading <autoloading_classes>`.
+:ref:`autoloading <autoloading-classes>`.
 
 If we take a look inside of :php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
 find the hook to be activated like this:
@@ -166,7 +166,7 @@ particular extension.
 
     :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` was the recommended place where to
     put hook configurations inside third-party extensions. It is not recommended anymore
-    to introduce new hooks. :ref:`Events <EventDispatcher>` should be used instead.
+    to introduce new hooks. :ref:`Events <eventdispatcher>` should be used instead.
 
 
 ..  index::

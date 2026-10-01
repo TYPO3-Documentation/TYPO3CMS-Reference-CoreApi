@@ -27,7 +27,7 @@ Extension development tutorials
 
         This section is about the essential components of a TYPO3 extension. It provides a comprehensive overview of the structure and core elements that make up an extension.
 
-    ..  card:: :ref:`Tea in a nutshell <extbase_tutorial_tea>`
+    ..  card:: :ref:`Tea in a nutshell <extbase-tutorial-tea>`
 
         `tea` is a simple, well-tested extension based on Extbase.
 
@@ -36,7 +36,7 @@ Extension development tutorials
         extension. Automatic tests are not covered in this tutorial.
         Refer to the extensions manual for this topic.
 
-    ..  card:: :ref:`Extension development with extbase <extbase_tutorials>`
+    ..  card:: :ref:`Extension development with extbase <extbase-tutorials>`
 
         Extension Development with Extbase, a video from the TYPO3
         Developer Days 2019

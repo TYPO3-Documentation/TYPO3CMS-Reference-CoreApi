@@ -15,7 +15,7 @@ However, if the extension you are trying to extend is based on :ref:`Extbase <ex
 field is not available in the frontend out of the box. Further steps are
 needed to make the fields available. These steps will not work in all cases.
 
-..  _extending-extbase-model_quick_overview:
+..  _extending-extbase-model-quick-overview:
 
 Quick overview
 ==============
@@ -25,36 +25,36 @@ Follow these steps:
 ..  rst-class:: bignums
 
 #.  Is your extension the :ref:`only extension trying to
-    extend <extending-extbase-model_find_other_extending_models>` the original
+    extend <extending-extbase-model-find-other-extending-models>` the original
     model in your installation?
 
-#.  :ref:`Find the original model <extending-extbase-model_find_original_model>`.
+#.  :ref:`Find the original model <extending-extbase-model-find-original-model>`.
     If the model has the :php:`final` modifier, refer
     to the extension documentation on how to display additional fields.
 
-#.  :ref:`Find the original repository <extending-extbase-model_find_original_repository>`.
+#.  :ref:`Find the original repository <extending-extbase-model-find-original-repository>`.
     If the repository is :php:`final`, refer
     to the extension documentation on how to display additional fields.
 
-#.  :ref:`Extend the original model <extending-extbase-model_extend_original_model>`
+#.  :ref:`Extend the original model <extending-extbase-model-extend-original-model>`
     in your extension or :ref:`sitepackage <site-package>`.
 
-#.  :ref:`Register your extended model <extending-extbase-model_register_extended_model>`
+#.  :ref:`Register your extended model <extending-extbase-model-register-extended-model>`
     with the corresponding database table in
     :file:`EXT:my_extension/Configuration/Extbase/Persistence/Classes.php`.
 
-#.  :ref:`Extend the original repository <extending-extbase-model_register_extended_model>`
+#.  :ref:`Extend the original repository <extending-extbase-model-register-extended-model>`
     in your extension or sitepackage.
 
-#.  :ref:`Register your extended repository <extending-extbase-model_register_extended_repository>`
+#.  :ref:`Register your extended repository <extending-extbase-model-register-extended-repository>`
     so that it is used instead of the original one.
 
-..  _extending-extbase-model_steps:
+..  _extending-extbase-model-steps:
 
 Step by step
 ============
 
-..  _extending-extbase-model_find_other_extending_models:
+..  _extending-extbase-model-find-other-extending-models:
 
 Are you the only one trying to extend that model?
 -------------------------------------------------
@@ -78,7 +78,7 @@ If you are planning to publish this extension, search
 extensions that also extend the original model. If necessary, put them in
 the `conflict` sections of your extension's :file:`composer.json`.
 
-..  _extending-extbase-model_find_original_model:
+..  _extending-extbase-model-find-original-model:
 
 Finding the original model
 --------------------------
@@ -114,7 +114,7 @@ If the class of the model is final:
 it cannot be extended using the instructions in this tutorial. Refer to the documentation of
 the original extension.
 
-..  _extending-extbase-model_find_original_repository:
+..  _extending-extbase-model-find-original-repository:
 
 Finding the original repository
 -------------------------------
@@ -138,7 +138,7 @@ the repository is located in
 
 In all these cases refer to the extension documentation on how to extend it.
 
-..  _extending-extbase-model_extend_original_model:
+..  _extending-extbase-model-extend-original-model:
 
 Extend the original model
 -------------------------
@@ -153,7 +153,7 @@ original model in your extension using a class:
 Add all the additional fields that you require. By convention the database
 fields and the model names are prefixed with the name of your extension.
 
-..  _extending-extbase-model_register_extended_model:
+..  _extending-extbase-model-register-extended-model:
 
 Register the extended model
 ---------------------------
@@ -167,7 +167,7 @@ The extended model needs to be registered for :ref:`Extbase persistence <extbase
 ..  literalinclude:: _ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php
 
-..  _extending-extbase-model_extend_original_repository:
+..  _extending-extbase-model-extend-original-repository:
 
 Extend the original repository (optional)
 -----------------------------------------
@@ -185,7 +185,7 @@ If you don't need additional repository methods you can leave the body of
 this class empty. However, for internal Extbase reasons you have to create the
 repository even if you don't add additional functionality.
 
-..  _extending-extbase-model_register_extended_repository:
+..  _extending-extbase-model-register-extended-repository:
 
 Register the extended repository
 --------------------------------
@@ -198,7 +198,7 @@ repository is requested via Dependency Injection in a controller or service.
 ..  literalinclude:: _ext_localconf_repository.php
     :caption: EXT:my_extension/ext_localconf.php
 
-..  _extending-extbase-model_alternative_strategies:
+..  _extending-extbase-model-alternative-strategies:
 
 Alternative strategies to extend Extbase models
 ===============================================

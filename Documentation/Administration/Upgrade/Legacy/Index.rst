@@ -39,7 +39,7 @@ automatically install the new source code.
 
 
 Database updates are usually *not* necessary, though you still have to
-:ref:`remove the temporary cache files <clear_caches>`. After
+:ref:`remove the temporary cache files <clear-caches>`. After
 that your update is finished.
 
 ..  _classic-mode-upgrade-major:

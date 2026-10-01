@@ -20,22 +20,22 @@ Upgrading the TYPO3 Core and extensions
     :class: pb-4
     :card-height: 100
 
-    ..  card:: :ref:`Patch/bugfix updates <Minor>`
+    ..  card:: :ref:`Patch/bugfix updates <minor>`
 
         Patch/bugfix updates contain bugfixes and/or security updates. This section details
         how to install them using Composer.
 
-    ..  card:: :ref:`Major upgrades <Major>`
+    ..  card:: :ref:`Major upgrades <major>`
 
         This chapter details how major upgrades are installed using Composer and
         highlights what tasks need to be carried out before and after the core is updated.
 
-    ..  card:: :ref:`Upgrading extensions <UpgradingExtensions>`
+    ..  card:: :ref:`Upgrading extensions <upgradingextensions>`
 
         Just like TYPO3's core, extensions also need to be regularly updated.
         This chapter details how to upgrade extensions using Composer.
 
-    ..  card:: :ref:`Third-party Tools <Tools>`
+    ..  card:: :ref:`Third-party Tools <tools>`
 
         Tools and resources developed by the community that can assist with common
         upgrade and maintenance tasks.
@@ -50,11 +50,11 @@ Upgrading the TYPO3 Core and extensions
         patch application with `cweagans/composer-patches`. Download
         a patch for the Core.
 
-    ..  card:: :ref:`Migrate a TYPO3 installation to Composer <MigrateToComposer>`
+    ..  card:: :ref:`Migrate a TYPO3 installation to Composer <migratetocomposer>`
 
         Information on how to migrate a Classic mode installation of TYPO3 to a Composer based installation.
 
-    ..  card:: :ref:`Migrate content <MigrateContent>`
+    ..  card:: :ref:`Migrate content <migratecontent>`
 
         This chapter details how pages and content can be exported and then imported into another installation of TYPO3.
 

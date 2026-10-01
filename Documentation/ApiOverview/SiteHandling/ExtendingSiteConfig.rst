@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; Extending
-..  _sitehandling-extendingSiteConfiguration:
+..  _sitehandling-extendingsiteconfiguration:
 
 ============================
 Extending site configuration
@@ -54,7 +54,7 @@ Extending the form / GUI
 
 Extending the GUI is a bit more tricky.
 
-The backend module relies on :ref:`form engine <FormEngine>` to render the edit
+The backend module relies on :ref:`form engine <formengine>` to render the edit
 interface. Since the form data is not stored in database records but in
 YAML files, a couple of details have been extended of the default form engine
 code.

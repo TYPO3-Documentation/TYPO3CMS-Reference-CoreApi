@@ -17,13 +17,13 @@ A content element can be based on fields already available in the `tt_content`
 table.
 
 It is also possible to add extra fields to the `tt_content` table, see
-:ref:`Extending tt_content <ConfigureCE-Extend-tt_content>`.
+:ref:`Extending tt_content <configurece-extend-tt-content>`.
 
 The data of the content element is then passed to a TypoScript object, in most
 cases to a :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>`.
 
 Some data might need additional
-:ref:`Data processing <ConfigureCE-DataProcessors>`. Data processors are
+:ref:`Data processing <configurece-dataprocessors>`. Data processors are
 frequently used for example to process files
 (:ref:`files data processor <t3tsref:FilesProcessor>`) or to fetch related
 records (:ref:`database-query data processor <t3tsref:DatabaseQueryProcessor>`).
@@ -51,7 +51,7 @@ It can be installed via Composer with:
     composer req typo3/cms-fluid-styled-content
 
 ..  index:: Extension development; Custom content element
-..  _AddingCE-use-an-extension:
+..  _addingce-use-an-extension:
 
 Use an extension
 ================
@@ -64,8 +64,8 @@ Here you can find information on how to
 
 
 ..  index:: Content element; Registration
-..  _RegisterCE:
-..  _AddingCE-TCA-Overrides-tt_content:
+..  _registerce:
+..  _addingce-tca-overrides-tt-content:
 
 Register the content element type
 =================================
@@ -94,7 +94,7 @@ Now the new content element is available in the CType selector and the
 
 
 ..  index:: Content element; Icon
-..  _AddingCE-Icon:
+..  _addingce-icon:
 
 Display an icon
 ---------------
@@ -109,7 +109,7 @@ own icon using the :ref:`Icon API <icon>`.
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
 
 ..  index:: Content element; Wizard
-..  _AddingCE-PageTSconfig:
+..  _addingce-pagetsconfig:
 
 The new content element wizard
 ==============================
@@ -125,7 +125,7 @@ New content elements added via TCA are automatically displayed in the
 The values in the array highlighted in the code example above are used for the
 display in the :guilabel:`New Content Element` wizard.
 
-It is also possible to define an :ref:`icon <AddingCE-Icon>` and a description:
+It is also possible to define an :ref:`icon <addingce-icon>` and a description:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_description.diff
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (excerpt)
@@ -134,7 +134,7 @@ The content element wizard configuration is described in detail in
 :ref:`New content element wizard <content-element-wizard>`.
 
 ..  index:: Content element; Backend form
-..  _ConfigureCE-Fields:
+..  _configurece-fields:
 
 Configure the backend form
 ==========================
@@ -155,7 +155,7 @@ In line 21 a predefined field, `bodytext` is added to be displayed in the
 form of the new content element type.
 
 ..  index:: Content element; Frontend rendering
-..  _ConfigureCE-Frontend:
+..  _configurece-frontend:
 
 Configure the frontend rendering
 ================================
@@ -238,7 +238,7 @@ dump of all available data:
     :alt: The example output
 
 
-..  _AddingCE-Extended-Example:
+..  _addingce-extended-example:
 
 Extended example: extend tt_content and use data processing
 ===========================================================
@@ -256,7 +256,7 @@ the separator configurable.
 ..  index::
     pair: Content element; Extending tt_content
     Extension development; Extending tt_content
-..  _ConfigureCE-Extend-tt_content:
+..  _configurece-extend-tt-content:
 
 Extending tt_content
 --------------------
@@ -268,7 +268,7 @@ which to choose the desired separator.
 ..  index::
     Files;EXT:{extkey}/ext_tables.sql
     Tables;tt_content
-..  _ConfigureCE-Extend-tt_content-database:
+..  _configurece-extend-tt-content-database:
 
 Extending the database schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -303,7 +303,7 @@ First we extend the database schema by adding the following to the file
 ..  index::
     pair: Content element; TCA
     Files; EXT:{extkey}/Configuration/TCA/Overrides/tt_content.php
-..  _ConfigureCE-Extend-tt_content-tca:
+..  _configurece-extend-tt-content-tca:
 
 Defining the field in the TCA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -357,7 +357,7 @@ instead of `###PAGE_TSCONFIG_ID###`):
 
 
 ..  index:: pair: Content element; Data processing
-..  _ConfigureCE-DataProcessors:
+..  _configurece-dataprocessors:
 
 Data processing
 ---------------

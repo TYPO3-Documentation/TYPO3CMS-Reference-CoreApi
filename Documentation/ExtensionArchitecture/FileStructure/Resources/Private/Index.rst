@@ -13,7 +13,7 @@ This folder contains resources that are needed when rendering a page
 but are not needed directly by the browser. This includes:
 
 *   Fluid templates
-*   :ref:`Language files <extension-Resources-Private-Language>`
+*   :ref:`Language files <extension-resources-private-language>`
 *   Files for the compilation of assets like SCSS or TypeScript
 
 ..  contents:: Table of contents

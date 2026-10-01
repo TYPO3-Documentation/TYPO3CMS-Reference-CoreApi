@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  _Locale-api:
+..  _locale-api:
 
 ======
 Locale
@@ -38,7 +38,7 @@ Examples for a locale string are:
 
 The :php-short:`\TYPO3\CMS\Core\Localization\Locale` object can be used to create a new
 :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` object via the
-:ref:`LanguageServiceFactory <LanguageServiceFactory-api>` for translating
+:ref:`LanguageServiceFactory <languageservicefactory-api>` for translating
 labels. Previously, TYPO3 used the `default` language key, instead of the locale
 `en` to identify the English language. Both are supported, but it is
 encouraged to use `en-US` or `en-GB` with the region subtag to identify the

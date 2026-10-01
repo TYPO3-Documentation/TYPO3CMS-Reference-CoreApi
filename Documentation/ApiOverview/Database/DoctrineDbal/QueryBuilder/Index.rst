@@ -61,7 +61,7 @@ Instantiation
 To create an instance of the query builder, call
 :php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an
 argument. The :ref:`ConnectionPool <database-connection-pool>` object can be
-injected via :ref:`dependency injection <DependencyInjection>`.
+injected via :ref:`dependency injection <dependencyinjection>`.
 
 ..  literalinclude:: _QueryBuilder/_MyDbalRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyDbalRepository.php
@@ -172,7 +172,7 @@ Default restrictions
     See the :ref:`RestrictionBuilder <database-restriction-builder>` section for
     further details.
 
-..  _database-query-builder-selectLiteral:
+..  _database-query-builder-selectliteral:
 
 `selectLiteral()` and `addSelectLiteral()`
 ==========================================
@@ -705,7 +705,7 @@ Line 50
 The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-default-restrictions>`_
 are applied to each subquery automatically.
 
-..  _database-query-builder-setMaxResults:
+..  _database-query-builder-setmaxresults:
 
 `setMaxResults()` and `setFirstResult()`
 ========================================

@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 
-..  _typo3Information:
+..  _typo3information:
 
 ===================================
 Global meta information about TYPO3

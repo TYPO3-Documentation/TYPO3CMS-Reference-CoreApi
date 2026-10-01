@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Backend modules; DocHeaderComponent
-..  _DocHeaderComponent:
+..  _docheadercomponent:
 
 ====================
 `DocHeaderComponent`
@@ -22,7 +22,7 @@ from your module template.
 
 ..  contents:: Table of contents
 
-..  _DocHeaderComponent-api:
+..  _docheadercomponent-api:
 
 `DocHeaderComponent` API
 ========================
@@ -31,7 +31,7 @@ It has the following methods:
 
 ..  include:: _DocHeaderComponent.rst.txt
 
-..  _DocHeaderComponent-breadcrumb:
+..  _docheadercomponent-breadcrumb:
 
 Setting the breadcrumb of a backend module
 ==========================================
@@ -61,7 +61,7 @@ what the user is working on:
 The nodes are built from the current request, so they keep the module and
 its current action.
 
-..  _DocHeaderComponent-layout:
+..  _docheadercomponent-layout:
 
 Layout of the backend module header
 ===================================
@@ -85,7 +85,7 @@ The module header consists of two rows:
 
         The module header displayed by the DocHeaderComponent
 
-..  _DocHeaderComponent-language-selector:
+..  _docheadercomponent-language-selector:
 
 Adding module actions and a language selector to the module header
 ==================================================================
@@ -106,7 +106,7 @@ and the selected item, "Language: English":
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
     :emphasize-lines: 34,53,76
 
-..  _DocHeaderComponent-example:
+..  _docheadercomponent-example:
 
 Example: build a module header with buttons and a menu
 ======================================================

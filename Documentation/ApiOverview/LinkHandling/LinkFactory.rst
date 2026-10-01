@@ -81,7 +81,7 @@ Obtaining a `LinkFactory` instance
 ==================================
 
 Inject :php-short:`\TYPO3\CMS\Frontend\Typolink\LinkFactory` through
-:ref:`dependency injection <DependencyInjection>` and call it from your own
+:ref:`dependency injection <dependencyinjection>` and call it from your own
 service:
 
 ..  literalinclude:: _LinkFactory/_MyLinkService.php

@@ -2,7 +2,7 @@
 
 ..  index:: database, utf-8
 
-..  _troubleshooting_database:
+..  _troubleshooting-database:
 
 ========
 Database

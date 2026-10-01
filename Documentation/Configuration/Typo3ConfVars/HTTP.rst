@@ -3,7 +3,7 @@
 ..  index::
     TYPO3_CONF_VARS; HTTP
     TYPO3_CONF_VARS HTTP
-..  _typo3ConfVars_http:
+..  _typo3confvars-http:
 
 ====================
 HTTP - tune requests
@@ -19,15 +19,15 @@ for more background information on many of those settings.
 
     This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+    *   :ref:`config/system/settings.php <typo3confvars-settings>`
+    *   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-http
     :display: tree
     :type:
 
-..  _typo3ConfVars_http_allow_redirects:
+..  _typo3confvars-http-allow-redirects:
 
 
 allow_redirects
@@ -69,7 +69,7 @@ allow_redirects
 
         Maximum number of tries before an exception is thrown.
 
-..  _typo3ConfVars_http_allowed_hosts:
+..  _typo3confvars-http-allowed-hosts:
 
 
 
@@ -104,7 +104,7 @@ allowed_hosts
         Setting this option to null (or having it unset) is the default,
         and will allow any connection.
 
-..  _typo3ConfVars_http_cert:
+..  _typo3confvars-http-cert:
 
 
 cert
@@ -120,7 +120,7 @@ cert
     PEM formatted client side certificate. See
     `Guzzle option cert <https://docs.guzzlephp.org/en/latest/request-options.html#cert>`__
 
-..  _typo3ConfVars_http_connect_timeout:
+..  _typo3confvars-http-connect-timeout:
 
 
 connect_timeout
@@ -135,7 +135,7 @@ connect_timeout
     Default timeout for connection in seconds. Exception will be thrown if
     connecting to a remote host.
 
-..  _typo3ConfVars_http_proxy:
+..  _typo3confvars-http-proxy:
 
 
 proxy
@@ -156,10 +156,10 @@ proxy
 
     The configuration with an array must be made in the
     :file:`config/system/additional.php`; see
-    :ref:`File config/system/additional.php <typo3ConfVars-additional>` for
+    :ref:`File config/system/additional.php <typo3confvars-additional>` for
     details.
 
-..  _typo3ConfVars_http_ssl_key:
+..  _typo3confvars-http-ssl-key:
 
 
 ssl_key
@@ -174,7 +174,7 @@ ssl_key
     Local certificate and an optional passphrase, see
     `Guzzle option ssl-key <https://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
 
-..  _typo3ConfVars_http_timeout:
+..  _typo3confvars-http-timeout:
 
 
 timeout
@@ -190,10 +190,10 @@ timeout
     request takes more than this number of seconds.
 
     Should be greater than the
-    :ref:`connection timeout<typo3ConfVars_http_connect_timeout>` or
+    :ref:`connection timeout<typo3confvars-http-connect-timeout>` or
     `0` to not set a limit.
 
-..  _typo3ConfVars_http_verify:
+..  _typo3confvars-http-verify:
 
 
 verify
@@ -208,7 +208,7 @@ verify
     Describes the SSL certificate verification behavior of a request, see
     `Guzzle option verify <https://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
 
-..  _typo3ConfVars_http_version:
+..  _typo3confvars-http-version:
 
 
 version

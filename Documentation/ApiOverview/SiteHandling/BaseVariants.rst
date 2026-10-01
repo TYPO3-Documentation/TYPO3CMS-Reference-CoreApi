@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; Base variants
-..  _sitehandling-baseVariants:
+..  _sitehandling-basevariants:
 
 =============
 Base variants
@@ -93,7 +93,7 @@ Properties
     :Example: `203.0.113.*`
 
     The configured devIpMask taken from
-    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] <typo3ConfVars_sys_devIPmask>`.
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] <typo3confvars-sys-devipmask>`.
 
 ..  confval:: applicationContext
     :name: site-base-variants-applicationContext

@@ -12,7 +12,7 @@ Link browser tabs are registered in :ref:`page TSconfig <t3tsref:pagetsconfig>` 
     :caption: EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig
 
 See the complete example: :ref:`Tutorial: Custom record link
-browser <TableRecordLinkBrowserTutorials>`.
+browser <tablerecordlinkbrowsertutorials>`.
 
 Possible options are:
 
@@ -27,7 +27,7 @@ Possible options are:
 
 :typoscript:`scanAfter` / :typoscript:`scanBefore`
     The first backend link handler who determines that it can :ref:`handle the link
-    <tutorial_backend_link_handler_canHandleLink>` may edit a link. Most
+    <tutorial-backend-link-handler-canhandlelink>` may edit a link. Most
     likely your links will start with a :ref:`specific prefix <tutorial-github-link-handler>` to identify them.
 
     You should register your tab at least before the `url` link handler.

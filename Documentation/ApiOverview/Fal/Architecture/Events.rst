@@ -7,7 +7,7 @@ PSR-14 events
 =============
 
 The file abstraction layer (FAL) comes with a series of
-:ref:`PSR-14 events <EventDispatcher>` that offer the opportunity to
+:ref:`PSR-14 events <eventdispatcher>` that offer the opportunity to
 hook into FAL processes at a variety of points.
 
 They are listed below with some explanation, in particular when

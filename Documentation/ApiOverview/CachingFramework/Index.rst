@@ -43,7 +43,7 @@ renders all dynamic parts.
     render dynamic parts.
 
 ..  hint::
-    For developers: If you are developing a :ref:`plugin <frontend_plugin>`,
+    For developers: If you are developing a :ref:`plugin <frontend-plugin>`,
     think about your plugin's cache lifetime. Ideally, it can be fully cached,
     but if not, read the section about the
     :ref:`caching framework <caching-architecture>` to learn how to leverage
@@ -69,7 +69,7 @@ value as identifier. These parameters include by default:
 *   `type`: The current page type (`typeNum`)
 *   `groupIds`: The user groups of the logged-in user (if no user is logged in:
     `0`, `-1` as default values)
-*   `MP`: The :ref:`mount point <MountPoints>` identifier
+*   `MP`: The :ref:`mount point <mountpoints>` identifier
 *   `site`: The current :ref:`site <sitehandling>` and base URL
 *   `staticRouteArguments`: Any route argument configured in the
     :ref:`routing configuration <routing>` and resolved in the current
@@ -96,7 +96,7 @@ layer for validating slugs as well as reduces the parameters to a limited (and
 predictable) set of values.
 
 Various configuration options exist to configure the cHash behavior via
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] <typo3ConfVars_fe_cacheHash>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] <typo3confvars-fe-cachehash>`
 in the file :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 
@@ -184,7 +184,7 @@ Depending on the context, you might want to
 *   clear the frontend cache (for example, after templating changes)
 *   clear all caches (for example, during development, when making TypoScript
     changes)
-*   clear all caches incl. :ref:`dependency injection <DependencyInjection>`
+*   clear all caches incl. :ref:`dependency injection <dependencyinjection>`
     (mainly useful during development)
 
 Clearing the cache for a single page is done by using the "clear cache button"

@@ -22,7 +22,7 @@ script :samp:`/index.php` to enable virtual administrator interface URLs.
 
 The default TYPO3 backend entry point path :samp:`/typo3` can be changed by
 specifying a custom URL path or domain name in
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint'] <typo3ConfVars_be_entryPoint>`.
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint'] <typo3confvars-be-entrypoint>`.
 
 Adjusting the backend entry point does not take assets into account, only
 routing is adapted. That means Composer mode will use assets provided via
@@ -55,8 +55,8 @@ The configuration can be done in the backend via
 
     Configure the entry point via GUI
 
-or manually in :ref:`config/system/settings.php <typo3ConfVars-settings>` or
-:ref:`config/system/additional.php <typo3ConfVars-additional>`.
+or manually in :ref:`config/system/settings.php <typo3confvars-settings>` or
+:ref:`config/system/additional.php <typo3confvars-additional>`.
 
 ..  _backend-entry-point-specific-path:
 
