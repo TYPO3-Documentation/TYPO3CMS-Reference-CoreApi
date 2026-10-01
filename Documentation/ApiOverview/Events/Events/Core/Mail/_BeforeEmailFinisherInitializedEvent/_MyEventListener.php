@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\MyPackage\Form\EventListener;
+namespace MyVendor\MyExtension\Form\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent;

@@ -128,7 +128,7 @@ And use it in TCA for a specific field, keeping the full database functionality 
 data preparation of FormDataCompiler, but just routing the rendering of that field to the new element:
 
 ..  literalinclude:: _tx_cooltagcloud.php
-    :caption: EXT:cool_tag_cloud/Configuration/TCA/overrides/tx_cooltagcloud.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tx_myextension_tagcloud.php
 
 The above examples are a static list of nodes that can be changed by settings in :file:`ext_localconf.php`. If that
 is not enough, the :php:`NodeFactory` can be extended with a resolver that is called dynamically for specific renderTypes.

@@ -207,10 +207,10 @@ extension keys.
     or :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` as a class name
     depending on implementation of the hook.
 
-    A namespace function has the format :php:`\Foo\Bar\MyClassName::class . '->myUserFunction'`.
+    A namespace function has the format :php:`\MyVendor\MyExtension\MyClassName::class . '->myUserFunction'`.
 
     A namespace class should be used in the unquoted form, for example
-    :php:`\Foo\Bar\MyClassName::class`. The called function name is determined
+    :php:`\MyVendor\MyExtension\MyClassName::class`. The called function name is determined
     by the hook itself.
 
 The above syntax is how a hook is typically defined but it might

@@ -38,4 +38,4 @@ Register custom loaders via configuration:
 ..  code-block:: php
     :caption: EXT:my_extension/ext_localconf.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['LANG']['loader']['json'] = \MyExtension\Translation\JsonFileLoader::class;
+    $GLOBALS['TYPO3_CONF_VARS']['LANG']['loader']['json'] = \MyVendor\MyExtension\Translation\JsonFileLoader::class;

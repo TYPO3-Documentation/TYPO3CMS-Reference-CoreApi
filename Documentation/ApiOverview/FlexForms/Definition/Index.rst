@@ -72,7 +72,7 @@ Populate a `select` field using a PHP function (`itemsProcFunc`)
         </label>
         <config>
             <type>select</type>
-            <itemsProcFunc>MyVendor\Example\Backend\ItemsProcFunc->user_orderBy
+            <itemsProcFunc>MyVendor\MyExtension\Backend\ItemsProcFunc->user_orderBy
             </itemsProcFunc>
             <renderType>selectSingle</renderType>
             <items>

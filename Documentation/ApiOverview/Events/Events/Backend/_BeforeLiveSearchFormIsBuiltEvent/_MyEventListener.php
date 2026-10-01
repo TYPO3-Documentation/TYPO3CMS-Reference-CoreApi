@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyPackage\Backend\Search\EventListener;
+namespace MyVendor\MyExtension\Backend\Search\EventListener;
 
 use TYPO3\CMS\Backend\Search\Event\BeforeLiveSearchFormIsBuiltEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;

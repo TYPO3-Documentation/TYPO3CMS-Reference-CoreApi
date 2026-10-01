@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\MyPackage\Backend\EventListener;
+namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Authentication\Event\PasswordHasBeenResetEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;

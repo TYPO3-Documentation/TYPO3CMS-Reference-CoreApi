@@ -156,7 +156,7 @@ $info
 
         ..  code-block:: php
 
-            'className' => \Foo\Babelfish\Service\Translator::class
+            'className' => \MyVendor\MyExtension\Service\Translator::class
 
 
 ..  index:: Services API; AbstractService

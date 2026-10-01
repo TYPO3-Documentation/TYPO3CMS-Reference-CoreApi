@@ -69,7 +69,7 @@ Extbase derives the database table name from the model class name by convention:
 
 ..  code-block:: text
 
-    Vendor\MyExtension\Domain\Model\Conference
+    MyVendor\MyExtension\Domain\Model\Conference
     → tx_myextension_domain_model_conference
 
 Property names map to column names by converting camelCase to snake_case:

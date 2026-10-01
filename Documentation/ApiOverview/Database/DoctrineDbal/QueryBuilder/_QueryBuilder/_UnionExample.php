@@ -1,6 +1,6 @@
 <?php
 
-namespace MyExtension\MyVendor\Service;
+namespace MyVendor\MyExtension\Service;
 
 use Doctrine\DBAL\Query\UnionType;
 use TYPO3\CMS\Core\Database\Connection;
