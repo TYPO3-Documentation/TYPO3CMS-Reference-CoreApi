@@ -1,4 +1,4 @@
-name: t3docs/blog-example-styles
+name: myvendor/my-extension-styles
 label: Blog example default styles
 dependencies:
-  - t3docs/blog-example
+  - myvendor/my-extension

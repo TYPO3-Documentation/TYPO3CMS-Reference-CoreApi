@@ -31,7 +31,7 @@ class BackendController extends ActionController
     $this->modifyDocHeaderComponent($view, $context);
     $view->setFlashMessageQueue($this->getFlashMessageQueue());
     $title = $this->getLanguageService()
-        ->sL('blog_example.module.mod:mlang_tabs_tab');
+        ->sL('my_extension.module.mod:mlang_tabs_tab');
     $view->setTitle($title, $context);
 
     return $view;

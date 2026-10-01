@@ -229,19 +229,19 @@ Extbase domain model tables **should** follow this pattern:
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<model-name>` should match the domain model name
 
-Examples for Extbase domain models and table names of an extension named `cool_shop`:
+Examples for Extbase domain models and table names of an extension named `my_extension`:
 
-+-----------------------------------------------------+-------------------------------------------------+
-| Domain model                                        | Table name                                      |
-+=====================================================+=================================================+
-| :php:`Vendor\BlogExample\Domain\Model\Post`         | :sql:`tx_blogexample_domain_model_post`         |
-+-----------------------------------------------------+-------------------------------------------------+
-| :php:`Vendor\CoolShop\Domain\Model\Tag`             | :sql:`tx_coolshop_domain_model_tag`             |
-+-----------------------------------------------------+-------------------------------------------------+
-| :php:`Vendor\CoolShop\Domain\Model\ProcessedOrder`  | :sql:`tx_coolshop_domain_model_processedorder`  |
-+-----------------------------------------------------+-------------------------------------------------+
-| :php:`Vendor\CoolShop\Domain\Model\Billing\Address` | :sql:`tx_coolshop_domain_model_billing_address` |
-+-----------------------------------------------------+-------------------------------------------------+
++----------------------------------------------------------+----------------------------------------------------+
+| Domain model                                             | Table name                                         |
++==========================================================+====================================================+
+| :php:`MyVendor\MyExtension\Domain\Model\Post`            | :sql:`tx_myextension_domain_model_post`            |
++----------------------------------------------------------+----------------------------------------------------+
+| :php:`MyVendor\MyExtension\Domain\Model\Tag`             | :sql:`tx_myextension_domain_model_tag`             |
++----------------------------------------------------------+----------------------------------------------------+
+| :php:`MyVendor\MyExtension\Domain\Model\ProcessedOrder`  | :sql:`tx_myextension_domain_model_processedorder`  |
++----------------------------------------------------------+----------------------------------------------------+
+| :php:`MyVendor\MyExtension\Domain\Model\Billing\Address` | :sql:`tx_myextension_domain_model_billing_address` |
++----------------------------------------------------------+----------------------------------------------------+
 
 ..  tip::
     Notice that the names above use the singular form, e.g. `post` and
@@ -262,8 +262,8 @@ Extbase:
 
     # rule for Extbase
     tx_<extkeyprefix>_domain_model_<model-name-1>_<model-name-2>_mm
-    # example: EXT:blog with relation between post and comment
-    tx_blogexample_domain_model_post_comment_mm
+    # example: EXT:my_extension with relation between post and comment
+    tx_myextension_domain_model_post_comment_mm
 
 Non-Extbase tables usually use a similar rule, without the "domain_model" part:
 
