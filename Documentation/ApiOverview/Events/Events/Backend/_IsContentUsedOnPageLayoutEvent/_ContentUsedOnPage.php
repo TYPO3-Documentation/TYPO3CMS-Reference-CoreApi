@@ -20,7 +20,7 @@ final readonly class ContentUsedOnPage
     // This code will be your domain logic to indicate if content
     // should be hidden in the page module.
     if ((int)($record['colPos'] ?? 0) === 999
-        && !empty($record['tx_myext_content_parent'])
+        && !empty($record['tx_myextension_content_parent'])
     ) {
       // Flag the current element as not used. Set it to true, if you
       // want to flag it as used and hide it from the page module.

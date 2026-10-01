@@ -16,7 +16,7 @@ Translation files (XLIFF format)
 
 Use **XLIFF 2.x** for all new projects (introduced with TYPO3 v14).
 Each label file is written in English (`srcLang="en"`) and stored in
-`EXT:my_ext/Resources/Private/Language/`.
+`EXT:my_extension/Resources/Private/Language/`.
 Translations are stored in separate files such as `de.locallang.xlf`.
 TYPO3 considers only *approved* translations (`state="reviewed"` or `state="final"`) by default.
 
@@ -60,7 +60,7 @@ XLIFF file examples
 
         ..  literalinclude:: _snippets/_example_xliff_2.0.xlf
             :language: xml
-            :caption: EXT:my_ext/Resources/Private/Language/locallang.xlf
+            :caption: EXT:my_extension/Resources/Private/Language/locallang.xlf
 
         XLIFF 2.x is the preferred format. Each :xml:`<unit>` contains a
         :xml:`<segment>` with :xml:`<source>` and optionally :xml:`<target>`.
@@ -69,7 +69,7 @@ XLIFF file examples
 
         ..  literalinclude:: _snippets/_example_xliff_1.2.xlf
             :language: xml
-            :caption: EXT:my_ext/Resources/Private/Language/locallang.xlf
+            :caption: EXT:my_extension/Resources/Private/Language/locallang.xlf
 
         This format remains supported for backward compatibility.
 
@@ -177,7 +177,7 @@ and are expected to be stored in :file:`Resources/Private/Language`.
 In :ref:`Extbase <extbase-extension-framework>`, the main file (:file:`locallang.xlf`) is loaded
 automatically and is available in the controller and Fluid views without any
 further work. Other files must be explicitly referenced with the syntax
-`LLL:EXT:extkey/Resources/Private/Language/myfile.xlf:my.label`.
+`LLL:EXT:my_extension/Resources/Private/Language/myfile.xlf:my.label`.
 
 As :ref:`mentioned above <xliff-translated-file-name>`, translation files
 follow the same naming conventions but are prefixed with the language code and

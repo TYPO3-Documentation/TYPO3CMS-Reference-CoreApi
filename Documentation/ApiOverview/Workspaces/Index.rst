@@ -459,7 +459,7 @@ Overview
     41,30,0,128,1,0,1,0,0,Topic #1 new
     42,-1,0,128,1,41,-1,0,0,Topic #2 new
 
-..  csv-table:: Overview of regular records (e.g. `tx_record`, `tt_content`, ... but not `pages`)
+..  csv-table:: Overview of regular records (e.g. `tx_myextension_record`, `tt_content`, ... but not `pages`)
     :header-rows: 1
     :widths: 3, 3, 6, 6, 9, 8, 9, 11, 9, 13, 21
 

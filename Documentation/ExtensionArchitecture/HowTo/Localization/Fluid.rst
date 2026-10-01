@@ -88,7 +88,7 @@ possible to omit the language file prefix.
 
 
 In Extbase plugins :html:`<f:translate key="commentHeader" />` looks up the key in
-:html:`LLL:EXT:my_example/Resources/Private/Language/locallang.xlf:commentHeader`.
+:html:`LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:commentHeader`.
 
 The language string can be overridden by the values from
 :typoscript:`_LOCAL_LANG`. See also :ref:`property _LOCAL_LANG in a
