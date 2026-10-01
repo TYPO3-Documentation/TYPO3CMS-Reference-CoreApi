@@ -131,12 +131,13 @@ exception:
     Using expression language function "ip(devIp)" in a context without request.
 
 ..  versionchanged:: 13.0
+    :changelog: breaking-100963-1686129084
+
     Until TYPO3 v12, request-dependent functions such as `ip()` did work in
     base variant conditions: their implementation read the client address
     directly from the server environment, independent of a request object.
     This request-less fallback was deprecated in v12.3 and removed in v13.0,
-    which is why such conditions now fail with the exception shown above. See
-    `Breaking: #100963 <https://docs.typo3.org/permalink/changelog:breaking-100963-1686129084>`__.
+    which is why such conditions now fail with the exception shown above.
 
 The following request-independent functions are available:
 

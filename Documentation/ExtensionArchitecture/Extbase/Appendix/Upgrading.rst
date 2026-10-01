@@ -248,13 +248,13 @@ Language query settings replaced by the language aspect (TYPO3 v12 / v13)
 =========================================================================
 
 ..  versionchanged:: 13.0
+    :changelog: breaking-100963-1686129084
 
     :php:`setLanguageUid()`, :php:`getLanguageUid()`,
     :php:`setLanguageOverlayMode()` and :php:`getLanguageOverlayMode()` were
     removed from
-    :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings`, listed in
-    :ref:`Breaking: #100963 — Deprecated functionality removed
-    <changelog:breaking-100963-1686129084>`. :php:`setLanguageMode()` and
+    :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings`.
+    :php:`setLanguageMode()` and
     :php:`getLanguageMode()` had already gone in v12, listed in :ref:`Breaking:
     #96107 — Deprecated functionality removed <changelog:breaking-96107>`.
 

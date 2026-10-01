@@ -8,9 +8,10 @@
 
 ..  important::
     ..  versionchanged:: 14.0
-        Method :php:`getController()` is removed and substituted with methods :php:`getContent()`
-        and :php:`setContent()`. See also
-        `Breaking: #107578 - Event AfterCacheableContentIsGeneratedEvent changed <https://docs.typo3.org/permalink/changelog:breaking-107578-1759400756>`_´.
+        :changelog: breaking-107578-1759400756
+
+        Method :php:`getController()` is removed and substituted with methods
+        :php:`getContent()` and :php:`setContent()`.
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent` can be

@@ -134,9 +134,10 @@ TYPO3 v14
 ===========================================================
 
 ..  deprecated:: 13.4
+    :changelog: deprecation-105230-1728374467
 
-    *   `Deprecation: #105230 - TypoScriptFrontendController and $GLOBALS['TSFE'] <https://docs.typo3.org/permalink/changelog:deprecation-105230-1728374467>`_
-    *   `Breaking: #102621 - Most TSFE members marked internal or read-only <https://docs.typo3.org/permalink/changelog:breaking-102621-1701937690>`_
+    See also `Breaking: #102621 - Most TSFE members marked internal or read-only
+    <https://docs.typo3.org/permalink/changelog:breaking-102621-1701937690>`_.
 
 Most properties can be retrieved from the
 `TYPO3 request object <https://docs.typo3.org/permalink/t3coreapi:typo3-request>`_.
