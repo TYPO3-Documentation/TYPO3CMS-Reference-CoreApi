@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Extension\Domain\Model;
+namespace MyVendor\MyExtension\Domain\Model;
 
 use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;

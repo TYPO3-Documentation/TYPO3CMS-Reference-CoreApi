@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MyVendor\CoolTagCloud\Form\Element\SelectTagCloudElement;
+use MyVendor\MyExtension\Form\Element\SelectTagCloudElement;
 
 defined('TYPO3') or die();
 

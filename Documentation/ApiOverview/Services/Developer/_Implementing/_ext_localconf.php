@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use Foo\Babelfish\Service\Translator;
+use MyVendor\MyExtension\Service\Translator;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') or die();
 
 ExtensionManagementUtility::addService(
   // Extension Key
-  'babelfish',
+  'my_extension',
   // Service type
   'translator',
   // Service key
-  'tx_babelfish_translator',
+  'tx_myextension_translator',
   [
     'title' => 'Babelfish',
     'description' => 'Guess alien languages by using a babelfish',

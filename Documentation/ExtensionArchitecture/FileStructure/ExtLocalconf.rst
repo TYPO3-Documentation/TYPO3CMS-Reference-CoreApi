@@ -69,7 +69,7 @@ Example:
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] =
-        \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
+        \MyVendor\MyExtension\Error\PostExceptionsOnTwitter::class;
 
 ..  _ext-localconf-php-usage:
 
