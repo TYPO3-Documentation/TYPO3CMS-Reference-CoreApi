@@ -352,6 +352,10 @@ preserves the current request's arguments and flash messages so that the forward
 action can re-render the form with submitted values still in place. The
 browser URL does not change.
 
+Flash messages travel with the response itself: `withFlashMessages()` puts
+them there and `getFlashMessages()` reads them back. The forwarded action
+shows them without a user session being involved.
+
 :php-short:`\TYPO3\CMS\Extbase\Http\ForwardResponse` accepts action name,
 :php:`withControllerName()`, :php:`withExtensionName()`, and
 :php:`withArguments()` — but no explicit page UID. The dispatching always
@@ -539,10 +543,21 @@ listener to customize this response.
 `errorAction`: Extbase validation and argument-mapping errors
 =============================================================
 
+..  versionchanged:: 14.2
+    :changelog: important-102906-1761594424
+
+    The flash message of a failed validation used to be written to the user
+    session. A visitor without a session got one, and a session cookie with
+    it, which let crawlers create sessions in bulk.
+
 If argument mapping or validation fails, Extbase calls :php:`errorAction()`
 instead of the original action. The default implementation either dispatches back
 to the referring action (re-displaying the form with validation errors) or
 returns a plain `HTTP 400 Bad Request <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/400>`_ text response.
+
+The flash message goes along with the
+:ref:`forward <extbase-action-controller-forward>`, not through the user
+session.
 
 Override :php:`getErrorFlashMessage()` to customize the flash message that
 appears when validation fails:
