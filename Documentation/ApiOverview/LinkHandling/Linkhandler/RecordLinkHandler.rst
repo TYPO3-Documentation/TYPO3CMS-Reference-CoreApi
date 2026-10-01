@@ -32,7 +32,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
    :ref:`LinkBrowser API <linkbrowser-api>`.
 
    The links are now stored in the database with the syntax
-   `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
+   :html:`<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
 #. TypoScript configures how the link will be displayed in the frontend.
 

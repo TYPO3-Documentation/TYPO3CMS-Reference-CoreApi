@@ -44,7 +44,7 @@ A DTO is an instance of a basic class that usually only has a constructor,
 getters and setters. It is not meant to be an extension of an Extbase `AbstractEntity`.
 
 This DTO serves as pure data storage. You can use it to receive and retrieve
-data in a `<f:form>` Fluid
+data in a :fluid:`<f:form>` Fluid
 `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__
 ("Create Read Update Delete") setup.
 

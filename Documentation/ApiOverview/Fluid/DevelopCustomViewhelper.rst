@@ -297,7 +297,7 @@ This syntax places focus on the variable that is passed to the ViewHelper as it
 comes first.
 
 The syntax `{post.author.emailAddress -> m:gravatar()}` is an alternative
-syntax for `<m:gravatar>{post.author.emailAddress}</m:gravatar>`. To
+syntax for :fluid:`<m:gravatar>{post.author.emailAddress}</m:gravatar>`. To
 support this, the email address comes either from the argument `emailAddress`
 or, if it is empty, the content of the tag should be interpreted as email
 address.

@@ -323,7 +323,7 @@ errors — is a separate topic and handled on dedicated pages:
     -   :ref:`LocalizationUtility API reference <extbase-localization-utility-api>`
         — all parameters of :php:`translate()`
     -   :ref:`Translating labels in Fluid <extension-localization-fluid>` —
-        the `<f:translate>` ViewHelper
+        the :fluid:`<f:translate>` ViewHelper
 
 ..  toctree::
     :titlesonly:

@@ -33,7 +33,7 @@ Current LinkHandlers:
     and are part of the LinkHandling API, not the LinkHandler API.
 
 The links are now stored in the database with the syntax
-`<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
+:html:`<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
 #. TypoScript is used to generate the actual link in the frontend.
 

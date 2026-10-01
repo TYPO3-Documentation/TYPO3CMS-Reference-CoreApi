@@ -50,7 +50,7 @@ Focus area
 Users can also select a focus area, if configured. The focus area is always **inside**
 the crop area and marks the area of the image which is important and must be
 visible. The selected area is persisted to the database but will have no effect on image processing.
-The data points are, however, made available as data attribute when using the `<f:image />` view helper and
+The data points are, however, made available as data attribute when using the :fluid:`<f:image />` view helper and
 can be used by Javascript libraries.
 
 The example below adds a focus area which is initially one third of the size of the image

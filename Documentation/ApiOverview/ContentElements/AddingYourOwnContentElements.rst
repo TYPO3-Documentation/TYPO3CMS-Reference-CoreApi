@@ -205,7 +205,7 @@ In the example extension you can find the file at
 the `data` variable.
 
 The following example shows the text entered in the text field. New lines are
-converted to `<br>` tags.
+converted to :html:`<br>` tags.
 
 ..  literalinclude:: /CodeSnippets/CustomContentElements/CustomContentElement.fluid.html
     :caption: EXT:examples/Resources/Private/Templates/NewContentElement.fluid.html
