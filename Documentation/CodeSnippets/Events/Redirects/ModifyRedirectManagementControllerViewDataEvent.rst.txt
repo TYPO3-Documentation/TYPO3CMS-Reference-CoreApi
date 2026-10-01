@@ -100,3 +100,14 @@
         Allows to set integrity status codes. It can be used to filter for integrity status codes.
 
         :param $integrityStatusCodes: the integrityStatusCodes
+
+    ..  php:method:: getCreators()
+        :returns: `array<int,array{label: string,avatar: string}>`
+
+        Returns the backend users, which created the redirects.
+
+    ..  php:method:: setCreators(array $creators)
+
+        Can be used to update which backend users are available in the filter.
+
+        :param $creators: the creators

@@ -4,8 +4,11 @@
 ..  php:class:: IsReferenceConsideredForDependencyEvent
 
     Event dispatched per sys_refindex row when evaluating workspace
-    dependencies. Listeners decide whether a given reference constitutes a
-    structural workspace dependency.
+    dependencies. Listeners decide whether a given reference constitutes
+    a structural workspace dependency.
+
+    References are opt-in: isDependency defaults to false and listeners
+    must explicitly mark relevant references as dependencies.
 
     ..  php:method:: getTableName()
         :returns: `string`
