@@ -539,7 +539,14 @@ cacheHash
         :type: array
         :default: []
 
-        Only the given parameters will be evaluated in the cHash calculation.
+        **Only** the given parameters will be evaluated in the cHash
+        calculation.
+
+        ..  attention::
+            This option leads to the cache calculation being skipped for every
+            parameter except the ones listed here. Caching of pages is not
+            influenced by other parameters beyond the initial caching anymore.
+
         Example:
 
         ..  code-block:: php
@@ -654,6 +661,19 @@ cacheHash
         ..  deprecated:: 15.0
             TYPO3 v15.0 removes the option with the legacy cHash values.
 
+
+    ..  _typo3ConfVars_fe_cacheHash_matching:
+
+    All four parameter lists take an array of values. A value matches a URL
+    parameter name exactly unless an indicator asks for something else:
+
+    *   `=` matches the name exactly, which is what a value without an
+        indicator does as well.
+    *   `^` matches the beginning of a name.
+    *   `~` matches any occurrence inside a name.
+
+    The indicators work in `cachedParametersWhiteList`, `excludedParameters`,
+    `excludedParametersIfEmpty` and `requireCacheHashPresenceParameters`.
 
 ..  index::
     TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
