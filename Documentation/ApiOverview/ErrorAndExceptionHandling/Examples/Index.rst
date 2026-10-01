@@ -45,7 +45,7 @@ In :file:`.htaccess`
 
 
 ..  code-block:: typoscript
-    :caption: EXT:some_extension/Configuration/Sets/SomeExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     config.contentObjectExceptionHandler = 0
 

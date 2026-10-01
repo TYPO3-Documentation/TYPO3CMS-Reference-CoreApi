@@ -12,9 +12,9 @@ In Fluid, a typical call to fetch a string in the user's selected language looks
 
 ..  code-block:: html
 
-    <f:translate key="key1" extensionName="SomeExtensionName" />
+    <f:translate key="key1" extensionName="MyExtension" />
     // or inline notation
-    {f:translate(key: 'someKey', extensionName: 'SomeExtensionName')}
+    {f:translate(key: 'someKey', extensionName: 'MyExtension')}
 
 If the correct context is set, the current extension name and language will be
 provided by the request. Otherwise it must be added.

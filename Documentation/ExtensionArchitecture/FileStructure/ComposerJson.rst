@@ -24,7 +24,7 @@ Required in **all** installations
     :regex: /^(EXT:[^\/]+\/composer\.json|packages\/[^\/]+\/composer\.json)$/
     :shortDescription: This file is a tool for dependency management in PHP. It provides information about an extension and its dependencies in Composer-based installations.
 
-..  This regex matches: - EXT:some_extension/composer.json - EXT:gridelements/composer.json - packages/my_extension/composer.json - packages/news/composer.json
+..  This regex matches: - EXT:my_extension/composer.json - EXT:gridelements/composer.json - packages/my_extension/composer.json - packages/news/composer.json
 ..  It does NOT match: - composer.json (at project root) - project_root/composer.json
 
 ..  contents::
@@ -181,7 +181,7 @@ You must be owner of the vendor name and should register it on
 `Packagist <https://packagist.org/>`__. Typically, the name will correspond to
 your namespaces used in the :file:`Classes/` folder, but with different
 uppercase / lowercase spelling, for example: The PHP namespace
-:php:`JohnDoe\SomeExtension` may be `johndoe/some-extension` in
+:php:`MyVendor\MyExtension` may be `myvendor/my-extension` in
 :file:`composer.json <extension-composer-json>`.
 
 ..  _ext-composer-json-property-description:

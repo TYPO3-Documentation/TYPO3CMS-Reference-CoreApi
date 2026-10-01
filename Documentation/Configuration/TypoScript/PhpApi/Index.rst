@@ -40,7 +40,7 @@ the parser creates a tree of PHP objects internally, this method returns only
 the array representation of the parsed TypoScript:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     // use TYPO3\CMS\Backend\Utility\BackendUtility;
 

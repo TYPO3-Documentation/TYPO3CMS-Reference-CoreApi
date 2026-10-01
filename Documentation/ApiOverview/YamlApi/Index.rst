@@ -57,7 +57,7 @@ Use the method :php:`YamlFileLoader::load()` to make use of the loader in your
 extensions:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 

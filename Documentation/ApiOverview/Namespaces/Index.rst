@@ -152,7 +152,7 @@ The following example shows how you can create instances by means of
 :php:`GeneralUtility::makeInstance()`:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;

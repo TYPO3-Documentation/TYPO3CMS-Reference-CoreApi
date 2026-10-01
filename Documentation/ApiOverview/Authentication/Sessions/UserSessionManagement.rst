@@ -40,7 +40,7 @@ The :php:`UserSessionManager` can be retrieved using its static factory
 method :php:`create()`:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/Controller/SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     use TYPO3\CMS\Core\Session\UserSessionManager;
 

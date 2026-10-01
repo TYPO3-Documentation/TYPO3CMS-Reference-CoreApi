@@ -15,7 +15,7 @@ of the system extension :file:`backend`. The class is marked as
 The PageLinkHandler is preconfigured in the page TSconfig as:
 
 ..  literalinclude:: _pageLinkHandler.tsconfig
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
 
 ..  _pagelinkhandler-enable-direct-input:
@@ -32,6 +32,6 @@ The uid will be used directly instead of selecting it from the page tree.
 Enable the field with the following page TSConfig:
 
 ..  code-block:: typoscript
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1

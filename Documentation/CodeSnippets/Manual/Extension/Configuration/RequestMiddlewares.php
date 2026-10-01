@@ -3,7 +3,7 @@
 return [
   'frontend' => [
     'middleware-identifier' => [
-      'target' => \Vendor\SomeExtension\Middleware\ConcreteClass::class,
+      'target' => \MyVendor\MyExtension\Middleware\ConcreteClass::class,
       'before' => [
         'another-middleware-identifier',
       ],
@@ -14,7 +14,7 @@ return [
   ],
   'backend' => [
     'middleware-identifier' => [
-      'target' => \Vendor\SomeExtension\Middleware\AnotherConcreteClass::class,
+      'target' => \MyVendor\MyExtension\Middleware\AnotherConcreteClass::class,
       'before' => [
         'another-middleware-identifier',
       ],

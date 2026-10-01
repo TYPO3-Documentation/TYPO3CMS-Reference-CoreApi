@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\SomeExtension\Error;
+namespace MyVendor\MyExtension\Error;
 
 use TYPO3\CMS\Core\Error\DebugExceptionHandler;
 

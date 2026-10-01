@@ -294,19 +294,19 @@ See the following example on how to create a URI using the
 :php:`FileDumpController` for a :sql:`sys_file` record with a fixed image size:
 
 ..  literalinclude:: _ExamplesFileFolder/_SomeFileEid1.php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 In this example, the crop variant :php:`default` and an image size of 320x280
 will be applied to a :sql:`sys_file_reference` record:
 
 ..  literalinclude:: _ExamplesFileFolder/_SomeFileEid2.php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 This example shows how to create a URI to load an image of
 `sys_file_processedfile`:
 
 ..  literalinclude:: _ExamplesFileFolder/_SomeFileEid3.php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 The following restrictions apply:
 

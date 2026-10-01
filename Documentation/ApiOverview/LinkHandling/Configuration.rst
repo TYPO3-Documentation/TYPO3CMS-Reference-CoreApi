@@ -66,20 +66,20 @@ Page link handler configuration
 Enable the field with the following page TSConfig:
 
 ..  code-block:: typoscript
-    :caption: EXT:some_extension/Configuration/page.tsconfig
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
 
 or by configuring the link button in your ckeditor configuration:
 
 ..  literalinclude:: _rtePageIdSelector.yaml
-    :caption: EXT:some_extension/Configuration/RTE/Default.yaml
+    :caption: EXT:my_extension/Configuration/RTE/Default.yaml
 
 ..  note::
 
     Additionally, you have to allow the pageIdSelector as a link option in your RTE configuration, e.g.
 
 ..  code-block:: yaml
-    :caption: EXT:some_extension/Configuration/RTE/Default.yaml
+    :caption: EXT:my_extension/Configuration/RTE/Default.yaml
 
     allowedOptions: 'target,title,class,pageIdSelector'
