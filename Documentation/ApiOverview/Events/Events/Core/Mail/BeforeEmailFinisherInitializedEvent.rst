@@ -33,7 +33,7 @@ Example
 The corresponding event listener class:
 
 ..  literalinclude:: _BeforeEmailFinisherInitializedEvent/_MyEventListener.php
-    :caption: EXT:my_package/Classes/Form/EventListener/MyEventListener.php
+    :caption: EXT:my_extension/Classes/Form/EventListener/MyEventListener.php
 
 
 ..  _BeforeEmailFinisherInitializedEvent-example-api:

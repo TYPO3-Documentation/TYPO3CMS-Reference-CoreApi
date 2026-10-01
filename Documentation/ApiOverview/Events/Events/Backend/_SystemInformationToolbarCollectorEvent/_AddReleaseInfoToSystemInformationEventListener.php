@@ -1,6 +1,6 @@
 <?php
 
-namespace MyVendor\MyExample\EventListener;
+namespace MyVendor\MyExtension\EventListener;
 
 use TYPO3\CMS\Backend\Backend\Event\SystemInformationToolbarCollectorEvent;
 use TYPO3\CMS\Backend\Toolbar\InformationStatus;

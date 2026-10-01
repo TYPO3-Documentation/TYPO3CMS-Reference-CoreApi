@@ -18,9 +18,9 @@ If you want to register your own error or exception handler:
    ..  code-block:: php
        :caption: config/system/additional.php | typo3conf/system/additional.php
 
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = \Vendor\Ext\Error\MyOwnProductionExceptionHandler::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \MyVendor\MyExtension\Error\MyOwnErrorHandler::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \MyVendor\MyExtension\Error\MyOwnDebugExceptionHandler::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler'] = \MyVendor\MyExtension\Error\MyOwnProductionExceptionHandler::class;
 
 ..  tip::
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Example\Demo\EventListener;
+namespace MyVendor\MyExtension\EventListener;
 
 use TYPO3\CMS\Backend\Security\SudoMode\Event\SudoModeVerifyEvent;
 

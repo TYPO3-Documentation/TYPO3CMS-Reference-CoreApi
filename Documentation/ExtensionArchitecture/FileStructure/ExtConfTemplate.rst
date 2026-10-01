@@ -39,7 +39,7 @@ is itself split (on the colon ":") into a title and a description. The Label sho
 
 ..  code-block:: typoscript
 
-    # cat=Login; type=string; label=LLL:EXT:my_extension_key/Resources/Private/Language/locallang_be.xlf:loginLogo
+    # cat=Login; type=string; label=LLL:EXT:my_extension/Resources/Private/Language/locallang_be.xlf:loginLogo
     loginLogo =
 
 The above example will be rendered like this in the Settings module:
@@ -88,7 +88,7 @@ Where user functions have to be written the following way:
 
 ..  code-block:: typoscript
 
-    # cat=basic/enable/050; type=user[Vendor\MyExtensionKey\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
+    # cat=basic/enable/050; type=user[MyVendor\MyExtension\ViewHelpers\MyConfigurationClass->render]; label=MyLabel
     myVariable = 1
 
 
@@ -99,7 +99,7 @@ Accessing saved options
 =======================
 
 When saved in the Settings module, the configuration will be kept in the :file:`config/system/settings.php`
-file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension_key']`.
+file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension']`.
 
 To retrieve the configuration use the API provided by the
 :php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class via
