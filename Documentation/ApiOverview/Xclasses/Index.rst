@@ -19,7 +19,7 @@ Introduction
 
 XCLASSing is a mechanism in TYPO3 to extend classes or overwrite methods from the Core or extensions
 with one's own code. This enables a developer to easily change a given functionality,
-if other options like :ref:`events <EventDispatcher>` or :ref:`hooks <hooks>`,
+if other options like :ref:`events <eventdispatcher>` or :ref:`hooks <hooks>`,
 or the dependency injection mechanisms do not work or do not exist.
 
 ..  warning::
@@ -100,7 +100,7 @@ XCLASSing an Extbase controller action
 ======================================
 
 Extbase controllers are resolved as services from the
-:ref:`dependency injection container <DependencyInjection>` and are never
+:ref:`dependency injection container <dependencyinjection>` and are never
 instantiated directly. Two additional requirements therefore apply when
 XCLASSing them.
 

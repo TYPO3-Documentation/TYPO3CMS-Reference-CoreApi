@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: ! Broadcast service
-..  _broadcast_channels:
+..  _broadcast-channels:
 
 ==================
 Broadcast channels

@@ -125,7 +125,7 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 
 
 ..  _extbase-upgrading-fileupload-named-arguments:
-..  _extbase_fileupload_attribute-migration:
+..  _extbase-fileupload-attribute-migration:
 
 `#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
 ====================================================================

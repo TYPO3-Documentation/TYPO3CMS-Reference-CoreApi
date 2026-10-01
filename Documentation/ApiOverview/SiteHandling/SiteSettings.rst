@@ -52,7 +52,7 @@ Access defined site settings through:
 *   variables such as
     :fluid:`{site.configuration.settings.mySettingKey}` in Fluid templates when
     using the :typoscript:`SiteProcessor` data processor; see
-    :ref:`Using site configuration in TypoScript and Fluid templates <sitehandling-inTypoScript>`.
+    :ref:`Using site configuration in TypoScript and Fluid templates <sitehandling-intyposcript>`.
 
 Use them for values that vary by site, such as storage page IDs or
 feature-specific presentation options.
@@ -341,7 +341,7 @@ one.
 
     #.  Configuration from
         :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
-        <typo3ConfVars_fe_defaultTypoScript_constants>`
+        <typo3confvars-fe-defaulttyposcript-constants>`
     #.  :file:`constants.typoscript` from active sets
     #.  Effective site setting values
     #.  The site's :file:`constants.typoscript`

@@ -8,7 +8,7 @@
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Domain\Event\BeforeRecordLanguageOverlayEvent`
 can be used to modify information (such as the
-:ref:`LanguageAspect <context_api_aspects_language>` or the actual incoming
+:ref:`LanguageAspect <context-api-aspects-language>` or the actual incoming
 record from the database) before the database is queried.
 
 ..  seealso::

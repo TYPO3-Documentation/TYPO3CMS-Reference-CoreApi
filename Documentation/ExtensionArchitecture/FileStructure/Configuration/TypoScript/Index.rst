@@ -37,7 +37,7 @@ names have to stay the same.
     In Sites that don't use Site sets it is possible, though not recommended, to
     have TypoScript that is always included. See
     :ref:`ext_typoscript_constants.typoscript
-    <ext_typoscript_constants_typoscript>`
+    <ext-typoscript-constants-typoscript>`
     and
-    :ref:`ext_typoscript_setup.typoscript <ext_typoscript_setup_typoscript>`.
+    :ref:`ext_typoscript_setup.typoscript <ext-typoscript-setup-typoscript>`.
     These files are not included when a site uses a set.

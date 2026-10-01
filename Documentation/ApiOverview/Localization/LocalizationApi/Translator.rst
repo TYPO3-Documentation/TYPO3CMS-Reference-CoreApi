@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  _LanguageService-api:
+..  _languageservice-api:
 ..  _translator-api:
 
 ==============
@@ -18,7 +18,7 @@ translate strings in plain PHP.
 
 For examples see :ref:`Localization in PHP <extension-localization-php>`. Create
 a :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` with
-:ref:`LanguageServiceFactory <LanguageServiceFactory-api>`.
+:ref:`LanguageServiceFactory <languageservicefactory-api>`.
 
 In the backend context a :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface`
 is stored in the global variable :php:`$GLOBALS['LANG']`.

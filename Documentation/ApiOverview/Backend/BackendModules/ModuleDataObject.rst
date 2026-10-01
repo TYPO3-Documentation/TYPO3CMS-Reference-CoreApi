@@ -3,7 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index::
     Backend modules; Module data object
-..  _backend-Module-data-object:
+..  _backend-module-data-object:
 
 ==================
 Module data object

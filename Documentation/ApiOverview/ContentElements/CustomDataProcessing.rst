@@ -20,7 +20,7 @@ You can find the example below in the TYPO3 Documentation Team extension
 ..  index::
     Custom data processor; TypoScript
     Custom data processor; Usage
-..  _content-elements-custom-data-processor_typoscript:
+..  _content-elements-custom-data-processor-typoscript:
 
 Using a custom data processor in TypoScript
 ===========================================
@@ -46,7 +46,7 @@ In the field :typoscript:`categories` the comma-separated categories are stored.
 
 ..  index::
     Custom data processor; Alias
-..  _content-elements-custom-data-processor_alias:
+..  _content-elements-custom-data-processor-alias:
 
 Register an alias for the data processor (optional)
 ===================================================
@@ -74,8 +74,8 @@ like in the TypoScript example above.
 ..  tip::
     It is recommended to tag custom data processors as this will
     automatically add them to the internal :php:`DataProcessorRegistry`,
-    enabling :ref:`dependency injection <DependencyInjection>` by default.
-    Otherwise, the service would need to be set :ref:`public <What-to-make-public>`.
+    enabling :ref:`dependency injection <dependencyinjection>` by default.
+    Otherwise, the service would need to be set :ref:`public <what-to-make-public>`.
 
 ..  note::
 
@@ -85,7 +85,7 @@ like in the TypoScript example above.
 ..  index::
     Custom data processor; Implementation
     Interface; DataProcessorInterface
-..  _content-elements-custom-data-processor_implementation:
+..  _content-elements-custom-data-processor-implementation:
 
 Implementing the custom data processor
 ======================================

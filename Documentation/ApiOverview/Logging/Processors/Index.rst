@@ -66,7 +66,7 @@ Options
     Adds a full backtrace stack to the log.
 
 
-..  _logging-processors-introspection-shiftBackTraceLevel:
+..  _logging-processors-introspection-shiftbacktracelevel:
 
 shiftBackTraceLevel
 ```````````````````
@@ -102,7 +102,7 @@ Options
     allocated from system instead of :php:`emalloc()` value.
 
 
-..  _logging-processors-memory-formatSize:
+..  _logging-processors-memory-formatsize:
 
 formatSize
 ``````````
@@ -138,7 +138,7 @@ Options
     allocated from system instead of :php:`emalloc()` value.
 
 
-..  _logging-processors-memory-peak-formatSize:
+..  _logging-processors-memory-peak-formatsize:
 
 formatSize
 ``````````

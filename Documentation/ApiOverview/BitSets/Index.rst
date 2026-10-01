@@ -4,7 +4,7 @@
     Bitsets; Usage
     Boolean flags
 
-..  _BitSet:
+..  _bitset:
 
 =======
 Bitsets

@@ -250,7 +250,7 @@ import can be done in the template or the partial.
 
 *optional*
 
-Since Fluid version 4.3 components were introduced. :ref:`Components <using_fluid_components>`
+Since Fluid version 4.3 components were introduced. :ref:`Components <using-fluid-components>`
 are custom HTML-like tags based on Fluid templates. Like partials they provide a
 good code reuseability.
 

@@ -6,7 +6,7 @@
     MariaDB
     PostgreSQL
     SQLite
-..  _Database_Introduction:
+..  _database-introduction:
 
 ============
 Introduction

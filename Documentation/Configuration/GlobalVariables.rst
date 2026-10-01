@@ -22,7 +22,7 @@ $GLOBALS
     :Frontend: yes
 
     TYPO3 configuration array. Please refer to the chapter
-    :ref:`System configuration in settings.php <typo3ConfVars>` where each
+    :ref:`System configuration in settings.php <typo3confvars>` where each
     option is described in detail.
 
     Most values in this array can be accessed through the tool
@@ -111,7 +111,7 @@ EXEC_TIME
     ..  note::
 
         Should not be used anymore, rather use the
-        :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+        :ref:`DateTime Aspect <context-api-aspects-datetime>`.
 
 
 
@@ -134,7 +134,7 @@ SIM_EXEC_TIME
     ..  note::
 
         Should not be used anymore, rather use the
-        :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+        :ref:`DateTime Aspect <context-api-aspects-datetime>`.
 
 
 ..  _globals-lang:

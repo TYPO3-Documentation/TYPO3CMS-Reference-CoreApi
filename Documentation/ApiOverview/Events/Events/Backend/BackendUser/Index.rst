@@ -8,7 +8,7 @@ Backend user
 
 ..  versionadded:: 14.0
 
-The following list contains :ref:`PSR-14 events <EventDispatcher>`
+The following list contains :ref:`PSR-14 events <eventdispatcher>`
 in EXT:beuser. These events can be used to implement finer user management
 processes and to make user management easier for sites
 with a large number of users and groups.

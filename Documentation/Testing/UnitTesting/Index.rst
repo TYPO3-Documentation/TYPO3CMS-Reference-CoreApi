@@ -61,7 +61,7 @@ Extending a unit test from class :php:`TYPO3\TestingFramework\Core\Unit\UnitTest
 `typo3/testing-framework` package instead of the native phpunit class :php:`PHPUnit\Framework\TestCase`
 adds some functionality on top of phpunit:
 
-*   Environment backup: If a unit test has to fiddle with the :ref:`Environment <Environment>` class, setting
+*   Environment backup: If a unit test has to fiddle with the :ref:`Environment <environment>` class, setting
     property :php:`$backupEnvironment` to :php:`true` instructs the unit test to reset the state after each call.
 
 *   If a system under test creates instances of classes implementing :php:`SingletonInterface`, setting

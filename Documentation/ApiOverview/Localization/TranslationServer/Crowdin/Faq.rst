@@ -42,7 +42,7 @@ Crowdin please contact either the maintainer of the extension or the
 
 ..  seealso::
     The language needs to be supported by TYPO3 itself as well, see
-    :ref:`Supported languages <i18n_languages>` for a list of all languages.
+    :ref:`Supported languages <i18n-languages>` for a list of all languages.
 
 ..  _Localization Team: https://typo3.community/contribute/teams-committees/localization
 

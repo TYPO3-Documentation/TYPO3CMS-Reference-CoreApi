@@ -4,7 +4,7 @@
 ..  index::
     $GLOBALS; TYPO3_CONF_VARS
     TYPO3_CONF_VARS
-..  _typo3ConfVars:
+..  _typo3confvars:
 
 ==================================================
 System configuration and the global `settings.php`
@@ -52,7 +52,7 @@ Composer-based installations. In Classic mode installations they are located in
 :ref:`typo3conf/system/ <classic-directory-typo3conf-system>`.
 
 This path can be retrieved from the Environment API. See
-:ref:`getConfigPath() <Environment-config-path>` for both Composer-based and
+:ref:`getConfigPath() <environment-config-path>` for both Composer-based and
 Classic mode installations.
 
 
@@ -65,8 +65,8 @@ This file overrides default settings from
 
 ..  index::
     ! File; config/system/settings.php
-..  _typo3ConfVars-settings:
-..  _typo3ConfVars-localConfiguration:
+..  _typo3confvars-settings:
+..  _typo3confvars-localconfiguration:
 
 File `config/system/settings.php`
 ---------------------------------
@@ -123,8 +123,8 @@ may themselves be arrays.
 ..  index::
     ! File; config/system/additional.php
     Configuration; additional
-..  _typo3ConfVars-additional:
-..  _typo3ConfVars-additionalConfiguration:
+..  _typo3confvars-additional:
+..  _typo3confvars-additionalconfiguration:
 
 File config/system/additional.php
 ---------------------------------
@@ -161,13 +161,13 @@ System configuration categories
 ===============================
 
 BE
-    :ref:`Options related to the TYPO3 backend <typo3ConfVars_be>`.
+    :ref:`Options related to the TYPO3 backend <typo3confvars-be>`.
 
 DB
-    :ref:`Database connection configuration <typo3ConfVars_db>`.
+    :ref:`Database connection configuration <typo3confvars-db>`.
 
 EXT
-    :ref:`Extension installation options <typo3ConfVars_ext>`.
+    :ref:`Extension installation options <typo3confvars-ext>`.
 
 EXTCONF
     Backend-related language pack configuration resides here.
@@ -176,26 +176,26 @@ EXTENSIONS
     :ref:`Extension configuration <extension-configuration>`.
 
 FE
-    :ref:`Frontend-related options <typo3ConfVars_fe>`.
+    :ref:`Frontend-related options <typo3confvars-fe>`.
 
 GFX
-    :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`.
+    :ref:`Options related to image manipulation. <typo3confvars-gfx>`.
 
 HTTP
-    :ref:`Settings for tuning HTTP requests <typo3ConfVars_http>` made by TYPO3.
+    :ref:`Settings for tuning HTTP requests <typo3confvars-http>` made by TYPO3.
 
 LOG
     :ref:`Configuration of the logging system <logging-configuration>`.
 
 MAIL
-    :ref:`Options related to the sending of emails <typo3ConfVars_mail>`
+    :ref:`Options related to the sending of emails <typo3confvars-mail>`
     (transport, server, etc.).
 
 SVCONF
     :ref:`Service API configuration <services-developer-service-api-getters>`.
 
 SYS
-    :ref:`General options <typo3ConfVars_sys>` which may affect both the
+    :ref:`General options <typo3confvars-sys>` which may affect both the
     frontend and the backend.
 
 T3_SERVICES
@@ -224,7 +224,7 @@ change parts of :file:`config/system/settings.php`. They can be found in
     Configure installation-wide options with an active search
 
 ..  index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
-..  _typo3ConfVars-defaultConfiguration:
+..  _typo3confvars-defaultconfiguration:
 
 File `DefaultConfiguration.php`
 ===============================

@@ -182,15 +182,15 @@ Configuration options
 Configuration of password hashing is stored in :file:`config/system/settings.php` with defaults in
 :t3src:`core/Configuration/DefaultConfiguration.php` at five places:
 
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3ConfVars_sys_availablePasswordHashAlgorithms>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3confvars-sys-availablepasswordhashalgorithms>`
     An array of class names. This is the list of available password hash
     algorithms. Extensions may extend this list if they need to register new
     (and hopefully even more secure) hash algorithms.
 
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className'] <typo3ConfVars_be_passwordHashing_className>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className'] <typo3confvars-be-passwordhashing-classname>`
     The salt class name configured as default hash mechanism for frontend users.
 
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options'] <typo3ConfVars_be_passwordHashing_options>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options'] <typo3confvars-be-passwordhashing-options>`
     Special options of the configured hash algorithm. This is usually an empty
     array to fall back to defaults, see below for more details.
 
@@ -354,7 +354,7 @@ To add an additional hash algorithm, these steps are necessary:
 *   Create a new class that implements interface
     :t3src:`core/Classes/Crypto/PasswordHashing/PasswordHashInterface.php`
 *   Register the class as additional entry in
-    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3ConfVars_sys_availablePasswordHashAlgorithms>`
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3confvars-sys-availablepasswordhashalgorithms>`
 
 
 ..  _hash: https://en.wikipedia.org/wiki/Cryptographic_hash_function

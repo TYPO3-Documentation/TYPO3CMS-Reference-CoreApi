@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: JavaScript; RequestAnimationFrame event
-..  _Events_JavaScript_rAF:
+..  _events-javascript-raf:
 
 =============================
 `RequestAnimationFrame` event

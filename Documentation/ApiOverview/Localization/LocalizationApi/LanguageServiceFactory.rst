@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  _LanguageServiceFactory-api:
+..  _languageservicefactory-api:
 
 ========================
 `LanguageServiceFactory`

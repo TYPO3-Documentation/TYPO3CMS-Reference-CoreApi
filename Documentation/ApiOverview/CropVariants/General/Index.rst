@@ -30,7 +30,7 @@ Each crop variant has at least one *ratio configuration* defined under `allowedA
 ..  literalinclude:: _sys_file_reference.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-..  _cropvariants-general-cropArea:
+..  _cropvariants-general-croparea:
 
 Crop area
 =========
@@ -42,7 +42,7 @@ The example below has an initial crop area in the same size that the previous im
 ..  literalinclude:: _sys_file_reference_cropArea.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-..  _cropvariants-general-focusArea:
+..  _cropvariants-general-focusarea:
 
 Focus area
 ==========
@@ -59,7 +59,7 @@ and centered.
 ..  literalinclude:: _sys_file_reference_focusArea.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-..  _cropvariants-general-coverAreas:
+..  _cropvariants-general-coverareas:
 
 Cover area
 ==========

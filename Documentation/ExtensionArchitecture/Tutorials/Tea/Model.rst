@@ -2,7 +2,7 @@
 
 ..  index::
     Tutorial Tea; Model
-..  _extbase_tutorial_tea_model:
+..  _extbase-tutorial-tea-model:
 
 ===================
 Model: a bag of tea
@@ -14,8 +14,8 @@ The title and description are strings, the image is stored as a relation
 to the model class :php:`\TYPO3\CMS\Extbase\Domain\Model\FileReference`, provided
 by Extbase.
 
-..  _extbase_tutorial_tea_model_database:
-..  _extbase_tutorial_tea_model_tca:
+..  _extbase-tutorial-tea-model-database:
+..  _extbase-tutorial-tea-model-tca:
 
 TCA - table configuration array
 ===============================
@@ -48,7 +48,7 @@ keys on the first level:
     describe at least one type. Here we define the order in which
     the fields are displayed in the backend.
 
-..  _extbase_tutorial_tea_model_ctrl:
+..  _extbase-tutorial-tea-model-ctrl:
 
 TCA `ctrl` - settings for the complete table
 --------------------------------------------
@@ -57,7 +57,7 @@ TCA `ctrl` - settings for the complete table
     :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
     :linenos:
 
-..  _extbase_tutorial_tea_model_ctrl_title:
+..  _extbase-tutorial-tea-model-ctrl-title:
 
 `title`
 ~~~~~~~
@@ -72,13 +72,13 @@ and in backend forms.
     The **title** of the :sql:`tea` table.
 
 Strings starting with :php:`LLL:` will be replaced with localized text. See chapter
-:ref:`Extension localization <extension_localization>`. All other strings
+:ref:`Extension localization <extension-localization>`. All other strings
 will be output as they are. This title will always be output as "Tea" without localization:
 
 ..  literalinclude:: _tx_tea_domain_model_tea.php
     :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php (excerpt)
 
-..  _extbase_tutorial_tea_model_ctrl_label:
+..  _extbase-tutorial-tea-model-ctrl-label:
 
 `label`
 ~~~~~~~
@@ -92,14 +92,14 @@ in listings and in backend forms:
 
     The **label** of a tea record.
 
-..  _extbase_tutorial_tea_model_ctrl_others:
+..  _extbase-tutorial-tea-model-ctrl-others:
 
 `tstamp`, `deleted`, ...
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 These fields are used to keep timestamp and status information for each record. You can read more about them in the :ref:`TCA Reference, chapter Table properties (ctrl) <t3tca:ctrl>`.
 
-..  _extbase_tutorial_tea_model_columns:
+..  _extbase-tutorial-tea-model-columns:
 
 TCA `columns` - defining the fields
 -----------------------------------
@@ -122,7 +122,7 @@ the :ref:`TCA Reference, chapter "Field types (config > type)" <t3tca:columns-ty
 
 The other text fields are defined in a similar manner.
 
-..  _extbase_tutorial_tea_model_columns_image:
+..  _extbase-tutorial-tea-model-columns-image:
 
 The `image` field
 ~~~~~~~~~~~~~~~~~
@@ -135,7 +135,7 @@ image should be an image, we limit the allowed file extensions to the
 ..  literalinclude:: _Model/_image_tca.php
     :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php (excerpt)
 
-..  _extbase_tutorial_tea_model_types:
+..  _extbase-tutorial-tea-model-types:
 
 TCA `types` - configure the input form
 --------------------------------------
@@ -153,7 +153,7 @@ backend input form, in the order they should be displayed.
     :ref:`TCA reference, showitem <t3tca:types-properties-showitem>` for
     details.
 
-..  _extbase_tutorial_tea_model-tca-result:
+..  _extbase-tutorial-tea-model-tca-result:
 
 Result - the complete TCA
 -------------------------
@@ -180,7 +180,7 @@ The list of teas in the module :guilabel:`Content > Records` looks like this:
     Up to this point we have only used TYPO3 Core features. You can create
     tables and backend forms exactly the same way without using Extbase.
 
-..  _extbase_tutorial_tea_model-entity:
+..  _extbase-tutorial-tea-model-entity:
 
 The Extbase model
 =================

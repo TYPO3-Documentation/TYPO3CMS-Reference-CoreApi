@@ -3,7 +3,7 @@
 ..  index::
     TYPO3_CONF_VARS; LOG
     Logging
-..  _typo3ConfVars_log:
+..  _typo3confvars-log:
 
 ===========================
 LOG - logging configuration

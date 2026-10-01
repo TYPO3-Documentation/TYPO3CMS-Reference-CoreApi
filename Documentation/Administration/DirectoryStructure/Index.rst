@@ -43,7 +43,7 @@ Directories in a typical Composer mode TYPO3 project
 The overview below describes the directory structure of a typical
 Composer-based TYPO3 installation.
 
-Also see the chapter :ref:`Environment <Environment>` for details on how to
+Also see the chapter :ref:`Environment <environment>` for details on how to
 retrieve paths in PHP code.
 
 ..  note::
@@ -83,16 +83,16 @@ installation. See chapter :ref:`The site folder config/sites/ <site-folder>`.
 The folder :path:`config/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
 
-*   :path:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
+*   :path:`settings.php`: :ref:`Configuration <typo3confvars-settings>` written
     by the :guilabel:`System > Settings` backend module
-*   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
+*   :file:`additional.php`: :ref:`Manually created file <typo3confvars-additional>`
     which can override settings from :file:`settings.php` file
 
 These files define a set of global settings stored in a global array called
-:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`.
+:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3confvars>`.
 
 This path can be retrieved from the Environment API, see
-:ref:`getConfigPath() <Environment-config-path>`.
+:ref:`getConfigPath() <environment-config-path>`.
 
 ..  _directory-packages:
 
@@ -207,7 +207,7 @@ pointing to different servers or using 3rd party digital asset management
 systems.
 
 Depending on the configuration in
-:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'] <typo3ConfVars_be_fileadminDir>`
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'] <typo3confvars-be-fileadmindir>`
 another folder name than :path:`fileadmin/` can be in use.
 
 ..  note::
@@ -299,7 +299,7 @@ The directory :path:`var/labels/` is for extension
 localizations. It contains all downloaded translation files.
 
 This path can be retrieved from the Environment API, see
-:ref:`getLabelsPath() <Environment-labels-path>`.
+:ref:`getLabelsPath() <environment-labels-path>`.
 
 ..  _directory-var-log:
 

@@ -34,12 +34,12 @@ Troubleshooting
 
         *   :ref:`PHP Modules <troubleshooting-php-modules>`
         *   :ref:`PHP Caches, Extension Classes <troubleshooting-php-caches-extension-classes-etc>`
-        *   :ref:`Opcode cache messages <troubleshooting-php-troubleshooting_opcode>`
+        *   :ref:`Opcode cache messages <troubleshooting-php-troubleshooting-opcode>`
 
 
     ..  card:: :ref:`Web server <troubleshooting-webserver>`
 
-        *   :ref:`Apache - enable mod_rewrite <troubleshooting-enable-mod_rewrite>`
+        *   :ref:`Apache - enable mod_rewrite <troubleshooting-enable-mod-rewrite>`
         *   :ref:`Apache - adjust ThreadStackSize (Windows) <troubleshooting-adjust-threadstacksize-on-windows>`
 
 

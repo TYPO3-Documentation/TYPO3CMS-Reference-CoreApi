@@ -26,7 +26,7 @@ the use of `TLS` for the backend of TYPO3 improves the security.
 
 TYPO3 supports a `TLS` encrypted backend and offers some specific
 configuration options for this purpose, see configuration option
-:ref:`lockSSL <security-global-typo3-options-lockSSL>`.
+:ref:`lockSSL <security-global-typo3-options-lockssl>`.
 
 ..  _security-frontend-encryption:
 

@@ -20,7 +20,7 @@ created, how existing content elements or plugins can be customized etc.
     ContentElementsWizard
     BestPractices
 
-..  _cePluginsIntroduction:
+..  _cepluginsintroduction:
 
 Introduction
 ============
@@ -225,7 +225,7 @@ and how to work with them.
 Additional descriptions can be found in the
 :ref:`fluid_styled_content <typo3/cms-fluid-styled-content:content-elements>` documentation.
 
-..  _cePluginsCustomize:
+..  _cepluginscustomize:
 
 Customizing
 -----------

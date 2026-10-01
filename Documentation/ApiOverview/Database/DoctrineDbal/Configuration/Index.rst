@@ -98,4 +98,4 @@ Remarks:
     the moment.
 
 ..  seealso::
-    :ref:`Overview of all DB configuration options <typo3ConfVars_db_connections>`
+    :ref:`Overview of all DB configuration options <typo3confvars-db-connections>`

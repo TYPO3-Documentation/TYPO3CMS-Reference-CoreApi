@@ -121,8 +121,8 @@ found on GitHub at
 `Build/Sources/TypeScript <https://github.com/TYPO3/typo3/tree/main/Build/Sources/TypeScript>`__.
 
 For examples of an ES6 JavaScript file have a look at the JavaScript example in
-the :ref:`LinkHandler Tutorial <tutorial_backend_link_handler_javascript>` or
-the example in the :ref:`Notification API <notification_api>`.
+the :ref:`LinkHandler Tutorial <tutorial-backend-link-handler-javascript>` or
+the example in the :ref:`Notification API <notification-api>`.
 
 For a practical example on how to introduce ES6 modules into a large extension
 see this commit for EXT:news: `[TASK] Add support for TYPO3 v12 ES6

@@ -25,7 +25,7 @@ integrator can define the priority of the providers for his project.
 
     The page title is further influenced by
     :ref:`Properties of 'config' <t3tsref:setup-config-pagetitle>` and
-    :ref:`websiteTitle <sitehandling-basics-websiteTitle>`.
+    :ref:`websiteTitle <sitehandling-basics-websitetitle>`.
 
 ..  contents:: Table of contents
     :local:
@@ -132,7 +132,7 @@ example the site title, you can implement a page title provider as follows:
     :caption: EXT:my_sitepackage/Classes/PageTitle/WebsiteTitleProvider.php
 
 The class must be set to :ref:`public <t3coreapi:What-to-make-public>`, because
-we :ref:`inject <DependencyInjection>` the class :php:`SiteFinder` as
+we :ref:`inject <dependencyinjection>` the class :php:`SiteFinder` as
 dependency.
 
 Then **flush the cache** in :guilabel:`System > Maintenance > Flush TYPO3

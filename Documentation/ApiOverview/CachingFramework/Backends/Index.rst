@@ -12,7 +12,7 @@ your server setup and hardware, as well as cache type and usage.
 A backend should be chosen wisely, as the wrong backend can
 slow down your TYPO3 installation.
 
-..  _caching_backend-api:
+..  _caching-backend-api:
 
 Backend API
 ===========
@@ -23,7 +23,7 @@ All backends must implement the :php-short:`\TYPO3\CMS\Core\Cache\Backend\Backen
     The :php-short:`\TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface`
     has been removed. See `Breaking: #107310 - Remove FreezableBackendInterface <https://docs.typo3.org/permalink/changelog:breaking-107310-1755533400>`_.
 
-..  _caching_backend-api-BackendInterface:
+..  _caching-backend-api-backendinterface:
 
 `BackendInterface`
 ------------------
@@ -35,14 +35,14 @@ other interfaces that can be implemented by backends to add additional functiona
 Extension code should not call cache backend operations
 directly, but should use the frontend object instead.
 
-..  _caching_backend-api-TaggableBackendInterface:
+..  _caching-backend-api-taggablebackendinterface:
 
 `TaggableBackendInterface`
 --------------------------
 
 ..  include:: /CodeSnippets/Manual/Cache/TaggableBackendInterface.rst.txt
 
-..  _caching_backend-api-PhpCapableBackendInterface:
+..  _caching-backend-api-phpcapablebackendinterface:
 
 `PhpCapableBackendInterface`
 ----------------------------
@@ -131,7 +131,7 @@ Options of database backends
     for compression and decompression.
 
 
-..  _caching-backend-compressionLevel:
+..  _caching-backend-compressionlevel:
 
 compressionLevel
 ~~~~~~~~~~~~~~~~
@@ -288,7 +288,7 @@ which must be available on the system.
 ..  warning::
 
     Please check the section on
-    :ref:`configuration <cacheBackendRedisServerConfiguration>` and monitor
+    :ref:`configuration <cachebackendredisserverconfiguration>` and monitor
     memory usage (and eviction, if enabled). Otherwise, you may run into
     problems, if not enough memory for the cache entries is reserved on the Redis
     server (`maxmemory`).
@@ -363,7 +363,7 @@ port
     Port of the redis daemon.
 
 
-..  _caching-backend-redis-persistentConnection:
+..  _caching-backend-redis-persistentconnection:
 
 persistentConnection
 ~~~~~~~~~~~~~~~~~~~~
@@ -393,7 +393,7 @@ database
     and should not be used if possible.
 
 
-..  _caching-backend-redis-keyPrefix:
+..  _caching-backend-redis-keyprefix:
 
 keyPrefix
 ~~~~~~~~~
@@ -469,7 +469,7 @@ compression
     and decompression operations in PHP.
 
 
-..  _caching-backend-redis-compressionLevel:
+..  _caching-backend-redis-compressionlevel:
 
 compressionLevel
 ~~~~~~~~~~~~~~~~
@@ -488,7 +488,7 @@ compressionLevel
     9
         Maximum compression (but more CPU overhead)
 
-..  _cacheBackendRedisServerConfiguration:
+..  _cachebackendredisserverconfiguration:
 
 Redis server configuration
 --------------------------

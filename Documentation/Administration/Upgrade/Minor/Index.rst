@@ -28,7 +28,7 @@ Before updating
 The :ref:`pre-upgrade tasks <preupgradetasks>` chapter contains a list of tasks that
 should be completed prior to upgrading to a major release.
 
-The only tasks that need to be completed for a patch/bugfix update are :ref:`making a backup <make_a_backup>` and :ref:`updating the reference index <update_reference_index>`.
+The only tasks that need to be completed for a patch/bugfix update are :ref:`making a backup <make-a-backup>` and :ref:`updating the reference index <update-reference-index>`.
 
 ..  _minor-check-updates-available:
 

@@ -22,7 +22,7 @@ focused. In Extbase every controller extends
 
 
 ..  _extbase-controller-action-structure:
-..  _extbase_class_hierarchy-actions:
+..  _extbase-class-hierarchy-actions:
 
 Structure of an Extbase `ActionController`
 ==========================================
@@ -40,7 +40,7 @@ Key rules:
 *   Do not declare the class as :php:`final`. Third parties should be able to extend
     controllers to customize behavior.
 *   Inject repositories and services via the constructor using
-    :ref:`dependency injection <Dependency-Injection>`. Injected dependencies
+    :ref:`dependency injection <dependency-injection>`. Injected dependencies
     must be :php:`protected readonly`, not :php:`private readonly`, so
     subclasses can access them. In a service class that does not extend anything
     and carries no mutable state, you can declare the whole class :php:`readonly`
@@ -402,7 +402,7 @@ Render them in Fluid with the :html:`<f:flashMessages />` ViewHelper.
 
 
 ..  _extbase-controller-action-initialize:
-..  _extbase_class_hierarchy-define_initialization_code:
+..  _extbase-class-hierarchy-define-initialization-code:
 
 `initializeAction` and per-action initialization in Extbase
 ===========================================================
@@ -533,8 +533,8 @@ listener to customize this response.
 
 
 ..  _extbase-controller-action-error:
-..  _extbase_class_hierarchy-catching_validation_errors_with_error_action:
-..  _extbase_error_action:
+..  _extbase-class-hierarchy-catching-validation-errors-with-error-action:
+..  _extbase-error-action:
 
 `errorAction`: Extbase validation and argument-mapping errors
 =============================================================

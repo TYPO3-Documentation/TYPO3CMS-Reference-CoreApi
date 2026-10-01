@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Site handling; Error handling
-..  _sitehandling-errorHandling:
+..  _sitehandling-errorhandling:
 
 ==============
 Error handling
@@ -10,7 +10,7 @@ Error handling can be configured on site level and is automatically dependent
 on the current site and language.
 
 Currently, there are two error handler implementations and the option to write
-a :ref:`custom handler <sitehandling-customErrorHandler>`:
+a :ref:`custom handler <sitehandling-customerrorhandler>`:
 
 ..  toctree::
     :titlesonly:
@@ -47,7 +47,7 @@ Properties
 
 These properties apply to all error handlers.
 
-..  _sitehandling-errorHandling_errorCode:
+..  _sitehandling-errorhandling-errorcode:
 
 ..  confval:: errorCode
     :name: site-error-handling-errorCode
@@ -62,7 +62,7 @@ These properties apply to all error handlers.
     ..  _HTTP (error) status code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 
-..  _sitehandling-errorHandling_errorHandler:
+..  _sitehandling-errorhandling-errorhandler:
 
 ..  confval:: errorHandler
     :name: site-error-handling-errorHandler
@@ -72,9 +72,9 @@ These properties apply to all error handlers.
 
     Define how to handle these errors:
 
-    *   :ref:`Fluid <sitehandling-errorHandling_fluid>` for rendering a Fluid
+    *   :ref:`Fluid <sitehandling-errorhandling-fluid>` for rendering a Fluid
         template
-    *   :ref:`Page <sitehandling-errorHandling_page>` for fetching content from
+    *   :ref:`Page <sitehandling-errorhandling-page>` for fetching content from
         a page
-    *   :ref:`PHP <sitehandling-customErrorHandler>` for a custom
+    *   :ref:`PHP <sitehandling-customerrorhandler>` for a custom
         implementation

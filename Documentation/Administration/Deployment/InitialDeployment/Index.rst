@@ -15,7 +15,7 @@ setting up the full application, database, and user-generated content.
 
 Steps:
 
-..  _build_project_locally:
+..  _build-project-locally:
 
 Build the project locally:
 --------------------------
@@ -24,7 +24,7 @@ Build the project locally:
 
     composer install --no-dev
 
-..  _export_local_database:
+..  _export-local-database:
 
 Export the local database
 -------------------------
@@ -50,7 +50,7 @@ or a GUI-based tool like Heidi SQL or phpmyadmin.
 The database credentials can either be entered during the installation process
 using the Install Tool, or manually adjusted later in the file :path:`config/system/settings.php`.
 
-..  _transfer_files_to_server:
+..  _transfer-files-to-server:
 
 Transfer all necessary files to the server
 ------------------------------------------
@@ -65,7 +65,7 @@ Folders to include:
 You can speed up the transfer using archive tools like zip or tar, or use
 `rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_.
 
-..  _import_database:
+..  _import-database:
 
 Import the database on the production server
 --------------------------------------------
@@ -82,7 +82,7 @@ For example using
     You will be prompted to enter the MySQL user password. Make sure the
     target database exists before running this command.
 
-..  _set_up_server_directories:
+..  _set-up-server-directories:
 
 Set up shared and writable directories on the server:
 -----------------------------------------------------
@@ -90,7 +90,7 @@ Set up shared and writable directories on the server:
 -   :path:`public/fileadmin/`
 -   :path:`var/`
 
-..  _update_web_server:
+..  _update-web-server:
 
 Update web server configuration:
 --------------------------------
@@ -98,7 +98,7 @@ Update web server configuration:
 -   Set the document root to `public/`
 -   Ensure correct permissions for writable folders
 
-..  _initial_deploy_flush_caches:
+..  _initial-deploy-flush-caches:
 
 Flush TYPO3 caches:
 -------------------

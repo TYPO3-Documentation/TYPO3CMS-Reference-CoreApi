@@ -2,7 +2,7 @@
 
 ..  index::
     Tutorial Tea; Repository
-..  _extbase_tutorial_tea_repositoy:
+..  _extbase-tutorial-tea-repositoy:
 
 ==========
 Repository
@@ -39,7 +39,7 @@ the database.
 Then we also add a custom find-by method. See also chapter
 :ref:`"Repository" in the Extbase reference <extbase-domain-repository>`.
 
-..  _extbase_tutorial_tea_repository-usage:
+..  _extbase-tutorial-tea-repository-usage:
 
 Using the repository
 ====================
@@ -47,7 +47,7 @@ Using the repository
 The :php-short:`\TTN\Tea\Domain\Repository\Product\TeaRepository` can now be
 used in a controller or another class, for example a service.
 
-Require it via :ref:`Dependency Injection <Dependency-Injection>` in the
+Require it via :ref:`Dependency Injection <dependency-injection>` in the
 constructor:
 
 ..  literalinclude:: _Repository/_InjectRepository.php

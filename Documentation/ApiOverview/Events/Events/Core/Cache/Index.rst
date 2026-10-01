@@ -7,7 +7,7 @@
 Cache
 =====
 
-The following list contains :ref:`PSR-14 events <EventDispatcher>`
+The following list contains :ref:`PSR-14 events <eventdispatcher>`
 in EXT:core, namespace Cache.
 
 **Contents:**

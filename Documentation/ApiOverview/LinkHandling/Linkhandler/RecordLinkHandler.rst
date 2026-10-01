@@ -11,7 +11,7 @@ example the detail page of a news record.
 
 You can find examples here:
 
-*   :ref:`Browse records of a table <TableRecordLinkBrowserTutorials>`
+*   :ref:`Browse records of a table <tablerecordlinkbrowsertutorials>`
 *   :ref:`Link browser example in tutorial in the news extension manual <georgringer/news:linkhandler>`
 
 The handler is implemented in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
@@ -49,7 +49,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 ..  index::
     pair: RecordLinkHandler; Page TSconfig
     TCEMAIN; RecordLinkHandler
-..  _linkhandler-pagetsconfig_options:
+..  _linkhandler-pagetsconfig-options:
 
 `RecordLinkHandler` page TSconfig options
 =========================================
@@ -81,7 +81,7 @@ Furthermore the following options are available from the LinkBrowser Api:
 ..  index::
     pair: LinkHandler; TypoScript
     TypoScript; config.recordLinks
-..  _linkhandler-typoscript_options:
+..  _linkhandler-typoscript-options:
 
 LinkHandler TypoScript options
 ==============================

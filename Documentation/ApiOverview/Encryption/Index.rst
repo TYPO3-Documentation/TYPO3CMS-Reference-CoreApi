@@ -36,7 +36,7 @@ Derive a key from the TYPO3 encryption key
 
 The cipher service needs a key. The
 :php:`\TYPO3\CMS\Core\Crypto\Cipher\KeyFactory` derives that key from the
-:ref:`encryption key <typo3ConfVars_sys_encryptionKey>` of the installation.
+:ref:`encryption key <typo3confvars-sys-encryptionkey>` of the installation.
 Pass a seed to the method
 :php-short:`\TYPO3\CMS\Core\Crypto\Cipher\KeyFactory::deriveSharedKeyFromEncryptionKey()`.
 The seed names the purpose of the key, for example the class that uses it.

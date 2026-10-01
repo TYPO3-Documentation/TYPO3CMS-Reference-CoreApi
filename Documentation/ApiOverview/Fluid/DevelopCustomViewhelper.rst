@@ -54,7 +54,7 @@ qualified name of the class is
     :caption: Example 1: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
     :linenos:
 
-..  _fluid-custom-viewhelper-AbstractViewHelper:
+..  _fluid-custom-viewhelper-abstractviewhelper:
 
 `AbstractViewHelper`
 --------------------
@@ -96,7 +96,7 @@ Passing in children is explained in
 :ref:`Prepare ViewHelper for inline syntax
 <prepare-viewhelper-for-inline-syntax>`.
 
-..  _fluid-viewhelper-custom-initializeArguments:
+..  _fluid-viewhelper-custom-initializearguments:
 
 `initializeArguments()`
 -----------------------
@@ -199,7 +199,7 @@ Because the Gravatar ViewHelper creates an :html:`<img>` tag the use of the
 explicitly added arguments  (*line 28-31* `$this->tag->addAttribute()`) and all
 arbitrary tag attributes passed to the ViewHelper when it is used.
 
-..  _AbstractTagBasedViewHelper:
+..  _abstracttagbasedviewhelper:
 
 `AbstractTagBasedViewHelper`
 ----------------------------
@@ -214,7 +214,7 @@ which provides and initializes the
 escapes arbitrary tag attributes.
 
 
-..  _AbstractTagBasedViewHelper-tagname:
+..  _abstracttagbasedviewhelper-tagname:
 
 `$tagName`
 ----------
@@ -224,7 +224,7 @@ escapes arbitrary tag attributes.
 There is a class property :php:`$tagName` which stores the name of the tag to be
 created (:html:`<img>`).
 
-..  _AbstractTagBasedViewHelper-addAttribute:
+..  _abstracttagbasedviewhelper-addattribute:
 
 `$this->tag->addAttribute()`
 ----------------------------
@@ -235,7 +235,7 @@ The tag builder is available as class property :php:`$this->tag`. It offers
 the method :php:`TagBuilder::addAttribute()` to add new tag attributes. In our
 example the attribute `src` is added to the tag.
 
-..  _AbstractTagBasedViewHelper-render:
+..  _abstracttagbasedviewhelper-render:
 
 `$this->tag->render()`
 ----------------------
@@ -410,7 +410,7 @@ ViewHelper's use case. See
 `TYPO3 request attributes <https://docs.typo3.org/permalink/t3coreapi:request-attributes>`_
 for a list of available attributes.
 
-..  _fluid-custom-viewhelper-access-contentObject:
+..  _fluid-custom-viewhelper-access-contentobject:
 
 Using `stdWrap` / fetching the current `ContentObject` in a ViewHelper implementation
 -------------------------------------------------------------------------------------

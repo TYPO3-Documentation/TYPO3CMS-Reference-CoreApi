@@ -26,7 +26,7 @@ TYPO3 Explained
 
     ..  card:: :ref:`Configuration <configuration>`
 
-        Including :ref:`System configuration in settings.php <typo3ConfVars>`,
+        Including :ref:`System configuration in settings.php <typo3confvars>`,
         :ref:`TypoScript <typoscript>`, the
         :ref:`Configuration inspector (readonly) <config-module>`, and
         :ref:`Feature toggle API <feature-toggles>`

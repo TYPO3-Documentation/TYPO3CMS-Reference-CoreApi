@@ -40,7 +40,7 @@ elements. However, if it affects the content element representing the whole page
 like :ref:`PAGEVIEW <t3tsref:cobj-pageview>` only a plain page with this text on
 it is displayed.
 
-This message is displayed in :ref:`production context <Environment-context>`
+This message is displayed in :ref:`production context <environment-context>`
 instead of a more detailed exception message. The detailed message can then be
 found in the log.
 
@@ -53,7 +53,7 @@ When the frontend debugging is activated, a detailed exception message is output
 instead of the generic "Oops, an error occurred!" message.
 
 By default, debugging is enabled in the
-:ref:`TYPO3 contexts <Environment-context>` starting with `Development`. It can
+:ref:`TYPO3 contexts <environment-context>` starting with `Development`. It can
 also be enabled by setting
 :ref:`config.contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>`
 in TypoScript.

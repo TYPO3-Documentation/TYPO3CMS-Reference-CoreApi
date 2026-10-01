@@ -2,7 +2,7 @@
 
 ..  index::
     TYPO3_CONF_VARS; FE
-..  _typo3ConfVars_fe:
+..  _typo3confvars-fe:
 
 ===========================
 FE - frontend configuration
@@ -17,15 +17,15 @@ the TYPO3 frontend:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+    *   :ref:`config/system/settings.php <typo3confvars-settings>`
+    *   :ref:`config/system/additional.php <typo3confvars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-fe
     :display: tree
     :type:
 
-..  _typo3ConfVars_fe_addAllowedPaths:
+..  _typo3confvars-fe-addallowedpaths:
 
 
 addAllowedPaths
@@ -47,7 +47,7 @@ addAllowedPaths
     No check is done whether this directory actually exists in the root folder
     of the site.
 
-..  _typo3ConfVars_fe_debug:
+..  _typo3confvars-fe-debug:
 
 
 debug
@@ -63,7 +63,7 @@ debug
     header :html:`X-TYPO3-Parsetime`. This can also be enabled/disabled via the
     TypoScript option :php:`config.debug = 0`.
 
-..  _typo3ConfVars_fe_compressionLevel:
+..  _typo3confvars-fe-compressionlevel:
 
 
 compressionLevel
@@ -83,7 +83,7 @@ compressionLevel
 
         See also: `Breaking: #108055 - Removed frontend asset concatenation and compression <https://docs.typo3.org/permalink/changelog:breaking-108055-1762346705>`_.
 
-..  _typo3ConfVars_fe_pageNotFoundOnCHashError:
+..  _typo3confvars-fe-pagenotfoundonchasherror:
 
 
 pageNotFoundOnCHashError
@@ -98,7 +98,7 @@ pageNotFoundOnCHashError
     If TRUE, a page not found call is made when cHash evaluation error occurs,
     otherwise caching is disabled and page output is displayed.
 
-..  _typo3ConfVars_fe_pageUnavailable_force:
+..  _typo3confvars-fe-pageunavailable-force:
 
 
 pageUnavailable_force
@@ -111,10 +111,10 @@ pageUnavailable_force
     :default: false
 
     If :php:`TRUE`, every frontend page is shown as "unavailable". If the
-    client matches :ref:`[SYS][devIPmask] <typo3ConfVars_sys_devIPmask>`, the page is
+    client matches :ref:`[SYS][devIPmask] <typo3confvars-sys-devipmask>`, the page is
     shown as normal. This is useful during temporary site maintenance.
 
-..  _typo3ConfVars_fe_checkFeUserPid:
+..  _typo3confvars-fe-checkfeuserpid:
 
 
 checkFeUserPid
@@ -132,7 +132,7 @@ checkFeUserPid
 
     This will do :php:`$TCA[fe_users][columns][username][config][eval]= nospace,lower,required,unique;`
 
-..  _typo3ConfVars_fe_loginRateLimit:
+..  _typo3confvars-fe-loginratelimit:
 
 
 loginRateLimit
@@ -145,11 +145,11 @@ loginRateLimit
     :default: 5
 
     Maximum amount of login attempts for the time interval in
-    :ref:`[FE][loginRateLimitInterval]<typo3ConfVars_fe_loginRateLimitInterval>`,
+    :ref:`[FE][loginRateLimitInterval]<typo3confvars-fe-loginratelimitinterval>`,
     before further login requests will be denied. Setting this value to
     `"0"` will disable login rate limiting.
 
-..  _typo3ConfVars_fe_loginRateLimitInterval:
+..  _typo3confvars-fe-loginratelimitinterval:
 
 
 loginRateLimitInterval
@@ -167,7 +167,7 @@ loginRateLimitInterval
     `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
     can be set in :file:`config/system/additional.php`.
 
-..  _typo3ConfVars_fe_loginRateLimitIpExcludeList:
+..  _typo3confvars-fe-loginratelimitipexcludelist:
 
 
 loginRateLimitIpExcludeList
@@ -180,11 +180,11 @@ loginRateLimitIpExcludeList
     :default: ''
 
     IP addresses (with :php:`*`-wildcards) that are excluded from rate limiting.
-    Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`
-    and :ref:`[BE][loginRateLimitIpExcludeList]<typo3ConfVars_be_loginRateLimitIpExcludeList>`.
+    Syntax similar to :ref:`[BE][IPmaskList]<typo3confvars-be-ipmasklist>`
+    and :ref:`[BE][loginRateLimitIpExcludeList]<typo3confvars-be-loginratelimitipexcludelist>`.
     An empty value disables the exclude list check.
 
-..  _typo3ConfVars_fe_lockIP:
+..  _typo3confvars-fe-lockip:
 
 
 lockIP
@@ -218,9 +218,9 @@ lockIP
     how many parts of the IP address to include in the check for the session.
 
     Have also a look into the :ref:`security guidelines
-    <security-global-typo3-options-lockIP>`.
+    <security-global-typo3-options-lockip>`.
 
-..  _typo3ConfVars_fe_lockIPv6:
+..  _typo3confvars-fe-lockipv6:
 
 
 lockIPv6
@@ -270,7 +270,7 @@ lockIPv6
     during their session (in which case you can lower it).
     The integer indicates how many parts of the IP address to include in the check for the session.
 
-..  _typo3ConfVars_fe_lifetime:
+..  _typo3confvars-fe-lifetime:
 
 
 lifetime
@@ -289,7 +289,7 @@ lifetime
     login of FE users during a whole week, 86400 will keep the FE users logged in
     for a day.
 
-..  _typo3ConfVars_fe_sessionTimeout:
+..  _typo3confvars-fe-sessiontimeout:
 
 
 sessionTimeout
@@ -304,7 +304,7 @@ sessionTimeout
     Server side session timeout for frontend users in seconds. Will
     be overwritten by the lifetime property if the lifetime is longer.
 
-..  _typo3ConfVars_fe_sessionDataLifetime:
+..  _typo3confvars-fe-sessiondatalifetime:
 
 
 sessionDataLifetime
@@ -320,7 +320,7 @@ sessionDataLifetime
     and be removed after the number of seconds given
     (86400 seconds represents 24 hours).
 
-..  _typo3ConfVars_fe_permalogin:
+..  _typo3confvars-fe-permalogin:
 
 
 permalogin
@@ -347,9 +347,9 @@ permalogin
         Permanent login is forced to be enabled.
 
     In any case, permanent login is only possible if
-    :ref:`[FE][lifetime] <typo3ConfVars_fe_lifetime>` lifetime is greater than 0.
+    :ref:`[FE][lifetime] <typo3confvars-fe-lifetime>` lifetime is greater than 0.
 
-..  _typo3ConfVars_fe_cookieDomain:
+..  _typo3confvars-fe-cookiedomain:
 
 
 cookieDomain
@@ -361,11 +361,11 @@ cookieDomain
     :type: text
     :default: ''
 
-    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain] <typo3ConfVars_sys_cookieDomain>`
+    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain] <typo3confvars-sys-cookiedomain>`
     but only for FE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
-..  _typo3ConfVars_fe_cookieName:
+..  _typo3confvars-fe-cookiename:
 
 
 cookieName
@@ -379,7 +379,7 @@ cookieName
 
     Sets the name for the cookie used for the front-end user session.
 
-..  _typo3ConfVars_fe_cookieSameSite:
+..  _typo3confvars-fe-cookiesamesite:
 
 
 cookieSameSite
@@ -404,7 +404,7 @@ cookieSameSite
     Indicates that the cookie should send proper information where the cookie
     can be shared (first-party cookies vs. third-party cookies) in TYPO3 Frontend.
 
-..  _typo3ConfVars_fe_defaultTypoScript_constants:
+..  _typo3confvars-fe-defaulttyposcript-constants:
 
 
 defaultTypoScript_constants
@@ -418,7 +418,7 @@ defaultTypoScript_constants
 
     Enter lines of default TypoScript, constants-field.
 
-..  _typo3ConfVars_fe_defaultTypoScript_setup:
+..  _typo3confvars-fe-defaulttyposcript-setup:
 
 
 defaultTypoScript_setup
@@ -432,7 +432,7 @@ defaultTypoScript_setup
 
     Enter lines of default TypoScript, setup-field.
 
-..  _typo3ConfVars_fe_enable_mount_pids:
+..  _typo3confvars-fe-enable-mount-pids:
 
 
 enable_mount_pids
@@ -447,7 +447,7 @@ enable_mount_pids
     If enabled, the mount_pid feature allowing symlinks in the page tree
     (for frontend operation) is allowed.
 
-..  _typo3ConfVars_fe_hidePagesIfNotTranslatedByDefault:
+..  _typo3confvars-fe-hidepagesifnottranslatedbydefault:
 
 
 hidePagesIfNotTranslatedByDefault
@@ -464,7 +464,7 @@ hidePagesIfNotTranslatedByDefault
     "Hide page if no translation for current language exists" to
     "Show page even if no translation exists"
 
-..  _typo3ConfVars_fe_eID_include:
+..  _typo3confvars-fe-eid-include:
 
 
 eID_include
@@ -484,7 +484,7 @@ eID_include
     (Useful for functionality that requires a low initialization footprint,
     for example frontend Ajax applications)
 
-..  _typo3ConfVars_fe_disableNoCacheParameter:
+..  _typo3confvars-fe-disablenocacheparameter:
 
 
 disableNoCacheParameter
@@ -503,7 +503,7 @@ disableNoCacheParameter
     disable caching for a certain part of the website
     (see `COA_INT/USER_INT <https://docs.typo3.org/permalink/t3tsref:cobj-coa-int>`_).
 
-..  _typo3ConfVars_fe_additionalCanonicalizedUrlParameters:
+..  _typo3confvars-fe-additionalcanonicalizedurlparameters:
 
 
 additionalCanonicalizedUrlParameters
@@ -521,7 +521,7 @@ additionalCanonicalizedUrlParameters
     <canonicalapi-additionalparameters>`
     for details.
 
-..  _typo3ConfVars_fe_cacheHash:
+..  _typo3confvars-fe-cachehash:
 
 
 cacheHash
@@ -634,9 +634,9 @@ cacheHash
         However, the check only provided information about an invalid "cHash" in the
         query parameters. If no "cHash" was given, the only option was to add a
         "required list" (global TYPO3 configuration option
-        :ref:`requireCacheHashPresenceParameters <typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters>`),
+        :ref:`requireCacheHashPresenceParameters <typo3confvars-fe-cachehash-requirecachehashpresenceparameters>`),
         but not based on the final
-        :ref:`excludedParameters <typo3ConfVars_fe_cacheHash_excludedParameters>`
+        :ref:`excludedParameters <typo3confvars-fe-cachehash-excludedparameters>`
         for the cache hash calculation of the given query parameters.
 
 
@@ -655,7 +655,7 @@ cacheHash
 
 ..  index::
     TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
-..  _typo3ConfVars_fe_workspacePreviewLogoutTemplate:
+..  _typo3confvars-fe-workspacepreviewlogouttemplate:
 
 
 workspacePreviewLogoutTemplate
@@ -676,7 +676,7 @@ workspacePreviewLogoutTemplate
 
 ..  index::
     TYPO3_CONF_VARS FE; versionNumberInFilename
-..  _typo3ConfVars_fe_versionNumberInFilename:
+..  _typo3confvars-fe-versionnumberinfilename:
 
 
 versionNumberInFilename
@@ -704,7 +704,7 @@ versionNumberInFilename
 
 ..  index::
     TYPO3_CONF_VARS FE; contentRenderingTemplates
-..  _typo3ConfVars_fe_contentRenderingTemplates:
+..  _typo3confvars-fe-contentrenderingtemplates:
 
 
 contentRenderingTemplates
@@ -728,7 +728,7 @@ contentRenderingTemplates
 
 ..  index::
     TYPO3_CONF_VARS FE; typolinkBuilder
-..  _typo3ConfVars_fe_typolinkBuilder:
+..  _typo3confvars-fe-typolinkbuilder:
 
 
 typolinkBuilder
@@ -760,7 +760,7 @@ typolinkBuilder
 
 ..  index::
     TYPO3_CONF_VARS FE; passwordHashing
-..  _typo3ConfVars_fe_passwordHashing:
+..  _typo3confvars-fe-passwordhashing:
 
 
 passwordHashing
@@ -772,7 +772,7 @@ passwordHashing
 
 ..  index::
     TYPO3_CONF_VARS FE; passwordHashing className
-..  _typo3ConfVars_fe_passwordHashing_className:
+..  _typo3confvars-fe-passwordhashing-classname:
 
 
 className
@@ -798,7 +798,7 @@ className
 
 ..  index::
     TYPO3_CONF_VARS FE; passwordHashing options
-..  _typo3ConfVars_fe_passwordHashing_options:
+..  _typo3confvars-fe-passwordhashing-options:
 
 
 options
@@ -815,7 +815,7 @@ options
 
 ..  index::
     TYPO3_CONF_VARS FE; passwordPolicy
-..  _typo3ConfVars_fe_passwordPolicy:
+..  _typo3confvars-fe-passwordpolicy:
 
 
 passwordPolicy
@@ -832,7 +832,7 @@ passwordPolicy
 
 ..  index::
     TYPO3_CONF_VARS FE; exposeRedirectInformation
-..  _typo3ConfVars_fe_exposeRedirectInformation:
+..  _typo3confvars-fe-exposeredirectinformation:
 
 
 exposeRedirectInformation
@@ -850,7 +850,7 @@ exposeRedirectInformation
 
 ..  index::
     TYPO3_CONF_VARS FE; contentSecurityPolicyReportingUrl
-..  _typo3ConfVars_fe_contentSecurityPolicyReportingUrl:
+..  _typo3confvars-fe-contentsecuritypolicyreportingurl:
 
 
 contentSecurityPolicyReportingUrl

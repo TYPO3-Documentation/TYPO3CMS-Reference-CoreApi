@@ -205,7 +205,7 @@ User-defined soft reference parsers
 
 Soft reference parsers can be user-defined. They are set up by
 registering them in your :file:`Services.yaml` file. This will load them
-via :ref:`dependency injection <Dependency-Injection>`:
+via :ref:`dependency injection <dependency-injection>`:
 
 ..  literalinclude:: _YourSoftReferenceParser.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml

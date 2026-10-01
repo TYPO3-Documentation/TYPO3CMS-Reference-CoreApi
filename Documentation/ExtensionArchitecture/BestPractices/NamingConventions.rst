@@ -53,7 +53,7 @@ extkeyprefix
     The extension key with stripped away underscores (e.g. extkey='my_extension'
     becomes extkeyprefix='myextension').
 
-..  _extension-naming-extensionName:
+..  _extension-naming-extensionname:
 
 ExtensionName
     The term ExtensionName means the extension key in UpperCamelCase.
@@ -295,7 +295,7 @@ follow this pattern:
 ..  tip::
     If you work with column-names not following this convention (e.g. :php:`colPos`), you have to add a :ref:`column mapping <extbase-domain-model-mapping>`.
 
-..  _BackendModuleKey:
+..  _backendmodulekey:
 
 Backend module key (modkey)
 ===========================
@@ -332,7 +332,7 @@ The backend module signature is a derived identifier which is constructed by
 TYPO3 when the module is registered.
 
 The signature is usually constructed by using the :ref:`main module key and submodule
-key <BackendModuleKey>`, separated by an underscore.
+key <backendmodulekey>`, separated by an underscore.
 Conversions, such as underscore to UpperCamelCase or conversions to lowercase
 may be applied in this process.
 
