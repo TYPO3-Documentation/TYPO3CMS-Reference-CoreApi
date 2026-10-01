@@ -343,3 +343,29 @@ instance:
 *   Avoid using parameter `$templatePathAndFilename`
 *   Call `render('path/within/templateRootPath')` without file-ending on the
     returned ViewInterface instance.
+
+..  _fluid-analyze-templates:
+
+Check templates with the Fluid analyser
+=======================================
+
+..  versionadded:: 14.2
+    :changelog: feature-108763-1769331943
+
+The command `vendor/bin/typo3 fluid:analyze
+<https://docs.typo3.org/permalink/t3coreapi:console-command-fluid-analyze>`_
+parses the Fluid templates of the installation and reports what it finds:
+
+*   a syntax error, for example a ViewHelper tag that is nested wrongly
+*   a ViewHelper or a ViewHelper namespace that does not resolve
+*   a variable name that starts with an underscore
+*   a deprecated ViewHelper or ViewHelper argument, as far as the
+    deprecation is triggered while the template is parsed
+
+The command only reads the templates that use the `*.fluid.*` file
+extension. It ends with a non-zero exit code when it found an error,
+which makes it usable as a step of a continuous integration pipeline. A
+deprecation is reported, but leaves the exit code at zero. The same
+analysis runs as part of `vendor/bin/typo3 fluid:cache:warmup
+<https://docs.typo3.org/permalink/t3coreapi:console-command-fluid-cache-warmup>`_,
+but that command writes the cache as well.
