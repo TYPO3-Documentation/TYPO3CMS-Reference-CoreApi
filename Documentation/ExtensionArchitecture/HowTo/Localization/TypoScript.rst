@@ -55,7 +55,7 @@ text "Comments", you can overwrite the identifier
 add the following line to your TypoScript template:
 
 ..  literalinclude:: _TypoScript/_locallang_extbase.typoscript
-    :caption: EXT:blog_example/Configuration/Sets/BlogExample/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 With this, you will overwrite the localization of the term
 :html:`comment_header` for the default language and the languages "de" and "zh"

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\BlogExample\ViewHelpers;
+namespace MyVendor\MyExtension\ViewHelpers;
 
 use TYPO3Fluid\Fluid\Core\Compiler\TemplateCompiler;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ViewHelperNode;
