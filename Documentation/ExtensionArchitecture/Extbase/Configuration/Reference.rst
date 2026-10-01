@@ -193,6 +193,139 @@ FlexForm XML is required.
     `Create Extbase plugins (Content Blocks documentation) <https://docs.typo3.org/permalink/friendsoftypo3-content-blocks:create-extbase-plugin>`_
     — how to register an Extbase plugin as a content block.
 
+..  _extbase-configuration-settings-outside-controller:
+
+Accessing settings outside a controller
+=======================================
+
+A frequent requirement is accessing :typoscript:`settings` in non-controller
+classes, such as services, event listeners, or custom validators.
+
+When dealing with Extbase settings outside an action controller, several
+architectural constraints and guidelines must be observed:
+
+..  _extbase-configuration-settings-outside-controller-frontend-only:
+
+Frontend context and backend modules only
+-----------------------------------------
+
+Extbase settings (:typoscript:`plugin.tx_<extensionkey>.settings`) are designed
+strictly for frontend rendering. Backend modules read their own settings from
+:typoscript:`module.tx_<extensionkey>.settings`. In other contexts, such as CLI
+commands, scheduler tasks or middlewares, see :ref:`Reading configuration
+outside a frontend request <extbase-no-frontend-configuration>`.
+
+..  _extbase-configuration-settings-outside-controller-plugin-context:
+
+Extbase plugin context only and FlexForm merging
+------------------------------------------------
+
+Extbase settings are only fully resolved during the dispatching of an Extbase
+plugin.
+
+Inside a controller, :php:`$this->settings` contains the merged combination of
+extension-wide TypoScript, plugin-specific TypoScript, and any FlexForm
+overrides configured for that specific content element
+(:sql:`tt_content.pi_flexform`).
+
+Outside an active plugin execution (for example, in a standalone service or
+middleware), attempting to read TypoScript directly from the PSR-7 request
+attribute
+(:php:`$request->getAttribute('frontend.typoscript')->getSetupArray()`)
+only provides the raw TypoScript configuration. Any content-element-specific
+FlexForm values set by editors in the backend are omitted because the content
+record is not part of that lookup. On a page delivered from the page cache, the
+setup array is not built at all, and :php:`getSetupArray()` throws an
+exception.
+
+..  _extbase-configuration-settings-outside-controller-internal:
+
+ConfigurationManager is marked internal
+---------------------------------------
+
+Older tutorials and forum answers often suggest injecting
+:php-short:`\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface`
+or :php-short:`\TYPO3\CMS\Extbase\Configuration\ConfigurationManager` and
+calling :php:`$configurationManager->getConfiguration(...)`.
+
+However, both
+:php-short:`\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface`
+and :php-short:`\TYPO3\CMS\Extbase\Configuration\ConfigurationManager` are
+annotated with:
+
+..  code-block:: php
+    :caption: EXT:extbase/Classes/Configuration/ConfigurationManagerInterface.php (excerpt)
+
+    /**
+     * @internal only to be used within Extbase, not part of TYPO3 Core API.
+     */
+
+The :php:`getConfiguration()` method is explicitly marked as a low-level
+method intended exclusively for Extbase framework internals. It is **not part
+of the public TYPO3 API**, offers no backwards-compatibility guarantees, and
+must not be used in third-party extension code. The same applies to the
+:php:`$configurationManager` property of
+:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`, which is
+marked `@internal` as well.
+
+..  _extbase-configuration-settings-outside-controller-recommended:
+
+Recommended approach: pass settings from the controller
+-------------------------------------------------------
+
+Because :php:`$this->settings` in the controller is already fully merged and
+context-aware, the recommended architectural approach is to pass the required
+values directly from the controller to dependent services:
+
+*   Pass individual scalar values or arrays into service methods:
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+        public function listAction(): ResponseInterface
+        {
+          $limit = (int)($this->settings['itemsPerPage'] ?? 10);
+          $conferences = $this->conferenceService->getUpcoming($limit);
+
+          $this->view->assign('conferences', $conferences);
+          return $this->htmlResponse();
+        }
+
+*   Or pass settings using a dedicated, strongly typed Data Transfer Object
+    (DTO) or configuration object:
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+        public function listAction(): ResponseInterface
+        {
+          $config = ConferenceConfiguration::fromSettings($this->settings);
+          $conferences = $this->conferenceService->getUpcoming($config);
+
+          $this->view->assign('conferences', $conferences);
+          return $this->htmlResponse();
+        }
+
+This approach provides several advantages:
+
+*   **Decoupling:** Services remain framework-agnostic, reusable, and stateless.
+*   **Testability:** Services can be unit-tested without mocking internal
+    Extbase configuration managers.
+*   **Correctness:** The service always receives the exact, merged
+    configuration for the specific content element being rendered, including
+    FlexForm overrides.
+
+In Fluid templates and custom ViewHelpers, pass settings explicitly via
+arguments (such as :html:`<my:customHelper limit="{settings.itemsPerPage}" />`).
+
+If validation rules depend on dynamic Extbase settings, see
+:ref:`Setting validator options from Extbase settings
+<extbase-validation-custom-options-settings>`.
+
+For configuration that applies globally to a site or extension, see
+:ref:`Global configuration: use site settings
+<extbase-no-frontend-configuration-site-settings>`.
+
 ..  _extbase-configuration-typoscript-persistence:
 
 Persistence: storage pages and new-record locations
