@@ -89,9 +89,9 @@ using any XML or translation editor that supports the XLIFF format.
 
 TYPO3 v14 and newer support both **XLIFF 1.2** and **XLIFF 2.x**:
 
--  **XLIFF 2.x:** uses `<unit>` elements and the `<target state="…">` attribute
+-  **XLIFF 2.x:** uses :xml:`<unit>` elements and the :xml:`<target state="…">` attribute
    (`state="reviewed"` / `state="final"` = approved)
--  **XLIFF 1.2:** uses `<trans-unit>` and the `approved="yes"` attribute
+-  **XLIFF 1.2:** uses :xml:`<trans-unit>` and the `approved="yes"` attribute
 
 Both formats are automatically detected and parsed by TYPO3.
 

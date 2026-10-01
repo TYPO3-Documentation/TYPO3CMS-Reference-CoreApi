@@ -200,7 +200,7 @@ Step-by-step instructions for GitHub
                     ..  note::
 
                         The import will work best only if the translation files contain both the
-                        `<source>` and `<target>` elements. If the `<source>` elements are missing,
+                        :xml:`<source>` and :xml:`<target>` elements. If the :xml:`<source>` elements are missing,
                         Crowdin will not be able to match the translations with the original English labels.
 
     ..  important::

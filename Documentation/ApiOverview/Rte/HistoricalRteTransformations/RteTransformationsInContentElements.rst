@@ -79,13 +79,13 @@ describes how the situation is handled regarding the two Text-types as
 mentioned above. (Numbers refer to the previous bulletlist):
 
 #. Line breaks: The RTE removes all line breaks and makes line breaks
-   itself by either inserting a :html:`<P>...</P>` section or :html:`<DIV>...</DIV>`.
-   This means we'll have to convert existing lines to :html:`<P>...</P>` before
-   passing the content to the RTE and further we need to revert the :html:`<DIV>`
-   and :html:`<P>` sections in addition to the :html:`<BR>`-tagsto line breaks when the
+   itself by either inserting a :html:`<p>...</p>` section or :html:`<div>...</div>`.
+   This means we'll have to convert existing lines to :html:`<p>...</p>` before
+   passing the content to the RTE and further we need to revert the :html:`<div>`
+   and :html:`<p>` sections in addition to the :html:`<br>`-tags to line breaks when the
    content is returned to the database from the RTE.
 
-   The greatest challenge here is however what to do if a :html:`<DIV>` or :html:`<P>`
+   The greatest challenge here is however what to do if a :html:`<div>` or :html:`<p>`
    tag has parameters like 'class' or 'align'. In that case we can't just
    discard the tag. So the tag is preserved.
 
@@ -96,7 +96,7 @@ mentioned above. (Numbers refer to the previous bulletlist):
    removed by the RTE. Therefore those tags must be converted into
    something else. This is actually an opportunity and the solution to
    the problem is that all `<LINK>`-tags are converted into regular
-   :html:`<A>`-tags, all `<TYPOLIST>` tags are converted into :html:`<OL>` or :html:`<UL>` sections
+   :html:`<a>`-tags, all `<TYPOLIST>` tags are converted into :html:`<ol>` or :html:`<ul>` sections
    (ordered/unordered lists, type depends on the type set for the
    `<TYPOLIST>` tag!), `<TYPOHEAD>`-tags are converted to <Hx> tags where the
    number is determined by the type-parameter set for the `<TYPOHEAD>`-tag.
@@ -105,7 +105,7 @@ mentioned above. (Numbers refer to the previous bulletlist):
    specific typotags.
 
    Other typotags (non-standard) can be preserved by being converted to a
-   :html:`<SPAN>`-section and back. This must be configured through Page
+   :html:`<span>`-section and back. This must be configured through Page
    TSconfig.
 
    (Update: With "css\_styled\_content" and the transformation "ts\_css"

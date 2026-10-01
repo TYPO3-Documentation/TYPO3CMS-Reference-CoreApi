@@ -11,7 +11,7 @@ Sheet reference support in the `T3DataStructure`
 If Data Structures are arranged in a collection of sheets you can
 choose to store one or more sheets externally in separate files. This
 is done by setting the value of the `<[sheet ident]>` tag to a relative
-file reference instead of being a definition of the `<ROOT>` element.
+file reference instead of being a definition of the :xml:`<ROOT>` element.
 
 Main Data Structure:
 

@@ -61,7 +61,7 @@ the TYPO3 testing framework provides template files:
 
 Copy these files into your project under :path:`Build/phpunit/`.
 
-Open :file:`FunctionalTests.xml` and adjust the path in the `<testsuite>`
+Open :file:`FunctionalTests.xml` and adjust the path in the :xml:`<testsuite>`
 definition to point to your functional test directory. Because the
 configuration file is located two directory levels deep in
 :path:`Build/phpunit/`, use `../../` to navigate back to the root directory.
@@ -174,7 +174,7 @@ variables must be supplied:
 *   `typo3DatabaseName`
 
 These variables can either be passed inline when executing PHPUnit, or defined
-in the `<php>` section of :file:`Build/phpunit/FunctionalTests.xml`:
+in the :xml:`<php>` section of :file:`Build/phpunit/FunctionalTests.xml`:
 
 ..  code-block:: xml
     :caption: Build/phpunit/FunctionalTests.xml (excerpt)
