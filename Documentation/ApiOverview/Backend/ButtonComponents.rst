@@ -88,7 +88,7 @@ link, input and split buttons inherit both from
 :php-short:`\TYPO3\CMS\Backend\Template\Components\Buttons\AbstractButton`,
 and
 :php-short:`\TYPO3\CMS\Backend\Template\Components\Buttons\DropDownButton`
-implements them as well. The generic button has no disabled state:
+implements them as well. The generic button has no disabled state.
 
 ..  literalinclude:: _ButtonComponents/_DisabledButton.php
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
