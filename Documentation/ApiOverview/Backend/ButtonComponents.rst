@@ -53,8 +53,7 @@ Setting HTML attributes on backend buttons
 ==========================================
 
 ..  versionadded:: 14.0
-    See `Feature: #107823 - ComponentFactory for backend components
-    <https://docs.typo3.org/permalink/changelog:feature-107823-1761297638>`_.
+    :changelog: feature-107823-1761297638
 
 The link, input and split buttons accept HTML attributes through
 :php:`setAttributes()`, like the generic button does. Use these buttons

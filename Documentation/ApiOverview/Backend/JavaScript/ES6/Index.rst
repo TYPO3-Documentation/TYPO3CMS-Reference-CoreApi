@@ -67,9 +67,9 @@ Importing language labels
 =========================
 
 ..  versionadded:: 14.2
-    Language labels are available as virtual JavaScript modules. See
-    `Feature: #108941 - Provide language labels as virtual JavaScript modules
-    <https://docs.typo3.org/permalink/changelog:feature-108941-1770902109>`_.
+    :changelog: feature-108941-1770902109
+
+    Language labels are available as virtual JavaScript modules.
 
 A JavaScript module imports the labels of a
 :ref:`translation domain <label-reference-domain>` directly, by using the

@@ -9,8 +9,7 @@ URL factory backend JavaScript module
 =====================================
 
 ..  versionadded:: 14.0
-    See `Feature: #107104 - Introduce UrlFactory JavaScript module
-    <https://docs.typo3.org/permalink/changelog:feature-107104-1752673630>`_.
+    :changelog: feature-107104-1752673630
 
 The module :js:`@typo3/core/factory/url-factory.js` creates
 :js:`URL` and :js:`URLSearchParams` objects for the TYPO3 backend.

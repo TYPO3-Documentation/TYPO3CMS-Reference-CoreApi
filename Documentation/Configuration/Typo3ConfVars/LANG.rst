@@ -109,11 +109,10 @@ resourceOverrides
         This option has been moved from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']`.
 
     ..  versionchanged:: 14.3
-        The overridden file can also be addressed by its
-        :ref:`translation domain <label-reference-domain>` instead of its path.
-        See `Important: #109672 - Translation domain syntax supported in
-        resourceOverrides
-        <https://docs.typo3.org/permalink/changelog:important-109672-1745000000>`_.
+        :changelog: important-109672-1745000000
+
+        The overridden file can also be addressed by its :ref:`translation
+        domain <label-reference-domain>` instead of its path.
 
     Allows overriding XLIFF files. This applies not only to translations but
     also to default language files.

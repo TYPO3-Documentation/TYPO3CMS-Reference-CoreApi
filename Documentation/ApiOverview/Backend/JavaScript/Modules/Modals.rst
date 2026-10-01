@@ -176,13 +176,12 @@ modal that is returned by the API:
     :caption: EXT:my_extension/Resources/Public/JavaScript/delete-conference.js
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-107443-1761040245
+
     Modals are now native :html:`<dialog>` elements rather than the previous
-    :html:`<div>`-based structure. Bootstrap modal events
-    such as `shown.bs.modal` and the Bootstrap modal API, including the
-    `data-bs-toggle="modal"` attribute, are not supported anymore. See
-    `Breaking: #107443 - Migrate Modal component from Bootstrap to native
-    dialog
-    <https://docs.typo3.org/permalink/changelog:breaking-107443-1761040245>`_.
+    :html:`<div>`-based structure. Bootstrap modal events such as
+    `shown.bs.modal` and the Bootstrap modal API, including the
+    `data-bs-toggle="modal"` attribute, are not supported anymore.
 
 ..  _modules-modals-examples:
 

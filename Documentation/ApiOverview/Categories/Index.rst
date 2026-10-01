@@ -7,10 +7,10 @@ System categories
 =================
 
 ..  versionchanged:: 14.2
+    :changelog: feature-109366-1742900000
+
     Fields of `TCA column type category <https://docs.typo3.org/permalink/t3tca:columns-category>`_
     are now hidden by default if no categories are available.
-
-    See `Feature: #109366 - Hide form fields with no selectable items <https://docs.typo3.org/permalink/changelog:feature-109366-1742900000>`_
 
 TYPO3 provides a generic categorization system.
 Categories can be created in the backend like any other type of
@@ -168,10 +168,10 @@ Hidden category fields
 ======================
 
 ..  versionchanged:: 14.2
+    :changelog: feature-109366-1742900000
+
     Fields of `TCA column type category <https://docs.typo3.org/permalink/t3tca:columns-category>`_
     are now hidden by default if no categories are available.
-
-    See `Feature: #109366 - Hide form fields with no selectable items <https://docs.typo3.org/permalink/changelog:feature-109366-1742900000>`_
 
 Fields of `TCA column type category <https://docs.typo3.org/permalink/t3tca:columns-category>`_
 are hidden by default if no categories are available. This also hides the tab

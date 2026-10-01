@@ -7,10 +7,10 @@ Types of pages
 ==============
 
 ..  versionchanged:: 14.0
-    The page type `Link to External URL` has been renamed to just `Link`
-    and has a lot more features.
-    See
-    :ref:`Feature: #17406 - Enhance page type "Link" to fully support typolinks <changelog:feature-17406-1762953087>`
+    :changelog: feature-17406-1762953087
+
+    The page type `Link to External URL` has been renamed to just `Link` and has
+    a lot more features.
 
 TYPO3 has predefined a number of pages types as constants in
 :file:`typo3/sysext/core/Classes/Domain/Repository/PageRepository.php`.

@@ -7,7 +7,7 @@
 ========================================
 
 ..  versionadded:: 14.2
-    See `Feature: #109018 - PSR-14 event to modify indexed_search result sets <https://docs.typo3.org/permalink/changelog:feature-109018-1769714898>`_.
+    :changelog: feature-109018-1769714898
 
 The PSR-14 event
 :php:`\TYPO3\CMS\IndexedSearch\Event\AfterSearchResultSetsAreGeneratedEvent`

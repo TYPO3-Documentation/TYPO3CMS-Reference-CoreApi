@@ -24,8 +24,9 @@ the users password. Note that only backend users with administrative rights can
 access the user management tool to make this change.
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107628-1729026000
+
     Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
-    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 If an alternative administrator account is not available or it doesn't have the
 appropriate access, the Install Tool can be accessed directly

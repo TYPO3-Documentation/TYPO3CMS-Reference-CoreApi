@@ -8,9 +8,9 @@ New record component in the Contents > Records module
 =====================================================
 
 ..  versionadded:: 14.0
-    Record types are now also displayed in the "New record" component.
+    :changelog: feature-99459-1672857664
 
-    See `Feature: #99459 - Respect record type while creating new records <https://docs.typo3.org/permalink/changelog:feature-99459-1672857664>`_.
+    Record types are now also displayed in the "New record" component.
 
 ..  figure:: /Images/ManualScreenshots/Backend/NewRecordComponent.png
     :alt: TYPO3 Backend with the "New Record" component in the Contents > Records module

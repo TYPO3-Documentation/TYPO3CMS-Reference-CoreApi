@@ -97,10 +97,11 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 =============================================================
 
 ..  versionchanged:: 14.0
+    :changelog: deprecation-97559-1760453281
 
-    Passing a configuration array as the first argument to Extbase attributes
-    is deprecated (:ref:`Deprecation #97559 <changelog:deprecation-97559-1760453281>`).
-    The array-based syntax still works in v14 but will be removed in v15.
+    Passing a configuration array as the first argument to Extbase attributes is
+    deprecated. The array-based syntax still works in v14 but will be removed in
+    v15.
 
 +-------------------------------------------------+-----------------------------+
 | Old array syntax (deprecated in v14)            | New named-argument syntax   |
@@ -346,12 +347,13 @@ list_type plugin removed; fifth parameter of `configurePlugin()` restricted (TYP
 =======================================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: important-105538-1730752784
 
     The :php:`list_type` / "General Plugin" content element was removed. All
     plugins must be registered as dedicated :php:`CType` content elements. The
-    fifth parameter :php:`$pluginType` of :php:`ExtensionUtility::configurePlugin()`
-    now only accepts `'CType'` (or being omitted); any other value throws an
-    :php:`\InvalidArgumentException` (:ref:`Important #105538 <changelog:important-105538-1730752784>`).
+    fifth parameter :php:`$pluginType` of
+    :php:`ExtensionUtility::configurePlugin()` now only accepts `'CType'` (or
+    being omitted); any other value throws an :php:`\InvalidArgumentException`.
 
 Older extensions could pass
 :php:`ExtensionUtility::PLUGIN_TYPE_PLUGIN_LIST` (`'list_type'`) as the
@@ -385,12 +387,11 @@ Backend modules without a page tree use global TypoScript only (TYPO3 v14)
 ==========================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-105728-1732882067
 
-    Extbase backend modules without page context no longer search for the
-    first page with a TypoScript record. They compile their configuration from
-    global TypoScript only. See :ref:`Breaking: #105728 — Extbase backend
-    modules not in page context rely on global TypoScript only
-    <changelog:breaking-105728-1732882067>`.
+    Extbase backend modules without page context no longer search for the first
+    page with a TypoScript record. They compile their configuration from global
+    TypoScript only.
 
 Nothing fails after the upgrade. A module that has no page tree, or is opened
 with no page selected, simply stops seeing :typoscript:`module.tx_*` values
@@ -416,10 +417,10 @@ Translation domain syntax as shorter alternative to LLL:EXT: (TYPO3 v14)
 ========================================================================
 
 ..  versionadded:: 14.0
+    :changelog: feature-93334-1729000000
 
     A shorter domain-based syntax for label references was introduced as an
-    alternative to the legacy :php:`LLL:EXT:` file path syntax
-    (:ref:`Feature #93334 <changelog:feature-93334-1729000000>`).
+    alternative to the legacy :php:`LLL:EXT:` file path syntax.
 
 Legacy syntax remains fully supported and is not deprecated. Both forms
 resolve to the same translation entries and can be used interchangeably:
@@ -458,10 +459,10 @@ Check relevant feature toggle defaults after upgrading (TYPO3 v14)
 ==================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: important-106467-1743452295
 
     The :php:`extbase.consistentDateTimeHandling` feature toggle now defaults to
-    :php:`true` for new installations
-    (:ref:`Important #106467 <changelog:important-106467-1743452295>`).
+    :php:`true` for new installations.
 
 Feature toggles behave differently on upgrade than fresh installs: an existing
 instance **keeps whatever value it already had**, while a new installation will get

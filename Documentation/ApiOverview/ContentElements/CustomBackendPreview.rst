@@ -31,11 +31,12 @@ Preview rendering with a Fluid template and page TSconfig
 ---------------------------------------------------------
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-92434-1761644184
+
     A :php:`\TYPO3\CMS\Core\Domain\RecordInterface` is passed as variable
     `{record}` to the Fluid Template. The fields are not passed as direct
     variables anymore. `{pi_flexform_transformed}` has been replaced by
-    `{record.pi_flexform}`. See also `Breaking: #92434 - Use Record API
-    in Page Module Preview Rendering <https://docs.typo3.org/permalink/changelog:breaking-92434-1761644184>`_.
+    `{record.pi_flexform}`.
 
 
 This is the "integrator" way, no PHP coding is required. Just some page TSconfig

@@ -20,8 +20,10 @@ Backend API
 All backends must implement the :php-short:`\TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
 
 ..  versionchanged:: 14.0
-    The :php-short:`\TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface`
-    has been removed. See `Breaking: #107310 - Remove FreezableBackendInterface <https://docs.typo3.org/permalink/changelog:breaking-107310-1755533400>`_.
+    :changelog: breaking-107310-1755533400
+
+    The :php-short:`\TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface` has
+    been removed.
 
 ..  _caching-backend-api-backendinterface:
 
@@ -404,9 +406,7 @@ keyPrefix
     :default: (empty)
 
     ..  versionadded:: 13.3
-
-        See `Feature: #104451 - Redis backends support for key prefixing
-        <https://docs.typo3.org/permalink/changelog:feature-104451-1721646565>`_.
+        :changelog: feature-104451-1721646565
 
     Prefix added to all keys this backend writes to Redis. Allows the same
     Redis database to be shared by multiple caches or TYPO3 instances, as
@@ -442,10 +442,10 @@ password
     :type: string
 
     ..  versionchanged:: 15.0
-        Setting this configuration option with an array is no longer
-        supported. Use the separate `username` and `password` options
-        instead. See `Breaking: #109783 - Deprecated functionality removed
-        <https://docs.typo3.org/permalink/changelog:breaking-109783-1776735296>`_
+        :changelog: breaking-109783-1776735296
+
+        Setting this configuration option with an array is no longer supported.
+        Use the separate `username` and `password` options instead.
 
     Password used to connect to the redis instance if the redis server needs authentication.
 

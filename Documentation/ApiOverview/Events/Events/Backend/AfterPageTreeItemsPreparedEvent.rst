@@ -16,7 +16,7 @@ provides the current PSR-7 request object as well as the page tree items. All
 items contain the corresponding page record in the special :php:`_page` key.
 
 ..  versionchanged:: 14.3
-    See `Important: #110233 - Search query added to AfterPageTreeItemsPreparedEvent <https://docs.typo3.org/permalink/changelog:important-110233-1787820210>`_.
+    :changelog: important-110233-1787820210
 
 The event also provides the current page tree search query via
 :php:`getSearchQuery()`, returning the search phrase used to filter the page

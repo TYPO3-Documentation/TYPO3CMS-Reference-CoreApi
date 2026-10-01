@@ -40,8 +40,9 @@ backend layouts have been
     Choose the backend layout in the page properties
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107628-1729026000
+
     The main module `web` has been renamed to `content`.
-    See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
 
 The :guilabel:`Content > Status` module gives an overview of the backend layouts configured or
 inherited from a parent page at
@@ -156,11 +157,12 @@ backend layouts and frontend layouts may be feasible. The extension
 integrates the grid layout concept also to regular content elements.
 
 ..  versionchanged:: 14.0
-    Installing the extension :composer:`ichhabrecht/content-defender` for allowed
-    or disallowed content elements per column is no longer necessary. Backend
-    layout columns can now natively restrict content element types via
+    :changelog: feature-108623-1768315053
+
+    Installing the extension :composer:`ichhabrecht/content-defender` for
+    allowed or disallowed content elements per column is no longer necessary.
+    Backend layout columns can now natively restrict content element types via
     :typoscript:`allowedContentTypes` and :typoscript:`disallowedContentTypes`.
-    See `Feature: #108623 - Allow content element restrictions per colPos <https://docs.typo3.org/permalink/changelog:feature-108623-1768315053>`_.
 
 ..  _backend-layout-providers:
 
@@ -168,13 +170,13 @@ Backend layout providers
 ========================
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107784-1760946896
+
     Backend layout providers are now autoconfigured once they implement the required
     :php:`\TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface`.
 
     The configuration via :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']`
     has no effect anymore but can be kept until dropping TYPO3 v13 support.
-
-    See `Feature: #107784 - Autoconfigure backend layout data providers <https://docs.typo3.org/permalink/changelog:feature-107784-1760946896>`_.
 
 Backend layout data providers, classes implementing :php:`\TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface`,
 supply TYPO3 with the available backend layouts

@@ -7,10 +7,10 @@ Create new page type
 ====================
 
 ..  deprecated:: 14.3
+    :changelog: deprecation-108557-1768610680
+
     The method :php:`PageDoktypeRegistry->addAllowedRecordTypes()` has been
     deprecated in favor of the new TCA option.
-
-    See also: `Deprecation: #108557 - TCA option allowedRecordTypes for Page Types <https://docs.typo3.org/permalink/changelog:deprecation-108557-1768610680>`_.
 
 This example demonstrates how to add a new page type (doktype) called "Archive".
 Starting with TYPO3 v14, registration is streamlined by centralizing the
@@ -85,7 +85,7 @@ Configure the page creation wizard steps
 ========================================
 
 ..  versionadded:: 14.2
-    See `Feature: #109271 - Add TCA configuration for dynamic page creation wizard steps <https://docs.typo3.org/permalink/changelog:feature-109271-1742217000>`_.
+    :changelog: feature-109271-1742217000
 
 The steps shown for a page type in the page creation wizard can be configured
 via the `wizardSteps` TCA option. Each step has a title and a list of fields
