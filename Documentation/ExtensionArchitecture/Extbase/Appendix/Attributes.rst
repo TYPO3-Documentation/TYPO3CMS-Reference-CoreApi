@@ -220,8 +220,7 @@ rate limiting.
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
 
 ..  versionadded:: 14.0
-
-    Introduced in Feature `#107826 <https://docs.typo3.org/permalink/changelog:feature-107826-1766220191>`_.
+    :changelog: feature-107826-1766220191
 
 Declares access requirements for an action method. Extbase checks the
 requirements before calling the action and redirects or throws an exception
@@ -246,8 +245,7 @@ if they are not met.
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
 
 ..  versionadded:: 14.0
-
-    Introduced in Feature `#108982 <https://docs.typo3.org/permalink/changelog:feature-108982-1771078311>`_.
+    :changelog: feature-108982-1771078311
 
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.
