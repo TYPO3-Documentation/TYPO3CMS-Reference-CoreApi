@@ -92,15 +92,14 @@ constructed in PHP, as described in
     — what each of the four does, independently of Extbase.
 
 ..  versionchanged:: 14.3
+    :changelog: important-88886-1784901300
 
     Extbase previously ignored `fallbackType` when fetching records and always
     behaved like `fallback`. It now follows the site configuration, so a
-    `strict` site probably returns fewer records than before:
-    :php:`findByUid()` on an  untranslated record returns :php:`null` rather
-    than the default language record, and untranslated related records are
-    dropped from relations. See :ref:`Important: #88886 Extbase persistence
-    respects the language overlay type <changelog:important-88886-1784901300>`.
-    To keep a single query behaving as before, set an aspect with
+    `strict` site probably returns fewer records than before: :php:`findByUid()`
+    on an untranslated record returns :php:`null` rather than the default
+    language record, and untranslated related records are dropped from
+    relations. To keep a single query behaving as before, set an aspect with
     :php:`OVERLAYS_MIXED` on it as shown in :ref:`Deciding the language per
     query <extbase-localisation-query-settings>`.
 
