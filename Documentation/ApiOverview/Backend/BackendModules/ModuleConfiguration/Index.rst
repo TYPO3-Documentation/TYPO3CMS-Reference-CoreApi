@@ -156,7 +156,7 @@ Module configuration options
         ..  versionadded:: 14.0
             :changelog: feature-93334-1729000000
 
-            Referencing labels by their translation domain.
+            Labels can be referenced by their translation domain.
 
         Alternatively, pass an :php:`array` with the keys `title`,
         `description` and `shortDescription`. The value of each key is either
