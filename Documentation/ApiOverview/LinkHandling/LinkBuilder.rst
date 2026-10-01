@@ -7,11 +7,11 @@ Frontend link builder
 =====================
 
 ..  deprecated:: 14.0
+    :changelog: deprecation-106405-1742674605
+
     The :php:`build()` method in :php:`TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder`
     has been deprecated in favor of the new
     :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`.
-
-    See also `Deprecation: #106405 - AbstractTypolinkBuilder->build <https://docs.typo3.org/permalink/changelog:deprecation-106405-1742674605>`_.
 
 A link builder is a class that implements
 :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface` and that is called when

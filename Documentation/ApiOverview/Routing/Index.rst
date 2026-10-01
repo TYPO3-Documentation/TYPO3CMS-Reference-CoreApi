@@ -15,10 +15,10 @@ Routing - readable, SEO-friendly URLs
 =====================================
 
 ..  versionadded:: 14.1
+    :changelog: feature-107837-1732800000
+
     Site sets can define route enhancers in a dedicated :file:`route-enhancers.yaml`
     file.
-
-    See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
 
 When TYPO3 serves a request, it maps the incoming URL to a specific page or action,
 for example, it maps an URL like :samp:`https://example.org/news` to a News page.
@@ -213,10 +213,10 @@ Tips: using imports in YAML files
 =================================
 
 ..  versionadded:: 14.1
+    :changelog: feature-107837-1732800000
+
     Site sets can define route enhancers in a dedicated :file:`route-enhancers.yaml`
     file. You can also set up imports in the yaml file (see below).
-
-    See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
 
 As routing configuration (and site configuration in general) can get pretty long
 fast, you should make use of imports in your YAML configuration which allows you

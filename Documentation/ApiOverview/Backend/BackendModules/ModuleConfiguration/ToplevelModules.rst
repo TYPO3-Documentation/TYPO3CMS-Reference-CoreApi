@@ -10,9 +10,9 @@ Toplevel modules
 ================
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107628-1729026000
+
     The top-level modules have been renamed and the identifiers adapted.
-    See also: `Feature: #107628 - Improved backend module naming and structure
-    <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 The following toplevel modules are provided by the Core:
 

@@ -346,10 +346,7 @@ File upload validators
 ======================
 
 ..  versionadded:: 13.3
-
-    See `Feature: #104526 - Provide validators for PSR-7 UploadedFile
-    objects in Extbase
-    <https://docs.typo3.org/permalink/changelog:feature-104526-1722603089>`_.
+    :changelog: feature-104526-1722603089
 
 The following validators are specifically designed for
 :php:`\TYPO3\CMS\Core\Http\UploadedFile` instances or

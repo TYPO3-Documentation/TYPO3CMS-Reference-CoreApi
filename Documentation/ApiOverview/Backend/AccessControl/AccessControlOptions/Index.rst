@@ -261,8 +261,9 @@ Page permissions are set and viewed with the module :guilabel:`Administration > 
 module:
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107628-1729026000
+
     Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
-    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/PermissionsModule.png
     :zoom: lightbox

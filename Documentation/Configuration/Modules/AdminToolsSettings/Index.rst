@@ -8,9 +8,10 @@ Module "System > Settings"
 ==========================
 
 ..  versionchanged:: 14.0
-    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`.
-    See also: `Feature: #107628 - Improved backend module naming and structure
-    <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
+    :changelog: feature-107628-1729026000
+
+    This module has been moved from :guilabel:`Admin tools` to
+    :guilabel:`Settings`.
 
 Global configuration can only be changed by backend users with
 `System Maintainer privileges <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_.

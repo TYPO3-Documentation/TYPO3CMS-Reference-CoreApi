@@ -7,7 +7,7 @@
 ===================================
 
 ..  versionadded:: 14.0
-    See `Feature: #99459 - Respect record type while creating new records <https://docs.typo3.org/permalink/changelog:feature-99459-1672857664>`_.
+    :changelog: feature-99459-1672857664
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyNewRecordCreationLinksEvent`

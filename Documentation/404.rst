@@ -59,11 +59,11 @@ Most properties can be retrieved from the
 ==============================================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-108114-1763085569
+
     Global search and replace code for links has been removed, which means setting
     :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']`
     is obsolete as well.
-
-    See `Breaking: #108114 - Global frontend content link prefixing removed <https://docs.typo3.org/permalink/changelog:breaking-108114-1763085569>`_
 
 
 ..  _not-found-12:

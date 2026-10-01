@@ -15,17 +15,16 @@ defined in the module registration and provides methods for
 relation handling (main modules and sub modules).
 
 ..  versionchanged:: 14.0
+    :changelog: feature-107663-1760110062
 
-    Method  :php:`getDependsOnSubmodules()` was added to the
-    :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`. See also
-    `Feature: #107663 - New method getDependsOnSubmodules() required <https://docs.typo3.org/permalink/changelog:feature-107663-1760110062>`_.
+    Method :php:`getDependsOnSubmodules()` was added to the
+    :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`.
 
 ..  versionchanged:: 14.0
+    :changelog: breaking-107712-1760548718
 
     Method :php:`hasSubmoduleOverview()` was added to the
-    :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`. See also
-    `Breaking: #107712 - New method hasSubmoduleOverview() in ModuleInterface
-    <https://docs.typo3.org/permalink/changelog:breaking-107712-1760548718>`_.
+    :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`.
 
 ..  contents:: Table of contents
 
