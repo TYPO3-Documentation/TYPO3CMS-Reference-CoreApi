@@ -424,17 +424,17 @@ Translation domain syntax as shorter alternative to LLL:EXT: (TYPO3 v14)
 Legacy syntax remains fully supported and is not deprecated. Both forms
 resolve to the same translation entries and can be used interchangeably:
 
-+----------------------------------------------------------------------+--------------------------------------+
-| Legacy syntax                                                        | Domain syntax (v14+)                 |
-+======================================================================+======================================+
-| `LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:key`        | `my_ext.messages:key`                |
-+----------------------------------------------------------------------+--------------------------------------+
-| `LLL:EXT:my_ext/Resources/Private/Language/locallang_db.xlf:key`     | `my_ext.db:key`                      |
-+----------------------------------------------------------------------+--------------------------------------+
-| `LLL:EXT:my_ext/Resources/Private/Language/locallang_val.xlf:key`    | `my_ext.val:key`                     |
-+----------------------------------------------------------------------+--------------------------------------+
-| `LLL:EXT:my_ext/Resources/Private/Language/Form/locallang.xlf:key`   | `my_ext.form.messages:key`           |
-+----------------------------------------------------------------------+--------------------------------------+
++--------------------------------------------------------------------------+----------------------------------+
+| Legacy syntax                                                            | Domain syntax (v14+)             |
++==========================================================================+==================================+
+| `LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:key`      | `my_extension.messages:key`      |
++--------------------------------------------------------------------------+----------------------------------+
+| `LLL:EXT:my_extension/Resources/Private/Language/locallang_db.xlf:key`   | `my_extension.db:key`            |
++--------------------------------------------------------------------------+----------------------------------+
+| `LLL:EXT:my_extension/Resources/Private/Language/locallang_val.xlf:key`  | `my_extension.val:key`           |
++--------------------------------------------------------------------------+----------------------------------+
+| `LLL:EXT:my_extension/Resources/Private/Language/Form/locallang.xlf:key` | `my_extension.form.messages:key` |
++--------------------------------------------------------------------------+----------------------------------+
 
 The domain syntax follows the pattern :php:`extension_key.resource:label_key`.
 The resource name is derived from the file name:

@@ -38,7 +38,7 @@ To send a message, the :js:`post()` method must be used.
 Example code:
 
 ..  literalinclude:: _BroadcastChannels/_my-broadcast-service.js
-    :caption: EXT:my_broadcast_extension/Resources/Public/JavaScript/my-broadcast-service.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/my-broadcast-service.js
 
 ..  index::
     Broadcast service; Receiving

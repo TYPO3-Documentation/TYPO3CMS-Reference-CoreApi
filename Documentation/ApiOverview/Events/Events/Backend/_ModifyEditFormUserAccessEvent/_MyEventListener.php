@@ -15,7 +15,7 @@ final readonly class MyEventListener
   public function __invoke(ModifyEditFormUserAccessEvent $event): void
   {
     // Deny access for creating records of a custom table
-    if ($event->getTableName() === 'tx_myext_domain_model_mytable' && $event->getCommand() === 'new') {
+    if ($event->getTableName() === 'tx_myextension_domain_model_mytable' && $event->getCommand() === 'new') {
       $event->denyUserAccess();
     }
   }

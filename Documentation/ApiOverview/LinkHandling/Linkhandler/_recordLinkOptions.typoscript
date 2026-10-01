@@ -4,7 +4,7 @@ config.recordLinks.anIdentifier {
   typolink {
     parameter = 123
     additionalParams.data = field:uid
-    additionalParams.wrap = &tx_example_pi1[item]=|
+    additionalParams.wrap = &tx_myextension_pi1[item]=|
   }
 }
 

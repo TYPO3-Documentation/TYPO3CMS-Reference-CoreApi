@@ -25,12 +25,12 @@ final readonly class CustomizeNewRecordWizardEventListener
       'title' => 'Custom Records',
       'icon' => $this->iconFactory->getIcon('apps-pagetree-category')->render(),
       'items' => [
-        'tx_myext_domain_model_item' => [
+        'tx_myextension_domain_model_item' => [
           'url' => (string)$this->uriBuilder->buildUriFromRoute('record_edit', [
-            'edit' => ['tx_myext_domain_model_item' => [$event->pageId => 'new']],
+            'edit' => ['tx_myextension_domain_model_item' => [$event->pageId => 'new']],
             'returnUrl' => $event->request->getAttribute('normalizedParams')->getRequestUri(),
           ]),
-          'icon' => $this->iconFactory->getIconForRecord('tx_myext_domain_model_item', []),
+          'icon' => $this->iconFactory->getIconForRecord('tx_myextension_domain_model_item', []),
           'label' => 'Custom Item',
         ],
       ],

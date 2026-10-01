@@ -15,7 +15,7 @@ Example:
 
 ..  code-block:: php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['tx_example_sv1']['foo'] = 'bar';
+    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['tx_myextension_sv1']['foo'] = 'bar';
 
 The general syntax is:
 

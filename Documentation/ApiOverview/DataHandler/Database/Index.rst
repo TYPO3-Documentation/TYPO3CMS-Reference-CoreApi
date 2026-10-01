@@ -298,7 +298,7 @@ inlineLocalizeSynchronize
         :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
 
         $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
-            'field' => 'tx_myfieldname', // field we want to synchronize
+            'field' => 'tx_myextension_myfield', // field we want to synchronize
             'language' => 2,             // uid of the target language
             // either the key 'action' or 'ids' must be set
             'action' => 'localize',      // or 'synchronize'

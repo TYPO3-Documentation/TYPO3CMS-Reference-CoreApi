@@ -51,7 +51,7 @@ function from the user object:
     $GLOBALS['BE_USER']->check('custom_options', $catKey . ':' . $itemKey);
 
 :code:`$catKey` is the category in which the option resides. From the example
-above this would be :code:`tx_examples_cat1`.
+above this would be :code:`tx_styleguide_custom`.
 
 :code:`$itemKey` is the key of the item in the category you are evaluating.
 From the example above this could be :code:`key1`, :code:`key2` or :code:`key3`
