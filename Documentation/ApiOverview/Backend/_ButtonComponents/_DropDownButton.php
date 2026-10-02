@@ -7,11 +7,10 @@ namespace MyVendor\MyExtension\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
-use TYPO3\CMS\Backend\Template\Components\Buttons\DropDown\DropDownItem;
+use TYPO3\CMS\Backend\Template\Components\ComponentFactory;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 use TYPO3\CMS\Core\Imaging\IconFactory;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyBackendController
 {
@@ -20,6 +19,7 @@ final class MyBackendController
   public function __construct(
     protected readonly ModuleTemplateFactory $moduleTemplateFactory,
     protected readonly IconFactory $iconFactory,
+    protected readonly ComponentFactory $componentFactory,
     // ...
   ) {}
 
@@ -33,12 +33,12 @@ final class MyBackendController
   private function setDocHeader(): void
   {
     $buttonBar = $this->moduleTemplate->getDocHeaderComponent()->getButtonBar();
-    $dropDownButton = $buttonBar->makeDropDownButton()
+    $dropDownButton = $this->componentFactory->createDropDownButton()
         ->setLabel('Dropdown')
         ->setTitle('Save')
         ->setIcon($this->iconFactory->getIcon('actions-heart'))
         ->addItem(
-          GeneralUtility::makeInstance(DropDownItem::class)
+          $this->componentFactory->createDropDownItem()
                 ->setLabel('Item')
                 ->setHref('#'),
         );
