@@ -4,3 +4,10 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+  - repo: local
+    hooks:
+      - id: commit-message
+        name: Commit message follows AGENTS.md
+        entry: php Build/Scripts/commitMessageLint.php
+        language: system
+        stages: [commit-msg]
