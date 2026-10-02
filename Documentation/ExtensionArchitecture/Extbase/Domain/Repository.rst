@@ -159,7 +159,9 @@ direction is set by :php:`QueryInterface::ORDER_ASCENDING` (`'ASC'`) or
 As an alternative to using the :php:`setOrderings()` array, the query offers an
 easier to read form: :php:`$query->orderBy('title')` sets a single order (replacing
 any existing ones), and :php:`$query->addOrderBy('conferenceDate', QueryInterface::ORDER_DESCENDING)`
-applies an additional sort order. Both take a property name with an optional direction
+applies an additional sort order. Both take a property name, or one of the
+expressions described in :ref:`Ordering by a computed value
+<extbase-domain-repository-ordering-expressions>`, with an optional direction
 that defaults to ascending. Use whichever reads better — they will produce the same
 :sql:`ORDER BY` clause.
 
@@ -169,6 +171,50 @@ undefined order. This may appear consistent in development but is not
 guaranteed — the order can change after inserts, updates, or database
 maintenance. Always define an explicit order for any query where the result
 order matters to the user.
+
+..  _extbase-domain-repository-ordering-expressions:
+
+Ordering by a computed value
+----------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-32051-1737628800
+
+Sorting sometimes needs a value that no single property holds. The query
+builds one with `concat()`, `trim()` or `coalesce()`, and
+:php:`orderBy()` takes the result in place of a property name:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+    $query = $this->createQuery();
+    $query->orderBy(
+        $query->concat('lastName', 'firstName'),
+        QueryInterface::ORDER_ASCENDING,
+    );
+
+Every string these methods take is a **property name**, never a literal, so
+a separator cannot be put between the two names. The expressions nest, which
+is how a trimmed property joins a concatenation:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+    $query->orderBy($query->concat($query->trim('lastName'), 'firstName'));
+
+`coalesce()` evaluates to the first of its operands that is not
+:php:`null`, which sorts by a fallback property where the first one was
+never filled in:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+    $query->orderBy($query->coalesce('nickname', 'lastName'));
+
+Pass such an expression straight into :php:`orderBy()` or
+:php:`addOrderBy()`. The objects these methods return are marked
+`@internal`, so do not keep one in a typed property or name its interface in
+a signature.
 
 ..  _extbase-domain-repository-ordering-relations:
 
