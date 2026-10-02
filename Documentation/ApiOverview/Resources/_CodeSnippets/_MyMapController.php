@@ -2,17 +2,30 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Something;
+namespace MyVendor\MyExtension\Controller;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\PathUtility;
+use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\SystemResource\Publishing\SystemResourcePublisherInterface;
+use TYPO3\CMS\Core\SystemResource\Publishing\UriGenerationOptions;
+use TYPO3\CMS\Core\SystemResource\SystemResourceFactory;
 
-class MyMapController
+final readonly class MyMapController
 {
-  public function getWebPath(string $path = 'EXT:my_extension/Resources/Public/myfile.xml'): string
+  public function __construct(
+    private SystemResourceFactory $systemResourceFactory,
+    private SystemResourcePublisherInterface $resourcePublisher,
+  ) {}
+
+  public function getAddressesUrl(ServerRequestInterface $request): string
   {
-    // This only works in frontend context, not in CLI
-    $absolutePath = GeneralUtility::getFileAbsFileName($path);
-    return PathUtility::getAbsoluteWebPath($absolutePath);
+    $resource = $this->systemResourceFactory->createPublicResource(
+      'PKG:my-vendor/my-extension:Resources/Public/XML/addresses.xml',
+    );
+    // The URL contains a cache buster, pass an absolute URL to the browser
+    return (string)$this->resourcePublisher->generateUri(
+      $resource,
+      $request,
+      new UriGenerationOptions(absoluteUri: true),
+    );
   }
 }
