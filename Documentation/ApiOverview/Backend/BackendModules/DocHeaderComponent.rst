@@ -82,6 +82,39 @@ The module header consists of two rows:
 
         The module header displayed by the DocHeaderComponent
 
+..  _docheadercomponent-automatic-buttons:
+
+Adding reload and bookmark buttons with `setShortcutContext()`
+==============================================================
+
+..  versionadded:: 14.0
+    :changelog: feature-108008-1762896168
+
+The :php-short:`\TYPO3\CMS\Backend\Template\Components\DocHeaderComponent`
+adds the :guilabel:`Reload` button to every module, and the
+:guilabel:`Bookmark` button to every module that names its context. Both
+come last in the button bar, so they keep the same position in every
+module.
+
+:php-short:`\TYPO3\CMS\Backend\Template\Components\DocHeaderComponent::setShortcutContext()`
+names what the bookmark points to. The display name appears in the bookmark
+list, so it should name the record or the page the user works on:
+
+..  literalinclude:: _DocHeaderShortcutContext.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+    :visible-lines: 26-31
+
+A module that brings its own reload button, or that must not be
+bookmarked, switches the automatic button off:
+
+..  literalinclude:: _DocHeaderShortcutContext.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+    :visible-lines: 41-46
+
+Both buttons are in the button bar before the
+:ref:`ModifyButtonBarEvent <ModifyButtonBarEvent>` is dispatched, so a
+listener can change or remove them.
+
 ..  _docheadercomponent-language-selector:
 
 Adding module actions and a language selector to the module header

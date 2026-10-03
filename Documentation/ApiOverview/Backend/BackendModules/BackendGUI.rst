@@ -68,8 +68,8 @@ The backend interface is divided into the following main areas:
     "Function menu" for navigating around module-specific features.
 
     It also provides action buttons such as save, close, and revert for use
-    when editing content. Additional buttons (for example, shortcuts or module-specific
-    actions) may be available.
+    when editing content. Additional buttons (for example, bookmarks or
+    module-specific actions) may be available.
 
 5.  Content area
 
