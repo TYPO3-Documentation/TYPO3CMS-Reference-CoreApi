@@ -181,7 +181,7 @@ Ordering by a computed value
     :changelog: feature-32051-1737628800
 
 Sorting sometimes needs a value that no single property holds. The query
-builds one with `concat()`, `trim()` or `coalesce()`, and
+builds one with :php:`concat()`, :php:`trim()` or :php:`coalesce()`, and
 :php:`orderBy()` takes the result in place of a property name:
 
 ..  code-block:: php
