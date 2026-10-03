@@ -28,8 +28,9 @@ The User Settings module is handled by TCA and configured via
 :php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. It does, however,
 have less options then normal TCA.
 
-The values can be accessed via the array
-:php:`$GLOBALS['BE_USER']->getUserSettings()` as described in
+The values can be read from the
+:php:`\TYPO3\CMS\Core\Authentication\UserSettings` object that
+:php:`$GLOBALS['BE_USER']->getUserSettings()` returns, as described in
 :ref:`Get user configuration value <be-user-configuration>`.
 
 **Contents:**
