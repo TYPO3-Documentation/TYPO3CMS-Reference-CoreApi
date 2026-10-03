@@ -202,7 +202,7 @@ is how a trimmed property joins a concatenation:
 
     $query->orderBy($query->concat($query->trim('lastName'), 'firstName'));
 
-`coalesce()` evaluates to the first of its operands that is not
+:php:`coalesce()` evaluates to the first of its operands that is not
 :php:`null`, which sorts by a fallback property where the first one was
 never filled in:
 
