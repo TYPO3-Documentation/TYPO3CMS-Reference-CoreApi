@@ -96,91 +96,40 @@ in the file :file:`config/system/settings.php` or :file:`config/system/additiona
 
 
 ..  _chash-cachedparameterswhitelist:
-
-cachedParametersWhiteList
--------------------------
-
-..  confval:: cachedParametersWhiteList
-
-    **Only** the given parameters will be evaluated in the cHash calculation.
-    Example: `tx_news_pi1[uid]`
-
-    ..  attention::
-        This option will lead to cache calculation being skipped for all
-        parameters except the ones listed here. Caching of pages will not be
-        influenced by other parameters beyond the initial caching anymore.
-
-
 ..  _chash-requirecachehashpresenceparameters:
-
-requireCacheHashPresenceParameters
-----------------------------------
-
-..  confval:: requireCacheHashPresenceParameters
-
-    Configure parameters that require a cHash. If no cHash is given, but one of
-    the parameters are set, then TYPO3 triggers the configured cHash error
-    behavior
-
-
 ..  _chash-excludedparameters:
-
-excludedParameters
-------------------
-
-..  confval:: excludedParameters
-
-    The given parameters will be ignored in the cHash calculation.
-    Example: `L,tx_search_pi1[query]`
-
-
 ..  _chash-excludedparametersifempty:
-
-excludedParametersIfEmpty
--------------------------
-
-..  confval:: excludedParametersIfEmpty
-
-    Configure parameters only being relevant for the cHash if there is an
-    associated value available. Set excludeAllEmptyParameters to true to skip
-    all empty parameters.
-
-
 ..  _chash-excludeallemptyparameters:
-
-excludeAllEmptyParameters
--------------------------
-
-..  confval:: excludeAllEmptyParameters
-
-    If true, all parameters relevant to cHash are only considered when they are
-    not empty.
-
-
 ..  _chash-enforcevalidation:
 
-enforceValidation
+cacheHash options
 -----------------
 
-..  confval:: enforceValidation
+Each option is defined once, in the TYPO3_CONF_VARS reference, with its type,
+its default and an example:
 
-    If this option is enabled, the same validation is used to calculate a cHash
-    value as when a valid or invalid "cHash" parameter is given to a request,
-    even when no cHash is given.
+*   `cachedParametersWhiteList
+    <https://docs.typo3.org/permalink/t3coreapi:confval-typo3-conf-vars-fe-cachehash-cachedparameterswhitelist>`_
+    evaluates only the parameters listed here.
+*   `requireCacheHashPresenceParameters
+    <https://docs.typo3.org/permalink/t3coreapi:confval-typo3-conf-vars-fe-cachehash-requirecachehashpresenceparameters>`_
+    names the parameters a request has to carry a cHash for.
+*   `excludedParameters
+    <https://docs.typo3.org/permalink/t3coreapi:confval-typo3-conf-vars-fe-cachehash-excludedparameters>`_
+    names the parameters the calculation ignores.
+*   `excludedParametersIfEmpty
+    <https://docs.typo3.org/permalink/t3coreapi:confval-typo3-conf-vars-fe-cachehash-excludedparametersifempty>`_
+    names the parameters that count only when they carry a value.
+*   `excludeAllEmptyParameters
+    <https://docs.typo3.org/permalink/t3coreapi:confval-typo3-conf-vars-fe-cachehash-excludeallemptyparameters>`_
+    lets every empty parameter drop out of the calculation.
+*   `enforceValidation
+    <https://docs.typo3.org/permalink/t3coreapi:confval-typo3-conf-vars-fe-cachehash-enforcevalidation>`_
+    validates a request that carries no cHash the same way.
 
-All properties can be configured with an array of values. Besides exact matches
-(*equals*) it is possible to apply partial matches at the beginning of a
-parameter (*startsWith*) or inline occurrences (*contains*).
-
-URL parameter names are prefixed with the following indicators:
-
-*   :php:`=` (*equals*): exact match, default behavior if not given
-*   :php:`^` (*startsWith*): matching the beginning of a parameter name
-*   :php:`~` (*contains*): matching any inline occurrence in a parameter name
-
-These indicators can be used for all previously existing sub-properties
-:php:`cachedParametersWhiteList`, :php:`excludedParameters`, :php:`excludedParametersIfEmpty`
-and :php:`requireCacheHashPresenceParameters`.
+The four parameter lists among them accept an indicator that widens a match
+beyond an exact parameter name. See `Matching parameter names
+<https://docs.typo3.org/permalink/t3coreapi:typo3confvars-fe-cachehash-matching>`_.
 
 ..  _caching-example-excerpt-config:
 
