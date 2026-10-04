@@ -366,6 +366,17 @@ in :file:`Configuration/Extbase/Persistence/Classes.php`:
 ..  literalinclude:: _snippets/_Classes.php
     :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
 
+..  versionadded:: 14.2
+    :changelog: feature-108975-1770984757
+
+Every installed extension brings its own :file:`Classes.php`, and Extbase
+merges them all into the mapping it uses at runtime. That merged result is
+listed as :guilabel:`Extbase: Class Configuration` in the
+:guilabel:`System > Configuration` module, which answers which extension
+had the last word on a mapping without reading each file in turn. The
+module belongs to :composer:`typo3/cms-lowlevel` and is open to
+administrators.
+
 ..  Full mapping reference including class hierarchy and multi-model tables — placement TBD.
 
 
