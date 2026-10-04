@@ -181,8 +181,8 @@ To get the URL of a public resource in PHP, resolve its
 :php:`\TYPO3\CMS\Core\SystemResource\SystemResourceFactory` and pass the
 result to an implementation of
 :php:`\TYPO3\CMS\Core\SystemResource\Publishing\SystemResourcePublisherInterface`.
-It returns a URL with a cache buster, which works in Composer and classic
-mode alike:
+It returns a URL that works in Composer and classic mode alike, with a cache
+buster, because `cacheBusting` defaults to `true`:
 
 ..  literalinclude:: _CodeSnippets/_MyMapController.php
     :caption: packages/my_extension/Classes/Controller/MyMapController.php

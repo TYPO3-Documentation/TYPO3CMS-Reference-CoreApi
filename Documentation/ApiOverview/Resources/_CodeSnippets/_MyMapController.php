@@ -21,7 +21,6 @@ final readonly class MyMapController
     $resource = $this->systemResourceFactory->createPublicResource(
       'PKG:my-vendor/my-extension:Resources/Public/XML/addresses.xml',
     );
-    // The URL contains a cache buster, pass an absolute URL to the browser
     return (string)$this->resourcePublisher->generateUri(
       $resource,
       $request,
