@@ -79,7 +79,7 @@ Minimal example for a Fluid-based email template
 ..  directory-tree::
     :show-file-icons: true
 
-    *  EXT:my_sitepackage/
+    *   EXT:my_sitepackage/
 
         *   Resources
 
