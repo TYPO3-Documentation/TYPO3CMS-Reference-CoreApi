@@ -44,29 +44,38 @@ controller:
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/MyController.php (excerpt)
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php (excerpt)
 
     // use Psr\Http\Message\ResponseInterface
-    public function myAction(): ResponseInterface
+    public function showAction(): ResponseInterface
     {
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
 
-        // Example of assignung variables to the view
+        // Example of assigning variables to the view
         $moduleTemplate->assign('someVar', 'someContent');
 
-        // Example of adding a page-shortcut button
-        $routeIdentifier = 'web_examples'; // array-key of the module-configuration
-        $buttonBar = $moduleTemplate->getDocHeaderComponent()->getButtonBar();
-        $shortcutButton = $buttonBar->makeShortcutButton()->setDisplayName('Shortcut to my action')->setRouteIdentifier($routeIdentifier);
-        $shortcutButton->setArguments(['controller' => 'MyController', 'action' => 'my']);
-        $buttonBar->addButton($shortcutButton, ButtonBar::BUTTON_POSITION_RIGHT);
+        // Example of naming what the bookmark button points to.
+        // The route identifier is the array key of the module configuration.
+        // The controller is its alias, the class name without the suffix.
+        $moduleTemplate->getDocHeaderComponent()->setShortcutContext(
+            routeIdentifier: 'web_examples',
+            displayName: 'Conference details',
+            arguments: ['controller' => 'Conference', 'action' => 'show'],
+        );
         // Adding title, menus and more buttons using $moduleTemplate ...
 
-        return $moduleTemplate->renderResponse('MyController/MyAction');
+        return $moduleTemplate->renderResponse('Conference/Show');
     }
 
+..  versionchanged:: 14.0
+    :changelog: feature-108008-1762896168
+
+    The bookmark button is added automatically.
+
 ..  seealso::
-    :ref:`Dropdown button components <dropdown-button-components>`
+    *   :ref:`Reload and bookmark buttons
+        <docheadercomponent-automatic-buttons>`
+    *   :ref:`Dropdown button components <dropdown-button-components>`
 
 
 Using this :php:`ModuleTemplate` class, the Fluid templates for
