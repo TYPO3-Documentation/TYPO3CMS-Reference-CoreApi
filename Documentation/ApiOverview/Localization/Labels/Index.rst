@@ -52,11 +52,13 @@ file-based `LLL:` syntax.
 
 The domain syntax has the form:
 
-..  code-block::php
+..  code-block:: text
 
     package[.subdomain...].resource
 
-    For example:
+For example:
+
+..  code-block:: text
 
     my_extension.messages:comment_saved
 
