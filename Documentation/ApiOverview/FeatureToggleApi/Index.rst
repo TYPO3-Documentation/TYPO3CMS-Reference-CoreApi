@@ -107,8 +107,6 @@ Some examples of feature toggles in the TYPO3 Core:
 -   `security.backend.enforceReferrer`: If on, HTTP referrer headers are enforced
     for backend and install tool requests to mitigate potential same-site
     request forgery attacks.
-
-..  versionadded:: 14.2
 -   `extbase.enableHistoryTracking`: Enables tracking of history for Extbase
     domain entities by listening to Extbase persistence events and storing them
     in the :sql:`sys_history` table. If enabled, it is enabled for all extbase
@@ -118,6 +116,11 @@ Some examples of feature toggles in the TYPO3 Core:
 ..  literalinclude:: _tx_myextension_domain_model_blog.php
     :emphasize-lines: 13-15
     :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_blog.php (excerpt)
+
+..  versionadded:: 14.2
+    :changelog: feature-107289-1734172800
+
+    The feature toggle `extbase.enableHistoryTracking` was added.
 
 ..  note::
 
