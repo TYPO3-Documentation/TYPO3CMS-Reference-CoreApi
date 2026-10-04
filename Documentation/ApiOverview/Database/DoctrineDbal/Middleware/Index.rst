@@ -137,7 +137,7 @@ similar to the :ref:`PSR-15 middleware stack <request-handling>`. The available
 structure for a middleware configuration is:
 
 ..  confval:: target
-
+    :name: dbal-middleware-target
     :type: string
     :required: true
 
@@ -150,7 +150,7 @@ before
 ------
 
 ..  confval:: before
-
+    :name: dbal-middleware-before
     :type: list of strings
     :default: :php:`[]`
 
@@ -164,7 +164,7 @@ after
 -----
 
 ..  confval:: after
-
+    :name: dbal-middleware-after
     :type: list of strings
     :default: :php:`[]`
 
@@ -184,7 +184,7 @@ disabled
 --------
 
 ..  confval:: disabled
-
+    :name: dbal-middleware-disabled
     :type: boolean
     :default: :php:`false`
 

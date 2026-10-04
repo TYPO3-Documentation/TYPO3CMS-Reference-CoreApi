@@ -109,35 +109,35 @@ minimum length and four individual requirements.
 The following options are available:
 
 ..  confval:: minimumLength
-
+    :name: password-validator-minimumLength
     :type: int
     :default: 8
 
     The minimum length of a given password.
 
 ..  confval:: upperCaseCharacterRequired
-
+    :name: password-validator-upperCaseCharacterRequired
     :type: bool
     :default: true
 
     If set to :php:`true` at least one upper case character (`A`-`Z`) is required.
 
 ..  confval:: lowerCaseCharacterRequired
-
+    :name: password-validator-lowerCaseCharacterRequired
     :type: bool
     :default: true
 
     If set to :php:`true` at least one lower case character (`a`-`z`) is required.
 
 ..  confval:: digitCharacterRequired
-
+    :name: password-validator-digitCharacterRequired
     :type: bool
     :default: true
 
     If set to :php:`true` at least one digit character (`0`-`9`) is required.
 
 ..  confval:: specialCharacterRequired
-
+    :name: password-validator-specialCharacterRequired
     :type: bool
     :default: true
 

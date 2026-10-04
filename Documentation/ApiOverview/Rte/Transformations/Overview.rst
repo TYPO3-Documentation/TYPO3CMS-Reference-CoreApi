@@ -45,7 +45,7 @@ Transformation filters
 ======================
 
 .. confval:: css_transform
-
+   :name: rte-transformation-css-transform
    :Scope: RTE Transformation filter
 
    Transforms the HTML markup either for display in the rich-text editor or for
@@ -62,7 +62,7 @@ ts_links
 --------
 
 .. confval:: ts_links
-
+   :name: rte-transformation-ts-links
    :Scope: RTE Transformation filter
 
    Processes anchor tags and resolves them via
