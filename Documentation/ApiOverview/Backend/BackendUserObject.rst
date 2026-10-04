@@ -226,19 +226,42 @@ The full "be\_users" record of a authenticated user is available in
 Get user configuration value
 ============================
 
-The internal :php:`->uc` array contains options which are managed by the
-User Tools > :guilabel:`User Settings` module (extension "setup"). These values are accessible in
-the :php:`$GLOBALS['BE_USER']->uc` array. This will return the current state of
-"Notify me by email, when somebody logs in from my account" for the user:
+..  versionadded:: 14.2
+    :changelog: feature-108832-1738500000
+
+    The settings used to be read from the :php:`->uc` array directly.
+
+The settings a user keeps in the :guilabel:`User Settings` module come as a
+:php-short:`\TYPO3\CMS\Core\Authentication\UserSettings` object:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
-    $GLOBALS['BE_USER']->uc['emailMeAtLogin']
+    $userSettings = $GLOBALS['BE_USER']->getUserSettings();
 
-You can read the configured language of the backend user:
+    // "Notify me by email, when somebody logs in from my account"
+    $notify = $userSettings->isEmailMeAtLoginEnabled();
+
+    // The language of the backend
+    $backendLanguage = $userSettings->has('lang')
+        ? $userSettings->get('lang')
+        : 'en';
+
+    // Every setting at once
+    $all = $userSettings->toArray();
+
+The object implements :php-short:`\Psr\Container\ContainerInterface`, so
+`has()` answers whether a setting exists and `get()` returns its value.
+Ask `has()` first, or catch
+:php-short:`\TYPO3\CMS\Core\Authentication\Exception\UserSettingsNotFoundException`,
+because `get()` throws for a setting that was never registered rather than
+returning a default.
+
+Writing still goes through the :php:`->uc` array, which TYPO3 keeps in step
+with the :sql:`be_users.user_settings` column:
 
 ..  code-block:: php
-    :caption: Read the language to be used in the backend
+    :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php
 
-    $backendLanguage = $GLOBALS['BE_USER']->uc['lang'] ?? 'en';
+    $GLOBALS['BE_USER']->uc['colorScheme'] = 'dark';
+    $GLOBALS['BE_USER']->writeUC();
