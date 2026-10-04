@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  index::Exceptions; ProductionExceptionHandler
+..  index:: Exceptions; ProductionExceptionHandler
 ..  _error-handling-production-exception-handler:
 
 ============================
