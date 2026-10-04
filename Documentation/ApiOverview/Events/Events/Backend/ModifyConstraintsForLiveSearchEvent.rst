@@ -7,6 +7,8 @@ ModifyConstraintsForLiveSearchEvent
 ===================================
 
 ..  versionadded:: 14.2
+    :changelog: feature-105827-1751912675
+
 The PSR-14 event :php-short:`\TYPO3\CMS\Backend\Search\Event\ModifyConstraintsForLiveSearchEvent`
 is fired in the :php:`\TYPO3\CMS\Backend\Search\LiveSearch\LiveSearch` class
 and allows search constraints to be added or removed before a search is executed.
