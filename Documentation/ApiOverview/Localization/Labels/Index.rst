@@ -144,9 +144,14 @@ directory of each installed extension. The system builds a mapping between file 
 and domain identifiers, ensuring that each domain corresponds to an existing
 file.
 
-If multiple files can map to the same domain (for example,
-:file:`locallang_db.xlf` and :file:`db.xlf` in the same directory),
-the simplified name takes precedence, and the prefixed variant is ignored.
+If several files in the same directory map to the same domain, TYPO3 uses only
+one of them. The files are not merged, and the labels of the ignored files
+never reach that domain. A file name without `locallang` takes precedence over
+a :file:`locallang_*.xlf` file, which takes precedence over plain
+:file:`locallang.xlf`. For example, :file:`db.xlf` wins over
+:file:`locallang_db.xlf`, and :file:`messages.xlf` wins over
+:file:`locallang.xlf`. Keep one file per domain in a directory, so that no
+labels get lost.
 
 All mappings are cached internally for performance.
 
