@@ -864,13 +864,13 @@ for inline content, so an inline script or style has to opt in:
     <!-- file: hashed from its content -->
     <f:asset.script
       identifier="my-script"
-      src="EXT:my_extension/Resources/Public/JavaScript/main.js"
+      src="PKG:my-vendor/my-extension:Resources/Public/JavaScript/main.js"
     />
 
     <!-- file with an integrity attribute: its value is used -->
     <f:asset.script
       identifier="my-other-script"
-      src="EXT:my_extension/Resources/Public/JavaScript/other.js"
+      src="PKG:my-vendor/my-extension:Resources/Public/JavaScript/other.js"
       integrity="sha256-bH08G/hWWXosiuLKdJjLRFSjIoZnCyDPNiAvpXi0kak="
     />
 
