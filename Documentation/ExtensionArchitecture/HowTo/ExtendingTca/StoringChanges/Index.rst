@@ -81,7 +81,7 @@ The advantage of this method is that changes will be incorporated into
     :file:`Configuration/TCA/Overrides/tt_content.php` because the API call only
     modifies :php:`$GLOBALS['TCA']` for table :sql:`tt_content`.
 
-..  index::triple:PSR-14 event; TCA; AfterTcaCompilationEvent;
+..  index:: triple: PSR-14 event; TCA; AfterTcaCompilationEvent
 ..  _storing-changes-on-the-fly:
 
 Changing the TCA "on the fly"

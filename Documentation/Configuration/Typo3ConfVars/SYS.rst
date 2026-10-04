@@ -996,7 +996,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
 passwordPolicies
 ----------------
 
-..  confval::passwordPolicies
+..  confval:: passwordPolicies
     :name: globals-typo3-conf-vars-sys-passwordPolicies
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
     :type: array
