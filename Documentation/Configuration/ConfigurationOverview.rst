@@ -56,7 +56,6 @@ Extension files
     Composer configuration, required in Composer-based installations
 
 :ref:`ext_tables.php (Deprecated) <extension-configuration-files>`
-
     ..  deprecated:: 14.2
         :changelog: deprecation-109438-1774951763
 
