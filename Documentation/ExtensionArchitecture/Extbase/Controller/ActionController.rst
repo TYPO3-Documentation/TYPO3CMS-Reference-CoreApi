@@ -352,8 +352,8 @@ preserves the current request's arguments and flash messages so that the forward
 action can re-render the form with submitted values still in place. The
 browser URL does not change.
 
-Flash messages travel with the response itself: `withFlashMessages()` puts
-them there and `getFlashMessages()` reads them back. The forwarded action
+Flash messages travel with the response itself: :php:`withFlashMessages()` puts
+them there and :php:`getFlashMessages()` reads them back. The forwarded action
 shows them without a user session being involved.
 
 :php-short:`\TYPO3\CMS\Extbase\Http\ForwardResponse` accepts action name,
