@@ -1,0 +1,9 @@
+routeEnhancers:
+  NewsPlugin:
+    type: Extbase
+    limitToPages:
+      - 42
+      - 'page["doktype"] == 1 && page["backend_layout"] == "news"'
+      - 'like(page["slug"], "/news/*")'
+    extension: News
+    plugin: Pi1
