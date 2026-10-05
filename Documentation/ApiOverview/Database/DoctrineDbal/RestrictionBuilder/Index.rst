@@ -370,6 +370,6 @@ set of restrictions for own query statements if needed.
 ..  tip::
     It can be very helpful to debug the final statements created by the
     :php:`RestrictionBuilder` using :php:`debug($queryBuilder->getSQL())` right
-    before the final call to :php:`$queryBuilder->executeQuery()`. Just take
+    before the final call to :php:`$queryBuilder->executeQuery()`. Take
     care these calls **do not**
     :ref:`end up in production <database-query-builder-get-sql>` code.

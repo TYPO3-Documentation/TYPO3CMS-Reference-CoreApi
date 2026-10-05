@@ -39,9 +39,9 @@ problem.
 
 Following the coding guidelines not necessarily means more work for
 Core contributors: The automatic CGL check performed by bamboo can
-be easily replayed locally: If the test setup votes negative on a
+be replayed locally: If the test setup votes negative on a
 Core patch in the review system due to CGL violations, the patch
-can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
+can be fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
 and pushed another time. For details on Core contributions, have a look at the
 :ref:`TYPO3 Contribution Guide <t3contribute:start>`.
 

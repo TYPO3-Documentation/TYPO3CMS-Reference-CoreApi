@@ -13,7 +13,7 @@ Clipboard
     :php:`@internal`. It is a specific Backend implementation and is not
     considered part of the Public TYPO3 API. It might change without notice.
 
-You can easily access the internal clipboard in TYPO3 from your
+You can access the internal clipboard in TYPO3 from your
 backend modules:
 
 ..  literalinclude:: /CodeSnippets/Examples/Clipboard/DebugClipboard.php

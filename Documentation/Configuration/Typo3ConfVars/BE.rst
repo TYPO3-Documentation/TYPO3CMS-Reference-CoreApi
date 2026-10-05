@@ -616,7 +616,7 @@ defaultPermissions
         :caption: config/system/additional.php | typo3conf/system/additional.php
 
     If you want to deviate from the default permissions, for example, by changing the 'everybody' key,
-    just modify that key:
+    modify that key:
 
     ..  code-block:: php
         :caption: config/system/additional.php | typo3conf/system/additional.php

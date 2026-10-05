@@ -86,7 +86,7 @@ Step-by-step instructions for GitHub
             :name: crowdinGitHubWorkflow
             :header-level: 4
 
-            When working with GitHub Actions, you can easily integrate the
+            When working with GitHub Actions, you can integrate the
             `Crowdin GitHub Action <https://github.com/marketplace/actions/crowdin-action>`__
             into your CI workflow.
 

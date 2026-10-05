@@ -134,7 +134,7 @@ The result is the following:
 
 ..  note::
 
-    Obviously this new field doesn't do anything yet. For it to do its job of
+    This new field doesn't do anything yet. For it to do its job of
     excluding a content element from being printed, it must modify the TypoScript
     used to render the :sql:`tt_content` table. Although this is outside the scope of this
     manual, here is an example of what you could do, for the sake of

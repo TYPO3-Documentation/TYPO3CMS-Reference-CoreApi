@@ -418,7 +418,7 @@ level.
     valid. Please do no "mass-change" across the Core. Use the new rule for
     future changes or patches currently under review but do **not** block reviews
     because of the legacy concatenation. If you change a line/method anyway,
-    you can of course adapt CGL-changes as well (as long as it's no
+    you can adapt CGL-changes as well (as long as it's no
     "mass-change").
 
 ..  code-block:: php

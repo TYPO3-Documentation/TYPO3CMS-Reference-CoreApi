@@ -42,8 +42,8 @@ will manage (install/update) them for you.
 
 `Packagist <https://packagist.org/>`__ is the main Composer repository. It
 aggregates public PHP packages installable with Composer. Composer packages
-can be published by the package maintainers on Packagist to be installable in an
-easy way via the :bash:`composer require` command.
+can be published by the package maintainers on Packagist to be installable
+via the :bash:`composer require` command.
 
 ..  attention::
     When a Composer package with the type `typo3-cms-extension` is published on

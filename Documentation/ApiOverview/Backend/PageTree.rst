@@ -8,7 +8,7 @@ The page tree in the TYPO3 backend
 ==================================
 
 The **page tree** is a hierarchical structure that represents pages and their
-subpages on a website, allowing editors and integrators to easily organize and
+subpages on a website, allowing editors and integrators to organize and
 manage content and navigation.
 
 It is displayed on the left of backend modules with

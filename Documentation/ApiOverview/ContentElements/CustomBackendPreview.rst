@@ -39,7 +39,7 @@ Preview rendering with a Fluid template and page TSconfig
     `{record.pi_flexform}`.
 
 
-This is the "integrator" way, no PHP coding is required. Just some page TSconfig
+This is the "integrator" way, no PHP coding is required. It needs only some page TSconfig
 and a Fluid template.
 
 ..  literalinclude:: _codesnippets/_preview.typoscript

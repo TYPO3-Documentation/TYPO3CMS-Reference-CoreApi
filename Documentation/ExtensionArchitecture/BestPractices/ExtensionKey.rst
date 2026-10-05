@@ -117,7 +117,7 @@ Registering an extension key
 
 Before starting a new extension you should register an extension key
 on extensions.typo3.org (unless you plan to make an implementation-specific
-extension – of course – which does not make sense to share).
+extension, which does not make sense to share).
 
 Go to `extensions.typo3.org <https://extensions.typo3.org>`__, log in with your
 (pre-created) username/password and navigate to :guilabel:`My Extensions` in the

@@ -19,7 +19,7 @@ highly valuable. It acts as a time machine for your project, allowing you to:
 -   Experiment with confidence by branching and reverting
 -   Document and understand your progress over time
 -   Sync work between devices or back it up to the cloud
--   Undo mistakes and recover lost files easily
+-   Undo mistakes and recover lost files
 -   Share code with clients, agencies, or collaborators when needed
 
 Whether you are building a quick prototype or maintaining a long-term

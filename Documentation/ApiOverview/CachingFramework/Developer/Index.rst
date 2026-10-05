@@ -74,7 +74,7 @@ Read :ref:`how to configure dependency injection in extensions
 
 The name of the service for the injection configuration is
 :yaml:`cache.myext_mycache`, the name of the cache is `myext_mycache` (as
-defined in :php:`ext_localconf.php`). Both can be anything you like, just make
+defined in :php:`ext_localconf.php`). Both can be anything you like. Make
 sure they are unique and clearly hint at the purpose of your cache.
 
 Here is some example code which retrieves the cache via dependency injection:

@@ -101,7 +101,7 @@ Among the many things done by the storage layer are:
 *   communication with the driver (it is the ONLY object that does so)
 *   logging and throwing of exceptions for successful and unsuccessful file
     operations (although some exceptions are also thrown in other layers if
-    necessary, of course)
+    necessary)
 
 The storage essentially works with :php:`\TYPO3\CMS\Core\Resource\File`
 and :php:`\TYPO3\CMS\Core\Resource\Folder` objects.

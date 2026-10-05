@@ -64,7 +64,7 @@ about the publishing process.
    TYPO3 instance using `composer require`.
 *  All advantages of being listed in Packagist, for example
 
-   *  Extension can be updated easily with `composer update`
+   *  Extension can be updated with `composer update`
 
 ..  index:: Extension development; TER
 
