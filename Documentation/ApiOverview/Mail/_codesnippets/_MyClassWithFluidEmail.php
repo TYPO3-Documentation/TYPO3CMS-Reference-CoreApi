@@ -7,13 +7,18 @@ namespace MyVendor\MyExtension;
 use Symfony\Component\Mime\Address;
 use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\MailerInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Mail\TemplatedEmailFactory;
 
-final class MyClass
+final readonly class MyClass
 {
+  public function __construct(
+    private TemplatedEmailFactory $templatedEmailFactory,
+    private MailerInterface $mailer,
+  ) {}
+
   public function sendMail(): void
   {
-    $email = new FluidEmail();
+    $email = $this->templatedEmailFactory->create();
     $email
         ->to('contact@example.org')
         ->from(new Address('jeremy@example.org', 'Jeremy'))
@@ -22,6 +27,6 @@ final class MyClass
         ->format(FluidEmail::FORMAT_BOTH)
         ->setTemplate('TipsAndTricks')
         ->assign('mySecretIngredient', 'Tomato and TypoScript');
-    GeneralUtility::makeInstance(MailerInterface::class)->send($email);
+    $this->mailer->send($email);
   }
 }
