@@ -154,9 +154,10 @@ The file paths can then be used within JavaScript:
 ..  literalinclude:: _CodeSnippets/_Map.js
     :caption: packages/my_extension/Resources/Public/JavaScript/Content/Map.js
 
-To reference a resource by its
-:ref:`resource identifier <resources-identifiers>`, turn it into a resource
-object with the ViewHelper `f:resource` first:
+The ViewHelper `f:uri.resource` accepts a resource identifier directly in its
+`path` attribute (`path="PKG:..."`). Alternatively, an identifier can be
+converted into a resource object using `f:resource`, for example when chaining
+ViewHelpers:
 
 ..  literalinclude:: _CodeSnippets/_MapResource.fluid.html
     :caption: packages/my_extension/Resources/Private/Content/Map.fluid.html
