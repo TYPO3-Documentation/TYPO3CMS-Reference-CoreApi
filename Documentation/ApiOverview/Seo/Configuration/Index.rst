@@ -130,7 +130,7 @@ This feature should work correctly in almost all cases.
 TYPO3 is using PSR-14 events to handle the generation of those `hreflang` link-tags.
 If, for some reason, you would like to alter or remove the automatically generated
 tags, you can register your own EventListener. This EventListener should listen
-to the :php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` event. Just make
+to the :php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` event. Make
 sure your EventListener is ordered after the :php:`TYPO3\CMS\Seo\HrefLang\HrefLangGenerator`
 listener.
 

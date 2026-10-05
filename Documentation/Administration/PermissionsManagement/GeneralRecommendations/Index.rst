@@ -28,7 +28,7 @@ backend is always known, as well as who is responsible for specific changes
 in content or configuration.
 
 In the context of :abbr:`GDPR (General Data Protection Regulation)`, it is recommended
-to use properly named accounts to easily distinguish individuals. Assigning top-level
+to use properly named accounts to distinguish individuals. Assigning top-level
 groups to these accounts makes identifying user roles straightforward.
 
 ..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementBadUserNaming.png

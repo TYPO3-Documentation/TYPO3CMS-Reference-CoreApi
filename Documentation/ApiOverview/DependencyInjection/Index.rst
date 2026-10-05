@@ -350,7 +350,7 @@ the abstract.
 
 In general, when the core provides abstract classes that are expected to be
 extended by extensions, the abstract class should use :php:`inject*()` methods instead of
-constructor injection. Extensions of course can follow this idea in similar
+constructor injection. Extensions can follow this idea in similar
 scenarios.
 
 This construct has some further implications: Abstract classes should

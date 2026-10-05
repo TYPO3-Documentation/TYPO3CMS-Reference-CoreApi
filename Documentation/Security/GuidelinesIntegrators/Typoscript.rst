@@ -120,7 +120,7 @@ and displays all cookie name/value pairs. In the case that a cookie
 named `fe_typo_user` exists, the cookie value will be passed to
 google.com, together with some extra data.
 
-This code snippet is harmless of course but it shows how malicious
+This code snippet is harmless but it shows how malicious
 code (e.g. JavaScript) can be placed in the HTML content of a page by
 using `TypoScript`.
 

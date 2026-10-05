@@ -24,7 +24,7 @@ With a good basic setup of your Crowdin interface, the work will be less nerve-w
 and you will find that you get a lot done. It often pays to invest time in customizing
 your personal settings in Crowdin so that you get the most out of the features the
 tool offers. For example, you can sort and filter files, choose from different
-views, and easily navigate between projects. You can also customize the editor
+views, and navigate between projects. You can also customize the editor
 to suit your work style, and leverage or change hotkeys to optimize workflow.
 
 ..  note::
@@ -199,10 +199,10 @@ Use EXT:Crowdin
 
 There is an extension that you can use with great advantage for translations of
 both frontend and backend. EXT:Crowdin integrates the in-context editing of Crowdin
-into TYPO3, making it quick and easy to add translations of XLF files used in the
+into TYPO3, so that you can add translations of XLF files used in the
 backend. With this extension, you can get a more streamlined workflow, where you
 don't have to switch between multiple programs or platforms. This allows you to
-work more efficiently and easily keep track of which files have been translated
+work more efficiently and keep track of which files have been translated
 and which ones are missing. And most important: the extension gives you context
 to the string, you currently translate, because you can see right away where
 it is used in TYPO3.
@@ -349,7 +349,7 @@ Don't trust 100% on 100%
 Crowdin shows one percent for each language, but it's a bit misleading. Old versions
 do not have to be completely translated, so a language can easily be finished, even if
 the counter may only say 50%. And even if it says "100% finished", it doesn't mean
-that everything just plays – it's always a good idea to just read through the text
+that everything just plays – it's always a good idea to read through the text
 and check if it sounds proper and natural in your language. Quality is not
 only a question of quantity, but also of whether the text is understandable and accurate.
 

@@ -68,7 +68,7 @@ request records from the system.
 
 The most basic form of a preview is when a live record is selected and
 you lookup a future version of that record belonging to the current
-workspace of the logged in backend user. This is very easy as long as
+workspace of the logged in backend user. This works as long as
 a record is selected based on its "uid" or "pid" fields which are not
 subject to versioning: call
 :php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` after
@@ -145,7 +145,7 @@ frontend:
 
    **Example:**
 
-   This is how simple it is to use this record in your frontend plugins
+   This is how to use this record in your frontend plugins
    when you do queries directly (not using API functions already using
    them):
 

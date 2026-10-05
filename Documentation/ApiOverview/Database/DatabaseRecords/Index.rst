@@ -13,7 +13,7 @@ specific entity, such as a page, a content element, a backend user, or an
 extension configuration.
 
 TYPO3 uses a modular structure where different types of data are managed as
-records, making it easy to organize and manipulate content.
+records.
 
 Understanding records in TYPO3 is fundamental, as they are the building blocks
 for managing content and data within the system.

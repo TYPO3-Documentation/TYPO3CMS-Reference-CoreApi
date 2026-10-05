@@ -85,7 +85,7 @@ information:
 *   You can start discussions about a specific string.
 *   You can search the Translation Memory.
 *   You can improve the Translation Memory by adding new terms.
-*   You can easily get in contact with the language manager and team members.
+*   You can get in contact with the language manager and team members.
 
 ..  _crowdin-crowdin-translation-preconditions:
 

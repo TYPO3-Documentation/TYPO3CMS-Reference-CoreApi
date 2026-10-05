@@ -325,7 +325,7 @@ A project will often contain custom extensions, such as a :ref:`sitepackage <t3s
 which provides TYPO3-related project templates and configuration.
 
 Before TYPO3 v12, these extensions were stored in the `typo3conf` directory :file:`typo3conf/ext/my_sitepackage`.
-Composer mode allows you to easily add a custom repository to your project
+Composer mode allows you to add a custom repository to your project
 by using the `path` type. This means you can require your local sitepackage as if it was
 a normal package without publishing it to a repository like
 GitHub or on Packagist.

@@ -16,7 +16,7 @@ found, the system will use the service with the best quality.
 The priority is used to define a call order for services. The default
 priority is 50. The service with the highest priority is called first.
 The priority of a service is defined by its developer, but may be
-reconfigured (see :ref:`Configuration <services-configuration>`). It is thus very easy to add
+reconfigured (see :ref:`Configuration <services-configuration>`). It is thus possible to add
 a new service that comes before or after an existing service, or to
 change the call order of already registered services.
 

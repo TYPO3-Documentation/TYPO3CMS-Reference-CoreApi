@@ -28,7 +28,7 @@ project on Crowdin.
 
 It is important that they follow the description on the page
 :ref:`Extension integration <crowdin-extension-integration>`.
-The setup is a simple process and done within minutes.
+The setup takes a few minutes.
 
 
 ..  _crowdin-faq-extension-language-missing:

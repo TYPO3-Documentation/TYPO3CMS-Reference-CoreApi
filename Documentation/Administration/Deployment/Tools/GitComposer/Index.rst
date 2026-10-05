@@ -10,7 +10,7 @@ Deploying TYPO3 using Git and Composer
 This guide describes how to deploy a TYPO3 project directly onto your server
 using **Git** and **Composer**, without the need for additional deployment tools.
 
-This method is **simple to set up** and **requires no external deployment services**,
+This method is **quick to set up** and **requires no external deployment services**,
 but it does require **Git and Composer to be installed on the server** and may cause
 **downtime during updates**.
 

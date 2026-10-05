@@ -64,7 +64,7 @@ The "admin" user
 ================
 
 There is a special kind of backend users called "Admin".
-When creating a backend user, just check the "Admin!" box in the
+When creating a backend user, check the "Admin!" box in the
 "General" tab and that user will become an administrator.
 There's no need to set further access options for such a user:
 an admin user can access every single feature of the TYPO3

@@ -7,7 +7,7 @@ Custom translation servers
 ==========================
 
 With the usage of :ref:`XLIFF <xliff>` and the freely available `Pootle`_
-translation server, companies and individuals may easily set up a custom
+translation server, companies and individuals may set up a custom
 translation server for their extensions.
 
 ..  _Pootle: http://pootle.translatehouse.org/

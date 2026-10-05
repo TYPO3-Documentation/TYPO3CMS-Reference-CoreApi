@@ -136,7 +136,7 @@ identifier to directly target those actions. See also module configuration: :con
 Via Fluid ViewHelper
 --------------------
 
-To generate a backend URL in Fluid you can simply use html:`<f:be.link>` (which
+To generate a backend URL in Fluid you can use html:`<f:be.link>` (which
 is using :php:`UriBuilder` internally).
 
 ..  code-block:: html

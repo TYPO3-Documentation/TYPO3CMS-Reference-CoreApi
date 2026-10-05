@@ -121,8 +121,7 @@ If you are planning to work directly on the server rather than locally, read cha
 `Installing and using TYPO3 directly on the server <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow>`_,
 expecially the `Quick wins & caution flags <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow-pro-con>`_.
 
-If Composer is available, installation is simple. If not, you may need to find
-or install it. See
+If Composer is not available, you may need to find or install it. See
 :ref:`Finding or installing Composer on the server
 <direct-server-composer-access>`.
 

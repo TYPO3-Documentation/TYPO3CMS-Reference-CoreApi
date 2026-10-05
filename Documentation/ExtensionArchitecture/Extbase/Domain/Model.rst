@@ -532,7 +532,7 @@ corresponding model or entity (entity is used as a synonym here)
 :php:`\MyVendor\MyExtension\Domain\Model\Blog`.
 
 Now, also imagine there is a domain rule which states, that all blogs must have
-a title. This rule can easily be followed by letting the blog class have a
+a title. This rule can be followed by letting the blog class have a
 constructor with a required argument :php:`string $title`.
 
 ..  literalinclude:: _snippets/_Blog1.php
@@ -556,7 +556,7 @@ all one need to create a blog object with a valid state.
 What happens in the :php:`DataMapper` however, is a totally different thing.
 When hydrating an object, the :php:`DataMapper` cannot follow any domain rules.
 Its only job is to map the raw database values onto a :php:`Blog` instance. The
-:php:`DataMapper` could of course detect constructor arguments and try to guess
+:php:`DataMapper` could detect constructor arguments and try to guess
 which argument corresponds to what property, but only if there is an easy
 mapping, that means, if the constructor takes the argument :php:`string $title`
 and updates the property `title` with it.

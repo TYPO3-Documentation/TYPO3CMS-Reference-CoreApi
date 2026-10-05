@@ -31,7 +31,7 @@ and configurations before proceeding.
 Next, upgrade TYPO3 while keeping the PHP version unchanged. This will help you
 to identify whether errors stem from the TYPO3 core or from PHP.
 
-During development, tools like DDEV make it easy to switch PHP versions.
+During development, tools like DDEV let you switch PHP versions.
 Some hosting environments also allow multiple PHP versions. Try changes in a
 staging or relaunch setup before updating production.
 

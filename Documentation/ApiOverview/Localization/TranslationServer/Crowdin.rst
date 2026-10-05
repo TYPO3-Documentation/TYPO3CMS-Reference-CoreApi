@@ -74,7 +74,7 @@ language or the revision of a part of the Core.
     Core.
 
 #.  If you develop extensions, you can make the extension available for
-    translation. Just follow
+    translation. Follow
     :ref:`Integrate Crowdin in your extension <crowdin-extension-integration>`
     to make it available to the translation team.
 

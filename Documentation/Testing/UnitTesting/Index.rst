@@ -48,7 +48,7 @@ The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUti
 ..  literalinclude:: _UnitTests/_ArrayUtilityTest.php
     :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php  (stripped)
 
-This way it is easy to find unit tests for any given file. Note PhpStorm understands this structure and
+This way, the unit tests of any given file are in a predictable place. Note PhpStorm understands this structure and
 can jump from a file to the according test file by hitting `CTRL+Shift+T`.
 
 ..  index:: Unit tests; Extending UnitTestCase
@@ -174,7 +174,7 @@ If a system under test has a dependency to a static method (typically from a uti
 hopefully the static method is a "good" dependency that sticks to the general
 :ref:`static method guide <cgl-model-static-methods>`: A "good" static dependency has no state,
 triggers no further code that has state. If this is the case, think of this dependency code as
-being inlined within the system under test directly. Do not try to mock it away, just test
+being inlined within the system under test directly. Do not try to mock it away. Test
 it along with the system under test.
 
 If however the static method that is called is a "bad" dependency that statically calls further
@@ -195,7 +195,7 @@ Exception handling
 
 Code should throw exceptions if something goes wrong. See :ref:`working with exceptions
 <cgl-working-with-exceptions>` for some general guides on proper exception handling.
-Exceptions are often very easy to unit test and testing them can be beneficial. Let's take
+Testing exceptions can be beneficial. Let's take
 a simple example, this is from :php:`TYPO3\CMS\Core\Tests\Unit\Cache\CacheManagerTest`
 and tests both the exception class and the exception code:
 

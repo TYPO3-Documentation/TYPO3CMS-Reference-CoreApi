@@ -144,7 +144,7 @@ workflow (which can be kept in your versioning control system):
 ..  literalinclude:: _codesnippets/_additional-native.php
     :caption: config/system/additional.php
 
-Of course, you can move such a file to a special :file:`Shared/Data/` directory
+You can move such a file to a special :file:`Shared/Data/` directory
 (see :ref:`Deploying TYPO3 <deploytypo3>`), as long as you take care the file is
 outside your public web root directory scope.
 

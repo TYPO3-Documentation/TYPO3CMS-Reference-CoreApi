@@ -33,7 +33,7 @@ Comparison of deployment tools
 
     -   :Method: Git + Composer
         :Pros:
-            - Simple setup
+            - Quick to set up
             - No extra tooling needed
             - Version control on server
         :Cons:
@@ -74,7 +74,7 @@ Comparison of deployment tools
     -   :Method: No Deployment (Direct Installation on Server)
         :Pros:
             - No deployment tooling required
-            - Easy to get started for single updates
+            - Quick to start for single updates
         :Cons:
             - No version control or rollback possible
             - High risk of human error
@@ -86,10 +86,10 @@ Comparison of deployment tools
 
 ..  rubric:: Summary:
 
--   **Git + Composer**: Easy but requires server-side tooling.
+-   **Git + Composer**: Quick to set up but requires server-side tooling.
 -   **Deployer**: Advanced, safe, and rollback-friendly but requires extra setup.
 -   **Manual rsync**: Simple file sync, but requires external build or packaging steps.
--   **No Deployment (Direct Installation on Server**): Easy to get started, but risky, untracked, and not recommended for professional environments.
+-   **No Deployment (Direct Installation on Server**): Quick to start, but risky, untracked, and not recommended for professional environments.
 
 Select the method that best suits your workflow and server capabilities.
 

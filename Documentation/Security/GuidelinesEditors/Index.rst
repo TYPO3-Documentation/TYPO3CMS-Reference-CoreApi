@@ -27,7 +27,7 @@ approval and training, the client is able to edit the content and
 takes the role of an editor. All technical administration, maintenance
 and update tasks often stay at the developer as the provider of the
 system. This may vary depending on the relation and contracts between
-developer and client of course.
+developer and client.
 
 Editors are predominantly responsible for the content of the website.
 They log in to the backend of TYPO3 (the administration interface)
