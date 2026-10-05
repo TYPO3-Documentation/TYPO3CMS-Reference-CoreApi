@@ -193,8 +193,9 @@ and how it waits:
     Keep the connection of the transport alive, if the transport implements
     it. The default interval is 5 seconds.
 
-Whichever limit you choose, the command always exits with `0`, so run it from
-a service manager like `systemd`_ that restarts it afterwards.
+Whichever limit is reached, the worker process exits with code `0`. Run it
+under a service manager like `systemd`_ that keeps the service active and
+automatically restarts a fresh worker process.
 
 The following code provides an example for a service. Create the following
 file on your server:
