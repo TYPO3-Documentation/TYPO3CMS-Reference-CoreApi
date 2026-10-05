@@ -170,9 +170,7 @@ Generating the URL of a public resource in PHP
 ----------------------------------------------
 
 ..  versionadded:: 14.0
-    See `Feature: #107537 - System resource API for system file access and
-    public URI generation
-    <https://docs.typo3.org/permalink/changelog:feature-107537-1759136314>`_.
+    :changelog: feature-107537-1759136314
 
 To get the URL of a public resource in PHP, resolve its
 :ref:`resource identifier <resources-identifiers>` with the
