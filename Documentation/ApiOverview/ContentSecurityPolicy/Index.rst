@@ -732,16 +732,21 @@ is available, which provides the nonce in a Fluid template, for example:
 
 You can also use the :ref:`f:asset.script <t3viewhelper:typo3-fluid-asset-script>`
 or :ref:`f:asset.css <t3viewhelper:typo3-fluid-asset-css>`
-ViewHelpers with the `useNonce` attribute:
+ViewHelpers with the `csp` argument:
+
+..  versionchanged:: 14.2
+    :changelog: deprecation-100887-1774712028
+
+    The argument was called `useNonce` before.
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
-    <f:asset.script identifier="my-inline-script" useNonce="1">
+    <f:asset.script identifier="my-inline-script" csp="1">
         const inline = 'script';
     </f:asset.script>
 
-    <f:asset.css identifier="my-inline-style" useNonce="1">
+    <f:asset.css identifier="my-inline-style" csp="1">
         .some-style { color: red; }
     </f:asset.css>
 
@@ -801,9 +806,84 @@ the CSP SHA hash would need to be adopted. This could be automated by a PHP defi
 of CSP rules and hashing files automatically, which would be a performance-intense
 process and call for its own caching.
 
-There is no automatism for this kind of hashing in TYPO3 (yet, see
-`https://forge.typo3.org/issues/100887`__), so it has to be done manually
-as outlined above.
+TYPO3 can collect the hashes of the assets it renders itself, see
+`Hash values instead of nonces
+<https://docs.typo3.org/permalink/t3coreapi:content-security-policy-hash-values>`_.
+
+..  _content-security-policy-hash-values:
+
+Hash values instead of nonces
+-----------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-100887-1773012077
+
+TYPO3 can collect the hashes of the scripts and styles it renders during the
+request and add them to the policy as hash sources. Unlike a nonce, a hash is
+the same in every request, so a page whose policy uses only hashes can be
+cached by a reverse proxy or a static file cache.
+
+Hash sources are an opt-in for each site, set in the top-level `behavior` key
+of its :file:`csp.yaml`:
+
+..  code-block:: yaml
+    :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
+
+    behavior:
+      useHash: true
+      useNonce: false
+
+    enforce:
+      inheritDefault: true
+      includeResolutions: true
+
+`useHash: true` collects the hashes and adds them to the policy.
+`useNonce: false` removes the nonce sources from it. As long as the policy
+contains a nonce, every response is unique and cannot be cached. A site
+without `behavior` keeps using nonces.
+
+TYPO3 hashes these assets:
+
+*   Inline scripts and styles: the SHA-256 hash of the content of the
+    :html:`<script>` or :html:`<style>` element.
+*   Script and style files: the value of their :html:`integrity` attribute if
+    there is one, otherwise the hash of the file content.
+*   Inline style attributes registered with the
+    :ref:`f:asset.styleAttr <t3viewhelper:typo3-fluid-asset-styleattr>`
+    ViewHelper, for the :csp:`style-src-attr` directive.
+
+In Fluid, the `csp` argument of the
+:ref:`f:asset.script <t3viewhelper:typo3-fluid-asset-script>` and
+:ref:`f:asset.css <t3viewhelper:typo3-fluid-asset-css>` ViewHelpers decides
+whether an asset gets a hash or a nonce. It is on by default for files and off
+for inline content, so an inline script or style has to opt in:
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
+
+    <!-- file: hashed from its content -->
+    <f:asset.script
+      identifier="my-script"
+      src="PKG:my-vendor/my-extension:Resources/Public/JavaScript/main.js"
+    />
+
+    <!-- file with an integrity attribute: its value is used -->
+    <f:asset.script
+      identifier="my-other-script"
+      src="PKG:my-vendor/my-extension:Resources/Public/JavaScript/other.js"
+      integrity="sha256-bH08G/hWWXosiuLKdJjLRFSjIoZnCyDPNiAvpXi0kak="
+    />
+
+    <!-- inline script: opt in explicitly -->
+    <f:asset.script identifier="my-inline-script" csp="1">
+      document.querySelector('.foo').classList.add('active');
+    </f:asset.script>
+
+    <!-- inline style attribute -->
+    <div style="{f:asset.styleAttr(value: 'color: green')}"></div>
+
+In PHP, the :php:`'csp'` option of :php:`AssetCollector::addJavaScript()` and
+:php:`AssetCollector::addStyleSheet()` does the same.
 
 ..  _content-security-policy-backend:
 ..  _content-security-policy-reporting:
