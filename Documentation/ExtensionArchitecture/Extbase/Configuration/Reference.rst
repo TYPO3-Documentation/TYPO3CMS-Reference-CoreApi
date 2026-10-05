@@ -439,14 +439,18 @@ Output format, language overrides and FlexForm handling
 
 :typoscript:`_LOCAL_LANG <t3tsref:plugin-local-lang>`
     Overrides individual translation labels of a plugin without editing its XLF
-    files. The key is the language key (`default` or an ISO 639-1 code) followed
-    by the translation-unit ID:
+    files. The key is the language key of a locale, such as `en`, `de`, or
+    `fr-LU`, followed by the translation-unit ID:
 
     ..  code-block:: typoscript
         :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
-        plugin.tx_myextension_conferencelist._LOCAL_LANG.default.list.heading = Upcoming conferences
+        plugin.tx_myextension_conferencelist._LOCAL_LANG.en.list.heading = Upcoming conferences
         plugin.tx_myextension_conferencelist._LOCAL_LANG.de.list.heading = Kommende Konferenzen
+
+    The key `default` is a last resort, which applies only to a label that no
+    XLIFF file carries. See `Which language key an override needs
+    <https://docs.typo3.org/permalink/t3coreapi:localization-typoscript-local-lang-keys>`_.
 
 :typoscript:`ignoreFlexFormSettingsIfEmpty <t3tsref:plugin-ignoreflexformsettingsifempty>`
     A comma-separated list of FlexForm field names whose empty values should

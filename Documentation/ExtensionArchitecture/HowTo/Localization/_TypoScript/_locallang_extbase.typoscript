@@ -1,6 +1,6 @@
 plugin.tx_myextension {
   _LOCAL_LANG {
-    default.comment_header = Remarks
+    en.comment_header = Remarks
     de.comment_header = Bemerkungen
     zh.comment_header = 备注
   }
