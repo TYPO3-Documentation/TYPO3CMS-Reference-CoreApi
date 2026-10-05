@@ -76,7 +76,7 @@ called.
 Getter methods for service information
 ======================================
 
-Most of the below methods are quite obvious, except for
+Most of the methods below need no further explanation, except for
 :php:`getServiceOption()`.
 
 getServiceInfo

@@ -238,7 +238,7 @@ inner cache.
 
 Both caches here are ones you register yourself, because their entries must
 survive the request and be shared between visitors. Registering a custom cache
-is a caching-framework task, not an Extbase one — just make sure to put them in
+is a caching-framework task, not an Extbase one — make sure to put them in
 the :php:`pages` group so record changes clear them along with the page cache.
 See :ref:`Quick start for integrators <caching-quickstart>` and
 :ref:`Cache registration <caching-developer-registration>` for the

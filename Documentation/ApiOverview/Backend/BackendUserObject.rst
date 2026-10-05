@@ -85,7 +85,7 @@ Is "admin"?
 ===========
 
 If you want to know if a user is an "admin" user (has complete
-access), just call this method:
+access), call this method:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/SomeModuleController.php

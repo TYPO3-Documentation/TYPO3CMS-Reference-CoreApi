@@ -21,7 +21,7 @@ Introduction
 ============
 
 TYPO3 is known for its flexibility and the ability to be expanded. It's packed
-with lots of built-in features and can be easily customized to fit your needs.
+with lots of built-in features and can be customized to fit your needs.
 That's why it is equipped with an advanced way to manage who gets access
 to different parts of the system. This solution works well for both small
 and large projects, allowing for detailed setting of permissions for various
@@ -47,7 +47,7 @@ This approach compromises security and deviates from best practice.
     of access management in TYPO3. Actually, it's just the opposite. We want to show you
     that you're working with a great tool. It might seem a bit complicated at first,
     but as you learn more about it, get comfortable using it, and follow some
-    well-established practices, you'll find it very effective and easy to use.
+    well-established practices, you'll find it very effective.
 
 We also recognize that each project is unique and may require a distinct setup
 for permissions. Therefore, please consider this document as a compilation

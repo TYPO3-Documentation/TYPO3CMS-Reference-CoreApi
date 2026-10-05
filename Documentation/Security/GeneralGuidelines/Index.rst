@@ -207,7 +207,7 @@ server. For example:
 
 The risk of exploiting a vulnerability is minimal, because the source
 code of the extension is not loaded by TYPO3, but it depends on the type
-of vulnerability of course.
+of vulnerability.
 
 The advice is to move the directory of the old version outside of the
 web root directory, so the insecure extension code is not accessible.

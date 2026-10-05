@@ -55,7 +55,7 @@ inside extensions. The most important classes are:
     If you need to access their records, you need to load them first, using
     method `loadContents()`. On top of some specific API methods,
     this class includes all setters and getters that you may need to access
-    the collection's data. For accessing the selected files, just loop
+    the collection's data. For accessing the selected files, loop
     on the collection (see example).
 
 :php:`\TYPO3\CMS\Core\Resource\Collection\FolderBasedFileCollection`
@@ -88,7 +88,7 @@ record selection:
 ..  literalinclude:: _List.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/List.fluid.html
 
-Here is what the result may look like (the exact result will obviously
+Here is what the result may look like (the exact result will
 depend on the content of the selection):
 
 ..  figure:: /Images/ManualScreenshots/Frontend/Fal/CollectionsOutput.png

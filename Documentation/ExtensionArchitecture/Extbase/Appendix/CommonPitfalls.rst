@@ -502,7 +502,7 @@ controller fallback — therefore ignoring the `35` that should apply.
 
 **Why:** FlexForm values override TypoScript field by field, and a FlexForm
 field that an editor leaves blank is still stored and participates in the
-override — but obviously only as an empty value. So :php:`$this->settings['itemsPerPage']` arrives
+override — but only as an empty value. So :php:`$this->settings['itemsPerPage']` arrives
 as an empty string rather than `35`. The controller then sees an empty value, treats
 it as "not set", and applies its own fallback of `20`. Nothing errors; the
 configured `35` is overwritten before it gets to the controller.

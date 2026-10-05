@@ -55,7 +55,7 @@ Use the non-Composer (classic) method if:
 
 It is perfectly fine to start with the Classic mode installation method if you do not have
 time right now to learn Composer, Git, or deployment workflows. TYPO3 can
-still run well in this setup, especially in smaller projects. Just be aware
+still run well in this setup, especially in smaller projects. Be aware
 that as your project grows or you take on more work, learning these tools will
 make your life easier. You can
 `Migrate to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_

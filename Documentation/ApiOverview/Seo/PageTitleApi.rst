@@ -90,8 +90,7 @@ Create your own page title provider
 Extension developers may want to have an own provider for page titles. For
 example, if you have an extension with records and a detail view, the title of
 the page record will not be the correct title. To make sure to display the
-correct page title, you have to create your own page title provider. It is
-quite easy to create one.
+correct page title, you have to create your own page title provider.
 
 ..  versionadded:: 14.0
     In many use cases, the provider `RecordTitleProvider`
@@ -171,7 +170,7 @@ By default, the Core has the following setup:
 
 The sorting of the providers is based on the :typoscript:`before` and
 :typoscript:`after` parameters. If you want a provider to be handled before a
-specific other provider, just set that provider in the :typoscript:`before`,
+specific other provider, set that provider in the :typoscript:`before`,
 do the same with :typoscript:`after`.
 
 For example, if you want the :php-short:`\TYPO3\CMS\Core\PageTitle\RecordTitleProvider`

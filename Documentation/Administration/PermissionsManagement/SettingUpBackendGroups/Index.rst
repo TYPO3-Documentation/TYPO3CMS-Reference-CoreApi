@@ -82,8 +82,8 @@ nothing more, nothing less.
 
 ..  _naming-convention:
 
-Implementing naming conventions for easy group management
-=========================================================
+Implementing naming conventions for group management
+====================================================
 
 TYPO3 currently lacks the feature to categorize backend user groups by context
 or purpose, sorting them alphabetically instead. While helpful for quick searches,
@@ -204,7 +204,7 @@ Ensure each group name is straightforward and indicative of its permissions.
     Prefixing group names makes them more organized and easier to search within forms
 
 ..  note::
-    Use prefixes or another naming convention to easily
+    Use prefixes or another naming convention to
     distinguish backend user groups by their purpose.
 
 ..  _describe-naming-conventions-in-tca:

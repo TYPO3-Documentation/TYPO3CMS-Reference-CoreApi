@@ -69,7 +69,7 @@ to load and configure the backend login module:
 ..  literalinclude:: _AcceptanceTests/_Backend.suite.yml
     :caption: EXT:my_extension/Tests/Acceptance/Backend.suite.yml
 
-This allows an editor and an admin user to easily log into the TYPO3 backend
+This allows an editor and an admin user to log into the TYPO3 backend
 without further fuzz. An acceptance test can use it like this:
 
 ..  literalinclude:: _AcceptanceTests/_ModuleCest.php

@@ -9,7 +9,7 @@ Permissions synchronization
 ===========================
 
 When administrators create backend users and groups in TYPO3, assigning permissions
-that are stored in the database, they can easily edit these settings via the backend module.
+that are stored in the database, they can edit these settings via the backend module.
 However, managing these settings across different environments — testing, staging,
 and production — can be challenging.
 

@@ -41,8 +41,8 @@ About this chapter and what it does *not* cover.
   :ref:`Core testing requirements <t3contribute:testing-core-dependencies>` for more details.
 
 * We assume your extension code is on github and that automated testing
-  is carried out by GitHub Actions. GitHub Actions
-  are easy to set up and plenty of documentation is available.
+  is carried out by GitHub Actions. Plenty of documentation
+  is available for GitHub Actions.
   If your extension code is located elsewhere or uses a different CI, this
   chapter may still be of use to help you build a general understanding of
   the testing process.
@@ -766,7 +766,7 @@ a `backend tester <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptanc
 a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
 that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
-some database fixtures to easily log in to the backend. In addition, the :file:`runTests.sh` and
+some database fixtures to log in to the backend. In addition, the :file:`runTests.sh` and
 :file:`docker-compose.yml` files take care of adding selenium-chrome and a web
 server to execute the tests:
 

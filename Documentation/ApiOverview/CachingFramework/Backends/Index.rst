@@ -579,7 +579,7 @@ not use this backend if cached data has many tags.
     The performance of `flushByTag()` is bad and scales just O(n).
 
     On the contrary, performance of `get()` and `set()` operations
-    is good and scales well. Of course, if there are many entries, this might
+    is good and scales well. If there are many entries, this might
     still slow down after a while and a different storage strategy should be used
     (e.g. RAM disks, battery backed up RAID systems or SSD hard disks).
 

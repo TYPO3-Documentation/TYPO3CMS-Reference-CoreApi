@@ -34,7 +34,7 @@ TYPO3 Core.
 
 
 The whole Services API works as a registry. Services are registered
-with a number of parameters, and each service can easily be overridden
+with a number of parameters, and each service can be overridden
 by another one with improved features or more specific capabilities,
 for example. This can be achieved without having to change the original
 code of TYPO3 CMS or of an extension.

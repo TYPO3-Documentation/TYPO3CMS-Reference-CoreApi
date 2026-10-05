@@ -52,7 +52,7 @@ the rendered content. Let us have a look at what happens in this method:
 
 You can also use this code directly in your controller if you need to return
 a different HTTP header. If a different rendering from the standard view is
-necessary you can just pass the rendered HTML content to this method. There
+necessary you can pass the rendered HTML content to this method. There
 is also a shorthand method for returning JSON called :php:`jsonResponse()`.
 
 This basic example requires no actions that are forwarding or redirecting. Read

@@ -52,8 +52,8 @@ The messages are then displayed by Fluid with the
        </div>
     </div>
 
-Where to display the flash messages in an Extbase-based backend module is
-as simple as moving the ViewHelper around.
+To change where flash messages are displayed in an Extbase-based backend
+module, move the ViewHelper.
 
 By default, all messages are put into the scope of the
 current plugin namespace with a prefix `extbase.flashmessages.`. So

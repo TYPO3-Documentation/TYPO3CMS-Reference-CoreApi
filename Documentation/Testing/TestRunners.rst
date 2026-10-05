@@ -205,9 +205,9 @@ Advantages:
      be configured
 *    Can be utilized by everyone running Composer already (both inside and outside
      of containers)
-*    Can be easily shared, because the `composer.json` file is already shared to everyone.
-*    Can be easily used by automated testing, for example in GitHub Actions and GitLab Pipelines.
-*    Available scripts are easily revealed in the Composer help output
+*    Can be shared, because the `composer.json` file is already shared to everyone.
+*    Can be used by automated testing, for example in GitHub Actions and GitLab Pipelines.
+*    Available scripts are listed in the Composer help output
 
 Disadvantages:
 
@@ -229,7 +229,7 @@ and conditions.
 Advantages:
 
 *    Makefiles are a well-known standard even outside PHP projects
-*    Makefiles can be easily shared and usually executed on both host side and
+*    Makefiles can be shared and usually executed on both host side and
      within containers
 *    Makefiles can also be used for automated testing (GitHub Actions, GitLab Pipelines)
 *    Makefiles offer code completion and help texts
@@ -251,7 +251,7 @@ are aimed to be script runners, cross-platform compatible.
 Advantages:
 
 *   Dedicated tooling, cross-platform execution
-*   Modern development and configuration, easily shareable
+*   Modern development and configuration, shareable
 
 Disadvantages:
 
@@ -285,7 +285,7 @@ the script is highly suitable for running matrix-based automated testing with
 diverse configurations.
 
 It also offers a very useful `xdebug <https://xdebug.org>`__ integration for tests,
-so that you can easily use an IDE to hook into any test execution. The script
+so that you can use an IDE to hook into any test execution. The script
 is actively used and maintained by the TYPO3 Core team with great care.
 
 Advantages:

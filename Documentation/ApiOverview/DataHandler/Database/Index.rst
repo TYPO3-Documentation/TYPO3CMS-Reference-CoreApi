@@ -584,7 +584,7 @@ value
     For :ref:`FlexForms <flexforms>` the data array of the FlexForm field is
     deeper than three levels. The number of possible levels for FlexForms
     is infinite and defined by the data structure of the FlexForm. But
-    FlexForm fields always end with a "regular value" of course.
+    FlexForm fields always end with a "regular value".
 
 
 ..  caution::

@@ -34,7 +34,7 @@ number of community-managed tools that you can use.
     ..  card:: :ref:`Extension Kickstarter <ext-kickstarter>`
 
         The `Site Package Builder <https://get.typo3.org/sitepackage>`__
-        makes it easy to create an extension containing a
+        creates an extension containing a
         site package (theme) for a site. It can also be used to kickstart
         an arbitrary extension by removing unneeded files.
 

@@ -9,7 +9,7 @@ Roles
 
 Another popular approach to setting up users is roles. This
 concept is basically about identifying certain roles that users can
-take and then allow for a very easy application of these roles to
+take and then applying these roles to
 users.
 
 TYPO3 access control is far more flexible and allows for such detailed

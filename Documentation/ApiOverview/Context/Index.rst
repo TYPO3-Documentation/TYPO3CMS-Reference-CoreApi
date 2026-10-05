@@ -211,7 +211,7 @@ Overlay types
 ~~~~~~~~~~~~~
 
 :php:`LanguageAspect::OVERLAYS_OFF`
-    Just fetch records from the selected language as given by
+    Fetch only records from the selected language as given by
     :php:`LanguageAspect->getContentId()`. No overlay will happen, no
     fetching of the records from the default language. This boils down to
     "free mode" language handling. Records without a default language parent are
