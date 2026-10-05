@@ -220,10 +220,14 @@ file on your server:
     WantedBy=multi-user.target
 
 Where no service manager is available, the command can run as a
-`scheduler task
-<https://docs.typo3.org/permalink/t3coreapi:symfony-console-commands-scheduler>`_
-instead. Set a time limit below the interval of the cron job, so that one run
-ends before the next one starts.
+:ref:`scheduler task <symfony-console-commands-scheduler>` instead.
+
+..  important::
+
+    The `messenger:consume` command blocks subsequent scheduler tasks from
+    executing while it is running. Set `--time-limit` to a value lower than the
+    scheduler's cron interval (for example, 240 seconds for a 5-minute cron
+    interval) so that the task completes before the next run.
 
 
 ..  _message-bus-advanced-usage:
