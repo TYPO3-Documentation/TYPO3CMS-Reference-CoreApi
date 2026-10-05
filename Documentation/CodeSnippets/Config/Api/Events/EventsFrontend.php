@@ -3,6 +3,12 @@
 return [
   [
     'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Frontend\ContentObject\Event\AfterRecordIsRenderedEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Frontend/AfterRecordIsRenderedEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
     'class' => \TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent::class,
     'targetFileName' => 'CodeSnippets/Events/Frontend/ModifyHrefLangTagsEvent.rst.txt',
     'withCode' => false,
