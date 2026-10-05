@@ -58,8 +58,44 @@ add the following line to your TypoScript template:
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
 With this, you will overwrite the localization of the term
-:html:`comment_header` for the default language and the languages "de" and "zh"
+:html:`comment_header` for the languages "en", "de" and "zh"
 in the blog example.
+
+..  _localization-typoscript-local-lang-keys:
+
+Which language key an override needs
+------------------------------------
+
+..  versionchanged:: 15.0
+    :changelog: important-110175-1790179101
+
+    :typoscript:`_LOCAL_LANG.default` overrode the labels of the English XLIFF
+    file, because TYPO3 read `default` as English. It is a last resort now, so
+    an override of an English label has to move to `en` or `en-US`.
+
+Write the language key of the locale the override belongs to. TYPO3 resolves a
+label in this order, and takes the first one it finds:
+
+..  rst-class:: bignums
+
+#.  The :typoscript:`_LOCAL_LANG` override of the locale, for example `fr-LU`.
+
+#.  The :typoscript:`_LOCAL_LANG` override of the language of that locale, or
+    of one of its fallback locales, for example `fr`.
+
+#.  The label of the XLIFF file of the locale or of a fallback locale.
+
+#.  :typoscript:`_LOCAL_LANG.default`, and only where the label exists in none
+    of the above.
+
+So `default` reaches the output only for a label that no XLIFF file carries.
+Use it for a label of your own, and a language key for everything that
+overrides a shipped label.
+
+Write a key of a locale as the language in lowercase, a dash, and the country
+in uppercase, so `fr-LU` and `en-US`. TYPO3 normalizes the key, so `fr_LU`
+resolves to the same locale. Keep to one spelling in a project, which stays
+easier to read.
 
 The :file:`locallang.xlf` files of the extension do not need to be changed for
 this.
