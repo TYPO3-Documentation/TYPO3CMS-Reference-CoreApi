@@ -724,8 +724,6 @@ be declared public:
 
     Call to a member function methodName() on null
 
-..  dependency-injection-override-service-arguments:
-
 ..  _dependency-injection-faq-override-service-arguments:
 
 How to override service arguments?
