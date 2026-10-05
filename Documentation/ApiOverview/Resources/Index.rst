@@ -93,9 +93,7 @@ Resource identifiers: referencing files with `EXT:`, `PKG:`, `FAL:` and URLs
 ============================================================================
 
 ..  versionadded:: 14.0
-    See `Feature: #107537 - System resource API for system file access and
-    public URI generation
-    <https://docs.typo3.org/permalink/changelog:feature-107537-1759136314>`_.
+    :changelog: feature-107537-1759136314
 
 Where TYPO3 resolves a system resource, for example in the TypoScript
 property :typoscript:`includeCSS`, in the `asset collector
