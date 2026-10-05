@@ -30,7 +30,7 @@ We recommend the first approach for the following reasons:
 
 -   **Output formats:** Full documentations can be automatically rendered as HTML
     or TYPO3-branded PDF.
--   **Cross-references:** It is easy to cross-reference to other chapters and
+-   **Cross-references:** You can cross-reference other chapters and
     sections of other manuals (either TYPO3 references or extension manuals).
     The links are automatically updated when pages or sections are moved.
 -   **Many content elements:** The Sphinx template used for rendering the full

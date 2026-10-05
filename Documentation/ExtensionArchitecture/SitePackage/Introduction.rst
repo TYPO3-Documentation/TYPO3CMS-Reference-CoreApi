@@ -16,7 +16,7 @@ Developing a website can be approached in different ways. A typical
 website consists of HTML documents containing text and references to
 image files, video files, styles, etc. Because it is an enterprise content
 management system, TYPO3 has a clean separation between design, content and
-functionality and allows developers/integrators to easily add simple or
+functionality and allows developers/integrators to add simple or
 sophisticated functionality.
 
 ..  _site-package-encapsulation:
@@ -32,7 +32,7 @@ CSS, JavaScript files, etc.) and global configuration settings. The visual
 appearance of a website does not necessarily require any PHP code. However, the
 site package extension described in this tutorial contains exactly two PHP files
 (plus a handful of HTML/CSS and configuration files) and is an *extension* to
-TYPO3. You can simply copy the PHP code in this tutorial if you do not
+TYPO3. You can copy the PHP code in this tutorial if you do not
 have any programming knowledge.
 
 ..  _site-package-version-controll:
@@ -41,7 +41,7 @@ Version control
 ---------------
 
 The advantage of a site package extension is that all files relevant to the website
-are stored in one place and can easily be tracked in a version control system
+are stored in one place and can be tracked in a version control system
 such as Git. The site package approach is not the only way of creating TYPO3
 websites but it is convenient and professional and not overly-complicated.
 
@@ -92,7 +92,7 @@ TYPO3 follows the *convention over configuration*
 paradigm. If files and directories in the site package
 extension use the naming convention, they are loaded automatically as
 soon as the extension is installed/activated. This means the
-extension can easily be deployed with Composer.
+extension can be deployed with Composer.
 Deployment can be automated by system administrators.
 
 ..  _site-package-distributable:

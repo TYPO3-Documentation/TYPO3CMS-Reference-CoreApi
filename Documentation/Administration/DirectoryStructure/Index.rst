@@ -102,7 +102,7 @@ This path can be retrieved from the Environment API, see
 If you installed TYPO3 using the base distribution `composer create "typo3/cms-base-distribution"`
 this folder is automatically created and registered as repository in the the :path:`composer.json`.
 
-You can put your site package and other extensions to be installed locally here. Then you can just
+You can put your site package and other extensions to be installed locally here. Then you can
 install the extension with `composer install myvendor/my-sitepackage`.
 
 If you did not use the base-distribution, create the directory and add it to your repositories

@@ -134,10 +134,10 @@ make any project much smoother and more maintainable.
 
 Local development platforms like `DDEV <https://ddev.com/>`__, `Docker <https://docker.com>`__
 or `XAMPP/WAMPP/MAMPP <https://geekflare.com/lamp-lemp-mean-xampp-stack-intro/>`__
-allow you to easily test and maintain TYPO3 projects, based on these git, docker and
+allow you to test and maintain TYPO3 projects, based on these git, docker and
 composer concepts.
 
-Of course you can still perform the Composer migration on your live site without
+You can still perform the Composer migration on your live site without
 version control and without deployment, but during the migration your site will not be
 accessible, and if you face any problems, you may not be able to easily revert to the
 initial state.

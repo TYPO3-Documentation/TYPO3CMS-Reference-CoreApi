@@ -23,7 +23,7 @@ Comparing users or groups
 =========================
 
 The :guilabel:`Backend users` module offers the possibility to compare users.
-Just add users using the
+Add users using the
 "+ Compare" button and then hit the "Compare user list" button.
 For example, this is the comparison of the three different editors
 provided by the Introduction Package:

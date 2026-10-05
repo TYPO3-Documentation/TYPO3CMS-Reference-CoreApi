@@ -195,7 +195,7 @@ With a Layout
     in the layout file.
 Without a Layout
     anything that's not inside a section is rendered. You
-    can still use sections of course, but you then must use
+    can still use sections, but you then must use
     :ref:`f:render ViewHelper <t3viewhelper:typo3-fluid-render>` in the
     template file itself, outside of a section, to render a section.
 

@@ -267,7 +267,7 @@ the class-based. A configuration-based component collection is a collection defi
 by the configuration file :file:`ComponentCollections.php`. In contrast to that, a
 class-based component required custom PHP code in TYPO3 v13, see
 `Fluid components in Fluid explained <https://docs.typo3.org/permalink/fluid:components-setup>`_.
-Most use cases can easily be migrated to the configuration-based approach, since
+Most use cases can be migrated to the configuration-based approach, since
 they usually just consist of boilerplate code around the configuration options.
 
 In fact, you can use both component collection types side by side. For more

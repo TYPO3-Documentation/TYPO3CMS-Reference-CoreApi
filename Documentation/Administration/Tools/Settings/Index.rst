@@ -32,7 +32,7 @@ Extensions can define global settings in
 Change install tool password
 ============================
 
-You can use this tool to easily change the install tool password from
+You can use this tool to change the install tool password from
 within the backend or install tool.
 
 ..  versionadded:: 14.0

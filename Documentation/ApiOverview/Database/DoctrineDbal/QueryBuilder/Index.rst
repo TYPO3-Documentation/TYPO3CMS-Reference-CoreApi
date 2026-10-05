@@ -502,7 +502,7 @@ Notes to the example above:
 
 *   The :ref:`RestrictionBuilder <database-restriction-builder>` has added
     additional :sql:`WHERE` conditions for both tables involved! The
-    :sql:`sys_language` table obviously only specifies a
+    :sql:`sys_language` table only specifies a
     :php:`'disabled' => 'hidden'` as :php:`enableColumns` in its
     :ref:`TCA ctrl <t3tca:ctrl>` section, while the :sql:`pages` table
     specifies the fields :sql:`deleted`, :sql:`hidden`, :sql:`starttime` and

@@ -175,7 +175,7 @@ Therefore we need to add the path to the
 ..  literalinclude:: _AddingYourOwnContentElements/_setup.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
-You can use any index (`200` in this example), just make sure it is unique.
+You can use any index (`200` in this example). Make sure it is unique.
 If needed you can also add paths for partials and layouts.
 
 Now you can register the rendering of your custom content element:
@@ -220,7 +220,7 @@ All fields of the table :php:`tt_content` are now available in the variable
 
     Even more convenient:
     :html:`<f:if condition="{condition}"><f:debug>{_all}</f:debug></f:if>`
-    lets you easily turn debugging on or off, depending on whether you
+    lets you turn debugging on or off, depending on whether you
     fill in "1" or "0" for *condition*.
 
     ..  code-block:: html

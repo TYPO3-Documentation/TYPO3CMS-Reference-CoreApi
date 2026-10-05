@@ -47,7 +47,7 @@ The configuration "surfaces" of an Extbase extension
     Installation- and site-wide values, defined by a
     :ref:`site set
     <t3coreapi:site-sets>` and editable for each site in the backend.
-    Site settings are the recommended way to ship configuration that can easily
+    Site settings are the recommended way to ship configuration that can
     be modified by integrators without having to edit TypoScript; they are
     referenced from TypoScript through
     :ref:`settings placeholders <sitehandling-settings-access-typoscript>`

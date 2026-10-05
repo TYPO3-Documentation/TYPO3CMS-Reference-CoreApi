@@ -31,7 +31,7 @@ database tables directly. It will also manage the relations
 to files and other records.
 
 DataHandler requires a backend login to work. This is due to the fact that
-permissions are observed (of course) and thus DataHandler needs a backend user
+permissions are observed and thus DataHandler needs a backend user
 to evaluate against. This means you cannot use DataHandler from the
 frontend scope. Thus writing to tables (such as a guestbook) will have
 to be done from the frontend *without* DataHandler.

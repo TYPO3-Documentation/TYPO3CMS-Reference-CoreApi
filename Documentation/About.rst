@@ -63,7 +63,7 @@ If you find an error in this manual, please be so kind to hit
 the "Edit me on GitHub" button in the top right corner
 and submit a pull request via GitHub.
 
-Alternatively you can just `report an issue
+Alternatively you can `report an issue
 on GitHub <https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/new>`__.
 
 You can find more about this in Writing Documentation:

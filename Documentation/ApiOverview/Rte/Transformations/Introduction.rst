@@ -25,7 +25,7 @@ Generally transformations are needed for two reasons:
 - **RTE specifics:** If the RTE has special requirements to the content
   before it can be edited and if that format is different from what we
   want to store in the database. For instance an RTE could require a
-  full HTML document with :html:`<html>`, :html:`<head>` and :html:`<body>` - obviously we don't
+  full HTML document with :html:`<html>`, :html:`<head>` and :html:`<body>` - we don't
   want that in the database and likewise we will have to wrap content in
   such a dummy-body before it can be edited.
 
@@ -89,7 +89,7 @@ resolve them to real uris." and thus the final result will be valid HTML.
 In RTE
 ------
 
-The content in the database can easily be edited as plain text thanks
+The content in the database can be edited as plain text thanks
 to the "hybrid-mode" used to store the content. But when the content
 above from the database has to go into the RTE it *will not* work if
 every line is not wrapped in a :html:`<p>` tag!

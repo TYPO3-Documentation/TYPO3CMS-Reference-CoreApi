@@ -75,7 +75,7 @@ This method automatically quotes all identifiers and values, therefore we do not
 need to worry about escaping here.
 
 ..  tip::
-    It is recommended to always use a unique error number. An easy way to ensure
+    It is recommended to always use a unique error number. One way to ensure
     the error number to be unique is to use the current Unix timestamp of the
     time of writing the code.
 

@@ -21,8 +21,8 @@ own RTE if you like.
 API for rich text editors
 =========================
 
-Connecting an RTE in an extension to TYPO3 is easy. The following example is
-based on the implementation of ext:rte_ckeditor.
+The following example shows how to connect an RTE in an extension to TYPO3.
+It is based on the implementation of ext:rte_ckeditor.
 
 -  In the :file:`ext_localconf.php` you can use the FormEngine's NodeResolver
    to implement your own RichTextNodeResolver and give it a higher priority

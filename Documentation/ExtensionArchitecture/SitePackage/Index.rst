@@ -54,7 +54,7 @@ To see the bootstrap package in action, install the
 :composer:`typo3/cms-introduction` package (which contains the
 bootstrap-package). The resulting site contains a page tree with example data.
 
-Or just go to https://www.bootstrap-package.com/.
+Or go to https://www.bootstrap-package.com/.
 
 ..  _extension-sitepackage-builder-minimal:
 

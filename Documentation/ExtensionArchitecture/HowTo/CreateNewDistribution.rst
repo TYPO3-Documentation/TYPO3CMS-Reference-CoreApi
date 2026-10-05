@@ -217,7 +217,7 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
 
     The Introduction Package comes with a maintained export preset within its
     `database export <https://github.com/FriendsOfTYPO3/introduction/blob/master/Initialisation/data.xml>`_
-    which can be useful as a kick start. Just import that preset into your
+    which can be useful as a kick start. Import that preset into your
     installation and adapt to the needs of your distribution. The import works
     similar to the export.
 
@@ -251,7 +251,7 @@ To test your distribution, copy your extension to an empty
 TYPO3 CMS installation and try to install it from the Extension
 Manager.
 
-To test a distribution locally without uploading to TER, just install
+To test a distribution locally without uploading to TER, install
 a blank TYPO3 (last step in installer "Just get me to the Backend"),
 then go to Extension Manager, select "Get extensions" once to let the
 Extension Manager initialize the extension list (this is needed if your

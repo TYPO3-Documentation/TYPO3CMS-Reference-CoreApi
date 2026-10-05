@@ -115,7 +115,7 @@ methods which eases the handling of responses:
 :js:`raw()`
     Returns the original `Response`_ object.
 
-Of course, a request may fail for various reasons. In such case, a second
+A request may fail for various reasons. In such case, a second
 function may be passed to :js:`then()`, which handles the exceptional case. The
 function may receive a :js:`AjaxResponse` object which contains the original
 response object.
@@ -137,7 +137,7 @@ Abort a request
 
 In some cases it might be necessary to abort a running request. The Ajax API has
 you covered them, an instance of `AbortController`_ is attached to each request.
-To abort the request, just call the :js:`abort()` method:
+To abort the request, call the :js:`abort()` method:
 
 ..  code-block:: js
 
