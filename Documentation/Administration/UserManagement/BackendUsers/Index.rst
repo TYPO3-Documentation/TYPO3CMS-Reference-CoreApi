@@ -92,3 +92,49 @@ File mounts submodule
     :alt: Screenshot of the Module "Backend Users", submodule "File mounts" in the TYPO3 Backend
 
 Allows you to view, edit, disable or delete file mounts.
+
+..  index:: TSconfig; Static user TSconfig
+..  _user-management-static-user-tsconfig:
+
+Static user TSconfig from an extension
+======================================
+
+..  versionadded:: 14.2
+    :changelog: feature-78412-1719144405
+
+A backend user and a backend user group each have a field
+:guilabel:`Include static TSconfig` in their :guilabel:`Options` tab. It lists
+the user TSconfig files that the installed extensions offer, and the user or
+the group reads the files you select.
+
+..  figure:: /Images/ManualScreenshots/UserManagement/StaticUserTSconfig.png
+    :alt: The TSconfig field of a backend user, with the field Include static
+        TSconfig below it
+    :zoom: lightbox
+
+    The field lists the files that extensions registered
+
+Prefer such a file over the :guilabel:`TSconfig` field above it. That field
+keeps its content in the database, where an upgrade cannot see it. A file
+lives in the extension or the site package, next to the rest of the
+configuration.
+
+An extension offers a file for backend users in
+:file:`Configuration/TCA/Overrides/be_users.php`:
+
+..  literalinclude:: _StaticUserTsconfig.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/be_users.php
+
+For a group, call
+:php-short:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerUserGroupTSConfigFile()`
+in :file:`Configuration/TCA/Overrides/be_groups.php` instead:
+
+..  literalinclude:: _StaticUserGroupTsconfig.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/be_groups.php
+
+Both calls take the extension key, the path of the file inside that extension,
+and the title of the entry. TYPO3 appends the extension key in brackets to the
+title, so the entry above reads `Editor (my_extension)`. The title is
+therefore a plain string: a `LLL:` reference does not get translated here.
+TYPO3 also drops every comma from the path, because a comma separates the
+selected entries in the field.
