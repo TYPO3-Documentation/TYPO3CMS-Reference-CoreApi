@@ -131,13 +131,15 @@ to look at the pages above the current one:
     The same content, starting with this page and ending with the topmost
     page.
 
-Anything else, and no value at all, leaves the column alone. The values are
-the cases of :php:`\TYPO3\CMS\Core\Page\ContentSlideMode`.
+Anything else, and no value at all, leaves the column alone. The configuration
+values are in lowerCamelCase, corresponding to the cases of the PHP enum
+:php:`\TYPO3\CMS\Core\Page\ContentSlideMode`.
 
-The :guilabel:`Content > Layout` module marks a column of every mode but the
-last with an icon next to its title, and the description above as the
-tooltip. A page without a parent never shows it, and `slide` shows it only
-while the column is still empty, which is when the sliding takes effect.
+The :guilabel:`Content > Layout` module marks a column that has an active
+slide mode with a badge next to its title, displaying the description above as
+a tooltip. A page without a parent never displays the badge, and in `slide`
+mode it is only shown while the column is still empty, which is when sliding
+takes effect.
 
 For a `CONTENT` object the frontend counterpart is its `slide` property, see
 `CONTENT.slide
