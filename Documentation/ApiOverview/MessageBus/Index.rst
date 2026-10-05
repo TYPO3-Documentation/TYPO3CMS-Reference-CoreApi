@@ -155,8 +155,8 @@ The command takes almost all options of the Symfony command of the same name.
     hour on its own and reported that through an `--exit-code-on-limit`
     option. Both are gone: a worker now runs until you give it a limit.
 
-A worker does not stop on its own. Give it a limit, so that it releases its
-memory from time to time:
+A worker does not stop on its own. In continuous operation, configure a limit
+so that the PHP process is periodically recycled to release memory:
 
 `--time-limit`, `-t`
     Stop after this number of seconds.
