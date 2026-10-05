@@ -74,13 +74,13 @@ and may have dependencies.
 
 All of that leads to one central question:
 
-    Question: How can I execute the commands in a re-usable way for everyone,
-    and do not put much effort into "how to do this".
+Question: How can I execute the commands in a re-usable way for everyone,
+and do not put much effort into "how to do this".
 
 Sadly, the answer is not something you may want to read:
 
-    Answer: You cannot. You may need to use multiple ways, or focus and
-    discuss, what suits your needs best.
+Answer: You cannot. You may need to use multiple ways, or focus and
+discuss, what suits your needs best.
 
 To pick the right way on running your tests means to talk with the people
 involved with your project, most notable the maintainers and your environment.
