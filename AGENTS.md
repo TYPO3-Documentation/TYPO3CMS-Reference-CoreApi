@@ -30,7 +30,9 @@ Signed-off-by: Firstname Lastname <email>
   documentation of something the manual did not cover yet, `[TASK]` for a
   cleanup, a style fix or tooling, and `[BUGFIX]` for a correction of wrong
   content.
-- `Releases:` is mandatory. Default `main, 14.3`. Read rule 4 before adding `13.4`.
+- `Releases:` is mandatory. Default `main, 14.3`; a change to `AGENTS.md` or
+  `CLAUDE.md` takes `main, 14.3, 13.4`. Read rule 4 before adding `13.4` to
+  any other change.
 - `Assisted-by:` whenever AI helped draft the commit, in exactly the shape
   above: the model's own name and version, then a contact address. **Replace
   the name in the skeleton with the model that is actually writing this
@@ -156,7 +158,10 @@ Makefile                    # local install/build/test commands
     LTS branches, skips this entirely), this repo has `main`, `14.3`,
     `13.4` (verify this is still current) — default to `main, 14.3`; add
     `13.4` only for a bugfix/security fix worth backporting that far, not
-    for plain content/style changes. If a PR gets no `backport <version>`
+    for plain content/style changes. Changes to the agent instruction files
+    (`AGENTS.md`, `CLAUDE.md`) always go to all three branches, because
+    agents and review bots also work on the older branches and read that
+    branch's copy. If a PR gets no `backport <version>`
     label, label it `main only` instead (mutually exclusive with
     `backport <version>` — not both). Separately, label every PR that
     addresses a `TYPO3-Documentation/Changelog-To-Doc` issue with
