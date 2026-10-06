@@ -1,4 +1,4 @@
 name: myvendor/my-extension-rss
-label: Blog example RSS feed
+label: My extension RSS feed
 dependencies:
   - myvendor/my-extension

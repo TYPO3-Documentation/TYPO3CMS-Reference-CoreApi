@@ -224,15 +224,15 @@ Separate functionality into multiple site sets
 
 The main site set of the extension has the same name as the Composer package:
 
-..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_config.yaml
+..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_my_extension/_config.yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/config.yaml
 
 The other two sets require this set and therefore declare it as a dependency:
 
-..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_default_config.yaml
+..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_my_extension/_default_config.yaml
     :caption: EXT:my_extension/Configuration/Sets/DefaultStyles/config.yaml
 
-..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_blog_example/_rss_config.yaml
+..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_my_extension/_rss_config.yaml
     :caption: EXT:my_extension/Configuration/Sets/RssFeed/config.yaml
 
 The additional site sets provide TypoScript that depends on the base site set.
