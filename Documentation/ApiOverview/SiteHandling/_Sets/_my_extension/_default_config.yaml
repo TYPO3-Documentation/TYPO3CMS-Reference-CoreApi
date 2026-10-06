@@ -1,4 +1,4 @@
 name: myvendor/my-extension-styles
-label: Blog example default styles
+label: My extension default styles
 dependencies:
   - myvendor/my-extension
