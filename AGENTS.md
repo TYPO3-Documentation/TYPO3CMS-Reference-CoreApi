@@ -107,6 +107,11 @@ Makefile                    # local install/build/test commands
   the same question for any other manual, which is how a moved page or the
   right target for a cross-manual reference is found without rendering.
 
+- **Link TYPO3 documentation with permalinks**, also inside this manual,
+  and give every link its own link text:
+  https://docs.typo3.org/permalink/h2document:permalinks. Do not suggest
+  replacing a permalink with `:ref:`.
+
 - **A permalink can be checked without rendering.** A `HEAD` request against
   `https://docs.typo3.org/permalink/<interlink>:<anchor>` answers `307` with a
   `Location` naming the page the anchor resolves to; a wrong anchor answers
