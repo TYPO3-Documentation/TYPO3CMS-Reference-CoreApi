@@ -1,23 +1,23 @@
 categories:
-  BlogExample:
-    label: 'Blog Example' # (1)
-  BlogExample.templates:
+  MyExtension:
+    label: 'My Extension' # (1)
+  MyExtension.templates:
     label: 'Templates' # (2)
-    parent: BlogExample
-  BlogExample.pages:
+    parent: MyExtension
+  MyExtension.pages:
     label: 'Pages'
-    parent: BlogExample
+    parent: MyExtension
 
 settings:
-  blogExample.templateRootPath:  # (5)
+  myExtension.templateRootPath:  # (5)
     label: 'Templates' # (3)
-    category: BlogExample.templates # (2)
+    category: MyExtension.templates # (2)
     description: 'Path to template root'  # (4)
     type: string  # (6)
     default: 'EXT:my_extension/Resources/Private/Templates/'  # (8), unless overridden by a set
-  blogExample.partialRootPath:
+  myExtension.partialRootPath:
     label: 'Partials'
-    category: BlogExample.templates
+    category: MyExtension.templates
     description: 'Path to partial root'
     type: string
     default: 'EXT:my_extension/Resources/Private/Partials/'  # (7)
