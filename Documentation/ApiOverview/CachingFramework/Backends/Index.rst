@@ -404,9 +404,7 @@ keyPrefix
     :name: caching-backend-redis-keyPrefix
     :type: string
     :default: (empty)
-
-    ..  versionadded:: 13.3
-        :changelog: feature-104451-1721646565
+    :added: 13.3 feature-104451-1721646565
 
     Prefix added to all keys this backend writes to Redis. Allows the same
     Redis database to be shared by multiple caches or TYPO3 instances, as
@@ -422,8 +420,7 @@ username
 ..  confval:: username
     :name: caching-backend-redis-username
     :type: string
-
-    ..  versionadded:: 14.0
+    :added: 14.0
 
     Use this option to authenticate against Redis using both a username and a
     password:
