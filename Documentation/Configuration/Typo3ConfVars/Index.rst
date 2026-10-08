@@ -155,6 +155,52 @@ which requires a lot of processing time.
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 
+..  index::
+    Configuration; Command line
+    Console command; configuration
+..  _configuration-files-cli:
+
+Reading and writing the settings on the command line
+----------------------------------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-108815-1738249200
+
+Three commands read and write :file:`config/system/settings.php`, which lets a
+deployment set a value without an editor and without the Install Tool. Address
+a setting by its path, with a slash between the levels of the array:
+
+..  code-block:: bash
+    :caption: typo3_root$
+
+    vendor/bin/typo3 configuration:show SYS/sitename
+    vendor/bin/typo3 configuration:set SYS/sitename "My Site"
+    vendor/bin/typo3 configuration:remove SYS/sitename
+
+`configuration:show
+<https://docs.typo3.org/permalink/t3coreapi:console-command-configuration-show>`_
+    Prints the value. The option `--type=local` reads the file, and
+    `--type=active` reads the value that the request uses, which differs
+    where :file:`additional.php` overrides it. Without the option the command
+    prints both and marks the difference. `--json` prints the value as JSON.
+
+`configuration:set
+<https://docs.typo3.org/permalink/t3coreapi:console-command-configuration-set>`_
+    Writes the value into :file:`settings.php`. The command writes a string,
+    so pass `--json` for a value of another type, for example
+    `configuration:set BE/debug true --json` for a boolean.
+
+`configuration:remove
+<https://docs.typo3.org/permalink/t3coreapi:console-command-configuration-remove>`_
+    Removes the value, so that the default of TYPO3 applies again. The
+    command asks before it writes, and `--force` skips the question, which a
+    script needs.
+
+A value that :file:`additional.php` sets stays in force, because TYPO3 reads
+that file after :file:`settings.php`. So `configuration:show` can report an
+active value that `configuration:set` did not write, and that
+`configuration:remove` cannot remove.
+
 ..  _typo3-conf-vars-system-configuration-categories:
 
 System configuration categories
