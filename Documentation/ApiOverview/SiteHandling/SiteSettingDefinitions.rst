@@ -138,7 +138,7 @@ Site setting definition properties
         ..  confval:: enum
             :type: array
             :name: site-settings-definition-settings-enum
-            :types: :confval:`site-setting-type-string`
+            :Types: :confval:`site-setting-type-string`
 
             ..  versionadded:: 14.2
                 :changelog: feature-106640-1766572100
