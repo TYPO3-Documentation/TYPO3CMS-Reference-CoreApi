@@ -20,11 +20,15 @@ content element.
 ..  seealso::
     * :ref:`BeforeSectionMarkupGeneratedEvent <BeforeSectionMarkupGeneratedEvent>`
 
+..  _AfterSectionMarkupGeneratedEvent-example:
+
 Example
 =======
 
 ..  literalinclude:: _AfterSectionMarkupGeneratedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _AfterSectionMarkupGeneratedEvent-api:
 
 API
 ===
