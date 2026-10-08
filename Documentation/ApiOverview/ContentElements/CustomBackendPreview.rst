@@ -17,6 +17,8 @@ class is responsible for generating the preview and the wrapping.
 The default preview renderer is :php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`
 and handles the Core's built-in content types (field :sql:`CType` in table :sql:`tt_content`).
 
+..  _contentpreviewrenderer:
+
 Extend the default preview renderer
 ===================================
 
@@ -70,6 +72,8 @@ event listener.
 Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEvent>`.
 
 For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
+
+..  _configurece-preview-preview-renderer:
 
 Writing a preview renderer
 ==========================

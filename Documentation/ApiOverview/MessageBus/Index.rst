@@ -38,8 +38,12 @@ of a consumer command.
     :local:
 
 
+..  _message-bus-everyday-usage:
+
 "Everyday" usage - as a developer
 =================================
+
+..  _message-bus-dispatch:
 
 Dispatch a message
 ------------------
@@ -181,6 +185,8 @@ file on your server:
     WantedBy=multi-user.target
 
 
+..  _message-bus-advanced-usage:
+
 Advanced usage
 ==============
 
@@ -223,6 +229,8 @@ The TYPO3 Core has been tested with three transports:
     (for testing)
 
 
+..  _message-bus-in-memory-transport-testing:
+
 InMemoryTransport for testing
 -----------------------------
 
@@ -233,6 +241,8 @@ testing.
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
+
+..  _message-bus-configure-middleware:
 
 Configure a custom middleware
 -----------------------------

@@ -94,6 +94,8 @@ the directions below to the end:
     Now you can modify TCA with Core API like
     :php:`ExtensionManagementUtility::addToAllTCAtypes();`
 
+..  _page-types-example-further-information:
+
 Further Information
 -------------------
 

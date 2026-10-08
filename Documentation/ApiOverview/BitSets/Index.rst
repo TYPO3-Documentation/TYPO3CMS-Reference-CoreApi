@@ -25,6 +25,8 @@ methods of a bitset can.
     BitSet
 
 
+..  _Enumerations-background-and-history:
+
 Background and history
 ======================
 

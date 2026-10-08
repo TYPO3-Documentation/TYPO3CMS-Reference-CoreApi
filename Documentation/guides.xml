@@ -13,6 +13,8 @@
         edit-on-github="TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
         typo3-core-preferred="13"
         interlink-shortcode="t3coreapi"
+        check-headline-anchors="true"
+        confval-fields="Path, Example, Call, Allowed values, Class constant, Shorthand method, Defined, YAML, PHP, Frontend, Recommended, Scope, Range, Types, added, changed, deprecated, removed"
     />
     <project
         title="TYPO3 Explained"

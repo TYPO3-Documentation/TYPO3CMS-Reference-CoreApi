@@ -49,6 +49,8 @@ in the Fluid templates as variable `{settings.someSetting}`. For example:
 For an example see the plugin settings of the plugins in extension
 :composer:`georgringer/news`.
 
+..  _flexforms-plain-plugin:
+
 Plain plugins configured by FlexForms
 =====================================
 

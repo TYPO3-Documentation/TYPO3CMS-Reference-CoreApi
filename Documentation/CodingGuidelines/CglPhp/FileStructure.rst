@@ -112,6 +112,8 @@ in the file. It should include a description of the class. Example:
      */
 
 
+..  _cgl-namespaces-class-names:
+
 PHP class
 =========
 

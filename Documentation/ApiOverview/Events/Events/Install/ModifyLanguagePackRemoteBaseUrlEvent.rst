@@ -14,6 +14,8 @@ allows to modify the main URL of a language pack.
 ..  seealso::
     :ref:`custom-translation-server`
 
+..  _ModifyLanguagePackRemoteBaseUrlEvent-example:
+
 Example
 =======
 
@@ -22,6 +24,8 @@ Example
     :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _ModifyLanguagePackRemoteBaseUrlEvent-api:
 
 API
 ===

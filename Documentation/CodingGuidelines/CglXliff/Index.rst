@@ -17,12 +17,16 @@ files. XLIFF is based on XML.
 
     :ref:`xliff`
 
+..  _cgl-xliff-filenames:
+
 Directory and file names
 ========================
 
 *   Files have the ending :file:`.xlf`.
 
 *   Language files are located in the directory :file:`EXT:my_extension/Resources/Private/Language/`.
+
+..  _cgl-xliff-format:
 
 Format
 ======
@@ -50,6 +54,8 @@ thus be avoided unless there are some technical limitations (for example, some
 very early or low-level stuff where a :ref:`$GLOBALS['LANG'] <LanguageService-api>`
 object is not yet available).
 
+
+..  _cgl-xliff-defining-localized-strings:
 
 Defining localized strings
 --------------------------

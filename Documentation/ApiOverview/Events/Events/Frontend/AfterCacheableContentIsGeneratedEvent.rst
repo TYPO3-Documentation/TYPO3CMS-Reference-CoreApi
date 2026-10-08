@@ -31,6 +31,8 @@ differentiate between the previous hooks `contentPostProc-cached` and
 `contentPostProc-all`. The later hook was called regardless of whether the
 cache was enabled or not.
 
+..  _AfterCacheableContentIsGeneratedEvent-example:
+
 Example
 =======
 
@@ -46,6 +48,8 @@ Example
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _AfterCacheableContentIsGeneratedEvent-api:
 
 API
 ===

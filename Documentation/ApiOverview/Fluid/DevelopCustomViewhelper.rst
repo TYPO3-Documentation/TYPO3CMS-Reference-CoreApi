@@ -476,6 +476,8 @@ was also used in your ViewHelper implementation, further steps are needed:
     Use the non-static method :php:`$this->renderChildren()` instead of the
     closure `$renderChildrenClosure()`.
 
+..  _fluid-custom-viewhelper-remove-calls-to-removed-renderstatic-method-of-another-viewhelper:
+
 Remove calls to removed `renderStatic()` method of another ViewHelper
 ---------------------------------------------------------------------
 
