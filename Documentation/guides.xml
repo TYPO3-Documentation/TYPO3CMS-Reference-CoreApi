@@ -14,6 +14,8 @@
         typo3-core-preferred="main"
         interlink-shortcode="t3coreapi"
         check-link-text="true"
+        check-headline-anchors="true"
+        confval-fields="Path, Example, Call, Allowed values, Class constant, Shorthand method, Defined, YAML, PHP, Frontend, Recommended, Scope, Range, Types, added, changed, deprecated, removed"
     />
     <project
         title="TYPO3 Explained"
