@@ -88,8 +88,7 @@ Module configuration options
             :name: backend-module-appearance-dependsOnSubmodules
             :type: bool
             :default: false
-
-            ..  versionadded:: 14.0
+            :added: 14.0
 
             If true, the module will only be displayed in the module menu if at least one of its
             `submodules <https://docs.typo3.org/permalink/t3coreapi:backend-modules-third-level-module>`_
@@ -114,9 +113,7 @@ Module configuration options
         :name: backend-module-showSubmoduleOverview
         :type: bool
         :default: false
-
-        ..  versionadded:: 14.0
-            :changelog: feature-107712-1760548718
+        :added: 14.0 feature-107712-1760548718
 
         If true and if a module has
         :ref:`submodules <backend-modules-third-level-module>`, the submodules
