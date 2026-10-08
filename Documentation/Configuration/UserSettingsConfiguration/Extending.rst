@@ -32,6 +32,8 @@ And here is the new field in the User Tools > User Settings module:
 
 .. include:: /Images/ManualScreenshots/UserSettings/UserSettingsExtending.rst.txt
 
+..  _user-settings-extending-on-click-on-confirmation-javascript-callbacks:
+
 "On Click" / "On Confirmation" JavaScript Callbacks
 ===================================================
 

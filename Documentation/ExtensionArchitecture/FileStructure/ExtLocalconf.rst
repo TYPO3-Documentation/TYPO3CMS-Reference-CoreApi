@@ -103,6 +103,8 @@ The skeleton of the :file:`ext_localconf.php` looks like this:
 
 Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
 
+..  _ext-localconf-php-adding-default-page-tsconfig:
+
 .. index:: Extension development; PageTSconfig
 
 Adding default page TSconfig
@@ -121,6 +123,8 @@ with TYPO3 11 and 12 <t3tsref:page-tsconfig-v11-v12>`:
 Page TSconfig that can be added in the page settings should be added in the
 file :file:`Configuration/TCA/Overrides/pages.php`, see
 :ref:`t3tsref:pagesettingstaticpagetsconfigfiles`.
+
+..  _ext-localconf-php-adding-default-user-tsconfig:
 
 .. index:: Extension development; UserTSconfig
 

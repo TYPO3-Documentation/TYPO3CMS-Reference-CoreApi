@@ -460,6 +460,8 @@ For the plugin key, `Pi1`, `Pi2` etc. are often used, but it can be named differ
 The plugin key used in :php:`registerPlugin()` and :php:`configurePlugin()`
 **must** match or the later method will fail.
 
+..  _naming-conventions-plugin-key-example:
+
 Example register and configure an Extbase plugin:
 -------------------------------------------------
 

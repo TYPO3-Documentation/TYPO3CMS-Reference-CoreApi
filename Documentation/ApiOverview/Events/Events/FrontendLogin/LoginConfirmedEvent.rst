@@ -10,6 +10,8 @@ LoginConfirmedEvent
 The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\LoginConfirmedEvent` is
 triggered when a login was successful.
 
+..  _login-confirmed-event-example:
+
 Example
 =======
 

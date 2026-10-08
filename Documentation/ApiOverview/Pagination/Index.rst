@@ -36,6 +36,8 @@ And the corresponding Fluid template:
     :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.html
 
 
+..  _pagination-sliding-window:
+
 Sliding window pagination
 =========================
 
@@ -49,6 +51,8 @@ shown.
 50 links. Using the `SlidingWindowPagination`, you will get something like
 this `< prev ... 21 22 23 24 ... next >` or `< 1 ... 21 22 23 24 ... 50 >` or
 simple `< 21 22 23 24 >`. Customise the template to suit your needs.
+
+..  _pagination-sliding-window-usage:
 
 Usage
 -----

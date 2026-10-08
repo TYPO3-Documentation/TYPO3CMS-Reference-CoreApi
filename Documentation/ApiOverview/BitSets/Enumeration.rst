@@ -65,6 +65,8 @@ Example:
     :caption: EXT:my_extension/Classes/SomeClass.php
 
 
+..  _Enumerations-How-to-use-exceptions:
+
 Exceptions
 ==========
 

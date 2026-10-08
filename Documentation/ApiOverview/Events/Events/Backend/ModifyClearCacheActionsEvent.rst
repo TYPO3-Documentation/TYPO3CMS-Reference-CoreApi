@@ -18,6 +18,8 @@ contains, next to the usual "getter" and "setter" methods, the convenience
 method :php:`add()` for the :php:`cacheActions` and
 :php:`cacheActionIdentifiers` arrays.
 
+..  _ModifyClearCacheActionsEvent-example:
+
 Example
 =======
 
@@ -62,6 +64,8 @@ Here is an example of how to use it for a custom cache action:
         'severity' => 'notice',
     ]);
     $event->addCacheActionIdentifier($myIdentifier);
+
+..  _ModifyClearCacheActionsEvent-api:
 
 API
 ===

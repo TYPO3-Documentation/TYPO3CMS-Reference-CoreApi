@@ -26,11 +26,15 @@ Each wizard is able to check pre-conditions to prevent execution, if nothing has
 to be updated. The wizard can log information and executed SQL statements, that
 can be displayed after execution.
 
+..  _update-wizards-concept-best-practice:
+
 Best practice
 =============
 
 Each extension can provide as many upgrade wizards as necessary. Each wizard
 should perform exactly one specific update.
+
+..  _update-wizards-concept-examples:
 
 Examples
 ========

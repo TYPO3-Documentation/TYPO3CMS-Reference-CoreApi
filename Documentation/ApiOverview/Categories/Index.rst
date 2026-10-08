@@ -133,6 +133,8 @@ for rendering. Check out the
 The HMENU object also has a :ref:`"categories" special type <t3tsref:hmenu-special-categories>`
 to display a menu based on categorized pages.
 
+..  _categories-permissions:
+
 User permissions for system categories
 ======================================
 

@@ -207,6 +207,8 @@ Acquire and use an exclusive, non-blocking lock:
    }
 
 
+..  _locking-api-usage-in-the-core:
+
 .. index::  pair: Locking; Core
 
 Usage in the Core

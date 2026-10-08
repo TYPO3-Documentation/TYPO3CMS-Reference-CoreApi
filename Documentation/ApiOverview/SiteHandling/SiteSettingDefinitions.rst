@@ -114,7 +114,7 @@ Site setting definition properties
         ..  confval:: enum
             :type: array
             :name: enum
-            :types: :confval:`site-setting-type-string`
+            :Types: :confval:`site-setting-type-string`
 
             Site settings can provide possible options via the `enum` specifier,
             that will be selectable in the editor GUI.

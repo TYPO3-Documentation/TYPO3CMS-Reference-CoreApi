@@ -17,6 +17,8 @@ The options of the :bash:`language:update` command can be used to further
 restrict the download (ignore additional extensions or download only certain
 languages), but not to ignore decisions made by the event.
 
+..  _ModifyLanguagePacksEvent-example:
+
 Example
 =======
 
@@ -26,6 +28,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _ModifyLanguagePacksEvent-api:
 
 API
 ===

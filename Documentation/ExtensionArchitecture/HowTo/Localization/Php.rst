@@ -15,6 +15,8 @@ Which method of localization to use depends on the current context:
 ..  contents::
     :local:
 
+..  _extension-localization-php-plain:
+
 Localization in plain PHP
 =========================
 
@@ -41,6 +43,8 @@ The :php:`LanguageServiceFactory` can be used to instantiate. Please see the exa
 class then be used to translate texts using the language keys of XLIFF language
 files.
 
+..  _extension-localization-php-frontend:
+
 Localization in frontend context
 --------------------------------
 
@@ -54,6 +58,8 @@ site language:
 :ref:`DependencyInjection` should be available in most contexts where you need
 translations. Also the current request is available in entry point such as
 custom non-Extbase controllers, user functions, data processors etc.
+
+..  _extension-localization-php-backend:
 
 Localization in backend context
 -------------------------------
@@ -70,6 +76,8 @@ to create the required :ref:`LanguageService <LanguageService-api>`.
     variable :php:`$GLOBALS['LANG']` might be available in the frontend. Once
     logged out it is usually not available. **Never** depend on
     :php:`$GLOBALS['LANG']` in the frontend unless you know what you are doing.
+
+..  _extension-localization-php-without:
 
 Localization without context
 ----------------------------
@@ -97,6 +105,8 @@ text in the current language will be loaded from this extension's
 The method :php:`translate()` takes translation overrides from TypoScript into
 account. See :ref:`localization-typoscript-LOCAL_LANG`.
 
+..  _extension-localization-php-example:
+
 Example
 -------
 
@@ -119,6 +129,8 @@ the `PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`_
 
 This behaviour is the same like in a
 :ref:`Fluid translate ViewHelper with arguments <extension-localization-fluid-arguments>`.
+
+..  _extension-localization-php-examples:
 
 Examples
 ========

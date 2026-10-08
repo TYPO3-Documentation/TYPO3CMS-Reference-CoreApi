@@ -16,6 +16,8 @@ Use the PSR-14 event
 to ship an alternative rendering for a specific content type or
 to manipulate the record data of a content element.
 
+..  _PageContentPreviewRenderingEvent-example:
+
 Example
 =======
 
@@ -25,6 +27,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _PageContentPreviewRenderingEvent-api:
 
 API
 ===

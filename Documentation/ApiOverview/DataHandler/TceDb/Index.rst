@@ -102,6 +102,8 @@ mirror
 
 
 
+..  _datahandler-commit-cb:
+
 CB
 --
 
@@ -112,6 +114,8 @@ CB
     Clipboard command array. May trigger changes in "cmd".
 
 
+
+..  _datahandler-commit-vc:
 
 vC
 --

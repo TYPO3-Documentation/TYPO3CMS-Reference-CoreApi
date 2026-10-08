@@ -12,6 +12,8 @@ placed as inline JavaScript. Instead, use a dedicated JavaScript module to
 handle custom events.
 
 
+..  _AddJavaScriptModulesEvent-example:
+
 Example
 =======
 
@@ -26,6 +28,8 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  _AddJavaScriptModulesEvent-api:
 
 API
 ===

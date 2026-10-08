@@ -14,6 +14,8 @@ TSFE
 ..  contents::
     :local:
 
+..  _tsfe-what-is-tsfe:
+
 What is TSFE?
 =============
 
@@ -36,6 +38,8 @@ The TypoScript part is covered in the
 :ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>`.
 In this section we focus on the PHP part and give an overview, in which way the
 TSFE class can be used.
+
+..  _tsfe-accessing-tsfe:
 
 Accessing TSFE
 ==============
@@ -81,6 +85,8 @@ From the PHP documentation:
     That is, global variables cannot be modified via its copy.
 
     -- https://www.php.net/manual/en/reserved.variables.globals.php
+
+..  _tsfe-howtos:
 
 Howtos
 ======

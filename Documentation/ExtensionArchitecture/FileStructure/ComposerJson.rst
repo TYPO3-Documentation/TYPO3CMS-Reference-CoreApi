@@ -134,6 +134,8 @@ Extended composer.json
 Properties
 ==========
 
+..  _ext-composer-json-property-name:
+
 name
 ----
 
@@ -147,6 +149,8 @@ your namespaces used in the :file:`Classes/` folder, but with different
 uppercase / lowercase spelling, for example: The PHP namespace
 :php:`JohnDoe\SomeExtension` may be `johndoe/some-extension` in
 :file:`composer.json <extension-composer-json>`.
+
+..  _ext-composer-json-property-description:
 
 description
 -----------
@@ -171,6 +175,8 @@ Additionally, `typo3-cms-framework` is available for system extensions.
 See `typo3/cms-composer-installers <https://github.com/TYPO3/CmsComposerInstallers>`__
 (required by `typo3/cms-core`).
 
+..  _ext-composer-json-property-license:
+
 license
 -------
 
@@ -179,6 +185,8 @@ license
 Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
 See: https://typo3.com/typo3-cms/what-is-typo3/open-source/licenses.
 
+
+..  _ext-composer-json-property-require:
 
 require
 -------
@@ -194,6 +202,8 @@ dependencies is derived from `require` and `suggest`.
 
 
 
+..  _ext-composer-json-property-suggest:
+
 suggest
 -------
 
@@ -203,6 +213,8 @@ extension has an optional dependency on them.
 In Composer-based installations the loading order of extensions and their
 dependencies is derived from `require` and `suggest`.
 
+
+..  _ext-composer-json-property-autoload:
 
 autoload
 --------
@@ -236,6 +248,8 @@ Example for extension key `my_extension`:
     :language: json
     :caption: Excerpt of EXT:my_extension/composer.json
 
+
+..  _ext-composer-json-property-not-used:
 
 Properties no longer used
 =========================
@@ -277,6 +291,8 @@ result in an error with Composer version 2.0+:
 See
 `comment on helhum/composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8#gistcomment-3239391>`__
 and `revisions on helhum/composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8/revisions>`__.
+
+..  _composer-json-more-information:
 
 More Information
 ================

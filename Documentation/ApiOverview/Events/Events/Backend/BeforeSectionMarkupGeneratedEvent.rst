@@ -13,6 +13,8 @@ content element.
 ..  seealso::
     * :ref:`AfterSectionMarkupGeneratedEvent`
 
+..  _BeforeSectionMarkupGeneratedEvent-example:
+
 Example
 =======
 
@@ -21,6 +23,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _BeforeSectionMarkupGeneratedEvent-api:
 
 API
 ===
