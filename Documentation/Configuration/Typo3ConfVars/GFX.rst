@@ -76,8 +76,7 @@ imageFileConversionFormats
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats']
     :type: `array<string,string>`
     :default: ['jpg' => 'jpg', 'jpeg' => 'jpeg', 'gif' => 'gif', 'png' => 'png', 'svg' => 'svg', 'default' => 'png']
-
-    ..  versionadded:: 14.0
+    :added: 14.0
 
     Map source image extensions to the processing/output format used by
     TYPO3 when images are rendered (for example via :fluid:`<f:image>`). Keys are
