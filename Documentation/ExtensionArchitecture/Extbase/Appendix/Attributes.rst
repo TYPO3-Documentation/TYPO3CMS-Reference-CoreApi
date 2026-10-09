@@ -244,7 +244,7 @@ if they are not met.
 :Target: Controller action method
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
 
-..  versionadded:: 14.0
+..  versionadded:: 14.2
     :changelog: feature-108982-1771078311
 
 Limits how often an action may be called within a time window, per visitor.
