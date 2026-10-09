@@ -78,6 +78,22 @@ Modal settings
         Controls whether a static backdrop should be rendered, which prevents
         closing the modal by clicking outside of it.
 
+    ..  confval:: size
+        :name: modules-modals-settings-size
+        :type: string|object
+        :default: :js:`Modal.sizes.default`
+        :changed: 14.3.x important-109731-1777413600
+
+        The size of the modal. Either one of the presets of :js:`Modal.sizes`:
+        `small`, `default`, `medium`, `large`, `full`, and `expand`. Or an
+        object that sets the width and the height independently, each with one
+        of the values of :js:`Size`: `small`, `default`, `medium`, `large`, and
+        `full`. An axis that the object leaves out keeps the size the content
+        of the modal needs.
+
+        ..  literalinclude:: _Modals/_size-config.js
+            :caption: EXT:my_extension/Resources/Public/JavaScript/my-modal.js
+
 ..  _modules-modals-button-settings:
 
 Button settings
