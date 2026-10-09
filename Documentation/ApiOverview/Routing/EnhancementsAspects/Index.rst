@@ -106,7 +106,9 @@ Within a configuration, an enhancer always evaluates the following properties:
     This property (array) triggers an enhancer only for specific pages. In case
     of special plugin pages, it is recommended to enhance only those pages with
     the plugin to speed up performance of building page routes of all other
-    pages.
+    pages. An entry can also be an expression, see
+    :ref:`Choosing the pages of an enhancer by an expression
+    <routing-limittopages-expressions>`.
 
 All enhancers allow to configure at least one route with the following
 configuration:
@@ -147,6 +149,59 @@ the possible expected values for these arguments. This is done by adding
 :ref:`aspects
 <routing-advanced-routing-configuration-aspects>` for those arguments to provide
 a static list of expected values.
+
+..  index:: Routing; limitToPages
+..  _routing-limittopages-expressions:
+
+Choosing the pages of an enhancer by an expression
+--------------------------------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-109263-1773679470
+
+An entry of :yaml:`limitToPages` can be an expression instead of a page ID.
+The enhancer then applies to every page that the expression accepts. A list of
+page IDs no longer has to be kept up to date by hand:
+
+..  literalinclude:: _codesnippets/_limitToPagesExpression.yaml
+    :caption: config/sites/<identifier>/config.yaml
+
+TYPO3 combines the entries with OR: the enhancer applies as soon as one entry
+matches. Write :yaml:`&&` inside one expression to require two conditions
+together.
+
+These variables are available:
+
+:yaml:`page`
+    The record of the page, as an array. TYPO3 reads the whole record, so
+    every field of it can be used.
+
+:yaml:`site`
+    The :php-short:`\TYPO3\CMS\Core\Site\Entity\Site` of the request.
+
+:yaml:`siteLanguage`
+    The :php-short:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` of the request.
+
+The functions of the
+:ref:`expression language <symfony-expression-language>`, such as
+:yaml:`like()`, :yaml:`getenv()`, and :yaml:`feature()`, are available as
+well.
+An extension adds its own functions for the `routing` context through
+:file:`Configuration/ExpressionLanguage.php`, see
+:ref:`Registering a custom Symfony expression provider
+<sel-ts-registering-new-provider-within-extension>`.
+
+..  warning::
+
+    Write a page ID as a number, not as a string. TYPO3 compares a number
+    with the page ID, and reads a string as an expression. `'42'` in quotes is
+    therefore an expression that fails, and the enhancer does not apply to
+    page 42.
+
+    TYPO3 also ignores an expression it cannot evaluate, and an expression
+    stays without effect while no page record is available. Neither case
+    reports an error, so an enhancer that does not apply is the only symptom
+    of a typo in an expression.
 
 ..  index:: Routing; Simple Enhancer
 ..  _routing-simple-enhancer:
