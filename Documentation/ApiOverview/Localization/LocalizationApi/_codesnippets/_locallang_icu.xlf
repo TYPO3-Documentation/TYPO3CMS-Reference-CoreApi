@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="locallang.xlf">
+    <header/>
+    <body>
+      <trans-unit id="file_count">
+        <source>{count, plural, one {# file} other {# files}}</source>
+      </trans-unit>
+      <trans-unit id="item_count">
+        <source>{count, plural, =0 {no items} one {# item} other {# items}}</source>
+      </trans-unit>
+      <trans-unit id="greeting">
+        <source>Hello {name}, you have {count, plural, one {# message} other {# messages}}.</source>
+      </trans-unit>
+      <trans-unit id="profile_update">
+        <source>{gender, select, male {He} female {She} other {They}} updated the profile.</source>
+      </trans-unit>
+      <trans-unit id="welcome">
+        <source>Welcome, {name}!</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
