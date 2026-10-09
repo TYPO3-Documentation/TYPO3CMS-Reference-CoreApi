@@ -17,6 +17,5 @@ be used by extensions.
     :titlesonly:
 
     Modals
-    MultiStepWizard
     DocumentService
     SessionStorageWrapper

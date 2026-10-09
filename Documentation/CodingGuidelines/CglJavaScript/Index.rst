@@ -34,8 +34,6 @@ Format
 
 * Use single quotes ('') for strings.
 
-* Prefix jQuery object variables with a `$`.
-
 
 ..  _cgl-javascript-information:
 
@@ -47,4 +45,3 @@ More information
   the coding guidelines.
 * `AirBnb JavaScript Style Guide: Whitespace <https://github.com/airbnb/javascript#whitespace>`__
 * `AirBnb JavaScript Style Guide: Strings <https://github.com/airbnb/javascript#strings>`__
-* `AirBnb JavaScript Style Guide: jQuery <https://github.com/airbnb/javascript#jquery>`__

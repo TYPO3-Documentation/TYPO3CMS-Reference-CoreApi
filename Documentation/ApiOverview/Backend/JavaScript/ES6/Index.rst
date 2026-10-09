@@ -133,11 +133,30 @@ modules <https://github.com/bnf/news/commit/f8e196b67ceaa2f56699fbf464080dde668a
 Using jQuery
 ------------
 
-In the TYPO3 Core usage of jQuery is eliminated step-by-step as the necessary
-functionality is provided by native JavaScript nowadays.
+..  versionchanged:: 15.0
+    :changelog: breaking-109998-1780583751
 
-If you still have to use jQuery in your third-party extension, include it
-with the following statement:
+    jQuery and the `jquery` entry in the import map of the TYPO3 Core
+    were removed.
+
+TYPO3 does not ship jQuery. Use native JavaScript instead.
+
+If your extension still depends on jQuery, ship your own copy of the library
+and register it in the import map of your extension:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/JavaScriptModules.php
+
+    <?php
+
+    return [
+        'dependencies' => ['core'],
+        'imports' => [
+            'jquery' => 'EXT:my_extension/Resources/Public/JavaScript/Contrib/jquery.js',
+        ],
+    ];
+
+Then import it in your modules:
 
 ..  code-block:: javascript
 

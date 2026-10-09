@@ -51,7 +51,7 @@ Modal settings
     ..  confval:: content
         :name: modules-modals-settings-content
         :required: true
-        :type: string|jQuery
+        :type: string|Element|DocumentFragment
 
         The content displayed in the modal.
 
