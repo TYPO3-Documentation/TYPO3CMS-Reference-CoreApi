@@ -78,3 +78,45 @@ These properties apply to all error handlers.
         a page
     *   :ref:`PHP <sitehandling-customerrorhandler>` for a custom
         implementation
+
+..  index:: pair: Site handling; ErrorController
+..  _sitehandling-errorhandling-trigger:
+
+Trigger an error page from an extension
+=======================================
+
+:php:`\TYPO3\CMS\Frontend\Controller\ErrorController` builds the response
+for an error. It looks up the error handler that the site configures for the
+status code. Where the site configures none, it falls back to the error page
+of TYPO3. So an extension that reports an error through this controller gets
+the error handling of the site.
+
+..  _sitehandling-errorhandling-custom-action:
+
+Any status code with `customErrorAction()`
+------------------------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-108904-1771065699
+
+:php-short:`\TYPO3\CMS\Frontend\Controller\ErrorController::customErrorAction()`
+reports a status code of your choice, with a title and a message of your own.
+Use it for a code that the methods for the fixed codes do not cover, for
+example HTTP 429:
+
+..  literalinclude:: _TriggerCustomErrorPage.php
+    :caption: EXT:my_extension/Classes/Controller/DownloadController.php
+
+After the request, the status code, the title, and the message, the method
+takes three optional arguments. `$technicalReason` is a detail that TYPO3
+appends to the message as `Reason: <technicalReason>`. `$reasons` reaches the
+error handler of the site. `$errorCode` is a number that the error page shows
+next to the message.
+
+A request that accepts `application/json` receives a JSON response carrying
+the technical reason, instead of an HTML page.
+
+Configure an error handler for the status code to render the page of the site
+instead of the error page of TYPO3. The :ref:`errorCode
+<sitehandling-errorhandling-errorcode>` property accepts any code, so a site
+can answer a 429 with a Fluid template of its own.
