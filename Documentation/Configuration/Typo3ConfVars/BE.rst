@@ -935,16 +935,14 @@ installToolSessionHandler
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolSessionHandler']
     :name: globals-typo3-conf-vars-be-installToolSessionHandler
     :type: array
-
-    ..  versionadded:: 14.0
+    :added: 14.0
 
     ..  confval:: className
         :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolSessionHandler']['className']
         :name: globals-typo3-conf-vars-be-installToolSessionHandler-className
         :type: fully qualified class name (implements :php:`\SessionHandlerInterface`)
         :default: :php:`\TYPO3\CMS\Install\Service\Session\FileSessionHandler`
-
-        ..  versionadded:: 14.0
+        :added: 14.0
 
         Store Install Tool sessions in Redis by setting `className` to
         :php:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`.
