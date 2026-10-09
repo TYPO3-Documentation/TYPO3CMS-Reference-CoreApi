@@ -113,9 +113,11 @@ in the PHP API, it accepts these resource identifiers:
     A file in the :ref:`file storage <fal-architecture-components-storage>`
     with the UID `1`.
 
-`https://example.org/css/main.css` or `URI:/css/main.css`
-    A URL, or a URL relative to the current host. An invalid URL throws an
-    exception instead of ending up in the HTML.
+`https://example.org/css/main.css`, `//example.org/css/main.css` or `URI:/css/main.css`
+    A URL, a protocol-relative URL, or a URL relative to the current host.
+    An invalid URL never ends up in the HTML. The PHP API, for example the
+    asset collector, throws an exception. The :typoscript:`PAGE` include
+    properties, such as :typoscript:`includeCSS`, leave the file out.
 
 ..  deprecated:: 14.0
     Referencing a file by a path relative to the public folder, such as
