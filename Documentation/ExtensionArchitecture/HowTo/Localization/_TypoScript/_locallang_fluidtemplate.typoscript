@@ -12,6 +12,6 @@ page.10.template.value (
   <f:translate key="LLL:EXT:backend/Resources/locallang.xlf:onlineDocumentation" />
 )
 # Note the tx_ prefix
-plugin.tx_backend._LOCAL_LANG.default {
+plugin.tx_backend._LOCAL_LANG.en {
   onlineDocumentation = TYPO3 Online Documentation from Typoscript
 }
