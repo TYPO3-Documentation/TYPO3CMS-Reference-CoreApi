@@ -38,6 +38,11 @@ services, and convenient helpers for TypoScript, Extbase and Fluid.
 
         Convenience wrapper to translate labels inside Extbase.
 
+    ..  card:: `Arguments in a label <https://docs.typo3.org/permalink/t3coreapi:localization-message-format>`_
+
+        Fill values into a label, and let ICU MessageFormat choose the plural
+        form or the wording.
+
     ..  card:: `Localization in TypoScript <https://docs.typo3.org/permalink/t3coreapi:extension-localization-typoscript>`_
 
         Using localized labels in TypoScript.
