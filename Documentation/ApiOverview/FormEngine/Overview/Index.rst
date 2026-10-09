@@ -59,11 +59,12 @@ In code, the basic workflow looks like this:
 ..  literalinclude:: _SomeClass.php
     :caption: EXT:my_extension/Classes/SomeClass.php
 
-..  deprecated:: 14.2
-    :changelog: deprecation-109230-1773404000
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
 
-    The class :php:`TYPO3\CMS\Backend\Form\FormResultCompiler` has been
-    deprecated.
+    The class :php:`TYPO3\CMS\Backend\Form\FormResultCompiler`, deprecated
+    in TYPO3 14.2, has been removed. The render type `outerWrapContainer`
+    has been replaced by `formWrapContainer`.
 
 Basically, behind the FormEngine concept is a 2-step process: first create an array to gather all
 rendering-relevant information, then call the rendering engine using this array to produce output.

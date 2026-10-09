@@ -33,7 +33,7 @@ final class SomeClass
       'command' => $command,
     ];
     $formData = $this->formDataCompiler->compile($formDataCompilerInput, $this->formDataGroup);
-    $formData['renderType'] = 'outerWrapContainer';
+    $formData['renderType'] = 'formWrapContainer';
     /** @var array $rawFormResult */
     $rawFormResult = $this->nodeFactory->create($formData)->render();
     // Convert the raw result array into a FormResult object
