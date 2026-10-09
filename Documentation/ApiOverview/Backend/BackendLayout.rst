@@ -104,6 +104,47 @@ row (here called "header") spans all 3 columns. There is an "aside" spanning two
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
 
+..  _be-layout-slide-mode:
+
+Filling a column from the pages above with `slideMode`
+======================================================
+
+..  versionadded:: 14.2
+    :changelog: feature-108842-1770128495
+
+    The :guilabel:`Content > Layout` module marks a column that takes its
+    content from a parent page.
+
+A column can carry a `slideMode`, which tells the
+:ref:`page-content data processor <t3tsref:PageContentFetchingProcessor>`
+to look at the pages above the current one:
+
+`slide`
+    If the page has no content in the column, the content of the nearest
+    parent page that has some fills it.
+
+`collect`
+    The content of the page and of every parent page is shown together,
+    starting with the topmost page and ending with this page.
+
+`collectReverse`
+    The same content, starting with this page and ending with the topmost
+    page.
+
+Anything else, and no value at all, leaves the column alone. The configuration
+values are in lowerCamelCase, corresponding to the cases of the PHP enum
+:php:`\TYPO3\CMS\Core\Page\ContentSlideMode`.
+
+The :guilabel:`Content > Layout` module marks a column that has an active
+slide mode with a badge next to its title, displaying the description above as
+a tooltip. A page without a parent never displays the badge, and in `slide`
+mode it is only shown while the column is still empty, which is when sliding
+takes effect.
+
+For a `CONTENT` object the frontend counterpart is its `slide` property, see
+`CONTENT.slide
+<https://docs.typo3.org/permalink/t3tsref:confval-content-slide>`_.
+
 ..  _be-layout-frontend:
 
 Output of a backend layout in the frontend
