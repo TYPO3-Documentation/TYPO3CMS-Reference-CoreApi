@@ -146,12 +146,56 @@ By default, you should run:
 
             typo3/sysext/core/bin/typo3 messenger:consume doctrine
 
-The command is a slimmed-down wrapper for the Symfony command
-`messenger:consume`, it only provides the basic consumption functionality. As
-this command is running as a worker, it is stopped after 1 hour to avoid memory
-leaks. Therefore, the command should be run from a service manager like
-`systemd`_ to restart automatically after the command exits due to the time
-limit.
+The command takes almost all options of the Symfony command of the same name.
+
+..  versionchanged:: 14.2
+    :changelog: feature-106261-1762614000
+
+    The worker options below were added. Before, the command stopped after one
+    hour on its own and reported that through an `--exit-code-on-limit`
+    option. Both are gone: a worker now runs until you give it a limit.
+
+A worker does not stop on its own. In continuous operation, configure a limit
+so that the PHP process is periodically recycled to release memory:
+
+`--time-limit`, `-t`
+    Stop after this number of seconds.
+
+`--limit`, `-l`
+    Stop after this number of messages.
+
+`--failure-limit`, `-f`
+    Stop after this number of failed messages.
+
+`--memory-limit`, `-m`
+    Stop when the worker uses more than this much memory, for example `128M`.
+
+A limit only takes effect after the current message is handled, so the worker
+never stops in the middle of one. These options select what the worker reads
+and how it waits:
+
+`--all`
+    Consume from every configured receiver.
+
+`--bus`, `-b`
+    Dispatch the received messages to this bus. Without it, TYPO3 picks the
+    bus itself.
+
+`--queues`
+    Consume only from these queues of the receiver. Repeat the option per
+    queue.
+
+`--sleep`
+    Wait this number of seconds before asking for messages again when none
+    were found. The default is `1`.
+
+`--keepalive`
+    Keep the connection of the transport alive, if the transport implements
+    it. The default interval is 5 seconds.
+
+Whichever limit is reached, the worker process exits with code `0`. Run it
+under a service manager like `systemd`_ that keeps the service active and
+automatically restarts a fresh worker process.
 
 The following code provides an example for a service. Create the following
 file on your server:
@@ -168,16 +212,23 @@ file on your server:
     Type=simple
     User=www-data
     Group=www-data
-    ExecStart=/usr/bin/php8.1 /var/www/myproject/vendor/bin/typo3 messenger:consume doctrine --exit-code-on-limit 133
-    # Generally restart on error
-    Restart=on-failure
-    # Restart on exit code 133 (which is returned by the command when limits are reached)
-    RestartForceExitStatus=133
-    # ..but do not interpret exit code 133 as an error (as it's just a restart request)
-    SuccessExitStatus=133
+    ExecStart=/usr/bin/php8.5 /var/www/myproject/vendor/bin/typo3 messenger:consume doctrine --time-limit=3600
+    # The command exits with 0 on its time limit, so restart it either way
+    Restart=always
+    RestartSec=1
 
     [Install]
     WantedBy=multi-user.target
+
+Where no service manager is available, the command can run as a
+:ref:`scheduler task <symfony-console-commands-scheduler>` instead.
+
+..  important::
+
+    The `messenger:consume` command blocks subsequent scheduler tasks from
+    executing while it is running. Set `--time-limit` to a value lower than the
+    scheduler's cron interval (for example, 240 seconds for a 5-minute cron
+    interval) so that the task completes before the next run.
 
 
 ..  _message-bus-advanced-usage:
