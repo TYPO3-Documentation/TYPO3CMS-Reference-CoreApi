@@ -489,11 +489,16 @@ which lets event listeners return a custom response instead of the default 403.
 Rate-limiting Extbase actions with `#[RateLimit]`
 =================================================
 
-..  versionadded:: 14.0
+..  versionadded:: 14.2
+    :changelog: feature-108982-1771078311
 
 :php:`#[RateLimit]` limits how often a visitor (identified by IP address) may
 call an action within a sliding time window. It is designed for write actions
 like form submissions.
+
+Extbase counts the calls in the controller, so the limit applies to uncached
+actions only. For a cached action the frontend cache answers the request
+before Extbase runs, so TYPO3 never counts the call.
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -522,7 +527,10 @@ Options:
     Default: `'15 minutes'`.
 
 :php:`policy`
-    Throttling algorithm. Only `'sliding_window'` is available.
+    Throttling algorithm, one of the policies of the Symfony rate limiter:
+    `'sliding_window'`, `'fixed_window'`, or `'no_limit'` to count nothing.
+    `'token_bucket'` needs a refill rate that the attribute does not set, so
+    it throws an exception.
     Default: `'sliding_window'`.
 
 :php:`message`

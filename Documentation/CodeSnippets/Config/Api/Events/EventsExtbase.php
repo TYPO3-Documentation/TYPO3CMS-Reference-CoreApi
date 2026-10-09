@@ -15,6 +15,12 @@ return [
   ],
   [
     'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Extbase\Event\Mvc\BeforeActionRateLimitResponseEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Extbase/BeforeActionRateLimitResponseEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
     'class' => \TYPO3\CMS\Extbase\Event\Persistence\AfterObjectThawedEvent::class,
     'targetFileName' => 'CodeSnippets/Events/Extbase/AfterObjectThawedEvent.rst.txt',
     'withCode' => false,
