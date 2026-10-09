@@ -3,6 +3,12 @@
 return [
   [
     'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Backend\RecordList\Event\AfterRecordListRowPreparedEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Backend/AfterRecordListRowPreparedEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
     'class' => \TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent::class,
     'targetFileName' => 'CodeSnippets/Events/Backend/IsContentUsedOnPageLayoutEvent.rst.txt',
     'withCode' => false,
