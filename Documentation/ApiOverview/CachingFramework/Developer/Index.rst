@@ -120,3 +120,29 @@ collect cache tags and their corresponding lifetime. Find more information in
 the chapter
 :ref:`Frontend cache collector
 <typo3-request-attribute-frontend-cache-collector>`.
+
+..  _caching-developer-cache-tags-files:
+
+Cache tags for files and folders
+--------------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-102430-1700581800
+
+Tag a cache entry that shows a file with `sys_file_<uid>`, and one that shows
+the metadata of a file with `sys_file_metadata_<uid>`. TYPO3 Core flushes both
+tags when an editor works on the file in the :guilabel:`File > Media` module.
+A page that renders the file then leaves the cache on its own.
+
+TYPO3 flushes `sys_file_<uid>` when the content of the file changes, and when
+the file is deleted, moved, renamed, or replaced. A rename or a move of a
+folder flushes the tag of every file in it, including the files of its
+subfolders. A change of the metadata flushes `sys_file_metadata_<uid>` and the
+`sys_file_<uid>` tag of the file it belongs to.
+
+Adding a file flushes nothing, because no cache entry can refer to it yet.
+
+This needs the `frontend.cache.autoTagging` feature toggle, the same one that
+:ref:`automatic cache tagging
+<extbase-caching-cachetags-featureflag>` needs. While the toggle is off, TYPO3
+flushes none of these tags.
