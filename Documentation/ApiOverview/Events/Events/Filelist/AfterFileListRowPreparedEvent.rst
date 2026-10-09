@@ -20,8 +20,8 @@ event provides access to the already-rendered data of every column in the
 row (for example `name`, `size` or any additional metadata columns added
 via the column selector), as well as the row's HTML tag attributes. This
 mirrors the equivalent event that is already available for the classic record
-list:
-:php-short:`\TYPO3\CMS\Backend\RecordList\Event\AfterRecordListRowPreparedEvent`.
+list, `AfterRecordListRowPreparedEvent
+<https://docs.typo3.org/permalink/t3coreapi:AfterRecordListRowPreparedEvent>`_.
 
 ..  _after-file-list-row-prepared-event-example:
 
