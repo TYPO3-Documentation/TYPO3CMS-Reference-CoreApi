@@ -1,0 +1,8 @@
+<f:variable
+  name="addresses"
+  value="PKG:my-vendor/my-extension:Resources/Public/XML/addresses.xml"
+/>
+<div
+  id="myMap"
+  data-addresses="{addresses -> f:resource() -> f:uri.resource()}"
+></div>
