@@ -11,8 +11,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Core\Bootstrap;
 use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
 use TYPO3\CMS\Core\Http\ServerRequest;
-use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\MailerInterface;
+use TYPO3\CMS\Core\Mail\TemplatedEmailFactory;
 use TYPO3\CMS\Core\Site\SiteFinder;
 
 #[AsCommand(
@@ -23,6 +23,7 @@ class SendFluidMailCommand extends Command
   public function __construct(
     private readonly SiteFinder $siteFinder,
     private readonly MailerInterface $mailer,
+    private readonly TemplatedEmailFactory $templatedEmailFactory,
   ) {
     parent::__construct();
   }
@@ -37,9 +38,10 @@ class SendFluidMailCommand extends Command
         ->withAttribute('applicationType', SystemEnvironmentBuilder::REQUESTTYPE_FE)
         ->withAttribute('site', $site);
     $GLOBALS['TYPO3_REQUEST'] = $request;
-    // Send some mails with FluidEmail
-    $email = new FluidEmail();
-    $email->setRequest($request);
+    // Send some mails with FluidEmail. Commands use create(), which reads
+    // the global mail configuration. Passing the request keeps link
+    // generation working.
+    $email = $this->templatedEmailFactory->create($request);
     // Set receiver etc
     $this->mailer->send($email);
     return Command::SUCCESS;
