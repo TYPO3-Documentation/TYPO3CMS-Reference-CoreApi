@@ -321,7 +321,10 @@ installation method:
             can be fully restored from the Git repository without needing
             external packages or configuration.)
         -   :path:`typo3conf/l10n/` – If you also want to keep automatic
-            localizations under version control
+            localizations under version control. Commit the file
+            :file:`language_pack_states.json` together with the language
+            packs, so that the :guilabel:`System > Maintenance` module shows
+            when each pack was last updated.
         -   :path:`typo3conf/PackageStates.php` – To determine which of the
             loaded extensions are installed
         -   :path:`typo3/sysext/` – The TYPO3 Core (So a project can
