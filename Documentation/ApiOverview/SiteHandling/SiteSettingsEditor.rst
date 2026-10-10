@@ -39,8 +39,8 @@ and subcategories to order the settings.
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettings.png
     :alt: Screenshot of the settings of an example site
 
-    The site in the examples includes the "My Sitepackage" and "Blog Example"
-    sets. "My Sitepackage" depends on "Fluid Styled Content"
+    The site in the examples includes the "My Sitepackage" and "My Extension"
+    sets. "My Sitepackage" depends on "Fluid Styled Content".
 
 The editor displays only settings defined by an active set, for example in
 :file:`EXT:my_sitepackage/Configuration/Sets/MySitepackage/settings.definitions.yaml`.
@@ -93,7 +93,7 @@ appears:
     the submitted value. See :ref:`definition types <definition-types>`.
 
 7.  **Displayed value:** The field contains the effective value. In this
-    example no set or site overrides `blogExample.partialRootPath`, so TYPO3
+    example no set or site overrides `myExtension.partialRootPath`, so TYPO3
     displays the definition's `default` value.
 
 8.  **Reset value:** Resetting a field discards its site-specific override and
@@ -108,6 +108,6 @@ appears:
 
 The corresponding definition is:
 
-..  literalinclude:: _Settings/_blog_settings.definitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/BlogExample/settings.definitions.yaml (excerpt)
+..  literalinclude:: _Settings/_my_extension_settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/settings.definitions.yaml (excerpt)
     :linenos:
