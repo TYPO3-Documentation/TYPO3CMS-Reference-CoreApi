@@ -25,7 +25,7 @@ Anatomy of a route entry
 ========================
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     routes:
       - routePath: '/{conference_slug}'
@@ -78,7 +78,7 @@ correctly:
 With this route order, resolution works correctly:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     routes:
       - routePath: '/'
@@ -112,7 +112,7 @@ list produces :samp:`/conferences/` rather than :samp:`/conferences/page/1`.
 A link to page 2 still produces :samp:`/conferences/page/2`.
 
 ..  literalinclude:: _snippets/_routes-defaults.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
     :emphasize-lines: 20-21
 
 
@@ -140,7 +140,7 @@ Note that :yaml:`requirements` are ignored for any placeholder that has a
 corresponding :yaml:`aspects` entry — the aspect takes precedence.
 
 ..  literalinclude:: _snippets/_routes-defaults.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
     :emphasize-lines: 22-23
 
 The next step is configuring the :yaml:`aspects` entries that translate

@@ -47,7 +47,7 @@ identifier. Each definition provides at least a type and a default value;
 labels and descriptions make it understandable in the editor.
 
 ..  literalinclude:: _Settings/_site-settings.definitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
 Categories are optional and do not change how a setting is read. See
 :ref:`Configuring the site settings editor <sitehandling-settings-editor-configuration>` for a complete annotated
@@ -159,7 +159,7 @@ Site setting definition properties
             omitted to fall back to the enum value itself.
 
             ..  literalinclude:: _Settings/_enum_settings.definitions.yaml
-                :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+                :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
             ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeEnum.png
                 :alt: Screenshot of a site setting with selectable enum values
@@ -205,7 +205,7 @@ Setting types
         integer. If yes, the string is converted into an integer.
 
         ..  literalinclude:: _Settings/_settings.definitions.int.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: number
         :name: site-setting-type-number
@@ -217,7 +217,7 @@ Setting types
         converted to an integer or float.
 
         ..  literalinclude:: _Settings/_settings.definitions.number.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: bool
         :name: site-setting-type-bool
@@ -235,7 +235,7 @@ Setting types
         `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
         ..  literalinclude:: _Settings/_settings.definitions.bool.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: string
         :name: site-setting-type-string
@@ -250,7 +250,7 @@ Setting types
         Boolean values are converted to `true` and `false`.
 
         ..  literalinclude:: _Settings/_settings.definitions.string.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: text
         :name: site-setting-type-text
@@ -261,7 +261,7 @@ Setting types
         identifies the setting as longer text in the editor.
 
         ..  literalinclude:: _Settings/_settings.definitions.text.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: stringlist
         :name: site-setting-type-stringlist
@@ -278,7 +278,7 @@ Setting types
         The `string` type is executed for each array entry.
 
         ..  literalinclude:: _Settings/_settings.definitions.stringlist.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: color
         :name: site-setting-type-color
@@ -295,7 +295,7 @@ Setting types
         have 3, 6 or 8 digits.
 
         ..  literalinclude:: _Settings/_settings.definitions.color.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: page
         :name: site-setting-type-page
@@ -313,7 +313,7 @@ Setting types
         UID in the field.
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
     ..  confval:: url
         :name: site-setting-type-url
@@ -325,7 +325,7 @@ Setting types
         regular expression match.
 
         ..  literalinclude:: _Settings/_settings.definitions.url.yaml
-            :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+            :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
 ..  _site-settings-definition-translation:
 
@@ -399,7 +399,7 @@ To translate the labels of :confval:`enum <site-settings-definition-settings-enu
 declarations (a plain array of values), use this structure:
 
 ..  literalinclude:: _Settings/_enum_list_settings.definitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
 ..  code-block:: xml
     :caption: Matching labels in labels.xlf
@@ -416,7 +416,7 @@ schema: the given label is used as-is, unless it is an explicit `LLL:`
 reference.
 
 ..  literalinclude:: _Settings/_enum_map_settings.definitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
 ..  code-block:: xml
     :caption: Referenced label in labels.xlf

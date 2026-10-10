@@ -47,7 +47,7 @@ use `lib.parseFunc_RTE` for parsing and rendering (see also
 For example to render the `bodytext` filed of table `tt_content` without Fluid:
 
 ..  literalinclude:: _parsefunc.typoscript
-    :caption: packages/my_extension/Configuration/Sets/MySet/setup.typoscript
+    :caption: packages/my_extension/Configuration/Sets/Main/setup.typoscript
 
 Usually the TypoScript function `typolink` should be used for single links,
 but for text that might include several links that is not possible easily.

@@ -112,7 +112,7 @@ It is possible to override earlier set meta tags by TypoScript if you explicitly
 * `0`: (default) If the meta tag is not set before, the meta tag will be created. If it is already set, it will ignore the meta tag set by TypoScript.
 
 ..  literalinclude:: _openGraphSiteName.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 When you set the property replace to `1` at the specific tag, the tag will replace tags that are set from plugins.
 

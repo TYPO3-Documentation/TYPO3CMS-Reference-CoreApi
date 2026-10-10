@@ -197,7 +197,7 @@ want to add meta tags properties such as `og:title`, `og:description` and `og:im
 TypoScript code like this:
 
 ..  literalinclude:: _snippets/_og.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  note::
     If you want to set specific title tags for the single view of a plugin,
@@ -221,7 +221,7 @@ only be rendered when `EXT:seo` has not rendered them.
 An example to set a fallback `description` and `og:description`:
 
 ..  literalinclude:: _snippets/_meta-fallback.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  hint::
 
@@ -240,7 +240,7 @@ Setting fallbacks for og:image and twitter:image
 If you want to have a fallback `og:image` or `twitter:image`, you can use this little snippet.
 
 ..  literalinclude:: _snippets/_og-fallback.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 More information about the Meta Tag API can be found on:
 
@@ -257,12 +257,12 @@ This example shows how to set a default author based on the
 `mySitePackage.author`
 
 ..  literalinclude:: _snippets/_metatags-author.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 The author setting could then be defined as follows:
 
 ..  literalinclude:: _snippets/_settings.definitions.yaml
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/settings.definitions.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/settings.definitions.yaml
 
 ..  note::
     If you want to set an author for the single view of a plugin,

@@ -33,7 +33,7 @@ Routing also beautifies URI parameters, for example,
 :samp:`https://example.org/profiles/magdalena`
 
 Routing is defined in the site configuration file :file:`config/sites/my_site/config.yaml`
-or in a site set like `EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml`.
+or in a site set like `EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml`.
 
 Site-level route enhancer configuration always takes precedence over
 set-defined enhancers. Route enhancers from site sets are merged in dependency
@@ -225,7 +225,7 @@ to add routing configurations from different files and different extensions.
 Example:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     imports:
       - { resource: 'route-enhancers/*.yaml' }

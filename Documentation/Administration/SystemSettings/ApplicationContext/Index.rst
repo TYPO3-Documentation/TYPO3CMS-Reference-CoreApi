@@ -324,7 +324,7 @@ TypoScript
 ----------
 
 ..  literalinclude:: _applicationContextInIf.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  code-block:: typoscript
 

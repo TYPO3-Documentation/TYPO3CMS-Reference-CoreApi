@@ -87,7 +87,7 @@ Therefore, the two sets provided by that system extension are included as
 dependencies:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_config.yaml
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/config.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/config.yaml
 
 Find all available sets with the console command
 :ref:`bin/typo3 site:sets:list <site-sets-cli>`.
@@ -105,7 +105,7 @@ If it is unavailable, TYPO3 skips it without reporting an error.
 In this example, the `typo3/form` set is loaded when it is available:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_config_optional.yaml
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/config.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/config.yaml
 
 ..  hint::
     If you include optional dependencies, ensure that all other code, such as
@@ -134,10 +134,10 @@ Load TypoScript via the site package's set
 The example site package loads its TypoScript by placing
 :file:`constants.typoscript` and :file:`setup.typoscript` in the set directory.
 These files use :typoscript:`@import` statements to import local TypoScript
-files from :path:`Configuration/Sets/SitePackage/TypoScript`:
+files from :path:`Configuration/Sets/Main/TypoScript`:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_setup.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 TypoScript from dependencies is included by the dependent sets, not by
 TypoScript imports.
@@ -148,12 +148,12 @@ Override default settings
 -------------------------
 
 In this example,
-:file:`EXT:my_sitepackage/Configuration/Sets/SitePackage/settings.yaml` overrides
+:file:`EXT:my_sitepackage/Configuration/Sets/Main/settings.yaml` overrides
 default settings from
 :ref:`EXT:fluid_styled_content <typo3/cms-fluid-styled-content:start>`:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/settings.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/settings.yaml
 
 These values are project presets. The site package does not redefine the
 settings because their definitions and validation rules belong to
@@ -225,7 +225,7 @@ Separate functionality into multiple site sets
 The main site set of the extension has the same name as the Composer package:
 
 ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_my_extension/_config.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/config.yaml
 
 The other two sets require this set and therefore declare it as a dependency:
 
