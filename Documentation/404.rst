@@ -42,6 +42,32 @@ The `DatabaseWriter <https://docs.typo3.org/permalink/t3coreapi:logging-writers-
 can only be used with the :sql:`sys_log` table starting with TYPO3 v15.
 
 
+..  _typo3confvars-sys-utf8filesystem:
+..  _typo3confvars-sys-systemlocale:
+
+`UTF8filesystem` and `systemLocale` removed
+-------------------------------------------
+
+TYPO3 always stores file names with their Unicode characters, and handles
+file names and shell arguments independent of the locale.
+
+..  confval:: UTF8filesystem
+    :name: globals-typo3-conf-vars-sys-UTF8filesystem
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
+    :type: bool
+    :removed: 15.0 breaking-110966-1791465024
+
+    To keep replacing characters such as umlauts in uploaded file names, use
+    the `SanitizeFileNameEvent <https://docs.typo3.org/permalink/t3coreapi:sanitizefilenameevent-transliterate>`_.
+
+..  confval:: systemLocale
+    :name: globals-typo3-conf-vars-sys-systemLocale
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
+    :type: text
+    :removed: 15.0 breaking-110966-1791465024
+
+    No replacement is needed.
+
 ..  _BeforeSectionMarkupGeneratedEvent:
 ..  _AfterSectionMarkupGeneratedEvent:
 

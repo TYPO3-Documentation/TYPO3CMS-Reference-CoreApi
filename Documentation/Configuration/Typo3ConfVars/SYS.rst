@@ -433,49 +433,6 @@ phpTimeZone
     in :file:`php.ini`, server defaults, etc). If no fallback is found, the value of
     "UTC" is used instead.
 
-..  _typo3confvars-sys-utf8filesystem:
-
-
-UTF8filesystem
---------------
-
-..  confval:: UTF8filesystem
-    :name: globals-typo3-conf-vars-sys-UTF8filesystem
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
-    :type: bool
-    :default: true
-
-    If set to :php:`true`, TYPO3 uses UTF-8 to store file names. This allows for accented
-    latin letters as well as other non-latin characters, like Cyrillic and
-    Chinese.
-
-    If set to :php:`false`, filenames containing characters such as umlauts or
-    "special" characters such as Japanese will be renamed to
-    something "safe" when uploaded in the backend.
-
-    ..  attention::
-        This requires a UTF-8 compatible locale in order to work otherwise
-        problems with filenames containing special characters will occur.
-        See :ref:`[SYS][systemLocale]<typo3confvars-sys-utf8filesystem>` and
-        `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
-
-..  _typo3confvars-sys-systemlocale:
-
-
-systemLocale
-------------
-
-..  confval:: systemLocale
-    :name: globals-typo3-conf-vars-sys-systemLocale
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
-    :type: text
-    :default: ''
-
-    Locale used for certain system related functions, for example escaping shell
-    commands. If there are problems due to filenames containing special characters,
-    the value of this option is probably wrong. See
-    `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
-
 ..  _typo3confvars-sys-reverseproxyip:
 
 
