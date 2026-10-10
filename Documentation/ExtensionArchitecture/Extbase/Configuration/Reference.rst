@@ -437,7 +437,7 @@ Output format, language overrides and FlexForm handling
     rather than switching :typoscript:`format` globally — separate actions keep
     responsibility for each format in the controller where it is easy to find.
 
-:typoscript:`_LOCAL_LANG`
+:typoscript:`_LOCAL_LANG <t3tsref:plugin-local-lang>`
     Overrides individual translation labels of a plugin without editing its XLF
     files. The key is the language key (`default` or an ISO 639-1 code) followed
     by the translation-unit ID:
