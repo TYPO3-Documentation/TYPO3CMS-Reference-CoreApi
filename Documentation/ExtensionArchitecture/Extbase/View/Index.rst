@@ -183,7 +183,7 @@ plugin, or :typoscript:`plugin.tx_myextension` (no plugin suffix) to set
 defaults for every plugin of the extension:
 
 ..  literalinclude:: _viewRootPaths.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 Fluid searches from the highest key downward, so the path at key
 `10` above takes precedence over a default at key `0`.
@@ -211,7 +211,7 @@ original extension. Most extensions register their paths at key
 cases:
 
 ..  literalinclude:: _thirdPartyViewRootPaths.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 Place your overriding template in the same relative path as in the original.
 :file:`Conference/List.fluid.html` overrides :file:`Conference/List.fluid.html`

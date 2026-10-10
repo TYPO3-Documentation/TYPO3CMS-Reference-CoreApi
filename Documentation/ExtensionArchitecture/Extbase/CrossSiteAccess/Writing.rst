@@ -52,7 +52,7 @@ Wherever a repository reads from more than one page, set the write target
 explicitly rather than relying on list order:
 
 ..  literalinclude:: _snippets/_newRecordStoragePid.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 This keeps reading and writing independent: the plugin lists conferences from
 the shared folder and the local one, while new conferences are always created

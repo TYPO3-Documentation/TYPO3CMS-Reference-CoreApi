@@ -35,7 +35,7 @@ configuration key(s) to access.
 To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type-siteLanguage>` prefix:
 
 ..  literalinclude:: _siteLanguageGetText.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 
 ..  tip::
@@ -63,7 +63,7 @@ You can use the SiteProcessor in the :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemp
 to fetch data from the site entity:
 
 ..  literalinclude:: _siteProcessor.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 In the Fluid template the properties of the site entity can be accessed with:
 

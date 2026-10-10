@@ -112,7 +112,7 @@ load all media referenced for the current database record being processed.
 This requires first a bit of TypoScript:
 
 ..  literalinclude:: _carouselFluidTemplate.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 This will fetch all files related to the content element being rendered
 (referenced in the :typoscript:`image` field) and make them available in a

@@ -152,7 +152,7 @@ Defining and overriding site settings
 First define the setting in a set that is active for the site:
 
 ..  literalinclude:: _Settings/_site-settings.definitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
 Then override the defined setting in the site's :file:`settings.yaml`:
 
@@ -238,7 +238,7 @@ TypoScript constant :typoscript:`{$myExtension.categoryPid}`. It can be assigned
 to any scalar TypoScript property:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MySet/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension.settings.categoryPid = {$myExtension.categoryPid}
 
@@ -263,7 +263,7 @@ In frontend TypoScript, a content object can read the setting directly from the
 current site instead of using constant substitution:
 
 ..  literalinclude:: _readSiteSettingInTypoScript.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 Use :typoscript:`{$myExtension.categoryPid}` when a value must be inserted into
 the TypoScript configuration while it is parsed, or when it is needed in page

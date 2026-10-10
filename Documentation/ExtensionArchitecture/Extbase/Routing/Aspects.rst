@@ -33,7 +33,7 @@ database record by its slug field to resolve a URL segment to a UID, and vice
 versa when generating a URL.
 
 ..  literalinclude:: _snippets/_aspects-persisted-alias.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 :yaml:`tableName`
     The database table that holds the records — typically the Extbase domain
@@ -69,7 +69,7 @@ field exists and adding one is not an option — for example when extending a
 third-party table.
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     aspects:
       conference_slug:
@@ -109,7 +109,7 @@ URL segment. Suitable for arguments that can only take a known list of values �
 status flags, type identifiers, named steps in a wizard.
 
 ..  literalinclude:: _snippets/_aspects-static-value.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 The :yaml:`map` keys are the URL segments; the values are what Extbase receives
 as the argument. A request to :samp:`/conferences/status/upcoming` passes `1`
@@ -123,7 +123,7 @@ For multi-language sites, add a :yaml:`localeMap` to vary the URL segments per
 language without changing the internal values:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     aspects:
       status:
@@ -156,7 +156,7 @@ primary use case is pagination. Unlike a bare `\d+` requirement, a
 as static, which eliminates `cHash` from paginated URLs.
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     aspects:
       page:
@@ -185,7 +185,7 @@ changed — TYPO3 returns a 404 by default. The :yaml:`fallbackValue` property
 changes this behavior.
 
 ..  literalinclude:: _snippets/_aspects-fallback.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 :yaml:`fallbackValue: null` removes the argument from the route result entirely.
 The action receives :php:`null` for that argument instead of a 404. Declare the

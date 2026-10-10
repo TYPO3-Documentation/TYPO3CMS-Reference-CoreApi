@@ -142,7 +142,7 @@ the example above that is :typoscript:`plugin.tx_myextension_conferencelist`.
 A full example covering all three configuration keys:
 
 ..  literalinclude:: _pluginConfiguration.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 To find the exact TypoScript path of a plugin, open the TYPO3 backend,
 navigate to a site or page containing the plugin, and inspect the

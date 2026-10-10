@@ -81,7 +81,7 @@ will retain the TypoScript value.
 
     All the TypoScript examples on this page use the
     :ref:`site set <t3coreapi:site-sets>` file
-    :file:`EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript`,
+    :file:`EXT:my_extension/Configuration/Sets/Main/setup.typoscript`,
     which is loaded automatically when the set is active. Projects that do not
     use site sets can contain the same TypoScript in an included
     :file:`setup.typoscript` file instead.
@@ -126,7 +126,7 @@ falling back to a default action". Setting this once globally is more robust tha
 hoping that every installed extension has configured it.
 
 ..  literalinclude:: _snippets/_globalscope.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 A single plugin can still opt out by overriding the same key under its own
 :typoscript:`plugin.tx_<extensionkey>_<pluginname>.mvc` because plugin scope
@@ -146,7 +146,7 @@ logic. Extbase makes these available in two places:
 *   In every Fluid template in the :html:`{settings}` variable
 
 ..  literalinclude:: _snippets/_settings.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 The nested value above is read in a controller as
 :php:`$this->settings['itemsPerPage']` and
@@ -204,7 +204,7 @@ where Extbase reads records from
 and where it writes new ones.
 
 ..  literalinclude:: _snippets/_persistence.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 :typoscript:`storagePid <t3tsref:plugin-persistence-storagepid>`
     A comma-separated list of page IDs. Repository read queries return records
@@ -253,7 +253,7 @@ partials and layouts. Each one is an **array** of paths. A site package can
 override an extension's templates without touching the extension itself.
 
 ..  literalinclude:: _snippets/_viewpaths.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  _extbase-configuration-typoscript-view-defaults:
 
@@ -288,7 +288,7 @@ is the only path:
 override:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension.view.templateRootPaths.10 = EXT:my_sitepackage/Resources/Private/Extensions/MyExtension/Templates/
 
@@ -307,7 +307,7 @@ explicitly under a key of your choice. An explicitly listed default keeps the
 position you give it instead of being prepended:
 
 ..  literalinclude:: _templateRootPathsOverride.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  code-block:: text
     :caption: Paths Fluid searches (highest key first)
@@ -336,7 +336,7 @@ uses:
 #.  **Shorten the prefix** for tidier URLs:
 
     ..  code-block:: typoscript
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+        :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
         plugin.tx_myextension_conferencelist.view.pluginNamespace = conf
 
@@ -347,7 +347,7 @@ uses:
     :typoscript:`pluginNamespace`:
 
     ..  code-block:: typoscript
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+        :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
         plugin.tx_myextension_conferencelist.view.pluginNamespace = conf
         plugin.tx_myextension_conferencefilter.view.pluginNamespace = conf
@@ -420,7 +420,7 @@ default implementation is in
 signature and inspect the passed :php:`\Exception` to decide what to do.
 
 ..  literalinclude:: _mvcErrorHandling.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 ..  _extbase-configuration-typoscript-other:
 
@@ -443,7 +443,7 @@ Output format, language overrides and FlexForm handling
     by the translation-unit ID:
 
     ..  code-block:: typoscript
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+        :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
         plugin.tx_myextension_conferencelist._LOCAL_LANG.default.list.heading = Upcoming conferences
         plugin.tx_myextension_conferencelist._LOCAL_LANG.de.list.heading = Kommende Konferenzen

@@ -124,7 +124,7 @@ Automatic clearing is controlled by
 **enabled by default**:
 
 ..  literalinclude:: _snippets/_enableAutomaticCacheClearing.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 The setting gates the *flush*, not the *registration*: repository writes always
 register their changed records, and the setting decides whether those registered

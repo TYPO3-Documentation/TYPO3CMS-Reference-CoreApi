@@ -167,7 +167,7 @@ One can check whether a feature is enabled in TypoScript with the function
 :typoscript:`feature()`:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     [feature("unifiedPageTranslationHandling")]
         # This condition matches if the feature toggle "unifiedPageTranslationHandling" is true

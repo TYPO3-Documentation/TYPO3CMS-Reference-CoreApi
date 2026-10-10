@@ -43,7 +43,7 @@ and subcategories to order the settings.
     sets. "My Sitepackage" depends on "Fluid Styled Content".
 
 The editor displays only settings defined by an active set, for example in
-:file:`EXT:my_sitepackage/Configuration/Sets/MySitepackage/settings.definitions.yaml`.
+:file:`EXT:my_sitepackage/Configuration/Sets/Main/settings.definitions.yaml`.
 See :ref:`Site settings definitions <site-settings-definition>`.
 
 Settings that have been made directly in the :file:`settings.yaml` file without a
@@ -109,5 +109,5 @@ appears:
 The corresponding definition is:
 
 ..  literalinclude:: _Settings/_my_extension_settings.definitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/settings.definitions.yaml (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml (excerpt)
     :linenos:

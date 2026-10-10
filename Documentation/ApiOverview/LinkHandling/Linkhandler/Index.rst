@@ -38,7 +38,7 @@ The links are now stored in the database with the syntax
 #. TypoScript is used to generate the actual link in the frontend.
 
    ..  literalinclude:: _recordLinkFrontend.typoscript
-       :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+       :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
    ..  attention::
 
@@ -101,7 +101,7 @@ LinkHandler TypoScript options
 A configuration could look like this:
 
 ..  literalinclude:: _recordLinkOptions.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
@@ -114,13 +114,13 @@ Example: news records displayed on fixed detail page
 The following displays the link to the news on a detail page:
 
 ..  literalinclude:: _newsRecordLink.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 Once more if the book reports that are also saved as `tx_news_domain_model_news` record should be displayed on their own
 detail page you can do it like this:
 
 ..  literalinclude:: _bookReportsRecordLink.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 
 ..  toctree::

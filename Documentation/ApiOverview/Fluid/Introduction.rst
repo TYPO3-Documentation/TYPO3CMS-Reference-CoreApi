@@ -274,7 +274,7 @@ This example was taken from a theme created by the
 
     *   packages/my_sitepackage/
 
-        *   Configuration/Sets/SitePackage/setup.typoscript
+        *   Configuration/Sets/Main/setup.typoscript
 
         *   Resources/Private/PageView
 
@@ -298,7 +298,7 @@ Set the Fluid base path with TypoScript using the
 object.
 
 ..  literalinclude:: _Introduction/_pageview.typoscript
-    :caption:  packages/my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption:  packages/my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 The template in file :file:`Pages/Default.fluid.html` is automatically used whenever there is
 no specific template for the current `Backend layout <https://docs.typo3.org/permalink/t3coreapi:be-layout>`_ of the page.

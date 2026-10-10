@@ -37,7 +37,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 #. TypoScript configures how the link will be displayed in the frontend.
 
    ..  literalinclude:: _recordLinkFrontend.typoscript
-       :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+       :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
    ..  attention::
 
@@ -89,7 +89,7 @@ LinkHandler TypoScript options
 A configuration could look like this:
 
 ..  literalinclude:: _recordLinkOptions.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
