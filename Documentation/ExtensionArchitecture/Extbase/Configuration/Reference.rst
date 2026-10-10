@@ -137,7 +137,8 @@ takes precedence over the global scope.
 Custom settings: the `settings` block
 =====================================
 
-The :typoscript:`settings` configuration block contains your own configuration
+The :typoscript:`settings <t3tsref:plugin-settings>` configuration block
+contains your own configuration
 values — everything from "how many items per page" to default values for business
 logic. Extbase makes these available in two places:
 
@@ -198,21 +199,22 @@ FlexForm XML is required.
 Persistence: storage pages and new-record locations
 ===================================================
 
-The :typoscript:`persistence` block controls where Extbase reads records from
+The :typoscript:`persistence <t3tsref:plugin-persistence>` block controls
+where Extbase reads records from
 and where it writes new ones.
 
 ..  literalinclude:: _snippets/_persistence.typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
-:typoscript:`storagePid`
+:typoscript:`storagePid <t3tsref:plugin-persistence-storagepid>`
     A comma-separated list of page IDs. Repository read queries return records
     **only** from these pages.
 
-:typoscript:`recursive`
+:typoscript:`recursive <t3tsref:plugin-persistence-recursive>`
     The number of subpage levels below each :typoscript:`storagePid` that are
     also searched. The default `0` means only the listed pages themselves are searched.
 
-:typoscript:`classes.<FQCN>.newRecordStoragePid`
+:typoscript:`classes.[FQCN].newRecordStoragePid <t3tsref:plugin-persistence-classes-classname-newrecordstoragepid>`
     The page ID where new records of a given domain class are stored when the
     repository persists them. Without it, new records are written to the first
     configured :typoscript:`storagePid`. The key is the fully-qualified class
@@ -221,7 +223,7 @@ and where it writes new ones.
     new :php:`Conference` records can be stored on one page and new
     :php:`Speaker` records on another, as shown above.
 
-:typoscript:`enableAutomaticCacheClearing`
+:typoscript:`enableAutomaticCacheClearing <t3tsref:plugin-persistence-enableautomaticcacheclearing>`
     Enabled by default. When Extbase persists a change, it clears the page cache
     for the affected records automatically. See
     :ref:`Caching for Extbase plugins <extbase-caching-overview>` for when and
@@ -245,7 +247,8 @@ and where it writes new ones.
 View: template, partial and layout paths
 ========================================
 
-The :typoscript:`view` block tells Extbase where to look for Fluid templates,
+The :typoscript:`view <t3tsref:plugin-view>` block tells Extbase where to look
+for Fluid templates,
 partials and layouts. Each one is an **array** of paths. A site package can
 override an extension's templates without touching the extension itself.
 
@@ -271,7 +274,9 @@ uses the first matching file it finds. The three cases below show what
 Extbase ends up looking at for templates. These implicit additions are not shown in the
 :guilabel:`TypoScript -> Active TypoScript` Backend Module.
 
-**Case 1 — no** :typoscript:`view.templateRootPaths` **configured.** The default
+**Case 1 — no**
+:typoscript:`view.templateRootPaths <t3tsref:plugin-view-templaterootpaths>`
+**configured.** The default
 is the only path:
 
 ..  code-block:: text
@@ -311,7 +316,8 @@ position you give it instead of being prepended:
     10  EXT:my_extension/Resources/Private/Templates/
 
 The same prepend-and-override behavior applies to
-:typoscript:`partialRootPaths` and :typoscript:`layoutRootPaths`.
+:typoscript:`partialRootPaths <t3tsref:plugin-view-partialrootpaths>` and
+:typoscript:`layoutRootPaths <t3tsref:plugin-view-layoutrootpaths>`.
 
 ..  _extbase-configuration-typoscript-view-pluginnamespace:
 
@@ -323,7 +329,8 @@ By default every plugin has its own argument namespace: the
 fields, for example :samp:`tx_myextension_conferencelist[conference]=5`. This
 isolation is deliberate — two plugins on the same page will not collide.
 
-:typoscript:`view.pluginNamespace` overrides that prefix. It has two distinct
+:typoscript:`view.pluginNamespace <t3tsref:plugin-view-pluginnamespace>`
+overrides that prefix. It has two distinct
 uses:
 
 #.  **Shorten the prefix** for tidier URLs:
@@ -364,7 +371,8 @@ uses:
 MVC error handling: the `mvc` block
 ===================================
 
-The :typoscript:`mvc` block controls what Extbase does when a request cannot be
+The :typoscript:`mvc <t3tsref:plugin-mvc>` block controls what Extbase does
+when a request cannot be
 dispatched to a valid action. There are two separate failure stages, and the
 settings fall into two corresponding pairs. All accept a boolean (`0` or `1`)
 and can be set per plugin or globally in :typoscript:`config.tx_extbase`.
@@ -375,12 +383,12 @@ These two settings apply when the request asks for an action that is **not regis
 for the plugin at all (a typo in the URL, an action that has been removed, a manipulated
 request). They are mutually exclusive so you should choose only one:
 
-:typoscript:`callDefaultActionIfActionCantBeResolved`
+:typoscript:`callDefaultActionIfActionCantBeResolved <t3tsref:plugin-mvc-calldefaultactionifactioncantberesolved>`
     Silently fall back to the plugin's first registered action instead of
     failing. The visitor sees the default action's output. Use this when an
     unknown action should degrade gracefully to a sensible default view.
 
-:typoscript:`throwPageNotFoundExceptionIfActionCantBeResolved`
+:typoscript:`throwPageNotFoundExceptionIfActionCantBeResolved <t3tsref:plugin-mvc-throwpagenotfoundexceptionifactioncantberesolved>`
     Show a "page not found" (HTTP 404) response instead. Use this when an unknown
     action should look like a missing page to visitors and search engines rather
     than silently showing something else.
@@ -392,14 +400,14 @@ The action is valid, but Extbase cannot build its arguments. This happens during
 :php:`ActionController::handleArgumentMappingExceptions()`. The two triggers are
 different:
 
-:typoscript:`showPageNotFoundIfTargetNotFoundException`
+:typoscript:`showPageNotFoundIfTargetNotFoundException <t3tsref:plugin-mvc-showpagenotfoundiftargetnotfoundexception>`
     The argument references a domain object that **no longer exists** — for
     example :samp:`?tx_myextension_conferencelist[conference]=999` where
     conference 999 was deleted. Without this setting Extbase throws a
     :php:`\TYPO3\CMS\Extbase\Property\Exception\TargetNotFoundException`; with it,
     the 404 page is shown. This is the typical "linked record was deleted" case.
 
-:typoscript:`showPageNotFoundIfRequiredArgumentIsMissingException`
+:typoscript:`showPageNotFoundIfRequiredArgumentIsMissingException <t3tsref:plugin-mvc-showpagenotfoundifrequiredargumentismissingexception>`
     A **required** argument is absent — the URL omits an argument that the
     action declares as mandatory. Without this setting, Extbase throws a
     :php:`\TYPO3\CMS\Extbase\Mvc\Exception\RequiredArgumentMissingException`; with
@@ -440,7 +448,7 @@ Output format, language overrides and FlexForm handling
         plugin.tx_myextension_conferencelist._LOCAL_LANG.default.list.heading = Upcoming conferences
         plugin.tx_myextension_conferencelist._LOCAL_LANG.de.list.heading = Kommende Konferenzen
 
-:typoscript:`ignoreFlexFormSettingsIfEmpty`
+:typoscript:`ignoreFlexFormSettingsIfEmpty <t3tsref:plugin-ignoreflexformsettingsifempty>`
     A comma-separated list of FlexForm field names whose empty values should
     **not** override the TypoScript settings of the same name. Because FlexForm
     values take precedence over TypoScript, a field that an editor leaves blank
