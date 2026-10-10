@@ -433,40 +433,6 @@ phpTimeZone
     in :file:`php.ini`, server defaults, etc). If no fallback is found, the value of
     "UTC" is used instead.
 
-..  _typo3confvars-sys-utf8filesystem:
-
-
-UTF8filesystem
---------------
-
-..  confval:: UTF8filesystem
-    :name: globals-typo3-conf-vars-sys-UTF8filesystem
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
-
-    ..  versionchanged:: 15.0
-        :changelog: breaking-110966-1791465024
-
-        The option has been removed. TYPO3 always stores file names with
-        their Unicode characters. To keep replacing characters such as umlauts
-        in uploaded file names, use the
-        `SanitizeFileNameEvent <https://docs.typo3.org/permalink/t3coreapi:sanitizefilenameevent-transliterate>`_.
-
-..  _typo3confvars-sys-systemlocale:
-
-
-systemLocale
-------------
-
-..  confval:: systemLocale
-    :name: globals-typo3-conf-vars-sys-systemLocale
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
-
-    ..  versionchanged:: 15.0
-        :changelog: breaking-110966-1791465024
-
-        The option has been removed. TYPO3 handles file names and shell
-        arguments with UTF-8 characters independent of the locale.
-
 ..  _typo3confvars-sys-reverseproxyip:
 
 
