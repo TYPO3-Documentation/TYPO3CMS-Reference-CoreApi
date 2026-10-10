@@ -49,7 +49,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
 ..  typo3:file:: [ActionName].fluid.html
     :scope: extension
     :path: /Resources/Private/Templates/[ControllerName]/
-    :regex: /^.*\/Resources\/Private\/Templates(\/[A-Za-z0-9]+)?\/[A-Za-z0-9]+\.[a-z0-9]$/
+    :regex: /^(.*\/)?Resources\/Private\/Templates(\/[A-Za-z0-9]+)?\/[A-Za-z0-9]+(\.[a-z0-9]+)+$/
     :shortDescription: Fluid Template for an extension
 
     Folder `Templates` often contains the Fluid templates for a TYPO3 extensions
@@ -66,7 +66,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
 ..  typo3:file:: SomePartials.fluid.html
     :scope: extension
     :path: /Resources/Private/Partials/
-    :regex: /^.*\/Resources\/Private\/Partials(\/[A-Za-z0-9]+)*\/[A-Za-z0-9]+\.[a-z0-9]$/
+    :regex: /^(.*\/)?Resources\/Private\/Partials(\/[A-Za-z0-9]+)*\/[A-Za-z0-9]+(\.[a-z0-9]+)+$/
     :shortDescription: Fluid Partials for an extension
 
     Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
@@ -76,7 +76,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
 ..  typo3:file:: SomeLayout.fluid.html
     :scope: extension
     :path: /Resources/Private/Layouts/
-    :regex: /^.*\/Resources\/Private\/Layouts\/[A-Za-z0-9]+\.[a-z0-9]$/
+    :regex: /^(.*\/)?Resources\/Private\/Layouts\/[A-Za-z0-9]+(\.[a-z0-9]+)+$/
     :shortDescription: Fluid Layouts for an extension
 
     Folder `Layouts` often contains the Fluid layouts for a TYPO3 extension.
@@ -96,7 +96,7 @@ TypoScript object to display the HTML page output. They have one folder, commonl
 ..  typo3:file:: MyPageLayout.fluid.html
     :scope: extension
     :path: /Resources/Private/PageView/Pages/
-    :regex: /^.*\/Resources\/Private\/PageView\/Pages\/[A-Za-z0-9]+(\.fluid)?\.html$/
+    :regex: /^(.*\/)?Resources\/Private\/PageView\/Pages\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Templates for different page layouts
 
     This folder contains one Fluid template for each page layout defined in the
@@ -105,7 +105,7 @@ TypoScript object to display the HTML page output. They have one folder, commonl
 ..  typo3:file:: SomePartials.fluid.html
     :scope: extension
     :path: /Resources/Private/PageView/Partials/
-    :regex: /^.*\/Resources\/Private\/PageView\/Partials\/[A-Za-z0-9]+(\.fluid)?\.html$/
+    :regex: /^(.*\/)?Resources\/Private\/PageView\/Partials\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Partials for the page view
 
     Folder `Partials` contains the Fluid partials used by the page view.
@@ -115,7 +115,7 @@ TypoScript object to display the HTML page output. They have one folder, commonl
 ..  typo3:file:: SomeLayout.fluid.html
     :scope: extension
     :path: /Resources/Private/PageView/Layouts/
-    :regex: /^.*\/Resources\/Private\/PageView\/Layouts\/[A-Za-z0-9]+(\.fluid)?\.html$/
+    :regex: /^(.*\/)?Resources\/Private\/PageView\/Layouts\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Layouts for the page view
 
     Folder `Layouts` often contains the Fluid layout(s) used by the page view.
@@ -136,7 +136,7 @@ etc. to work. See also `Site Package Tutorial: Overriding the default templates 
 ..  typo3:file:: SomeContentElement.fluid.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Pages/
-    :regex: /^.*\/Resources\/Private\/ContentElements\/Pages\/[A-Za-z0-9]+(\.fluid)?\.html$/
+    :regex: /^(.*\/)?Resources\/Private\/ContentElements\/Pages\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Templates for different content elements
 
     This folder contains one Fluid template for each content element type defined in the
@@ -145,7 +145,7 @@ etc. to work. See also `Site Package Tutorial: Overriding the default templates 
 ..  typo3:file:: SomePartials.fluid.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Partials/
-    :regex: /^.*\/Resources\/Private\/ContentElements\/Partials\/[A-Za-z0-9]+(\.fluid)?\.html$/
+    :regex: /^(.*\/)?Resources\/Private\/ContentElements\/Partials\/[A-Za-z0-9]+(\.fluid)?\.html$/
     :shortDescription: Fluid Partials for content elements
 
     Typically overrides the Fluid-Styled Content partials.
@@ -153,7 +153,7 @@ etc. to work. See also `Site Package Tutorial: Overriding the default templates 
 ..  typo3:file:: Default.fluid.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Layouts/
-    :regex: /^.*\/Resources\/Private\/ContentElements\/Layouts\/Default(\.fluid)?\.html$/
+    :regex: /^(.*\/)?Resources\/Private\/ContentElements\/Layouts\/Default(\.fluid)?\.html$/
     :shortDescription: Overrides the default layout for Fluid-styled content elements
 
     Overrides the default layout originally defined in
