@@ -51,7 +51,7 @@ Any arbitrary filename ending with :file:`.xlf` can be used.
 ..  typo3:file:: locallang.xlf
     :scope: extension
     :path: /Resources/Private/Language/
-    :regex: /^.*\/Resources\/Private\/Language\/.*locallang\.xlf$/
+    :regex: /^(.*\/)?Resources\/Private\/Language\/.*locallang\.xlf$/
     :shortDescription: This file commonly contains translated labels to be used in the frontend.
 
     This file commonly contains translated labels to be used in the frontend.
@@ -82,7 +82,7 @@ Any arbitrary filename ending with :file:`.xlf` can be used.
 ..  typo3:file:: locallang_db.xlf
     :scope: extension
     :path: /Resources/Private/Language/
-    :regex: /^.*\/Resources\/Private\/Language\/.*locallang\.xlf$/
+    :regex: /^(.*\/)?Resources\/Private\/Language\/.*locallang_db\.xlf$/
     :shortDescription: contains all localized labels used for the TCA labels, descriptions etc. by convention
 
     By convention, this file should contain

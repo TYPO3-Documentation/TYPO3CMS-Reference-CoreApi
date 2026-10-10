@@ -110,7 +110,7 @@ The site folder may also contain the following file:
     :scope: site
     :composerPath: /config/sites/my-site/
     :classicPath: /typo3conf/sites/my-site/
-    :regex: /^.*(config|typo3conf)\/sites\/\w+\/csp\.yaml$/
+    :regex: /^.*(config|typo3conf)\/sites\/[\w-]+\/csp\.yaml$/
     :shortDescription: Content Security Policy
 
     Used for a
