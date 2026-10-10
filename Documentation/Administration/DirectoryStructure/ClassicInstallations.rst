@@ -161,6 +161,14 @@ for more information on how the extensions are structured.
 Directory for extension localizations. Contains all downloaded translation
 files.
 
+The file :file:`language_pack_states.json` in this directory stores when each
+language pack was last updated.
+
+..  versionchanged:: 14.3
+    :changelog: important-110385-1787735051
+
+    Before, TYPO3 stored these dates in the `sys_registry` table.
+
 This path can be retrieved from the Environment API, see
 :ref:`getLabelsPath() <environment-labels-path>`.
 
