@@ -73,7 +73,7 @@ File `config/system/settings.php`
 
 ..  typo3:file:: settings.php
     :scope: project
-    :regex: /^(.*\/config\/system\/settings\.php|.*\/typo3conf\/system\/settings\.php|settings\.php)$/
+    :regex: /^((.*\/)?(config|typo3conf)\/system\/)?settings\.php$/
     :composerPath: config/system/
     :classicPath: typo3conf/system/
     :shortDescription: Contains system wide settings, managed by the module "System Settings" / Install Tool.
@@ -110,7 +110,7 @@ may themselves be arrays.
     :scope: project
     :composerPath: config/system/
     :classicPath: typo3conf/system/
-    :regex: /^(.*\/config\/system\/additional\.php|.*\/typo3conf\/system\/additional\.php|additional\.php)$/
+    :regex: /^((.*\/)?(config|typo3conf)\/system\/)?additional\.php$/
     :shortDescription: Contains system wide settings. Overrides settings.php and is not touched by TYPO3.
 
     The settings in :file:`settings.php`  can be overridden by changes in the

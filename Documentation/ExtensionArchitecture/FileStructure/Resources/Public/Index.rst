@@ -47,7 +47,7 @@ the servers web root.
 ..  typo3:file:: Extension.svg
     :scope: extension
     :path: /Resources/Public/Icons/
-    :regex: /^.*\/Resources\/Public\/Icons\/Extension\.(svg|png|gif)$/
+    :regex: /^(.*\/)?Resources\/Public\/Icons\/Extension\.(svg|png|gif)$/
     :shortDescription: File name are reserved for the extension icon, displayed in the extension manager
 
     Alternatives: :file:`Resources/Public/Icons/Extension.png`,
