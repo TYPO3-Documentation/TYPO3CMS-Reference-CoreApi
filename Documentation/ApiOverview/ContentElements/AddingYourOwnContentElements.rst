@@ -173,7 +173,7 @@ Therefore we need to add the path to the
 <t3tsref:cobj-fluidtemplate-properties-templaterootpaths>`:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 You can use any index (`200` in this example). Make sure it is unique.
 If needed you can also add paths for partials and layouts.
@@ -181,7 +181,7 @@ If needed you can also add paths for partials and layouts.
 Now you can register the rendering of your custom content element:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup_2.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 The :typoscript:`lib.contentElement` path is defined in file
 :t3src:`typo3/sysext/fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
@@ -378,7 +378,7 @@ Each processor has to be added with a fully qualified class name and optional
 parameters to be used in the data processor:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_setup_myextension_newcontentcsv.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 You can now iterate over the variable `myTable` in the Fluid template, in this
 example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.fluid.html`

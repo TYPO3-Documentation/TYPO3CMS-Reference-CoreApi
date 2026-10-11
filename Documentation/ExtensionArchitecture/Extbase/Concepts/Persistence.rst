@@ -125,14 +125,14 @@ repository returns an empty result — silently.
 The storagePid is configured in TypoScript:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension.persistence.storagePid = 42
 
 Or per plugin instance:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension_eventlist.persistence.storagePid = 42
 
@@ -152,7 +152,7 @@ To disable the storagePid restriction entirely — for example in a backend
 context or when querying across all pages — set it to `0`:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension.persistence.storagePid = 0
 

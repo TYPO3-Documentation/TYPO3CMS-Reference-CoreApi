@@ -4,4 +4,4 @@ routes:
     asset: 'EXT:backend/Resources/Public/Icons/Extension.svg'
   - route: favicon.ico
     type: asset
-    asset: 'EXT:my-sitepackage/Resources/Public/Icons/favicon.ico'
+    asset: 'EXT:my_sitepackage/Resources/Public/Icons/favicon.ico'

@@ -512,7 +512,7 @@ configured `35` is overwritten before it gets to the controller.
 overrule the TypoScript default if it is empty:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension_conferencelist.ignoreFlexFormSettingsIfEmpty = itemsPerPage
 

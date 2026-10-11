@@ -155,7 +155,7 @@ In TypoScript, :typoscript:`persistence.recursive` applies to the
 TypoScript-configured storagePids:
 
 ..  literalinclude:: _snippets/_recursive.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 The **Starting point** field has its own :guilabel:`Recursive` selector
 next to it that does the same for the editor-chosen pages.

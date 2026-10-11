@@ -16,7 +16,7 @@ used to fetch translations from a translation file and output it
 in the current language:
 
 ..  literalinclude:: _blogListTitle.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  _extension-localization-typoscript-conditions:
 
@@ -30,7 +30,7 @@ languages. You can query for any property of the language in the
 site configuration.
 
 ..  literalinclude:: _TypoScript/_currentLanguageCondition.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  _localization-typoscript-local-lang:
 
@@ -55,7 +55,7 @@ text "Comments", you can overwrite the identifier
 add the following line to your TypoScript template:
 
 ..  literalinclude:: _TypoScript/_locallang_extbase.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 With this, you will overwrite the localization of the term
 :html:`comment_header` for the default language and the languages "de" and "zh"
