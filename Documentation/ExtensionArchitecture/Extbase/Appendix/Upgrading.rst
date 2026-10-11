@@ -364,13 +364,14 @@ approaches no longer work in TYPO3 v14.
 
 *   Remove the fifth argument from :php:`configurePlugin()` or pass
     :php:`ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`.
-*   Provide an upgrade wizard for your extension that extends
-    :php:`\TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate` to migrate
-    existing content records from :php:`list_type` to the new :php:`CType`.
-    TYPO3 does not ship a wizard for extension-specific plugins. Each extension
-    must provide its own
-    (see :ref:`Deprecation #105076 <changelog:deprecation-105076-1726923626>` for a
-    reference implementation).
+*   Migrate existing content records from :php:`list_type` to the new
+    :php:`CType` with an upgrade wizard of your extension. TYPO3 does not
+    ship a wizard for extension-specific plugins. In TYPO3 v14, the wizard
+    can extend
+    :php-short:`\TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate`
+    (see :ref:`Deprecation #105076 <changelog:deprecation-105076-1726923626>`
+    for a reference implementation). TYPO3 v15 removed this class, so run
+    the migration before you upgrade to TYPO3 v15.
 
 ..  seealso::
 
