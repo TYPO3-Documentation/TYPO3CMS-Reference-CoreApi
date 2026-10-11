@@ -872,6 +872,20 @@ features
        potential same-site request forgery attacks. The behavior can be disabled if HTTP proxies filter
        the required referrer header. As this is a potential security risk, it is recommended to enable this option.
 
+    ..  _typo3ConfVars_sys_features_security.backend.enforceFetchMetadata:
+
+    ..  confval:: security.backend.enforceFetchMetadata
+        :name: globals-typo3-conf-vars-sys-features-security-backend-enforceFetchMetadata
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceFetchMetadata']
+        :type: bool
+        :default: true
+        :added: 15.0 feature-110863-1790781220
+
+        If enabled, TYPO3 rejects backend requests that change data and come
+        from another site with the HTTP status `403`. Only disable it if a
+        proxy removes the `Sec-Fetch-Site` and `Origin` headers. See
+        `Requests from other sites that change data <https://docs.typo3.org/permalink/t3coreapi:backend-routing-cross-site-requests>`_.
+
     ..  _typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy:
 
     ..  confval:: security.frontend.enforceContentSecurityPolicy

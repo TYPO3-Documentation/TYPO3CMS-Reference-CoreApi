@@ -24,8 +24,9 @@ Here is an extract of :t3src:`backend/Configuration/Backend/Routes.php`:
     :caption: EXT:backend/Configuration/Backend/Routes.php (excerpt)
 
 So, a route file essentially returns an array containing route mappings. A route
-is defined by a key, a path, a referrer and a target. The "public" :php:`access`
-property indicates that no authentication is required for that action.
+is defined by a key, a path, a referrer and a target. The option `access`
+defines whether the route needs a backend user, see
+`Access to a backend route <https://docs.typo3.org/permalink/t3coreapi:backend-routing-access>`_.
 
 ..  note::
     The current route object is available as a :ref:`route attribute
@@ -33,6 +34,45 @@ property indicates that no authentication is required for that action.
     backend request. It is added through the PSR-15 middleware stack and can be
     retrieved using :php:`$request->getAttribute('route')`.
 
+
+..  index::
+    Backend routing; Access
+..  _backend-routing-access:
+
+Access to a backend route
+=========================
+
+..  versionadded:: 15.0
+    :changelog: feature-110863-1790781220
+
+    The values `anonymous` and `authenticated-without-token` replace the
+    value `public`, which is deprecated. A route with `public` behaves like
+    `authenticated-without-token`. Use `anonymous` only for a route that
+    must work without a backend user.
+
+The option `access` of a route takes one of these values:
+
+`authenticated`
+    The default. The route needs a logged-in backend user and a valid
+    request token.
+
+`authenticated-without-token`
+    The route needs a logged-in backend user, but no request token.
+
+`anonymous`
+    The route works without a backend user and without a request token,
+    for example the login form or the callback of a single sign-on
+    provider.
+
+TYPO3 treats any other value as `authenticated`, so a misspelled value
+never makes a route reachable without login.
+
+..  literalinclude:: _BackendRouting/_RoutesAccess.php
+    :caption: EXT:my_extension/Configuration/Backend/Routes.php
+
+The console command
+`vendor/bin/typo3 debug:backend:routes <https://docs.typo3.org/permalink/t3coreapi:console-command-debug-backend-routes>`_
+lists the access of every route.
 
 ..  index::
     pair: Backend routing; Cross-site scripting
@@ -43,9 +83,10 @@ property indicates that no authentication is required for that action.
 Backend routing and cross-site scripting
 ========================================
 
-Public backend routes (those having option :php:`'access' => 'public'`) do not
-require any session token, but can be used to redirect to a route that requires
-a session token internally. For this context, the backend user logged in must
+Backend routes with `'access' => 'anonymous'` or
+`'access' => 'authenticated-without-token'` do not require a session token,
+but can be used to redirect to a route that requires a session token
+internally. For this context, the backend user logged in must
 have a valid session.
 
 This scenario can lead to situations where an existing cross-site scripting
@@ -71,7 +112,7 @@ Values for :php:`referrer` are declared as a comma-separated list:
     this technique should only be used on plain HTML responses and will not have
     any impact, for example, on JSON or XML response types.
 
-This technique should be used on all public routes (without session token) that
+This technique should be used on all routes without a session token that
 internally redirect to a restricted route (having a session token). The goal is
 to protect and keep information about the current session token internal.
 
@@ -79,7 +120,7 @@ The request sequence in the TYPO3 Core looks like this:
 
 #.  HTTP request to :samp:`https://example.org/typo3/` having a valid user
     session
-#.  Internally **public** backend route `/login` is processed
+#.  Internally the **anonymous** backend route `/login` is processed
 #.  Internally redirects to **restricted** backend route `/main` since an
     existing and valid backend user session was found
     + HTTP redirect to :samp:`https://example.org/typo3/main?token=...`
@@ -90,6 +131,26 @@ The request sequence in the TYPO3 Core looks like this:
     Please keep in mind these steps are part of a mitigation strategy, which
     requires to be aware of mentioned implications when implementing custom web
     applications.
+
+
+..  _backend-routing-cross-site-requests:
+
+Requests from other sites that change data
+------------------------------------------
+
+..  versionadded:: 15.0
+    :changelog: feature-110863-1790781220
+
+TYPO3 rejects a request that changes data and comes from another site. This
+applies to every route except those with `'access' => 'anonymous'`, and to
+every request method except `GET`, `HEAD`, and `OPTIONS`. TYPO3 answers such
+a request with the HTTP status `403`.
+
+The browser reports the origin of a request in the `Sec-Fetch-Site` header.
+If this header is missing, TYPO3 compares the `Origin` header with the host
+of the request. The feature toggle
+`security.backend.enforceFetchMetadata <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-features-security-backend-enforcefetchmetadata>`_
+turns this check off.
 
 
 ..  index:: Backend routing; Dynamic URL parts
