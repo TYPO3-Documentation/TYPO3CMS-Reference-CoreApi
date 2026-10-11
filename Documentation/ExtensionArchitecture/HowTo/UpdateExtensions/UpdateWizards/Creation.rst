@@ -11,17 +11,6 @@
 Implementing an upgrade wizard
 ==============================
 
-..  deprecated:: 14.0
-    The attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard` has been
-    deprecated in favor of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
-
-    The interfaces and classes used for upgrade wizards have been moved from
-    namespace :php:`\TYPO3\CMS\Install\Updates` to
-    :php:`\TYPO3\CMS\Core\Upgrades`.
-
-    Using the old locations is deprecated in v14 but can be used to provide
-    compatibility with both TYPO3 v13 and v14.
-
 To create an upgrade wizard you have to add a class which implements the
 :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`.
 
@@ -40,14 +29,6 @@ The class *may* implement other interfaces (optional):
 
 `UpgradeWizardInterface`
 ========================
-
-..  deprecated:: 14.0
-    :php:`\TYPO3\CMS\Install\Updates\UpgradeWizardInterface` has been deprecated,
-    implement :php:`\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface` once dropping
-    TYPO3 v13 support.
-
-    The attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard` has been
-    deprecated in favor of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
 
 Each upgrade wizard consists of a single PHP file containing a single PHP class.
 This class has to implement :php:`\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface`
@@ -169,11 +150,6 @@ Some examples:
 
 Marking wizard as done
 ======================
-
-..  deprecated:: 14.0
-    :php:`\TYPO3\CMS\Install\Updates\RepeatableInterface` has been deprecated,
-    implement :php:`\TYPO3\CMS\Core\Upgrades\RepeatableInterface` once dropping
-    TYPO3 v13 support.
 
 As soon as the wizard has completely finished, for example, it detected that no
 upgrade is necessary anymore, the wizard is marked as done and will not be
