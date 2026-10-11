@@ -55,4 +55,10 @@ return [
     'targetFileName' => 'CodeSnippets/Events/Form/BeforeFormIsDuplicatedEvent.rst.txt',
     'withCode' => false,
   ],
+  [
+    'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Form\Event\BeforeFormValueIsRenderedEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Form/BeforeFormValueIsRenderedEvent.rst.txt',
+    'withCode' => false,
+  ],
 ];
