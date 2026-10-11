@@ -148,10 +148,24 @@ encryptionKey
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
     :type: text
     :default: ''
+    :changed: 15.0 breaking-110319-1785315901
 
     This is a "salt" used for encryption, CRC checksums and
     validations. You can enter any string here but try to keep it
     secret.
+
+    Set the key in :file:`config/system/settings.php` or
+    :file:`config/system/additional.php`. TYPO3 checks the key before it
+    loads the :file:`ext_localconf.php` files of extensions and throws an
+    exception if it is empty.
+
+    ..  versionchanged:: 15.0
+        :changelog: breaking-110319-1785315901
+
+        Before, TYPO3 checked the key after loading the
+        :file:`ext_localconf.php` files. A key that is set in an
+        :file:`ext_localconf.php` file is now too late. Move it to
+        :file:`config/system/additional.php`.
 
   **When changing this value, flush all the caches:** A change to this value might invalidate
     temporary information, such as URLs mappings.

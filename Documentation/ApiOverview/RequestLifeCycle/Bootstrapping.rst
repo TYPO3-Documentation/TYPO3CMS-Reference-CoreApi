@@ -155,17 +155,24 @@ following:
    available to be able to determine where to load classes from, including class
    alias maps which are used to map legacy class names to new class names.
 
+-  It creates the
+   :php:`\TYPO3\CMS\Core\Configuration\ConfigurationManager`, which loads
+   the main configuration (`TYPO3_CONF_VARS`) from
+   :file:`config/system/settings.php` and
+   :file:`config/system/additional.php`.
+
 -  :php:`Bootstrap::checkIfEssentialConfigurationExists()` checks if crucial
    configuration elements have been set. If that is not the case, the
    installation is deemed incomplete and the user is redirected to the Install Tool.
-
--  :php:`Bootstrap::createConfigurationManager()` creates the Configuration
-   Manager which is then populated with the the main configuration ("TYPO3_CONF_VARS").
 
 -  :php:`$builder->createDependencyInjectionContainer()` creates a :ref:`dependency
    injection <dependency-injection>` container which is later returned by :php:`Bootstrap::init()`.
 
 -  The caching framework and the package management are set up.
+
+-  It checks that the
+   `encryption key <https://docs.typo3.org/permalink/t3coreapi:typo3confvars-sys-encryptionkey>`_
+   is set, before any extension code runs.
 
 -  All configuration items from extensions are loaded
 
