@@ -238,6 +238,33 @@ Example
 ..  literalinclude:: _MyControllerUsingLanguageAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
+..  _context-api-aspects-language-pagerepository:
+
+Read pages in another language with `PageRepository`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionadded:: 15.0
+    :changelog: feature-110453-1786523400
+
+    Before, you had to clone the context, set the language aspect on the
+    clone, and create the `PageRepository` with `makeInstance()`.
+
+The :php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository`
+resolves records for the language and the workspace of its context. To read
+pages in another language, inject the `PageRepository` and call
+:php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::withLanguageAspect()`.
+The method returns a new instance with the given language aspect and keeps
+all other aspects of the context. The injected instance stays unchanged.
+
+The following class returns the title of a page in the language of a site:
+
+..  literalinclude:: _TranslatedPageTitle.php
+    :caption: EXT:my_extension/Classes/Service/TranslatedPageTitle.php
+
+Pass `new LanguageAspect()` to read records without any language overlay.
+To replace the whole context, call
+:php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::withContext()`.
+
 
 ..  _context-api-aspects-preview:
 
