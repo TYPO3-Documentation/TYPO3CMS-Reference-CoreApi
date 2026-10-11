@@ -89,7 +89,7 @@ configured using TypoScript (example below) or using the :ref:`constants editor 
 backend.
 
 ..  literalinclude:: _sitemapPagesConfig.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 ..  note::
     The doktypes 137 and 138 in the example above are custom doktypes.
@@ -105,7 +105,7 @@ If you have an extension installed and want a sitemap of those records, the
 following example shows how to add a sitemap for news records:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_seo {
         config {
@@ -143,7 +143,7 @@ You can add multiple sitemaps and they will be added to the sitemap index
 automatically. Use different types to have multiple, independent sitemaps:
 
 ..  literalinclude:: _sitemapGoogleNews.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript (excerpt)
 
 ..  _xmlsitemap-changefreq-priority:
 
@@ -186,7 +186,7 @@ and use a different field. An example you can use for sorting based on the uid
 field:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_seo {
         config {
@@ -244,21 +244,21 @@ three levels:
 #.  For all sitemaps:
 
     ..  code-block:: typoscript
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+        :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
         plugin.tx_seo.config.xslFile = EXT:my_extension/Resources/Public/CSS/mySite.xsl
 
 #.  For all sitemaps of a certain sitemapType:
 
     ..  code-block:: typoscript
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+        :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
         plugin.tx_seo.config.<sitemapType>.sitemaps.xslFile = EXT:my_extension/Resources/Public/CSS/mySitemapType.xsl
 
 #.  For a specific sitemap:
 
     ..  code-block:: typoscript
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+        :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
         plugin.tx_seo.config.<sitemapType>.sitemaps.<sitemap>.config.xslFile = EXT:my_extension/Resources/Public/CSS/mySpecificSitemap.xsl
 

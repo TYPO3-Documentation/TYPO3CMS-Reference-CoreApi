@@ -44,7 +44,7 @@ example, when the auto-derived name would be wrong for a multi-word extension
 key):
 
 ..  literalinclude:: _extbaseEnhancerNamespace.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml (excerpt)
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml (excerpt)
 
 The key directly under :yaml:`routeEnhancers` — :yaml:`ConferencesPlugin` here — is
 an arbitrary identifier you choose. It only has to be unique across all enhancers on
@@ -68,7 +68,7 @@ because you should always scope an enhancer to its pages (see below), and
 :yaml:`defaultController` is omitted as it is optional:
 
 ..  literalinclude:: _snippets/_enhancer-minimal.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 The key properties:
 
@@ -157,7 +157,7 @@ The key properties:
     :yaml:`conference_slug` placeholder above to a database slug field:
 
     ..  code-block:: yaml
-        :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+        :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
         aspects:
           conference_slug:

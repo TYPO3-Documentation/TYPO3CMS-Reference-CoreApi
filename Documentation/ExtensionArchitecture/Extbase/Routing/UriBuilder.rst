@@ -155,7 +155,7 @@ expected clean URL, work through this list:
 
 *   **No enhancer configured** — the plugin has no entry under
     :yaml:`routeEnhancers` in
-    :file:`EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml`
+    :file:`EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml`
     or :file:`config/sites/<site-identifier>/config.yaml`.
 *   **Wrong page** — :php:`setTargetPageUid()` (or :html:`pageUid` in Fluid)
     is missing or points to the wrong page. The enhancer's :yaml:`limitToPages`
@@ -163,7 +163,7 @@ expected clean URL, work through this list:
 *   **No matching route variant** — the controller/action combination passed
     to :php:`uriFor()` does not match any :yaml:`_controller` entry in the
     :yaml:`routes` list in
-    :file:`EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml`.
+    :file:`EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml`.
 *   **Missing aspect** — a placeholder has a `\d+` requirement but no
     :ref:`StaticRangeMapper <extbase-routing-aspects-static-range>` or
     :ref:`StaticValueMapper <extbase-routing-aspects-static-value>` aspect,

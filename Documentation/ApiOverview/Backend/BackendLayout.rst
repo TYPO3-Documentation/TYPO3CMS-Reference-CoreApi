@@ -159,7 +159,7 @@ been simplified for the frontend.
 To get the correct backend layout, the following TypoScript code can be used:
 
 ..  literalinclude:: _backendLayoutFluidTemplate.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 Using `data = pagelayout` is the same as using:
 

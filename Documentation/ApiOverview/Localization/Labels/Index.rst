@@ -255,12 +255,12 @@ In some cases the locations are different:
 
 *   **Site sets** – Localization files for site set definitions are stored in
     the site set folder, for example:
-    :file:`EXT:my_extension/Configuration/Sets/MySet/labels.xlf`
+    :file:`EXT:my_extension/Configuration/Sets/Main/labels.xlf`
 *   **Content blocks** – Third-party extensions can define their own structure.
     For example, the extension
     :composer:`friendsoftypo3/content-blocks` stores labels alongside the
     content block definitions:
-    :file:`EXT:my_extension/Configuration/Sets/MySet/labels.xlf`
+    :file:`EXT:my_extension/Configuration/Sets/Main/labels.xlf`
 
 ..  _label-reference-resolve:
 
@@ -300,7 +300,7 @@ The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be used to
 fetch translations from a language file and render them in the current language.
 
 ..  literalinclude:: _blogListTitleGetText.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 Make sure to leave spaces around the colon following `LLL` (as required by
 general getText syntax).

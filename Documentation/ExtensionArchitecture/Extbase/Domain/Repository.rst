@@ -264,7 +264,7 @@ A repository therefore needs a storagePid before its queries return anything.
 Configure it in TypoScript:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension.persistence.storagePid = 42
 
