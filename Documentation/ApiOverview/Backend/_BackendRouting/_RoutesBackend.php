@@ -6,7 +6,7 @@ return [
   // Login screen of the TYPO3 Backend
   'login' => [
     'path' => '/login',
-    'access' => 'public',
+    'access' => 'anonymous',
     'target' => Controller\LoginController::class . '::formAction',
   ],
 
