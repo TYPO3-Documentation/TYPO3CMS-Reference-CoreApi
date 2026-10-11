@@ -469,19 +469,12 @@ Output format, language overrides and FlexForm handling
 Extbase feature toggles (not TypoScript)
 ========================================
 
-Two Extbase behaviors are controlled by global
-:ref:`feature toggles
-<feature-toggles>` rather than by TypoScript. They are set in
+One Extbase behavior is controlled by a global
+:ref:`feature toggle
+<feature-toggles>` rather than by TypoScript. It is set in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` (configured through
 :file:`settings.php` or the :guilabel:`Settings > Feature Toggles` backend
-module) and apply to a whole installation rather than to a single plugin.
-
-:php:`extbase.consistentDateTimeHandling`
-    Enabled by default. Aligns Extbase's :php:`\DateTime` mapping with the FormEngine
-    and DataHandler so that timezones and integer-based time fields behave
-    consistently across the backend and Extbase. See
-    :ref:`Consistent DateTime handling
-    <extbase-domain-property-types-datetime-consistency>`.
+module) and applies to a whole installation rather than to a single plugin.
 
 :php:`extbase.enableHistoryTracking`
     Disabled by default (added in TYPO3 v14.2). When enabled, changes persisted by Extbase
