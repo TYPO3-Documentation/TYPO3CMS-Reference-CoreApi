@@ -7,9 +7,9 @@
 ..  _assets-introduction:
 ..  _assets:
 
-===============================
-Assets (CSS, JavaScript, media)
-===============================
+===========================
+Assets (CSS and JavaScript)
+===========================
 
 ..  contents:: **Table of Contents**
     :local:
@@ -64,14 +64,14 @@ The asset collector class is implemented as a singleton
 options in TypoScript and :ref:`methods in PHP <assets-other-methods>` for
 inserting JavaScript and CSS code.
 
-The asset collector also collects information about images on a page,
-which can be used in cached and non-cached components.
+..  deprecated:: 15.0
+    :changelog: deprecation-110348-1785062400
 
-The :php:`AssetCollector` option `external` can be used for
-asset files using :php:`$assetCollector->addStyleSheet()`
-or :php:`$assetCollector->addJavaScript()`. If set all processing of the asset
-URI (like the addition of the cache busting parameter) is skipped and the input
-path will be used as-is in the resulting HTML tag.
+    The methods `addMedia()`, `getMedia()`, `hasMedia()`, and
+    `removeMedia()` are deprecated, and TYPO3 no longer adds images to the
+    asset collector. To collect the images that are processed during a
+    request, register a listener for
+    `AfterFileProcessingEvent <https://docs.typo3.org/permalink/t3coreapi:AfterFileProcessingEvent>`_.
 
 ..  _asset-collector-api:
 
