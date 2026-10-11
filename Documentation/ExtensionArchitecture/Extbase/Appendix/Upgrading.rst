@@ -459,12 +459,6 @@ The resource name is derived from the file name:
 Check relevant feature toggle defaults after upgrading (TYPO3 v14)
 ==================================================================
 
-..  versionchanged:: 14.0
-    :changelog: important-106467-1743452295
-
-    The :php:`extbase.consistentDateTimeHandling` feature toggle now defaults to
-    :php:`true` for new installations.
-
 Feature toggles behave differently on upgrade than fresh installs: an existing
 instance **keeps whatever value it already had**, while a new installation will get
 the new default. A toggle whose default changed between versions will therefore
@@ -473,24 +467,14 @@ explicitly. After upgrading to TYPO3 v14 check the values below — the defaults
 may not match what your code now expects.
 
 :php:`extbase.consistentDateTimeHandling`
-    Introduced in TYPO3 v13.4 and set to :php:`false` by default; new TYPO3 v14
-    installations default to :php:`true`. (TYPO3 v12 did not have this toggle.)
+    ..  versionchanged:: 15.0
+        :changelog: breaking-109783-1776735296
 
-    An instance upgraded from v12 or v13 will keep the :php:`false` setting and will
-    continue to use
-    the **old** :php:`\DateTime` mapping. Certain functionality is missing
-    with the :php:`false` setting: correct timezone-offset handling for native datetime fields,
-    named timezones instead of fixed offsets (no daylight-saving shifts), correct
-    interpretation of integer-based time fields, and support for `00:00:00` as a
-    valid time in nullable fields. Many extensions contain timezone workarounds
-    that exist *only* to rectify the old behaviour; enabling the toggle
-    lets you remove them. Enable it once you have reviewed your
-    :php:`\DateTime` handling:
-
-    ..  code-block:: php
-        :caption: config/system/additional.php
-
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
+    TYPO3 v15 always enables this toggle, also if an installation sets it to
+    `false`. An instance that kept `false` after the upgrade to TYPO3 v14
+    uses the new `DateTime` mapping from TYPO3 v15 on. Review the `DateTime`
+    handling of your extensions and remove timezone workarounds that only
+    corrected the old mapping.
 
 :php:`frontend.cache.autoTagging`
     Introduced in TYPO3 v13.3 and enabled by default on fresh TYPO3 v14
@@ -524,8 +508,8 @@ may not match what your code now expects.
 ..  seealso::
 
     *   :ref:`Consistent DateTime handling
-        <extbase-domain-property-types-datetime-consistency>` for the full list of DateTime
-        behaviour activated by the toggle.
+        <extbase-domain-property-types-datetime-consistency>` for the full
+        list of the `DateTime` mapping rules.
 
     *   :ref:`Enabling automatic cache tagging in Extbase
         <extbase-caching-cachetags-featureflag>` for what automatic cache

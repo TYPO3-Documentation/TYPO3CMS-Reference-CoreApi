@@ -266,10 +266,7 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
 Consistent `DateTime` handling
 ------------------------------
 
-With the feature flag :php:`extbase.consistentDateTimeHandling`, Extbase aligns
-its DateTime mapping logic with the behavior of FormEngine and DataHandler.
-
-The following changes apply when the feature is enabled:
+Extbase maps `DateTime` values the same way as FormEngine and DataHandler:
 
 *   Timezone offsets in :php:`\DateTime` objects are preserved correctly during persistence.
 *   :php:`DateTime` instances for integer-based time fields use named timezones (e.g. `Europe/Berlin`)
@@ -280,11 +277,13 @@ The following changes apply when the feature is enabled:
 *   All time values are initialized with `1970-01-01` rather than the current day,
     improving stability across contexts.
 
-To enable the feature:
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
 
-..  code-block:: php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
+    Before, the feature toggle `extbase.consistentDateTimeHandling` switched
+    this mapping on. The toggle is now always active, also if an
+    installation sets it to `false`. Remove timezone workarounds that only
+    corrected the old mapping.
 
 For a detailed explanation of each behavior, see the
 `changelog entry for issue #106467 <https://docs.typo3.org/permalink/changelog:important-106467-1743452295>`_.
