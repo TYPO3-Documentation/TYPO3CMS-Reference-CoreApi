@@ -1029,6 +1029,7 @@ messenger
         :name: globals-typo3-conf-vars-sys-messenger-routing
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing']
         :type: array
+        :changed: 14.3 important-101699-1784329899
 
         The configuration of the routing for the
         :ref:`messenger component <message-bus>`. By default, TYPO3 uses
@@ -1046,6 +1047,30 @@ messenger
 
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'][\MyVendor\MyExtension\Queue\Message\DemoMessage::class]
                 = 'doctrine';
+
+        A wildcard route is a fallback. TYPO3 uses it only when no specific
+        route matches the message. A wildcard is either `*` or a namespace
+        followed by `\\*`, on any namespace level. A message that matches a
+        specific route is sent only to the transports of that route.
+
+        A route takes a single transport or a list of transports. TYPO3 sends
+        the message to every transport in the list, in the given order:
+
+        ..  code-block:: php
+
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] = [
+                \MyVendor\MyExtension\Queue\Message\DemoMessage::class
+                    => ['doctrine', 'default'],
+                'MyVendor\MyExtension\Queue\Message\*' => 'doctrine',
+                '*' => 'default',
+            ];
+
+        ..  versionchanged:: 14.3
+            :changelog: important-101699-1784329899
+
+            Before, TYPO3 sent a message to the transports of a matching
+            wildcard route as well. To keep sending a message to both, list
+            both transports in the specific route.
 
         ..  seealso::
             :ref:`Configuring the message bus transport <message-bus-routing>`
