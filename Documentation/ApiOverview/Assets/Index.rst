@@ -67,12 +67,6 @@ inserting JavaScript and CSS code.
 The asset collector also collects information about images on a page,
 which can be used in cached and non-cached components.
 
-The :php:`AssetCollector` option `external` can be used for
-asset files using :php:`$assetCollector->addStyleSheet()`
-or :php:`$assetCollector->addJavaScript()`. If set all processing of the asset
-URI (like the addition of the cache busting parameter) is skipped and the input
-path will be used as-is in the resulting HTML tag.
-
 ..  _asset-collector-api:
 
 The asset collector API
