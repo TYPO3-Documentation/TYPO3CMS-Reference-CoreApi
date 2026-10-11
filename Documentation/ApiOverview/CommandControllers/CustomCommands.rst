@@ -229,7 +229,7 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
 :php:`$input->getOption()`, for example:
 
 ..  literalinclude:: _Tutorial/_CreateWizardCommand.php
-    :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php
+    :caption: packages/my_extension/Classes/Command/CreateWizardCommand.php
 
 ..  _writing-custom-commands-user-interaction:
 
