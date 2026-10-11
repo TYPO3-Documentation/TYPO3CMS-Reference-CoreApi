@@ -152,13 +152,11 @@ frontend:
    ..  code-block:: php
        :caption: EXT:my_extension/Classes/SomeClass.php
 
-       // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
-       // use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-       $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
+       // $this->pageRepository is an injected
+       // TYPO3\CMS\Core\Domain\Repository\PageRepository
        $result = $queryBuilder->executeQuery();
        while ($row = $result->fetchAssociative()) {
-           $pageRepository->versionOL($table, $row);
+           $this->pageRepository->versionOL($table, $row);
            if (is_array($row)) {
                // ...
            }
