@@ -74,7 +74,7 @@ A command with parameters and arguments
 ---------------------------------------
 
 ..  literalinclude:: _Tutorial/_CreateWizardCommand.php
-    :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php
+    :caption: packages/my_extension/Classes/Command/CreateWizardCommand.php
 
 It uses attribute :php:`#[AsNonSchedulableCommand]` so that it can only be used
 from the console and not from the :guilabel:`Administration > Scheduler` module.
