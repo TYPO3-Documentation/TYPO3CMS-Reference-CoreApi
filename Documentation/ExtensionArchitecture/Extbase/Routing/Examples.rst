@@ -33,7 +33,7 @@ see
 *   :samp:`/conferences/typo3camp-2025` — detail view
 
 ..  literalinclude:: _snippets/_example-list-detail.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 Key points:
 
@@ -63,7 +63,7 @@ page for each, and links between them need :php:`setTargetPageUid()` or
 :html:`pageUid` in Fluid.
 
 ..  literalinclude:: _snippets/_example-separate-pages.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 In the list template, link to the detail page explicitly:
 
@@ -74,7 +74,7 @@ Store the detail page UID in TypoScript settings so it is configurable
 without touching PHP:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
     plugin.tx_myextension_conferences.settings.detailPageUid = 42
 
@@ -96,7 +96,7 @@ combination that needs a clean URL gets its own route entry.
 *   :samp:`/conferences/typo3camp-2025/talks/extbase-routing-demystified` — talk detail
 
 ..  literalinclude:: _snippets/_example-multi-controller.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 The :yaml:`{conference_slug}` placeholder appears in both the
 :yaml:`Conference::show` route and the :yaml:`Talk` routes. Each is a separate
@@ -120,7 +120,7 @@ derive missing arguments from partial matches.
 *   :samp:`/conferences/2025` — all conferences in 2025
 
 ..  literalinclude:: _snippets/_example-date-archive.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 ..  warning::
 
@@ -187,6 +187,6 @@ Common mistakes
 
 **Stale cache after config changes**
     Site configuration is cached. After any change to
-    :file:`EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml`
+    :file:`EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml`
     or :file:`config/sites/<site-identifier>/config.yaml`, clear all caches
     via :guilabel:`Admin Tools > Maintenance`.

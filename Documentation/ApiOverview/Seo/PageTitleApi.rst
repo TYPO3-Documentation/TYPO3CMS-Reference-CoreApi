@@ -117,7 +117,7 @@ Usage example in an :ref:`Extbase <extbase-extension-framework>` controller:
 Configure the new page title provider in your TypoScript setup:
 
 ..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_setup.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 ..  _page-title-provider-custom-site-config:
 
@@ -140,7 +140,7 @@ and PHP Cache`.
 Configure the new page title provider to be used in your TypoScript setup:
 
 ..  literalinclude:: _PageTitleProvider/_website.typoscript
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySitepackage/setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/setup.typoscript
 
 The registered page title providers are called after each other in the
 configured order. The first provider that returns a non-empty value is used,
@@ -166,7 +166,7 @@ the priorities for their project and can even have conditions in place.
 By default, the Core has the following setup:
 
 ..  literalinclude:: _PageTitleProvider/_core.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 The sorting of the providers is based on the :typoscript:`before` and
 :typoscript:`after` parameters. If you want a provider to be handled before a
@@ -178,7 +178,7 @@ to take priority over the :php-short:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitle
 you can change the order via TypoScript:
 
 ..  literalinclude:: _PageTitleProvider/_pageTitleProviders.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
 :typoscript:`record`) and, if this providers did not provide a title, the

@@ -77,7 +77,7 @@ TypoScript: reading flexform data
 It is possible to read FlexForm properties in TypoScript:
 
 ..  literalinclude:: _codesnippets/_flexformContent.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 The key `flexform` is followed by the field which hold the FlexForm data
 (`pi_flexform`) and the name of the property whose content should be retrieved
@@ -99,4 +99,4 @@ This example would make your FlexForm data available as a Fluid variable
 `{myOutputVariable}`:
 
 ..  literalinclude:: _codesnippets/_dataproccessor.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript

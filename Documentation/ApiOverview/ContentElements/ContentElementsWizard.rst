@@ -120,7 +120,7 @@ Using :confval:`[group].removeItems <t3tsref:mod-wizards-newcontentelement-wizar
 you can remove a content element type from the wizard.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_remove_item.tsconfig
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/page.tsconfig
 
 This removes the content element "Plain HTML" from the group `special`.
 
@@ -135,7 +135,7 @@ This removes the content element "Plain HTML" from the group `special`.
 You can also remove whole groups of content elements from the wizard:
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_remove_group.tsconfig
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/page.tsconfig
 
 ..  _content-element-wizard-page-tsconfig-change:
 
@@ -153,7 +153,7 @@ of the element in the wizard:
 *   :confval:`saveAndClose <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-saveandclose>`
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_change_item.tsconfig
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/page.tsconfig
 
 ..  _content-element-wizard-create-group:
 
@@ -169,4 +169,4 @@ header:
 The headers can also be overridden on a per site basis using page TSconfig.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_change_group_header.tsconfig
-    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/page.tsconfig

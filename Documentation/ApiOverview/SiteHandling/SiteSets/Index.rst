@@ -70,7 +70,7 @@ only :file:`config.yaml` is required:
 ..  directory-tree::
     :show-file-icons: true
 
-    *   EXT:my_extension/Configuration/Sets/MySet/
+    *   EXT:my_extension/Configuration/Sets/Main/
 
         *   config.yaml
         *   constants.typoscript
@@ -121,7 +121,7 @@ because it combines several extension sets into a project-specific preset.
 Start with a minimal :file:`config.yaml`:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/config.yaml
 
     name: my-vendor/my-set
     label: 'My site set'
@@ -169,7 +169,7 @@ Define each setting in :file:`settings.definitions.yaml` before using it. The
 following example defines a color setting:
 
 ..  literalinclude:: _settingsDefinitions.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.definitions.yaml
 
 The definition establishes the setting identifier, type and default value. It
 also makes the setting available in the :ref:`Site settings editor <site-settings-editor>`. See
@@ -196,7 +196,7 @@ it into the overriding set.
 Create :file:`settings.yaml` when the set should override a defined default:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/settings.yaml
 
     myExtension.backgroundColor: '#386492'
 
@@ -279,7 +279,7 @@ Put route enhancer presets below the `routeEnhancers` key in
 :file:`route-enhancers.yaml`:
 
 ..  literalinclude:: _routeEnhancersSet.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 TYPO3 merges route enhancers in dependency order. Later sets can override
 earlier sets, and the site configuration takes precedence over all set-defined
@@ -288,7 +288,7 @@ enhancers.
 The file supports YAML imports:
 
 ..  literalinclude:: _routeEnhancersImports.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 See also:
 
@@ -333,7 +333,7 @@ Depending on other site sets
 A set can declare required and optional dependencies in :file:`config.yaml`:
 
 ..  literalinclude:: _setConfigDependencies.yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/config.yaml
 
 `dependencies`
     Required sets. TYPO3 reports an error when one is unavailable.

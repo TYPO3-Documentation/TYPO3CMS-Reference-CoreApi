@@ -90,7 +90,7 @@ extension:
 
 ..  code-block:: none
 
-    EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
 The filename is fixed: a site set is scanned for a file named exactly
 :file:`route-enhancers.yaml` at the set root, and TYPO3 picks it up automatically
@@ -99,7 +99,7 @@ when the set is active — no additional declaration is needed. The file must us
 top-level key):
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
 
     routeEnhancers:
       MyExtensionPlugin:
