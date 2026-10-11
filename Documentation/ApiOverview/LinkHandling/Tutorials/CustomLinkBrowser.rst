@@ -250,13 +250,6 @@ in an array for you. You can perform further processing here if needed.
 4. Render the custom link format in the frontend
 ================================================
 
-..  deprecated:: 14.0
-    :changelog: deprecation-106405-1742674605
-
-    The :php:`build()` method in :php:`TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder`
-    has been deprecated in favor of the new
-    :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`.
-
 The link builder, a class which implements
 :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`, is called whenever
 a link is rendered in the frontend, for example via
@@ -291,40 +284,3 @@ If the link cannot be built, it should throw a
     repository to use must be stored in another way. In this example we
     have hardcoded it but you could also make it available in TypoScript
     setup or as part of the link format that is saved.
-
-..  _abstracttypolinkbuilder-migration:
-
-Migration from `AbstractTypolinkBuilder::build()` to `TypolinkBuilderInterface`
-===============================================================================
-
-If you are an extension developer with custom TypolinkBuilder classes:
-
-1.  Implement the new interface:
-
-    ..  code-block:: php
-        :caption: Recommended migration approach
-
-        // Before (deprecated)
-        class MyCustomLinkBuilder extends AbstractTypolinkBuilder
-        {
-            public function build(array &$linkDetails, string $linkText, string $target, array $conf): LinkResultInterface
-            {
-                // Custom logic using $this->contentObjectRenderer
-            }
-        }
-
-        // After (recommended)
-        class MyCustomLinkBuilder implements TypolinkBuilderInterface
-        {
-            public function buildLink(array $linkDetails, array $configuration, ServerRequestInterface $request, string $linkText = ''): LinkResultInterface
-            {
-                $contentObjectRenderer = $request->getAttribute('currentContentObject');
-                // Custom logic using $contentObjectRenderer
-            }
-        }
-
-2.  Use dependency injection to add services instead of accessing
-    them via global state or constructor arguments.
-
-3.  Access ContentObjectRenderer via the request object rather than
-    the deprecated property.
