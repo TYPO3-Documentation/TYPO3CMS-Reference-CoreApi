@@ -55,4 +55,16 @@ return [
     'targetFileName' => 'CodeSnippets/Events/Form/BeforeFormIsDuplicatedEvent.rst.txt',
     'withCode' => false,
   ],
+  [
+    'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Form\Event\AfterFormStateInitializedEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Form/AfterFormStateInitializedEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Form\Event\AfterFormDefinitionValidationConfigurationIsBuiltEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Form/AfterFormDefinitionValidationConfigurationIsBuiltEvent.rst.txt',
+    'withCode' => false,
+  ],
 ];
