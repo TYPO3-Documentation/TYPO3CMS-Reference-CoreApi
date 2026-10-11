@@ -13,6 +13,22 @@ Content was removed
 TYPO3 v15
 =========
 
+..  _abstracttypolinkbuilder-migration:
+
+`AbstractTypolinkBuilder::build()` removed
+------------------------------------------
+
+..  deprecated:: 14.0
+    :changelog: deprecation-106405-1742674605
+
+TYPO3 v15 removed the method
+:php-short:`\TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder::build()`
+and the property `$contentObjectRenderer`. A link builder
+implements :php-short:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`
+and its method `buildLink()`. It gets the content object renderer from the
+request attribute `currentContentObject`. See
+`Render the custom link format in the frontend <https://docs.typo3.org/permalink/t3coreapi:tutorial-typolink-builder>`_.
+
 ..  _extension-declaration:
 ..  _ext_emconf-php:
 
