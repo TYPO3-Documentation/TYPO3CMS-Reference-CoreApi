@@ -336,6 +336,43 @@ discard
 
 
 
+..  _datahandler-cmd-publish:
+
+publish
+~~~~~~~
+
+..  confval:: publish
+    :name: datahandler-cmd-publish
+    :type: array
+    :added: 15.0 feature-108649-1736956800
+
+    Publishes the workspace version of a record to the live workspace. Use
+    the UID of the workspace version, not the UID of the live record. The
+    DataHandler finds the live record and the workspace from the workspace
+    version. The command needs the extension
+    :composer:`typo3/cms-workspaces`.
+
+    The array can be empty, or it can contain these keys:
+
+    `comment`
+        A comment for the publishing.
+
+    `notificationAlternativeRecipients`
+        The recipients to notify. Each entry is an array with the key
+        `email`, and optionally `realName` and `lang`. Without this key,
+        nobody is notified.
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
+
+        // 123 is the UID of the workspace version of a content element
+        $cmd['tt_content'][123]['publish'] = [];
+
+        // With a comment
+        $cmd['tt_content'][124]['publish'] = [
+            'comment' => 'Publish the new teaser text',
+        ];
+
 ..  _datahandler-cmd-version:
 
 version
@@ -387,7 +424,8 @@ version
 
         "swap"
             Indicates that the current online version should be swapped
-            with another. Additional keys, specific for "swap" action:
+            with another. Use the :ref:`publish <datahandler-cmd-publish>`
+            command instead. Additional keys, specific for "swap" action:
 
             [swapWith]
                 Indicates the uid of the record to swap current version with!
