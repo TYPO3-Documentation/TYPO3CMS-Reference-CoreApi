@@ -20,6 +20,18 @@
     This file contains hook definitions and plugin configuration. It must
     not contain a PHP encoding declaration.
 
+..  warning::
+    :file:`ext_localconf.php` must not produce any output: no `echo`, no
+    warning or notice, and no whitespace after a closing `?>` tag. TYPO3
+    sends such output to the client. It breaks file downloads and AJAX
+    responses.
+
+..  versionchanged:: 15.0
+    :changelog: breaking-110250-1785315899
+
+    Before, TYPO3 discarded output from :file:`ext_localconf.php` with an
+    output buffer.
+
 All :file:`ext_localconf.php` files of loaded extensions are
 included right  *after* the files :file:`config/system/settings.php`
 and :file:`config/system/additional.php` during TYPO3
