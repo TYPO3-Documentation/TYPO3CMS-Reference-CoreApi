@@ -130,6 +130,18 @@ return [
   ],
   [
     'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Core\Messenger\Event\BeforeMessengerDoctrineCloseEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Core/BeforeMessengerDoctrineCloseEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Core\Messenger\Event\BeforeMessengerDoctrinePingEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Core/BeforeMessengerDoctrinePingEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
     'class' => \TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent::class,
     'targetFileName' => 'CodeSnippets/Events/Core/EvaluateModifierFunctionEvent.rst.txt',
     'withCode' => false,
