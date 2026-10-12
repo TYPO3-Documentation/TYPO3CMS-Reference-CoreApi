@@ -30,6 +30,17 @@ or thumbnails from the backend. The name of this folder is not
 hard-coded. It can be defined as a property of the storage.
 It may even point to a different storage.
 
+..  versionchanged:: 15.0
+    :changelog: feature-110702-1789927725
+
+    Before, processed images from extensions were stored in
+    :file:`typo3temp/assets/_processed_/`.
+
+Images that an extension or a package ships, referenced as `EXT:` or `PKG:`
+system resource, are not in a storage. TYPO3 caches their processed variants in
+:file:`typo3temp/assets/images/system/`, without a database record. Do not rely
+on the name or location of a processed file.
+
 ..  figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
     :zoom: lightbox
 

@@ -7,18 +7,22 @@
 
     This allows to further customize a file object's processed file.
 
-    ..  php:method:: getProcessedFile()
-        :returns: `\TYPO3\CMS\Core\Resource\ProcessedFile`
+    The driver is only present for a FAL File; a resource outside the File Abstraction
+    Layer (for example a system resource shipped with a package) has none, since it is
+    never fetched through a ResourceStorage driver in the first place.
 
-    ..  php:method:: setProcessedFile(\TYPO3\CMS\Core\Resource\ProcessedFile $processedFile)
+    ..  php:method:: getProcessedFile()
+        :returns: `\TYPO3\CMS\Core\Resource\ProcessedResourceInterface`
+
+    ..  php:method:: setProcessedFile(\TYPO3\CMS\Core\Resource\ProcessedResourceInterface $processedFile)
 
         :param $processedFile: the processedFile
 
     ..  php:method:: getDriver()
-        :returns: `\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+        :returns: `?\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
 
     ..  php:method:: getFile()
-        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface|\TYPO3\CMS\Core\SystemResource\Type\SystemResourceInterface`
 
     ..  php:method:: getTaskType()
         :returns: `string`

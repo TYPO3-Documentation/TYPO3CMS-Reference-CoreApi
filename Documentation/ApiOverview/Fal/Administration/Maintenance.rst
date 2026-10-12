@@ -61,7 +61,8 @@ by deleting all existing processed files in
 
     Removing all processed files in the Maintenance Tool
 
-Here you can choose to delete all files in :file:`fileadmin/_processed_/`
+Here you can choose to delete all files in :file:`fileadmin/_processed_/`.
+Processed images from extensions are in :file:`typo3temp/assets/images/`.
 
 This cleanup is also a good idea if you have been accumulating files for a long
 time. Many of them may be obsolete.
