@@ -40,6 +40,14 @@ Variable frontend
 
 This frontend accepts strings, arrays, and objects.
 Values are serialized before they are written to the caching backend.
+TYPO3 signs each entry with the
+`encryption key <https://docs.typo3.org/permalink/t3coreapi:typo3confvars-sys-encryptionkey>`_
+and checks the signature when it reads the entry. An entry without a valid
+signature that contains an object counts as a cache miss, and TYPO3
+creates it again.
+
+..  versionchanged:: 13.4.31
+    :changelog: important-108604-1780297491
 
 It is implemented in :php:`TYPO3\CMS\Core\Cache\Frontend\VariableFrontend`.
 
