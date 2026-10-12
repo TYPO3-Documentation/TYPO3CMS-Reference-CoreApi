@@ -58,16 +58,12 @@ which can harm performance and trigger N+1 queries, for example in list views.
 :php:`#[Lazy]` tells Extbase to load the related object only when it is actively
 accessed — by calling its methods or reading its properties.
 
-When applied to a relation to a single object, the property type must include
-:php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` so Extbase knows to install the proxy. A typed getter
-needs an :php:`instanceof` check only so PHPStan and your IDE can narrow the
-return type to :php:`?Location`:
+The lazy relation is a native PHP lazy object of the target class, so the
+property keeps its plain type and the getter needs no special handling. See
+`Lazy loading <https://docs.typo3.org/permalink/t3coreapi:extbase-model-lazy-loading>`_.
 
 ..  literalinclude:: _snippets/_ConferenceLazy.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-If you do not need a narrowly typed getter, the check is unnecessary — accessing
-the proxy in any way triggers resolution automatically.
 
 ..  seealso::
 
