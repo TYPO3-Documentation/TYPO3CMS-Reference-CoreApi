@@ -209,6 +209,8 @@ The file abstraction layer also comes with a number of services:
 
 :php:`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`
     This service processes files to generate previews or scaled/cropped images.
+    It also scales and crops system resources from `EXT:` and `PKG:`. See
+    `Processing system resources <https://docs.typo3.org/permalink/t3coreapi:file-processing-system-resources>`_.
     These two functions are known as task types and are identified by class
     constants.
 

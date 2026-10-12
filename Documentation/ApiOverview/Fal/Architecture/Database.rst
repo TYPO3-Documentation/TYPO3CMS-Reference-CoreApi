@@ -158,7 +158,8 @@ content elements. The most important fields are:
 This table is similar to :ref:`sys_file <fal-architecture-database-sys-file>`,
 but for "temporary" files, like image previews. This table does not have a
 :ref:`TCA <t3tca:start>` representation, as it is only written for using
-direct SQL queries in the source code.
+direct SQL queries in the source code. Processed system resources from `EXT:`
+and `PKG:` do not get a record in this table.
 
 
 ..  index:: Tables; sys_file_collection
