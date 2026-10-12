@@ -55,13 +55,6 @@ Extension files
 :ref:`composer.json <composer-json>`
     Composer configuration, required in Composer-based installations
 
-:ref:`ext_tables.php (Deprecated) <extension-configuration-files>`
-    ..  deprecated:: 14.2
-        :changelog: deprecation-109438-1774951763
-
-        This file is deprecated and should be removed once dropping TYPO3 v13
-        support.
-
 :ref:`ext_localconf.php <extension-configuration-files>`
     Various configuration. Is always included, whether frontend or backend.
 
