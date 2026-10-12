@@ -24,8 +24,11 @@ Here is an extract of :t3src:`backend/Configuration/Backend/Routes.php`:
     :caption: EXT:backend/Configuration/Backend/Routes.php (excerpt)
 
 So, a route file essentially returns an array containing route mappings. A route
-is defined by a key, a path, a referrer and a target. The "public" :php:`access`
-property indicates that no authentication is required for that action.
+is defined by a key, a path, a referrer and a target. The option
+`'access' => 'public'` only means that the route needs no request token.
+The route still needs a logged-in backend user. Only a fixed list of Core
+routes, such as the login and the password reset, works without a backend
+user. An extension cannot add a route to this list.
 
 ..  note::
     The current route object is available as a :ref:`route attribute
@@ -43,8 +46,8 @@ property indicates that no authentication is required for that action.
 Backend routing and cross-site scripting
 ========================================
 
-Public backend routes (those having option :php:`'access' => 'public'`) do not
-require any session token, but can be used to redirect to a route that requires
+Backend routes with the option `'access' => 'public'` do not require any
+session token, but can be used to redirect to a route that requires
 a session token internally. For this context, the backend user logged in must
 have a valid session.
 
