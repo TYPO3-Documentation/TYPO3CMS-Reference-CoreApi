@@ -13,7 +13,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 #[AsCommand(
   name: 'myextension:dosomething',
   description: 'A command that does nothing and always succeeds.',
-  aliases: ['examples:dosomethingalias'],
+  aliases: ['myextension:dosomethingalias'],
 )]
 class DoSomethingCommand extends Command
 {
