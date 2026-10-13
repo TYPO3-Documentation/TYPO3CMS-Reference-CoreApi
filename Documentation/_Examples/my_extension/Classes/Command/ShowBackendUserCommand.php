@@ -11,15 +11,21 @@ use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Core\Bootstrap;
 
 #[AsCommand(
-  name: 'myextension:dosomething',
+  name: 'myextension:showbackenduser',
+  description: 'Shows the backend user the command runs as.',
 )]
-final class DoBackendRelatedThingsCommand extends Command
+final class ShowBackendUserCommand extends Command
 {
   protected function execute(InputInterface $input, OutputInterface $output): int
   {
     Bootstrap::initializeBackendAuthentication();
-    // Do backend related stuff
+    $backendUser = $GLOBALS['BE_USER'];
 
+    $output->writeln(sprintf(
+      'Running as backend user "%s"%s.',
+      $backendUser->getUserName(),
+      $backendUser->isAdmin() ? ', an administrator' : '',
+    ));
     return Command::SUCCESS;
   }
 }

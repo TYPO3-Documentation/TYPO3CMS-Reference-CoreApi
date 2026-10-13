@@ -4,11 +4,11 @@ services:
   MyVendor\MyExtension\Command\DoSomethingCommand:
     tags:
       - name: console.command
-        command: 'examples:dosomething'
+        command: 'myextension:dosomething'
         description: 'A command that does nothing and always succeeds.'
         # To hide it from the scheduler:
         schedulable: false
       # Also an alias for the command can be configured
       - name: console.command
-        command: 'examples:dosomethingalias'
+        command: 'myextension:dosomethingalias'
         alias: true

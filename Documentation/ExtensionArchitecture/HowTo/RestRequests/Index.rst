@@ -48,8 +48,8 @@ Basic usage
 
 The :php:`RequestFactory` class can be used like this:
 
-..  literalinclude:: /CodeSnippets/Examples/Http/MeowInformationRequester.php
-    :caption: EXT:examples/Classes/Http/MeowInformationRequester.php
+..  literalinclude:: /_Examples/my_extension/Classes/Http/MeowInformationRequester.php
+    :caption: EXT:my_extension/Classes/Http/MeowInformationRequester.php
 
 A POST request can be achieved with:
 
