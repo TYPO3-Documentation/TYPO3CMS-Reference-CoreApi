@@ -228,7 +228,7 @@ overriding the `configure()` method. You can call methods `addArgument()` and
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
 :php:`$input->getOption()`, for example:
 
-..  literalinclude:: _Tutorial/_CreateWizardCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/CreateWizardCommand.php
     :caption: packages/my_extension/Classes/Command/CreateWizardCommand.php
 
 ..  _writing-custom-commands-user-interaction:
@@ -239,7 +239,7 @@ User interaction on the console
 You can create a :php:`SymfonyStyle` console user interface using the
 :php:`$input` and :php:`$output` parameters of the :php:`execute()` function:
 
-..  literalinclude:: _Tutorial/_CrazyCalculatorCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/CrazyCalculatorCommand.php
     :caption: packages/my_extension/Classes/Command/CrazyCalculatorCommand.php
 
 The :php:`$io` variable can be used to generate output and prompt for
