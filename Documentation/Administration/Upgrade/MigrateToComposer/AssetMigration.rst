@@ -1,6 +1,6 @@
-..  include:: /Includes.rst.txt
-
 :navigation-title: Migrating public web assets
+
+..  include:: /Includes.rst.txt
 
 ..  _migrate-public-assets:
 
