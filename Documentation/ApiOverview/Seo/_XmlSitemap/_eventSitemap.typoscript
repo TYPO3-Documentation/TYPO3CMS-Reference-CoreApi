@@ -1,0 +1,7 @@
+plugin.tx_seo.config.xmlSitemap.sitemaps.events {
+    provider = MyVendor\MyExtension\XmlSitemap\EventProvider
+    config {
+        pid = 42
+        detailPid = 43
+    }
+}
