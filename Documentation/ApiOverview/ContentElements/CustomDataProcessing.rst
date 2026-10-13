@@ -35,13 +35,14 @@ element" as follows:
 In the extension *examples* you can find the code in
 :file:`EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript`.
 
-In the field :typoscript:`categories` the comma-separated categories are stored.
+The field `tx_examples_main_category` of the content element holds the uid of
+a category.
 
 ..  note::
-    The custom data processor described here should serve as a simple example.
-    It can therefore only work with comma-separated values, not with an m:n
-    relationship as used in the field :php:`categories` of tables like
-    :sql:`tt_content`. For that, further logic would need to be implemented.
+    The data processor reads a comma-separated list of category uids from a
+    field. The field `categories` of `tt_content` holds no such list, only the
+    number of assigned categories. The categories themselves are stored in the
+    table `sys_category_record_mm`.
 
 
 ..  index::
@@ -128,7 +129,7 @@ The field :php:`categoryList` gets configured in TypoScript as follows:
 
 ..  code-block:: typoscript
 
-    categoryList.field = categories
+    categoryList.field = tx_examples_main_category
 
 :ref:`stdWrap <t3tsref:stdwrap>` fetches the value of :php:`categoryList` from
 :sql:`tt_content.tx_examples_main_category` of the currently calling content
