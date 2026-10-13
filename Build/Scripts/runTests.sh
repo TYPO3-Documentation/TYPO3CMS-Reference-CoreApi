@@ -46,6 +46,7 @@ Options:
             - composerNormalize: "composer normalize"
             - composerUpdate: "composer update", handy if host has no PHP
             - composerValidate: "composer validate"
+            - functional: functional tests of the example extension, on SQLite
             - lint: PHP linting
             - phpstan: PHPStan static analysis
             - phpstanBaseline: Generate PHPStan baseline
@@ -292,6 +293,11 @@ case ${TEST_SUITE} in
     composerValidate)
         COMMAND=(composer validate "$@")
         ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name composer-command-${SUFFIX} -e COMPOSER_CACHE_DIR=.Build/.cache/composer -e COMPOSER_ROOT_VERSION=${COMPOSER_ROOT_VERSION} ${IMAGE_PHP} "${COMMAND[@]}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    functional)
+        COMMAND=(.Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml "$@")
+        ${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} --name functional-${SUFFIX} -e typo3DatabaseDriver=pdo_sqlite ${IMAGE_PHP} "${COMMAND[@]}"
         SUITE_EXIT_CODE=$?
         ;;
     lint)

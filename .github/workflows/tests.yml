@@ -46,6 +46,9 @@ jobs:
       - name: Composer normalize
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerNormalize -n
 
+      - name: Example extension
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s functional
+
       - name: CGL
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s cgl -n
 
