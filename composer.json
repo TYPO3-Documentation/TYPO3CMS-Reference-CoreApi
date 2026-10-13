@@ -11,6 +11,7 @@
         "ergebnis/composer-normalize": "~2.51.0",
         "friendsofphp/php-cs-fixer": "^3.46",
         "garvinhicking/clinspector-gadget": "^0.1.7",
+        "myvendor/my-extension": "@dev",
         "t3docs/codesnippet": "dev-main",
         "typo3/cms-adminpanel": "dev-main as 14.3",
         "typo3/cms-backend": "dev-main as 14.3",
@@ -45,10 +46,21 @@
         "typo3/cms-tstemplate": "dev-main as 14.3",
         "typo3/cms-viewpage": "dev-main as 14.3",
         "typo3/cms-workspaces": "dev-main as 14.3",
-        "typo3/testing-framework": "^9"
+        "typo3/testing-framework": "dev-main"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "Documentation/_Examples/my_extension"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "autoload-dev": {
+        "psr-4": {
+            "T3docs\\ReferenceCoreApi\\Tests\\": "Tests/"
+        }
+    },
     "config": {
         "allow-plugins": {
             "ergebnis/composer-normalize": true,

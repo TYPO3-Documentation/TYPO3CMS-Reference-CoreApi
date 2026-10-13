@@ -107,11 +107,15 @@ setup-typo3: check-dependencies ## Initialize TYPO3 for documentation generation
 # Testing
 # ------------------------------------------------------------------------------
 .PHONY: test
-test: test-docs test-lint test-cgl test-yaml test-typoscript test-json test-rst-style test-editorconfig ## Run all tests
+test: test-docs test-lint test-extension test-cgl test-yaml test-typoscript test-json test-rst-style test-editorconfig ## Run all tests
 
 .PHONY: test-lint
 test-lint: ## Check PHP syntax
 	Build/Scripts/runTests.sh -s lint
+
+.PHONY: test-extension
+test-extension: check-dependencies ## Run the functional tests of the example extension
+	Build/Scripts/runTests.sh -s functional
 
 .PHONY: test-cgl
 test-cgl: check-dependencies ## Check TYPO3 Coding Guidelines (dry-run)

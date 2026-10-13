@@ -27,8 +27,8 @@ interaction.
 Create a class called :php:`DoSomethingCommand` which extends
 :php:`\Symfony\Component\Console\Command\Command`.
 
-..  literalinclude:: _Tutorial/_DoSomethingCommandViaAttribute.php
-    :caption: EXT:my_extension/Classes/Command/MyCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/DoSomethingCommand.php
+    :caption: EXT:my_extension/Classes/Command/DoSomethingCommand.php
 
 The following two methods should be overridden by your class:
 
@@ -51,17 +51,17 @@ command is not found, clear the cache first:
         ..  code-block:: bash
 
             vendor/bin/typo3 cache:flush
-            vendor/bin/typo3 examples:dosomething
+            vendor/bin/typo3 myextension:dosomething
 
     ..  group-tab:: Classic mode
 
         ..  code-block:: bash
 
             typo3/sysext/core/bin/typo3 cache:flush
-            typo3/sysext/core/bin/typo3 examples:dosomething
+            typo3/sysext/core/bin/typo3 myextension:dosomething
 
-The command will return without a message as it does nothing but state that it
-has succeeded.
+The command prints a note that it still has to be implemented, and reports
+success.
 
 ..  _console-command-tutorial-example:
 
@@ -73,7 +73,7 @@ Example console command implementations
 A command with parameters and arguments
 ---------------------------------------
 
-..  literalinclude:: _Tutorial/_CreateWizardCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/CreateWizardCommand.php
     :caption: packages/my_extension/Classes/Command/CreateWizardCommand.php
 
 It uses attribute :php:`#[AsNonSchedulableCommand]` so that it can only be used
@@ -88,13 +88,13 @@ which can be added on the command line:
 
       ..  code-block:: bash
 
-          vendor/bin/typo3 examples:createwizard [-b] [wizardName]
+          vendor/bin/typo3 myextension:createwizard [-b] [wizardName]
 
    ..  group-tab:: Classic mode
 
       ..  code-block:: bash
 
-          typo3/sysext/core/bin/typo3 examples:createwizard [-b] [wizardName]
+          typo3/sysext/core/bin/typo3 myextension:createwizard [-b] [wizardName]
 
 ..  _console-command-tutorial-fluidmail:
 
