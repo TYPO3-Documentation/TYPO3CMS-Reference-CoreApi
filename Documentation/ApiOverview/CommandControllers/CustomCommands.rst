@@ -51,15 +51,9 @@ CLI commands can be registered by setting the attribute
 When using this attribute there is no need to register the command in
 :file:`Services.yaml`.
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Command/MyImportCommand.php (excerpt)
-
-    #[AsCommand(
-        name: 'examples:dosomething',
-        description: 'A command that does nothing and always succeeds.',
-        aliases: ['examples:dosomethingalias'],
-    )]
-
+..  literalinclude:: /_Examples/my_extension/Classes/Command/DoSomethingCommand.php
+    :caption: EXT:my_extension/Classes/Command/DoSomethingCommand.php
+    :visible-lines: 13-17
 
 The following parameters are available:
 
@@ -74,12 +68,12 @@ The following parameters are available:
     Hide the command from the command list by setting :yaml:`hidden` to
     :yaml:`true`.
 
-`alias`
-    A command can be made available under a different name. Set to :yaml:`true`
-    if your command name is an alias.
+`aliases`
+    A list of further names under which the command is available.
 
-If you want to set a command as `non-schedulable  <console-command-tutorial-registration-tag>`_
-it has to be registered via tag not attribute.
+To keep a command out of the scheduler, add the attribute
+:php:`#[AsNonSchedulableCommand]` as well. See
+`Making a command non-schedulable <https://docs.typo3.org/permalink/t3coreapi:schedulable>`_.
 
 ..  _console-command-tutorial-registration-tag:
 
@@ -163,11 +157,12 @@ backend user authentication is required. For more information see:
 Initialize backend user
 -----------------------
 
-A backend user can be initialized inside the :php:`execute()` method as follows:
+A backend user can be initialized inside the :php:`execute()` method. On the
+command line, this is the administrator `_cli_`. TYPO3 creates this user when it
+does not exist yet. The following command prints the user it runs as:
 
-..  literalinclude:: _Tutorial/_DoBackendRelatedThingsCommand.php
-    :caption: packages/my_extension/Classes/Command/DoBackendRelatedThingsCommand.php
-    :emphasize-lines: 20
+..  literalinclude:: /_Examples/my_extension/Classes/Command/ShowBackendUserCommand.php
+    :caption: packages/my_extension/Classes/Command/ShowBackendUserCommand.php
 
 This is necessary when using the :ref:`DataHandler <datahandler-basics>`
 or other backend permission-handling-related tasks.
@@ -253,9 +248,14 @@ Dependency injection in console commands
 You can use :ref:`dependency injection (DI) <dependency-injection>` in console
 commands via constructor injection or method injection.
 
-..  literalinclude:: _Tutorial/_MeowInformationCommand.php
+The following command gets two services through its constructor: the
+requester from
+`HTTP requests to external sources <https://docs.typo3.org/permalink/t3coreapi:http>`_,
+which fetches a fact about cats, and a logger. When the request fails, the
+command logs the error and returns :php:`Command::FAILURE`:
+
+..  literalinclude:: /_Examples/my_extension/Classes/Command/MeowInformationCommand.php
     :caption: packages/my_extension/Classes/Command/MeowInformationCommand.php
-    :emphasize-lines: 12-13
 
 ..  _writing-custom-commands-more:
 
