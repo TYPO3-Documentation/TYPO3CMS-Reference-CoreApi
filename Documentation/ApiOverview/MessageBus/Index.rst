@@ -230,6 +230,38 @@ Where no service manager is available, the command can run as a
     scheduler's cron interval (for example, 240 seconds for a 5-minute cron
     interval) so that the task completes before the next run.
 
+..  _message-bus-consume-command-database:
+
+Database connections of a worker
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionadded:: 15.0
+    :changelog: feature-110227-1784474977
+
+A worker keeps its database connections across messages. The database server
+can drop a connection that is idle for too long, for example after the MySQL
+`wait_timeout`. The next message then fails with "MySQL server has gone away".
+
+To prevent this, two middlewares maintain the connections that are open in the
+:php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`:
+
+:php-short:`\TYPO3\CMS\Core\Messenger\Middleware\DoctrinePingConnectionMiddleware`
+    Before a message is handled, pings each open connection and reconnects a
+    stale connection.
+
+:php-short:`\TYPO3\CMS\Core\Messenger\Middleware\DoctrineCloseConnectionMiddleware`
+    After a message is handled, closes the open connections, also if the
+    handler throws an exception.
+
+The middlewares are active by default. They only act on messages that a worker
+consumes. A synchronous dispatch does not ping or close connections. SQLite
+connections are never pinged or closed.
+
+To exclude a connection, use the events
+`BeforeMessengerDoctrinePingEvent <https://docs.typo3.org/permalink/t3coreapi:beforemessengerdoctrinepingevent>`_
+and
+`BeforeMessengerDoctrineCloseEvent <https://docs.typo3.org/permalink/t3coreapi:beforemessengerdoctrinecloseevent>`_.
+
 
 ..  _message-bus-advanced-usage:
 
@@ -306,11 +338,22 @@ testing.
 Configure a custom middleware
 -----------------------------
 
-The middleware is set up in the services configuration. By default, the
-:php:`\Symfony\Component\Messenger\Middleware\SendMessageMiddleware` and the
-:php:`\Symfony\Component\Messenger\Middleware\HandleMessageMiddleware` are
-registered. See also the `Custom middleware`_ section in the Symfony
-documentation.
+The middleware is set up in the services configuration. By default, these
+middlewares are registered, in this order:
+
+#.  :php-short:`\Symfony\Component\Messenger\Middleware\SendMessageMiddleware`
+#.  :php-short:`\TYPO3\CMS\Core\Messenger\Middleware\DoctrineCloseConnectionMiddleware`
+#.  :php-short:`\TYPO3\CMS\Core\Messenger\Middleware\DoctrinePingConnectionMiddleware`
+#.  :php-short:`\Symfony\Component\Messenger\Middleware\HandleMessageMiddleware`
+
+..  versionadded:: 15.0
+    :changelog: feature-110227-1784474977
+
+    The two middlewares for the
+    `database connections of a worker <https://docs.typo3.org/permalink/t3coreapi:message-bus-consume-command-database>`_
+    were added.
+
+See also the `Custom middleware`_ section in the Symfony documentation.
 
 To add your own middleware, tag it as :yaml:`messenger.middleware` and set the
 order using TYPO3's :yaml:`before` and :yaml:`after` ordering mechanism:
