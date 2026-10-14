@@ -76,18 +76,28 @@ TYPO3 v12. In TYPO3 v14 the annotation syntax was removed entirely.
 
 ..  _extbase-upgrading-attribute-namespace:
 
-Attribute namespace moved from annotation to attribute (TYPO3 v14)
-==================================================================
+Attribute namespace moved from annotation to attribute (TYPO3 v14, aliases removed in v15)
+==========================================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: deprecation-107229-1760116732
 
-    The namespace :php:`\TYPO3\CMS\Extbase\Annotation` is deprecated. Class
-    aliases remain available in v14 but will be removed in v15. Update your
-    :php:`use` statements to :php:`\TYPO3\CMS\Extbase\Attribute` when dropping
-    TYPO3 v13 support.
+    The attributes moved from :php:`\TYPO3\CMS\Extbase\Annotation` to
+    :php:`\TYPO3\CMS\Extbase\Attribute`. The old namespace stayed available
+    as class aliases.
 
-All Extbase attributes have been moved from :php:`\TYPO3\CMS\Extbase\Annotation` to
-:php:`\TYPO3\CMS\Extbase\Attribute`.
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    The class aliases in :php:`\TYPO3\CMS\Extbase\Annotation` were removed.
+
+All Extbase attributes are in the namespace
+:php:`\TYPO3\CMS\Extbase\Attribute`. Update your :php:`use` statements
+when you drop TYPO3 v13 support.
+
+An attribute that is still imported from the old namespace causes no error.
+Extbase does not recognize it and ignores it: a `#[Validate]` no longer
+validates, and a `#[Lazy]` relation is loaded right away.
 
 
 ..  _extbase-upgrading-attribute-array-syntax:
@@ -99,12 +109,19 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 ..  versionchanged:: 14.0
     :changelog: deprecation-97559-1760453281
 
-    Passing a configuration array as the first argument to Extbase attributes is
-    deprecated. The array-based syntax still works in v14 but will be removed in
-    v15.
+    Passing a configuration array as the first argument to Extbase attributes
+    was deprecated.
+
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    The array syntax was removed.
+
+Pass the configuration as arguments of the attribute. An attribute that still
+gets an array throws a :php:`\TypeError` when Extbase reads it.
 
 +-------------------------------------------------+-----------------------------+
-| Old array syntax (deprecated in v14)            | New named-argument syntax   |
+| Old array syntax (removed in v15)               | New named-argument syntax   |
 +=================================================+=============================+
 | `#[Cascade(['value' => 'remove'])]`             | `#[Cascade('remove')]`      |
 +-------------------------------------------------+-----------------------------+
@@ -117,7 +134,7 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
     v14**. PHP attributes are parsed statically and cannot be conditionally
     defined based on the TYPO3 version. Extensions supporting both versions in
     the same release must keep the array-based syntax and accept the deprecation
-    warning in v14.
+    warning in v14. They cannot support TYPO3 v15 in the same release.
 
 
 ..  seealso::
@@ -128,16 +145,25 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 ..  _extbase-upgrading-fileupload-named-arguments:
 ..  _extbase-fileupload-attribute-migration:
 
-`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
-====================================================================
+`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14, removed in v15)
+====================================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: deprecation-97559-1760453281
 
-    The array-based configuration syntax for :php:`#[FileUpload]` is deprecated
-    and will be removed in TYPO3 v15. Replace the array with named arguments.
+    The array-based configuration syntax for :php:`#[FileUpload]` was
+    deprecated.
 
-In TYPO3 v13, :php:`#[FileUpload]` accepted a single configuration array. In
-v14 the attribute requires named arguments instead:
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    The array syntax was removed.
+
+:php:`#[FileUpload]` takes named arguments. An old configuration array causes
+no error when Extbase reads it, because the first argument, `validation`, is
+an array too. The upload folder from the array is lost, so every action that
+takes the model as an argument fails with exception 1711799735, "An upload
+folder must be defined":
 
 ..  code-block:: diff
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
@@ -168,7 +194,8 @@ v14 the attribute requires named arguments instead:
 
     There is **no syntax that is not deprecated in either TYPO3 v13 or v14**.
     Extensions that support both versions in the same release must keep the
-    array-based syntax and accept the deprecation warning in v14.
+    array-based syntax and accept the deprecation warning in v14. They cannot
+    support TYPO3 v15 in the same release.
 
 ..  seealso::
 
@@ -184,15 +211,22 @@ v14 the attribute requires named arguments instead:
 ============================================================================================
 
 ..  versionchanged:: 14.0
+    :changelog: deprecation-108227-1763668119
 
     Placing :php:`#[Validate]` and :php:`#[IgnoreValidation]` on the action
-    method with a named :php:`$param` / :php:`$argumentName` property is
-    deprecated and will be removed in TYPO3 v15.
+    method, with the property `param` or `argumentName` naming the parameter,
+    was deprecated.
 
-Before TYPO3 v14, PHP attributes could only be attached to methods, so both
-attributes required a named property to identify which parameter they targeted.
-TYPO3 v14 introduced support for placing attributes directly on the parameter,
-meaning you can now position the attribute on the parameter itself:
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    Extbase no longer reads these attributes on the method.
+
+Place both attributes directly on the parameter they apply to. An attribute
+that is still on the method causes no error, Extbase ignores it: a
+`#[Validate]` no longer validates, and an `#[IgnoreValidation]` no longer
+stops validation, so an action that has to accept an invalid object, like an
+edit form, forwards to the error action instead:
 
 ..  code-block:: diff
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -208,7 +242,7 @@ meaning you can now position the attribute on the parameter itself:
 
 ..  seealso::
 
-    :ref:`Deprecation #108227 <changelog:deprecation-108227-1763668119>`
+    `Deprecation #108227 <https://docs.typo3.org/permalink/changelog:deprecation-108227-1763668119>`_
     — full deprecation details and automated migration via Rector.
 
 
