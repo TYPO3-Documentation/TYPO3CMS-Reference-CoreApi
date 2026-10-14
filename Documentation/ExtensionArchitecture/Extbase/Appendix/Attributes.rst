@@ -208,8 +208,6 @@ These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute`
 namespace and are applied to controller action methods to control access and
 rate limiting.
 
-..  Full documentation for these attributes is planned for the Controller and Security chapters.
-
 
 ..  _extbase-appendix-attributes-authorize:
 
@@ -219,21 +217,20 @@ rate limiting.
 :Target: Controller action method
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
 
-..  versionadded:: 14.0
+..  versionadded:: 14.2
     :changelog: feature-107826-1766220191
 
 Declares access requirements for an action method. Extbase checks the
-requirements before calling the action and redirects or throws an exception
-if they are not met.
-
-..  Full parameter reference and usage examples are coming in the Security chapter.
+requirements before calling the action and answers with HTTP 403 if they are
+not met. See
+`Protecting Extbase actions with #[Authorize] <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action-authorize>`_
+for the options and an example.
 
 ..  warning::
 
-    :php:`#[Authorize]` handles action-level access ("is the user logged in?
-    are they in the right group?") but does **not** verify record ownership.
-    Always check that a submitted UID belongs to the current user before
-    updating or deleting records — Extbase will not do this for you.
+    `requireLogin` and `requireGroups` check who the user is, not which
+    records the user may change. Check that a submitted record belongs to the
+    current user in a `callback` before updating or deleting it.
 
 
 ..  _extbase-appendix-attributes-ratelimit:
@@ -249,5 +246,6 @@ if they are not met.
 
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.
-
-..  Full parameter reference and usage examples are coming in the Security chapter.
+See
+`Rate-limiting Extbase actions with #[RateLimit] <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action-ratelimit>`_
+for the options and an example.

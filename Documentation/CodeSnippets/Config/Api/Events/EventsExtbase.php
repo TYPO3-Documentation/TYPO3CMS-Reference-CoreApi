@@ -9,6 +9,12 @@ return [
   ],
   [
     'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\Extbase\Event\Mvc\BeforeActionAuthorizationDeniedEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/Extbase/BeforeActionAuthorizationDeniedEvent.rst.txt',
+    'withCode' => false,
+  ],
+  [
+    'action' => 'createPhpClassDocs',
     'class' => \TYPO3\CMS\Extbase\Event\Mvc\BeforeActionCallEvent::class,
     'targetFileName' => 'CodeSnippets/Events/Extbase/BeforeActionCallEvent.rst.txt',
     'withCode' => false,

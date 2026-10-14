@@ -44,7 +44,7 @@ class ConferenceController extends ActionController
 
   public function isOwner(Conference $conference): bool
   {
-    $currentUserId = $this->request->getAttribute('frontend.user')?->getUserId();
-    return $currentUserId !== null && $conference->getOwnerUid() === $currentUserId;
+    $userId = $this->request->getAttribute('frontend.user')?->getUserId();
+    return $userId !== null && $conference->getOwnerUid() === $userId;
   }
 }
