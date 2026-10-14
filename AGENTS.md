@@ -142,6 +142,14 @@ Makefile                    # local install/build/test commands
     single backticks over double, every headline needs an anchor, etc.
     Don't duplicate those rules here; if one is missing or wrong, fix it in
     that repo instead of adding a local workaround.
+
+    One exception is local to this manual. The guide keeps statements about
+    a version, such as "since TYPO3 v15" or "removed in v15", inside the
+    version directives:
+    https://docs.typo3.org/permalink/h2document:rest-versions-what-belongs-in-directive.
+    A page whose subject is upgrading, such as
+    `ExtensionArchitecture/Extbase/Appendix/Upgrading.rst`, names versions
+    in its headlines, tables, and prose by design. Leave those as they are.
 2.  **Verify facts** — class names, method signatures, whether something is
     deprecated, when something changed — against `.Build/vendor/typo3/cms-*`
     (incl. its `Documentation/Changelog/`) or real commit history on
