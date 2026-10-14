@@ -13,4 +13,10 @@ return [
     'targetFileName' => 'CodeSnippets/Events/IndexedSearch/AfterSearchResultSetsAreGeneratedEvent.rst.txt',
     'withCode' => false,
   ],
+  [
+    'action' => 'createPhpClassDocs',
+    'class' => \TYPO3\CMS\IndexedSearch\Event\EnableIndexingEvent::class,
+    'targetFileName' => 'CodeSnippets/Events/IndexedSearch/EnableIndexingEvent.rst.txt',
+    'withCode' => false,
+  ],
 ];
