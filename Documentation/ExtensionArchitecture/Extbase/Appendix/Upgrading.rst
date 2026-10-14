@@ -246,6 +246,38 @@ edit form, forwards to the error action instead:
     — full deprecation details and automated migration via Rector.
 
 
+..  _extbase-upgrading-docblock-parameter-types:
+
+Parameter types from `@param` DocBlock tags removed (TYPO3 v11, removed in v15)
+===============================================================================
+
+..  versionchanged:: 15.0
+    :changelog: breaking-109926-1780171221
+
+    Extbase no longer reads the type of a method parameter from a `@param`
+    DocBlock tag. This fallback was deprecated in TYPO3 v11.
+
+Extbase takes the type of an action argument only from its native PHP type
+declaration. An action argument without one makes the action fail with an
+:php-short:`\TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentTypeException`
+when the action is called. If there is a `#[Validate]` attribute on the argument,
+building the class schema fails with an
+:php-short:`\TYPO3\CMS\Extbase\Validation\Exception\InvalidTypeHintException`.
+
+Declare the type in the method signature:
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+    -/**
+    - * @param \MyVendor\MyExtension\Domain\Model\Conference $conference
+    - */
+    -public function showAction($conference): ResponseInterface
+    +public function showAction(Conference $conference): ResponseInterface
+     {
+     }
+
+
 ..  _extbase-upgrading-magic-findby:
 
 Magic `findBy`*(), `findOneBy`*(), `countBy`*() methods removed (TYPO3 v14)

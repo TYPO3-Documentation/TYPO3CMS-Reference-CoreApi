@@ -134,6 +134,33 @@ ignores them. The replacement is native PHP attributes.
     + `Extbase PHP attributes reference <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_.
 
 
+..  _extbase-appendix-pitfalls-argument-type-not-detected:
+
+Action argument type could not be detected
+==========================================
+
+**Symptom:** An action fails with the message *The argument type for
+parameter $conference of method …->showAction() could not be detected*
+(exception code 1253175643).
+
+**Why:** The parameter does not have a native PHP type declaration. Extbase needs the
+type to map the request to the argument, and reads it from the method
+signature only.
+
+..  versionchanged:: 15.0
+    :changelog: breaking-109926-1780171221
+
+    A `@param` DocBlock tag no longer gives the parameter a type.
+
+**What to do:** Declare the type of every action parameter in the method
+signature.
+
+..  seealso::
+
+    `Parameter types from @param DocBlock tags removed <https://docs.typo3.org/permalink/t3coreapi:extbase-upgrading-docblock-parameter-types>`_
+    — the migration with a before and after example.
+
+
 ..  _extbase-appendix-pitfalls-magic-findby:
 
 Magic `findBy`*() methods removed in TYPO3 v14
