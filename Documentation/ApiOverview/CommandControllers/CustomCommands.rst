@@ -187,7 +187,20 @@ A minimal request configuration may be sufficient for
 generating simple links or using `FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_:
 
 ..  literalinclude:: _Tutorial/_SendFluidMailCommand.php
-    :caption: packages/my_extension/Classes/Command/DoBackendRelatedThingsCommand.php
+    :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php
+
+Links that the template builds with `f:link.page`, `f:uri.page`, or
+`f:link.typolink` and the argument `absolute="1"` point to the site. Rich
+text is different: the ViewHelper
+`f:format.html <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-format-html>`_
+needs the TypoScript `lib.parseFunc_RTE`, which the simulated request does
+not load, and throws an exception. Without `f:format.html`, the rich text
+stays unprocessed, and `t3://` links in it stay unresolved. See
+`parseFunc <https://docs.typo3.org/permalink/t3tsref:parsefunc>`_ for what
+the processing does. The missing API is tracked in
+`Forge issue #111022 <https://forge.typo3.org/issues/111022>`__, absolute
+links in rich text of emails in
+`Forge issue #102362 <https://forge.typo3.org/issues/102362>`__.
 
 ..  note::
     Simulating a frontend request in CLI is possible but requires
