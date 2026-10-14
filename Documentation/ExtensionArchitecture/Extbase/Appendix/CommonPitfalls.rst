@@ -143,7 +143,7 @@ Action argument type could not be detected
 parameter $conference of method …->showAction() could not be detected*
 (exception code 1253175643).
 
-**Why:** The parameter has no native PHP type declaration. Extbase needs the
+**Why:** The parameter does not have a native PHP type declaration. Extbase needs the
 type to map the request to the argument, and reads it from the method
 signature only.
 

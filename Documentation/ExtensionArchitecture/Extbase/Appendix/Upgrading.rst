@@ -260,7 +260,7 @@ Parameter types from `@param` DocBlock tags removed (TYPO3 v11, removed in v15)
 Extbase takes the type of an action argument only from its native PHP type
 declaration. An action argument without one makes the action fail with an
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentTypeException`
-when the action is called. With a `#[Validate]` attribute on the argument,
+when the action is called. If there is a `#[Validate]` attribute on the argument,
 building the class schema fails with an
 :php-short:`\TYPO3\CMS\Extbase\Validation\Exception\InvalidTypeHintException`.
 
