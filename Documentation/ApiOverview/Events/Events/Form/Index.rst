@@ -9,11 +9,13 @@ Form
 The following list contains :ref:`PSR-14 events <eventdispatcher>`
 in EXT:form.
 
-..  versionchanged:: 14.0
-    All former hooks of EXT:form are now available as PSR-14 events.
+..  versionchanged:: 15.0
+    :changelog: breaking-109811-1759230001
 
-    Some `Legacy hooks <https://docs.typo3.org/permalink/typo3-cms-form:apireference-events-legacy-hooks>`_
-    are still supported.
+    The last hooks of EXT:form, `afterFormStateInitialized` and
+    `buildFormDefinitionValidationConfiguration`, were replaced by
+    PSR-14 events. See also
+    `Breaking: #109849 - Removed "buildFormDefinitionValidationConfiguration" hook <https://docs.typo3.org/permalink/changelog:breaking-109849-1716115200>`_.
 
 
 **Contents:**
