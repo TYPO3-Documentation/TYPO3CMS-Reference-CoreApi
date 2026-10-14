@@ -434,11 +434,12 @@ arguments. See
 Protecting Extbase actions with `#[Authorize]`
 ==============================================
 
-..  versionadded:: 14.0
+..  versionadded:: 14.2
+    :changelog: feature-107826-1766220191
 
 The :php:`#[Authorize]` attribute restricts access to individual action methods
 without having to write boilerplate login checks. It is repeatable so multiple
-attributes can be stacked to combine conditions.
+attributes can be stacked to combine conditions. All of them must pass.
 
 ..  literalinclude:: _snippets/_ConferenceControllerAuthorize.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -446,12 +447,12 @@ attributes can be stacked to combine conditions.
 The three options:
 
 :php:`requireLogin: true`
-    Denies access if no frontend user is logged in. Returns a `HTTP 403 Forbidden <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403>`_ response
-    via :php-short:`\TYPO3\CMS\Frontend\Controller\ErrorController`.
+    Denies access if no frontend user is logged in.
 
 :php:`requireGroups: [42]` or :php:`requireGroups: ['editors']`
     Grants access only if the logged-in user belongs to at least one of the
-    listed groups (by UID or title). Implies a login check.
+    listed groups (by UID or title). Implies a login check. Prefer UIDs:
+    editors can rename a group, and a check by title then fails.
 
 :php:`callback: 'methodName'` or :php:`callback: [SomeClass::class, 'method']`
     Calls a method on the controller (string form) or on an arbitrary class
@@ -461,27 +462,24 @@ The three options:
     The callback method must be :php:`public`. Extbase verifies visibility via
     reflection and throws an exception if it is not.
 
+    Extbase creates the class of the array form with
+    :php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
+    To inject dependencies into its constructor, make it a public service, for
+    example with :php:`#[Autoconfigure(public: true)]`.
+
     Inside a controller callback, read the current frontend user from the
-    request attribute :php:`frontend.user`:
+    request attribute `frontend.user`, as :php:`isOwner()` does in the example
+    above.
 
-    ..  code-block:: php
-        :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-        public function isOwner(Conference $conference): bool
-        {
-            $currentUserId = $this->request->getAttribute('frontend.user')?->getUserId();
-            return $currentUserId !== null
-                && $conference->getOwnerUid() === $currentUserId;
-        }
-
-When access is denied, Extbase dispatches
-:php-short:`\TYPO3\CMS\Extbase\Event\Mvc\BeforeActionAuthorizationDeniedEvent`
-which lets event listeners return a custom response instead of the default 403.
-
-..  seealso::
-
-    `Extbase PHP attributes reference <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_
-    for the full attribute reference including the event for custom denial responses.
+Extbase checks the attributes after it has mapped and validated the arguments,
+and before it calls the action. When a check fails, Extbase does not call the
+action. It answers with a
+`HTTP 403 Forbidden <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/403>`_
+response through
+:php-short:`\TYPO3\CMS\Frontend\Controller\ErrorController`, so the error
+handler of the site can render it. A listener to
+`BeforeActionAuthorizationDeniedEvent <https://docs.typo3.org/permalink/t3coreapi:beforeactionauthorizationdeniedevent>`_
+can return a response of its own instead.
 
 
 ..  _extbase-controller-action-ratelimit:
