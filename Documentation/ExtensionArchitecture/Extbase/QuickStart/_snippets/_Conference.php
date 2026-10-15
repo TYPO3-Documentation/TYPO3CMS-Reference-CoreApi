@@ -22,7 +22,7 @@ class Conference extends AbstractEntity
     return $this->description;
   }
 
-  public function getEventDate(): ?\DateTimeImmutable
+  public function getConferenceDate(): ?\DateTimeImmutable
   {
     return $this->conferenceDate;
   }
