@@ -53,7 +53,7 @@ The model could for example look like this:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/RecordCreationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\RecordCreationEvent
 
 ..  important::
 

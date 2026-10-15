@@ -28,4 +28,4 @@ The following event listener enables debugging in the rich text editor:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterRichtextConfigurationPreparedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\AfterRichtextConfigurationPreparedEvent

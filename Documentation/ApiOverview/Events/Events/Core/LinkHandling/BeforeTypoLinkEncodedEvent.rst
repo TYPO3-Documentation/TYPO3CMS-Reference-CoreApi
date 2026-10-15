@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/LinkHandling/BeforeTypoLinkEncodedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\LinkHandling\Event\BeforeTypoLinkEncodedEvent

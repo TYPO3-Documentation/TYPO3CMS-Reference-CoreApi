@@ -57,4 +57,4 @@ The event provides the following member properties:
     is not considered part of the public API. TYPO3 reserves the right to change the instance at
     any time without prior notice.
 
-..  include:: /CodeSnippets/Events/Backend/BeforePageTreeIsFilteredEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Tree\Repository\BeforePageTreeIsFilteredEvent

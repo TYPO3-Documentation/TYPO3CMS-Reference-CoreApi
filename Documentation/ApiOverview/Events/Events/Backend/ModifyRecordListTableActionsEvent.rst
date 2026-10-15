@@ -25,4 +25,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyRecordListTableActionsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent

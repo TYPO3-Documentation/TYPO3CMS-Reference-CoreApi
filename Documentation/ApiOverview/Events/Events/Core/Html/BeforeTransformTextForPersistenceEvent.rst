@@ -23,4 +23,4 @@ For an example see :ref:`Example: transform a text before saving to database
 API of `BeforeTransformTextForPersistenceEvent`
 ===============================================
 
-..  include:: /CodeSnippets/Events/Core/Html/BeforeTransformTextForPersistenceEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Html\Event\BeforeTransformTextForPersistenceEvent

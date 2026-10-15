@@ -106,4 +106,4 @@ of following columns:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Linkvalidator/ModifyValidatorTaskEmailEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent

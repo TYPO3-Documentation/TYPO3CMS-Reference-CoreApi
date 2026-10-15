@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Security/PolicyMutatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent

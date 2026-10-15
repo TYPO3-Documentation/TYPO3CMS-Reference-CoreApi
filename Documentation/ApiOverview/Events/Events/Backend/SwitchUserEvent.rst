@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/SwitchUserEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Authentication\Event\SwitchUserEvent

@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/BackendUsers/AfterFilemountsListIsAssembledEvent.txt
+..  typo3:api-class:: \TYPO3\CMS\Beuser\Event\AfterFilemountsListIsAssembledEvent

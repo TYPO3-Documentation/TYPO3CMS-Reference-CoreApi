@@ -18,4 +18,4 @@ from a given query.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectCountEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectCountEvent

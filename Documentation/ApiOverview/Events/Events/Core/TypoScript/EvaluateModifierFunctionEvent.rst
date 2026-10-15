@@ -34,4 +34,4 @@ The corresponding event listener class could look like this:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/EvaluateModifierFunctionEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent

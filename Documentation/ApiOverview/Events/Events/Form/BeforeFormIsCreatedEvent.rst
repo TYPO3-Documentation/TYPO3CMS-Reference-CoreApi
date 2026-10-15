@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeFormIsCreatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeFormIsCreatedEvent

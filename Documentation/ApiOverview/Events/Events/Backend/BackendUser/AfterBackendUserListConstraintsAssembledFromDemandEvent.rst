@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/BackendUsers/AfterBackendUserListConstraintsAssembledFromDemandEvent.txt
+..  typo3:api-class:: \TYPO3\CMS\Beuser\Event\AfterBackendUserListConstraintsAssembledFromDemandEvent

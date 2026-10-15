@@ -35,4 +35,4 @@ before and dynamically set the records :php:`disable_hitcount` flag.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Redirects/RedirectWasHitEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\RedirectWasHitEvent

@@ -35,7 +35,7 @@ Example:
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Entity/PageArguments.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Routing\PageArguments
 
 
 ..  _typo3-request-attribute-routing-backend:
@@ -62,4 +62,4 @@ Example:
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Entity/RouteResult.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Routing\RouteResult

@@ -24,4 +24,4 @@ For an example see :ref:`Example: transform a text before saving to database
 API of `BeforeTransformTextForRichTextEditorEvent`
 ==================================================
 
-..  include:: /CodeSnippets/Events/Core/Html/BeforeTransformTextForRichTextEditorEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Html\Event\BeforeTransformTextForRichTextEditorEvent

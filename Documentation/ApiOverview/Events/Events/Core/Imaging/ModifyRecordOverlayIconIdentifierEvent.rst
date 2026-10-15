@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/ModifyRecordOverlayIconIdentifierEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Imaging\Event\ModifyRecordOverlayIconIdentifierEvent

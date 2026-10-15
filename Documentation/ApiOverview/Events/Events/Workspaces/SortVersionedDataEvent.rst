@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/SortVersionedDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\SortVersionedDataEvent

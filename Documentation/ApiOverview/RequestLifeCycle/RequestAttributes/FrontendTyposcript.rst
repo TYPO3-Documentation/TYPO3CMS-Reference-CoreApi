@@ -27,4 +27,4 @@ current TypoScript, it can retrieve it using this API:
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Entity/FrontendTypoScript.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\TypoScript\FrontendTypoScript

@@ -34,4 +34,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Redirects/ModifyAutoCreateRedirectRecordBeforePersistingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\ModifyAutoCreateRedirectRecordBeforePersistingEvent

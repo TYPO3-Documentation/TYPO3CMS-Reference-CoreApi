@@ -13,4 +13,4 @@ For examples see :ref:`Localization in PHP <extension-localization-php>`.
 Creates a :ref:`Translator API <translator-api>` that can then be used for
 localization.
 
-..  include:: _LanguageServiceFactory.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\LanguageServiceFactory
