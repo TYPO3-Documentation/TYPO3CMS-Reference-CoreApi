@@ -85,7 +85,7 @@ This information can be retrieved later using:
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Registry/Registry.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Registry
 
 
 ..  index:: Table; sys_registry

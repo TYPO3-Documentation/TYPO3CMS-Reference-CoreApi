@@ -45,11 +45,11 @@ Example: Manipulate download presets
 API of BeforeRecordDownloadPresetsAreDisplayedEvent
 ===================================================
 
-..  include:: /CodeSnippets/Events/Backend/BeforeRecordDownloadPresetsAreDisplayedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadPresetsAreDisplayedEvent
 
 ..  _DownloadPreset-api:
 
 API of DownloadPreset
 =====================
 
-..  include:: /CodeSnippets/Events/Backend/DownloadPreset.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\DownloadPreset

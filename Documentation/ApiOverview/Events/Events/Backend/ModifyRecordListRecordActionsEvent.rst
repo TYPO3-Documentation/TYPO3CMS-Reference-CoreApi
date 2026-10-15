@@ -36,4 +36,4 @@ See :ref:`combined usage example <ModifyRecordListTableActionsEvent-usage>`.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyRecordListRecordActionsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent

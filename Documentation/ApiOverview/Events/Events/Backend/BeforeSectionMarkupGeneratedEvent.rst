@@ -29,4 +29,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforeSectionMarkupGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\View\Event\BeforeSectionMarkupGeneratedEvent

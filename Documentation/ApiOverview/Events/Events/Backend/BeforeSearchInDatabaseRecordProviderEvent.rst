@@ -37,4 +37,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforeSearchInDatabaseRecordProviderEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\BeforeSearchInDatabaseRecordProviderEvent

@@ -35,4 +35,4 @@ Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierI
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterFlexFormDataStructureParsedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent

@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/AfterFileCopiedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\AfterFileCopiedEvent

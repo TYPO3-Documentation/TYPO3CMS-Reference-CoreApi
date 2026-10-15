@@ -170,7 +170,7 @@ set in the method itself:
 Repository API
 ===============
 
-..  include:: /CodeSnippets/Extbase/Api/Repository.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Persistence\Repository
 
 
 ..  _extbase-repository-localization:

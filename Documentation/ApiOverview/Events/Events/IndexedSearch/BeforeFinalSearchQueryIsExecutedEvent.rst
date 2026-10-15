@@ -40,4 +40,4 @@ Changing the host of the current request and setting it as canonical:
 API
 ===
 
-..  include:: /CodeSnippets/Events/IndexedSearch/BeforeFinalSearchQueryIsExecutedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\IndexedSearch\Event\BeforeFinalSearchQueryIsExecutedEvent

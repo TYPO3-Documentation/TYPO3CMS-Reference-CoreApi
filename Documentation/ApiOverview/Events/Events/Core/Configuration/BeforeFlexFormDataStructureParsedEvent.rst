@@ -35,7 +35,7 @@ Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierI
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeFlexFormDataStructureParsedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent
 
 ..  _before-flex-form-data-structure-parsed-event-migration:
 

@@ -33,4 +33,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Filelist/ModifyEditFileFormDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Filelist\Event\ModifyEditFileFormDataEvent

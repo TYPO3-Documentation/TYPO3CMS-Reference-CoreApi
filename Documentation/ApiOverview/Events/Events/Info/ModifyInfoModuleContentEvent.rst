@@ -53,4 +53,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Info/ModifyInfoModuleContentEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent

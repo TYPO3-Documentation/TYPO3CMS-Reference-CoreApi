@@ -21,4 +21,4 @@ relation handling (main modules and sub modules).
 ModuleInterface API
 ===================
 
-..  include:: /CodeSnippets/Manual/Backend/ModuleInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Module\ModuleInterface

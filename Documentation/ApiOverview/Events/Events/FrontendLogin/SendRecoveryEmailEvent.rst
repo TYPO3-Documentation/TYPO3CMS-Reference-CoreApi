@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/FrontendLogin/SendRecoveryEmailEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\FrontendLogin\Event\SendRecoveryEmailEvent

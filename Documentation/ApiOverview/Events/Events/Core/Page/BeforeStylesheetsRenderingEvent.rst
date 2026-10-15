@@ -25,4 +25,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeStylesheetsRenderingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Page\Event\BeforeStylesheetsRenderingEvent

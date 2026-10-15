@@ -20,4 +20,4 @@ for example for the use in menus.
 ModuleProvider API
 ==================
 
-.. include:: /CodeSnippets/Manual/Backend/ModuleProvider.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Module\ModuleProvider

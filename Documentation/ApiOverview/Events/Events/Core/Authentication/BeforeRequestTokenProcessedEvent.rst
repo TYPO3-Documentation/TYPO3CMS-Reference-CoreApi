@@ -32,4 +32,4 @@ to submit a request token:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeRequestTokenProcessedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Authentication\Event\BeforeRequestTokenProcessedEvent

@@ -59,4 +59,4 @@ object for translations:
 ..  _ISO 15924: https://en.wikipedia.org/wiki/ISO_15924
 ..  _tags and subtags: https://www.rfc-editor.org/rfc/rfc5646.html#section-2
 
-..  include:: _Locale.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\Locale

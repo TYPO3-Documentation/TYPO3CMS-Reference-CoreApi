@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/PackagesMayHaveChangedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Package\Event\PackagesMayHaveChangedEvent

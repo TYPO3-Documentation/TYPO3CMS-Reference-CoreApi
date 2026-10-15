@@ -33,4 +33,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyButtonBarEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent

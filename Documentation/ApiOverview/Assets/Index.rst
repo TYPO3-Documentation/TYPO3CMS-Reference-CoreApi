@@ -75,7 +75,7 @@ path will be used as-is in the resulting HTML tag.
 The Asset collector API
 -----------------------
 
-..  include:: /CodeSnippets/Manual/Core/AssetCollector.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Page\AssetCollector
 
 ..  note::
     If the same asset is registered multiple times using different attributes or

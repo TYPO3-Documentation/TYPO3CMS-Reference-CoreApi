@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyPageLayoutOnLoginProviderSelectionEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\LoginProvider\Event\ModifyPageLayoutOnLoginProviderSelectionEvent

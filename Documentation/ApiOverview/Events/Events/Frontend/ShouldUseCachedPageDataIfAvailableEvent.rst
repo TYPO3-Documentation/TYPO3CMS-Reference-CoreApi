@@ -33,4 +33,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ShouldUseCachedPageDataIfAvailableEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent

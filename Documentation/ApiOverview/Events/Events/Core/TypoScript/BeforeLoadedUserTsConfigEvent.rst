@@ -33,4 +33,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeLoadedUserTsConfigEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedUserTsConfigEvent

@@ -63,4 +63,4 @@ The corresponding event listener class:
 API of AfterTransformTextForPersistenceEvent
 ============================================
 
-..  include:: /CodeSnippets/Events/Core/Html/AfterTransformTextForPersistenceEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Html\Event\AfterTransformTextForPersistenceEvent

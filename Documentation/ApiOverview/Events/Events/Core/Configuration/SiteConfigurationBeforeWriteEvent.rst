@@ -29,4 +29,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/SiteConfigurationBeforeWriteEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\SiteConfigurationBeforeWriteEvent

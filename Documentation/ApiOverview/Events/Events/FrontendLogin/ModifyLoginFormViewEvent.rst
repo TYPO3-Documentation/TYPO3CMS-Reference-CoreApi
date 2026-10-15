@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/FrontendLogin/ModifyLoginFormViewEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\FrontendLogin\Event\ModifyLoginFormViewEvent

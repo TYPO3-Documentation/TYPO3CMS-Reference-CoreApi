@@ -44,4 +44,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/EnhanceStdWrapEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\EnhanceStdWrapEvent

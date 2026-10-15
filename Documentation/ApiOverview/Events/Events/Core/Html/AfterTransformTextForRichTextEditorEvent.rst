@@ -40,4 +40,4 @@ see example: :ref:`AfterTransformTextForPersistenceEvent-example`.
 API of AfterTransformTextForRichTextEditorEvent
 ===============================================
 
-..  include:: /CodeSnippets/Events/Core/Html/AfterTransformTextForRichTextEditorEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Html\Event\AfterTransformTextForRichTextEditorEvent

@@ -159,7 +159,7 @@ the Redis backend):
 :php:`SessionManager` API
 =========================
 
-..  include:: _SessionManager.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Session\SessionManager
 
 .. _sessions-references:
 

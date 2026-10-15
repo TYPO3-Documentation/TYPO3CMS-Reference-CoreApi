@@ -53,4 +53,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterLinkIsGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\AfterLinkIsGeneratedEvent

@@ -30,4 +30,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/IsFileSelectableEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\ElementBrowser\Event\IsFileSelectableEvent

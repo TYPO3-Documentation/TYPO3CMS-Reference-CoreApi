@@ -58,4 +58,4 @@ See also: `SkipSudoModeDialog example <https://docs.typo3.org/permalink/t3coreap
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/SudoModeVerifyEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Security\SudoMode\Event\SudoModeVerifyEvent

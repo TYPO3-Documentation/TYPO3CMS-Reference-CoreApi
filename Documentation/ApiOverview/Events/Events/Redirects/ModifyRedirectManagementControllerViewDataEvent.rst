@@ -43,4 +43,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/ModifyRedirectManagementControllerViewDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\ModifyRedirectManagementControllerViewDataEvent

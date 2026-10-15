@@ -70,4 +70,4 @@ Here is an example of how to use it for a custom cache action:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyClearCacheActionsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent

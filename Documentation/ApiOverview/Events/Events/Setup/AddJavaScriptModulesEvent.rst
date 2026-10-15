@@ -34,4 +34,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Setup/AddJavaScriptModulesEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent

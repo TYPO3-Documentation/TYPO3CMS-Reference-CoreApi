@@ -69,7 +69,7 @@ LoginProviderInterface
 The :php-short:`TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` contains
 only the deprecated `render()` method in TYPO3 v13.
 
-..  include:: /CodeSnippets/Backend/LoginProviderInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface
 
 ..  _login-provider-interface-migration:
 

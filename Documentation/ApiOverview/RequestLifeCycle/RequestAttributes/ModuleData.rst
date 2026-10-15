@@ -46,4 +46,4 @@ not allowed, to the first allowed value.
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Entity/ModuleData.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Module\ModuleData

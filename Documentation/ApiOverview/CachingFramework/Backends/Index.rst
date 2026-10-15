@@ -28,7 +28,7 @@ All backends must implement the :code:`TYPO3\CMS\Core\Cache\Backend\BackendInter
 BackendInterface
 ----------------
 
-..  include:: /CodeSnippets/Manual/Cache/BackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\BackendInterface
 
 All operations on caches must use the methods above. There are
 other interfaces that can be implemented by backends to add additional functionality.
@@ -40,14 +40,14 @@ directly, but should use the frontend object instead.
 TaggableBackendInterface
 ------------------------
 
-..  include:: /CodeSnippets/Manual/Cache/TaggableBackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\TaggableBackendInterface
 
 ..  _caching_backend-api-PhpCapableBackendInterface:
 
 PhpCapableBackendInterface
 --------------------------
 
-..  include:: /CodeSnippets/Manual/Cache/PhpCapableBackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\PhpCapableBackendInterface
 
 ..  _caching_backend-api-FreezableBackendInterface:
 
@@ -58,7 +58,7 @@ FreezableBackendInterface
     This interface will be removed in TYPO3 14.0. See
     `Breaking: #107310 - Remove FreezableBackendInterface <https://docs.typo3.org/permalink/changelog:breaking-107310-1755533400>`_
 
-..  include:: /CodeSnippets/Manual/Cache/FreezableBackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface
 
 ..  _caching-backend-options:
 

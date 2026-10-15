@@ -44,4 +44,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/LinkHandling/AfterLinkResolvedByStringRepresentationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\LinkHandling\Event\AfterLinkResolvedByStringRepresentationEvent

@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforeModuleCreationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Module\BeforeModuleCreationEvent

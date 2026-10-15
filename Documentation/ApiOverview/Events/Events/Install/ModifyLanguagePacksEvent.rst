@@ -34,4 +34,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Install/ModifyLanguagePacksEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Install\Service\Event\ModifyLanguagePacksEvent
