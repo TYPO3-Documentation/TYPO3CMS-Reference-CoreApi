@@ -256,7 +256,6 @@ The module has to be part of the import map, see
 :ref:`Loading ES6 modules <backend-javascript-es6-loading>`.
 
 ..  _FormEngine-Rendering-NodeExpansion:
-.. _FormEngine-Rendering-NodeExpansion:
 
 Node Expansion
 ==============

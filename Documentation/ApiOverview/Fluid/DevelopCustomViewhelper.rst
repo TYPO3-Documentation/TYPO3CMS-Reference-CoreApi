@@ -424,14 +424,6 @@ Example implementation:
     which is responsible for calling `renderStatic()` is deprecated.
     See section :ref:`migration <fluid-custom-viewhelper-migration>`.
 
-..  _render-method:
-
-`render()` method
------------------
-
-Most of the time, this method is implemented.
-
-
 ..  _fluid-custom-viewhelper-migration:
 
 Migration: Remove deprecated compliling traits
