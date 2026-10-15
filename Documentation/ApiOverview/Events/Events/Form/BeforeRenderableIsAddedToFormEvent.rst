@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeRenderableIsAddedToFormEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeRenderableIsAddedToFormEvent

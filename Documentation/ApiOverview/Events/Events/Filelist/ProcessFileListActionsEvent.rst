@@ -33,4 +33,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Filelist/ProcessFileListActionsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Filelist\Event\ProcessFileListActionsEvent

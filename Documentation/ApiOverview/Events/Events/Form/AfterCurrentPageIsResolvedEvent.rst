@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/AfterCurrentPageIsResolvedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\AfterCurrentPageIsResolvedEvent

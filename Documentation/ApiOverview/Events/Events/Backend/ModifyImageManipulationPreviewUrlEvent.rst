@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyImageManipulationPreviewUrlEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Form\Event\ModifyImageManipulationPreviewUrlEvent

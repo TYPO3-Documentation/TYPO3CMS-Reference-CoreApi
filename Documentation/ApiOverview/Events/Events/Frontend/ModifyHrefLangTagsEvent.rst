@@ -32,4 +32,4 @@ executed after or before the given identifiers.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ModifyHrefLangTagsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent

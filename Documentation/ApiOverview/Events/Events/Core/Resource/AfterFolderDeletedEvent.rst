@@ -22,4 +22,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/AfterFolderDeletedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\AfterFolderDeletedEvent

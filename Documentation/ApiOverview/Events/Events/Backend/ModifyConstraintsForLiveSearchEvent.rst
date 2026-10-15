@@ -33,7 +33,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyConstraintsForLiveSearchEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\ModifyConstraintsForLiveSearchEvent
 
 ..  hint::
 

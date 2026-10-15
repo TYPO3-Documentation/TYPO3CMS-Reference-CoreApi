@@ -31,4 +31,4 @@ whitespace with hyphens and assigns the result as sanitized file name.
     The original (unsanitized) file name can now be retrieved using
     :php:`SanitizeFileNameEvent::getOriginalFileName()`.
 
-..  include:: /CodeSnippets/Events/Core/Resource/SanitizeFileNameEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\SanitizeFileNameEvent

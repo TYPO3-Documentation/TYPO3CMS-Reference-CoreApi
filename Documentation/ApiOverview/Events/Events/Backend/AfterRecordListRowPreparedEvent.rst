@@ -69,4 +69,4 @@ It also appends a marker to the record title:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterRecordListRowPreparedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\Event\AfterRecordListRowPreparedEvent

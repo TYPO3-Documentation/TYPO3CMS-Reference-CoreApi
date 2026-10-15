@@ -37,4 +37,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Fluid/ProvideStaticVariablesToComponentEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Fluid\Event\ProvideStaticVariablesToComponentEvent

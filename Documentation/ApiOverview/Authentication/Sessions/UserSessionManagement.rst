@@ -50,7 +50,7 @@ method :php:`create()`:
 You can then use the :php:`UserSessionManager` to work
 with user sessions. A couple of public methods are available:
 
-..  include:: _UserSessionManager.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Session\UserSessionManager
 
 ..  _session-management-public-api-usersession:
 
@@ -60,4 +60,4 @@ Public API of `UserSession`
 The session object created or retrieved by the :php:`UserSessionManager`
 provides the following API methods:
 
-..  include:: _UserSession.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Session\UserSession

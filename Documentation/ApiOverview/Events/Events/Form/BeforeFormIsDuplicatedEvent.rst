@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeFormIsDuplicatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeFormIsDuplicatedEvent

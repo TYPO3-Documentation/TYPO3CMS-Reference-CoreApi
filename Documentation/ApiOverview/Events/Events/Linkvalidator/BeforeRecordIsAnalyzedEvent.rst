@@ -87,4 +87,4 @@ See the complete class here:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent

@@ -30,4 +30,4 @@ Example: display "Unused elements detected on this page" for elements with missi
 API of `IsContentUsedOnPageLayoutEvent`
 =======================================
 
-..  include:: /CodeSnippets/Events/Backend/IsContentUsedOnPageLayoutEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent

@@ -29,4 +29,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterUserLoggedInEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent

@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BootCompletedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Core\Event\BootCompletedEvent

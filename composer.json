@@ -13,7 +13,6 @@
         "garvinhicking/clinspector-gadget": "^0.1.1",
         "myvendor/my-extension": "@dev",
         "symfony/yaml": "^7.0",
-        "t3docs/codesnippet": "dev-main",
         "typo3/cms-adminpanel": "14.3.x-dev as 14.3.8",
         "typo3/cms-backend": "14.3.x-dev as 14.3.8",
         "typo3/cms-belog": "14.3.x-dev as 14.3.8",

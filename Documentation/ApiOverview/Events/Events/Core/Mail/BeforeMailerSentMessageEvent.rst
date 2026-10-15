@@ -32,4 +32,4 @@ This event adds an additional BCC receiver right before the mail is sent:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeMailerSentMessageEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent

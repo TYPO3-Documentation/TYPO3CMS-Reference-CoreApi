@@ -30,7 +30,7 @@ All backends must implement the :php-short:`\TYPO3\CMS\Core\Cache\Backend\Backen
 `BackendInterface`
 ------------------
 
-..  include:: /CodeSnippets/Manual/Cache/BackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\BackendInterface
 
 All operations on caches must use the methods above. There are
 other interfaces that can be implemented by backends to add additional functionality.
@@ -42,14 +42,14 @@ directly, but should use the frontend object instead.
 `TaggableBackendInterface`
 --------------------------
 
-..  include:: /CodeSnippets/Manual/Cache/TaggableBackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\TaggableBackendInterface
 
 ..  _caching-backend-api-phpcapablebackendinterface:
 
 `PhpCapableBackendInterface`
 ----------------------------
 
-..  include:: /CodeSnippets/Manual/Cache/PhpCapableBackendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Backend\PhpCapableBackendInterface
 
 ..  _caching-backend-options:
 

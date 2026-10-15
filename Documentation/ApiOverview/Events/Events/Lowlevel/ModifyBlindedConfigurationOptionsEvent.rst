@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Lowlevel/ModifyBlindedConfigurationOptionsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent

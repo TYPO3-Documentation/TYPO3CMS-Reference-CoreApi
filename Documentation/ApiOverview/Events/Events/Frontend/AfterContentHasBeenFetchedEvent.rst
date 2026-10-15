@@ -30,4 +30,4 @@ specific field values.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterContentHasBeenFetchedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\AfterContentHasBeenFetchedEvent

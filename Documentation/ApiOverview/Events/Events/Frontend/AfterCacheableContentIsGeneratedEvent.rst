@@ -39,7 +39,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterCacheableContentIsGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent
 
 ..  _AfterCacheableContentIsGeneratedEvent-migration-getcontroller:
 

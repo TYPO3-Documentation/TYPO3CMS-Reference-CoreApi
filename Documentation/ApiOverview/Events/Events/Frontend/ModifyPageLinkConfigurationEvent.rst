@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ModifyPageLinkConfigurationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\ModifyPageLinkConfigurationEvent
