@@ -36,4 +36,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeFormIsDeletedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeFormIsDeletedEvent

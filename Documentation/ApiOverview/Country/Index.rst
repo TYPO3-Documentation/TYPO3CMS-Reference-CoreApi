@@ -118,21 +118,21 @@ PHP API reference
 `CountryProvider`
 -----------------
 
-..  include:: /CodeSnippets/Manual/Country/CountryProvider.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Country\CountryProvider
 
 ..  _country-api-php-api-reference-countryfilter:
 
 `CountryFilter`
 ---------------
 
-..  include:: /CodeSnippets/Manual/Country/CountryFilter.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Country\CountryFilter
 
 ..  _country-api-php-api-reference-country:
 
 `Country`
 ---------
 
-..  include:: /CodeSnippets/Manual/Country/Country.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Country\Country
 
 
 ..  index:: CountrySelect ViewHelper

@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyLocalizationHandlerIsAvailableEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Localization\Event\ModifyLocalizationHandlerIsAvailableEvent

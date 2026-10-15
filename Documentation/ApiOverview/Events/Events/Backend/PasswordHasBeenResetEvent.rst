@@ -31,4 +31,4 @@ The corresponding event listener class:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/PasswordHasBeenResetEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Authentication\Event\PasswordHasBeenResetEvent

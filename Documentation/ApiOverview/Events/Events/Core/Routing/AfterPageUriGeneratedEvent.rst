@@ -53,4 +53,4 @@ scoping described above and how to actually replace the generated URI:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterPageUriGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Routing\Event\AfterPageUriGeneratedEvent

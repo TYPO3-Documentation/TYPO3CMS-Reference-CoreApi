@@ -57,7 +57,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterFileStorageTreeItemsPreparedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\AfterFileStorageTreeItemsPreparedEvent
 
 ..  note::
 

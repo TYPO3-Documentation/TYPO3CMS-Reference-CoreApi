@@ -40,4 +40,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeTcaOverridesEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\BeforeTcaOverridesEvent

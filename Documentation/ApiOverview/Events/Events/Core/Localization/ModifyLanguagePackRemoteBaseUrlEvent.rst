@@ -37,4 +37,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/ModifyLanguagePackRemoteBaseUrlEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\Event\ModifyLanguagePackRemoteBaseUrlEvent

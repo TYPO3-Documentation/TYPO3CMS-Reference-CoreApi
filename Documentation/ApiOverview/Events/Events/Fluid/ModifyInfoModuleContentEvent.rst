@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Fluid/ModifyComponentDefinitionEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Fluid\Event\ModifyComponentDefinitionEvent

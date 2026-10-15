@@ -41,4 +41,4 @@ The corresponding event listener class:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeEmailFinisherInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent

@@ -40,7 +40,7 @@ The event provides access to:
 This allows for comprehensive customization while maintaining backward
 compatibility with existing customizations.
 
-..  include:: /CodeSnippets/Events/Backend/ModifyNewRecordCreationLinksEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\ModifyNewRecordCreationLinksEvent
 
 ..  _ModifyNewRecordCreationLinksEvent-Datastructure:
 

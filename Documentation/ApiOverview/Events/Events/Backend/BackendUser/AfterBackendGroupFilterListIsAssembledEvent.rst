@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/BackendUsers/AfterBackendGroupFilterListIsAssembledEvent.txt
+..  typo3:api-class:: \TYPO3\CMS\Beuser\Event\AfterBackendGroupFilterListIsAssembledEvent

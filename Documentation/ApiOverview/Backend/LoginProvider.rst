@@ -53,7 +53,7 @@ replace its registered :php:`provider` class with your custom class.
 `LoginProviderInterface`
 ========================
 
-..  include:: /CodeSnippets/Backend/LoginProviderInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface
 
 Consumers of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface`
 should implement the :php:`modifyView()` method. See the example below.

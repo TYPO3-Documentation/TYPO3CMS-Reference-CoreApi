@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyQueryForLiveSearchEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent

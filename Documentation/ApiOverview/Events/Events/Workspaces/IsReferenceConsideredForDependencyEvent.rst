@@ -40,4 +40,4 @@ staging, or discarding a child record also considers its parent:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/IsReferenceConsideredForDependencyEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\IsReferenceConsideredForDependencyEvent

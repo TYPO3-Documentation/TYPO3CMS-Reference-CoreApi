@@ -29,4 +29,4 @@ Example
 API: `BeforePersistingReportEvent`
 ==================================
 
-..  include:: /CodeSnippets/Events/Core/Security/BeforePersistingReportEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\BeforePersistingReportEvent
