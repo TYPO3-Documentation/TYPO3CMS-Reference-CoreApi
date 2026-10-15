@@ -24,4 +24,4 @@ Example:
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Entity/Route.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Routing\Route

@@ -53,7 +53,7 @@ The response returned by the AJAX endpoint should look like this:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyClearCacheActionsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent
 
 ..  _ModifyClearCacheActionsEvent-api-add-cache-action:
 

@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/AfterFileMetaDataDeletedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\AfterFileMetaDataDeletedEvent

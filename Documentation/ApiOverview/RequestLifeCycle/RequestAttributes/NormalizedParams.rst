@@ -31,7 +31,8 @@ One can retrieve the normalized parameters like this:
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Entity/NormalizedParams.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Http\NormalizedParams
+    :members: getDocumentRoot, getHttpAcceptEncoding, getHttpAcceptLanguage, getHttpHost, getHttpReferer, getHttpUserAgent, getQueryString, getPathInfo, getRemoteAddress, getRemoteHost, getRequestDir, getRequestHost, getRequestHostOnly, getRequestPort, getRequestScript, getRequestUri, getRequestUrl, getScriptFilename, getScriptName, getSitePath, getSiteScript, getSiteUrl, isBehindReverseProxy, isHttps
 
 
 ..  index:: Request handling; Migration from getIndpEnv

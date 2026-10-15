@@ -24,4 +24,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/AfterCompiledCacheableDataForWorkspaceEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\AfterCompiledCacheableDataForWorkspaceEvent

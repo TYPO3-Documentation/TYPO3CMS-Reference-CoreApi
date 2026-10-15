@@ -46,4 +46,4 @@ set a response, so the visitor still gets a 403 response:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/BeforeActionAuthorizationDeniedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Mvc\BeforeActionAuthorizationDeniedEvent

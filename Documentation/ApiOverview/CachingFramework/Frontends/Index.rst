@@ -20,7 +20,7 @@ Caching frontend API
 All caching frontends must implement the interface
 :php:`\TYPO3\CMS\Core\Cache\Frontend\FrontendInterface`.
 
-..  include:: /CodeSnippets/Manual/Cache/FrontendInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
 
 The specific cache frontend implementation migth offer additional methods.
 

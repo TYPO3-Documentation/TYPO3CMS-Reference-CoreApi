@@ -50,4 +50,4 @@ its uid, and leaves the records of other tables alone:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterRecordIsRenderedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\AfterRecordIsRenderedEvent

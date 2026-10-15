@@ -12,7 +12,6 @@
         "friendsofphp/php-cs-fixer": "^3.46",
         "garvinhicking/clinspector-gadget": "^0.1.7",
         "myvendor/my-extension": "@dev",
-        "t3docs/codesnippet": "dev-main",
         "typo3/cms-adminpanel": "dev-main as 14.3",
         "typo3/cms-backend": "dev-main as 14.3",
         "typo3/cms-belog": "dev-main as 14.3",

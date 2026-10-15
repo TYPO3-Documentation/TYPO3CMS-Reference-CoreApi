@@ -34,4 +34,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Fluid/RenderComponentEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Fluid\Event\RenderComponentEvent

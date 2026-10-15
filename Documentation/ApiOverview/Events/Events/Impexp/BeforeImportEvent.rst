@@ -22,4 +22,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Impexp/BeforeImportEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Impexp\Event\BeforeImportEvent

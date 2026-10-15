@@ -9,7 +9,10 @@ Expression builder
 ..  contents:: **Table of Contents**
     :local:
 
-..  include:: _ExpressionBuilder.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: __construct
+    :no-member-comment:
+    :include-constructor:
 
 ..  _database-expression-builder-basic-usage:
 
@@ -64,7 +67,10 @@ Comparisons
 
 A set of methods to create comparison expressions and SQL functions:
 
-..  include:: _ExpressionBuilderComparisons.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: eq, neq, lt, lte, gt, gte, isNull, isNotNull, like, notLike, in, notIn, inSet, notInSet, bitAnd
+    :noindex:
+    :no-class-comment:
 
 Remarks and warnings:
 
@@ -156,7 +162,10 @@ Aggregate functions used in :sql:`SELECT` parts, often combined with
 :sql:`GROUP BY`. The first argument is the field name (or table name / alias
 with field name), the second argument is an optional alias.
 
-..  include:: _ExpressionBuilderAggregate.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: min, max, avg, sum, count
+    :noindex:
+    :no-class-comment:
 
 Examples:
 
@@ -176,7 +185,11 @@ Various expressions
 `ExpressionBuilder::as()`
 -------------------------
 
-..  include:: _ExpressionBuilderAs.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: as
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Creates a statement to append a field alias to a value, identifier or sub-expression.
 
@@ -194,7 +207,11 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 `ExpressionBuilder::concat()`
 -----------------------------
 
-..  include:: _ExpressionBuilderConcat.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: concat
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Can be used to concatenate values, row field values or expression results into
 a single string value.
@@ -213,7 +230,11 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 `ExpressionBuilder::castInt()`
 ------------------------------
 
-..  include:: _ExpressionBuilderCastInt.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: castInt
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Can be used to create an expression which converts a value, row field value or
 the result of an expression to a signed integer type.
@@ -250,7 +271,11 @@ or similar methods based on the database engine.
 `ExpressionBuilder::castVarchar()`
 ----------------------------------
 
-..  include:: _ExpressionBuilderCastVarchar.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: castVarchar
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Can be used to create an expression which converts a value, row field value or
 the result of an expression to a varchar type with dynamic length.
@@ -271,7 +296,11 @@ where :sql:`"value"::INTEGER` cast notation is used.
 `ExpressionBuilder::if()`
 -------------------------
 
-..  include:: _ExpressionBuilderIf.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: If
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 This method is used for "if-then-else" expressions. These are
 translated into :sql:`IF` or :sql:`CASE` statements depending on the
@@ -303,7 +332,11 @@ Result with MySQL/MariaDB:
 `ExpressionBuilder::left()`
 ---------------------------
 
-..  include:: _ExpressionBuilderLeft.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: left
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Extract :php:`$length` characters of :php:`$value` from the left.
 
@@ -322,7 +355,11 @@ to provide a compatible expression.
 `ExpressionBuilder::leftPad()`
 ------------------------------
 
-..  include:: _ExpressionBuilderLeftPad.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: leftPad
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Left-pad the value or sub-expression result with :php:`$paddingValue`, to a total
 length of :php:`$length`.
@@ -341,7 +378,10 @@ more complex compatible replacement expression construct is created.
 `ExpressionBuilder::length()`
 -----------------------------
 
-..  include:: _ExpressionBuilderLength.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: length
+    :noindex:
+    :no-class-comment:
 
 The :php:`length()` string function can be used to return the length of a
 string in bytes.
@@ -358,7 +398,11 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 `ExpressionBuilder::repeat()`
 -----------------------------
 
-..  include:: _ExpressionBuilderRepeat.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: repeat
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Create a statement to generate a value which repears the :php:`$value` for
 :php:`$numberOfRepeats` times. This method can be used to provide the
@@ -379,7 +423,11 @@ vendors except SQLite which uses
 `ExpressionBuilder::right()`
 ----------------------------
 
-..  include:: _ExpressionBuilderRight.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: right
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Extract :php:`$length` characters of :php:`$value` from the right.
 
@@ -397,7 +445,11 @@ database vendors except SQLite, which uses :sql:`substring("value", start_of_str
 `ExpressionBuilder::rightPad()`
 -------------------------------
 
-..  include:: _ExpressionBuilderRightPad.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: RightPad
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Right-pad the value or sub-expression result with :php:`$paddingValue`, to a
 total length of :php:`$length`.
@@ -415,7 +467,11 @@ more complex compatible replacement expression construct is created.
 `ExpressionBuilder::space()`
 ----------------------------
 
-..  include:: _ExpressionBuilderSpace.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: space
+    :noindex:
+    :no-class-comment:
+    :no-member-comment:
 
 Create a statement containing :php:`$numberOfSpaces` space characters.
 
@@ -433,7 +489,10 @@ and SQLite.
 `ExpressionBuilder::trim()`
 ---------------------------
 
-..  include:: _ExpressionBuilderTrim.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+    :members: trim
+    :noindex:
+    :no-class-comment:
 
 Using the :php:`->trim()` expression ensures that fields are trimmed at the
 database level. The following examples give a better idea of what is possible:

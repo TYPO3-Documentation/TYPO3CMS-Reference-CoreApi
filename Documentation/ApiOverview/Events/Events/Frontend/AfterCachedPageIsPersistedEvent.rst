@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterCachedPageIsPersistedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\AfterCachedPageIsPersistedEvent

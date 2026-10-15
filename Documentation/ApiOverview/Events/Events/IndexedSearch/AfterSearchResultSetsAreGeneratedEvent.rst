@@ -35,4 +35,4 @@ underlying paginator:
 API
 ===
 
-..  include:: /CodeSnippets/Events/IndexedSearch/AfterSearchResultSetsAreGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\IndexedSearch\Event\AfterSearchResultSetsAreGeneratedEvent

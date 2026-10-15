@@ -22,4 +22,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/FrontendLogin/BeforeRedirectEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\FrontendLogin\Event\BeforeRedirectEvent

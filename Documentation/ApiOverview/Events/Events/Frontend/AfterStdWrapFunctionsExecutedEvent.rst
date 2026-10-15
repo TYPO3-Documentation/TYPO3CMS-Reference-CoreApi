@@ -36,4 +36,4 @@ Have a look into the
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterStdWrapFunctionsExecutedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\AfterStdWrapFunctionsExecutedEvent

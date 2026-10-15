@@ -40,4 +40,4 @@ workarounds.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Filelist/AfterFileListRowPreparedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Filelist\Event\AfterFileListRowPreparedEvent

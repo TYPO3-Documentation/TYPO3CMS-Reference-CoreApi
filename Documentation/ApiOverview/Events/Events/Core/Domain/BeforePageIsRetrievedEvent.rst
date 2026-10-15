@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforePageIsRetrievedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\BeforePageIsRetrievedEvent

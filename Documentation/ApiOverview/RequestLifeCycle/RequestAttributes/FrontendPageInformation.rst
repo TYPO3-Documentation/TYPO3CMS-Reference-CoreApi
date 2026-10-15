@@ -42,4 +42,4 @@ of that attribute.
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Entity/PageInformation.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Page\PageInformation

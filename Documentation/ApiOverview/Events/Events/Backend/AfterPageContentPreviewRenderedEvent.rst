@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterPageContentPreviewRenderedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\View\Event\AfterPageContentPreviewRenderedEvent

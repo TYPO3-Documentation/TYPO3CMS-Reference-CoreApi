@@ -40,4 +40,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Package/PackageInitializationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Package\Event\PackageInitializationEvent

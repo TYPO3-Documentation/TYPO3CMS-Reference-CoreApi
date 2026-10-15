@@ -24,4 +24,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/RenderAdditionalContentToRecordListEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\RenderAdditionalContentToRecordListEvent

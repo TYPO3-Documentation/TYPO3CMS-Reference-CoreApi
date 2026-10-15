@@ -36,4 +36,4 @@ be set already. Usage example:
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Entity/CacheInstruction.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Cache\CacheInstruction

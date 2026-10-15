@@ -28,4 +28,4 @@ removes an existing item and modifies one.
 API of `ModifyNewSchedulerTaskWizardItemsEvent`
 ===============================================
 
-..  include:: /CodeSnippets/Events/Scheduler/ModifyNewSchedulerTaskWizardItemsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Scheduler\Event\ModifyNewSchedulerTaskWizardItemsEvent

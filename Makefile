@@ -78,11 +78,7 @@ docs-open: ## Open rendered documentation in browser
 # Code Generation (requires DDEV)
 # ------------------------------------------------------------------------------
 .PHONY: generate
-generate: setup-typo3 codesnippets command-json ## Regenerate all auto-generated documentation
-
-.PHONY: codesnippets
-codesnippets: check-dependencies ## Regenerate PHP code snippets
-	ddev exec .Build/bin/typo3 codesnippet:create $(DOCS_DIR)/
+generate: setup-typo3 command-json ## Regenerate all auto-generated documentation
 
 .PHONY: command-json
 command-json: check-dependencies ## Regenerate console commands JSON

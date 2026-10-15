@@ -97,7 +97,7 @@ A custom preview renderer must implement the interface
 :php:`\TYPO3\CMS\Backend\Preview\PreviewRendererInterface` which contains
 the following API methods:
 
-..  include:: /CodeSnippets/Manual/Backend/PreviewRendererInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Preview\PreviewRendererInterface
 
 Implementing these methods allows you to control the exact composition of the
 preview.
