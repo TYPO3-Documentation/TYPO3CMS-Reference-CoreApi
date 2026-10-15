@@ -12,21 +12,18 @@
 * For a step-by-step walkthrough for making a change, see [Contribute to the TYPO3 documentation](https://docs.typo3.org/permalink/h2document:docs-official-workflow-methods)
 * For a step-by-step walkthrough of alternative workflow, see [Local editing and rendering with Docker](https://docs.typo3.org/permalink/h2document:docs-contribute-git-docker)
 *
-## (re) Generate Codesnippets
-With ddev:
+## Show a PHP class
+
+To show the public API of a TYPO3 Core class, use the directive
+`typo3:api-class`. It reads the class from api.typo3.org when the manual is
+rendered:
 
 ```
-ddev start
-ddev composer install
-ddev exec .Build/vendor/bin/typo3 codesnippet:create Documentation/CodeSnippets/
+..  typo3:api-class:: \TYPO3\CMS\Core\Site\Entity\Site
 ```
 
-Without ddev:
-
-```
-composer install
-.Build/vendor/bin/typo3 codesnippet:create Documentation/CodeSnippets/
-```
+See [Classes from the TYPO3 API](https://docs.typo3.org/permalink/t3renderguides:api-class-directive)
+for the options.
 
 ## Preview rendering
 

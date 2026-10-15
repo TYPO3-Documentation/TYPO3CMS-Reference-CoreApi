@@ -38,4 +38,4 @@ out. This logic is not part of the example below.
 API
 ===
 
-..  include:: /CodeSnippets/Events/FrontendLogin/LogoutConfirmedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\FrontendLogin\Event\LogoutConfirmedEvent

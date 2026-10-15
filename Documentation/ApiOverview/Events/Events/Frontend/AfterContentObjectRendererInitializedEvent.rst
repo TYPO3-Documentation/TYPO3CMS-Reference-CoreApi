@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterContentObjectRendererInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\AfterContentObjectRendererInitializedEvent

@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/LoginAttemptFailedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Authentication\Event\LoginAttemptFailedEvent

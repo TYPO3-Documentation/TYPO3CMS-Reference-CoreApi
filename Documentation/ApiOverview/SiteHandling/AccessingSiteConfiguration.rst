@@ -81,7 +81,7 @@ The methods for finding a specific site throw a
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Core/SiteFinder.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Site\SiteFinder
 
 
 .. index:: pair: Site handling; Site object
@@ -98,7 +98,7 @@ configuration options.
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Entity/Site.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Site\Entity\Site
 
 
 .. index:: pair: Site handling; SiteLanguage object
@@ -116,7 +116,7 @@ getters for those properties.
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Entity/SiteLanguage.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Site\Entity\SiteLanguage
 
 ..  _sitehandling-sitesetting-object:
 
@@ -155,4 +155,4 @@ See :ref:`<sitehandling-inTypoScript>` for other means of accessing the site set
 API
 ---
 
-..  include:: /CodeSnippets/Manual/Entity/SiteSettings.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Site\Entity\SiteSettings

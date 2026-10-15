@@ -13,7 +13,6 @@
         "garvinhicking/clinspector-gadget": "^0.1.1",
         "symfony/yaml": "^7.0",
         "t3docs/blog-example": "^13.2",
-        "t3docs/codesnippet": "dev-main",
         "t3docs/examples": "^13.2",
         "t3docs/site-package": "^13",
         "typo3/cms-adminpanel": "^13.4",

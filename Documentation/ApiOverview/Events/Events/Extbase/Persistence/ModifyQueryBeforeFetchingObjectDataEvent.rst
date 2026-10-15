@@ -31,4 +31,4 @@ centralized and does not to be repeated in each repository class.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent

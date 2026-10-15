@@ -121,4 +121,4 @@ Example: Get all cache tags
 API
 ===
 
-..  include:: /CodeSnippets/Manual/Cache/CacheDataCollector.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\CacheDataCollector

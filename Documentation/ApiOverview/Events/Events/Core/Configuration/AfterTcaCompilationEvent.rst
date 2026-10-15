@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterTcaCompilationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\AfterTcaCompilationEvent

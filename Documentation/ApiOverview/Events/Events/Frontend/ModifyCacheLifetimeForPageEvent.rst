@@ -33,4 +33,4 @@ context:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ModifyCacheLifetimeForPageEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent

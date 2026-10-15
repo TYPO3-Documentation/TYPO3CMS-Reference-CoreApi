@@ -36,4 +36,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyGenericBackendMessagesEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent

@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Security/InvestigateMutationsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\InvestigateMutationsEvent

@@ -33,4 +33,4 @@ Example: Sort pages by title in the page tree
 API of AfterRawPageRowPreparedEvent
 ===================================
 
-..  include:: /CodeSnippets/Events/Backend/AfterRawPageRowPreparedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Tree\Repository\AfterRawPageRowPreparedEvent

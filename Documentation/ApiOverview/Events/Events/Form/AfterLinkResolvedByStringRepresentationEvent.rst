@@ -39,4 +39,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/AfterFormDefinitionLoadedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Mvc\Persistence\Event\AfterFormDefinitionLoadedEvent

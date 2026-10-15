@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/ExtensionManager/AvailableActionsForExtensionEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extensionmanager\Event\AvailableActionsForExtensionEvent

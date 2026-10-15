@@ -36,4 +36,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyDatabaseQueryForRecordListingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent

@@ -53,4 +53,4 @@ See also: `StaticPasswordVerification example <https://docs.typo3.org/permalink/
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/SudoModeRequiredEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Security\SudoMode\Event\SudoModeRequiredEvent

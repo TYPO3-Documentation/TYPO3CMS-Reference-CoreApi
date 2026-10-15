@@ -36,4 +36,4 @@ The messages will then be displayed like this:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/SystemInformationToolbarCollectorEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Backend\Event\SystemInformationToolbarCollectorEvent

@@ -22,4 +22,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/ModifyResultAfterFetchingObjectDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Persistence\ModifyResultAfterFetchingObjectDataEvent

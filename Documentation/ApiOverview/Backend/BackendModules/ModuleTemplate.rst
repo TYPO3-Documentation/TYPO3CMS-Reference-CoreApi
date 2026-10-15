@@ -13,7 +13,7 @@ API functions of the :php:`ModuleTemplate` can be used to add buttons to
 the button bar. It also implements the :php:`\TYPO3\CMS\Core\View\ViewInterface`
 so values can be assigned to it in the actions.
 
-..  include:: _ModuleTemplate.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Template\ModuleTemplate
 
 ..  _ModuleTemplate-examples:
 

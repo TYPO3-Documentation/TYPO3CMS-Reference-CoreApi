@@ -29,4 +29,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterRecordLanguageOverlayEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\AfterRecordLanguageOverlayEvent

@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/FrontendLogin/PasswordChangeEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\FrontendLogin\Event\PasswordChangeEvent

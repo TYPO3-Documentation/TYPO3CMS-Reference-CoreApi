@@ -70,4 +70,4 @@ And Klingon:
 API of event BeforeCountriesEvaluatedEvent
 ==========================================
 
-..  include:: /CodeSnippets/Events/Core/Country/BeforeCountriesEvaluatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Country\Event\BeforeCountriesEvaluatedEvent

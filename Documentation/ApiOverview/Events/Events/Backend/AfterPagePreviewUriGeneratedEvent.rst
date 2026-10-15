@@ -36,4 +36,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Routing\Event\AfterPagePreviewUriGeneratedEvent

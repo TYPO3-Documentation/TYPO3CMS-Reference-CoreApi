@@ -75,7 +75,7 @@ Middlewares
 Each middleware has to implement the PSR-15
 :php:`\Psr\Http\Server\MiddlewareInterface`:
 
-..  include:: /CodeSnippets/Middleware/MiddlewareInterface.rst.txt
+..  include:: _MiddlewareInterface.rst.txt
 
 By doing so, the middleware can do one or multiple of the following:
 

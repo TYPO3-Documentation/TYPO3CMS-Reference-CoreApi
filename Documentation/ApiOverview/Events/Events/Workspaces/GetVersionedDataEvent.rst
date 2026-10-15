@@ -25,4 +25,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/GetVersionedDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\GetVersionedDataEvent

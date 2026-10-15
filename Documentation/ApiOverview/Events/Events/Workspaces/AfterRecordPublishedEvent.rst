@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/AfterRecordPublishedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent

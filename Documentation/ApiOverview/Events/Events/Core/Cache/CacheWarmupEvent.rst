@@ -21,4 +21,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Cache/CacheWarmupEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent

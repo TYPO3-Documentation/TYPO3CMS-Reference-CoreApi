@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterMailerSentMessageEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent

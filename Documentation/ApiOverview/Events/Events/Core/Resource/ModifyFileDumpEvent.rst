@@ -34,4 +34,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/ModifyFileDumpEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\ModifyFileDumpEvent

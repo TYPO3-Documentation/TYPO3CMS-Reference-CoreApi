@@ -92,4 +92,4 @@ Example in Fluid ViewHelper
 API
 ===
 
-..  include:: /CodeSnippets/Extbase/UriBuilder.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder

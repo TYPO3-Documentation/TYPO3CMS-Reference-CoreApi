@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterBackendPageRenderEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent

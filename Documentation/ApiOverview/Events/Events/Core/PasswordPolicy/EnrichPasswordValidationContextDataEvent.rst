@@ -45,4 +45,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/PasswordPolicy/EnrichPasswordValidationContextDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\PasswordPolicy\Event\EnrichPasswordValidationContextDataEvent

@@ -21,4 +21,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Cache/CacheFlushEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Cache\Event\CacheFlushEvent

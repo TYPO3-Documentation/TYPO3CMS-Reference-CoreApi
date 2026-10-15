@@ -33,4 +33,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/PageContentPreviewRenderingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent

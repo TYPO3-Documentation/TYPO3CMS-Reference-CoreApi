@@ -59,7 +59,7 @@ methods for ease of use:
 API
 ===
 
-..  include:: /CodeSnippets/Resource/FileSearchDemand.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Search\FileSearchDemand
 
 
 ..  _fal-using-fal-examples-file-search-performance-optimization-custom:

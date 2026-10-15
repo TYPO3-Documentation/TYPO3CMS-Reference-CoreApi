@@ -35,4 +35,4 @@ See :ref:`combined usage example <ModifyRecordListTableActionsEvent-usage>`.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyRecordListHeaderColumnsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListHeaderColumnsEvent

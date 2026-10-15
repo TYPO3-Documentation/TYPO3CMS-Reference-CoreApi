@@ -38,4 +38,4 @@ type that has languages connected.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeRecordLanguageOverlayEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\BeforeRecordLanguageOverlayEvent

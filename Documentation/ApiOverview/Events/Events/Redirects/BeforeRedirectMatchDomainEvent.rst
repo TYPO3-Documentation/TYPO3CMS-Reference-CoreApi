@@ -45,4 +45,4 @@ Example
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/BeforeRedirectMatchDomainEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent

@@ -43,4 +43,4 @@ For more sophisticated examples, see also
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/SiteConfigurationLoadedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\SiteConfigurationLoadedEvent

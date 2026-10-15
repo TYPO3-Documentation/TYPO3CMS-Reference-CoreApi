@@ -37,7 +37,7 @@ Example: Redact columns with private content in exports
 API of BeforeRecordDownloadIsExecutedEvent
 ==========================================
 
-..  include:: /CodeSnippets/Events/Backend/BeforeRecordDownloadIsExecutedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadIsExecutedEvent
 
 ..  _BeforeRecordDownloadIsExecutedEvent-migration:
 

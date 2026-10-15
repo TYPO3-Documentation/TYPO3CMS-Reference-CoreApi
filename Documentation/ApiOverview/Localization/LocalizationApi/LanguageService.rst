@@ -23,4 +23,4 @@ be accessed via the contentObject:
 In CLI context `$GLOBALS['LANG']` is also not available and has to be
 instantiated manually.
 
-..  include:: _LanguageService.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\LanguageService

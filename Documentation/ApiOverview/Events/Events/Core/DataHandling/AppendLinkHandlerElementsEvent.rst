@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AppendLinkHandlerElementsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\DataHandling\Event\AppendLinkHandlerElementsEvent

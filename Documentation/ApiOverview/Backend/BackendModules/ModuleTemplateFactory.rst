@@ -16,7 +16,7 @@ The template module factory should be used by backend controllers to create a
 ModuleTemplateFactory API
 =========================
 
-..  include:: _ModuleTemplateFactory.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Template\ModuleTemplateFactory
 
 ..  _ModuleTemplateFactory-examples:
 

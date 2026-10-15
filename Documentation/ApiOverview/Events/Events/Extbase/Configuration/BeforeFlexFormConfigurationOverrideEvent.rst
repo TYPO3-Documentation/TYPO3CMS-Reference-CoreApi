@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/BeforeFlexFormConfigurationOverrideEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Configuration\BeforeFlexFormConfigurationOverrideEvent
