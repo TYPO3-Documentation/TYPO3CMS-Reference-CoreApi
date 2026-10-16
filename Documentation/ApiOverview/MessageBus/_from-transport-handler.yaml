@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Queue\Handler\AsyncDemoHandler:
+  tags:
+    - name: 'messenger.message_handler'
+      fromTransport: ['doctrine', 'priority']
