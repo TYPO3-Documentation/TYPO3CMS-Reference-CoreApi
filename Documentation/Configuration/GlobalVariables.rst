@@ -61,22 +61,6 @@ T3_SERVICES
     Global registration of :ref:`services <services-introduction>`.
 
 
-..  _globals-typo3-user-settings:
-
-TYPO3_USER_SETTINGS
--------------------
-
-..  confval:: TYPO3_USER_SETTINGS
-    :name: globals-typo3-user-settings
-    :Path: $GLOBALS
-    :type: array
-    :Defined: :file:`typo3/sysext/setup/ext_tables.php`
-
-    ..  deprecated:: 14.2
-
-        See: `Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_
-
-
 ..  _globals-be-users:
 
 BE_USER
