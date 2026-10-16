@@ -192,11 +192,14 @@ where partial state is forwarded between actions:
 ..  literalinclude:: _snippets/_ConferenceControllerIgnoreValidation.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-Place :php:`#[IgnoreValidation]` directly on the parameter — method-level
-placement with :php:`argumentName` is deprecated in TYPO3 v14 and removed in
-v15. See
-:ref:`moving #[Validate] and #[IgnoreValidation] to parameter level
-<extbase-upgrading-ignorevalidation-parameter>`.
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    Extbase ignores :php:`#[IgnoreValidation]` on the action method. See
+    :ref:`moving #[Validate] and #[IgnoreValidation] to parameter level
+    <extbase-upgrading-ignorevalidation-parameter>`.
+
+Place :php:`#[IgnoreValidation]` directly on the parameter.
 
 
 ..  _extbase-appendix-attributes-controller:
