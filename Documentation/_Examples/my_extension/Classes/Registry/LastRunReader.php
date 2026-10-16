@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension;
+namespace MyVendor\MyExtension\Registry;
 
 use TYPO3\CMS\Core\Registry;
 
-final class MyClass
+final class LastRunReader
 {
   public function __construct(
     private readonly Registry $registry,
   ) {}
 
-  // ... some method which calls retrieveFromRegistry()
-
-  private function retrieveFromRegistry(): ?array
+  /**
+   * @return array{startTime: int, endTime: int}|null
+   */
+  public function getLastRun(): ?array
   {
     return $this->registry->get(
       'tx_myextension',
