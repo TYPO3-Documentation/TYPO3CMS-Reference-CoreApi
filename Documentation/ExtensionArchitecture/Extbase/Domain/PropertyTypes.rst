@@ -417,16 +417,9 @@ and `Radio buttons <https://docs.typo3.org/permalink/t3tca:columns-radio>`_.
 Union types of Extbase model properties
 =======================================
 
-Union types can be used in properties of an entity, for example:
-
-..  literalinclude:: _snippets/_UnionType1.php
-    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
-
-This is especially useful for lazy-loaded relations where the property type is
-:php:`ChildEntity|\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`.
-
-There is something important to understand about how Extbase detects union
-types when it comes to property mapping, that is when a database row is
+Union types can be used in properties of an entity. There is something
+important to understand about how Extbase detects union types when it comes to
+property mapping, that is when a database row is
 :ref:`mapped onto an object <extbase-domain-model-hydration>`. In this situation Extbase
 needs to know the specific target type - no union, no intersection, just one
 type. In order to do the mapping, Extbase uses the first declared type as a
@@ -438,27 +431,26 @@ primary type.
 In the example above, :php:`string` is the primary type. :php:`int|string` would result
 in :php:`int` as the primary type.
 
-There is one important thing to note and one exception to this rule. First of
-all, :php:`null` is not considered a type. :php:`null|string` results in the
+Note that :php:`null` is not considered a type. :php:`null|string` results in the
 primary type :php:`string` which is :ref:`nullable <extbase-persistence-relations-to-one>`.
 :php:`null|string|int` also results in the primary type :php:`string`. In fact,
 :php:`null` means that all other types are nullable. :php:`null|string|int`
 boils down to :php:`?string` or :php:`?int`.
 
-Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
-is just a proxy and, once loaded, not the actual target type.
-
-..  literalinclude:: _snippets/_UnionType3.php
-    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
-
-Extbase supports this and detects :php:`ChildEntity` as the primary type,
-although :php:`LazyLoadingProxy` is the first item in the list. However, it is
-recommended to place the actual type first for consistency reasons:
-:php:`ChildEntity|LazyLoadingProxy`.
-
-A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
-it is a subclass of :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
-therefore the following code works and has always worked:
+A lazy-loaded relation does not need a union type. Its value is a lazy
+instance of the target class, for a relation to many objects a lazy
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`:
 
 ..  literalinclude:: _snippets/_ObjectStorage.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+See `Lazy loading <https://docs.typo3.org/permalink/t3coreapi:extbase-model-lazy-loading>`_.
+
+..  deprecated:: 15.0
+    :changelog: deprecation-110347-1785518009
+
+    Before, a lazy relation to a single object needed the union type
+    :php:`ChildEntity|LazyLoadingProxy`. Extbase still skips
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`
+    when it detects the primary type, so such declarations keep working until
+    the class is removed.

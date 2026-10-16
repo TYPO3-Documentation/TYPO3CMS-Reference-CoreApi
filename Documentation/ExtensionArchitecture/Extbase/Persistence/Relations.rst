@@ -237,13 +237,33 @@ with an eagerly loaded :php:`ObjectStorage` of comments, means Extbase loads
 every comment of every conference up front — even if the list view never displays
 them.
 
-Marking the relation :php:`#[Lazy]` defers loading: Extbase installs a
-lightweight placeholder and loads the related objects only on first access. A
-single relation receives a
-:php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`; an
-:php:`ObjectStorage` becomes a
-:php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`. Both resolve on
-first access.
+Marking the relation :php:`#[Lazy]` defers loading: Extbase creates a
+`native PHP lazy object <https://www.php.net/manual/en/language.oop5.lazy-objects.php>`__
+and loads the related objects only on first access. A lazy object is a real
+instance of its class:
+
+*   A relation to a single object receives a lazy proxy of the target class,
+    for example a :php:`Location`. Its uid is available without a database
+    query.
+*   A relation to many objects receives a lazy
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`.
+
+The property therefore keeps its plain type, for example :php:`?Location`, and
+the getter returns the property as it is.
+
+..  deprecated:: 15.0
+    :changelog: deprecation-110347-1785518009
+
+    Before, a relation to a single object received a
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`
+    and needed the union type :php:`Location|LazyLoadingProxy|null` and a call
+    to :php:`_loadRealInstance()` in the getter. A relation to many objects
+    received a
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`.
+    These classes and
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LoadingStrategyInterface`
+    are deprecated and are not used anymore. Reduce the union type to the
+    target type and remove the unwrapping from the getter.
 
 Lazy loading solves the *load-everything-up-front* problem but introduces its
 opposite — the **N+1 query problem**. Consider a template that *does* need the

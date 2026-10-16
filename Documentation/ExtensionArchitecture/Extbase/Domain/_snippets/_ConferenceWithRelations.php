@@ -7,7 +7,6 @@ namespace MyVendor\MyExtension\Domain\Model;
 use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
 use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Conference extends AbstractEntity
@@ -15,7 +14,8 @@ class Conference extends AbstractEntity
   protected string $title = '';
 
   // a relation to one other object — a nullable typed property
-  protected Location|LazyLoadingProxy|null $location = null;
+  #[Lazy]
+  protected ?Location $location = null;
 
   /**
    * @var ObjectStorage<Comment>
@@ -46,10 +46,6 @@ class Conference extends AbstractEntity
 
   public function getLocation(): ?Location
   {
-    // type check only for phpstan
-    if ($this->location instanceof LazyLoadingProxy) {
-      $this->location = $this->location->_loadRealInstance();
-    }
     return $this->location;
   }
 

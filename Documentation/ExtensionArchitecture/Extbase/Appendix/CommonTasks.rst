@@ -128,13 +128,12 @@ and not always needed — for example, the comments on an event in a list view.
 You want to avoid loading them unless the template actually uses them.
 
 **Short answer:** Add :php:`#[Lazy]` to the relation property. Extbase defers
-the database query until the property is first accessed. For a relation to a
-single object, the getter must also handle the :php:`LazyLoadingProxy` intermediate.
+the database query until the property is first accessed. The property type and
+the getter stay the same as for an eager relation.
 
 ..  seealso::
 
-    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_ for the full pattern
-      including the proxy-aware getter.
+    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-relations>`_ for the full pattern.
     * `#[Lazy] <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes-lazy>`_ for the attribute
       reference.
     * `Persistence relations <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_ for the N+1 query trap
