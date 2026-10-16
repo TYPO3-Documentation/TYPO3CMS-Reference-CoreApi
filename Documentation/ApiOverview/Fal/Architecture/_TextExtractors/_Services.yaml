@@ -1,0 +1,7 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Resource\TextExtraction\MarkdownTextExtractor:
+    tags:
+      - name: fal.text_extractor
+        priority: 10
