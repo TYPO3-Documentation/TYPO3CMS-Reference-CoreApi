@@ -46,6 +46,102 @@ example by using :file:`.htaccess` or Nginx configurations. :file:`.htaccess` ca
 be automatically tested and adjusted:
 `Verify webserver configuration (.htaccess) <https://docs.typo3.org/permalink/t3coreapi:maintain-htaccess>`_.
 
+..  _resources-definitions:
+
+Configuring the resource folders of a package with resource definitions
+=======================================================================
+
+..  versionadded:: 14.2
+    :changelog: feature-109409-1774770383
+
+Resource definitions state which folders and files of a package
+:ref:`resource identifiers <resources-identifiers>` can reference, and which
+of them TYPO3 publishes to the :folder:`public/_assets` folder.
+
+By default, an extension has two resource definitions: the private folder
+:folder:`Resources/Private`, and the public folder :folder:`Resources/Public`
+if it exists. TYPO3 publishes :folder:`Resources/Public` the same way as
+before resource definitions existed.
+
+..  deprecated:: 14.2
+    :changelog: deprecation-109409-1774787352
+
+    A resource identifier that references a path of an extension outside its
+    resource definitions triggers a deprecation message. Add a resource
+    definition for the path, or move the file into a folder that is
+    already defined. Configuration files that TYPO3 loads itself, such as
+    YAML files or TypoScript and TSconfig includes, are not affected.
+
+..  _resources-definitions-extension:
+
+Resource definitions of an extension in `Configuration/Resources.php`
+---------------------------------------------------------------------
+
+To add resource definitions to an extension, create the file
+:file:`Configuration/Resources.php`. It returns a closure that receives the
+:php-short:`\TYPO3\CMS\Core\Package\Package` and returns a list of resource
+definitions. TYPO3 adds them to the default definitions:
+
+..  literalinclude:: _CodeSnippets/_ExtensionResources.php
+    :caption: EXT:my_extension/Configuration/Resources.php
+
+:php-short:`\TYPO3\CMS\Core\Package\Resource\Definition\PublicResourceDefinition`
+    A public folder. TYPO3 publishes it below :folder:`public/_assets`, in
+    a folder with a hash as its name, unless `publicPrefix` names the
+    folder.
+
+:php-short:`\TYPO3\CMS\Core\Package\Resource\Definition\PublicFileDefinition`
+    A single public file. TYPO3 publishes it in a folder with a hash as
+    its name, unless `publicPrefix` names the folder.
+
+:php-short:`\TYPO3\CMS\Core\Package\Resource\Definition\ResourceDefinition`
+    A private folder. Resource identifiers can reference its files on the
+    server side, but TYPO3 does not publish it.
+
+The argument `publicPrefix` of
+:php-short:`\TYPO3\CMS\Core\Package\Resource\Definition\PublicResourceDefinition::__construct()`
+replaces the hash with a fixed path below
+:folder:`public/_assets`. A fixed public prefix must be unique across all
+packages. TYPO3 throws an exception if two packages use the same one.
+
+..  _resources-definitions-project:
+
+Resource definitions of the project in `config/system/resources.php`
+--------------------------------------------------------------------
+
+The project itself is the virtual package `typo3/app`. By default, its
+resource definitions are these public folders:
+
+*   :folder:`public/_assets`
+*   :folder:`public/uploads`
+*   :folder:`public/typo3temp/assets`
+
+To add resource definitions to the project, create the file
+:file:`config/system/resources.php`. The closure receives the virtual
+package and the path of the public folder relative to the project root.
+The paths of the definitions are relative to the project root as well:
+
+..  literalinclude:: _CodeSnippets/_ProjectResources.php
+    :caption: config/system/resources.php
+
+Do not put files into :folder:`public/_assets` yourself. Keep them in a folder
+outside the public folder and add a resource definition, so that TYPO3
+publishes them. A publisher of a third-party extension can then publish
+them to another location, for example a CDN. TYPO3 does not publish a folder
+that is already inside the public folder.
+
+..  _resources-definitions-rules:
+
+Rules for both files
+--------------------
+
+*   In Composer mode, TYPO3 is not bootstrapped when it reads these files.
+    Only autoloading works, there is no global state. Use plain PHP, and
+    files inside the package folder.
+*   A path must not start or end with a slash, and must not contain `../`.
+*   After you change a resource definition, run :bash:`composer dumpautoload`
+    in Composer mode, or flush the caches in classic mode.
+
 ..  _resources-server-side:
 
 Referencing private resources on the server side
