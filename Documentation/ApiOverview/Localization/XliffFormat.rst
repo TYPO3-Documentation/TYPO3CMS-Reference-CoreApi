@@ -265,7 +265,7 @@ and the XLIFF key then might be something like `fe_users.first_name`.
 Migrate XLIFF 1.2 files to version 2.x
 ======================================
 
-XLIFF 2.0 is recommended for extensions or environments that
+XLIFF 2.x is recommended for extensions or environments that
 support **TYPO3 v14 and above**.
 
 To automate the migration of your XLIFF 1.2 files to XLIFF 2.0, use
