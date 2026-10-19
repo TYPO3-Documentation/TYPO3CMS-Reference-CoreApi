@@ -262,7 +262,7 @@ and the XLIFF key then might be something like `fe_users.first_name`.
 ..  index:: XLIFF; Migration
 ..  _xliff-migration:
 
-Migrate XLIFF 1.2 files to version 2.0
+Migrate XLIFF 1.2 files to version 2.x
 ======================================
 
 XLIFF 2.0 is recommended for extensions or environments that
