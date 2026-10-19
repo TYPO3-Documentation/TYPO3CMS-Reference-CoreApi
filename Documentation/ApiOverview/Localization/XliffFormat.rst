@@ -274,32 +274,9 @@ To automate the migration of your XLIFF 1.2 files to XLIFF 2.x, use
 The minimum configuration required to achieve this on a Composer-based
 installation is as follows:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_fractor.php
+    :language: php
     :caption: fractor.php
-
-    <?php
-
-    declare(strict_types=1);
-
-    use a9f\Fractor\Configuration\FractorConfiguration;
-    use a9f\FractorXliff\CodeQuality\EnsureXliffHasSourceLanguageFractor;
-    use a9f\FractorXliff\CodeQuality\EnsureXliffHasTargetLanguageFractor;
-    use a9f\FractorXliff\Configuration\XliffProcessorOption;
-    use a9f\FractorXliff\Transform\ConvertXliff1To2Fractor;
-
-    return FractorConfiguration::configure()
-        ->withPaths([
-            __DIR__ . '/packages/',
-        ])
-        ->withRules([
-            ConvertXliff1To2Fractor::class,
-            EnsureXliffHasSourceLanguageFractor::class,
-            EnsureXliffHasTargetLanguageFractor::class,
-        ])
-        ->withOptions([
-            XliffProcessorOption::INDENT_SIZE => 2,
-        ])
-    ;
 
 For installation and execution see the
 `documentation of TYPO3 Fractor <https://github.com/FriendsOfTYPO3/fractor/blob/main/packages/typo3-fractor/README.md>`__.
