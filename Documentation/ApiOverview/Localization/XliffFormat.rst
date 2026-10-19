@@ -65,7 +65,7 @@ XLIFF file examples
         XLIFF 2.x is the preferred format. Each :xml:`<unit>` contains a
         :xml:`<segment>` with :xml:`<source>` and optionally :xml:`<target>`.
 
-        :ref:`See below how your XLIFF 1.2 files can be migrated to XLIFF 2.0 <xliff-migration>`.
+        :ref:`See below how your XLIFF 1.2 files can be migrated to XLIFF 2.x <xliff-migration>`.
 
     ..  group-tab:: XLIFF 1.2 (legacy)
 
@@ -308,5 +308,5 @@ For installation and execution see the
     You can customize the paths in the configuration as suits you.
 
 ..  warning::
-    Defined `resname`-Attributes are not transferred to the XLIFF 2.0 file.
+    Defined `resname`-Attributes are not transferred to the XLIFF 2.x file.
 
