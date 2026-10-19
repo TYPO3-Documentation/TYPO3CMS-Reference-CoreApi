@@ -269,7 +269,7 @@ XLIFF 2.0 is recommended for extensions or environments that
 support **TYPO3 v14 and above**.
 
 To automate the migration of your XLIFF 1.2 files to XLIFF 2.0, use
-`TYPO3 Fractor <https://github.com/andreaswolf/fractor-typo3-fractor>`__.
+`TYPO3 Fractor <https://github.com/FriendsOfTYPO3/fractor>`__.
 
 The minimum configuration required to achieve this on a Composer-based
 installation is as follows:
@@ -302,7 +302,7 @@ installation is as follows:
     ;
 
 For installation and execution see the
-`documentation of TYPO3 Fractor <https://github.com/andreaswolf/fractor-typo3-fractor/blob/main/README.md>`__.
+`documentation of TYPO3 Fractor <https://github.com/FriendsOfTYPO3/fractor/blob/main/packages/typo3-fractor/README.md>`__.
 
 ..  tip::
     You can customize the paths in the configuration as suits you.
