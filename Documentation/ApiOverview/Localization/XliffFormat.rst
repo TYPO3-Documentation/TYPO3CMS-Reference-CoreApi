@@ -65,6 +65,8 @@ XLIFF file examples
         XLIFF 2.x is the preferred format. Each :xml:`<unit>` contains a
         :xml:`<segment>` with :xml:`<source>` and optionally :xml:`<target>`.
 
+        :ref:`See below how your XLIFF 1.2 files can be migrated to XLIFF 2.0 <xliff-migration>`.
+
     ..  group-tab:: XLIFF 1.2 (legacy)
 
         ..  literalinclude:: _snippets/_example_xliff_1.2.xlf
@@ -256,3 +258,55 @@ other than lowerCamelCase, that format can be used:
 
 For example, database table or column names often are written in snake_case,
 and the XLIFF key then might be something like `fe_users.first_name`.
+
+..  index:: XLIFF; Migration
+..  _xliff-migration:
+
+Migrate XLIFF 1.2 files to version 2.0
+======================================
+
+XLIFF 2.0 is recommended for extensions or environments that
+support **TYPO3 v14 and above**.
+
+To automate the migration of your XLIFF 1.2 files to XLIFF 2.0, use
+`TYPO3 Fractor <https://github.com/andreaswolf/fractor-typo3-fractor>`__.
+
+The minimum configuration required to achieve this on a Composer-based
+installation is as follows:
+
+..  code-block:: php
+    :caption: fractor.php
+
+    <?php
+
+    declare(strict_types=1);
+
+    use a9f\Fractor\Configuration\FractorConfiguration;
+    use a9f\FractorXliff\CodeQuality\EnsureXliffHasSourceLanguageFractor;
+    use a9f\FractorXliff\CodeQuality\EnsureXliffHasTargetLanguageFractor;
+    use a9f\FractorXliff\Configuration\XliffProcessorOption;
+    use a9f\FractorXliff\Transform\ConvertXliff1To2Fractor;
+
+    return FractorConfiguration::configure()
+        ->withPaths([
+            __DIR__ . '/packages/',
+        ])
+        ->withRules([
+            ConvertXliff1To2Fractor::class,
+            EnsureXliffHasSourceLanguageFractor::class,
+            EnsureXliffHasTargetLanguageFractor::class,
+        ])
+        ->withOptions([
+            XliffProcessorOption::INDENT_SIZE => 2,
+        ])
+    ;
+
+For installation and execution see the
+`documentation of TYPO3 Fractor <https://github.com/andreaswolf/fractor-typo3-fractor/blob/main/README.md>`__.
+
+..  tip::
+    You can customize the paths in the configuration as suits you.
+
+..  warning::
+    Defined `resname`-Attributes are not transferred to the XLIFF 2.0 file.
+
