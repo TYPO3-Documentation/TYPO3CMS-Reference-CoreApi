@@ -418,6 +418,8 @@ Fluid throws them anyway.
     **UndeclaredArgumentException class**, use it if a ViewHelper is called with an
     argument that has not been defined.
 
+..  _fluid-custom-viewhelper-exceptions-example:
+
 Example
 -------
 In this example you throw the InvalidArgumentValueException when the argument
