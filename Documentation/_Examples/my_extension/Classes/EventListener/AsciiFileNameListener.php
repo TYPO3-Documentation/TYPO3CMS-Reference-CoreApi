@@ -19,7 +19,9 @@ final readonly class AsciiFileNameListener
 
   public function __invoke(SanitizeFileNameEvent $event): void
   {
-    $fileName = $this->charsetConverter->utf8_char_mapping($event->getFileName());
+    $fileName = $this->charsetConverter->utf8_char_mapping(
+      $event->getFileName(),
+    );
     $event->setFileName((string)preg_replace('/[^.\w-]/', '_', $fileName));
   }
 }
