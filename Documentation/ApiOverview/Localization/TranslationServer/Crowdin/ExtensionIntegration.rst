@@ -242,3 +242,20 @@ Happy translating!
 
 ..  tip::
     Checkout the :ref:`crowdin-faq` for solutions to common pitfalls.
+
+
+..  _crowdin-extension-integration-in-context-localization:
+
+In-context localization
+-----------------------
+
+In the Crowdin dashboard of a TYPO3 extension, you will see a "TYPO3 In-Context
+Localization (In-Context pseudo-language)" language entry:
+
+..  figure:: /Images/ManualScreenshots/Internationalization/InContextLocalization.png
+    :class: with-shadow
+    :alt: The TYPO3 In-Context Localization entry in the Crowdin dashboard
+
+This language is activated by default for each TYPO3 extension available on
+Crowdin, enabling the translation of XLF files in the TYPO3 backend with
+the :ref:`Crowdin extension <crowdin-bestpractice-use-ext-crowdin>`.
