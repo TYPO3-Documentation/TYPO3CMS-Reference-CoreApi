@@ -1,0 +1,7 @@
+parameters:
+  # Level 9 reports every value of type mixed, such as the arguments of a
+  # command, and the examples would need a cast for each of them
+  level: 8
+  paths:
+    - ../../Documentation/_Examples/my_extension/Classes
+    - ../../Tests/Functional
