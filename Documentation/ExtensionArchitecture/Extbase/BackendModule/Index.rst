@@ -38,6 +38,16 @@ these differences is what makes a module behave predictably.
         How a module request reaches the controller, which TypoScript a module
         sees, and how storage pages and language are resolved.
 
+    ..  card:: :ref:`Building an Extbase backend module without a page tree <extbase-backend-module-no-page-tree>`
+
+        A module that stands alone: global configuration, a list with search,
+        filters and pagination, and filters kept in the module data.
+
+    ..  card:: :ref:`Editing records from an Extbase backend module <extbase-backend-module-editing>`
+
+        Creating, editing and deleting records with Fluid links to FormEngine
+        and DataHandler, and when a module should write records itself.
+
 ..  seealso::
 
     *   `Backend modules API <https://docs.typo3.org/permalink/t3coreapi:backend-modules-api>`_
