@@ -402,8 +402,8 @@ to be able to use :ref:`custom mailer implementations <register-custom-mailer>`.
 ..  index:: Mail; Site set
 ..  _mail-site-set:
 
-Per-site email templates with the `typo3/email` site set
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The `typo3/email` site set
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  versionadded:: 14.2
     The new site set `typo3/email` is available in EXT:core.
