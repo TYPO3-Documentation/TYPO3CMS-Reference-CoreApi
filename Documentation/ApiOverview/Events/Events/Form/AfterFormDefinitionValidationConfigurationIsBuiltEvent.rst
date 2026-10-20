@@ -39,4 +39,4 @@ The following listener allows the form editor to save the property
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/AfterFormDefinitionValidationConfigurationIsBuiltEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\AfterFormDefinitionValidationConfigurationIsBuiltEvent
