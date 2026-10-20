@@ -259,11 +259,11 @@ other than lowerCamelCase, that format can be used:
 For example, database table or column names often are written in snake_case,
 and the XLIFF key then might be something like `fe_users.first_name`.
 
-..  index:: XLIFF; Migration
-..  _xliff-migration:
+..  index:: XLIFF; Automatic migration
+..  _xliff-automatic-migration:
 
-Migrate XLIFF 1.2 files to version 2.x
-======================================
+Automatic migration of XLIFF 1.2 files to version 2.x
+=====================================================
 
 XLIFF 2.x is recommended for extensions or environments that
 support **only TYPO3 v14 and above**.
@@ -290,3 +290,17 @@ For installation and execution see the
 ..  warning::
     Defined `resname`-Attributes are not transferred to the XLIFF 2.x file.
 
+..  tip::
+    At the moment Fractor supports automatic migration to XLIFF 2.0.
+    If you want to use the newest XLIFF 2.2 format you can change
+    the version in the file. There are no changes to the overall structure.
+
+    ..  code-block:: xliff
+        :caption: before
+
+        <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+
+    ..  code-block:: xliff
+        :caption: after
+
+        <xliff version="2.2" xmlns="urn:oasis:names:tc:xliff:document:2.2" srcLang="en">
