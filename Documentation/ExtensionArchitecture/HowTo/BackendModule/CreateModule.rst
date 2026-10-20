@@ -32,6 +32,12 @@ is required to return the rendered template:
     A backend controller should be tagged with the
     :php:`\TYPO3\CMS\Backend\Attribute\AsController` (:php:`#[AsController]`) attribute.
 
+..  versionchanged:: 14.0
+    :changelog: breaking-105377-1729513863
+
+    The class alias for :php:`\TYPO3\CMS\Backend\Attribute\Controller` has been
+    removed. :php:`\TYPO3\CMS\Backend\Attribute\AsController` is still in place.
+
 ..  _backend-modules-template-without-extbase-manual-tagging:
 
 If the controller is not tagged with the :php:`\TYPO3\CMS\Backend\Attribute\AsController`

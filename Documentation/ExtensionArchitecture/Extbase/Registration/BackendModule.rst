@@ -56,6 +56,14 @@ The remaining keys — `parent`, `position`, `access`, `path`, `iconIdentifier`,
 regardless of whether they use Extbase or not. See
 :ref:`Backend modules API <backend-modules-api>` for the full reference.
 
+The `parent` decides whether the module shows the navigation component. A module below
+`content`, as in the example, inherits the page tree, and with it a page context that
+Extbase uses for its configuration, storage pages and language. See
+:ref:`Building an Extbase backend module without a page tree
+<extbase-backend-module-no-page-tree>` and :ref:`with a page tree
+<extbase-backend-module-page-tree>`.
+Modules placed into the :guilabel:`Media` module would show a file tree.
+
 
 ..  _extbase-registration-backend-module-access:
 
@@ -127,7 +135,9 @@ backend page frame, toolbar buttons, flash message area, and navigation
 components — but only when the Fluid template uses the backend Module Layout.
 Without it, :php:`renderResponse()` returns plain rendered HTML with no backend
 chrome. Using the Module Layout is strongly recommended for any module that
-should look like a native TYPO3 backend page. See
+should look like a native TYPO3 backend page. Where the layout comes from is
+described in :ref:`Fluid templates of an Extbase backend module
+<backend-modules-extbase-template>`. See
 :ref:`ModuleTemplateFactory <moduletemplatefactory>` for the full
 :abbr:`API (Application Programming Interface)`.
 
