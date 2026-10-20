@@ -296,12 +296,12 @@ For installation and execution see the
     If you want to use the newest XLIFF 2.2 format you can change
     the version in the file. There are no changes to the overall structure.
 
-    ..  code-block:: xliff
+    ..  code-block:: xml
         :caption: before
 
         <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
 
-    ..  code-block:: xliff
+    ..  code-block:: xml
         :caption: after
 
         <xliff version="2.2" xmlns="urn:oasis:names:tc:xliff:document:2.2" srcLang="en">
