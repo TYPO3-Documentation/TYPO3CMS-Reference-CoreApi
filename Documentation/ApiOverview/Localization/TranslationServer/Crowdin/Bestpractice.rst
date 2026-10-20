@@ -191,8 +191,8 @@ To wrap it up:
 *   If you are translating TYPO3 CMS, start with the Glossary if it's not already translated, and continue in the main branch to reach the most users.
 *   Work in a structured way and preferably set sub-goals to maintain motivation in larger projects.
 
-..  _crowdin-bestpractice-use-ext-crowdin:
 
+..  _crowdin-bestpractice-use-ext-crowdin:
 
 Use EXT:Crowdin
 ---------------
@@ -210,6 +210,10 @@ it is used in TYPO3.
 You find the Extension here: `Extension Crowdin | TER`_.
 
 ..  _Extension Crowdin | TER: https://extensions.typo3.org/extension/crowdin
+
+..  seealso::
+    :ref:`In-context localization <crowdin-extension-integration-in-context-localization>`
+
 
 ..  _crowdin-bestpractice-setup-translating:
 
