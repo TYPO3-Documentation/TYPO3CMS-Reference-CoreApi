@@ -10,7 +10,7 @@ use a9f\FractorXliff\Transform\ConvertXliff1To2Fractor;
 
 return FractorConfiguration::configure()
   ->withPaths([
-    __DIR__ . '/packages/',
+    __DIR__ . '/packages/', // for projects
     __DIR__ . '/Resources/Private/Language/', // for extension authors
   ])
   ->withRules([
