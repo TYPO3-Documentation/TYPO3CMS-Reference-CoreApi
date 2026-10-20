@@ -34,4 +34,4 @@ following listener sets the `processedValue` of every element of type
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeFormValueIsRenderedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeFormValueIsRenderedEvent
