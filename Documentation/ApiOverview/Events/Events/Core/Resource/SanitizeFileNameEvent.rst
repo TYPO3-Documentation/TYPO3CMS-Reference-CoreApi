@@ -40,7 +40,7 @@ characters with their ASCII equivalent, so the file is stored as
 or a hyphen becomes an underscore. A character without an ASCII equivalent,
 such as a Japanese one, therefore turns into several underscores.
 
-..  literalinclude:: _SanitizeFileNameEvent/_AsciiFileNameListener.php
+..  literalinclude:: /_Examples/my_extension/Classes/EventListener/AsciiFileNameListener.php
     :caption: EXT:my_extension/Classes/EventListener/AsciiFileNameListener.php
 
 ..  _SanitizeFileNameEvent-api:
