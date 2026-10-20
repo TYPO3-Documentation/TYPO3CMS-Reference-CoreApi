@@ -512,7 +512,7 @@ In order to use ViewHelpers that need a valid current request, such as
 :ref:`f:uri.page ViewHelper <t3viewhelper:typo3-fluid-uri-page>`,
 the FluidEmail instance needs the current request.
 :php:`createFromRequest()` of the
-:ref:`TemplatedEmailFactory <mail-templated-email-factory>` sets it:
+:ref:`TemplatedEmailFactory <mail-fluid-email>` sets it:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
