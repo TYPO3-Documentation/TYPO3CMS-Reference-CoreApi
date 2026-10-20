@@ -373,15 +373,6 @@ Report an error from a ViewHelper
     TYPO3 v14.3 ships Fluid 5, which simplifies debugging when using the
     base ViewHelper exception class or one of its child classes.
 
-Previously, it was hard to find the error in Fluid templates. The error message
-did not give enough information about
-
--   the actual reason for the error
--   the actual location in the template file where the error occurred
-    (actual template name and line)
-
-It was more about guessing and one had to have experience where to look at.
-
 With TYPO3 v14 using Fluid 5 the general debugging procedure within Fluid
 templates was simplified:
 
