@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeMessengerDoctrinePingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Messenger\Event\BeforeMessengerDoctrinePingEvent

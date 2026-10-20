@@ -31,4 +31,4 @@ The listener keeps the database connection `Reporting` open across messages:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeMessengerDoctrineCloseEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Messenger\Event\BeforeMessengerDoctrineCloseEvent
