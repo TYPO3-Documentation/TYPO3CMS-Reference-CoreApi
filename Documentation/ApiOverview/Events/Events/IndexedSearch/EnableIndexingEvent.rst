@@ -43,4 +43,4 @@ up in the index:
 API
 ===
 
-..  include:: /CodeSnippets/Events/IndexedSearch/EnableIndexingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\IndexedSearch\Event\EnableIndexingEvent
