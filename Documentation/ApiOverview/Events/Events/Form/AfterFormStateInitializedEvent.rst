@@ -38,4 +38,4 @@ the campaign that the visitor came from along with the other values:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/AfterFormStateInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\AfterFormStateInitializedEvent
