@@ -44,4 +44,4 @@ gap in a layout visible during development:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Fluid/ModifyRenderedContentAreaEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Fluid\Event\ModifyRenderedContentAreaEvent

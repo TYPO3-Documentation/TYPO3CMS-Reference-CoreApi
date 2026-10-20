@@ -42,4 +42,4 @@ and uid:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Fluid/ModifyRenderedRecordEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Fluid\Event\ModifyRenderedRecordEvent
