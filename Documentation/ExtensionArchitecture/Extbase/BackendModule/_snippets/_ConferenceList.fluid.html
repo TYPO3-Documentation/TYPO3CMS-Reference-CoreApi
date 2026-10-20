@@ -24,7 +24,10 @@
     </f:link.action>
   </f:form>
 
-  <be:link.newRecord table="tx_myextension_domain_model_conference" pid="{newRecordPid}">
+  <be:link.newRecord
+    table="tx_myextension_domain_model_conference"
+    pid="{newRecordPid}"
+  >
     New conference
   </be:link.newRecord>
 
@@ -51,7 +54,11 @@
               Edit
             </be:link.editRecord>
             <a
-              href="{be:moduleLink(route: 'tce_db', query: 'cmd[tx_myextension_domain_model_conference][{conference.uid}][delete]=1', currentUrlParameterName: 'redirect')}"
+              href="{be:moduleLink(
+                route: 'tce_db',
+                query: 'cmd[tx_myextension_domain_model_conference][{conference.uid}][delete]=1',
+                currentUrlParameterName: 'redirect'
+              )}"
               class="btn btn-default t3js-modal-trigger"
               data-severity="warning"
               data-title="Delete conference"

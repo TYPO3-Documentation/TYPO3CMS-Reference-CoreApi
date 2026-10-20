@@ -38,7 +38,7 @@ ViewHelper links to the edit form of one record:
 
 ..  literalinclude:: _snippets/_ConferenceList.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
-    :visible-lines: 45-52
+    :visible-lines: 48-55
 
 When the editor saves and closes the form, the backend returns to the page
 the link was clicked on. The ViewHelper takes that address from the current
@@ -75,10 +75,9 @@ Editing a record without leaving the list
 =========================================
 
 ..  versionadded:: 14.3
+    :changelog: important-110307-1753690555
 
-    The `contextual` argument of `be:link.editRecord` was added. See
-    `Important: #110307 - New editRecord ViewHelper argument for contextual
-    editing <https://docs.typo3.org/permalink/changelog:important-110307-1753690555>`_.
+    The `contextual` argument of `be:link.editRecord` was added.
 
 With `contextual="true"` the form opens in a panel next to the list instead
 of replacing it. Together with `fields` this makes a quick edit of a single
@@ -86,7 +85,7 @@ value:
 
 ..  literalinclude:: _snippets/_ConferenceList.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
-    :visible-lines: 35-42
+    :visible-lines: 38-45
 
 The ViewHelper loads the JavaScript the panel needs. The module adds nothing.
 
@@ -102,7 +101,7 @@ record is created on:
 
 ..  literalinclude:: _snippets/_ConferenceList.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
-    :visible-lines: 27-29
+    :visible-lines: 27-32
 
 In a module with a page tree the selected page is the natural choice. A module
 without one has no such page, and a link without `pid` creates the record on
@@ -112,7 +111,7 @@ configuration:
 
 ..  literalinclude:: _snippets/_ConferenceListModuleController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceModuleController.php
-    :visible-lines: 63-68,72-76
+    :visible-lines: 65-70,74-78
 
 The option is declared in the extension's :ref:`ext_conf_template.txt
 <extension-options>`, and administrators set it in :guilabel:`System >
@@ -147,8 +146,8 @@ record:
 
 ..  literalinclude:: _snippets/_ConferenceList.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
-    :visible-lines: 9,45-64
-    :emphasize-lines: 53-63
+    :visible-lines: 9,48-71
+    :emphasize-lines: 56-70
 
 The parts of the button:
 

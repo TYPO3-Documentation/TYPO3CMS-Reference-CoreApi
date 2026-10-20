@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Controller;
 
 use MyVendor\MyExtension\Domain\Model\ConferenceDemand;

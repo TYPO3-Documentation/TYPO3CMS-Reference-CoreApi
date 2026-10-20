@@ -47,7 +47,7 @@ module registered below it inherits the page tree unless it opts out with
 
 ..  literalinclude:: _snippets/_ModulesWithoutPageTree.php
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
-    :emphasize-lines: 13-14
+    :emphasize-lines: 15-16
 
 Core's form module is registered the same way: it sits in
 :guilabel:`Content`, where editors look for it, but shows no tree. The other
@@ -124,7 +124,7 @@ editor left empty adds no constraint:
 
 ..  literalinclude:: _snippets/_ConferenceModuleRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-    :visible-lines: 13-39
+    :visible-lines: 15-41
 
 How to build constraints and combine them is described in :ref:`Building
 Extbase queries <extbase-persistence-queries-constraints>`.
@@ -145,7 +145,7 @@ brings none, and stores it there when it does:
 
 ..  literalinclude:: _snippets/_ConferenceListModuleController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceModuleController.php
-    :visible-lines: 37-58
+    :visible-lines: 39-60
 
 ..  warning::
 
@@ -153,9 +153,9 @@ brings none, and stores it there when it does:
     only. Without the call to :php:`pushModuleData()` the
     filters are gone with the next request.
 
-The module data is saved serialized in the backend user's settings. The
-demand therefore goes in as a plain array, which restores safely. An object
-would have to be unserialized with an explicit list of allowed classes.
+The module data is saved serialized in the backend user's settings, and the
+Core restores it with :php:`['allowed_classes' => false]`. An object would not
+come back as an object, so the demand goes in as a plain array.
 
 
 ..  _extbase-backend-module-no-page-tree-reset:
@@ -180,19 +180,19 @@ pagination and the demand, which prefills the filter form:
 
 ..  literalinclude:: _snippets/_ConferenceListModuleController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceModuleController.php
-    :visible-lines: 60-69
+    :visible-lines: 62-71
 
 Paginators and pagination strategies are described in :ref:`Paginating a
 query result <extbase-persistence-queries-pagination>`. The same classes work
 in a module as in a frontend plugin.
 
-The template uses the backend :html:`Module` layout, which
+The template uses the backend `Module` layout, which
 :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` wraps in the backend
 page frame. The filter form is an ordinary Extbase form bound to the demand:
 
 ..  literalinclude:: _snippets/_ConferenceList.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
-    :visible-lines: 1-25,70-79
+    :visible-lines: 1-25,77-86
 
 The page links pass only `currentPage`. The demand comes from the module data,
 so the filters stay applied while the editor browses through the list.
@@ -208,7 +208,7 @@ The controller reads the module data and creates the module template in
 
 ..  literalinclude:: _snippets/_ConferenceListModuleController.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceModuleController.php
-    :visible-lines: 18-35
+    :visible-lines: 20-37
 
 The constructor runs when the controller is created, before Extbase hands it
 the request. Anything that depends on the request, and in a module that is

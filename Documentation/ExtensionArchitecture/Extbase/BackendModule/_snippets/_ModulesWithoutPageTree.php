@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use MyVendor\MyExtension\Controller\ConferenceModuleController;
 
 return [

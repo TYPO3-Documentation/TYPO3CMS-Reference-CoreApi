@@ -21,6 +21,19 @@ and the domain models, repositories and validators of the extension work in
 the module as they do in a frontend plugin. This is the better choice when the
 module works with a domain model of its own.
 
+An Extbase controller needs no attribute. Every class implementing
+:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ControllerInterface` is tagged
+and made public automatically. The
+:php-short:`\TYPO3\CMS\Backend\Attribute\AsController` attribute is only for
+:ref:`backend controllers without Extbase
+<backend-modules-template-without-extbase>`.
+
+..  versionchanged:: 14.0
+    :changelog: breaking-105377-1729513863
+
+    The class alias for :php:`\TYPO3\CMS\Backend\Attribute\Controller` has been
+    removed. :php:`\TYPO3\CMS\Backend\Attribute\AsController` is still in place.
+
 Building such a module is described in a dedicated chapter:
 
 *   :ref:`Registering an Extbase backend module
@@ -47,18 +60,20 @@ Building such a module is described in a dedicated chapter:
 Fluid templates of an Extbase backend module
 ============================================
 
-A module template uses the :html:`Module` layout and puts its content into
-the :html:`Content` section. The layout belongs to the backend, not to the
-extension: the view :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
-renders with searches :path:`EXT:backend/Resources/Private/` first and then
-the extension that registered the module, so :html:`<f:layout name="Module" />`
-finds the backend's :file:`Layouts/Module.fluid.html` without any
-configuration. :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate`
-supplies the document header and flash messages the layout renders:
+A module template uses the `Module` layout and puts its content into the
+`Content` section. The layout belongs to the backend, not to the extension.
+
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` looks for templates
+and layouts in :path:`EXT:backend/Resources/Private/` first, and in the
+extension that registered the module second. That is why
+:html:`<f:layout name="Module" />` finds the backend's
+:file:`Layouts/Module.fluid.html` without any configuration.
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` also supplies the
+document header and flash messages the layout renders:
 
 ..  literalinclude:: /ExtensionArchitecture/Extbase/BackendModule/_snippets/_ConferenceList.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/ConferenceModule/List.fluid.html
-    :visible-lines: 1-12,77-79
+    :visible-lines: 1-12,84-86
 
 ..  warning::
 

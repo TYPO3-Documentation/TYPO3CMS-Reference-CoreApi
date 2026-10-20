@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Domain\Model;
 
-final class ConferenceDemand
+final readonly class ConferenceDemand
 {
   public const STATUS_PUBLISHED = 'published';
   public const STATUS_UNPUBLISHED = 'unpublished';
 
   public function __construct(
-    public readonly string $searchWord = '',
-    public readonly string $status = '',
+    public string $searchWord = '',
+    public string $status = '',
   ) {}
 
   public static function fromArray(array $data): self
