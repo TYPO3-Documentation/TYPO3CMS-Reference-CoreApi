@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 #[AsFileRenderer(priority: 10)]
-final class PdfRenderer implements FileRendererInterface
+final readonly class PdfRenderer implements FileRendererInterface
 {
   public function canRender(FileInterface $file): bool
   {
