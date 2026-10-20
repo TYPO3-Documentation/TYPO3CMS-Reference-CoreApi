@@ -37,6 +37,13 @@ addAllowedPaths
     :type: list
     :default: ''
 
+    ..  deprecated:: 14.2
+        :changelog: deprecation-109409-1774774806
+
+        Add the paths as `resource definitions of the project
+        <https://docs.typo3.org/permalink/t3coreapi:resources-definitions-project>`_
+        in :file:`config/system/resources.php` instead.
+
     Additional relative paths where resources may be placed. Used in some
     frontend-related places for images and TypoScript.
     It should be prefixed with :file:`/`. If not, then any path whose the first
