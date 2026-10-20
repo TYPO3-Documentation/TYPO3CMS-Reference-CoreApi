@@ -96,8 +96,13 @@ Makefile                    # local install/build/test commands
 - `make test-extension` — run the functional tests in `Tests/Functional/`
   against the example extension in `Documentation/_Examples/my_extension/`,
   on SQLite.
-- `make test` — full test suite (docs, lint, example extension, cgl, yaml,
-  typoscript, json, reST style, editorconfig).
+- `make test-phpstan` — run PHPStan on the example extension and its
+  tests, on level 8. A test only covers the paths it runs, PHPStan also
+  finds a wrong method name or a removed Core API in the others. Level 9
+  would need a cast for every value of type mixed, such as the argument
+  of a command, which makes an example harder to read.
+- `make test` — full test suite (docs, lint, example extension, PHPStan,
+  cgl, yaml, typoscript, json, reST style, editorconfig).
 
 ## Finding your way in the published manual
 
