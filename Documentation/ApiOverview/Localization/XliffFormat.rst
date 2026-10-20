@@ -266,7 +266,8 @@ Automatic migration of XLIFF 1.2 files to version 2.x
 =====================================================
 
 XLIFF 2.x is recommended for extensions or environments that
-support **only TYPO3 v14 and above**.
+support **only TYPO3 v14 and above**. The concrete changes between XLIFF 1.2 and XLIFF 2.x are explained
+in the :ref:`XLIFF file examples <xliff-examples>`.
 
 ..  caution::
     Currently XLIFF 2.x translations break TYPO3 v13 and below.
