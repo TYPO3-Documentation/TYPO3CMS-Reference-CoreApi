@@ -250,10 +250,11 @@ and never for the sitemap index. A data provider that pages its items itself,
 for example in its database query, uses
 :php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemap::create()` instead.
 
-Each item is an array with these keys:
+The sitemap reads these keys of each item:
 
 `loc`
-    The URL of the page to be crawled by a search engine.
+    The URL of the page to be crawled by a search engine. The example adds
+    it in the mapper, so only the items of the requested page get a URL.
 
 `lastMod`
     The date of the last update of the item, as a Unix timestamp.
