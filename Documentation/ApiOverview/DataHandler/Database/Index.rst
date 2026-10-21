@@ -411,7 +411,11 @@ change_stage
         // 123 is the UID of the workspace version of a content element
         $cmd['tt_content'][123]['change_stage'] = [
             'stage' => -10,
-            'comment' => 'Ready for review',
+            'comment' => 'Ready to publish',
+            'notificationAlternativeRecipients' => [
+                ['email' => 'editor@example.org', 'lang' => 'de'],
+                ['email' => 'reviewer@example.org'],
+            ],
         ];
 
     The workspaces module sends stage changes with this command. A
