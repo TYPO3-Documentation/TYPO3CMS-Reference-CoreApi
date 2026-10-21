@@ -65,6 +65,8 @@ XLIFF file examples
         XLIFF 2.x is the preferred format. Each :xml:`<unit>` contains a
         :xml:`<segment>` with :xml:`<source>` and optionally :xml:`<target>`.
 
+        :ref:`See below how your XLIFF 1.2 files can be migrated to XLIFF 2.x <xliff-migration>`.
+
     ..  group-tab:: XLIFF 1.2 (legacy)
 
         ..  literalinclude:: _snippets/_example_xliff_1.2.xlf
@@ -256,3 +258,58 @@ other than lowerCamelCase, that format can be used:
 
 For example, database table or column names often are written in snake_case,
 and the XLIFF key then might be something like `fe_users.first_name`.
+
+..  index:: XLIFF; Automatic migration
+..  _xliff-migration:
+
+Migration of XLIFF 1.2 files to version 2.x
+===========================================
+
+..  versionadded:: 14.0
+    :changelog: feature-107710-1234567890
+
+XLIFF 2.x is recommended for extensions or environments that
+support **only TYPO3 v14 and above**. The concrete changes between XLIFF 1.2
+and XLIFF 2.x are explained in the :ref:`XLIFF file examples <xliff-examples>`.
+
+..  caution::
+    If your extension uses `Crowdin <https://docs.typo3.org/permalink/t3coreapi:crowdin-extension-integration>`_
+    with XLIFF 1.2 files, migrating to XLIFF 2.x causes the translation strings
+    to get hidden in Crowdin.
+    `The Localization Team <https://typo3.community/contribute/teams-committees/localization>`_
+    recommends XLIFF 2.x only for new extensions targeting TYPO3 v14 and above.
+
+..  _xliff-automated-migration:
+
+Automated migration to XLIFF 2.x with Fractor
+---------------------------------------------
+
+To automate the migration of your XLIFF 1.2 files to XLIFF 2.x, use
+`TYPO3 Fractor <https://github.com/FriendsOfTYPO3/fractor>`__.
+
+The minimum configuration required to achieve this on a Composer-based
+installation is as follows:
+
+..  literalinclude:: _snippets/_fractor.php
+    :caption: fractor.php
+
+You can customize the paths in the configuration as suits you.
+
+For installation and execution see the
+`documentation of TYPO3 Fractor <https://github.com/FriendsOfTYPO3/fractor/blob/main/packages/typo3-fractor/README.md>`__.
+
+Defined `resname`-Attributes are not transferred to the XLIFF 2.x file.
+
+At the moment Fractor supports migration to XLIFF 2.0. If you want to use the
+newest XLIFF 2.2 format you can change the version in the file.
+There are no changes to the overall structure.
+
+..  code-block:: xml
+    :caption: before
+
+    <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+
+..  code-block:: xml
+    :caption: after
+
+    <xliff version="2.2" xmlns="urn:oasis:names:tc:xliff:document:2.2" srcLang="en">
