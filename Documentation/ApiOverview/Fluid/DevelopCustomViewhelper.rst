@@ -410,6 +410,7 @@ The following implementation rejects any other value:
 ..  literalinclude:: _CustomViewHelper/_GravatarViewHelper_Exception.php
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
     :visible-lines: 32-54
+    :emphasize-lines: 36
 
 Fluid appends the path of the template to the message, and keeps the class and
 the code of your exception:
