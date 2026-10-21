@@ -275,8 +275,9 @@ and XLIFF 2.x are explained in the :ref:`XLIFF file examples <xliff-examples>`.
 ..  caution::
     If your extension uses `Crowdin <https://docs.typo3.org/permalink/t3coreapi:crowdin-extension-integration>`_
     with XLIFF 1.2 files, migrating to XLIFF 2.x causes the translation strings
-    to get hidden in Crowdin. We recommend XLIFF 2.x only for new extensions
-    targeting TYPO3 v14 and above.
+    to get hidden in Crowdin.
+    `The Localization Team <https://typo3.community/contribute/teams-committees/localization>`_
+    recommends XLIFF 2.x only for new extensions targeting TYPO3 v14 and above.
 
 ..  _xliff-automated-migration:
 
