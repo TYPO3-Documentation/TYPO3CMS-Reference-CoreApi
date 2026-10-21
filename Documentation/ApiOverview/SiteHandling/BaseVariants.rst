@@ -56,8 +56,8 @@ Symfony functionality:
 
 ..  _sitehandling-base-variants-example:
 
-Example
-=======
+Example: A different base per application context
+=================================================
 
 ..  literalinclude:: _base-variants.yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml

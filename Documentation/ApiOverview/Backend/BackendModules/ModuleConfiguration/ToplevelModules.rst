@@ -57,8 +57,8 @@ the Core are registered in EXT:core so you can look at
 
 ..  _backend-modules-toplevel-module-register-custom-toplevel-example:
 
-Example:
---------
+Example: Register a toplevel module
+-----------------------------------
 
 Register a new toplevel module in your extension:
 

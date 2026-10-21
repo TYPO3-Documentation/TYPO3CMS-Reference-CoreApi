@@ -24,8 +24,8 @@ not matter; you only need it to get the form token for verifying it.
 
 ..  _csrf-examples:
 
-Examples
-========
+Examples: Generate and validate a form token
+============================================
 
 ..  literalinclude:: _FormProtectionExample.php
     :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php

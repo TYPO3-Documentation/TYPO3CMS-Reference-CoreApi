@@ -51,8 +51,8 @@ The page-based error handler has the properties
 
 ..  _sitehandling-error-handling-page-examples:
 
-Examples
-========
+Examples of page error handlers
+===============================
 
 ..  _sitehandling-error-handling-page-examples-internal-error:
 

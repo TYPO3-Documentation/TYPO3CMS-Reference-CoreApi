@@ -58,8 +58,8 @@ following:
 
 ..  _sitehandling-error-handling-fluid-example:
 
-Example
-=======
+Example: Show a Fluid template for the 404 error
+================================================
 
 Show the content of a Fluid template in case of an error with HTTP status 404:
 

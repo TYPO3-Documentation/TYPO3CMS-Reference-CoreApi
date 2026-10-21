@@ -29,8 +29,8 @@ variables may be used to replace complete values or parts of a value.
 
 ..  _sitehandling-using-env-vars-examples:
 
-Examples
-========
+Examples: Environment variables in the base and in conditions
+=============================================================
 
 ..  code-block:: yaml
 

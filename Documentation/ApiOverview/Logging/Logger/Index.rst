@@ -289,8 +289,8 @@ For more examples for configuring the logging see the
 
 ..  _logging-logger-examples:
 
-Examples
-========
+Logger examples in the extension `t3docs/examples`
+==================================================
 
 Examples of the usage of the logger can be found in the extension
 :composer:`t3docs/examples`. in file

@@ -41,8 +41,8 @@ the mode for syntax highlighting can be chosen. Allowed values:
 
 ..  _code-editor-usage-tca-example:
 
-Example
--------
+Example: Show a code editor for HTML in a TCA field
+---------------------------------------------------
 
 ..  literalinclude:: _tx_myextension_domain_model_mytable.php
     :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_mytable.php (excerpt)
