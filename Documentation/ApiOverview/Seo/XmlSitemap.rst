@@ -227,10 +227,13 @@ Create your own `XmlSitemapDataProvider`
 If you need more logic in your sitemap, write your own data provider. It
 implements
 :php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemapDataProviderInterface`.
-With the default service configuration of an extension, TYPO3 registers it
-as a service automatically, so it can use dependency injection in its
-constructor. This data provider adds the records of an event table to the
-sitemap:
+If
+`autoconfigure <https://docs.typo3.org/permalink/t3coreapi:dependency-injection-autoconfigure>`_
+is enabled in the file :file:`Configuration/Services.yaml` of the extension,
+TYPO3 finds the data provider through this interface. Without
+`autoconfigure`, tag the service with `seo.xmlsitemap.provider`. As a
+service, the data provider can use dependency injection in its constructor.
+This data provider adds the records of an event table to the sitemap:
 
 ..  literalinclude:: /_Examples/my_extension/Classes/XmlSitemap/EventProvider.php
     :caption: EXT:my_extension/Classes/XmlSitemap/EventProvider.php
