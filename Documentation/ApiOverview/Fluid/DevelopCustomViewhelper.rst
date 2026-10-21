@@ -370,8 +370,6 @@ Report an error from a ViewHelper
 ..  versionadded:: 14.2
     :changelog: feature-109167-1773174150
 
-    TYPO3 14.3 ships Fluid 5.3.2, which produces the message shown below.
-
 An integrator who sees an error from a ViewHelper needs to know which
 template caused it. Throw one of the ViewHelper exception classes of Fluid,
 and Fluid adds that context for you. The template parser catches every
@@ -379,9 +377,6 @@ exception that descends from
 :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Exception` and passes it to the
 error handler of Fluid together with the path of the template file. Your
 ViewHelper therefore never has to name the template itself.
-
-Fluid wraps your exception in the process. Read the original one with
-:php:`$e->getPrevious()`.
 
 Choose the class that describes the error:
 
@@ -401,8 +396,13 @@ Choose the class that describes the error:
 :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\UndeclaredArgumentException`
     The template passes an argument that the ViewHelper does not register.
 
-Fluid itself throws the last two while it validates the arguments of a tag,
-so a custom ViewHelper rarely needs them.
+Fluid itself throws the last two exceptions while it validates the
+arguments of a tag, so a custom ViewHelper rarely needs them.
+
+..  _fluid-custom-viewhelper-exceptions-example:
+
+Example: Reject a gravatar size outside the allowed range
+---------------------------------------------------------
 
 The `size` argument of the gravatar ViewHelper accepts a value from 1 to 512.
 The following implementation rejects any other value:
