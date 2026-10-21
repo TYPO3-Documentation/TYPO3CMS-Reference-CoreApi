@@ -11,7 +11,8 @@ use a9f\FractorXliff\Transform\ConvertXliff1To2Fractor;
 return FractorConfiguration::configure()
   ->withPaths([
     __DIR__ . '/packages/', // for projects
-    __DIR__ . '/Resources/Private/Language/', // for extension authors
+    __DIR__ . '/Resources/Private/Language/', // for extensions
+    __DIR__ . '/Configuration/Sets/', // for extensions (using labels.xlf in Site Sets)
   ])
   ->withRules([
     ConvertXliff1To2Fractor::class,
