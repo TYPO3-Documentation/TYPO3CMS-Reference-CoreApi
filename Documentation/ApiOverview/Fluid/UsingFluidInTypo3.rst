@@ -415,6 +415,5 @@ option to check a single file:
     vendor/bin/typo3 fluid:analyze --stdin < Templates/List.fluid.html
 
 With the option `--json`, the command writes its result as JSON, including the
-line and the character of each error, so that another tool can read it. With
-`--json`, the exit code is zero even when the command found an error. The tool
-that reads the JSON has to check the `errors` list itself.
+line and the character of each error, so that another tool can read it. The
+exit code is the same as without `--json`.
