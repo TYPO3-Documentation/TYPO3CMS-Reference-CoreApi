@@ -297,8 +297,7 @@ You can customize the paths in the configuration as suits you.
 For installation and execution see the
 `documentation of TYPO3 Fractor <https://github.com/FriendsOfTYPO3/fractor/blob/main/packages/typo3-fractor/README.md>`__.
 
-..  warning::
-    Defined `resname`-Attributes are not transferred to the XLIFF 2.x file.
+Defined `resname`-Attributes are not transferred to the XLIFF 2.x file.
 
 At the moment Fractor supports migration to XLIFF 2.0. If you want to use the
 newest XLIFF 2.2 format you can change the version in the file.
