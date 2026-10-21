@@ -18,6 +18,12 @@ reads the HTML with :php:`getRenderedRecord()` and replaces it with
 :php:`setRenderedRecord()`, for example to wrap a content element in markup of
 its own.
 
+Without the argument `recordAs`, the
+:ref:`f:render.contentArea ViewHelper <t3viewhelper:typo3-fluid-render-contentarea>`
+renders each record of the area with `f:render.record`, so the event is fired
+for these records as well. With `recordAs`, the event is only fired if the
+content of the tag renders the record with `f:render.record`.
+
 The event also carries the record and the request. Whatever a listener
 writes goes into the page as it is, so escape the parts that come from the
 record.
