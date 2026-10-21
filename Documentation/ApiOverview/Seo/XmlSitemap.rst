@@ -232,7 +232,7 @@ as a service automatically, so it can use dependency injection in its
 constructor. This data provider adds the records of an event table to the
 sitemap:
 
-..  literalinclude:: _XmlSitemap/_EventProvider.php
+..  literalinclude:: /_Examples/my_extension/Classes/XmlSitemap/EventProvider.php
     :caption: EXT:my_extension/Classes/XmlSitemap/EventProvider.php
 
 The method :php:`getSitemap()` receives a
@@ -264,7 +264,7 @@ The sitemap reads these keys of each item:
 
 Register the data provider in TypoScript with its class name:
 
-..  literalinclude:: _XmlSitemap/_eventSitemap.typoscript
+..  literalinclude:: /_Examples/my_extension/Configuration/Sets/Main/setup.typoscript
     :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 
