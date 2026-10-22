@@ -25,7 +25,7 @@ instance, just before the query gets executed.
 Example: Add a condition to the search query
 ============================================
 
-Changing the host of the current request and setting it as canonical:
+The following listener adds a condition to the search query:
 
 ..  literalinclude:: _BeforeFinalSearchQueryIsExecutedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/IndexedSearch/EventListener/MyEventListener.php
