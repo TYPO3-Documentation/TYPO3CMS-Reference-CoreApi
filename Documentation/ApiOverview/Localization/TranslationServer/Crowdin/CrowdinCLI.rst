@@ -13,7 +13,7 @@ is a command line tool for TYPO3 projects on
 `Crowdin <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-server-crowdin>`_.
 It is aimed at proofreaders and Crowdin project managers: it reviews and approves
 suggestions in bulk, cleans up duplicate suggestions, exchanges whole
-translation files, and reports on the active translators and proofreaders of the TYPO3 core and extensions.
+translation files, and reports on the active translators and proofreaders of the TYPO3 Core and extensions.
 
 This page summarizes what the tool can do. The commands, their options and
 example calls are described in the
