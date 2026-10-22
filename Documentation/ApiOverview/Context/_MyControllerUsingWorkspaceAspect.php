@@ -14,11 +14,11 @@ final class MyController
 
   public function doSomething(): void
   {
-    $showHiddenPages = $this->context->getPropertyFromAspect(
+    $workspaceId = $this->context->getPropertyFromAspect(
       'workspace',
       'id',
     );
 
-    // ... do something with $showHiddenPages
+    // ... do something with $workspaceId
   }
 }

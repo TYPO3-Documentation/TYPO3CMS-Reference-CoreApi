@@ -80,8 +80,8 @@ arguments:
 
 ..  _js-hotkey-api-example:
 
-Example
-=======
+Example: Register a hotkey in a scope of your own
+=================================================
 
 ..  literalinclude:: _example.js
     :caption: EXT:my_extension/Resources/Public/JavaScript/hotkey.js

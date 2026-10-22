@@ -221,8 +221,8 @@ for example the concrete :php:`$connectionParams['driver']`.
 
 ..  _database-middleware-usable-for-connection-interface-example:
 
-Example
--------
+Example: Use a driver middleware for one connection only
+--------------------------------------------------------
 
 The custom driver:
 

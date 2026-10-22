@@ -95,8 +95,8 @@ full
 
 ..  _context-api-aspects-datetime-example:
 
-Example
-~~~~~~~
+Example: Read and simulate the time of the date aspect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingDateAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -232,8 +232,8 @@ Overlay types
 
 ..  _context-api-aspects-language-example:
 
-Example
-~~~~~~~
+Example: Read the fallback chain of the language aspect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingLanguageAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -345,8 +345,8 @@ groupNames
 
 ..  _context-api-aspects-user-example:
 
-Example
-~~~~~~~
+Example: Check whether a frontend user is logged in
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingUserAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -399,8 +399,8 @@ includeDeletedRecords
 
 ..  _context-api-aspects-visibility-example:
 
-Example
-~~~~~~~
+Example: Check whether hidden pages are included
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingVisibilityAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -452,8 +452,8 @@ isOffline
 
 ..  _context-api-aspects-workspace-example:
 
-Example
-~~~~~~~
+Example: Read the ID of the current workspace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingWorkspaceAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php

@@ -22,8 +22,8 @@ position of the third-level module.
 
 ..  _backend-modules-third-level-module-example:
 
-Example
-=======
+Example: Register a third-level module for the Status module
+============================================================
 
 Registration of an additional third-level module for the
 :guilabel:`Content > Status` module in the :file:`Configuration/Backend/Modules.php`

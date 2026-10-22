@@ -89,8 +89,8 @@ These are the typical functions that extension authors should place within
 
 ..  _ext-localconf-php-example:
 
-Examples
---------
+Example: The skeleton of an `ext_localconf.php`
+-----------------------------------------------
 
 Put a file called :file:`ext_localconf.php` in the main directory of your
 Extension. It does not need to be registered anywhere but will be loaded
