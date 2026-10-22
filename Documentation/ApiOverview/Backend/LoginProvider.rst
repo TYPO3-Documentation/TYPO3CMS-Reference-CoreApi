@@ -93,8 +93,8 @@ View requirements:
 
 ..  _login-provider-examples:
 
-Examples
-========
+The username and password login provider of the Core
+====================================================
 
 Within the Core you can find the standard implementation in the system extension
 `backend`:

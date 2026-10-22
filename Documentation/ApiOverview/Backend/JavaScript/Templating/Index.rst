@@ -35,8 +35,8 @@ information.
 
 ..  _js-templating-examples:
 
-Examples
-========
+Examples of lit-html templates
+==============================
 
 
 ..  _js-templating-examples-variable-assignment:

@@ -201,8 +201,8 @@ modal that is returned by the API:
 
 ..  _modules-modals-examples:
 
-Examples
-========
+Examples: Open a confirmation or warning modal with action buttons
+==================================================================
 
 A basic modal (without anything special) can be created this way:
 
