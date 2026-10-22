@@ -9,7 +9,7 @@ Crowdin CLI for TYPO3
 =====================
 
 The `Crowdin CLI for TYPO3 <https://github.com/FriendsOfTYPO3/crowdin-cli>`__
-is a command line tool for the TYPO3 projects on
+is a command line tool for TYPO3 projects on
 `Crowdin <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-server-crowdin>`_.
 It is aimed at proofreaders and Crowdin project managers: it reviews and approves
 suggestions in bulk, cleans up duplicate suggestions, exchanges whole
