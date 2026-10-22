@@ -46,8 +46,8 @@ labels are added to the title attribute.
 
 ..  _AfterFileStorageTreeItemsPreparedEvent-example:
 
-Example
-=======
+Example: Add a label and a status to a folder in the file tree
+==============================================================
 
 ..  literalinclude:: _AfterFileStorageTreeItemsPreparedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/ModifyFileStorageTreeItems.php

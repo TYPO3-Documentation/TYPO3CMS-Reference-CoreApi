@@ -25,8 +25,8 @@ resolve situations where no handler could be found for a `t3://` URN.
 
 ..  _after-link-resolved-by-string-representation-event-example:
 
-Example
-=======
+Example: Resolve a link of a custom handler
+===========================================
 
 ..  literalinclude:: _AfterLinkResolvedByStringRepresentationEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php

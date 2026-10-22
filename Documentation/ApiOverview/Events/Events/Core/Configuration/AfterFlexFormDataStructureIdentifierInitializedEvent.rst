@@ -21,8 +21,8 @@ object-oriented approach.
 
 ..  _AfterFlexFormDataStructureIdentifierInitializedEvent-Example:
 
-Example
-=======
+Example: Load and change a FlexForm data structure
+==================================================
 
 ..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_FlexFormParsingModifyEventListener.php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php

@@ -19,8 +19,8 @@ inserted to the link markup.
 
 ..  _after-typo-link-decoded-event-example:
 
-Example
-=======
+Example: Add a part to a decoded typolink
+=========================================
 
 ..  literalinclude:: _AfterTypoLinkDecodedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php

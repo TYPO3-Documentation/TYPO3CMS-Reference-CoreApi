@@ -13,8 +13,8 @@ module.
 
 ..  _before-module-creation-event-example:
 
-Example
-=======
+Example: Change the icon of the Page module
+===========================================
 
 ..  literalinclude:: _BeforeModuleCreationEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

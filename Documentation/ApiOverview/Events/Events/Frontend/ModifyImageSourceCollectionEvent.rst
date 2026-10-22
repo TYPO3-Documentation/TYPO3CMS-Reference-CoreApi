@@ -14,8 +14,8 @@ source collection result.
 
 ..  _modify-image-source-collection-event-example:
 
-Example
-=======
+Example: Replace the source collection of an image
+==================================================
 
 ..  literalinclude:: _ModifyImageSourceCollectionEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

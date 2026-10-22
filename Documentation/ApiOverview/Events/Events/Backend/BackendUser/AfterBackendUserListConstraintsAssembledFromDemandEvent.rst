@@ -21,8 +21,8 @@ based on currently active filtering.
 
 ..  _after-backend-user-list-constraints-assembled-from-demand-event-example:
 
-Example
-=======
+Example: List only administrators
+=================================
 
 ..  literalinclude:: _AfterBackendUserListConstraintsAssembledFromDemandEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

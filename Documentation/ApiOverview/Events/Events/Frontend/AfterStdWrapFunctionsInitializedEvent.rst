@@ -24,8 +24,8 @@ Calling order of similar events:
 
 ..  _after-std-wrap-functions-initialized-event-example:
 
-Example
-=======
+Example: Listen to one, several, or all stdWrap events
+======================================================
 
 Have a look into the
 :ref:`example of EnhanceStdWrapEvent <EnhanceStdWrapEvent-example>`.

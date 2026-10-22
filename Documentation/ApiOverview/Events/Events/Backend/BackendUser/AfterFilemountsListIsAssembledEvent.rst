@@ -20,8 +20,8 @@ in the backend module. It makes it possible to modify this list.
 
 ..  _after-filemounts-list-is-assembled-event-example:
 
-Example
-=======
+Example: Remove the last file mount from the list
+=================================================
 
 ..  literalinclude:: _AfterFilemountsListIsAssembledEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

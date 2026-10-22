@@ -16,8 +16,8 @@ the list of URLs that are being processed by the CLI command
 
 ..  _after-page-urls-for-site-for-redirect-integrity-have-been-collected-event-example:
 
-Example
-=======
+Example: Add the URLs of the XML sitemap to the integrity check
+===============================================================
 
 The event listener class, using the PHP attribute :php:`#[AsEventListener]` for
 registration, adds the URLs found in a sites XML sitemap to the list of URLs.

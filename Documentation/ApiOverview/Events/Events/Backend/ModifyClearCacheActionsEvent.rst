@@ -28,8 +28,8 @@ method :php:`add()` for the :php:`cacheActions` and
 
 ..  _ModifyClearCacheActionsEvent-example:
 
-Example
-=======
+Example: Add an action to the clear cache menu
+==============================================
 
 ..  literalinclude:: _ModifyClearCacheActionsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

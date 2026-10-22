@@ -23,8 +23,8 @@ displayed where it is needed and rendered the way it is wanted.
 
 ..  _modify-redirect-management-controller-view-data-event-example:
 
-Example
-=======
+Example: Remove the wildcard host from the Redirects module
+===========================================================
 
 ..  literalinclude:: _ModifyRedirectManagementControllerViewDataEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php

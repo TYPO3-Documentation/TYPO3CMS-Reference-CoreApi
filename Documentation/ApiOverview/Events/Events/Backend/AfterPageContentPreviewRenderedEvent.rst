@@ -21,8 +21,8 @@ or by implementing :php:`\TYPO3\CMS\Backend\Preview\PreviewRendererInterface`.
 
 ..  _AfterPageContentPreviewRenderedEvent-example:
 
-Example
-=======
+Example: Wrap the preview of a content element
+==============================================
 
 ..  literalinclude:: _AfterPageContentPreviewRenderedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

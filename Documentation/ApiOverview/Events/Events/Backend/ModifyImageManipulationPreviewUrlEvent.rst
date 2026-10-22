@@ -24,8 +24,8 @@ URL will be opened in a new window.
 
 ..  _modify-image-manipulation-preview-url-event-example:
 
-Example
-=======
+Example: Set the preview URL of the image editor
+================================================
 
 ..  literalinclude:: _ModifyImageManipulationPreviewUrlEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

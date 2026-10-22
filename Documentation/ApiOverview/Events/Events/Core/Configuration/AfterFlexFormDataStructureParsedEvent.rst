@@ -20,8 +20,8 @@ object-oriented approach.
 
 ..  _after-flex-form-data-structure-parsed-event-example:
 
-Example
-=======
+Example: Load and change a FlexForm data structure
+==================================================
 
 Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`.
 
