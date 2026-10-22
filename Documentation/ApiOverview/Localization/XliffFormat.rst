@@ -201,15 +201,13 @@ Separate XLIFF IDs by dots
 
 Use dots to separate logical parts of the identifier.
 
-Good example:
-
 ..  code-block:: none
+    :caption: Good example:
 
     CType.menuAbstract
 
-Bad examples:
-
 ..  code-block:: none
+    :caption: Bad examples:
 
     CTypeMenuAbstract
     CType-menuAbstract
@@ -221,18 +219,16 @@ Namespace convention for XLIFF IDs
 
 Group identifiers together with a useful namespace.
 
-Good example:
-
 ..  code-block:: none
+    :caption: Good example:
 
     CType.menuAbstract
 
 This groups all available content types for content elements by using
 the same prefix `CType.`.
 
-Bad example:
-
 ..  code-block:: none
+    :caption: Bad example:
 
     menuAbstract
 
@@ -247,9 +243,8 @@ Use `lowerCamelCase` for XLIFF IDs
 
 Generally, lowerCamelCase should be used:
 
-Good example:
-
 ..  code-block:: none
+    :caption: Good example:
 
     frontendUsers.firstName
 
