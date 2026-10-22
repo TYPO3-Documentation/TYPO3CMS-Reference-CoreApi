@@ -26,8 +26,8 @@ allows to modify the main URL of a language pack.
 
 ..  _ModifyLanguagePackRemoteBaseUrlEvent-example:
 
-Example
-=======
+Example: Download the language packs of an extension from a mirror
+==================================================================
 
 ..  literalinclude:: _ModifyLanguagePackRemoteBaseUrlEvent/_CustomMirror.php
     :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php

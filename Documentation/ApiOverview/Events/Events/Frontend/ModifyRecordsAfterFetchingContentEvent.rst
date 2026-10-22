@@ -15,8 +15,8 @@ processing.
 
 ..  _modify-records-after-fetching-content-event-example:
 
-Example
-=======
+Example: Reverse the order of content elements
+==============================================
 
 ..  literalinclude:: _ModifyRecordsAfterFetchingContentEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

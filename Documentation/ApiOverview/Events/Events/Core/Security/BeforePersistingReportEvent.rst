@@ -18,8 +18,8 @@ from being persisted at all.
 
 ..  _before-persisting-report-event-example:
 
-Example
-=======
+Example: Ignore CSP violations caused by browser extensions
+===========================================================
 
 ..  literalinclude:: _BeforePersistingReportEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php

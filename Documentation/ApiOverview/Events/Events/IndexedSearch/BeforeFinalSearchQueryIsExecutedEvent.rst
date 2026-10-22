@@ -22,8 +22,8 @@ instance, just before the query gets executed.
 
 ..  _BeforeFinalSearchQueryIsExecutedEvent-example:
 
-Example
-=======
+Example: Add a condition to the search query
+============================================
 
 Changing the host of the current request and setting it as canonical:
 

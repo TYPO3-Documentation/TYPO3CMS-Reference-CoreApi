@@ -17,8 +17,8 @@ extension developers to integrate :abbr:`DAM (Digital Asset Management)` systems
 
 ..  _custom-file-selectors-event-example:
 
-Example
-=======
+Example: Add the file selector of a DAM system
+==============================================
 
 ..  literalinclude:: _CustomFileSelectorsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

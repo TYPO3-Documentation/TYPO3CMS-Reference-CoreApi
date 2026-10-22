@@ -15,8 +15,8 @@ based on the page layout and corresponding columns configuration.
 
 ..  _AfterContentHasBeenFetchedEvent-example:
 
-Example
-=======
+Example: Remove child content elements from the fetched content
+===============================================================
 
 The event listener class, using the PHP attribute :php:`#[AsEventListener]` for
 registration, removes some of the fetched page content elements based on

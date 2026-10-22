@@ -14,8 +14,8 @@ before :doc:`LinkValidator <ext_linkvalidator:Index>` analyzes the record.
 
 ..  _before-record-is-analyzed-event-example:
 
-Example
-=======
+Example: Report external links to the own domain
+================================================
 
 In this example we are checking if there are external links containing the URL
 of the project itself, as editors tend to set external links on internal pages

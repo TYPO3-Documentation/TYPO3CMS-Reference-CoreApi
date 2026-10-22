@@ -15,8 +15,8 @@ evaluation.
 
 ..  _record-access-granted-event-example:
 
-Example
-=======
+Example: Grant access to a record by a custom field
+===================================================
 
 ..  literalinclude:: _RecordAccessGrantedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php

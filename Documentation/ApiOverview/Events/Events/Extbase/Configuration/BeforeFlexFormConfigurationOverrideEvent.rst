@@ -15,8 +15,8 @@ based on the original FlexForm configuration and the framework configuration.
 
 ..  _before-flex-form-configuration-override-event-example:
 
-Example
-=======
+Example: Override a plugin setting from the FlexForm
+====================================================
 
 ..  literalinclude:: _BeforeFlexFormConfigurationOverrideEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Extbase/EventListener/MyEventListener.php

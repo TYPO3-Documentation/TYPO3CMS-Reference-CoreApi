@@ -12,8 +12,8 @@ rendered page body. Listeners may overwrite the page string if desired.
 
 ..  _after-backend-page-render-event-example:
 
-Example
-=======
+Example: Append text to the rendered backend page
+=================================================
 
 ..  literalinclude:: _AfterBackendPageRenderEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

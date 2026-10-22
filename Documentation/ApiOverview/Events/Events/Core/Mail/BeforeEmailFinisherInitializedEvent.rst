@@ -27,8 +27,8 @@ This enables developers to customize email behavior programmatically, such as:
 
 ..  _BeforeEmailFinisherInitializedEvent-example:
 
-Example
-=======
+Example: Change the recipients and subject of the email finisher
+================================================================
 
 The corresponding event listener class:
 

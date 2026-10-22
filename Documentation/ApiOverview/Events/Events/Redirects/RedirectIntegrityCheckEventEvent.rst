@@ -29,8 +29,8 @@ output.
 
 ..  _RedirectIntegrityCheckEvent-example:
 
-Example
-=======
+Example: Check that a record link target exists
+===============================================
 
 An event listener that validates `t3://record` targets:
 

@@ -13,8 +13,8 @@ is about to return the resolved "data".
 
 ..  _after-get-data-resolved-event-example:
 
-Example
-=======
+Example: Override the result of getData
+=======================================
 
 ..  literalinclude:: _AfterGetDataResolvedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

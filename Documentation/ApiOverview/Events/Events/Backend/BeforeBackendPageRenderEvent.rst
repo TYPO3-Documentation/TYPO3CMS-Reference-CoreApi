@@ -23,8 +23,8 @@ by providing access to the following properties:
 
 ..  _BeforeBackendPageRenderEvent-example:
 
-Example
-=======
+Example: Load a JavaScript module on every backend page
+=======================================================
 
 ..  literalinclude:: _BeforeBackendPageRenderEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

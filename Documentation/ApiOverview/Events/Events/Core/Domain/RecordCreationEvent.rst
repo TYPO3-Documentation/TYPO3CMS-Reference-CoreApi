@@ -33,8 +33,8 @@ own.
 
 ..  _RecordCreationEvent-example:
 
-Example
-=======
+Example: Create a coordinates object from a field value
+=======================================================
 
 The event listener class, using the PHP attribute :php:`#[AsEventListener]` for
 registration, creates a :php:`Coordinates` object based on the field value of

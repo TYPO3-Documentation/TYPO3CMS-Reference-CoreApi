@@ -17,8 +17,8 @@ logged in from a certain IP address.
 
 ..  _should-use-cached-page-data-if-available-event-example:
 
-Example
-=======
+Example: Bypass the page cache for Solr requests
+================================================
 
 ..  literalinclude:: _ShouldUseCachedPageDataIfAvailableEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

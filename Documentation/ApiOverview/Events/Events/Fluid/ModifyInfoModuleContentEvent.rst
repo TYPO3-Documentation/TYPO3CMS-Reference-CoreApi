@@ -19,8 +19,8 @@ events are only executed once and not on every request.
 
 ..  _modify-component-definition-event-example:
 
-Example
-=======
+Example: Add a required argument to a component
+===============================================
 
 ..  literalinclude:: _ModifyComponentDefinitionEvent/_ModifyComponentDefinitionListener.php
     :caption: EXT:my_extension/Classes/EventListener/ModifyComponentDefinitionListener.php

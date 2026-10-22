@@ -14,8 +14,8 @@ allows to modify the multi record selection actions (for example
 
 ..  _ModifyRecordListTableActionsEvent-usage:
 
-Example
-=======
+Example: Add an action to the records of a custom table
+=======================================================
 
 ..  literalinclude:: _ModifyRecordListTableActionsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

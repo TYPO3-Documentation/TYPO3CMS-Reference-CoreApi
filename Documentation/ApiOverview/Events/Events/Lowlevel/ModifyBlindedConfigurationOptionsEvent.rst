@@ -23,8 +23,8 @@ in the :ref:`configuration module <config-module>`.
 
 ..  _modify-blinded-configuration-options-event-example:
 
-Example
-=======
+Example: Hide an API key and a password in the Configuration module
+===================================================================
 
 ..  literalinclude:: _ModifyBlindedConfigurationOptionsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Lowlevel/EventListener/MyEventListener.php
