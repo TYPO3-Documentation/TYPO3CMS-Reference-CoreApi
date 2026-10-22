@@ -23,8 +23,8 @@ site configuration. Another use case could be to write data to additional
 
 ..  _modify-auto-create-redirect-record-before-persisting-event-example:
 
-Example
-=======
+Example: Change the status code of automatic redirects
+======================================================
 
 ..  literalinclude:: _ModifyAutoCreateRedirectRecordBeforePersistingEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php

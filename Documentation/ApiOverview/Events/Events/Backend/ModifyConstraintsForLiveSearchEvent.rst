@@ -21,8 +21,8 @@ cannot access query constraints.
 
 ..  _ModifyConstraintsForLiveSearchEvent-example:
 
-Example
-=======
+Example: Always show marked pages in the live search
+====================================================
 
 ..  literalinclude:: _ModifyConstraintsForLiveSearchEvent/_MyEventListener.php
     :language: php

@@ -30,8 +30,8 @@ assigning new values to `FluidEmail`.
 
 ..  _modify-validator-task-email-event-example:
 
-Example
-=======
+Example: Change the subject and recipient of the report email
+=============================================================
 
 ..  literalinclude:: _ModifyValidatorTaskEmailEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Linkvalidator/EventListener/MyEventListener.php

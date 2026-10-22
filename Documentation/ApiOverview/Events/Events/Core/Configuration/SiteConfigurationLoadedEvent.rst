@@ -17,8 +17,8 @@ before loading the configuration.
 
 ..  _site-configuration-loaded-event-example:
 
-Example
-=======
+Example: Import routes into the site configuration
+==================================================
 
 The example adds a
 :ref:`route enhancer configuration <routing-advanced-routing-configuration-enhancers>`

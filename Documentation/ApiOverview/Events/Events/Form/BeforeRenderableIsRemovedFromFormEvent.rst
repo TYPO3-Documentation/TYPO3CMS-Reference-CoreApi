@@ -23,8 +23,8 @@ The event is stoppable. As soon as :php:`$preventRemoval` is set to
 
 ..  _BeforeRenderableIsRemovedFromFormEvent-example:
 
-Example
-=======
+Example: Prevent the removal of a form element
+==============================================
 
 ..  literalinclude:: _BeforeRenderableIsRemovedFromFormEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php

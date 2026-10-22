@@ -13,8 +13,8 @@ allows custom TypoScript functions using the :typoscript:`:=` operator.
 
 ..  _evaluate-modifier-function-event-example:
 
-Example
-=======
+Example: Provide a custom TypoScript modifier function
+======================================================
 
 A simple TypoScript example looks like this:
 

@@ -22,8 +22,8 @@ control section of the :guilabel:`Media` module files and folders listing.
 
 ..  _process-file-list-actions-event-example:
 
-Example
-=======
+Example: Add a button to the actions of a file
+==============================================
 
 ..  literalinclude:: _ProcessFileListActionsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php

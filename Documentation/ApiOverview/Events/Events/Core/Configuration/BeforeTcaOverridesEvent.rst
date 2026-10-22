@@ -28,8 +28,8 @@ the known TCA overrides API.
 
 ..  _before-tca-overrides-event-example:
 
-Example
-=======
+Example: Limit the length of the content element header
+=======================================================
 
 ..  literalinclude:: _BeforeTcaOverridesEvent/_MyEventListener.php
     :caption: EXT:my_extension/Configuration/EventListener/MyEventListener.php

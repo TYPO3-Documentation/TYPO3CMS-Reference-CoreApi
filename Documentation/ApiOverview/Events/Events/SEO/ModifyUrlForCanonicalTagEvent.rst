@@ -29,8 +29,8 @@ string.
 
 ..  _modify-url-for-canonical-tag-event-example:
 
-Example
-=======
+Example: Change the host of the canonical URL
+=============================================
 
 Changing the host of the current request and setting it as canonical:
 

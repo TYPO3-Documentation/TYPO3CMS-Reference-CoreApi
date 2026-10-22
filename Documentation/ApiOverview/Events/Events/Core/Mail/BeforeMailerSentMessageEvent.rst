@@ -19,8 +19,8 @@ the :php:`getTransport()` method.
 
 ..  _BeforeMailerSentMessageEvent-example:
 
-Example
-=======
+Example: Add a BCC recipient to every email
+===========================================
 
 This event adds an additional BCC receiver right before the mail is sent:
 

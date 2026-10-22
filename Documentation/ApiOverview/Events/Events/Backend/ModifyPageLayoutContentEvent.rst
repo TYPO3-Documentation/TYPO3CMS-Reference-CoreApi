@@ -14,8 +14,8 @@ content or reorder the content.
 
 ..  _modify-page-layout-content-event-example:
 
-Example
-=======
+Example: Add header and footer content to the Page module
+=========================================================
 
 ..  literalinclude:: _ModifyPageLayoutContentEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

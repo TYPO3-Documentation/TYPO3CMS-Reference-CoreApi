@@ -28,8 +28,8 @@ by the Core listeners to store their result.
 
 ..  _package-initialization-event-example:
 
-Example
-=======
+Example: Store a result while an extension is initialized
+=========================================================
 
 ..  literalinclude:: _PackageInitializationEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php

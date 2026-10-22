@@ -14,8 +14,8 @@ file and use the :php:`getProperty()` method.
 
 ..  _is-file-selectable-event-example:
 
-Example
-=======
+Example: Prevent the selection of PNG images
+============================================
 
 ..  literalinclude:: _IsFileSelectableEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

@@ -12,8 +12,8 @@ to filter out certain content elements from being shown in the
 
 ..  _modify-database-query-for-content-event-example:
 
-Example
-=======
+Example: Hide content elements by a field value in the Page module
+==================================================================
 
 ..  literalinclude:: _ModifyDatabaseQueryForContentEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

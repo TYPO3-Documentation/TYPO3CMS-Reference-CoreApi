@@ -23,8 +23,8 @@ There are three possible use cases:
 
 ..  _render-component-event-example:
 
-Example
-=======
+Example: Load the CSS of the components used on a page
+======================================================
 
 ..  literalinclude:: _RenderComponentEvent/_RenderComponentListener.php
     :caption: EXT:my_extension/Classes/EventListener/RenderComponentListener.php

@@ -17,8 +17,8 @@ handle custom events.
 
 ..  _AddUserSettingsJavaScriptModulesEvent-example:
 
-Example
-=======
+Example: Load a JavaScript module in the user settings
+======================================================
 
 ..  literalinclude:: _AddUserSettingsJavaScriptModulesEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/UserSettings/EventListener/MyEventListener.php

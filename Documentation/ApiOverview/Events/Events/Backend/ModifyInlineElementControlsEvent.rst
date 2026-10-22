@@ -13,8 +13,8 @@ or to completely remove a control.
 
 ..  _ModifyInlineElementControlsEvent_example:
 
-Example
-=======
+Example: Enable and add controls of inline elements
+===================================================
 
 ..  literalinclude:: _ModifyInlineElementControlsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
