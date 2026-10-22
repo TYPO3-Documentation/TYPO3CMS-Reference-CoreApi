@@ -27,8 +27,8 @@ example calls are described in the
 Requirements and setup
 ======================
 
-The tool is a standalone PHP application, not a TYPO3 extension. It needs
-PHP 8.5 with the extensions `json` and `zip`, and is installed with Composer.
+The tool is a standalone PHP application, not a TYPO3 extension and is installed
+with Composer.
 
 It connects with a Crowdin personal access token with the scope "Projects".
 To approve translations, the owner of the token needs the proofreader or the
@@ -107,7 +107,7 @@ Exchanging translation files
 ============================
 
 Download
-    Has Crowdin build the translation files of a project in one language,
+    Crowdin builds the translation files of a project in one language,
     then downloads and extracts them. Suggestions are included unless only
     approved translations are requested. Crowdin always builds the whole
     project, a subtree cannot be downloaded on its own.
@@ -139,7 +139,8 @@ Use in scripts
 
 Every command except the guided review can return its result as a JSON
 document on standard output, while progress messages go to standard error. A
-failure returns an exit code other than 0 and an error document. Commands
-that change data must then be confirmed by an option, as they cannot ask.
+failure returns an exit code other than 0 and an error message. Any commands
+that change data must be confirmed by an option, as they cannot prompt the user
+directly.
 
 See `JSON output for scripts <https://github.com/FriendsOfTYPO3/crowdin-cli#json-output-for-scripts>`__.
