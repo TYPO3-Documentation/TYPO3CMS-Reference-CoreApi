@@ -24,8 +24,8 @@ before a new form is created in the backend.
 
 ..  _BeforeFormIsCreatedEvent-example:
 
-Example
-=======
+Example: Change the label of a new form
+=======================================
 
 ..  literalinclude:: _BeforeFormIsCreatedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php

@@ -17,8 +17,8 @@ register a custom event listener after or instead of this implementation.
 
 ..  _modify-href-lang-tags-event-example:
 
-Example
-=======
+Example: Replace and add hreflang tags
+======================================
 
 With :yaml:`after` and :yaml:`before`, you can make sure your own listener is
 executed after or before the given identifiers.

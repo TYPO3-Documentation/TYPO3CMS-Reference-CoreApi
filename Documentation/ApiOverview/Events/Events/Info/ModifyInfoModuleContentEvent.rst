@@ -34,8 +34,8 @@ content.
 
 ..  _modify-info-module-content-event-example:
 
-Example
-=======
+Example: Add header content to the localization overview
+========================================================
 
 ..  literalinclude:: _ModifyInfoModuleContentEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Info/EventListener/MyEventListener.php

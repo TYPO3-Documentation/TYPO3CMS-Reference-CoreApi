@@ -25,8 +25,8 @@ order in which they are called in the :typoscript:`stdWrap` processing chain.
 
 ..  _EnhanceStdWrapEvent-example:
 
-Example
-=======
+Example: Listen to one, several, or all stdWrap events
+======================================================
 
 ..  literalinclude:: _EnhanceStdWrapEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

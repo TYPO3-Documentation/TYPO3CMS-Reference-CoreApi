@@ -35,8 +35,8 @@ such as record visibility, language overlay or version overlay.
 
 ..  _BeforeDatabaseRecordLinkResolvedEvent-example:
 
-Example
-=======
+Example: Retrieve the record of a link yourself
+===============================================
 
 ..  literalinclude:: _BeforeDatabaseRecordLinkResolvedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

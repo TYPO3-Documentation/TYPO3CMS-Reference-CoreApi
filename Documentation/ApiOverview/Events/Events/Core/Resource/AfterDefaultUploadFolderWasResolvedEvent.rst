@@ -13,8 +13,8 @@ current page or user.
 
 ..  _after-default-upload-folder-was-resolved-event-example:
 
-Example
-=======
+Example: Use the storage root as the upload folder
+==================================================
 
 ..  literalinclude:: _AfterDefaultUploadFolderWasResolvedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php

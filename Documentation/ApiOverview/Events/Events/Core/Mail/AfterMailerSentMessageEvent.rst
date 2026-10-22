@@ -16,8 +16,8 @@ using the :php:`getSentMessage()` method.
 
 ..  _after-mailer-sent-message-event-example:
 
-Example
-=======
+Example: Log the sent message
+=============================
 
 ..  literalinclude:: _AfterMailerSentMessageEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php

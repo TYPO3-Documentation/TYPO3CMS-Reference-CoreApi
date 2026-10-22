@@ -16,8 +16,8 @@ resolved. In this case, the corresponding return value is :php:`null`.
 
 ..  _after-image-resource-resolved-event-example:
 
-Example
-=======
+Example: Change the width of an image resource
+==============================================
 
 ..  literalinclude:: _AfterImageResourceResolvedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php

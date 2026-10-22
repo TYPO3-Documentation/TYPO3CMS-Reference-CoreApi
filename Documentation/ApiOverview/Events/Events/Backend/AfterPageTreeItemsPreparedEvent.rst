@@ -56,8 +56,8 @@ and urgency. Critical messages take precedence over other status notifications.
 
 ..  _AfterPageTreeItemsPreparedEvent-example:
 
-Example
-=======
+Example: Change the icon and add a label to pages in the page tree
+==================================================================
 
 ..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

@@ -26,8 +26,8 @@ Valid use cases for this event might be:
 
 ..  _provide-static-variables-to-component-event-example:
 
-Example
-=======
+Example: Provide design tokens to all components
+================================================
 
 ..  literalinclude:: _ProvideStaticVariablesToComponentEvent/_ProvideStaticVariablesToComponentListener.php
     :caption: EXT:my_extension/Classes/EventListener/ProvideStaticVariablesToComponentListener.php

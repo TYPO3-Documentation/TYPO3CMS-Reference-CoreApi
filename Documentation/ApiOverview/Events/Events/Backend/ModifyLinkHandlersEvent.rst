@@ -17,8 +17,8 @@ to modify the set of handlers that will be used.
 
 ..  _modify-link-handlers-event-example:
 
-Example
-=======
+Example: Change the label of the URL link handler
+=================================================
 
 ..  literalinclude:: _ModifyLinkHandlersEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php

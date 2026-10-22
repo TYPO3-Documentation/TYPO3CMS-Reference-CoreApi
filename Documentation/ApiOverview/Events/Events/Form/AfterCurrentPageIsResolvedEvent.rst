@@ -17,8 +17,8 @@ allows the current page to be manipulated after it has been resolved.
 
 ..  _AfterCurrentPageIsResolvedEvent-example:
 
-Example
-=======
+Example: Disable the current page of a form
+===========================================
 
 ..  literalinclude:: _AfterCurrentPageIsResolvedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php

@@ -15,8 +15,8 @@ individual adjustments for custom implementations.
 
 ..  _PolicyMutatedEvent-Example:
 
-Example
-=======
+Example: Allow images from another domain in the backend
+========================================================
 
 ..  literalinclude:: _PolicyMutatedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php

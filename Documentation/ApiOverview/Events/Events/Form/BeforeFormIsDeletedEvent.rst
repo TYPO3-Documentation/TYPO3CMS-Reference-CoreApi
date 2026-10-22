@@ -25,8 +25,8 @@ Setting :php:`$preventDeletion` to
 
 ..  _BeforeFormIsDeletedEvent-example:
 
-Example
-=======
+Example: Prevent the deletion of a form
+=======================================
 
 ..  literalinclude:: _BeforeFormIsDeletedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php

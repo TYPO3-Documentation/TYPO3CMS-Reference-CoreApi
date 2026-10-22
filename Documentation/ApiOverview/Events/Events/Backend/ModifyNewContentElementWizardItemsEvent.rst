@@ -18,8 +18,8 @@ change the configuration, the position or to remove existing items altogether.
 
 ..  _modify-new-content-element-wizard-items-event-example:
 
-Example
-=======
+Example: Add an element to the new content element wizard
+=========================================================
 
 ..  literalinclude:: _ModifyNewContentElementWizardItemsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
