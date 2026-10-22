@@ -56,7 +56,16 @@ their user record.
 
 ..  literalinclude:: _snippets/_ConferenceReminderCommand.php
     :caption: EXT:my_extension/Classes/Command/ConferenceReminderCommand.php
-    :emphasize-lines: 41, 45-47, 49-50
+    :emphasize-lines: 40-48, 53, 57-59, 61-62
+
+A command has no configuration to take storage pages from, so every query
+would search page `0` alone. The command therefore names the storage folders
+first, here from two :ref:`site settings <sitehandling-settings>`, and sets
+them as the default query settings of each repository with
+:php:`setDefaultQuerySettings()`. The repository methods stay unchanged, and
+the language aspect is added to these settings per query. See
+:ref:`Extbase on the command line <extbase-no-frontend-command>` for more on
+running repositories in a command.
 
 Because this method relies on :php:`findAllForLanguageAspect()`, the exact same
 repository logic remains reusable across both the frontend (where the aspect is
