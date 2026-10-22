@@ -203,6 +203,27 @@ Both routes are used elsewhere in this manual: from :ref:`outside the frontend
 when :ref:`reading records that belong to another site
 <extbase-cross-site-locales>`.
 
+..  _extbase-localisation-identity-map:
+
+One Extbase object per record and language aspect
+-------------------------------------------------
+
+..  versionchanged:: 14.2
+    :changelog: important-93765-1738100000
+
+    Extbase used to keep one object per record, whichever language aspect
+    loaded it. A second query with a different aspect could then return the
+    translation of the first query.
+
+Within a request, Extbase keeps every object it loads, and returns the same
+instance when a query fetches the same record again. The language aspect is
+part of that match: the language, the overlay type, and the fallback chain.
+A record loaded with two different aspects becomes two different objects,
+each with its own translation.
+
+Do not compare such objects with `===`. To find out whether two objects stand
+for the same record, compare their :php:`getUid()`.
+
 ..  _extbase-localisation-model:
 ..  _extbase-model-localization:
 ..  _extbase-localisation-localized-uid:
