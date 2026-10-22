@@ -12,6 +12,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Context\LanguageAspectFactory;
 use TYPO3\CMS\Core\Site\SiteFinder;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 #[AsCommand(
   name: 'myextension:conferencereminder',
@@ -34,6 +37,15 @@ class ConferenceReminderCommand extends Command
     // There is no site in a command, so the site the mails belong to has
     // to be named explicitly.
     $site = $this->siteFinder->getSiteByIdentifier('my-site');
+    $settings = $site->getSettings();
+    $this->useStorageFolder(
+      $this->frontendUserRepository,
+      (int)$settings->get('myExtension.frontendUserStoragePid', 0),
+    );
+    $this->useStorageFolder(
+      $this->conferenceRepository,
+      (int)$settings->get('myExtension.conferenceStoragePid', 0),
+    );
 
     foreach ($this->frontendUserRepository->findAll() as $user) {
       // for sake of this example the user record provides a chosen language
@@ -53,5 +65,13 @@ class ConferenceReminderCommand extends Command
     }
 
     return Command::SUCCESS;
+  }
+
+  protected function useStorageFolder(Repository $repository, int $storagePid): void
+  {
+    // Without configuration, every query of the repository searches page 0
+    $querySettings = GeneralUtility::makeInstance(QuerySettingsInterface::class);
+    $querySettings->setStoragePageIds([$storagePid]);
+    $repository->setDefaultQuerySettings($querySettings);
   }
 }
