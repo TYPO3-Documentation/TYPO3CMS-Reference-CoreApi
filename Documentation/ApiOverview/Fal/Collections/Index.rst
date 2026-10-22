@@ -68,8 +68,8 @@ inside extensions. The most important classes are:
 
 ..  _collections-example:
 
-Example
-=======
+Example: List file collections in a plugin
+==========================================
 
 The following example demonstrates the usage of collections. Here is what
 happens in the controller:

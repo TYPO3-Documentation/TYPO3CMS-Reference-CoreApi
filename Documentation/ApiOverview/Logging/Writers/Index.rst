@@ -281,8 +281,8 @@ One or more log writers for this class are configured in the file
 
 ..  _logging-writers-examples:
 
-Examples
-========
+Log writer examples in the extension `t3docs/examples`
+======================================================
 
 Working examples of the usage of different Log writers can be found in the
 extension :composer:`t3docs/examples`.

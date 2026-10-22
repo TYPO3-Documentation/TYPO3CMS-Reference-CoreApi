@@ -27,8 +27,8 @@ To access a configuration value the following syntax is available:
 
 ..  _sitehandling-in-tca-tca-foreign-table-example:
 
-Example:
---------
+Example: Restrict categories to the storage page of the site
+------------------------------------------------------------
 
 ..  code-block:: php
     :caption: EXT:my_extension/Configuration/TCA/my_table.php (excerpt)

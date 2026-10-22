@@ -1,9 +1,11 @@
+:navigation-title: Examples
+
 ..  include:: /Includes.rst.txt
 ..  _error-handling-configuration-examples:
 
-========
-Examples
-========
+======================================================
+Example configurations of error and exception handling
+======================================================
 
 ..  index:: Errors; Debugging setup
 ..  _error-handling-configuration-examples-debug:

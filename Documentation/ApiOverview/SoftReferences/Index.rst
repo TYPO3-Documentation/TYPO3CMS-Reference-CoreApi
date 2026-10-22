@@ -90,8 +90,8 @@ The default setup is found in :t3src:`core/Configuration/Services.yaml`:
 
 ..  _soft-references-examples:
 
-Examples
-========
+Example: The soft reference parsers of `tt_content.bodytext`
+============================================================
 
 For the :sql:`tt_content.bodytext` field of type text from the example
 above, the configuration looks like this:
