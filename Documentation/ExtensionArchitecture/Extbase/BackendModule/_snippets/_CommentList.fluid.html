@@ -1,0 +1,56 @@
+<html
+  xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+  <f:asset.module identifier="@typo3/backend/recordlist.js" />
+
+  <h1>Comment moderation</h1>
+  <f:flashMessages />
+
+  <table class="table table-striped">
+    <f:for each="{comments}" as="comment">
+      <tr data-uid="{comment.uid}" data-table="tx_myextension_domain_model_comment">
+        <td class="col-icon">
+          <core:iconForRecord
+            table="tx_myextension_domain_model_comment"
+            row="{uid: comment.uid, hidden: comment.hidden}"
+          />
+        </td>
+        <td>{comment.author}</td>
+        <td>{comment.text}</td>
+        <td>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-default"
+              title="{f:if(condition: comment.hidden, then: 'Show', else: 'Hide')}"
+              data-datahandler-action="visibility"
+              data-datahandler-status="{f:if(condition: comment.hidden, then: 'hidden', else: 'visible')}"
+              data-datahandler-visible-label="Hide"
+              data-datahandler-hidden-label="Show"
+            >
+              <core:icon identifier="{f:if(
+                condition: comment.hidden,
+                then: 'actions-edit-unhide',
+                else: 'actions-edit-hide')}"
+              />
+            </button>
+            <f:link.action
+              action="answer"
+              arguments="{comment: comment}"
+              class="btn btn-default"
+            >
+              Answer
+            </f:link.action>
+          </div>
+        </td>
+      </tr>
+    </f:for>
+  </table>
+</f:section>
+
+</html>
