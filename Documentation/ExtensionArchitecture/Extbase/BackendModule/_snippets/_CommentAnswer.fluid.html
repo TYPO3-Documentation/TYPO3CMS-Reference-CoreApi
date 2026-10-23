@@ -1,0 +1,32 @@
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true">
+
+<f:layout name="Module" />
+
+<f:section name="Content">
+  <h1>Answer a comment</h1>
+
+  <blockquote class="blockquote">
+    <p>{comment.text}</p>
+    <footer class="blockquote-footer">{comment.author}</footer>
+  </blockquote>
+
+  <f:form action="createAnswer" name="answer" object="{answer}" arguments="{comment: comment}">
+    <f:form.validationResults for="answer.text">
+      <f:for each="{validationResults.errors}" as="error">
+        <div class="alert alert-danger">{error.message}</div>
+      </f:for>
+    </f:form.validationResults>
+
+    <div class="form-group">
+      <label for="answer-text" class="form-label">Answer</label>
+      <f:form.textarea property="text" id="answer-text" class="form-control" rows="5" />
+    </div>
+
+    <f:form.submit value="Save answer" class="btn btn-primary" />
+    <f:link.action action="list" class="btn btn-default">Cancel</f:link.action>
+  </f:form>
+</f:section>
+
+</html>

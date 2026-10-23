@@ -43,6 +43,12 @@ these differences is what makes a module behave predictably.
         A module that stands alone: global configuration, a list with search,
         filters and pagination, and filters kept in the module data.
 
+    ..  card:: :ref:`Building an Extbase backend module with a page tree <extbase-backend-module-page-tree>`
+
+        A module that follows the page tree: what the selected page supplies,
+        hidden records in the list, hiding with Core's toggle and answering in
+        an Extbase action.
+
     ..  card:: :ref:`Editing records from an Extbase backend module <extbase-backend-module-editing>`
 
         Creating, editing and deleting records with Fluid links to FormEngine
