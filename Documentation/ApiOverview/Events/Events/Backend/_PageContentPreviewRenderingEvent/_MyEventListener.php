@@ -21,7 +21,10 @@ final readonly class MyEventListener
     if ($event->getRecord()->has('header')) {
       $header = $event->getRecord()->get('header');
       $event->setPreviewContent(
-        sprintf('<h1>%s</h1></h1><div>...</div>', $header),
+        sprintf(
+          '<h1>%s</h1><div>...</div>',
+          htmlspecialchars((string)$header),
+        ),
       );
     }
   }

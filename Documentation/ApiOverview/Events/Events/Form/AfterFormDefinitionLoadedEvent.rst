@@ -27,7 +27,7 @@ Example: Change the label of a loaded form definition
 =====================================================
 
 ..  literalinclude:: _AfterFormDefinitionLoadedEvent/_MyEventListener.php
-    :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
+    :caption: EXT:my_extension/Classes/Form/EventListener/MyEventListener.php
 
 ..  _after-form-definition-loaded-event-api:
 
