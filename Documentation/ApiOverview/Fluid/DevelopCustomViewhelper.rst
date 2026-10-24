@@ -370,6 +370,9 @@ Report an error from a ViewHelper
 ..  versionadded:: 14.2
     :changelog: feature-109167-1773174150
 
+    TYPO3 v14.3 ships Fluid 5, which simplifies debugging when using the
+    base ViewHelper exception class or one of its child classes.
+
 An integrator who sees an error from a ViewHelper needs to know which
 template caused it. Throw one of the ViewHelper exception classes of Fluid,
 and Fluid adds that context for you. The template parser catches every
