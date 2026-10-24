@@ -34,8 +34,9 @@ Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/k
 
 Answer the prompts (vendor name, extension key, etc.). The kickstarter generates
 the directory structure, :file:`composer.json` and the boilerplate files you need.
-Since TYPO3 v14 you do not need :file:`ext_emconf.php` unless you plan to publish
-your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>`_.
+The extension does not need an :file:`ext_emconf.php` file. TYPO3 and the
+`TYPO3 Extension Repository <https://extensions.typo3.org>`_ read the metadata
+of the extension from :file:`composer.json`.
 
 ..  seealso::
 
