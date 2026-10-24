@@ -60,6 +60,21 @@ and its method `buildLink()`. It gets the content object renderer from the
 request attribute `currentContentObject`. See
 `Render the custom link format in the frontend <https://docs.typo3.org/permalink/t3coreapi:tutorial-typolink-builder>`_.
 
+..  _globals-typo3-user-settings:
+..  _confval-globals-typo3-user-settings:
+
+`$GLOBALS['TYPO3_USER_SETTINGS']` removed
+-----------------------------------------
+
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+TYPO3 v15 removed the global variable `$GLOBALS['TYPO3_USER_SETTINGS']`,
+`deprecated in 14.2 <https://docs.typo3.org/permalink/changelog:deprecation-108843-1738600000>`_.
+The settings of the user settings module are configured in TCA at
+`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. See
+`Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_.
+
 ..  _extension-declaration:
 ..  _ext_emconf-php:
 
