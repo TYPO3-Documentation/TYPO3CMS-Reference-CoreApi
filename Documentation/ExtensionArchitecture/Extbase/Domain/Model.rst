@@ -219,15 +219,10 @@ that holds **one other object**, and a property that holds **many objects** in a
 A few things to note in the example above:
 
 *   **A relation to a single other object** is a single typed property, nullable when
-    the related object is optional. If :php:`#[Lazy]` is applied, Extbase
-    installs a
-    :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
-    of loading the related object immediately. The union type
-    :php:`Location|LazyLoadingProxy|null` is required so that Extbase can set the
-    proxy. The :php:`instanceof LazyLoadingProxy` check in the getter exists
-    solely for static analysis — without it PHPStan cannot narrow the return
-    type to :php:`?Location`. If you do not need a precisely typed getter, the
-    proxy resolves automatically on any access and the check can be omitted.
+    the related object is optional. With :php:`#[Lazy]`, Extbase loads the
+    related object only on first access. The property keeps the type
+    :php:`?Location`. See
+    `Lazy loading <https://docs.typo3.org/permalink/t3coreapi:extbase-model-lazy-loading>`_.
 
 *   **A relation to many objects** is an :php:`ObjectStorage`. You read it by
     iterating, and change it through :php:`addComment()` / :php:`removeComment()`
