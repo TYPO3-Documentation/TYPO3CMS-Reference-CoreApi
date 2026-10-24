@@ -10,16 +10,15 @@ use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 
 #[AsEventListener(
-  identifier: 'my-extension/backend/add-message',
+  identifier: 'my-extension/maintenance-warning',
 )]
-final readonly class MyEventListener
+final readonly class MaintenanceWarningListener
 {
   public function __invoke(ModifyGenericBackendMessagesEvent $event): void
   {
-    // Add a custom message with an explicit severity
     $event->addMessage(new FlashMessage(
-      'My custom message',
-      'My title',
+      'The site is in maintenance on Saturday from 8 to 10 am.',
+      'Planned maintenance',
       ContextualFeedbackSeverity::WARNING,
     ));
   }
