@@ -1,0 +1,10 @@
+dependencies:
+  - typo3/email
+
+settings:
+  email:
+    format: 'html'
+    templateRootPaths:
+      100: 'EXT:my_sitepackage/Resources/Private/Templates/Email/'
+    layoutRootPaths:
+      100: 'EXT:my_sitepackage/Resources/Private/Layouts/Email/'
