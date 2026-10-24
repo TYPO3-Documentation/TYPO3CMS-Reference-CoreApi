@@ -13,6 +13,37 @@ Content was removed
 TYPO3 v15
 =========
 
+..  _ext-tables-php:
+..  _ext-tables-php-not-use:
+..  _ext-tables-php-usage:
+..  _ext-tables-php-examples:
+..  _ext-tables-php-migration:
+..  _extension-configuration-files-scheduler:
+..  _admin-tools-upgrade-tca-ext-tables:
+
+`ext_tables.php` no longer loaded
+---------------------------------
+
+..  deprecated:: 14.3
+    :changelog: deprecation-109438-1774951763
+
+TYPO3 v15 no longer loads the file :file:`ext_tables.php` of an extension.
+A registration in it has no effect, and TYPO3 does not report an error.
+Move each registration to the file that is meant for it:
+
+*   Backend modules:
+    `Configuration/Backend/Modules.php <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-backend-modules>`_
+*   Backend routes:
+    `Configuration/Backend/Routes.php <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-backend-routes>`_
+*   User settings: :file:`Configuration/TCA/Overrides/be_users.php`, see
+    `Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_
+*   Record types allowed on a page type:
+    :file:`Configuration/TCA/Overrides/pages.php`, see
+    `Create a new page type <https://docs.typo3.org/permalink/t3coreapi:page-types-example>`_
+
+An extension that still supports TYPO3 v13 can keep the file for that
+version.
+
 ..  _abstracttypolinkbuilder-migration:
 
 `AbstractTypolinkBuilder::build()` removed
