@@ -21,8 +21,8 @@ object-oriented approach.
 
 ..  _AfterFlexFormDataStructureIdentifierInitializedEvent-Example:
 
-Example
-=======
+Example: Load and change a FlexForm data structure
+==================================================
 
 ..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_FlexFormParsingModifyEventListener.php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php
@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterFlexFormDataStructureIdentifierInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent

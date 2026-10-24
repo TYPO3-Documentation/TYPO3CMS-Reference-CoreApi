@@ -17,8 +17,8 @@ thus should not depend on runtime / request.
 
 ..  _before-loaded-user-ts-config-event-example:
 
-Example
-=======
+Example: Add global user TSconfig
+=================================
 
 ..  literalinclude:: _BeforeLoadedUserTsConfigEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeLoadedUserTsConfigEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedUserTsConfigEvent

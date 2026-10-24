@@ -26,8 +26,8 @@ Valid use cases for this event might be:
 
 ..  _provide-static-variables-to-component-event-example:
 
-Example
-=======
+Example: Provide design tokens to all components
+================================================
 
 ..  literalinclude:: _ProvideStaticVariablesToComponentEvent/_ProvideStaticVariablesToComponentListener.php
     :caption: EXT:my_extension/Classes/EventListener/ProvideStaticVariablesToComponentListener.php
@@ -37,4 +37,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Fluid/ProvideStaticVariablesToComponentEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Fluid\Event\ProvideStaticVariablesToComponentEvent

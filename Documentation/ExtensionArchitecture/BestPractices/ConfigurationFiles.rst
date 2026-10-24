@@ -8,9 +8,6 @@
 Configuration file (ext_localconf.php)
 ======================================
 
-..  deprecated:: 14.3
-    Using the `ext_tables.php` file in extensions is deprecated.
-
 The file :file:`ext_localconf.php`
 contains configuration used by the system and in
 requests. It should therefore be optimized for speed.

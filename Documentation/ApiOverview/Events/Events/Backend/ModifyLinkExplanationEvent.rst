@@ -34,8 +34,8 @@ The current context can be evaluated using the following methods:
 
 ..  _modify-link-explanation-event-example:
 
-Example
-=======
+Example: Show an icon for a custom link type
+============================================
 
 ..  literalinclude:: _ModifyLinkExplanationEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -45,4 +45,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyLinkExplanationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent

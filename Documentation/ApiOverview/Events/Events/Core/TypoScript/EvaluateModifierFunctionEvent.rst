@@ -13,8 +13,8 @@ allows custom TypoScript functions using the :typoscript:`:=` operator.
 
 ..  _evaluate-modifier-function-event-example:
 
-Example
-=======
+Example: Provide a custom TypoScript modifier function
+======================================================
 
 A simple TypoScript example looks like this:
 
@@ -34,4 +34,4 @@ The corresponding event listener class could look like this:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/EvaluateModifierFunctionEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent

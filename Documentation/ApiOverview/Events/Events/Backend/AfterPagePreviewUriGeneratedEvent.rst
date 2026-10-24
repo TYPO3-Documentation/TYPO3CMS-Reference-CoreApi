@@ -17,8 +17,8 @@ returned after event dispatching and no further action is done by the
 
 ..  _after-page-preview-uri-generated-event-example:
 
-Example
-=======
+Example: Add a fragment to the page preview URL
+===============================================
 
 ..  literalinclude:: _AfterPagePreviewUriGeneratedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Routing\Event\AfterPagePreviewUriGeneratedEvent

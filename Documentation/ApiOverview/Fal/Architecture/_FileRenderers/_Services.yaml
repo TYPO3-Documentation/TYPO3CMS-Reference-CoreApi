@@ -1,0 +1,7 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Resource\Rendering\PdfRenderer:
+    tags:
+      - name: fal.file_renderer
+        priority: 10

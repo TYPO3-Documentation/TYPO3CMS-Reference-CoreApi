@@ -12,8 +12,8 @@ is fired before the storage backend is asked for results from a given query.
 
 ..  _modify-query-before-fetching-object-data-event-example:
 
-Example
-=======
+Example: Ignore the storage page for some models
+================================================
 
 The example disables the respect storage page flag for the given types (models).
 This can be helpful if you are using bounded contexts and therefore have multiple
@@ -28,4 +28,4 @@ centralized and does not to be repeated in each repository class.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent

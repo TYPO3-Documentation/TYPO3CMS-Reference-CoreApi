@@ -29,8 +29,8 @@ redirects or return the matched redirect record from other sources.
 
 ..  _before-redirect-match-domain-event-example:
 
-Example
-=======
+Example: Match a redirect with custom logic
+===========================================
 
 ..  literalinclude:: _BeforeRedirectMatchDomainEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
@@ -40,4 +40,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Redirects/BeforeRedirectMatchDomainEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent

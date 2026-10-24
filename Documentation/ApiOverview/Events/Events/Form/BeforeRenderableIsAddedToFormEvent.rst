@@ -20,8 +20,8 @@ initialized.
 
 ..  _BeforeRenderableIsAddedToFormEvent-example:
 
-Example
-=======
+Example: Change the label of a new form element
+===============================================
 
 ..  literalinclude:: _BeforeRenderableIsAddedToFormEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeRenderableIsAddedToFormEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeRenderableIsAddedToFormEvent

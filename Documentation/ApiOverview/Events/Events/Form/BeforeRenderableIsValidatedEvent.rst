@@ -19,8 +19,8 @@ to add custom logic before it is validated.
 
 ..  _BeforeRenderableIsValidatedEvent-example:
 
-Example
-=======
+Example: Check that a password matches its confirmation
+=======================================================
 
 ..  literalinclude:: _BeforeRenderableIsValidatedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeRenderableIsValidatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeRenderableIsValidatedEvent

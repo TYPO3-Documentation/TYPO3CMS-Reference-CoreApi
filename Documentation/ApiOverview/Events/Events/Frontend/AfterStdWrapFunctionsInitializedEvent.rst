@@ -24,8 +24,8 @@ Calling order of similar events:
 
 ..  _after-std-wrap-functions-initialized-event-example:
 
-Example
-=======
+Example: Listen to one, several, or all stdWrap events
+======================================================
 
 Have a look into the
 :ref:`example of EnhanceStdWrapEvent <EnhanceStdWrapEvent-example>`.
@@ -36,4 +36,4 @@ Have a look into the
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterStdWrapFunctionsInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\AfterStdWrapFunctionsInitializedEvent

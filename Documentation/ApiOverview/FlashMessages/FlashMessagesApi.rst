@@ -73,17 +73,10 @@ module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
 
 In this example the :php:`FlashMessageService` (:php:`TYPO3\CMS\Core\Messaging\FlashMessageService`)
-is used to add a flash message at the bottom right of a module:
+is injected and used to add a flash message at the bottom right of a module:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/SomeController.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Messaging\FlashMessageService;
-
-    $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
-    $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
-    $messageQueue->addMessage($message);
+..  literalinclude:: _FlashMessagesApi/_InlineMessageController.php
+    :caption: EXT:my_extension/Classes/Controller/InlineMessageController.php
 
 The message is added to the queue and then the template class calls
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
@@ -100,26 +93,8 @@ This shows flash messages with 2 types of rendering mechanisms:
 Use the :php:`FlashMessageQueue::NOTIFICATION_QUEUE` to submit a flash message
 as top-right notifications, instead of inline:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-    use TYPO3\CMS\Core\Messaging\FlashMessage;
-    use TYPO3\CMS\Core\Messaging\FlashMessageQueue;
-    use TYPO3\CMS\Core\Messaging\FlashMessageService;
-    use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
-    $notificationQueue = $flashMessageService->getMessageQueueByIdentifier(
-        FlashMessageQueue::NOTIFICATION_QUEUE
-    );
-    $flashMessage = GeneralUtility::makeInstance(
-        FlashMessage::class,
-        'I am a message rendered as notification',
-        'Hooray!',
-        ContextualFeedbackSeverity::OK
-    );
-    $notificationQueue->enqueue($flashMessage);
+..  literalinclude:: _FlashMessagesApi/_NotificationController.php
+    :caption: EXT:my_extension/Classes/Controller/NotificationController.php
 
 The recommended way to show flash messages is to use the Fluid ViewHelper :html:`<f:flashMessages />`.
 This ViewHelper works in any context because it uses the :php:`FlashMessageRendererResolver` class

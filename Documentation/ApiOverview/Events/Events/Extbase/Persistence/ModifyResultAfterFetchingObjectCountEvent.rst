@@ -17,4 +17,4 @@ is fired after the storage backend has counted the results from a given query.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/ModifyResultAfterFetchingObjectCountEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Persistence\ModifyResultAfterFetchingObjectCountEvent

@@ -13,8 +13,8 @@ in its :php:`start()` method.
 
 ..  _after-content-object-renderer-initialized-event-example:
 
-Example
-=======
+Example: Set the current value of the content object renderer
+=============================================================
 
 ..  literalinclude:: _AfterContentObjectRendererInitializedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -24,4 +24,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterContentObjectRendererInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\AfterContentObjectRendererInitializedEvent

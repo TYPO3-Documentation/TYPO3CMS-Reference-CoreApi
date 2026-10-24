@@ -30,8 +30,8 @@ If a link could not be generated, a
 
 ..  _after-link-is-generated-event-example:
 
-Example
-=======
+Example: Add a data attribute to every link
+===========================================
 
 ..  literalinclude:: _AfterLinkIsGeneratedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -41,4 +41,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterLinkIsGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\AfterLinkIsGeneratedEvent

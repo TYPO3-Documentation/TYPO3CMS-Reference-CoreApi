@@ -58,16 +58,12 @@ which can harm performance and trigger N+1 queries, for example in list views.
 :php:`#[Lazy]` tells Extbase to load the related object only when it is actively
 accessed — by calling its methods or reading its properties.
 
-When applied to a relation to a single object, the property type must include
-:php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` so Extbase knows to install the proxy. A typed getter
-needs an :php:`instanceof` check only so PHPStan and your IDE can narrow the
-return type to :php:`?Location`:
+The lazy relation is a native PHP lazy object of the target class, so the
+property keeps its plain type and the getter needs no special handling. See
+`Lazy loading <https://docs.typo3.org/permalink/t3coreapi:extbase-model-lazy-loading>`_.
 
 ..  literalinclude:: _snippets/_ConferenceLazy.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-If you do not need a narrowly typed getter, the check is unnecessary — accessing
-the proxy in any way triggers resolution automatically.
 
 ..  seealso::
 
@@ -192,11 +188,14 @@ where partial state is forwarded between actions:
 ..  literalinclude:: _snippets/_ConferenceControllerIgnoreValidation.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-Place :php:`#[IgnoreValidation]` directly on the parameter — method-level
-placement with :php:`argumentName` is deprecated in TYPO3 v14 and removed in
-v15. See
-:ref:`moving #[Validate] and #[IgnoreValidation] to parameter level
-<extbase-upgrading-ignorevalidation-parameter>`.
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    Extbase ignores :php:`#[IgnoreValidation]` on the action method. See
+    :ref:`moving #[Validate] and #[IgnoreValidation] to parameter level
+    <extbase-upgrading-ignorevalidation-parameter>`.
+
+Place :php:`#[IgnoreValidation]` directly on the parameter.
 
 
 ..  _extbase-appendix-attributes-controller:
@@ -208,8 +207,6 @@ These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute`
 namespace and are applied to controller action methods to control access and
 rate limiting.
 
-..  Full documentation for these attributes is planned for the Controller and Security chapters.
-
 
 ..  _extbase-appendix-attributes-authorize:
 
@@ -219,21 +216,20 @@ rate limiting.
 :Target: Controller action method
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
 
-..  versionadded:: 14.0
+..  versionadded:: 14.2
     :changelog: feature-107826-1766220191
 
 Declares access requirements for an action method. Extbase checks the
-requirements before calling the action and redirects or throws an exception
-if they are not met.
-
-..  Full parameter reference and usage examples are coming in the Security chapter.
+requirements before calling the action and answers with HTTP 403 if they are
+not met. See
+`Protecting Extbase actions with #[Authorize] <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action-authorize>`_
+for the options and an example.
 
 ..  warning::
 
-    :php:`#[Authorize]` handles action-level access ("is the user logged in?
-    are they in the right group?") but does **not** verify record ownership.
-    Always check that a submitted UID belongs to the current user before
-    updating or deleting records — Extbase will not do this for you.
+    `requireLogin` and `requireGroups` check who the user is, not which
+    records the user may change. Check that a submitted record belongs to the
+    current user in a `callback` before updating or deleting it.
 
 
 ..  _extbase-appendix-attributes-ratelimit:
@@ -249,5 +245,6 @@ if they are not met.
 
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.
-
-..  Full parameter reference and usage examples are coming in the Security chapter.
+See
+`Rate-limiting Extbase actions with #[RateLimit] <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action-ratelimit>`_
+for the options and an example.

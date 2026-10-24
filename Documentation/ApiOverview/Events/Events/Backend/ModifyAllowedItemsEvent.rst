@@ -19,8 +19,8 @@ types.
 
 ..  _modify-allowed-items-event-example:
 
-Example
-=======
+Example: Change the link types allowed in the link browser
+==========================================================
 
 ..  literalinclude:: _ModifyAllowedItemsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyAllowedItemsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\ModifyAllowedItemsEvent

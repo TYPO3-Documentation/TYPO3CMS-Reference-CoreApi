@@ -107,6 +107,29 @@ The following icon sizes are available as enum values:
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::LARGE`: fixed to 48px
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::MEGA`: fixed to 64px
 
+..  _icon-usage-php-record:
+
+Icons of records with `IconFactory`
+-----------------------------------
+
+..  versionadded:: 14.3
+    :changelog: important-108813-1787861512
+
+    Before, the icon of a record object needed its database row and table
+    name.
+
+To render the icon of a database record, call
+:php-short:`\TYPO3\CMS\Core\Imaging\IconFactory::getIconForRecord()` with
+the table name and the database row. For a
+`record object <https://docs.typo3.org/permalink/t3coreapi:record-objects>`_,
+call
+:php-short:`\TYPO3\CMS\Core\Imaging\IconFactory::getIconForRecordObject()`
+instead. A record object knows its table. Both methods add the overlays
+for records that are hidden or scheduled.
+
+..  literalinclude:: _IconForRecordExample.php
+    :caption: EXT:my_extension/Classes/MyRecordIconClass.php
+
 ..  index::
     Fluid; Core icon
     pair: Icon API; Fluid

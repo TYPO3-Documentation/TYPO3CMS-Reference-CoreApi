@@ -23,4 +23,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforeFormEnginePageInitializedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\BeforeFormEnginePageInitializedEvent

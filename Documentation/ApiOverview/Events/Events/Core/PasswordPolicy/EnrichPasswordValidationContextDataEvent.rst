@@ -29,8 +29,8 @@ validated against the globally configured password policy.
 
 ..  _enrich-password-validation-context-data-event-example:
 
-Example
-=======
+Example: Pass the middle name and email to the password validation
+==================================================================
 
 ..  literalinclude:: _EnrichPasswordValidationContextDataEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
@@ -40,4 +40,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/PasswordPolicy/EnrichPasswordValidationContextDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\PasswordPolicy\Event\EnrichPasswordValidationContextDataEvent

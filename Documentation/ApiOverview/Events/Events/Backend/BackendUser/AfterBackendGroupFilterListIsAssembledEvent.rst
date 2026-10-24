@@ -20,8 +20,8 @@ is dispatched right after this list is assembled and makes it possible to modify
 
 ..  _after-backend-group-filter-list-is-assembled-event-example:
 
-Example
-=======
+Example: Remove the last group from the group filter
+====================================================
 
 ..  literalinclude:: _AfterBackendGroupFilterListIsAssembledEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/BackendUsers/AfterBackendGroupFilterListIsAssembledEvent.txt
+..  typo3:api-class:: \TYPO3\CMS\Beuser\Event\AfterBackendGroupFilterListIsAssembledEvent

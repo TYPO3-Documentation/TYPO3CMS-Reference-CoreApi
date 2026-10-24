@@ -1,0 +1,2 @@
+# cat=basic; type=int+; label=New record page: Page on which the conferences module creates new conferences
+newRecordPid = 0

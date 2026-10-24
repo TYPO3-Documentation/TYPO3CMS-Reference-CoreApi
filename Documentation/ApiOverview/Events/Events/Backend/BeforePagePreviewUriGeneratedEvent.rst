@@ -23,8 +23,8 @@ on the parameters.
 
 ..  _before-page-preview-uri-generated-event-example:
 
-Example
-=======
+Example: Add a query parameter to the page preview URL
+======================================================
 
 ..  literalinclude:: _BeforePagePreviewUriGeneratedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -34,4 +34,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforePagePreviewUriGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Routing\Event\BeforePagePreviewUriGeneratedEvent

@@ -29,7 +29,7 @@ from your module template.
 
 It has the following methods:
 
-..  include:: _DocHeaderComponent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Template\Components\DocHeaderComponent
 
 ..  _docheadercomponent-breadcrumb:
 

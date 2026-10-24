@@ -55,13 +55,6 @@ Extension files
 :ref:`composer.json <composer-json>`
     Composer configuration, required in Composer-based installations
 
-:ref:`ext_tables.php (Deprecated) <extension-configuration-files>`
-    ..  deprecated:: 14.2
-        :changelog: deprecation-109438-1774951763
-
-        This file is deprecated and should be removed once dropping TYPO3 v13
-        support.
-
 :ref:`ext_localconf.php <extension-configuration-files>`
     Various configuration. Is always included, whether frontend or backend.
 
@@ -106,8 +99,8 @@ TYPO3 uses several languages for configuration:
     partly replaced TypoScript and TSconfig as configuration languages.
 *   XML is used in :ref:`FlexForms <flexforms>`.
 *   PHP is used for the :php:`$GLOBALS` array which includes TCA
-    (:php:`$GLOBALS['TCA']`, Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
-    User Settings (:php:`$GLOBALS['TYPO3_USER_SETTINGS']`, etc.
+    (:php:`$GLOBALS['TCA']`), Global Configuration
+    (:php:`$GLOBALS['TYPO3_CONF_VARS']`), etc.
 
 ..  _classification-config-methods:
 
@@ -198,8 +191,9 @@ TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
     admin rights. Use the :ref:`Feature Toggle API <feature-toggles-api>`.
 
 :ref:`User settings <user-settings>`:
-    Stored in :php:`$GLOBALS['TYPO3_USER_SETTINGS']`, they define backend user
-    preferences.
+    Configured in TCA at
+    :php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`, they
+    define backend user preferences.
 
 ..  hint::
 

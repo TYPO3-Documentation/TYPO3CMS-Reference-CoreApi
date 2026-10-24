@@ -15,8 +15,8 @@ processing.
 
 ..  _modify-records-after-fetching-content-event-example:
 
-Example
-=======
+Example: Reverse the order of content elements
+==============================================
 
 ..  literalinclude:: _ModifyRecordsAfterFetchingContentEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ModifyRecordsAfterFetchingContentEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\ModifyRecordsAfterFetchingContentEvent

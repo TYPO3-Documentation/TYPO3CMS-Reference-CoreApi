@@ -6,16 +6,16 @@ use MyVendor\MyExtension\Controller\ConferenceController;
 
 return [
   'my_extension_conferences' => [
-    'parent' => 'web',
+    'parent' => 'content',
     'position' => ['after' => '*'],
     'access' => 'user',
-    'path' => '/module/web/my-extension-conferences',
+    'path' => '/module/my-extension/conferences',
     'iconIdentifier' => 'my-extension-conference-module',
     'labels' => 'my_extension.modules.conferences',
     'extensionName' => 'MyExtension',
     'controllerActions' => [
       ConferenceController::class => [
-        'index', 'show', 'new', 'create', 'edit', 'update', 'delete',
+        'index',
       ],
     ],
   ],

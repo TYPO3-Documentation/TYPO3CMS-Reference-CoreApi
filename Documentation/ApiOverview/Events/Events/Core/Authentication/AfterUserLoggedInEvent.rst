@@ -18,8 +18,8 @@ user, if the user has successfully logged in. See
 
 ..  _after-user-logged-in-event-example:
 
-Example
-=======
+Example: React to the login of an administrator
+===============================================
 
 ..  literalinclude:: _AfterUserLoggedInEvent/_MyEventListener.php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
@@ -29,4 +29,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterUserLoggedInEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent

@@ -33,8 +33,8 @@ own.
 
 ..  _RecordCreationEvent-example:
 
-Example
-=======
+Example: Create a coordinates object from a field value
+=======================================================
 
 The event listener class, using the PHP attribute :php:`#[AsEventListener]` for
 registration, creates a :php:`Coordinates` object based on the field value of
@@ -53,7 +53,7 @@ The model could for example look like this:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/RecordCreationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\RecordCreationEvent
 
 ..  important::
 

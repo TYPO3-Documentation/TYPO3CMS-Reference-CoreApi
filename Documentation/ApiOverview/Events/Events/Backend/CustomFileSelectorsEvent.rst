@@ -17,8 +17,8 @@ extension developers to integrate :abbr:`DAM (Digital Asset Management)` systems
 
 ..  _custom-file-selectors-event-example:
 
-Example
-=======
+Example: Add the file selector of a DAM system
+==============================================
 
 ..  literalinclude:: _CustomFileSelectorsEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/CustomFileSelectorsEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Form\Event\CustomFileSelectorsEvent

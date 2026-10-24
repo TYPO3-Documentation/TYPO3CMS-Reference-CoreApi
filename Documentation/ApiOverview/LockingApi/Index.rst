@@ -153,8 +153,8 @@ for example in additional configuration:
 
 ..  _locking-api-locking-strategies-examples:
 
-Examples
---------
+Example: Acquire an exclusive, blocking lock
+--------------------------------------------
 
 Acquire and use an exclusive, blocking lock:
 

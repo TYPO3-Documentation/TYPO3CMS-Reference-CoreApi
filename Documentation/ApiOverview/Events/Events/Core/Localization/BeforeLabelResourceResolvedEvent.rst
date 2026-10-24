@@ -50,4 +50,4 @@ This example listener shortens generated domain names for a specific extension:
 API of the event `BeforeLabelResourceResolvedEvent`
 ===================================================
 
-..  include:: /CodeSnippets/Events/Localization/BeforeLabelResourceResolvedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\Event\BeforeLabelResourceResolvedEvent

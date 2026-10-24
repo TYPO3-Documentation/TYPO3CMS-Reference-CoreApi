@@ -15,8 +15,8 @@ evaluation.
 
 ..  _record-access-granted-event-example:
 
-Example
-=======
+Example: Grant access to a record by a custom field
+===================================================
 
 ..  literalinclude:: _RecordAccessGrantedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/RecordAccessGrantedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Access\RecordAccessGrantedEvent

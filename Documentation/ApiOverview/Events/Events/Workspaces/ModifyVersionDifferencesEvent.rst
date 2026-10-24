@@ -16,8 +16,8 @@ with the :php:`getVersionDifferences()` method and updated using the
 
 ..  _modify-version-differences-event-example:
 
-Example
-=======
+Example: Replace the difference shown for a field
+=================================================
 
 ..  literalinclude:: _ModifyVersionDifferencesEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Workspaces/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/ModifyVersionDifferencesEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\ModifyVersionDifferencesEvent

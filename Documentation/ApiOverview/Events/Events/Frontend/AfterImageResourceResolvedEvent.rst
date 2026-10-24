@@ -16,8 +16,8 @@ resolved. In this case, the corresponding return value is :php:`null`.
 
 ..  _after-image-resource-resolved-event-example:
 
-Example
-=======
+Example: Change the width of an image resource
+==============================================
 
 ..  literalinclude:: _AfterImageResourceResolvedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterImageResourceResolvedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\AfterImageResourceResolvedEvent

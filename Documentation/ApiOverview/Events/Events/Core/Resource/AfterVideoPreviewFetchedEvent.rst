@@ -14,8 +14,8 @@ used to modify and/or update the preview file.
 
 ..  _after-video-preview-fetched-event-example:
 
-Example
-=======
+Example: Replace the preview image of an online video
+=====================================================
 
 ..  literalinclude:: _AfterVideoPreviewFetchedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
@@ -25,4 +25,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/AfterVideoPreviewFetchedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\OnlineMedia\Event\AfterVideoPreviewFetchedEvent

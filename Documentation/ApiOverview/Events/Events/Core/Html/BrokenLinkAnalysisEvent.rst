@@ -51,4 +51,4 @@ The corresponding event listener class:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BrokenLinkAnalysisEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Html\Event\BrokenLinkAnalysisEvent

@@ -17,8 +17,8 @@ is to allow to notify remote systems about failed logins.
 
 ..  _login-attempt-failed-event-example:
 
-Example
-=======
+Example: React to a failed login from an external IP address
+============================================================
 
 ..  literalinclude:: _LoginAttemptFailedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/LoginAttemptFailedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Authentication\Event\LoginAttemptFailedEvent

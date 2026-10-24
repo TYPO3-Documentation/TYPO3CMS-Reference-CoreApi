@@ -19,8 +19,8 @@ inserted to the link markup.
 
 ..  _before-typo-link-encoded-event-example:
 
-Example
-=======
+Example: Add a CSS class to an encoded typolink
+===============================================
 
 ..  literalinclude:: _BeforeTypoLinkEncodedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/LinkHandling/BeforeTypoLinkEncodedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\LinkHandling\Event\BeforeTypoLinkEncodedEvent

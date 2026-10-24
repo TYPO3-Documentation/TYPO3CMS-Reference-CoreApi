@@ -43,6 +43,12 @@ jobs:
       - name: Composer normalize
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerNormalize -n
 
+      - name: Example extension
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s functional
+
+      - name: PHPStan
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s phpstan
+
       - name: CGL
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s cgl -n
 

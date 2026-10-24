@@ -16,8 +16,8 @@ using the :php:`getSentMessage()` method.
 
 ..  _after-mailer-sent-message-event-example:
 
-Example
-=======
+Example: Log the sent message
+=============================
 
 ..  literalinclude:: _AfterMailerSentMessageEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterMailerSentMessageEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent

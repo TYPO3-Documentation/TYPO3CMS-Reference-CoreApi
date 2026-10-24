@@ -93,13 +93,45 @@ full
     object.
 
 
+..  _datetime-aspect-accesstime:
+
+accessTime
+~~~~~~~~~~
+
+..  confval:: accessTime
+    :name: datetime-aspect-accesstime
+    :Call: :php:`$this->context->getPropertyFromAspect('date', 'accessTime');`
+    :changed: 15.0 breaking-110414-1786380424
+
+    Returns the Unix timestamp floored to the full minute as an integer
+    value. TYPO3 compares the `starttime` and `endtime` of records with this
+    value and calculates the cache lifetime of a page from it.
+
+    The method
+    :php:`\TYPO3\CMS\Core\Context\DateTimeAspect::getTimestampWithMinutePrecision()`
+    returns the same value.
+
+    ..  versionchanged:: 15.0
+        :changelog: breaking-110414-1786380424
+
+        The global variables `$GLOBALS['ACCESS_TIME']` and
+        `$GLOBALS['SIM_ACCESS_TIME']` were removed. Use this property
+        instead.
+
+
 ..  _context-api-aspects-datetime-example:
 
-Example
-~~~~~~~
+Example: Read and simulate the time of the date aspect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingDateAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
+
+To simulate another point in time, for example in a preview, set a new date
+aspect. Records are then evaluated against this time:
+
+..  literalinclude:: _SimulateDateAspect.php
+    :caption: EXT:my_extension/Classes/Preview/SimulateDate.php
 
 
 ..  _context-api-aspects-language:
@@ -232,8 +264,8 @@ Overlay types
 
 ..  _context-api-aspects-language-example:
 
-Example
-~~~~~~~
+Example: Read the fallback chain of the language aspect
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingLanguageAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -372,8 +404,8 @@ groupNames
 
 ..  _context-api-aspects-user-example:
 
-Example
-~~~~~~~
+Example: Check whether a frontend user is logged in
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingUserAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -426,8 +458,8 @@ includeDeletedRecords
 
 ..  _context-api-aspects-visibility-example:
 
-Example
-~~~~~~~
+Example: Check whether hidden pages are included
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingVisibilityAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
@@ -479,8 +511,8 @@ isOffline
 
 ..  _context-api-aspects-workspace-example:
 
-Example
-~~~~~~~
+Example: Read the ID of the current workspace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  literalinclude:: _MyControllerUsingWorkspaceAspect.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php

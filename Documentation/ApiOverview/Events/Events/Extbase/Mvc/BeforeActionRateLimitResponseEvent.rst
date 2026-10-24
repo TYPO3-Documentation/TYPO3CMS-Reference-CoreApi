@@ -40,4 +40,4 @@ the request in Extbase.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Extbase/BeforeActionRateLimitResponseEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Extbase\Event\Mvc\BeforeActionRateLimitResponseEvent

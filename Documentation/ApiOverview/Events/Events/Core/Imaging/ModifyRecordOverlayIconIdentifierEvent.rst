@@ -15,8 +15,8 @@ to the overlay icon identifier based on their requirements.
 
 ..  _modify-record-overlay-icon-identifier-event-example:
 
-Example
-=======
+Example: Set an overlay icon for the records of a custom table
+==============================================================
 
 ..  literalinclude:: _ModifyRecordOverlayIconIdentifierEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Core/EventListener/ModifyRecordOverlayIconIdentifierEventListener.php
@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/ModifyRecordOverlayIconIdentifierEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Imaging\Event\ModifyRecordOverlayIconIdentifierEvent

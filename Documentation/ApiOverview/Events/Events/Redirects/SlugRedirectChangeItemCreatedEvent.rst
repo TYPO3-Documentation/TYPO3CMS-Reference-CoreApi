@@ -105,4 +105,4 @@ Remove plain slug source, if page type 0 differs
 API
 ===
 
-..  include:: /CodeSnippets/Events/Redirects/SlugRedirectChangeItemCreatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\SlugRedirectChangeItemCreatedEvent

@@ -15,8 +15,8 @@ on the :php-short:`\TYPO3\CMS\Backend\Localization\LocalizationInstructions`.
 
 ..  _ModifyLocalizationHandlerIsAvailableEvent-example:
 
-Example
-=======
+Example: Disable manual translation for a custom table
+======================================================
 
 ..  literalinclude:: _ModifyLocalizationHandlerIsAvailableEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyLocalizationHandlerIsAvailableEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Localization\Event\ModifyLocalizationHandlerIsAvailableEvent

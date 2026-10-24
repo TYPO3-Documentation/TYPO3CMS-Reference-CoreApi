@@ -19,8 +19,8 @@ allows the form definition to be modified after a form has been created.
 
 ..  _AfterFormIsBuiltEvent-example:
 
-Example
-=======
+Example: Change the label of a built form
+=========================================
 
 ..  literalinclude:: _AfterFormIsBuiltEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/AfterFormIsBuiltEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\AfterFormIsBuiltEvent

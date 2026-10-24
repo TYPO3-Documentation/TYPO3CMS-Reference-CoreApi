@@ -29,8 +29,8 @@ output.
 
 ..  _RedirectIntegrityCheckEvent-example:
 
-Example
-=======
+Example: Check that a record link target exists
+===============================================
 
 An event listener that validates `t3://record` targets:
 
@@ -42,4 +42,4 @@ An event listener that validates `t3://record` targets:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Redirects/RedirectIntegrityCheckEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Redirects\Event\RedirectIntegrityCheckEvent

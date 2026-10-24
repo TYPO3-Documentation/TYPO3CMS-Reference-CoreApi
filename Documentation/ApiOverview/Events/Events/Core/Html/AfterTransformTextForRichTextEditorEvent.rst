@@ -34,4 +34,4 @@ transform a text before saving to database
 API of `AfterTransformTextForRichTextEditorEvent`
 =================================================
 
-..  include:: /CodeSnippets/Events/Core/Html/AfterTransformTextForRichTextEditorEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Html\Event\AfterTransformTextForRichTextEditorEvent

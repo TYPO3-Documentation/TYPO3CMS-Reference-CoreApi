@@ -106,4 +106,4 @@ default state of the actions of the module.
 API
 ===
 
-..  include:: /CodeSnippets/Events/Workspaces/AfterDataGeneratedForWorkspaceEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Workspaces\Event\AfterDataGeneratedForWorkspaceEvent

@@ -19,8 +19,8 @@ be modified before it is rendered or a form can be modified at runtime.
 
 ..  _BeforeRenderableIsRenderedEvent-example:
 
-Example
-=======
+Example: Format the value of a date element
+===========================================
 
 ..  literalinclude:: _BeforeRenderableIsRenderedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeRenderableIsRenderedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeRenderableIsRenderedEvent

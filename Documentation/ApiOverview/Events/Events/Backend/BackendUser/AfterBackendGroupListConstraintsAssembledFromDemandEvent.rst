@@ -21,8 +21,8 @@ based on currently active filtering.
 
 ..  _after-backend-group-list-constraints-assembled-from-demand-event-example:
 
-Example
-=======
+Example: List only groups with workspace permissions
+====================================================
 
 ..  literalinclude:: _AfterBackendGroupListConstraintsAssembledFromDemandEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/BackendUsers/AfterBackendGroupListConstraintsAssembledFromDemandEvent.txt
+..  typo3:api-class:: \TYPO3\CMS\Beuser\Event\AfterBackendGroupListConstraintsAssembledFromDemandEvent

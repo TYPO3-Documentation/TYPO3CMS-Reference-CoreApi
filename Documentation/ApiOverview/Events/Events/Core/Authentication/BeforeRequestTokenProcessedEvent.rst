@@ -14,8 +14,8 @@ during active user authentication process.
 
 ..  _before-request-token-processed-event-example:
 
-Example
-=======
+Example: Create the request token for a login without callback
+==============================================================
 
 The event can be used to generate the request token individually. This can be
 the case when you are not using a login callback and have not the possibility
@@ -29,4 +29,4 @@ to submit a request token:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeRequestTokenProcessedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Authentication\Event\BeforeRequestTokenProcessedEvent

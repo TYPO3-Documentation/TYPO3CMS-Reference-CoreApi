@@ -18,3 +18,4 @@ architecture of :abbr:`FAL (File Abstraction Layer)`.
     Events
     MetadataExtractors
     TextExtractors
+    FileRenderers

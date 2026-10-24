@@ -1,4 +1,4 @@
-:navigtation-title: Metadata extractors
+:navigation-title: Metadata extractors
 
 ..  include:: /Includes.rst.txt
 ..  index:: File abstraction layer; Metadata extractors

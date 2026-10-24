@@ -1,6 +1,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: File; EXT:{extkey}/ext_tables.sql
 ..  _ext-tables-sql:
+..  _database-exttables-sql:
 
 ================
 `ext_tables.sql`

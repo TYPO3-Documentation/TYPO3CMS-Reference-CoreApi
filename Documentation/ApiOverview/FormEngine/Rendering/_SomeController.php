@@ -18,9 +18,9 @@ final class SomeController
     $javaScriptRenderer = $this->pageRenderer->getJavaScriptRenderer();
     $javaScriptRenderer->addJavaScriptModuleInstruction(
       JavaScriptModuleInstruction::create('@myvendor/my_extension/my-service.js')
-            ->invoke('someFunction'),
+        ->invoke('someFunction'),
     );
     // ...
-    return $this->pageRenderer->renderResponse();
+    return $this->pageRenderer->renderResponse($request);
   }
 }

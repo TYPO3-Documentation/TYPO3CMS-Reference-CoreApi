@@ -43,4 +43,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterPageColumnsSelectedForLocalizationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\AfterPageColumnsSelectedForLocalizationEvent

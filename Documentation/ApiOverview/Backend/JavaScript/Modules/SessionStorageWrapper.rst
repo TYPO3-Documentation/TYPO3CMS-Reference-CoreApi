@@ -15,8 +15,8 @@ to store data in the :js:`sessionStorage`.
 
 ..  _modules-sessionstorage-example:
 
-Example
-=======
+Example: Read session storage entries by their prefix
+=====================================================
 
 ..  literalinclude:: _SessionStorageWrapper/_storage.js
     :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js

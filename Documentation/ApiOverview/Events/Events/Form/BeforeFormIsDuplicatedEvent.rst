@@ -17,8 +17,8 @@ dispatched just before a new form is duplicated in the backend.
 
 ..  _BeforeFormIsDuplicatedEvent-example:
 
-Example
-=======
+Example: Change the label of a duplicated form
+==============================================
 
 ..  literalinclude:: _BeforeFormIsDuplicatedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeFormIsDuplicatedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeFormIsDuplicatedEvent

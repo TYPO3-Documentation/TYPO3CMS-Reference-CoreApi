@@ -28,8 +28,8 @@ languages), but not to ignore decisions made by the event.
 
 ..  _ModifyLanguagePacksEvent-example:
 
-Example
-=======
+Example: Skip the language packs of Core extensions
+===================================================
 
 ..  literalinclude:: _ModifyLanguagePacksEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Install/EventListener/MyEventListener.php
@@ -39,4 +39,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/ModifyLanguagePacksEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\Event\ModifyLanguagePacksEvent

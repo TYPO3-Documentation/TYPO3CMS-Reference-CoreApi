@@ -236,8 +236,8 @@ itself.
 
 ..  _database-limit-restrictions-to-tables-examples:
 
-Examples
---------
+Examples: Limit restrictions to some tables of a query
+------------------------------------------------------
 
 If you want to apply one or more restrictions to only one table, that is
 possible as follows. Let us say you have content in the :sql:`tt_content` table
@@ -318,8 +318,8 @@ or :file:`ext_localconf.php` of an extension:
 
 ..  _database-restriction-builder-examples:
 
-Examples
-========
+Examples: Remove restrictions in a backend module
+=================================================
 
 Often the default restrictions are sufficient. Nothing needs to be done in those
 cases.

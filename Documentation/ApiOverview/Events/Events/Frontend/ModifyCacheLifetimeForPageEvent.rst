@@ -11,8 +11,8 @@ frontend call should be stored in the "pages" cache.
 
 ..  _modify-cache-lifetime-for-page-event-example:
 
-Example
-=======
+Example: Shorten the cache lifetime in the development context
+==============================================================
 
 The following listener limits the cache lifetime to 30 seconds in development
 context:
@@ -25,4 +25,4 @@ context:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ModifyCacheLifetimeForPageEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent

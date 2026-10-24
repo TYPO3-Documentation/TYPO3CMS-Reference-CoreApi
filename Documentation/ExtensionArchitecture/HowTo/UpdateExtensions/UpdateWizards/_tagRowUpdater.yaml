@@ -1,0 +1,8 @@
+services:
+  # Place here the default dependency injection configuration
+
+  # Only necessary when the class cannot carry the attribute
+  MyVendor\MyExtension\Upgrades\RowUpdater\EventStatusRowUpdater:
+    tags:
+      - name: install.rowupdater
+        identifier: 'myExtension_eventStatus'

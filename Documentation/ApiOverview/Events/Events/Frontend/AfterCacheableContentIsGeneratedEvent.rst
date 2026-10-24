@@ -28,8 +28,8 @@ information if a generated page is able to store in cache via the
 
 ..  _AfterCacheableContentIsGeneratedEvent-example:
 
-Example
-=======
+Example: Replace text in the cached page content
+================================================
 
 ..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -39,7 +39,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/AfterCacheableContentIsGeneratedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent
 
 ..  _AfterCacheableContentIsGeneratedEvent-migration-getcontroller:
 

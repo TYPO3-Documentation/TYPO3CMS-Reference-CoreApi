@@ -95,6 +95,35 @@ The processing order is in reverse, which means that
 `EXT:my_extension2/Classes/ViewHelpers/DemoViewHelper.php`, and then
 fall back to `EXT:my_extension1/Classes/ViewHelpers/DemoViewHelper.php`.
 
+..  _listing-global-fluid-namespaces:
+
+Listing the global Fluid namespaces of a project
+------------------------------------------------
+
+..  versionadded:: 14.2
+    :changelog: feature-108846-1770196894
+
+The command `vendor/bin/typo3 fluid:namespaces
+<https://docs.typo3.org/permalink/t3coreapi:console-command-fluid-namespaces>`_
+lists the global namespaces after TYPO3 has merged the files of all
+extensions. Use it to check which PHP namespaces an alias resolves to. The
+output looks like this, shortened:
+
+..  code-block:: none
+
+    +--------+----------------------------------------+
+    | Alias  | Namespace(s)                           |
+    +--------+----------------------------------------+
+    | core   | TYPO3\CMS\Core\ViewHelpers             |
+    +--------+----------------------------------------+
+    | f      | TYPO3Fluid\Fluid\ViewHelpers           |
+    |        | TYPO3\CMS\Fluid\ViewHelpers            |
+    +--------+----------------------------------------+
+
+With the option `--json`, the command writes the same list as JSON. The
+backend shows it in the :guilabel:`System > Configuration` module, under
+:guilabel:`Fluid: Global ViewHelper Namespaces`.
+
 ..  _importing-fluid-namespaces-locally:
 
 Importing Fluid namespaces locally
@@ -371,3 +400,20 @@ deprecation is reported, but leaves the exit code at zero. The same
 analysis runs as part of `vendor/bin/typo3 fluid:cache:warmup
 <https://docs.typo3.org/permalink/t3coreapi:console-command-fluid-cache-warmup>`_,
 but that command writes the cache as well.
+
+By default, the command reads the templates of the project and its
+extensions, and skips the TYPO3 system extensions. Add the option
+`--include-system-extensions` to analyze those as well.
+
+With the option `--stdin`, the command analyzes one template that it reads
+from the standard input, instead of the template files of the installation.
+The file extension does not matter then. Editors and Git hooks can use this
+option to check a single file:
+
+..  code-block:: bash
+
+    vendor/bin/typo3 fluid:analyze --stdin < Templates/List.fluid.html
+
+With the option `--json`, the command writes its result as JSON, including the
+line and the character of each error, so that another tool can read it. The
+exit code is the same as without `--json`.

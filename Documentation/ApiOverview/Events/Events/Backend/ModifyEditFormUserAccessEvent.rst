@@ -19,8 +19,8 @@ will be thrown.
 
 ..  _modify-edit-form-user-access-event-example:
 
-Example
-=======
+Example: Deny creating records of a custom table
+================================================
 
 ..  literalinclude:: _ModifyEditFormUserAccessEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -31,4 +31,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyEditFormUserAccessEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent

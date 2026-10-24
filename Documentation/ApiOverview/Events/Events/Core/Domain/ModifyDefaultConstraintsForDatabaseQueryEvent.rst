@@ -48,4 +48,4 @@ fires for that table:
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/ModifyDefaultConstraintsForDatabaseQueryEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\ModifyDefaultConstraintsForDatabaseQueryEvent

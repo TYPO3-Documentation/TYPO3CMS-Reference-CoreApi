@@ -20,8 +20,8 @@ object-oriented approach.
 
 ..  _before-flex-form-data-structure-parsed-event-example:
 
-Example
-=======
+Example: Load and change a FlexForm data structure
+==================================================
 
 Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`.
 
@@ -30,7 +30,7 @@ Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierI
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforeFlexFormDataStructureParsedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent
 
 ..  _before-flex-form-data-structure-parsed-event-migration:
 

@@ -15,8 +15,8 @@ before the file is added.
 
 ..  _before-file-added-event-example:
 
-Example
-=======
+Example: Limit the upload size of PDF and ZIP files
+===================================================
 
 ..  literalinclude:: _BeforeFileAddedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
@@ -26,4 +26,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/BeforeFileAddedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\BeforeFileAddedEvent

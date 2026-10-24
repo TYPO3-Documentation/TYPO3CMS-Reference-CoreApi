@@ -46,8 +46,8 @@ labels are added to the title attribute.
 
 ..  _AfterFileStorageTreeItemsPreparedEvent-example:
 
-Example
-=======
+Example: Add a label and a status to a folder in the file tree
+==============================================================
 
 ..  literalinclude:: _AfterFileStorageTreeItemsPreparedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/ModifyFileStorageTreeItems.php
@@ -57,7 +57,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/AfterFileStorageTreeItemsPreparedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\AfterFileStorageTreeItemsPreparedEvent
 
 ..  note::
 

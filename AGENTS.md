@@ -46,6 +46,8 @@ Signed-off-by: Firstname Lastname <email>
 
 ```
 Documentation/              # the manual (reST source, published to docs.typo3.org)
+Documentation/_Examples/my_extension/  # example extension, installed and tested
+Tests/Functional/           # functional tests of the example extension
 .Build/vendor/typo3/cms-*   # composer-installed TYPO3 Core, for verifying facts against real source
 Makefile                    # local install/build/test commands
 ```
@@ -91,8 +93,16 @@ Makefile                    # local install/build/test commands
   indentation in the value as well. Never reformat an example whose subject
   is its own formatting, and check what a file's whitespace actually does
   before touching it.
-- `make test` — full test suite (docs, lint, cgl, yaml, typoscript, json,
-  reST style, editorconfig).
+- `make test-extension` — run the functional tests in `Tests/Functional/`
+  against the example extension in `Documentation/_Examples/my_extension/`,
+  on SQLite.
+- `make test-phpstan` — run PHPStan on the example extension and its
+  tests, on level 8. A test only covers the paths it runs, PHPStan also
+  finds a wrong method name or a removed Core API in the others. Level 9
+  would need a cast for every value of type mixed, such as the argument
+  of a command, which makes an example harder to read.
+- `make test` — full test suite (docs, lint, example extension, PHPStan,
+  cgl, yaml, typoscript, json, reST style, editorconfig).
 
 ## Finding your way in the published manual
 
@@ -142,6 +152,14 @@ Makefile                    # local install/build/test commands
     single backticks over double, every headline needs an anchor, etc.
     Don't duplicate those rules here; if one is missing or wrong, fix it in
     that repo instead of adding a local workaround.
+
+    One exception is local to this manual. The guide keeps statements about
+    a version, such as "since TYPO3 v15" or "removed in v15", inside the
+    version directives:
+    https://docs.typo3.org/permalink/h2document:rest-versions-what-belongs-in-directive.
+    A page whose subject is upgrading, such as
+    `ExtensionArchitecture/Extbase/Appendix/Upgrading.rst`, names versions
+    in its headlines, tables, and prose by design. Leave those as they are.
 2.  **Verify facts** — class names, method signatures, whether something is
     deprecated, when something changed — against `.Build/vendor/typo3/cms-*`
     (incl. its `Documentation/Changelog/`) or real commit history on
@@ -193,6 +211,18 @@ Makefile                    # local install/build/test commands
     originals landed on `main`, and let `mergeable_state` leave
     `unknown` before merging the next one — GitHub recomputes it for a
     minute or two after a merge moved the base.
+8.  **Example extension**: a complete example that does something the
+    manual makes claims about belongs in the example extension in
+    `Documentation/_Examples/my_extension/` (`myvendor/my-extension`),
+    with a functional test in `Tests/Functional/` that runs it and checks
+    the result the text describes. The page includes the file with
+    `..  literalinclude:: /_Examples/my_extension/...`. Every class in the
+    extension is loaded at the same time, so give each one a name that says
+    what it does, and give every command, identifier, and table its own
+    name. Fragments, variants of one class, and examples that show wrong
+    code on purpose stay in `_*.php` files next to their page. The extension
+    is installed through a `path` repository, so run `make install` after
+    changing its `composer.json`.
 
 ## References
 

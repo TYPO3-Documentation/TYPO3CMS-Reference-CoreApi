@@ -22,10 +22,10 @@ instance, just before the query gets executed.
 
 ..  _BeforeFinalSearchQueryIsExecutedEvent-example:
 
-Example
-=======
+Example: Add a condition to the search query
+============================================
 
-Changing the host of the current request and setting it as canonical:
+The following listener adds a condition to the search query:
 
 ..  literalinclude:: _BeforeFinalSearchQueryIsExecutedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/IndexedSearch/EventListener/MyEventListener.php
@@ -35,4 +35,4 @@ Changing the host of the current request and setting it as canonical:
 API
 ===
 
-..  include:: /CodeSnippets/Events/IndexedSearch/BeforeFinalSearchQueryIsExecutedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\IndexedSearch\Event\BeforeFinalSearchQueryIsExecutedEvent

@@ -32,15 +32,18 @@ use this event to display custom messages based on the system status:
 
 ..  _modify-generic-backend-messages-event-example:
 
-Example
-=======
+Example: Announce a planned maintenance in the About module
+===========================================================
 
-..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MyEventListener.php
-    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+The following listener shows a warning about a planned maintenance to every
+backend user who opens the :guilabel:`About` module:
+
+..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MaintenanceWarningListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MaintenanceWarningListener.php
 
 ..  _modify-generic-backend-messages-event-api:
 
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyGenericBackendMessagesEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent

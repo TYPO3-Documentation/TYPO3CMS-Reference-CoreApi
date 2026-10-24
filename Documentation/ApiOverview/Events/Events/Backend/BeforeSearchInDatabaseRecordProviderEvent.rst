@@ -16,8 +16,8 @@ search result on certain page IDs or to modify the search query altogether.
 
 ..  _before-search-in-database-record-provider-event-example:
 
-Example
-=======
+Example: Exclude a table from the live search
+=============================================
 
 ..  literalinclude:: _BeforeSearchInDatabaseRecordProviderEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -28,4 +28,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforeSearchInDatabaseRecordProviderEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\BeforeSearchInDatabaseRecordProviderEvent

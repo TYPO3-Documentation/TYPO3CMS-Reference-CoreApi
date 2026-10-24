@@ -19,8 +19,8 @@ to manipulate the record data of a content element.
 
 ..  _PageContentPreviewRenderingEvent-example:
 
-Example
-=======
+Example: Render the preview of a custom content element
+=======================================================
 
 ..  literalinclude:: _PageContentPreviewRenderingEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/PageContentPreviewRenderingEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent

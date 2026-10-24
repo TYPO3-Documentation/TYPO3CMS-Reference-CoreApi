@@ -21,8 +21,8 @@ cannot access query constraints.
 
 ..  _ModifyConstraintsForLiveSearchEvent-example:
 
-Example
-=======
+Example: Always show marked pages in the live search
+====================================================
 
 ..  literalinclude:: _ModifyConstraintsForLiveSearchEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -32,7 +32,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyConstraintsForLiveSearchEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\ModifyConstraintsForLiveSearchEvent
 
 ..  hint::
 

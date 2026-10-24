@@ -212,7 +212,8 @@ TYPO3 provides a custom :php:`\TYPO3\CMS\Core\Database\Middleware\UsableForConne
 driver middleware interface which requires the implementation of the method
 :php:`canBeUsedForConnection()`:
 
-..  include:: /CodeSnippets/Manual/Database/UsableForConnectionInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Database\Middleware\UsableForConnectionInterface
+    :members: canBeUsedForConnection
 
 This allows to decide, if a middleware should be used for a specific connection,
 either based on the :php:`$connectionName` or the :php:`$connectionParams`,
@@ -220,8 +221,8 @@ for example the concrete :php:`$connectionParams['driver']`.
 
 ..  _database-middleware-usable-for-connection-interface-example:
 
-Example
--------
+Example: Use a driver middleware for one connection only
+--------------------------------------------------------
 
 The custom driver:
 

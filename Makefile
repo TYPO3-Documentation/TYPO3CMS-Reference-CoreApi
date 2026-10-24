@@ -78,11 +78,7 @@ docs-open: ## Open rendered documentation in browser
 # Code Generation (requires DDEV)
 # ------------------------------------------------------------------------------
 .PHONY: generate
-generate: setup-typo3 codesnippets command-json ## Regenerate all auto-generated documentation
-
-.PHONY: codesnippets
-codesnippets: check-dependencies ## Regenerate PHP code snippets
-	ddev exec .Build/bin/typo3 codesnippet:create $(DOCS_DIR)/
+generate: setup-typo3 command-json ## Regenerate all auto-generated documentation
 
 .PHONY: command-json
 command-json: check-dependencies ## Regenerate console commands JSON
@@ -107,11 +103,19 @@ setup-typo3: check-dependencies ## Initialize TYPO3 for documentation generation
 # Testing
 # ------------------------------------------------------------------------------
 .PHONY: test
-test: test-docs test-lint test-cgl test-yaml test-typoscript test-json test-rst-style test-editorconfig ## Run all tests
+test: test-docs test-lint test-extension test-phpstan test-cgl test-yaml test-typoscript test-json test-rst-style test-editorconfig ## Run all tests
 
 .PHONY: test-lint
 test-lint: ## Check PHP syntax
 	Build/Scripts/runTests.sh -s lint
+
+.PHONY: test-extension
+test-extension: check-dependencies ## Run the functional tests of the example extension
+	Build/Scripts/runTests.sh -s functional
+
+.PHONY: test-phpstan
+test-phpstan: check-dependencies ## Run PHPStan on the example extension and its tests
+	Build/Scripts/runTests.sh -s phpstan
 
 .PHONY: test-cgl
 test-cgl: check-dependencies ## Check TYPO3 Coding Guidelines (dry-run)

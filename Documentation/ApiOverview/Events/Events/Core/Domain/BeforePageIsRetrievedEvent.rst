@@ -16,8 +16,8 @@ bypassing the default page resolving.
 
 ..  _before-page-is-retrieved-event-example:
 
-Example
-=======
+Example: Retrieve a different page
+==================================
 
 ..  literalinclude:: _BeforePageIsRetrievedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
@@ -27,4 +27,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/BeforePageIsRetrievedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Domain\Event\BeforePageIsRetrievedEvent

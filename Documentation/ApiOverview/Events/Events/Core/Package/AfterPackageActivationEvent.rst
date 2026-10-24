@@ -19,8 +19,8 @@ is triggered after a package has been activated.
 
 ..  _after-package-activation-event-example:
 
-Example
-=======
+Example: Run an installation step after activating an extension
+===============================================================
 
 ..  literalinclude:: _AfterPackageActivationEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/AfterPackageActivationEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent

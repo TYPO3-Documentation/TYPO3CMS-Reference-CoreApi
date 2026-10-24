@@ -14,8 +14,8 @@ allows to modify the form data, used to render the file edit form in the
 
 ..  _modify-edit-file-form-data-event-example:
 
-Example
-=======
+Example: Change the render type for files with the extension ts
+===============================================================
 
 ..  literalinclude:: _ModifyEditFileFormDataEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
@@ -25,4 +25,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Filelist/ModifyEditFileFormDataEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Filelist\Event\ModifyEditFileFormDataEvent

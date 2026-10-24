@@ -14,8 +14,8 @@ source collection result.
 
 ..  _modify-image-source-collection-event-example:
 
-Example
-=======
+Example: Replace the source collection of an image
+==================================================
 
 ..  literalinclude:: _ModifyImageSourceCollectionEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -25,4 +25,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/ModifyImageSourceCollectionEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\ModifyImageSourceCollectionEvent

@@ -10,8 +10,9 @@ Database compare during update and installation
 
 Whenever you install or update an extension, or change the
 `TCA definition <https://docs.typo3.org/permalink/t3tca:start>`_ or the
-:ref:`ext_tables.sql <database-exttables-sql>` in an extension, you have to take
-into account the fact that the database schema might have changed.
+`ext_tables.sql <https://docs.typo3.org/permalink/t3coreapi:ext-tables-sql>`_
+in an extension, you have to take into account the fact that the database
+schema might have changed.
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/AnalyzeDatabase.png
     :alt: TYPO3 backend with the "System > Maintenance". The database analyzer is highlighted.

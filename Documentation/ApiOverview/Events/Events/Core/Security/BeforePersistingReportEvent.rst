@@ -18,8 +18,8 @@ from being persisted at all.
 
 ..  _before-persisting-report-event-example:
 
-Example
-=======
+Example: Ignore CSP violations caused by browser extensions
+===========================================================
 
 ..  literalinclude:: _BeforePersistingReportEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php
@@ -29,4 +29,4 @@ Example
 API: `BeforePersistingReportEvent`
 ==================================
 
-..  include:: /CodeSnippets/Events/Core/Security/BeforePersistingReportEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\BeforePersistingReportEvent

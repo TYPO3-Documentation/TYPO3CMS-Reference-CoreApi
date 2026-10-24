@@ -18,8 +18,8 @@ and the current :php:`ContentObjectRenderer` instance.
 
 ..  _before-std-wrap-content-stored-in-cache-event-example:
 
-Example
-=======
+Example: Replace content that has a cache tag
+=============================================
 
 ..  literalinclude:: _BeforeStdWrapContentStoredInCacheEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
@@ -30,4 +30,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Frontend/BeforeStdWrapContentStoredInCacheEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapContentStoredInCacheEvent

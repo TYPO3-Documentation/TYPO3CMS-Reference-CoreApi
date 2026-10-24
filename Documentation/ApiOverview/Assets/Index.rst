@@ -78,7 +78,7 @@ inserting JavaScript and CSS code.
 The asset collector API
 -----------------------
 
-..  include:: /CodeSnippets/Manual/Core/AssetCollector.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Page\AssetCollector
 
 ..  note::
     If the same asset is registered multiple times using different attributes or

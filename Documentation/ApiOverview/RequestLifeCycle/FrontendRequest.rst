@@ -63,7 +63,7 @@ not defined you can use the `SiteFinder <https://docs.typo3.org/permalink/t3core
 to find one.
 
 The following example demonstrates how to set up a basic frontend request with
-`applicationType` and `site` attributes:
+the `applicationType`, `site`, and `normalizedParams` attributes:
 
 ..  literalinclude:: _CodeSnippets/_MyClassCreatingARequest.php
     :caption: EXT:my_extension/Classes/Service/MyClass.php

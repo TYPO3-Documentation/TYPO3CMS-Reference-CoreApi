@@ -22,4 +22,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/BeforeFileReplacedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\BeforeFileReplacedEvent

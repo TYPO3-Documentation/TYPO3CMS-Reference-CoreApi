@@ -134,6 +134,33 @@ ignores them. The replacement is native PHP attributes.
     + `Extbase PHP attributes reference <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes>`_.
 
 
+..  _extbase-appendix-pitfalls-argument-type-not-detected:
+
+Action argument type could not be detected
+==========================================
+
+**Symptom:** An action fails with the message *The argument type for
+parameter $conference of method …->showAction() could not be detected*
+(exception code 1253175643).
+
+**Why:** The parameter does not have a native PHP type declaration. Extbase needs the
+type to map the request to the argument, and reads it from the method
+signature only.
+
+..  versionchanged:: 15.0
+    :changelog: breaking-109926-1780171221
+
+    A `@param` DocBlock tag no longer gives the parameter a type.
+
+**What to do:** Declare the type of every action parameter in the method
+signature.
+
+..  seealso::
+
+    `Parameter types from @param DocBlock tags removed <https://docs.typo3.org/permalink/t3coreapi:extbase-upgrading-docblock-parameter-types>`_
+    — the migration with a before and after example.
+
+
 ..  _extbase-appendix-pitfalls-magic-findby:
 
 Magic `findBy`*() methods removed in TYPO3 v14
@@ -524,3 +551,33 @@ TypoScript default the editor may legitimately leave blank.
 
     `Output format, language overrides and FlexForm handling <https://docs.typo3.org/permalink/t3coreapi:extbase-configuration-typoscript-other>`_
     — the :typoscript:`ignoreFlexFormSettingsIfEmpty` reference.
+
+
+..  _extbase-appendix-pitfalls-module-page-tree-storagepid:
+
+An Extbase backend module ignores the page selected in the page tree
+====================================================================
+
+**Symptom:** A backend module with a page tree always lists the records of
+the same folder. Selecting another page in the tree changes nothing, although
+no storagePid is configured for this module.
+
+**Why:** A module with a page tree only falls back to the selected page when
+no storagePid is configured. A storagePid in the module TypoScript wins on
+every request, whichever page is selected. The scope
+:typoscript:`module.tx_<extensionname>` applies to every module of the
+extension, so a storagePid set there for another module, one without a page
+tree, also reaches this one.
+
+**What to do:** Remove the value for this module only, with
+:typoscript:`storagePid = __UNSET` on its own key
+:typoscript:`module.tx_<extensionname>_<moduleidentifier>`. The TypoScript
+operator :typoscript:`>` does not help here, because the value is merged in
+from the shared scope afterwards. Alternatively, move the storagePid from the
+shared scope to the key of the module that needs it.
+
+..  seealso::
+
+    `Extension-wide TypoScript overrides the selected page <https://docs.typo3.org/permalink/t3coreapi:extbase-backend-module-page-tree-storage-pid>`_
+    — the example, and why :typoscript:`__UNSET` works where :typoscript:`>`
+    does not.

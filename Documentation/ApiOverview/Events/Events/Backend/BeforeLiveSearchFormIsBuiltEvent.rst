@@ -19,8 +19,8 @@ technique to provide additional data.
 
 ..  _BeforeLiveSearchFormIsBuiltEvent-example:
 
-Example
-=======
+Example: Add a hint and view data to the live search form
+=========================================================
 
 ..  literalinclude:: _BeforeLiveSearchFormIsBuiltEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -30,7 +30,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/BeforeLiveSearchFormIsBuiltEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\BeforeLiveSearchFormIsBuiltEvent
 
 ..  note::
 

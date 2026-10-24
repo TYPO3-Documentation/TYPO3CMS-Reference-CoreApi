@@ -6,10 +6,11 @@
 Extending the user settings
 ===========================
 
-..  deprecated:: 14.2
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
 
-    The method :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`
-    has been deprecated in favor of the new :php:`addUserSetting()` method.
+    The method :php-short:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`
+    has been removed. Use :php-short:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserSetting()`.
 
 Adding fields to User Settings is done in a TCA Overrides file.
 

@@ -153,13 +153,26 @@ can be manually registered for makeInstance:
 
 This works well for prototypes. :php:`addInstance()` adds objects to a LiFo, multiple instances
 of the same class can be stacked. The generic :php:`->tearDown()` later confirms the stack is
-empty to avoid side effects on other tests. Singleton instances can be registered in a
+empty to avoid side effects on other tests. Instances of a class that
+implements :php:`\TYPO3\CMS\Core\SingletonInterface` can be registered in a
 similar way:
 
-..  literalinclude:: _UnitTests/_TcaFlexPrepareTest.php
-    :caption: typo3/sysext/backend/Tests/Unit/Form/FormDataProvider/TcaFlexPrepareTest.php
+..  literalinclude:: _UnitTests/_FolderLinkHandlerTest.php
+    :caption: typo3/sysext/core/Tests/Unit/LinkHandling/FolderLinkHandlerTest.php
 
-..  todo: EnvironmentService has been removed with version 12.0, find another Example here
+:php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::setSingletonInstance()`
+throws a :php:`TypeError` for a class that does not implement
+:php-short:`\TYPO3\CMS\Core\SingletonInterface`. If the system under test
+gets such a service through constructor injection, hand a mock to the
+constructor instead.
+
+..  versionchanged:: 15.0
+    :changelog: breaking-110578-1788251919
+
+    Many Core services, for example
+    :php:`\TYPO3\CMS\Core\Cache\CacheManager`, no longer implement
+    :php-short:`\TYPO3\CMS\Core\SingletonInterface`. A test that replaced
+    them with `setSingletonInstance()` fails.
 
 If adding singletons, make sure to set the property :php:`protected $resetSingletonInstances = true;`,
 otherwise :php:`->tearDown()` will detect a dangling singleton and let's the unit test fail

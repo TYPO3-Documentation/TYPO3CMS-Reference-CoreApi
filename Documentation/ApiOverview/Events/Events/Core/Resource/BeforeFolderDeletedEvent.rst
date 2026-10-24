@@ -24,4 +24,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Core/Resource/BeforeFolderDeletedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\BeforeFolderDeletedEvent

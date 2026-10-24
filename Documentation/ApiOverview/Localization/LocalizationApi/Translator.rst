@@ -32,4 +32,4 @@ be accessed via the contentObject:
 In the CLI context the global `$GLOBALS['LANG']` is not available and has to be
 instantiated manually.
 
-..  include:: _TranslatorInterface.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Core\Localization\TranslatorInterface

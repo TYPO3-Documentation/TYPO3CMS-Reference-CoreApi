@@ -13,6 +13,37 @@ Content was removed
 TYPO3 v15
 =========
 
+..  _ext-tables-php:
+..  _ext-tables-php-not-use:
+..  _ext-tables-php-usage:
+..  _ext-tables-php-examples:
+..  _ext-tables-php-migration:
+..  _extension-configuration-files-scheduler:
+..  _admin-tools-upgrade-tca-ext-tables:
+
+`ext_tables.php` no longer loaded
+---------------------------------
+
+..  deprecated:: 14.3
+    :changelog: deprecation-109438-1774951763
+
+TYPO3 v15 no longer loads the file :file:`ext_tables.php` of an extension.
+A registration in it has no effect, and TYPO3 does not report an error.
+Move each registration to the file that is meant for it:
+
+*   Backend modules:
+    `Configuration/Backend/Modules.php <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-backend-modules>`_
+*   Backend routes:
+    `Configuration/Backend/Routes.php <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-backend-routes>`_
+*   User settings: :file:`Configuration/TCA/Overrides/be_users.php`, see
+    `Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_
+*   Record types allowed on a page type:
+    :file:`Configuration/TCA/Overrides/pages.php`, see
+    `Create a new page type <https://docs.typo3.org/permalink/t3coreapi:page-types-example>`_
+
+An extension that still supports TYPO3 v13 can keep the file for that
+version.
+
 ..  _abstracttypolinkbuilder-migration:
 
 `AbstractTypolinkBuilder::build()` removed
@@ -28,6 +59,21 @@ implements :php-short:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`
 and its method `buildLink()`. It gets the content object renderer from the
 request attribute `currentContentObject`. See
 `Render the custom link format in the frontend <https://docs.typo3.org/permalink/t3coreapi:tutorial-typolink-builder>`_.
+
+..  _globals-typo3-user-settings:
+..  _confval-globals-typo3-user-settings:
+
+`$GLOBALS['TYPO3_USER_SETTINGS']` removed
+-----------------------------------------
+
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+TYPO3 v15 removed the global variable `$GLOBALS['TYPO3_USER_SETTINGS']`,
+`deprecated in 14.2 <https://docs.typo3.org/permalink/changelog:deprecation-108843-1738600000>`_.
+The settings of the user settings module are configured in TCA at
+`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. See
+`Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_.
 
 ..  _extension-declaration:
 ..  _ext_emconf-php:

@@ -24,8 +24,8 @@ it gets saved. It is dispatched just right before a form is saved in the backend
 
 ..  _BeforeFormIsSavedEvent-example:
 
-Example
-=======
+Example: Change the label of a form before it is saved
+======================================================
 
 ..  literalinclude:: _BeforeFormIsSavedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
@@ -35,4 +35,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Form/BeforeFormIsSavedEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Form\Event\BeforeFormIsSavedEvent

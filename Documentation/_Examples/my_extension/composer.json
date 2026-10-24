@@ -1,0 +1,23 @@
+{
+  "name": "myvendor/my-extension",
+  "description": "Example extension of TYPO3 Explained, checked by functional tests",
+  "license": "GPL-2.0-or-later",
+  "type": "typo3-cms-extension",
+  "require": {
+    "typo3/cms-core": "^14.3 || ^15.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MyVendor\\MyExtension\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "my_extension",
+      "version": "1.0.0",
+      "Package": {
+        "providesPackages": {}
+      }
+    }
+  }
+}

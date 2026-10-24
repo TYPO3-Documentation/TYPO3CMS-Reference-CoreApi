@@ -88,7 +88,7 @@ Middlewares
 Each middleware has to implement the PSR-15
 :php:`\Psr\Http\Server\MiddlewareInterface`:
 
-..  include:: /CodeSnippets/Middleware/MiddlewareInterface.rst.txt
+..  include:: _MiddlewareInterface.rst.txt
 
 By doing so, the middleware can do one or multiple of the following:
 
@@ -300,8 +300,8 @@ interfaces and dependency injection.
 
 ..  _request-handling-psr-17-example:
 
-Example
--------
+Example: Send a JSON response from a middleware
+-----------------------------------------------
 
 A middleware that needs to send a JSON response when a certain condition is met, uses the
 PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as a constructor
@@ -345,8 +345,8 @@ PSR-7_ request objects can be created with the :ref:`PSR-17 Request Factory inte
 
 ..  _request-handling-psr-18-example:
 
-Example usage
--------------
+Example: Request an external service from a middleware
+------------------------------------------------------
 
 A middleware might need to request an external service in order to transform the response
 into a new response. The PSR-18 HTTP client interface is used to perform the external

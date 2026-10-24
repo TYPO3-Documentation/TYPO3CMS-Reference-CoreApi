@@ -20,8 +20,8 @@ instance before execution.
 
 ..  _modify-query-for-live-search-event-example:
 
-Example
-=======
+Example: Limit the live search results for pages
+================================================
 
 ..  literalinclude:: _ModifyQueryForLiveSearchEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
@@ -32,4 +32,4 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/ModifyQueryForLiveSearchEvent.rst.txt
+..  typo3:api-class:: \TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent
