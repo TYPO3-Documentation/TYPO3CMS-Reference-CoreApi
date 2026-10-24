@@ -68,13 +68,13 @@ Example
 The registry can be used, for example, to write run information of a
 :ref:`console command <symfony-console-commands>` into the registry:
 
-..  literalinclude:: _MyCommand.php
-    :caption: EXT:my_extension/Classes/Command/MyCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/RecordLastRunCommand.php
+    :caption: EXT:my_extension/Classes/Command/RecordLastRunCommand.php
 
 This information can be retrieved later using:
 
-..  literalinclude:: _MyClass.php
-    :caption: EXT:my_extension/Classes/MyClass.php
+..  literalinclude:: /_Examples/my_extension/Classes/Registry/LastRunReader.php
+    :caption: EXT:my_extension/Classes/Registry/LastRunReader.php
 
 
 ..  _registry-api-api:
