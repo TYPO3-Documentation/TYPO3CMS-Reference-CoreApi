@@ -206,7 +206,7 @@ because leaving it out does not mean "false".
 ..  versionchanged:: 15.0
     :changelog: feature-110769-1790196401
 
-    Before, `true` rendered as :html:`defer="1"`, and an array was not
+    Before, `true` rendered as :html:`defer="defer"`, and an array was not
     possible as a value.
 
 Check if a JavaScript file with the given identifier exists:
