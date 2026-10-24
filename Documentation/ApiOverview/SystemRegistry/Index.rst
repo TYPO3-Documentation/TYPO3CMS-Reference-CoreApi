@@ -142,6 +142,18 @@ entry_value
     :name: sys-registry-entry-value
     :type: mediumblob
 
-    The entry's actual value. The value is stored as a serialized string,
-    thus you can even store arrays or objects in a registry entry – it is
-    not recommended though. The value in this field is stored as a binary.
+    The entry's actual value. The value is stored as a serialized string
+    in binary form. Store arrays and scalar values.
+
+    An object in a registry entry is possible but not recommended. When
+    TYPO3 reads the entry, it refuses every class with a `__destruct()` or
+    a `__wakeup()` method and throws a
+    :php-short:`\TYPO3\CMS\Core\Serializer\Exception\DeserializerException`.
+    This protects against PHP object injection. As a last resort, the option
+    `allowedClassNames <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-deserialization-allowedclassnames>`_
+    permits a reviewed class.
+
+    ..  versionchanged:: 13.4.31
+        :changelog: important-108604-1780297491
+
+        TYPO3 refuses such classes when it reads a registry entry.
