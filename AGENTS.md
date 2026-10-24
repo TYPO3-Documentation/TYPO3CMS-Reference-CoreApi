@@ -103,6 +103,12 @@ Makefile                    # local install/build/test commands
   of a command, which makes an example harder to read.
 - `make test` — full test suite (docs, lint, example extension, PHPStan,
   cgl, yaml, typoscript, json, reST style, editorconfig).
+- `make screenshots` — set up a TYPO3 instance with SQLite in containers and
+  take the screenshots into `Documentation/Images/ManualScreenshots/`;
+  `Build/Scripts/runTests.sh -s screenshots AdminTools/UpgradeTools` takes
+  only the named ones. `Build/Screenshots/screenshots.mjs` lists the
+  screenshots it can take. Run it on each branch, so the screenshots show
+  that version.
 
 ## Finding your way in the published manual
 

@@ -52,6 +52,8 @@ Options:
             - phpstanBaseline: Generate PHPStan baseline
             - rector: Apply Rector rules
             - renderDocumentation
+            - screenshots: screenshots from a TYPO3 instance, optionally only
+              the ones named as arguments
             - testRenderDocumentation
             - yamlLint: YAML linting
             - typoscriptLint: TypoScript syntax linting
@@ -208,6 +210,7 @@ IMAGE_PHP="${TYPO3_IMAGE_PREFIX}core-testing-$(echo "php${PHP_VERSION}" | sed -e
 IMAGE_ALPINE="${IMAGE_PREFIX}alpine:3.8"
 IMAGE_DOCS="ghcr.io/typo3-documentation/render-guides:latest"
 IMAGE_EDITORCONFIG="${IMAGE_PREFIX}mstruebing/editorconfig-checker:4.0.1"
+IMAGE_PLAYWRIGHT="mcr.microsoft.com/playwright:v1.63.0-noble"
 
 # Set $1 to first mass argument, this is the optional test file or test directory to execute
 shift $((OPTIND - 1))
@@ -325,6 +328,19 @@ case ${TEST_SUITE} in
         COMMAND=(--config=Documentation "$@")
         mkdir -p Documentation-GENERATED-temp
         ${CONTAINER_BIN} run ${CONTAINER_INTERACTIVE} ${CONTAINER_DOCS_PARAMS} --name render-documentation-${SUFFIX} ${IMAGE_DOCS} "${COMMAND[@]}"
+        SUITE_EXIT_CODE=$?
+        ;;
+    screenshots)
+        export PHP_RUN="${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} ${IMAGE_PHP}"
+        export WEB_START="${CONTAINER_BIN} run -d ${CONTAINER_COMMON_PARAMS} --name screenshots-web-${SUFFIX} ${IMAGE_PHP} php -S 0.0.0.0:8080 -t .Build/web Build/Screenshots/router.php"
+        export WEB_STOP="${CONTAINER_BIN} rm -f screenshots-web-${SUFFIX}"
+        # Like CONTAINER_COMMON_PARAMS, only docker needs the user to be set
+        BROWSER_USER=""
+        if [ ${CONTAINER_BIN} = "docker" ]; then
+            BROWSER_USER="${USERSET}"
+        fi
+        export BROWSER_RUN="${CONTAINER_BIN} run --rm --network container:screenshots-web-${SUFFIX} ${BROWSER_USER} -e HOME=/tmp -v ${ROOT_DIR}:${ROOT_DIR} -w ${ROOT_DIR}/Build/Screenshots ${IMAGE_PLAYWRIGHT}"
+        Build/Screenshots/run.sh "$@"
         SUITE_EXIT_CODE=$?
         ;;
     testRenderDocumentation)

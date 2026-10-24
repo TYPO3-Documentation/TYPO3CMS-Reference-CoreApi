@@ -1,0 +1,8 @@
+{
+  "name": "t3docs-reference-coreapi-screenshots",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}
