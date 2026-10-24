@@ -85,6 +85,10 @@ command-json: check-dependencies ## Regenerate console commands JSON
 	ddev exec .Build/bin/typo3 clinspector:gadget > $(DOCS_DIR)/ApiOverview/CommandControllers/commands.json
 	echo "" >> $(DOCS_DIR)/ApiOverview/CommandControllers/commands.json
 
+.PHONY: screenshots
+screenshots: check-dependencies ## Take the screenshots from a TYPO3 instance
+	Build/Scripts/runTests.sh -s screenshots
+
 # ------------------------------------------------------------------------------
 # Setup (requires DDEV)
 # ------------------------------------------------------------------------------

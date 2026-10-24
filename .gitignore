@@ -28,3 +28,4 @@ var/
 .cache/
 Build/.cache/
 /composer.json.testing
+/Build/Screenshots/node_modules/
