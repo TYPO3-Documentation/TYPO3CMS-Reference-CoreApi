@@ -219,6 +219,31 @@ per-field error messages:
 The `for` attribute is the dot-notation path to the validated object or
 property. Leave it empty to access all errors in the current request.
 
+..  _extbase-validation-fluid-has-errors:
+
+Mark a form field with errors using `f:form.hasErrors`
+------------------------------------------------------
+
+..  versionadded:: 15.0
+    :changelog: feature-85070-1789587437
+
+The condition ViewHelper
+`f:form.hasErrors <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-form-haserrors>`_
+tells whether a property has validation errors. Use it inline to set a CSS
+class on the element that wraps a form field:
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/Conference/New.fluid.html
+
+    <div class="{f:form.hasErrors(for: 'conference.title', then: 'error')}">
+        <f:form.textfield property="title" />
+    </div>
+
+The ViewHelper also reports the errors of sub-properties. For example,
+`for: 'conference.organizer'` is true when only
+`conference.organizer.email` has an error. The `for` argument needs a
+property path. An empty value throws an exception.
+
 
 ..  _extbase-validation-next:
 
