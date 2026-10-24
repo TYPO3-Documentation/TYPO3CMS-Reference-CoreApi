@@ -101,7 +101,7 @@ which can be added on the command line:
 Sending a `FluidMail` via command
 ---------------------------------
 
-..  literalinclude:: _Tutorial/_SendFluidMailCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/SendFluidMailCommand.php
     :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php
 
 `Simulating a frontend request in TYPO3 commands <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request-example>`_

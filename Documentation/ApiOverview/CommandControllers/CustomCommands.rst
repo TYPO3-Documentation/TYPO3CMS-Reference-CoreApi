@@ -186,7 +186,7 @@ frontend behavior.
 A minimal request configuration may be sufficient for
 generating simple links or using `FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_:
 
-..  literalinclude:: _Tutorial/_SendFluidMailCommand.php
+..  literalinclude:: /_Examples/my_extension/Classes/Command/SendFluidMailCommand.php
     :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php
 
 Links that the template builds with `f:link.page`, `f:uri.page`, or
