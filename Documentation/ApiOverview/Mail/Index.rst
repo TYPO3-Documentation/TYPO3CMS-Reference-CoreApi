@@ -324,6 +324,10 @@ This command can be set up to be run periodically using the
 How to create and send emails
 =============================
 
+..  versionadded:: 14.2
+    New best practice: Use the new TemplatedEmailFactory to create FluidEmail
+    instances instead of instantiating them.
+
 There are two ways to send emails in TYPO3 based on the Symfony API:
 
 1. With :ref:`Fluid <mail-fluid-email>`, using :php:`\TYPO3\CMS\Core\Mail\FluidEmail`
@@ -340,23 +344,141 @@ Either method can be used to send emails with HTML content, text content or both
 ..  index:: Mail; FluidEmail
 ..  _mail-fluid-email:
 
-Send email with `FluidEmail`
-----------------------------
+`FluidEmail`
+------------
 
-This sends an email using a Fluid template :file:`TipsAndTricks.html`, make sure
-the paths are setup as described in
-:ref:`Fluid paths <mail-configuration-fluid>`:
+Create a `FluidEmail` with the `TemplatedEmailFactory`:
 
 ..  literalinclude:: _codesnippets/_MyClassWithFluidEmail.php
     :caption: EXT:my_extension/Classes/MyClass.php
+    :emphasize-lines: 11,16
+    :visible-lines: 11-19
+
+Inject
+:php-short:`\TYPO3\CMS\Core\Mail\TemplatedEmailFactory` and let it build the
+:php-short:`\TYPO3\CMS\Core\Mail\FluidEmail` instance. The factory resolves
+the template paths, and in a frontend context it adds the paths that the site
+configures. Constructing :php:`new FluidEmail()` still works, but then only
+the global paths apply.
+
+The `TemplatedEmailFactory` offers three methods:
+
+-   :php:`create()`: **Backend/CLI context**: For example in login notifications,
+    scheduler tasks, install tool, where only a global configuration
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL'][...]` is used.
+
+-   :php:`createFromRequest()`: **Frontend context**: Adds the settings of the site
+    that the request belongs to. Use it in a frontend context, so that each
+    site can mail with its own templates. The factory also passes the request
+    on to the email, so :php:`setRequest()` is not needed.
+
+-   :php:`createWithOverrides()`: **For fine-grained customization of the
+    templates**: Some extensions need to provide custom template paths merged on top
+    of the base configuration, taking an optional request context into
+    evaluation. Two cases sorted by priority are then possible:
+
+    *   Request without site attribute: 1. Provided override arguments,
+        2. global config
+    *   Request **with** site attribute: 1. Provided override arguments,
+        2. Site settings, 3. global config
+
+    Note you can also utilize the numerical priority of template paths so that site settings
+    with a higher priority number could "win" the order battle of a lower-number in the
+    override argument paths.
+
+
+..  literalinclude:: _codesnippets/_MyClassWithFluidEmail.php
+    :caption: EXT:my_extension/Classes/MyClass.php
+    :emphasize-lines: 24-32
+    :visible-lines: 20-33
+
+sends an email from a frontend request using a Fluid template
+:file:`TipsAndTricks.html`, make sure the paths are setup as described in
+:ref:`Fluid paths <mail-configuration-fluid>`.
 
 It is recommended to use the :php:`\TYPO3\CMS\Core\Mail\MailerInterface`
 to be able to use :ref:`custom mailer implementations <register-custom-mailer>`.
 
-A file :file:`TipsAndTricks.html` must exist in one of the paths defined in
-:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']` for sending the
-HTML content. For sending plaintext content, a file :file:`TipsAndTricks.txt`
-should exist.
+..  index:: Mail; Site set
+..  _mail-site-set:
+
+The `typo3/email` site set
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionadded:: 14.2
+    The new site set `typo3/email` is available in EXT:core.
+
+Add the site set `typo3/email` to a site set.
+
+..  literalinclude:: _codesnippets/_email-site-set.yaml
+    :caption: config/sites/my-site/config.yaml
+
+The set `typo3/email` defines the following settings:
+
+..  confval-menu::
+    :display: table
+    :name: mail-site-set-settings
+    :type:
+    :default:
+
+    ..  confval:: email.format
+        :name: mail-site-set-email-format
+        :type: string
+        :default: `''`
+
+        Available email formats are `html`, `plain`, or `both`. If no value is
+        set the global configuration is used.
+
+    ..  confval:: email.templateRootPaths
+        :name: mail-site-set-email-templateRootPaths
+        :type: stringlist
+        :default: `['']`
+
+        Paths of the email templates. TYPO3 merges them with the global
+        template paths.
+
+    ..  confval:: email.layoutRootPaths
+        :name: mail-site-set-email-layoutRootPaths
+        :type: stringlist
+        :default: `['']`
+
+        Paths of the email layouts. TYPO3 merges them with the global layout
+        paths.
+
+    ..  confval:: email.partialRootPaths
+        :name: mail-site-set-email-partialRootPaths
+        :type: stringlist
+        :default: `['']`
+
+        Paths of the email partials. TYPO3 merges them with the global partial
+        paths.
+
+These settings are used whenever a request with a site attribute
+is passed to :php:`createFromRequest()` or :php:`createWithOverrides()`.
+
+..  hint::
+
+    Note that entering these paths via the Site settings GUI will
+    add entries as sequential array (numbered 0, 1, 2, ...). In this case,
+    all paths will just be appended to the array, giving all entries here
+    the highest priority.
+    To have more control which paths have priority assign specific numerical array
+     keys in `settings.yaml` manually.
+
+When a request with a site attribute is passed, template paths and format
+from the :yaml:`typo3/email` site set are applied automatically. The merge
+priority is:
+
+1.  Global :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']` paths (base)
+2.  Site settings from :yaml:`typo3/email`, when a site-based request is available,
+    and site settings are applied.
+3.  Caller-provided override paths, when using :php:`createWithOverrides()`.
+
+..  hint::
+
+    A file :file:`TipsAndTricks.html` must exist in one of the paths defined in
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']` for sending the
+    HTML content.
 
 Defining a custom email subject in a custom Fluid template (this only works if "format" is set to FluidEmail::FORMAT_HTML):
 
@@ -370,7 +492,7 @@ and use this within the Fluid template:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
-    $email = new FluidEmail();
+    $email = $this->templatedEmailFactory->create();
     $email
         ->to('contact@example.org')
         ->assign('language', 'de');
@@ -388,9 +510,19 @@ Set the current request object for `FluidEmail`
 
 In order to use ViewHelpers that need a valid current request, such as
 :ref:`f:uri.page ViewHelper <t3viewhelper:typo3-fluid-uri-page>`,
-pass the current request to the FluidEmail instance:
+the FluidEmail instance needs the current request.
+:php:`createFromRequest()` of the
+:ref:`TemplatedEmailFactory <mail-fluid-email>` sets it:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
+
+    $email = $this->templatedEmailFactory->createFromRequest($this->request);
+
+If you construct the email yourself, set the request yourself:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php (excerpt)
 
     use TYPO3\CMS\Core\Mail\FluidEmail;
 
