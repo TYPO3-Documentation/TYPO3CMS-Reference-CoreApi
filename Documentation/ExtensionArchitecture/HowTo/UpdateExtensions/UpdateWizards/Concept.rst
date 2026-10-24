@@ -22,6 +22,10 @@ based on TCA definitions and `ext_tables.sql <https://docs.typo3.org/permalink/t
 The execution order is not defined. Each administrator is able to execute
 wizards and migrations in any order. They can also be skipped completely.
 
+For a migration of single table rows, an extension can provide a
+`row updater <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizards-row-updaters>`_
+instead of a complete wizard.
+
 Each wizard is able to check pre-conditions to prevent execution, if nothing has
 to be updated. The wizard can log information and executed SQL statements, that
 can be displayed after execution.
