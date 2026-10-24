@@ -20,8 +20,9 @@ parts that come from the record.
 
 This event covers the records that TypoScript renders, for example through
 `styles.content.get`. For the records that Fluid renders, use
-:php-short:`\TYPO3\CMS\Fluid\Event\ModifyRenderedRecordEvent`, which this
-event is the counterpart of.
+`ModifyRenderedRecordEvent
+<https://docs.typo3.org/permalink/t3coreapi:ModifyRenderedRecordEvent>`_,
+which this event is the counterpart of.
 
 :php:`getRecord()` usually returns a resolved record. Where TYPO3 cannot
 resolve the row, it returns a
