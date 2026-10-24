@@ -21,7 +21,7 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 final class SendFluidMailCommandTest extends FunctionalTestCase
 {
   protected array $testExtensionsToLoad = [
-    'my-vendor/my-extension',
+    'myvendor/my-extension',
   ];
 
   protected array $configurationToUseInTestInstance = [

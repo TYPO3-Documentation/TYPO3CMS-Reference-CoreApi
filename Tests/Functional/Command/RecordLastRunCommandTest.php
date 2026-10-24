@@ -19,7 +19,7 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 final class RecordLastRunCommandTest extends FunctionalTestCase
 {
   protected array $testExtensionsToLoad = [
-    'my-vendor/my-extension',
+    'myvendor/my-extension',
   ];
 
   #[Test]
