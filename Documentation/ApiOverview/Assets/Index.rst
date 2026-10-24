@@ -181,6 +181,34 @@ no :html:`type=` is output for JavaScript):
         ['type' => 'module']
     );
 
+An attribute value can also be a boolean or an array. `true` renders the
+attribute without a value, and `false` or `null` leaves the attribute out.
+An array is encoded as JSON:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+    $this->assetCollector->addJavaScript(
+        'my_ext_foo',
+        'EXT:my_extension/Resources/Public/JavaScript/foo.js',
+        [
+            'defer' => true,
+            'nomodule' => false,
+            'data-config' => ['lazy' => 1],
+        ]
+    );
+
+This renders the attributes
+:html:`defer data-config="{&quot;lazy&quot;:1}"`. An enumerated attribute
+such as :html:`aria-hidden` still needs the string `'true'` or `'false'`,
+because leaving it out does not mean "false".
+
+..  versionchanged:: 15.0
+    :changelog: feature-110769-1790196401
+
+    Before, `true` rendered as :html:`defer="defer"`, and an array was not
+    possible as a value.
+
 Check if a JavaScript file with the given identifier exists:
 
 ..  code-block:: php
