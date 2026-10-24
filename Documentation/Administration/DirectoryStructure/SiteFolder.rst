@@ -30,6 +30,16 @@ following file:
     The name of the folder is editable as **Site Identifier** in the site
     configuration form.
 
+TYPO3 caches the content of all files in the site folder. After you edit a
+file directly, flush all caches. A change in the :guilabel:`Sites` modules
+flushes the cache automatically.
+
+..  versionchanged:: 14.3
+    :changelog: important-110358-1785732863
+
+    Before, TYPO3 read the files :file:`csp.yaml`, :file:`setup.typoscript`,
+    :file:`constants.typoscript`, and :file:`page.tsconfig` on every request.
+
 ..  contents:: Optional files in the site folder
 
 ..  _site-folder-settings:
