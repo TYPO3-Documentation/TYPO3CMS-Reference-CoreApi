@@ -78,6 +78,37 @@ for registration if you need to define an order:
 ..  literalinclude:: _demo-handler.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+..  _message-bus-handler-from-transport:
+
+Bind a handler to a receiving transport with `fromTransport`
+------------------------------------------------------------
+
+..  versionchanged:: 14.3
+    :changelog: important-107032-1784329900
+
+    Before, TYPO3 ignored `fromTransport`, and the handler ran for every
+    message. Remove `fromTransport` from a handler that relied on this.
+
+The `fromTransport` property of
+:php-short:`\Symfony\Component\Messenger\Attribute\AsMessageHandler` binds a
+handler to a receiving transport. The handler then runs only for messages that
+a worker received from this transport, for example with
+`vendor/bin/typo3 messenger:consume doctrine`:
+
+..  literalinclude:: _AsyncDemoHandler.php
+    :caption: EXT:my_extension/Classes/Queue/Handler/AsyncDemoHandler.php
+
+A message that is dispatched and handled synchronously still reaches the
+handler. A handler without `fromTransport` runs for every message, whatever
+the transport.
+
+To bind a handler to several transports, repeat the attribute once for each
+transport. In the :file:`Services.yaml` tag, `fromTransport` also takes a list
+of transport names:
+
+..  literalinclude:: _from-transport-handler.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
 ..  _message-bus-routing:
 
 "Everyday" usage - as a system administrator/integrator
