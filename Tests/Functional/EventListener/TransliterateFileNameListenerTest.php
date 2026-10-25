@@ -19,6 +19,9 @@ final class TransliterateFileNameListenerTest extends FunctionalTestCase
     'myvendor/my-extension',
   ];
 
+  /**
+   * @return array<string, array{string, string}>
+   */
   public static function fileNameDataProvider(): array
   {
     return [
