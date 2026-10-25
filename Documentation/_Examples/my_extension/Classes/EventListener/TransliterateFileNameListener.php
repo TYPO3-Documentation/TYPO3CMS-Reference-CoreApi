@@ -9,9 +9,9 @@ use TYPO3\CMS\Core\Charset\CharsetConverter;
 use TYPO3\CMS\Core\Resource\Event\SanitizeFileNameEvent;
 
 #[AsEventListener(
-  identifier: 'my-extension/ascii-filename',
+  identifier: 'my-extension/transliterate-filename',
 )]
-final readonly class AsciiFileNameListener
+final readonly class TransliterateFileNameListener
 {
   public function __construct(
     private CharsetConverter $charsetConverter,
@@ -22,6 +22,6 @@ final readonly class AsciiFileNameListener
     $fileName = $this->charsetConverter->utf8_char_mapping(
       $event->getFileName(),
     );
-    $event->setFileName((string)preg_replace('/[^.\w-]/', '_', $fileName));
+    $event->setFileName((string)preg_replace('/[^.\p{L}\p{N}_-]/u', '_', $fileName));
   }
 }

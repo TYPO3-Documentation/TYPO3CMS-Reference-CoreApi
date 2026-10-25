@@ -10,10 +10,10 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
- * Checks the listener that transliterates file names to ASCII, on the
- * page on the SanitizeFileNameEvent. The storage dispatches the event.
+ * Checks the listener that transliterates file names, on the page on the
+ * SanitizeFileNameEvent. The storage dispatches the event.
  */
-final class AsciiFileNameListenerTest extends FunctionalTestCase
+final class TransliterateFileNameListenerTest extends FunctionalTestCase
 {
   protected array $testExtensionsToLoad = [
     'myvendor/my-extension',
@@ -24,14 +24,15 @@ final class AsciiFileNameListenerTest extends FunctionalTestCase
     return [
       'umlaut' => ['Grüße.pdf', 'Gruesse.pdf'],
       'accent' => ['Café menu.pdf', 'Cafe_menu.pdf'],
-      'no ASCII equivalent' => ['日本.pdf', '______.pdf'],
+      'Cyrillic' => ['Москва.jpg', 'Moskva.jpg'],
+      'no ASCII equivalent' => ['日本.pdf', '日本.pdf'],
       'already ASCII' => ['report-2026.pdf', 'report-2026.pdf'],
     ];
   }
 
   #[Test]
   #[DataProvider('fileNameDataProvider')]
-  public function storageStoresTheFileNameInAscii(
+  public function storageStoresTheTransliteratedFileName(
     string $fileName,
     string $expected,
   ): void {
