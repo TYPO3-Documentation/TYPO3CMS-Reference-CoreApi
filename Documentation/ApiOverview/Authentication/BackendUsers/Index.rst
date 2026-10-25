@@ -37,7 +37,7 @@ When an administrator edits their own user account or changes the
 password of another user via the admin interface, password confirmation
 (step-up authentication) is required.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/SudoMode.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/SudoMode.png
     :alt: Dialog "Verify with user password" with password prompt shown on attempting to change a password.
 
     Step-up authentication requires the administrator to re-enter their password

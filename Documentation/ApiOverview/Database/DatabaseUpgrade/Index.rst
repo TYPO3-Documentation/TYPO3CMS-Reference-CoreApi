@@ -14,7 +14,7 @@ Whenever you install or update an extension, or change the
 in an extension, you have to take into account the fact that the database
 schema might have changed.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/AnalyzeDatabase.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/AnalyzeDatabase.png
     :alt: TYPO3 backend with the "System > Maintenance". The database analyzer is highlighted.
 
     Here system maintainers can compare the database schema and apply any changes.

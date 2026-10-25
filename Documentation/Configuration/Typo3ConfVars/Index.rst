@@ -259,12 +259,12 @@ change parts of :file:`config/system/settings.php`. They can be found in
 :guilabel:`System > Settings` - most importantly section
 :guilabel:`Configure installation-wide options`:
 
-..  figure:: /Images/ManualScreenshots/AdminTools/AllConfiguration.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.png
     :zoom: lightbox
 
     Configure installation-wide options :guilabel:`System > Settings`
 
-..  figure:: /Images/ManualScreenshots/AdminTools/InstallationWideOptions.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/InstallationWideOptions.png
     :zoom: lightbox
 
     Configure installation-wide options with an active search
