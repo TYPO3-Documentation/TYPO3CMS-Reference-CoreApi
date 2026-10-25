@@ -89,7 +89,7 @@ to switch to the "Backend User Groups" submodule.
 
     Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserGroupsModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Module/BackendUserGroupsModule.png
     :alt: Screenshot of the Module "Backend Users", submodule "Backend User Groups" in the TYPO3 Backend
 
     Click the button "+ Create a new backend user group" if you want to create a new group. Or edit one of those created by the command.
@@ -97,7 +97,7 @@ to switch to the "Backend User Groups" submodule.
 Start by entering the name for the new group. Optionally, inherit from group
 "Editors".
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabGeneral.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TabGeneral.png
     :alt: Tab General with the backend user group title and Group inheritance
 
     Enter a name for the group
@@ -106,14 +106,14 @@ Let us keep things simple for the further permissions.
 
 Go to tab **Module Permissions**:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TabModule.png
     :alt: Tab "Module Permissions" with the list of allowed modules
 
     For **Allowed Modules** choose :guilabel:`Content > Layout` and :guilabel:`Content > Preview`
 
 Then move to tab **Record Permissions**:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TablePermission.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TablePermission.png
     :alt: Tab "Record Permissions", field "Table Permissions" with option Read & Write chosen for tables Page and Page Content
 
     Choose **Table Permissions** choose "Read & Write" for tables Page and Page content
@@ -122,7 +122,7 @@ On the same tab in field "Allowed page types" choose "Standard".
 
 Move to the "Mounts and workspaces" tab.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabMounts.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TabMounts.png
     :alt: Tab "Mounts and workspaces" in the backend user group edit form.
 
     Select the "Startpage" page as DB mount (starting point for the page tree).

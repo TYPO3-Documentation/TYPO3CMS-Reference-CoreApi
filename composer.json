@@ -46,7 +46,8 @@
         "typo3/cms-tstemplate": "dev-main as 14.3",
         "typo3/cms-viewpage": "dev-main as 14.3",
         "typo3/cms-workspaces": "dev-main as 14.3",
-        "typo3/testing-framework": "dev-main"
+        "typo3/testing-framework": "dev-main",
+        "typo3/theme-camino": "dev-main as 14.3"
     },
     "repositories": [
         {

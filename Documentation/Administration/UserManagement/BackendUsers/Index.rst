@@ -14,7 +14,7 @@ module.
 
     Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Module/ModuleBackendUsers.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Module/ModuleBackendUsers.png
     :alt: Screenshots of the TYPO3 backend module Backend Users
 
     This module makes it possible to search and filter users. They
@@ -43,7 +43,7 @@ dropdown in the module header. You can
 or `Administrators <https://docs.typo3.org/permalink/t3coreapi:admin-user>`_
 here, enable and disable access for your users, reset password of non-admins, etc.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserActions.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Module/BackendUserActions.png
     Overview of buttons in the entry of a non-admin backend user
 
 1.  Edit user settings.
@@ -69,7 +69,7 @@ here, enable and disable access for your users, reset password of non-admins, et
 Backend user groups submodule
 =============================
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserGroupsModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Module/BackendUserGroupsModule.png
     :alt: Screenshot of the Module "Backend Users", submodule "Backend User Groups" in the TYPO3 Backend
 
 Gives you an overview of all backend user groups and allows you to edit, disable,
@@ -88,7 +88,7 @@ during the last two hours but never logged out.
 File mounts submodule
 =====================
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Module/FileMounts.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Module/FileMounts.png
     :alt: Screenshot of the Module "Backend Users", submodule "File mounts" in the TYPO3 Backend
 
 Allows you to view, edit, disable or delete file mounts.

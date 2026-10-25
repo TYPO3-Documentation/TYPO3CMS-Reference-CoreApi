@@ -49,14 +49,14 @@ Once logged in to the Admin Tool go to :guilabel:`Maintenance > Create Administr
 and select :guilabel:`Create Administrator`. In this dialog you
 can create a new administrative user.
 
-..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministrator.png
+..  figure:: /Images/AutomaticScreenshots/BackendUsers/CreateAdministrator.png
     :alt: Button to create an administrator
     :zoom: lightbox
 
     Create a new administrative user
 
 
-..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministratorForm.png
+..  figure:: /Images/AutomaticScreenshots/BackendUsers/CreateAdministratorForm.png
     :alt: Form to create an administrator
     :zoom: lightbox
 

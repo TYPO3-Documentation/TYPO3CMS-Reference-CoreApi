@@ -11,7 +11,7 @@ Setting up user group permissions
 We will look into managing user permissions by editing the
 "Advanced editors" user group.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserGroupsModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Module/BackendUserGroupsModule.png
     :alt: Screenshot of the Module "Backend Users", submodule "Backend User Groups" in the TYPO3 Backend
 
 ..  contents:: Table of contents
@@ -25,7 +25,7 @@ On the "General" tab you can edit the group's title and write a
 short description. As mentioned before, permissions from sub-groups
 will be inherited by the current group.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabGeneral.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TabGeneral.png
     :alt: Tab General with the backend user group title and Group inheritance
 
     Content of the "General" tab when editing a backend user group
@@ -79,7 +79,7 @@ use the content element "Text & Images", it is important that they also be able 
 read and write the tables "File Reference" and "File" beside also having
 permissions to actually write saved files.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TablePermission.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TablePermission.png
     :alt: Screenshot of Tab "Record Permissions", field "Table Permissions" in a user group record
 
 ..  _access-lists-allowed-excludefields:
@@ -93,7 +93,7 @@ from backend users (except administrators) unless they are explicitly granted
 access. This field manages that access by displaying a list of all tables and
 their excluded fields.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/AllowedFields.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/AllowedFields.png
     :alt: Section "Allowed fields" in tab "Record permissions" of the user group record
 
     Click on a table name and select allowed fields
@@ -114,7 +114,7 @@ here.
 A content element type not checked in this section cannot be added or edited by
 a user of this group.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/AllowedFields.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/AllowedFields.png
     :alt: Section "Explicitly allow field values" in tab "Record permissions" of the user group record
 
 ..  tip::
@@ -130,7 +130,7 @@ a user of this group.
 In a multilingual web site, it is also possible to restrict users
 to a specific language or set of languages.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/LimitLanguages.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/LimitLanguages.png
     :alt: Section "Limit to languages" in tab "Record permissions" of the user group record
 
 ..  _access-lists-modules:
@@ -140,7 +140,7 @@ to a specific language or set of languages.
 
 The section "Allowed modules" grants access to different backend modules.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TabModule.png
     :alt: Tab "Module Permissions" with the list of allowed modules
 
 If you allow the module "Dashboard" you should also explicitly choose
@@ -175,7 +175,7 @@ the backend.
 Each mount corresponds to a page in the tree. The user will have access only
 to those pages and their sub-pages.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabMounts.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/TabMounts.png
     :alt: Tab "Mounts and workspaces" in the backend user group edit form.
 
 ..  warning::
@@ -201,7 +201,7 @@ file tree in module :guilabel:`Media`, or in the
 
 They can then be selected when editing a backend user group:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Groups/FileMounts.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Groups/FileMounts.png
     :alt: Section "File Mounts" in tab "Mounts and Workspaces" in the backend user group edit form.
 
     Select the File mount by clicking on the right and adding them to the left.
