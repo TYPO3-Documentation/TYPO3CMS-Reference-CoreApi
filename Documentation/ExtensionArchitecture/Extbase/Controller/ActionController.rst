@@ -152,6 +152,11 @@ explicit mapping, not an automatic merge. Only values that flow through
 :ref:`Extbase TypoScript configuration
 <extbase-configuration-typoscript-scopes>`.
 
+If helper classes or services need configuration values, pass them from the
+controller. For details on why Extbase settings cannot be read reliably outside
+a controller and how to handle global configuration, see
+:ref:`Accessing settings outside a controller
+<extbase-configuration-settings-outside-controller>`.
 
 ..  _extbase-controller-action-responses:
 ..  _extbase-action-controller-stop:
