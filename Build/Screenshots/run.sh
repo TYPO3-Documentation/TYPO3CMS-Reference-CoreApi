@@ -22,6 +22,9 @@ ${PHP_RUN} .Build/bin/typo3 setup --no-interaction --force \
 ${PHP_RUN} .Build/bin/typo3 extension:setup
 # The PHP web server provides no SERVER_NAME to compare the host with
 ${PHP_RUN} .Build/bin/typo3 configuration:set SYS/trustedHostsPattern '.*'
+# The folder for temporary files is missing, as in the screenshot of the
+# directory status
+rm -rf .Build/web/fileadmin/_temp_
 
 ${WEB_START}
 trap '${WEB_STOP}' EXIT

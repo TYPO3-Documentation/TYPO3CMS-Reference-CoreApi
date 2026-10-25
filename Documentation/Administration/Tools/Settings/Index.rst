@@ -113,7 +113,7 @@ Allows you to switch the `password hashing algorithm <https://docs.typo3.org/per
 Feature toggles
 ===============
 
-..  figure:: /Images/ManualScreenshots/AdminTools/FeatureToggles.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.png
     :alt: Feature toggles in the system settings
 
 This tool enables and disables Core features. See

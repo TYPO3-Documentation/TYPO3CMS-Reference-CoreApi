@@ -37,7 +37,7 @@ values.
 Directory status
 ================
 
-..  figure:: /Images/ManualScreenshots/AdminTools/DirectoryStatus.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/DirectoryStatus.png
     :alt: Output of the directory status with missing writing permissions for folder public
 
     You can use the button "Try to fix file and folder permissions"

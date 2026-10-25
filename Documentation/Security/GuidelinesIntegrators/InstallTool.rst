@@ -63,7 +63,7 @@ administrator privileges.
     file to avoid accidentally committing and deploying it to production
     environments.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/EnableInstallTool.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.png
     :zoom: lightbox
 
     Screen to enable the Install Tool
@@ -145,7 +145,7 @@ into the Install Tool:
 Log-in to the Install Tool and change it in :guilabel:`System > Settings > Change
 install tool password`.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/ChangeInstallToolPassword.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/ChangeInstallToolPassword.png
     :zoom: lightbox
 
     Screen to change the Install Tool password
