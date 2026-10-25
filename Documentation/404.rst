@@ -88,9 +88,10 @@ The settings of the user settings module are configured in TCA at
 :file:`ext_emconf.php` files in extensions are no longer evaluated for package
 metadata. In TYPO3 classic (non-Composer) mode the :file:`composer.json` must
 declare the extension version and the :php:`providesPackages` definition in
-the :php:`extra/typo3/cms` section. These two fields are now mandatory,
-also for extensions that no longer ship an :file:`ext_emconf.php`, otherwise
-loading the extension throws an exception.
+the :php:`extra/typo3/cms` section. Both fields are mandatory. An extension
+whose :file:`composer.json` lacks them is not registered as a package and is
+dropped from :file:`PackageStates.php` during the package scan. No error
+message is shown, but TYPO3 writes a warning with the reason to the log file.
 
 ..  _confval-database-writer-logTable:
 

@@ -138,12 +138,25 @@ Classic mode compatible composer.json
 
 ..  versionchanged:: 14.2
 
-Extension authors should add
+..  versionchanged:: 15.0
+    :changelog: breaking-109783-1776735296
+
+    TYPO3 no longer reads the package metadata from :file:`ext_emconf.php`.
+
+An extension that is installed in Classic mode needs the
 :ref:`extra.typo3/cms.version <ext-composer-json-property-extra-version>` and
 `providesPackages <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-property-provides-packages>`_
-definitions to :file:`composer.json <extension-composer-json>` if their
-extensions need to remain compatible with TYPO3 Classic mode.
+definitions in :file:`composer.json <extension-composer-json>`.
 :php:`providesPackages` must exist even if it is empty.
+
+Both definitions are mandatory. TYPO3 does not register an extension that
+lacks them as a package: during the package scan, the extension is omitted
+from :file:`PackageStates.php`, from the Extension Manager, and from the
+command :bash:`extension:list`. No error message is shown, but TYPO3 writes a
+warning with the reason to the
+`log file <https://docs.typo3.org/permalink/t3coreapi:logging-writers-filewriter>`_,
+by default :file:`typo3temp/var/log/typo3_<hash>.log`. Only an explicit reload
+of the package information throws an exception.
 
 In Classic mode, TYPO3 distinguishes between dependencies on other TYPO3 extensions
 (:php:`require`, :php:`conflicts` and :php:`suggests`) and on
