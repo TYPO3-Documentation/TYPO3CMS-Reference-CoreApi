@@ -175,6 +175,30 @@ then replace the message at the call site:
     ])]
 
 
+..  _extbase-validation-custom-options-settings:
+
+Setting validator options from Extbase settings
+===============================================
+
+Because the arguments of a PHP attribute must be `constant expressions
+<https://www.php.net/manual/en/language.attributes.syntax.php>`_, the
+:php:`#[Validate]` attribute cannot access :php:`$this->settings`. If
+validation rules depend on dynamic Extbase settings, handle the validation in
+the controller or a domain service where :php:`$this->settings` is available,
+or dynamically attach a configured validator to the argument in
+:php:`initializeAction()` or in the initializer of the action itself:
+
+..  literalinclude:: _snippets/_ConferenceControllerSettingsValidator.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+Extbase attaches the validators declared with :php:`#[Validate]` to each
+argument before :php:`initializeRegisterAction()` runs, and maps and validates
+the argument afterwards. The added
+:php-short:`\MyVendor\MyExtension\Validation\Validator\SeatCountValidator`
+runs together with the declared ones. An argument marked with
+:php:`#[IgnoreValidation]` has no validator to add to.
+
+
 ..  _extbase-validation-custom-next:
 
 What to read next

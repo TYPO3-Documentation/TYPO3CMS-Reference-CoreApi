@@ -59,6 +59,11 @@ Each page describes what is available in that context, what has to be
 established before Extbase can be used, and when the work belongs somewhere
 else entirely.
 
+Commands and middlewares have no Extbase settings, and a backend module has
+only the settings of its own module. Which configuration can be read instead is
+described in :ref:`Reading configuration outside a frontend request
+<extbase-no-frontend-configuration>`.
+
 ..  toctree::
     :titlesonly:
     :hidden:
@@ -66,3 +71,4 @@ else entirely.
     BackendModule
     Command
     Middleware
+    Configuration
