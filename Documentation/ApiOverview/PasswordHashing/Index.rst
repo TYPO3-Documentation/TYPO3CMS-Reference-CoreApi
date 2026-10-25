@@ -157,7 +157,7 @@ preset of the settings module is available. It can be found in
 :guilabel:`System > Settings
 > Configuration presets > Password hashing settings`:
 
-..  figure:: /Images/ManualScreenshots/AdminTools/PasswordHashingSettings.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/PasswordHashingSettings.png
     :class: with-shadow
     :alt: Argon2id active for frontend and backend users
 

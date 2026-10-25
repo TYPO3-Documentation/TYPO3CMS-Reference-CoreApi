@@ -334,8 +334,11 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         ;;
     screenshots)
-        export PHP_RUN="${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} ${IMAGE_PHP}"
-        export WEB_START="${CONTAINER_BIN} run -d ${CONTAINER_COMMON_PARAMS} --name screenshots-web-${SUFFIX} ${IMAGE_PHP} php -S 0.0.0.0:8080 -t .Build/web Build/Screenshots/router.php"
+        # The instance lives at the same path on every machine, as the
+        # backend shows its path in some screenshots
+        INSTANCE_MOUNT="-v ${ROOT_DIR}:/var/www/html -w /var/www/html"
+        export PHP_RUN="${CONTAINER_BIN} run ${CONTAINER_COMMON_PARAMS} ${INSTANCE_MOUNT} ${IMAGE_PHP}"
+        export WEB_START="${CONTAINER_BIN} run -d ${CONTAINER_COMMON_PARAMS} ${INSTANCE_MOUNT} --name screenshots-web-${SUFFIX} ${IMAGE_PHP} php -S 0.0.0.0:8080 -t .Build/web Build/Screenshots/router.php"
         export WEB_STOP="${CONTAINER_BIN} rm -f screenshots-web-${SUFFIX}"
         # Like CONTAINER_COMMON_PARAMS, only docker needs the user to be set
         BROWSER_USER=""

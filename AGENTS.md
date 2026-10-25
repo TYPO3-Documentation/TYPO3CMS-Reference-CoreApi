@@ -104,7 +104,7 @@ Makefile                    # local install/build/test commands
 - `make test` — full test suite (docs, lint, example extension, PHPStan,
   cgl, yaml, typoscript, json, reST style, editorconfig).
 - `make screenshots` — set up a TYPO3 instance with SQLite in containers and
-  take the screenshots into `Documentation/Images/ManualScreenshots/`;
+  take the screenshots into `Documentation/Images/AutomaticScreenshots/`;
   `Build/Scripts/runTests.sh -s screenshots AdminTools/UpgradeTools` takes
   only the named ones. `Build/Screenshots/screenshots.mjs` lists the
   screenshots it can take. Run it on each branch, so the screenshots show

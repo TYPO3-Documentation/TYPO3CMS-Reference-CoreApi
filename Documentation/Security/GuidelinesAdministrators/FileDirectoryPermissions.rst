@@ -8,7 +8,7 @@
 Secure file permissions (operating system level)
 ================================================
 
-..  figure:: /Images/ManualScreenshots/AdminTools/DirectoryStatus.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/DirectoryStatus.png
     :alt: Output of the directory status with missing writing permissions for folder public
 
     The tool "Directory Status" in :guilabel:`System > Environment` displays warnings about missing write permissions
