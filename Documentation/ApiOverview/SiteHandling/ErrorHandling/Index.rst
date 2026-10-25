@@ -33,7 +33,7 @@ serves all error pages.
     <error-handling>`, since they occur on a much lower level.
     These are currently not covered by site error handling.
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingErrorHandling-1.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingErrorHandling-1.png
     :zoom: lightbox
 
     Add custom error handling.
