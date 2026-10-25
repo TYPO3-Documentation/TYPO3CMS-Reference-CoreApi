@@ -207,30 +207,68 @@ field:
 Create your own `XmlSitemapDataProvider`
 ========================================
 
-If you need more logic in your sitemap, you can also write your own
-`XmlSitemapProvider`. You can do this by extending the
-:php:`\TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider` class. The main
-methods are :php:`getLastModified()` and :php:`getItems()`.
+..  versionchanged:: 15.0
+    :changelog: breaking-110334-1785418299
 
-The :php:`getLastModified()` method is used in the sitemap index and has to
-return the date of the last modified item in the sitemap.
+    A data provider is a service that implements
+    :php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemapDataProviderInterface`
+    with the single method :php:`getSitemap()`. Before, a data provider
+    received its runtime information as constructor arguments and collected
+    its items in the constructor.
 
-The :php:`getItems()` method has to return an array with the items for the
-sitemap:
+..  deprecated:: 15.0
+    :changelog: deprecation-110334-1785418299
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/XmlSitemap/MyXmlSitemapProvider
+    :php-short:`\TYPO3\CMS\Seo\XmlSitemap\AbstractXmlSitemapDataProvider`
+    still works, but triggers a deprecation message and will be removed in
+    TYPO3 v16. To support TYPO3 v14 as well, keep extending the base class
+    and implement the interface once support for TYPO3 v14 is dropped.
 
-    $this->items[] = [
-        'loc' => 'https://example.org/page1.html',
-        'lastMod' => '1536003609'
-    ];
+If you need more logic in your sitemap, write your own data provider. It
+implements
+:php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemapDataProviderInterface`.
+If
+`autoconfigure <https://docs.typo3.org/permalink/t3coreapi:dependency-injection-autoconfigure>`_
+is enabled in the file :file:`Configuration/Services.yaml` of the extension,
+TYPO3 finds the data provider through this interface. Without
+`autoconfigure`, tag the service with `seo.xmlsitemap.provider`. As a
+service, the data provider can use dependency injection in its constructor.
+This data provider adds the records of an event table to the sitemap:
 
-The :php:`loc` element is the URL of the page to be crawled by a search engine.
-The :php:`lastMod` element contains the date of the last update of the
-specific item. This value is a UNIX timestamp. In addition, you can include
-:php:`changefreq` and :php:`priority` as keys in the array to give
-:ref:`search engines a hint <xmlsitemap-changefreq-priority>`.
+..  literalinclude:: /_Examples/my_extension/Classes/XmlSitemap/EventProvider.php
+    :caption: EXT:my_extension/Classes/XmlSitemap/EventProvider.php
+
+The method :php:`getSitemap()` receives a
+:php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemapRequest` with the name of
+the sitemap, its configuration from TypoScript, the number of the requested
+page of the sitemap, the request, and a content object renderer to generate
+URLs with.
+
+It returns a :php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemap`.
+:php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemap::forPage()` takes all
+items of the sitemap, selects the items of the requested page, and calculates
+the last modification date and the number of pages for the sitemap index. The optional third argument maps
+the items of the requested page, so URLs are only generated for these items,
+and never for the sitemap index. A data provider that pages its items itself,
+for example in its database query, uses
+:php-short:`\TYPO3\CMS\Seo\XmlSitemap\XmlSitemap::create()` instead.
+
+The sitemap reads these keys of each item:
+
+`loc`
+    The URL of the page to be crawled by a search engine. The example adds
+    it in the mapper, so only the items of the requested page get a URL.
+
+`lastMod`
+    The date of the last update of the item, as a Unix timestamp.
+
+`changefreq` and `priority`
+    Optional :ref:`hints for search engines <xmlsitemap-changefreq-priority>`.
+
+Register the data provider in TypoScript with its class name:
+
+..  literalinclude:: /_Examples/my_extension/Configuration/Sets/Main/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
 
 ..  _sitemap-xslfile:
