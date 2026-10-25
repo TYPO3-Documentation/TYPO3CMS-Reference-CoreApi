@@ -124,7 +124,7 @@ or even a section :guilabel:`System` in the :ref:`Module menu <backend-modules-s
 you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/EditorAdminPrivileges.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/EditorAdminPrivileges.png
     :zoom: lightbox
 
     Screenshot of a menu with the section "System"

@@ -145,7 +145,7 @@ Enable / disable feature toggle
 Features can be toggled in the :guilabel:`System > Settings` module via
 :guilabel:`Feature Toggles`:
 
-..  figure:: /Images/ManualScreenshots/AdminTools/FeatureToggles.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.png
     :alt: Feature toggles in module System > Settings
 
 Internally, the changes are written to :file:`config/system/settings.php`:

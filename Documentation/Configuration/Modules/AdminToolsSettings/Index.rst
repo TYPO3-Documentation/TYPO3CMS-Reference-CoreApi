@@ -19,7 +19,7 @@ Global configuration can only be changed by backend users with
 Use the backend module :guilabel:`System > Settings` to access the
 different configuration options:
 
-..  figure:: /Images/ManualScreenshots/AdminTools/AdminToolsSettings.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/AdminToolsSettings.png
     :alt: Backend module "System > Settings" as seen by a system maintainer
 
 Changes made in this module are written to file :file:`config/system/settings.php`.

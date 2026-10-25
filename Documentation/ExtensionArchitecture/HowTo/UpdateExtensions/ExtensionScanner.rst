@@ -49,7 +49,7 @@ Quick start
 
    :guilabel:`System > Upgrade > Scan Extension Files`
 
-   ..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScannerOpen.png
+   ..  figure:: /Images/AutomaticScreenshots/AdminTools/ExtensionScannerOpen.png
        :zoom: lightbox
 
         Open the extension scanner at :guilabel:`System > Upgrade > Scan Extension Files`

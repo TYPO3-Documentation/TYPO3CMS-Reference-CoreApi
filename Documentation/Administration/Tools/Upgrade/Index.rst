@@ -20,7 +20,7 @@ The backend module :guilabel:`System > Upgrade` offers tools
 to system maintainers that are useful during
 :ref:`Major upgrades (TYPO3 explained) <t3coreapi:major>`.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/UpgradeTools.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/UpgradeTools.png
     :alt: System > Upgrade, Overview
 
 The tools listed here are mainly used during  `Major Upgrades of the TYPO3 Core
