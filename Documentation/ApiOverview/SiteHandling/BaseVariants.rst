@@ -33,7 +33,7 @@ would define a base variant to use in "Development" context.
     Environment variables can be used in the :yaml:`base` via `%env(...)%`.
     :yaml:`condition` needs `getenv(...)` instead.
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
     :zoom: lightbox
 
     A configured base variant for development context.

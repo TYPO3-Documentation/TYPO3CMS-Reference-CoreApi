@@ -1,0 +1,7 @@
+# Screenshots that can differ between two runs without a real change. The
+# review of a screenshot run (skill typo3-docs-screenshot-review, option
+# --flaky) shows them apart and proposes to restore them.
+#
+# The fields of the new site form now and then keep the border color of
+# the moment they were filled in.
+Documentation/Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.png

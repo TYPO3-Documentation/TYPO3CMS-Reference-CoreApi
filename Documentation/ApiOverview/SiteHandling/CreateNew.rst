@@ -15,7 +15,7 @@ A new site configuration is automatically created for each
 To customize the automatically created site configuration,
 go to the :guilabel:`Sites > Setup` module.
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.png
     :zoom: lightbox
 
     Automatically created site configuration
@@ -24,12 +24,12 @@ You can edit a site by clicking on the :guilabel:`Edit` icon (the pencil). If
 for some reason no site configuration was created, there will be a button to
 create one:
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingNoSite.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingNoSite.png
     :zoom: lightbox
 
 The site configuration form looks like this:
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.png
     :zoom: lightbox
 
     A new site creation form.
@@ -75,7 +75,7 @@ You can choose
 Although 3. is always recommended when working with multi-site setups to keep
 language IDs between sites in sync, 2. is a quick start to set up a new site.
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.png
     :zoom: lightbox
 
     Set default language settings

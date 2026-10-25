@@ -7,7 +7,7 @@
 Site configuration: basic settings for the whole web site
 =========================================================
 
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteConfigurationOverview.png
+..  figure:: /Images/AutomaticScreenshots/SiteHandling/SiteConfigurationOverview.png
     :alt: Backend module Site Configuration in overview, found at Sites > Setup
 
     The site configuration gives you an overview of all configured sites

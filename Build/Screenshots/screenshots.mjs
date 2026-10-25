@@ -31,6 +31,48 @@ const expand = async ({ page }, title) => {
   await page.waitForTimeout(800);
 };
 
+// The card of a site in Sites > Setup, by the title of its root page
+const siteCard = (frame, title) => frame.locator(`.card:has(.card-title:text-is("${title}"))`);
+
+// A field of the site form, by its name
+const siteField = (frame, name) => frame.locator(`[data-formengine-input-name$="[${name}]"]`).first();
+
+// Fills in a field of a form and marks it as changed right away, as
+// FormEngine otherwise marks it only once the focus leaves it
+const fillIn = async (field, value) => {
+  await field.fill(value);
+  await field.dispatchEvent('change');
+};
+
+// Opens the form of a new site configuration for the page without one
+const createSite = async ({ page, frame }) => {
+  await frame.locator('a, button', { hasText: 'Add new site configuration' }).first().click();
+  await frame.locator('h1', { hasText: 'Create new site' }).waitFor();
+  // The set comes first, as choosing it renders the form anew, which
+  // forgets which fields changed. A click on an available item moves it to
+  // the selected ones, once the list has the focus.
+  const selected = frame.locator('select[data-formengine-input-name$="[dependencies]"] option');
+  while (await selected.count() === 0) {
+    await frame.locator('option', { hasText: '[typo3/fluid-styled-content]' }).last().click();
+    await page.waitForTimeout(500);
+  }
+  // Marks the set field as changed right away, like fillIn
+  await frame.locator('select[data-formengine-input-name$="[dependencies]"]').dispatchEvent('change');
+  await page.waitForTimeout(1500);
+  await fillIn(siteField(frame, 'identifier'), 'my-other-site');
+  await fillIn(siteField(frame, 'websiteTitle'), 'My other site');
+  await fillIn(siteField(frame, 'base'), 'https://my-other-site.example.org/');
+  // The border of a changed field fades to its new color
+  await page.waitForTimeout(2000);
+};
+
+// Opens the form of the site configuration "main"
+const editSite = async ({ page, frame }) => {
+  await siteCard(frame, 'Start page').getByTitle('Edit site configuration').click();
+  await frame.locator('h1', { hasText: 'Site configuration' }).waitFor();
+  await page.waitForTimeout(500);
+};
+
 // Each screenshot opens a module from the module menu and shows the
 // backend in a viewport of the given size:
 //
@@ -39,7 +81,10 @@ const expand = async ({ page }, title) => {
 //   prepare    runs after the module has loaded, for example to open a
 //              modal
 //   highlight  frames an element of the open modal, to point at it
-//   clip       cuts out an element, with a margin, instead of the viewport
+//   clip       cuts out an element, with a margin, instead of the viewport,
+//              or the area from one element of the module to another
+//   margin     the space around a clip, instead of the default
+//   scrollTo   scrolls an element of the module to the given top
 //   url        opens a page instead of a module
 //   fresh      takes the screenshot in a session of its own, which has not
 //              confirmed the password for the Admin Tools yet
@@ -150,6 +195,92 @@ const screenshots = {
     height: 700,
     clip: '.typo3-install-content',
   },
+  'SiteHandling/SiteConfigurationOverview': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 700,
+    // Notes about the sites stand above the list
+    scrollTo: (frame) => [frame.locator('h2', { hasText: 'Sites' }), 180],
+    clip: (frame) => [
+      frame.locator('h2', { hasText: 'Sites' }),
+      siteCard(frame, 'Start page').locator('.card-footer'),
+    ],
+    margin: 12,
+  },
+  'SiteHandling/SiteHandlingCreateNewSite-1': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 700,
+    scrollTo: (frame) => [siteCard(frame, 'My site'), 180],
+    clip: (frame) => [siteCard(frame, 'My site'), siteCard(frame, 'My site').locator('.card-footer')],
+    margin: 8,
+  },
+  'SiteHandling/SiteHandlingNoSite': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 400,
+    scrollTo: (frame) => [frame.locator('h2', { hasText: 'Pages without a site configuration' }), 190],
+  },
+  'SiteHandling/SiteHandlingCreateNewSite-2': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 900,
+    prepare: createSite,
+    scrollTo: (frame) => [frame.locator('h1'), 180],
+  },
+  'SiteHandling/SiteHandlingCreateNewSite-3': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 700,
+    prepare: async (context) => {
+      await createSite(context);
+      await context.frame.getByRole('tab', { name: 'Languages' }).click();
+      // The default language opens with the form, its header is enough here
+      await context.frame.locator('[role="tabpanel"]:visible .panel-heading').first().click();
+      await context.page.waitForTimeout(500);
+    },
+    clip: (frame) => [
+      frame.locator('h1'),
+      frame.locator('[role="tabpanel"]:visible .panel').first(),
+    ],
+    margin: 6,
+  },
+  'SiteHandling/SiteHandlingBaseVariants-1': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 1000,
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await editSite(context);
+      await frame.getByTitle('Create new').first().click();
+      await siteField(frame, 'condition').waitFor();
+      await fillIn(
+        frame.locator('[data-formengine-input-name*="[site_base_variant]"][data-formengine-input-name$="[base]"]'),
+        'https://staging.example.org/',
+      );
+      await fillIn(siteField(frame, 'condition'), 'applicationContext == "Development"');
+      await page.waitForTimeout(1000);
+    },
+    scrollTo: (frame) => [frame.locator('h1'), 180],
+  },
+  'SiteHandling/SiteHandlingErrorHandling-1': {
+    module: 'site_configuration',
+    width: 1000,
+    height: 900,
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await editSite(context);
+      await frame.getByRole('tab', { name: 'Error Handling' }).click();
+      await frame.locator('[role="tabpanel"]:visible .panel-heading').first().click();
+      // The panel opens with an animation
+      await page.waitForTimeout(2000);
+    },
+    clip: (frame) => [
+      frame.locator('h1'),
+      frame.locator('[role="tabpanel"]:visible .panel').first(),
+    ],
+    margin: 12,
+  },
 };
 
 const login = async (page) => {
@@ -196,21 +327,32 @@ const openModule = async (page, identifier, confirm) => {
   await link.evaluate((element) => element.scrollIntoView({ block: 'nearest' }));
 };
 
-// Scrolls the card with the given title to the top of the module, below
-// its sticky header. The mouse wheel scrolls whichever element
-// holds the module.
-const scrollToCard = async (page, frame, title) => {
-  const card = frame.locator('.card', { hasText: title }).first();
-  const top = 126;
+// Scrolls an element of the module to the given top, by default to the
+// top of the module below its sticky header. The mouse wheel scrolls
+// whichever element holds the module.
+const scrollTo = async (page, element, top = 126) => {
   await page.mouse.move(600, 300);
   for (let i = 0; i < 5; i++) {
-    const box = await card.boundingBox();
+    const box = await element.boundingBox();
     if (Math.abs(box.y - top) < 2) {
       break;
     }
     await page.mouse.wheel(0, box.y - top);
     await page.waitForTimeout(300);
   }
+};
+
+// The area of the elements, with a margin around them
+const area = async (elements, space = margin) => {
+  const boxes = await Promise.all(elements.map((element) => element.boundingBox()));
+  const x = Math.max(Math.min(...boxes.map((box) => box.x)) - space, 0);
+  const y = Math.max(Math.min(...boxes.map((box) => box.y)) - space, 0);
+  return {
+    x,
+    y,
+    width: Math.max(...boxes.map((box) => box.x + box.width)) + space - x,
+    height: Math.max(...boxes.map((box) => box.y + box.height)) + space - y,
+  };
 };
 
 const take = async (page, name, screenshot) => {
@@ -229,12 +371,16 @@ const take = async (page, name, screenshot) => {
       await page.waitForTimeout(500);
     }
   }
-  if (screenshot.card) {
-    await scrollToCard(page, frame, screenshot.card);
-  }
   if (screenshot.prepare) {
     await screenshot.prepare({ page, frame });
     await page.waitForTimeout(500);
+  }
+  if (screenshot.card) {
+    await scrollTo(page, frame.locator('.card', { hasText: screenshot.card }).first());
+  }
+  if (screenshot.scrollTo) {
+    const [element, top] = screenshot.scrollTo(frame);
+    await scrollTo(page, element, top);
   }
   // A hovered or focused element would look selected, except for the
   // password field that is being filled in
@@ -251,19 +397,10 @@ const take = async (page, name, screenshot) => {
   await page.waitForTimeout(300);
   const path = `${target}/${name}.png`;
   await mkdir(dirname(path), { recursive: true });
-  if (screenshot.clip) {
-    const box = await page.locator(screenshot.clip).first().boundingBox();
-    const x = Math.max(box.x - margin, 0);
-    const y = Math.max(box.y - margin, 0);
-    await page.screenshot({
-      path,
-      clip: {
-        x,
-        y,
-        width: box.x + box.width + margin - x,
-        height: box.y + box.height + margin - y,
-      },
-    });
+  if (typeof screenshot.clip === 'function') {
+    await page.screenshot({ path, clip: await area(screenshot.clip(frame), screenshot.margin) });
+  } else if (screenshot.clip) {
+    await page.screenshot({ path, clip: await area([page.locator(screenshot.clip).first()]) });
   } else {
     await page.screenshot({ path });
   }

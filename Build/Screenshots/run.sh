@@ -25,6 +25,9 @@ ${PHP_RUN} .Build/bin/typo3 configuration:set SYS/trustedHostsPattern '.*'
 # The folder for temporary files is missing, as in the screenshot of the
 # directory status
 rm -rf .Build/web/fileadmin/_temp_
+# Shows the field names in brackets next to the labels
+${PHP_RUN} .Build/bin/typo3 configuration:set BE/debug 1
+${PHP_RUN} php Build/Screenshots/create-records.php
 
 ${WEB_START}
 trap '${WEB_STOP}' EXIT
