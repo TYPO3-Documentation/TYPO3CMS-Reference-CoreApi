@@ -8,7 +8,7 @@ use MyVendor\MyExtension\Queue\Message\DemoMessage;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 // Runs only for messages that a worker received from "doctrine"
-#[AsMessageHandler(fromTransport: 'doctrine')]
+#[AsMessageHandler(fromTransport: 'async')]
 final class AsyncDemoHandler
 {
   public function __invoke(DemoMessage $message): void
