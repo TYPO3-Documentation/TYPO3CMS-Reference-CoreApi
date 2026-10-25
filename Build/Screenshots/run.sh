@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# Sets up a TYPO3 instance from .Build with SQLite and takes the
-# screenshots. Called by Build/Scripts/runTests.sh, which provides the
-# container commands:
+# Sets up a TYPO3 instance from .Build with SQLite and the demo site of the
+# Camino theme, like the Editors Tutorial, adds the records of
+# create-records.php and takes the screenshots. Called by
+# Build/Scripts/runTests.sh, which provides the container commands:
 #
 #   PHP_RUN        runs a command in the PHP container
 #   WEB_START      starts the PHP web server container in the background
@@ -17,7 +18,7 @@ ${PHP_RUN} .Build/bin/typo3 setup --no-interaction --force \
     --admin-username=j.doe --admin-user-password='Screenshots-2026!' \
     --admin-email=j.doe@example.org \
     --project-name='TYPO3 Explained' \
-    --create-site='http://localhost:8080/' \
+    --distribution=theme_camino \
     --server-type=other
 ${PHP_RUN} .Build/bin/typo3 extension:setup
 # The PHP web server provides no SERVER_NAME to compare the host with
