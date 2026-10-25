@@ -90,8 +90,8 @@ metadata. In TYPO3 classic (non-Composer) mode the :file:`composer.json` must
 declare the extension version and the :php:`providesPackages` definition in
 the :php:`extra/typo3/cms` section. Both fields are mandatory. An extension
 whose :file:`composer.json` lacks them is not registered as a package and is
-dropped from :file:`PackageStates.php` during the package scan without an error
-message.
+dropped from :file:`PackageStates.php` during the package scan. No error
+message is shown, but TYPO3 writes a warning with the reason to the log file.
 
 ..  _confval-database-writer-logTable:
 

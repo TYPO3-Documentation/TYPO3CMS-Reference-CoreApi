@@ -150,10 +150,13 @@ definitions in :file:`composer.json <extension-composer-json>`.
 :php:`providesPackages` must exist even if it is empty.
 
 Both definitions are mandatory. TYPO3 does not register an extension that
-lacks them as a package: during the package scan, the extension is silently
-omitted from :file:`PackageStates.php`, from the Extension Manager, and from
-the command :bash:`extension:list`. Only an explicit reload of the package
-information throws an exception.
+lacks them as a package: during the package scan, the extension is omitted
+from :file:`PackageStates.php`, from the Extension Manager, and from the
+command :bash:`extension:list`. No error message is shown, but TYPO3 writes a
+warning with the reason to the
+`log file <https://docs.typo3.org/permalink/t3coreapi:logging-writers-filewriter>`_,
+by default :file:`typo3temp/var/log/typo3_<hash>.log`. Only an explicit reload
+of the package information throws an exception.
 
 In Classic mode, TYPO3 distinguishes between dependencies on other TYPO3 extensions
 (:php:`require`, :php:`conflicts` and :php:`suggests`) and on
