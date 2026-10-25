@@ -66,7 +66,7 @@ button to create a new backend user there.
 
 Enter the username, password and group membership:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Users/TabGeneral.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Users/TabGeneral.png
     :alt: Setting the base information for the new user
 
 ..  note::
