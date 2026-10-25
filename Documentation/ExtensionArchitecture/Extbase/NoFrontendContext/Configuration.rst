@@ -18,7 +18,7 @@ else reads its configuration from a source that exists in its context.
 Frontend TypoScript outside the frontend
 ========================================
 
-In backend contexts (such as backend modules, CLI commands, or scheduler tasks),
+In backend contexts (such as backend modules,) CLI commands, or scheduler tasks,
 frontend TypoScript is either not loaded or behaves unpredictably. Backend
 requests lack an active frontend user session and page context, while handling
 record visibility flags such as :sql:`starttime`, :sql:`endtime`,
