@@ -238,12 +238,14 @@ Database connections of a worker
 ..  versionadded:: 15.0
     :changelog: feature-110227-1784474977
 
-A worker keeps its database connections across messages. The database server
-can drop a connection that is idle for too long, for example after the MySQL
-`wait_timeout`. The next message then fails with "MySQL server has gone away".
+A worker is a long-running PHP process that handles one message after the
+other, and waits between them. The database server would drop a connection
+that is idle for too long, for example after the MySQL `wait_timeout`.
 
-To prevent this, two middlewares maintain the connections that are open in the
-:php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`:
+To prevent errors such as "MySQL server has gone away", two middlewares
+maintain the database connections that are open in the
+:php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`, so each message starts
+with a working connection:
 
 :php-short:`\TYPO3\CMS\Core\Messenger\Middleware\DoctrinePingConnectionMiddleware`
     Before a message is handled, pings each open connection and reconnects a
@@ -253,14 +255,19 @@ To prevent this, two middlewares maintain the connections that are open in the
     After a message is handled, closes the open connections, also if the
     handler throws an exception.
 
+Because the connections are closed after each message, no connection stays
+idle between two messages.
+
 The middlewares are active by default. They only act on messages that a worker
 consumes. A synchronous dispatch does not ping or close connections. SQLite
 connections are never pinged or closed.
 
-To exclude a connection, use the events
-`BeforeMessengerDoctrinePingEvent <https://docs.typo3.org/permalink/t3coreapi:beforemessengerdoctrinepingevent>`_
-and
+To keep a connection open across messages, skip its close with the event
 `BeforeMessengerDoctrineCloseEvent <https://docs.typo3.org/permalink/t3coreapi:beforemessengerdoctrinecloseevent>`_.
+If the server dropped that connection while the worker waited, the ping
+reconnects it before the next message. To exclude a connection from the ping,
+use the event
+`BeforeMessengerDoctrinePingEvent <https://docs.typo3.org/permalink/t3coreapi:beforemessengerdoctrinepingevent>`_.
 
 
 ..  _message-bus-advanced-usage:
