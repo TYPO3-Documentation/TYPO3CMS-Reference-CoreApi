@@ -16,7 +16,9 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Authentication\CommandLineUserAuthentication;
 use TYPO3\CMS\Core\Configuration\SiteWriter;
 use TYPO3\CMS\Core\Core\Bootstrap;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 use TYPO3\CMS\Core\Site\SiteFinder;
@@ -40,11 +42,12 @@ $process = static function (array $data): DataHandler {
     return $dataHandler;
 };
 
-// The error pages below the root page "Camino", and two more root pages,
-// for which TYPO3 creates a site configuration
+// The error pages below the root page "Camino", after its last page
+// "Footer navigation" (uid 2), and two more root pages, for which TYPO3
+// creates a site configuration
 $dataHandler = $process(['pages' => [
-    'NEWnotFound' => ['pid' => 1, 'title' => 'Page not found'],
-    'NEWforbidden' => ['pid' => 1, 'title' => 'Access denied'],
+    'NEWforbidden' => ['pid' => -2, 'title' => 'Access denied'],
+    'NEWnotFound' => ['pid' => -2, 'title' => 'Page not found'],
     // A negative pid places the page after the page with that uid, so the
     // site "camino" comes first in the module
     'NEWnoSite' => ['pid' => -1, 'title' => 'My other site', 'is_siteroot' => 1],
@@ -110,12 +113,9 @@ foreach ($siteFinder->getAllSites(false) as $identifier => $otherSite) {
 
 // Two groups, the second one inherits from the first, two editors, and two
 // file mounts of the folder with the images of Camino, one of them
-// read-only
+// read-only. Editors see the pages and the images of Camino and work with
+// the modules for content and media.
 $dataHandler = $process([
-    'be_groups' => [
-        'NEWeditor' => ['pid' => 0, 'title' => 'Editor'],
-        'NEWadvanced' => ['pid' => 0, 'title' => 'Advanced Editor', 'subgroup' => 'NEWeditor'],
-    ],
     'sys_filemounts' => [
         'NEWcamino' => ['pid' => 0, 'title' => 'Camino', 'identifier' => '1:/camino/'],
         'NEWreadOnly' => [
@@ -123,6 +123,34 @@ $dataHandler = $process([
             'title' => 'Camino - read only',
             'identifier' => '1:/camino/',
             'read_only' => 1,
+        ],
+    ],
+]);
+$caminoMount = $dataHandler->substNEWwithIDs['NEWcamino'];
+$readOnlyMount = $dataHandler->substNEWwithIDs['NEWreadOnly'];
+$dataHandler = $process([
+    'be_groups' => [
+        'NEWeditor' => [
+            'pid' => 0,
+            'title' => 'Editor',
+            'description' => 'Editors have access to basic content elements and modules '
+                . 'in the backend.',
+            'db_mountpoints' => '1',
+            'file_mountpoints' => (string)$caminoMount,
+            'groupMods' => 'dashboard,web_layout,records,page_preview,media_management,user_setup',
+            'tables_select' => 'pages,tt_content,sys_file,sys_file_metadata,sys_file_reference',
+            'tables_modify' => 'pages,tt_content,sys_file_metadata,sys_file_reference',
+            // Standard page, link, shortcut, folder, and menu separator
+            'pagetypes_select' => '1,3,4,254,199',
+            // Workspaces is installed, the editors work in the live workspace
+            'workspace_perms' => 1,
+        ],
+        'NEWadvanced' => [
+            'pid' => 0,
+            'title' => 'Advanced Editor',
+            'description' => 'Advanced Editors have access to all content elements and '
+                . 'non administrative modules in the backend.',
+            'subgroup' => 'NEWeditor',
         ],
     ],
 ]);
@@ -136,6 +164,10 @@ $process(['be_users' => [
         'email' => 'e.doe@example.org',
         'password' => 'Screenshots-2026!',
         'usergroup' => (string)$editor,
+        // Mounts the page tree entry points and the file mounts of the
+        // groups, and the read-only file mount of its own
+        'options' => 3,
+        'file_mountpoints' => (string)$readOnlyMount,
         'disable' => 0,
     ],
     'NEWadoe' => [
@@ -144,6 +176,38 @@ $process(['be_users' => [
         'email' => 'a.doe@example.org',
         'password' => 'Screenshots-2026!',
         'usergroup' => $editor . ',' . $advanced,
+        'options' => 3,
         'disable' => 0,
     ],
 ]]);
+
+// The pages of Camino belong to the group "Editor", which may show, edit,
+// and create them, but not delete them. The group may only show the pages
+// of the footer navigation, and may also delete the error pages, which
+// everybody may show.
+$pages = $container->get(ConnectionPool::class)->getConnectionForTable('pages');
+$pages->update(
+    'pages',
+    ['perms_groupid' => $editor, 'perms_group' => 1 + 2 + 8 + 16],
+    ['is_siteroot' => 0],
+);
+$pages->update(
+    'pages',
+    ['perms_groupid' => $editor, 'perms_group' => 1 + 2 + 8 + 16],
+    ['uid' => 1],
+);
+$pages->update('pages', ['perms_group' => 1], ['uid' => 2]);
+$pages->update('pages', ['perms_group' => 1], ['pid' => 2]);
+foreach ([$notFound, $forbidden] as $uid) {
+    $pages->update(
+        'pages',
+        ['perms_group' => 1 + 2 + 4 + 8 + 16, 'perms_everybody' => 1],
+        ['uid' => $uid],
+    );
+}
+
+// Two folders in the folder of Camino, so the folder tree of an editor
+// has something to show
+foreach (['Downloads', 'Press'] as $folder) {
+    GeneralUtility::mkdir_deep(Environment::getPublicPath() . '/fileadmin/camino/' . $folder);
+}

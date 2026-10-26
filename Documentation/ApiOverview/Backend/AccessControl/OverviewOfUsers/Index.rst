@@ -28,7 +28,7 @@ Add users using the
 For example, this is the comparison of the three different editors
 provided by the Introduction Package:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/CompareUsers.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/CompareUsers.png
     :zoom: lightbox
 
     Comparing users in the Backers users module
@@ -44,7 +44,7 @@ Impersonating users ("Switch to")
 We can impersonate (switch) to a user by clicking the :guilabel:`Switch to user`
 action icon:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/SimulateUserButton.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/SimulateUserButton.png
     :zoom: lightbox
 
     The button to simulate another user
@@ -54,7 +54,7 @@ is prefixed with "SU" for "Simulated User"). To "switch back",
 use the "Exit" button (which replaces the usual "Logout"
 button).
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/SimulatedUser.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/SimulatedUser.png
     :zoom: lightbox
 
     Backend with active simulate user

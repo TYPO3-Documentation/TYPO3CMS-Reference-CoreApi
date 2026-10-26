@@ -32,4 +32,5 @@ ${PHP_RUN} php Build/Screenshots/create-records.php
 
 ${WEB_START}
 trap '${WEB_STOP}' EXIT
-${BROWSER_RUN} sh -c "npm ci --no-audit --no-fund && node screenshots.mjs $*"
+# Playwright is installed once, so later runs work without the network
+${BROWSER_RUN} sh -c "( [ -d node_modules/playwright ] || npm ci --no-audit --no-fund ) && node screenshots.mjs $*"

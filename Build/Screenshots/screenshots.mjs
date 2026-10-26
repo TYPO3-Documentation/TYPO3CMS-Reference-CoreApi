@@ -36,7 +36,10 @@ const expand = async ({ page }, title) => {
 // screenshots automatically: an orange frame around an element, and a
 // number in an orange circle at the lower right of an element, for a text
 // that explains the numbered parts. "left" puts the circle at the lower
-// left, where a neighbour follows closely on the right.
+// left, where a neighbour follows closely on the right, and "below" centers
+// it below the element, for a row of buttons, where a circle at a corner
+// could belong to either neighbour. "before" puts it left of the element,
+// for an element in an open menu, which covers everything else.
 const outline = (locator, inside = false) => locator.evaluate((element, inner) => {
   element.style.outline = '3px solid #ff8700';
   element.style.outlineOffset = inner ? '-3px' : '3px';
@@ -49,8 +52,8 @@ const badge = (locator, number, side = 'right') => locator.evaluate((element, [t
   circle.textContent = text;
   Object.assign(circle.style, {
     position: 'fixed',
-    left: `${where === 'left' ? box.left - 14 : box.right - 12}px`,
-    top: `${box.bottom - 6}px`,
+    left: `${{ left: box.left - 14, below: box.left + box.width / 2 - 13, before: box.left - 34 }[where] ?? box.right - 12}px`,
+    top: `${{ below: box.bottom + 4, before: box.top + box.height / 2 - 13 }[where] ?? box.bottom - 6}px`,
     width: '26px',
     height: '26px',
     borderRadius: '50%',
@@ -119,7 +122,14 @@ const usersModulePart = (title) => async ({ page, frame }) => {
   await frame.locator('.dropdown-item', { hasText: title }).first().click();
   await frame.locator('h1', { hasText: title }).first().waitFor();
   await page.waitForTimeout(800);
-  // The module also remembers the filter of the list of users
+  // The module also remembers the users to compare, and the filter of the
+  // list of users
+  const clearCompareList = frame.locator('a, button', { hasText: 'Clear compare list' });
+  if (await clearCompareList.count() > 0) {
+    await clearCompareList.first().click();
+    await frame.locator('h1', { hasText: title }).first().waitFor();
+    await page.waitForTimeout(800);
+  }
   const userName = frame.locator('input[name*="[userName]"]');
   if (await userName.count() > 0 && await userName.first().inputValue() !== '') {
     await frame.locator('button[value="reset-filters"]').first().click();
@@ -155,6 +165,40 @@ const checkItems = async ({ page, frame }, field, group, items) => {
   }
 };
 
+// The row of a user or a group in Administration > Users, by its name in
+// the first column with text, as the groups of a user follow in another
+// column, and "Editor" is also part of "Advanced Editor"
+const userRow = (frame, name) => frame.locator(
+  `xpath=//tbody/tr[td[normalize-space()][1][normalize-space()="${name}"]]`,
+).first();
+
+// Opens the form of a user or a group from its row in Administration > Users
+const editInUsersModule = (part, name) => async (context) => {
+  const { page, frame } = context;
+  await usersModulePart(part)(context);
+  await userRow(frame, name).locator('.btn[title="Edit"]').first().click();
+  await frame.locator('h1', { hasText: name }).waitFor();
+  await page.waitForTimeout(800);
+};
+
+// Switches to a user with the button in Administration > Users, as an
+// administrator does to see the backend as that user
+const switchToUser = (name) => async (context) => {
+  const { page } = context;
+  await usersModulePart('Backend users')(context);
+  await userRow(context.frame, name).locator('.btn[title="Switch to user"]').first().click();
+  await page.waitForTimeout(1500);
+  await confirmPassword(page);
+  await page.locator('#modulemenu').waitFor();
+  await page.waitForTimeout(1500);
+};
+
+// Selects a page or a folder in the tree next to the module
+const selectTreeNode = async (page, label) => {
+  await page.getByRole('treeitem', { name: label }).first().click();
+  await page.waitForTimeout(1500);
+};
+
 // Each screenshot opens a module from the module menu and shows the
 // backend in a viewport of the given size:
 //
@@ -166,6 +210,7 @@ const checkItems = async ({ page, frame }, field, group, items) => {
 //              suggestions that closes with the focus
 //   mark       draws frames and numbers with outline() and badge(), after
 //              the focus is gone
+//   rect       cuts out a fixed area of the window, {x, y, width, height}
 //   clip       cuts out an element, with a margin, instead of the viewport,
 //              or the area from one element of the module to another
 //   margin     the space around a clip, instead of the default
@@ -406,10 +451,11 @@ const screenshots = {
       const buttons = frame.locator('tr', { hasText: 'e.doe' }).locator('.col-control .btn');
       const count = await buttons.count();
       for (let index = 0; index < count; index++) {
-        await badge(buttons.nth(index), index + 1);
+        await badge(buttons.nth(index), index + 1, 'below');
       }
     },
-    clip: (frame) => [frame.locator('table thead').first(), frame.locator('tr', { hasText: 'e.doe' })],
+    // Down to the number of users, which the numbers would cut otherwise
+    clip: (frame) => [frame.locator('table thead').first(), frame.getByText('1 User', { exact: true })],
     margin: 6,
   },
   'UserManagement/Groups/TabGeneral': {
@@ -565,8 +611,8 @@ const screenshots = {
     // The open menu of the user would close with the focus
     keepFocus: true,
     mark: async ({ page, frame }) => {
-      // The menu ends at the right edge of the window
-      await badge(page.locator('.dropdown-menu a, .dropdown-menu button', { hasText: 'User Settings' }).first(), 1, 'left');
+      // The open menu covers a circle on it
+      await badge(page.locator('.dropdown-menu a, .dropdown-menu button', { hasText: 'User Settings' }).first(), 1, 'before');
       await badge(frame.locator('select[name$="[be_users__lang]"]').first(), 2);
     },
   },
@@ -588,6 +634,240 @@ const screenshots = {
       await dialog.locator('input[type="password"]').first().fill('Secret');
     },
   },
+  'UserManagement/Administrator': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 600,
+    prepare: usersModulePart('Backend users'),
+  },
+  'UserManagement/BackendUserCreate': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 334,
+    prepare: usersModulePart('Backend users'),
+    mark: async ({ frame }) => {
+      const createEditor = frame.locator('.module-docheader a', { hasText: 'Create editor' }).first();
+      const createAdmin = frame.locator('.module-docheader a', { hasText: 'Create admin' }).first();
+      await outline(createEditor.locator('xpath=..'));
+      await badge(createEditor, 1);
+      await badge(createAdmin, 2);
+    },
+  },
+  'UserManagement/SimulateEditor': {
+    module: 'backend_user_management',
+    width: 1200,
+    height: 700,
+    prepare: usersModulePart('Backend users'),
+    mark: ({ frame }) => outline(userRow(frame, 'e.doe').locator('.btn[title="Switch to user"]').first()),
+    clip: (frame) => [userRow(frame, 'e.doe')],
+    margin: 8,
+  },
+  'UserManagement/AccessControl/SimulateUserButton': {
+    module: 'backend_user_management',
+    width: 1400,
+    height: 560,
+    prepare: usersModulePart('Backend users'),
+    mark: ({ frame }) => outline(userRow(frame, 'a.doe').locator('.btn[title="Switch to user"]').first()),
+  },
+  'UserManagement/AccessControl/CompareUsers': {
+    module: 'backend_user_management',
+    width: 1400,
+    height: 840,
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await usersModulePart('Backend users')(context);
+      for (const name of ['a.doe', 'e.doe']) {
+        await userRow(frame, name).locator('.btn[title="Add to compare list"]').first().click();
+        await frame.locator('h1').first().waitFor();
+        await page.waitForTimeout(1000);
+      }
+      await frame.locator('a.t3js-acceptance-compare').first().click();
+      await frame.locator('h1', { hasText: 'Compare backend users' }).waitFor();
+      await page.waitForTimeout(1000);
+    },
+  },
+  'UserManagement/AccessControl/BackendGroup': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 634,
+    prepare: editInUsersModule('Backend user groups', 'Advanced Editor'),
+  },
+  'UserManagement/AccessControl/DbMounts': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 600,
+    prepare: async (context) => {
+      await editInUsersModule('Backend user groups', 'Editor')(context);
+      await openTab('Mounts')(context);
+    },
+  },
+  'UserManagement/AccessControl/BackendUserAdmin': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 608,
+    prepare: editInUsersModule('Backend users', 'j.doe'),
+  },
+  'UserManagement/AccessControl/BackendUser': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 642,
+    prepare: editInUsersModule('Backend users', 'e.doe'),
+  },
+  'UserManagement/AccessControl/MountFromGroups': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 738,
+    prepare: async (context) => {
+      await editInUsersModule('Backend users', 'e.doe')(context);
+      await openTab('Mounts')(context);
+    },
+    scrollTo: (frame) => [frame.getByRole('tablist').first(), 180],
+    mark: ({ frame }) => outline(fieldGroup(frame, 'options')),
+  },
+  'UserManagement/AccessControl/AssignFilemount': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 796,
+    prepare: async (context) => {
+      await editInUsersModule('Backend users', 'e.doe')(context);
+      await openTab('Mounts')(context);
+      await fieldGroup(context.frame, 'file_permissions').locator('.panel-heading, button', { hasText: 'Directory' })
+        .first().click();
+      await context.page.waitForTimeout(800);
+    },
+    scrollTo: (frame) => [fieldGroup(frame, 'options'), 180],
+  },
+  'UserManagement/AccessControl/CreateFilemount': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 558,
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await usersModulePart('File mounts')(context);
+      await frame.locator('.module-docheader a', { hasText: 'Create new file mount' }).first().click();
+      await frame.locator('h1', { hasText: 'Create new' }).waitFor();
+      await fillIn(siteField(frame, 'title'), 'Camino - read only');
+      // The entry point is chosen in the folder selector
+      await fieldGroup(frame, 'identifier').locator('button, a').last().click();
+      const selector = page.frameLocator('typo3-backend-modal dialog[open] iframe');
+      await selector.locator('.node[title="camino"]').click();
+      await selector.getByRole('button', { name: 'Link to /camino' }).click();
+      await page.locator('typo3-backend-modal dialog[open]').waitFor({ state: 'detached' });
+      await fieldGroup(frame, 'read_only').locator('input[type="checkbox"]').first().check();
+      await page.waitForTimeout(1000);
+    },
+  },
+  'UserManagement/AccessControl/BackendUserList': {
+    module: 'records',
+    width: 1400,
+    height: 600,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'TYPO3 Explained');
+      await frame.locator('h1, .recordlist').first().waitFor();
+      await page.waitForTimeout(1000);
+    },
+    // The groups and the users follow the root pages
+    scrollTo: (frame) => [frame.locator('.recordlist', { hasText: 'Backend usergroup' }).first(), 180],
+  },
+  'UserManagement/PermissionsModule': {
+    module: 'permissions_pages',
+    width: 1400,
+    height: 950,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'Camino');
+      await page.keyboard.press('ArrowRight');
+      await frame.locator('h1', { hasText: 'Permissions' }).waitFor();
+      await page.waitForTimeout(1000);
+    },
+  },
+  'UserManagement/PermissionsModuleChangeGroup': {
+    module: 'permissions_pages',
+    width: 1200,
+    height: 700,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'Camino');
+      await frame.locator('h1', { hasText: 'Permissions' }).waitFor();
+      await frame.getByTitle('Change permissions').first().click();
+      await frame.locator('h1', { hasText: 'Permissions' }).waitFor();
+      await page.waitForTimeout(1000);
+      await frame.locator('select').nth(1).focus();
+    },
+    keepFocus: true,
+    clip: (frame) => [frame.locator('h1'), frame.locator('table').first()],
+  },
+  'UserManagement/SystemMaintainer': {
+    module: 'system_maintenance',
+    width: 1000,
+    height: 506,
+  },
+  'UserManagement/SwitchUserMode': {
+    module: 'backend_user_management',
+    fresh: true,
+    width: 1000,
+    height: 355,
+    prepare: async (context) => {
+      await confirmPassword(context.page);
+      await switchToUser('e.doe')(context);
+      await context.page.locator('.toolbar-item-avatar').first().click();
+      await context.page.waitForTimeout(800);
+    },
+    keepFocus: true,
+    mark: ({ page }) => outline(page.locator('typo3-backend-switch-user[mode="exit"]').first()),
+  },  'UserManagement/AccessControl/SimulatedUser': {
+    module: 'backend_user_management',
+    fresh: true,
+    width: 1000,
+    height: 369,
+    prepare: async (context) => {
+      await confirmPassword(context.page);
+      await switchToUser('e.doe')(context);
+      await context.page.locator('.toolbar-item-avatar').first().click();
+      await context.page.waitForTimeout(800);
+    },
+    keepFocus: true,
+    mark: ({ page }) => outline(page.locator('typo3-backend-switch-user[mode="exit"]').first()),
+  },
+  'UserManagement/AccessControl/AccessUserPageTree': {
+    module: 'backend_user_management',
+    fresh: true,
+    width: 1000,
+    height: 700,
+    prepare: async (context) => {
+      const { page } = context;
+      await confirmPassword(page);
+      await switchToUser('e.doe')(context);
+      await page.locator('#modulemenu a[data-modulemenu-identifier="web_layout"]').click();
+      await page.waitForTimeout(1500);
+      // Opens the entry point of the editor, and selects a page in it
+      await selectTreeNode(page, 'Camino');
+      await page.keyboard.press('ArrowRight');
+      await page.waitForTimeout(1000);
+      await selectTreeNode(page, 'Camino Route Comparison');
+      // The icons of the pages load after the tree
+      await page.waitForTimeout(1500);
+    },
+    rect: { x: 0, y: 0, width: 540, height: 337 },
+  },
+  'UserManagement/AccessControl/AccessUserFileTree': {
+    module: 'backend_user_management',
+    fresh: true,
+    width: 1000,
+    height: 700,
+    prepare: async (context) => {
+      const { page } = context;
+      await confirmPassword(page);
+      await switchToUser('e.doe')(context);
+      await page.locator('#modulemenu a[data-modulemenu-identifier="media_management"]').click();
+      await page.waitForTimeout(2000);
+      // Selecting the mount opens it
+      await page.getByRole('treeitem', { name: 'Camino' }).first().click();
+      await page.waitForTimeout(1500);
+    },
+    rect: { x: 0, y: 0, width: 540, height: 362 },
+  },
+
+
+
 };
 
 const login = async (page) => {
@@ -713,7 +993,9 @@ const take = async (page, name, screenshot) => {
   const path = `${target}/${name}.png`;
   await mkdir(dirname(path), { recursive: true });
   let image;
-  if (typeof screenshot.clip === 'function') {
+  if (screenshot.rect) {
+    image = await page.screenshot({ animations: 'disabled', clip: screenshot.rect });
+  } else if (typeof screenshot.clip === 'function') {
     // Numbered circles can stick out of the elements
     const circles = [
       ...await page.locator('.screenshot-badge').all(),
@@ -786,14 +1068,21 @@ for (const name of names) {
   if (screenshot === undefined) {
     throw new Error(`Unknown screenshot "${name}"`);
   }
-  if (screenshot.fresh) {
-    const context = await browser.newContext();
-    const freshPage = await context.newPage();
-    await login(freshPage);
-    await take(freshPage, name, screenshot);
-    await context.close();
-  } else {
-    await take(page, name, screenshot);
+  const window = screenshot.fresh ? await (await browser.newContext()).newPage() : page;
+  try {
+    if (screenshot.fresh) {
+      await login(window);
+    }
+    await take(window, name, screenshot);
+  } catch (error) {
+    // The window at the moment of the error, in the ignored folder var/
+    await window.screenshot({ path: '../../var/screenshot-failure.png' }).catch(() => {});
+    console.log(`${name}: failed, see var/screenshot-failure.png`);
+    throw error;
+  } finally {
+    if (screenshot.fresh) {
+      await window.context().close();
+    }
   }
 }
 await browser.close();
