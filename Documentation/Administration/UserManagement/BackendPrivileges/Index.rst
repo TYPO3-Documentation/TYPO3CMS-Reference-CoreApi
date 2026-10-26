@@ -29,7 +29,7 @@ should not have been able to do in the first place.
 Administrators
 ==============
 
-..  figure:: /Images/ManualScreenshots/UserManagement/Administrator.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/Administrator.png
     :alt: Screenshot of the TYPO3 backend as seen by an Administrator. The Backend user module menu is opened.
 
     Administrators have access to the System modules, including Permissions, Backend User, Log etc.)
@@ -51,7 +51,7 @@ configuration.
 Alternatively, the website can be set to "Development" mode in the Install
 Tool. This will give all admin users system maintainer access.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/SystemMaintainer.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/SystemMaintainer.png
     :alt: Screenshot of the TYPO3 backend as seen by a System Maintainer.
 
     System Maintainers are the only users who are able to see and access
