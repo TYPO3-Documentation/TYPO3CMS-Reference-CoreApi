@@ -138,6 +138,22 @@ const usersModulePart = (title) => async ({ page, frame }) => {
   }
 };
 
+// Filters the list of backend users in Administration > Users, by the
+// values of the selects "Type" and "Status"
+const usersFilter = (values) => async (context) => {
+  const { page, frame } = context;
+  await usersModulePart('Backend users')(context);
+  if (values.userType) {
+    await frame.locator('#tx_Beuser_usertype').selectOption(values.userType);
+  }
+  if (values.status) {
+    await frame.locator('#tx_Beuser_status').selectOption(values.status);
+  }
+  await frame.locator('button[value="filter"]').first().click();
+  await frame.locator('h1', { hasText: 'Backend users' }).first().waitFor();
+  await page.waitForTimeout(800);
+};
+
 // Opens the form of a new backend group from Administration > Users
 const createGroup = async (context) => {
   const { page, frame } = context;
@@ -218,6 +234,8 @@ const selectTreeNode = async (page, label) => {
 //   url        opens a page instead of a module
 //   fresh      takes the screenshot in a session of its own, which has not
 //              confirmed the password for the Admin Tools yet
+//   stage      "naming" takes the screenshot after the other ones, once
+//              run.sh added the users and groups of the naming conventions
 const screenshots = {
   'AdminTools/AdminToolsSettings': {
     module: 'system_settings',
@@ -848,6 +866,54 @@ const screenshots = {
     },
     rect: { x: 0, y: 0, width: 540, height: 337 },
   },
+  'PermissionsManagement/PermissionsManagementDoNotSetPermissionsOnUserRecord': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 900,
+    prepare: async (context) => {
+      await editInUsersModule('Backend users', 'e.doe')(context);
+      await openTab('Module Permissions')(context);
+    },
+    clip: (frame) => [frame.locator('h1'), frame.locator('tr', { hasText: '[page_preview]' })],
+  },
+  'PermissionsManagement/PermissionsManagementTCAFieldDescription': {
+    module: 'backend_user_management',
+    width: 1000,
+    height: 700,
+    prepare: async (context) => {
+      await editInUsersModule('Backend user groups', 'Editor')(context);
+      await openTab('Notes')(context);
+    },
+    clip: (frame) => [frame.locator('h1'), fieldGroup(frame, 'description')],
+  },
+  'PermissionsManagement/PermissionsManagementBadUserNaming': {
+    stage: 'naming',
+    module: 'backend_user_management',
+    width: 1200,
+    height: 800,
+    prepare: usersFilter({ status: '2' }),
+    clip: (frame) => [frame.locator('.table-fit').first()],
+    margin: 0,
+  },
+  'PermissionsManagement/PermissionsManagementGoodUserNaming': {
+    stage: 'naming',
+    module: 'backend_user_management',
+    width: 1200,
+    height: 800,
+    prepare: usersFilter({ status: '1', userType: '2' }),
+    clip: (frame) => [frame.locator('.table-fit').first()],
+    margin: 0,
+  },
+  'PermissionsManagement/PermissionsManagementPrefixedGroupName': {
+    stage: 'naming',
+    module: 'backend_user_management',
+    width: 1000,
+    height: 800,
+    prepare: editInUsersModule('Backend users', 'alex.smith'),
+    clip: (frame) => [fieldGroup(frame, 'usergroup').locator('.form-multigroup-item').last()],
+    // The list of the selected groups is close on the left
+    margin: 6,
+  },
   'UserManagement/AccessControl/AccessUserFileTree': {
     module: 'backend_user_management',
     fresh: true,
@@ -1062,12 +1128,19 @@ const changedPixels = async (before, after) => {
 };
 await login(page);
 
-const names = process.argv.length > 2 ? process.argv.slice(2) : Object.keys(screenshots);
-for (const name of names) {
-  const screenshot = screenshots[name];
-  if (screenshot === undefined) {
+// run.sh calls the script once per stage, with --stage=naming for the
+// second one, and with the names of the screenshots to take, if any
+const stage = process.argv.find((arg) => arg.startsWith('--stage='))?.slice(8) ?? '';
+const requested = process.argv.slice(2).filter((arg) => !arg.startsWith('--stage='));
+for (const name of requested) {
+  if (screenshots[name] === undefined) {
     throw new Error(`Unknown screenshot "${name}"`);
   }
+}
+const names = (requested.length > 0 ? requested : Object.keys(screenshots))
+  .filter((name) => (screenshots[name].stage ?? '') === stage);
+for (const name of names) {
+  const screenshot = screenshots[name];
   const window = screenshot.fresh ? await (await browser.newContext()).newPage() : page;
   try {
     if (screenshot.fresh) {
