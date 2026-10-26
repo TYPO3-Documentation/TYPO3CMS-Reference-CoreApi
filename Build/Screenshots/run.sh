@@ -34,3 +34,7 @@ ${WEB_START}
 trap '${WEB_STOP}' EXIT
 # Playwright is installed once, so later runs work without the network
 ${BROWSER_RUN} sh -c "( [ -d node_modules/playwright ] || npm ci --no-audit --no-fund ) && node screenshots.mjs $*"
+# The users and groups of the naming conventions show only in their own
+# screenshots, which follow once they are added
+${PHP_RUN} php Build/Screenshots/create-records.php naming
+${BROWSER_RUN} node screenshots.mjs --stage=naming $*

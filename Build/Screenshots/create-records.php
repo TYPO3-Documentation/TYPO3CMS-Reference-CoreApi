@@ -42,6 +42,13 @@ $process = static function (array $data): DataHandler {
     return $dataHandler;
 };
 
+// With the argument "naming", adds the users and groups of the naming
+// conventions instead, once the other screenshots are taken
+if (($argv[1] ?? '') === 'naming') {
+    require __DIR__ . '/create-naming-records.php';
+    exit;
+}
+
 // The error pages below the root page "Camino", after its last page
 // "Footer navigation" (uid 2), and two more root pages, for which TYPO3
 // creates a site configuration
