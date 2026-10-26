@@ -101,7 +101,7 @@ password to a secure one as soon as possible. You should be able to
 change your password in the *User settings* menu, reachable by clicking on your
 user name in the :ref:`top bar <backend-modules-structure>`:
 
-..  figure:: /Images/ManualScreenshots/Security/ChangePassword.png
+..  figure:: /Images/AutomaticScreenshots/Security/ChangePassword.png
     :zoom: lightbox
 
     The :guilabel:`User Settings` screen, where you can change your password
@@ -142,7 +142,7 @@ user settings, you will receive an email from TYPO3 each time you (or
 notification is an additional security measure because you will know
 if someone else picked up your password and uses your account.
 
-..  figure:: /Images/ManualScreenshots/Security/NotifyOnLogin.png
+..  figure:: /Images/AutomaticScreenshots/Security/NotifyOnLogin.png
     :zoom: lightbox
 
     The :guilabel:`User Settings` screen, with the :guilabel:`Notify me...` checkbox
