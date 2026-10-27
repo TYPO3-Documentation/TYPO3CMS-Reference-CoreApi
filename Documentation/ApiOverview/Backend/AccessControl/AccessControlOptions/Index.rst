@@ -140,14 +140,14 @@ is the folder tree drawn based on *file mounts* configured for the user.
 **DB mounts** (page mounts) are set by pointing out the
 page that should be mounted for the user (at user or group-level):
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/DbMounts.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/DbMounts.png
     :zoom: lightbox
 
     The DB mounts for group "Editors"
 
 This is what the user will see:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserPageTree.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/AccessUserPageTree.png
     :alt: Only selected pages are accessible to the user
 
 
@@ -180,7 +180,7 @@ and the path to which it points.
 Next we can create a *File Mount* record (on the root page),
 which refers to a File Storage:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/CreateFilemount.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/CreateFilemount.png
     :zoom: lightbox
 
     A file mount pointing to the "user_upload" directory
@@ -189,7 +189,7 @@ When defining a File Mount, you can point to a specific folder
 within the chosen File Storage. Finally the mount is assigned
 to a user or group:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AssignFilemount.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/AssignFilemount.png
     :zoom: lightbox
 
     The file mount is assigned to the "Editors" group
@@ -197,7 +197,7 @@ to a user or group:
 After a successful configuration, the file mount will appear to
 the user:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
     :alt: The file tree as visible by the user
 
 
@@ -210,7 +210,7 @@ the default behavior. So make sure to unset these flags if users
 should see only their "private" mount points and not those from their
 groups:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/MountFromGroups.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/MountFromGroups.png
     :zoom: lightbox
 
     By default DB and File Mounts from groups are set for member users
@@ -265,7 +265,7 @@ module:
 
     Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/PermissionsModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/PermissionsModule.png
     :zoom: lightbox
 
     The :guilabel:`System > Permissions` module and its overview of page rights and owners

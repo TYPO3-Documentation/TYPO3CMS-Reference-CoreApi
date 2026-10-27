@@ -198,7 +198,7 @@ File Mounts, File Operations, Category Mounts, and module, table, widget,
 and language access. These examples are customizable to fit specific needs.
 Ensure each group name is straightforward and indicative of its permissions.
 
-..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementPrefixedGroupName.png
+..  figure:: /Images/AutomaticScreenshots/PermissionsManagement/PermissionsManagementPrefixedGroupName.png
     :alt: Prefixed group names
 
     Prefixing group names makes them more organized and easier to search within forms
@@ -238,7 +238,7 @@ Another good practice for managing backend groups is to clearly describe
 the purpose or scope of each group. This can be done using the Description
 field located within the Notes tab of the backend group form.
 
-..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementTCAFieldDescription.png
+..  figure:: /Images/AutomaticScreenshots/PermissionsManagement/PermissionsManagementTCAFieldDescription.png
     :alt: TCA field description
 
     Describe the scope or purpose of the group
