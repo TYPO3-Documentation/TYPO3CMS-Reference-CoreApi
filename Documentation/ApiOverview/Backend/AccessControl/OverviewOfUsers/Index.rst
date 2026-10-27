@@ -22,16 +22,16 @@ users and groups. The users list can be searched and filtered.
 Comparing users or groups
 =========================
 
-The :guilabel:`Backend users` module offers the possibility to compare users.
+The :guilabel:`Administration > Users` module offers the possibility to
+compare users.
 Add users using the
 "+ Compare" button and then hit the "Compare user list" button.
-For example, this is the comparison of the three different editors
-provided by the Introduction Package:
+For example, this is the comparison of the editors "a.doe" and "e.doe":
 
 ..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/CompareUsers.png
     :zoom: lightbox
 
-    Comparing users in the Backers users module
+    Comparing users in the :guilabel:`Administration > Users` module
 
 The same functionality is available for user groups, including a comparison
 of their inherited permissions.

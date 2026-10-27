@@ -21,13 +21,12 @@ other meta data and some permissions settings.
 ..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/BackendUser.png
     :zoom: lightbox
 
-    Part of the editing form for user "simple\_editor" of the Introduction Package
+    Part of the editing form for the user "e.doe"
 
-The above screenshot shows a part of the editing form for the backend
-user "simple\_editor" from the Introduction Package. If you have an Introduction
-Package available, you can check further properties of that user. It is
-part of the "Simple editors" group, has a name, an email address and
-its default language for the backend is English.
+The :guilabel:`General` tab of the form contains the username, the password,
+and the groups of the user. The user "e.doe" in the screenshot is a member of
+the group "Editor". The other tabs contain the personal data, such as the name
+and the email address, and the permissions.
 
 It is possible to assign rights directly to a user, but it is much better
 done using groups. Furthermore groups offer far more options.
@@ -50,7 +49,7 @@ is a member of, the more access is granted to him.
 ..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/BackendGroup.png
     :zoom: lightbox
 
-    Part of the editing form for group "Simple editors" of the Introduction Package
+    Part of the editing form for the group "Advanced Editor"
 
 This screenshot shows just an extract of the group editing form.
 It contains many more fields!
