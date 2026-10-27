@@ -53,7 +53,7 @@ general, e.g. 6 months in the future. This forces the administrator
 team to review the accounts from time to time and only extend the
 users that are allowed to continue using the system.
 
-..  figure:: /Images/ManualScreenshots/Security/BeUserExpiryDate.png
+..  figure:: /Images/AutomaticScreenshots/Security/BeUserExpiryDate.png
     :zoom: lightbox
 
     Screenshot showing the screen to set an expiry date for a backend user

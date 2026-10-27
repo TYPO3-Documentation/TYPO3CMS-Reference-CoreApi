@@ -154,6 +154,25 @@ const usersFilter = (values) => async (context) => {
   await page.waitForTimeout(800);
 };
 
+// A field of User Settings, whose names start with the table, such as
+// "be_users__password" or "user_settings__password2"
+const settingsField = (frame, name) => frame.locator(`.form-group:has(code:text-matches("__${name}\\]$"))`).last();
+
+// Opens the menu of the user in the toolbar
+const openUserMenu = async ({ page }) => {
+  await page.locator('.toolbar-item-avatar').first().click();
+  await page.waitForTimeout(800);
+};
+
+// Opens User Settings from the menu of the user, which closes then
+const openUserSettings = async (context) => {
+  const { page, frame } = context;
+  await openUserMenu(context);
+  await page.locator('.dropdown-menu a, .dropdown-menu button', { hasText: 'User Settings' }).first().click();
+  await frame.locator('h1', { hasText: 'User Settings' }).waitFor();
+  await page.waitForTimeout(800);
+};
+
 // Opens the form of a new backend group from Administration > Users
 const createGroup = async (context) => {
   const { page, frame } = context;
@@ -633,6 +652,47 @@ const screenshots = {
       await badge(page.locator('.dropdown-menu a, .dropdown-menu button', { hasText: 'User Settings' }).first(), 1, 'before');
       await badge(frame.locator('select[name$="[be_users__lang]"]').first(), 2);
     },
+  },
+  'Security/ChangePassword': {
+    module: 'dashboard',
+    width: 1000,
+    height: 504,
+    prepare: async (context) => {
+      await openUserSettings(context);
+      await openTab('Account security')(context);
+      await fillIn(settingsField(context.frame, 'password').locator('input').first(), 'Screenshots-2027!');
+      await fillIn(settingsField(context.frame, 'password2').locator('input').first(), 'Screenshots-2027!');
+      await openUserMenu(context);
+    },
+    keepFocus: true,
+  },
+  'Security/NotifyOnLogin': {
+    module: 'dashboard',
+    width: 1000,
+    height: 620,
+    prepare: async (context) => {
+      await openUserSettings(context);
+      // User Settings opens the tab that was open last
+      await openTab('Personal Data')(context);
+      await openUserMenu(context);
+    },
+    keepFocus: true,
+    mark: ({ frame }) => outline(settingsField(frame, 'emailMeAtLogin')),
+    rect: { x: 244, y: 0, width: 756, height: 600 },
+  },
+  'Security/BeUserExpiryDate': {
+    module: 'backend_user_management',
+    width: 1200,
+    height: 700,
+    prepare: async (context) => {
+      await editInUsersModule('Backend users', 'a.doe')(context);
+      await openTab('Access')(context);
+      await fillIn(fieldGroup(context.frame, 'endtime').locator('input:visible').first(), '2027-04-01 00:00');
+      // Closes the calendar that opened with the field
+      await context.page.keyboard.press('Escape');
+      await context.page.waitForTimeout(500);
+    },
+    clip: (frame) => [frame.locator('h1'), fieldGroup(frame, 'endtime')],
   },
   'BackendUsers/CreateAdministrator': {
     module: 'system_maintenance',
