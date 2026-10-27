@@ -85,10 +85,12 @@ The arguments are:
     are `'plugins'` (generic plugin group) or a custom group name matching
     your extension.
 6.  **Description** — optional longer text shown in the content element wizard.
-7.  **FlexForm** — path to a FlexForm XML file that adds configurable fields to
-    the content element in the backend, for example
-    `'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml'`.
-    Optional. Omit if the plugin needs no backend configuration form.
+7.  **FlexForm** — the FlexForm that adds configurable fields to the content
+    element in the backend. Pass the path to an XML file with the prefix
+    `FILE:`, for example
+    `'FILE:EXT:my_extension/Configuration/FlexForms/ConferenceList.xml'`,
+    or the XML itself. Optional. Omit if the plugin needs no backend
+    configuration form.
 
 Both calls must use the same extension name and plugin name. A mismatch means
 the dispatcher will not find the controller actions registered for that plugin.
