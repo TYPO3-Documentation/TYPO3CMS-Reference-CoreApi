@@ -22,6 +22,29 @@ whitespace with hyphens and assigns the result as sanitized file name.
 ..  literalinclude:: _SanitizeFileNameEvent/_SeoFriendlyFileNameListener.php
     :caption: EXT:my_extension/Classes/EventListener/SeoFriendlyFileNameListener.php
 
+..  _SanitizeFileNameEvent-transliterate:
+
+Example: transliterate umlauts and accents in file names
+========================================================
+
+..  versionchanged:: 15.0
+    :changelog: breaking-110966-1791465024
+
+    The option `UTF8filesystem`, which transliterated file names when it was
+    disabled, has been removed.
+
+TYPO3 stores file names with their Unicode characters, so
+:file:`Grüße.pdf` keeps its umlaut. The following listener replaces each
+character that has an ASCII equivalent, so the file is stored as
+:file:`Gruesse.pdf`, and :file:`Москва.jpg` as :file:`Moskva.jpg`. Letters
+without an ASCII equivalent, such as Japanese ones, stay as they are, so
+:file:`東京.png` and :file:`京都.png` keep different names. Every other
+character, such as a space or an ampersand, becomes an underscore, except
+dots, underscores, and hyphens.
+
+..  literalinclude:: /_Examples/my_extension/Classes/EventListener/TransliterateFileNameListener.php
+    :caption: EXT:my_extension/Classes/EventListener/TransliterateFileNameListener.php
+
 ..  _SanitizeFileNameEvent-api:
 
 `SanitizeFileNameEvent` API
