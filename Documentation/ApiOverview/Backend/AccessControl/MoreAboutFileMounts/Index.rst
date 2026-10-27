@@ -165,7 +165,7 @@ Having set up all these properties and folders, the user
 should see the following when moving to the :guilabel:`Media`
 module:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
     :alt: The file list with automatically mounted user and group directories
 
 

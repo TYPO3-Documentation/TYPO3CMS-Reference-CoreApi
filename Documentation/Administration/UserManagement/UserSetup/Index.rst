@@ -59,7 +59,7 @@ button to create a new backend user there.
 
     Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserCreate.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/BackendUserCreate.png
     :alt: The main submodule Backend users of the backend user module
 
     Click the button "Create editor" (1) or "Create admin" (2)
@@ -85,14 +85,14 @@ Simulate user
 Save and close the record. We will check the result of our work
 by using the simulate user feature we saw earlier.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/SimulateEditor.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/SimulateEditor.png
     :alt: A backend user in the backend user module with their action buttons.
 
     Click the switch to user button
 
 If you used the default "Editors" group you should see this:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/SwitchUserMode.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/SwitchUserMode.png
     :alt: The TYPO3 backend viewed by a standard editor
 
     Use the User menu on the top right to find the "Exit switch user mode" button and switch back to your admin world.

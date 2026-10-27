@@ -31,12 +31,12 @@ In the context of :abbr:`GDPR (General Data Protection Regulation)`, it is recom
 to use properly named accounts to distinguish individuals. Assigning top-level
 groups to these accounts makes identifying user roles straightforward.
 
-..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementBadUserNaming.png
+..  figure:: /Images/AutomaticScreenshots/PermissionsManagement/PermissionsManagementBadUserNaming.png
     :alt: Bad username setup
 
     Bad username setup
 
-..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementGoodUserNaming.png
+..  figure:: /Images/AutomaticScreenshots/PermissionsManagement/PermissionsManagementGoodUserNaming.png
     :alt: Good username setup
 
     Good username setup
@@ -80,7 +80,7 @@ to long-term issues, such as difficulty tracking permission origins when spread
 across users and groups. Centralizing permissions in backend groups simplifies their
 management and maintenance.
 
-..  figure:: /Images/ManualScreenshots/PermissionsManagement/PermissionsManagementDoNotSetPermissionsOnUserRecord.png
+..  figure:: /Images/AutomaticScreenshots/PermissionsManagement/PermissionsManagementDoNotSetPermissionsOnUserRecord.png
     :alt: User record without permissions
 
     Avoid setting permissions directly through the backend user record

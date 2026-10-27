@@ -17,7 +17,7 @@ This is managed using the :guilabel:`Administration > Permissions` module:
 
     Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/PermissionsModule.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/PermissionsModule.png
     :alt: TYPO3 Backend module called Permissions showing an overview of page owners and permissions
 
     The "Permissions" module with ownerships and permissions
@@ -28,7 +28,7 @@ or to everyone. This will be familiar to Unix users.
 
 To change the permissions, click on the edit button.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/PermissionsModuleChangeGroup.png
+..  figure:: /Images/AutomaticScreenshots/UserManagement/PermissionsModuleChangeGroup.png
     :alt: Changing a pages user group
 
 It is also possible to change owner, group and permissions
