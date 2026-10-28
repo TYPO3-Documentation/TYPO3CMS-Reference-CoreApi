@@ -25,11 +25,11 @@ other meta data and some permissions settings.
 
 The :guilabel:`General` tab of the form contains the username, the password,
 and the groups of the user. The user "e.doe" in the screenshot is a member of
-the group "Editor". The other tabs contain the personal data, such as the name
-and the email address, and the permissions.
+the group "Editor". The other tabs contain personal data such as name, email
+address, and permissions.
 
 It is possible to assign rights directly to a user, but it is much better
-done using groups. Furthermore groups offer far more options.
+done using groups. Furthermore, groups offer far more options.
 
 ..  index:: pair: Backend; Groups
 ..  _access-users-groups-groups:

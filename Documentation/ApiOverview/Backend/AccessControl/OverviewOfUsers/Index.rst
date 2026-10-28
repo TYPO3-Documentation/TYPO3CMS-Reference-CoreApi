@@ -22,11 +22,11 @@ users and groups. The users list can be searched and filtered.
 Comparing users or groups
 =========================
 
-The :guilabel:`Administration > Users` module offers the possibility to
+The :guilabel:`Administration > Users` module provides the possibility to
 compare users.
 Add users using the
-"+ Compare" button and then hit the "Compare user list" button.
-For example, this is the comparison of the editors "a.doe" and "e.doe":
+"+ Compare" button and then click on the "Compare user list" button.
+Here we compare the editors "a.doe" and "e.doe":
 
 ..  figure:: /Images/AutomaticScreenshots/UserManagement/AccessControl/CompareUsers.png
     :zoom: lightbox
