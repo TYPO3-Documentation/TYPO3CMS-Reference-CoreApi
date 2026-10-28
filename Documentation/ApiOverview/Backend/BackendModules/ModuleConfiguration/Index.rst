@@ -364,7 +364,7 @@ All registered modules are stored as objects in a registry. They can be viewed
 in the backend in the :guilabel:`System > Configuration > Backend Modules`
 module.
 
-..  figure:: /Images/ManualScreenshots/Backend/BackendModulesConfiguration.png
+..  figure:: /Images/AutomaticScreenshots/Backend/BackendModulesConfiguration.png
     :zoom: lightbox
 
     Exploring registered backend modules in the :guilabel:`Configuration` module

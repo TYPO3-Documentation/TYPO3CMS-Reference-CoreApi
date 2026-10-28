@@ -140,7 +140,7 @@ that can display the current status. The button automatically changes the
 icon representation to the icon of the the first active radio icon in the
 dropdown list.
 
-..  figure:: /Images/ManualScreenshots/Backend/FileModuleDropDownButton.png
+..  figure:: /Images/AutomaticScreenshots/Backend/FileModuleDropDownButton.png
     :alt: DropDown button component in the :guilabel:`Media` module
     :class: with-border with-shadow
 
