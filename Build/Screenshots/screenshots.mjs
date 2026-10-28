@@ -891,7 +891,8 @@ const screenshots = {
     },
     keepFocus: true,
     mark: ({ page }) => outline(page.locator('typo3-backend-switch-user[mode="exit"]').first()),
-  },  'UserManagement/AccessControl/SimulatedUser': {
+  },
+  'UserManagement/AccessControl/SimulatedUser': {
     module: 'backend_user_management',
     fresh: true,
     width: 1000,
@@ -991,9 +992,119 @@ const screenshots = {
     },
     rect: { x: 0, y: 0, width: 540, height: 362 },
   },
-
-
-
+  'Backend/Typo3Version': {
+    module: 'media_management',
+    width: 1000,
+    height: 700,
+    prepare: async ({ page }) => {
+      await selectTreeNode(page, 'Camino');
+    },
+    mark: ({ page }) => outline(page.locator('.topbar-site').first()),
+    rect: { x: 0, y: 0, width: 1000, height: 200 },
+  },
+  'Backend/DocHeaderComponent': {
+    module: 'media_management',
+    width: 1240,
+    height: 700,
+    prepare: async ({ page }) => {
+      await selectTreeNode(page, 'Camino');
+    },
+    // The wrapper has no box of its own, so the frame goes around its rows
+    mark: ({ frame }) => frame.locator('.module-docheader-wrapper').first().evaluate((wrapper) => {
+      const boxes = [...wrapper.querySelectorAll('.module-docheader')].map((row) => row.getBoundingClientRect());
+      const left = Math.min(...boxes.map((box) => box.left));
+      const top = Math.min(...boxes.map((box) => box.top));
+      const border = wrapper.ownerDocument.createElement('div');
+      Object.assign(border.style, {
+        position: 'fixed',
+        left: `${left}px`,
+        top: `${top}px`,
+        width: `${Math.max(...boxes.map((box) => box.right)) - left}px`,
+        height: `${Math.max(...boxes.map((box) => box.bottom)) - top}px`,
+        outline: '3px solid #ff8700',
+        outlineOffset: '-3px',
+        pointerEvents: 'none',
+        zIndex: '10000',
+      });
+      wrapper.ownerDocument.body.appendChild(border);
+    }),
+    rect: { x: 0, y: 0, width: 1240, height: 180 },
+  },
+  'Backend/FileModuleDropDownButton': {
+    module: 'media_management',
+    width: 1000,
+    height: 515,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'Camino');
+      await frame.locator('.module-docheader .dropdown-toggle', { hasText: 'View' }).first().click();
+      await page.waitForTimeout(800);
+    },
+    keepFocus: true,
+  },
+  'Backend/SystemConfigurationGlobals': {
+    module: 'system_config',
+    width: 1000,
+    height: 555,
+    prepare: async ({ page, frame }) => {
+      await frame.locator('.module-docheader .dropdown-toggle').first().click();
+      await page.waitForTimeout(800);
+    },
+    keepFocus: true,
+  },
+  'Backend/BackendModulesConfiguration': {
+    module: 'system_config',
+    width: 1040,
+    height: 590,
+    prepare: async ({ page, frame }) => {
+      await frame.locator('.module-docheader .dropdown-toggle').first().click();
+      await frame.locator('.dropdown-menu a', { hasText: 'Backend Modules' }).first().click();
+      await frame.locator('h1', { hasText: 'Backend Modules' }).waitFor();
+      // The search opens the module in the tree
+      await frame.locator('#searchValue').fill('web_layout');
+      await page.waitForTimeout(1500);
+    },
+  },
+  'Backend/PageProperties': {
+    module: 'web_layout',
+    width: 1000,
+    height: 292,
+    prepare: async ({ page }) => {
+      await selectTreeNode(page, 'Camino');
+      await page.getByRole('treeitem', { name: 'Camino', exact: true }).first().click({ button: 'right' });
+      await page.locator('.context-menu-item').first().waitFor();
+      await page.waitForTimeout(800);
+    },
+    keepFocus: true,
+    mark: async ({ page, frame }) => {
+      await outline(page.locator('.context-menu-item[aria-label="Edit"]').first(), true);
+      await outline(frame.getByRole('button', { name: 'Edit page properties' })
+        .or(frame.getByRole('link', { name: 'Edit page properties' })).first());
+    },
+  },
+  'Backend/ComposerMode': {
+    module: 'extensionmanager',
+    width: 1000,
+    height: 470,
+    prepare: async ({ page }) => {
+      await page.locator('[title="System Information"]').first().click();
+      await page.waitForTimeout(1500);
+    },
+    keepFocus: true,
+    mark: ({ page }) => outline(page.locator('td[data-type="value"]', { hasText: 'Composer mode' }).first(), true),
+  },
+  'Backend/NewRecordComponent': {
+    module: 'records',
+    width: 1040,
+    height: 650,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'Camino');
+      await frame.locator('.module-docheader a, .module-docheader button', { hasText: /new record/i }).first().click();
+      await frame.locator('h1', { hasText: 'New record' }).waitFor();
+      // Shows the types of a record
+      await frame.locator('[aria-expanded]', { hasText: 'File collection' }).first().click();
+      await page.waitForTimeout(800);
+    },
+  },
 };
 
 const login = async (page) => {
@@ -1090,7 +1201,8 @@ const take = async (page, name, screenshot) => {
     if (!screenshot.fresh) {
       // Admin Tools modules load their cards after the page, the other
       // modules come with their content
-      const ready = screenshot.module.startsWith('system_') ? '.card' : 'h1';
+      const adminTools = ['system_maintenance', 'system_settings', 'system_upgrade', 'system_environment'];
+      const ready = adminTools.includes(screenshot.module) ? '.card' : 'h1';
       await frame.locator(ready).first().waitFor();
       await page.waitForTimeout(500);
     }

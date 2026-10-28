@@ -11,7 +11,7 @@ used to display a standardized header section in a backend module with buttons,
 menus etc. It can also be used to hide the header section in case it is
 not desired to display it.
 
-..  figure:: /Images/ManualScreenshots/Backend/DocHeaderComponent.png
+..  figure:: /Images/AutomaticScreenshots/Backend/DocHeaderComponent.png
     :class: with-shadow
 
     The module header displayed by the DocHeaderComponent
@@ -77,7 +77,7 @@ The module header consists of two rows:
     module buttons. The functional buttons are on the right, such as
     :guilabel:`Reload` or :guilabel:`Bookmark`.
 
-    ..  figure:: /Images/ManualScreenshots/Backend/DocHeaderComponent.png
+    ..  figure:: /Images/AutomaticScreenshots/Backend/DocHeaderComponent.png
         :class: with-shadow
 
         The module header displayed by the DocHeaderComponent
