@@ -12,10 +12,10 @@ New record component in the Contents > Records module
 
     Record types are now also displayed in the "New record" component.
 
-..  figure:: /Images/ManualScreenshots/Backend/NewRecordComponent.png
-    :alt: TYPO3 Backend with the "New Record" component in the Contents > Records module
+..  figure:: /Images/AutomaticScreenshots/Backend/NewRecordComponent.png
+    :alt: TYPO3 Backend with the "New Record" component in the Content > Records module, showing the types of file collections
 
-    The "New Record" component in the :guilabel:`Contents > Records` module
+    The "New Record" component in the :guilabel:`Content > Records` module
 
 The "Create new record" component in the backend, which is accessible in
 the :guilabel:`Contents > Records` module can be used by editors and admins
