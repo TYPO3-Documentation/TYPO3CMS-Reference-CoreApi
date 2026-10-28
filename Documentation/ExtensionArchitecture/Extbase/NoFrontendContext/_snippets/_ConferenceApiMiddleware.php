@@ -9,43 +9,49 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspectFactory;
-use TYPO3\CMS\Core\Site\Entity\SiteInterface;
+use TYPO3\CMS\Core\Http\JsonResponse;
+use TYPO3\CMS\Core\Site\Entity\Site;
+use TYPO3\CMS\Core\Site\Entity\SiteLanguage;
 
 class ConferenceApiMiddleware implements MiddlewareInterface
 {
   public function __construct(
     protected readonly ConferenceRepository $conferenceRepository,
-    protected readonly Context $context,
   ) {}
 
   public function process(
     ServerRequestInterface $request,
     RequestHandlerInterface $handler,
   ): ResponseInterface {
-    $site = $request->getAttribute('site');
-    $siteLanguage = $request->getAttribute('language');
-
-    // Running before the frontend middlewares, neither attribute is set.
-    if (!$site instanceof SiteInterface) {
+    if (!str_ends_with($request->getUri()->getPath(), '/api/conferences.json')) {
       return $handler->handle($request);
     }
 
-    if ($siteLanguage === null) {
-      // No language resolved yet: choose one and build the aspect that
-      // the frontend would have built for it.
-      $siteLanguage = $site->getDefaultLanguage();
-      $this->context->setAspect(
-        'language',
-        LanguageAspectFactory::createFromSiteLanguage($siteLanguage),
-      );
+    $site = $request->getAttribute('site');
+    $siteLanguage = $request->getAttribute('language');
+    // Not set for URLs outside any site
+    if (!$site instanceof Site || !$siteLanguage instanceof SiteLanguage) {
+      return $handler->handle($request);
     }
 
-    $conferences = $this->conferenceRepository->findAll();
+    $storagePid = (int)$site->getSettings()->get('myExtension.conferenceStoragePid', 0);
+    if ($storagePid === 0) {
+      return $handler->handle($request);
+    }
 
-    // Build a response from $conferences
+    $conferences = $this->conferenceRepository->findPublishedForApi(
+      [$storagePid],
+      LanguageAspectFactory::createFromSiteLanguage($siteLanguage),
+    );
 
-    return $handler->handle($request);
+    $data = [];
+    foreach ($conferences as $conference) {
+      $data[] = [
+        'title' => $conference->getTitle(),
+        'date' => $conference->getEventDate()?->format('Y-m-d'),
+      ];
+    }
+    return new JsonResponse($data);
   }
 }
