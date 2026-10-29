@@ -183,7 +183,7 @@ Example:
     provided in the :guilabel:`System > Configuration` module to view the raw
     middleware configuration and the ordered middlewares for each connection:
 
-    ..  figure:: /Images/ManualScreenshots/Database/MiddlewareConfigurationModule.png
+    ..  figure:: /Images/AutomaticScreenshots/Database/MiddlewareConfigurationModule.png
         :alt: Example of the configuration of driver middlewares
         :class: with-shadow
 

@@ -19,7 +19,11 @@ complete :php:`$GLOBALS['TCA']`, with all modifications taken into account.
 
         composer req typo3/cms-lowlevel
 
-..  include:: /Images/ManualScreenshots/ExtendingTca/VerifyingTca.rst.txt
+..  figure:: /Images/AutomaticScreenshots/ExtendingTca/VerifyingTca.png
+    :zoom: lightbox
+
+    Searching the TCA for the field `tx_themecamino_logo`, which the Camino
+    theme adds to the table `pages`
 
 If you can't find your new field it probably means that you have
 made a mistake somewhere.
