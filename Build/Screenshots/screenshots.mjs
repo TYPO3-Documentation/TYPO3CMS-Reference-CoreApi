@@ -5,7 +5,7 @@
 // image below Documentation/Images/AutomaticScreenshots/, without ".png".
 
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { chromium } from 'playwright';
 
@@ -282,8 +282,11 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
 //   url        opens a page instead of a module
 //   fresh      takes the screenshot in a session of its own, which has not
 //              confirmed the password for the Admin Tools yet
+//   loggedOut  takes the screenshot in a window without a backend session
 //   stage      "naming" takes the screenshot after the other ones, once
-//              run.sh added the users and groups of the naming conventions
+//              run.sh added the users and groups of the naming conventions,
+//              "upgrade" after those, once run.sh added the data of the
+//              upgrade wizards that have not run yet
 const screenshots = {
   'AdminTools/AdminToolsSettings': {
     module: 'system_settings',
@@ -392,6 +395,80 @@ const screenshots = {
     width: 1000,
     height: 700,
     clip: '.typo3-install-content',
+  },
+  'DebugSettings/ConfigurationPresets': {
+    module: 'system_settings',
+    // Wide enough for the cards to stand side by side
+    width: 1500,
+    height: 1000,
+    mark: ({ frame }) => outline(frame.locator('.card', { hasText: 'Configuration Presets' }).first()),
+    clip: (frame) => [frame.locator('h1'), frame.locator('.card').nth(5)],
+  },
+  'DebugSettings/DebugSettings': {
+    module: 'system_settings',
+    width: 1000,
+    height: 800,
+    prepare: async (context) => {
+      await openCard(context, 'Configuration Presets');
+      await expand(context, 'Debug settings');
+      await context.page.locator(modal).getByRole('button', { name: 'Debug settings' })
+        .evaluate((button) => button.scrollIntoView({ block: 'start' }));
+    },
+  },
+  'InstallTool/InstallToolPassword': {
+    url: `${baseUrl}/typo3/install.php`,
+    width: 1000,
+    height: 900,
+    loggedOut: true,
+    // The file enables the Install Tool only while the page loads, so the
+    // other screenshots keep showing it locked
+    prepare: async ({ page }) => {
+      const file = '../../var/transient/ENABLE_INSTALL_TOOL';
+      await mkdir(dirname(file), { recursive: true });
+      await writeFile(file, '');
+      await page.reload();
+      await page.waitForLoadState('networkidle');
+      await rm(file);
+    },
+    clip: '.typo3-install-content',
+  },
+  'Upgrade/UpgradeAnalysis': {
+    module: 'system_upgrade',
+    width: 1000,
+    height: 820,
+    prepare: async (context) => {
+      await openCard(context, 'View Upgrade Documentation');
+      // Each version loads its changelog on its own
+      await context.page.locator(`${modal} .t3js-panel-loading`).first()
+        .waitFor({ state: 'detached', timeout: 120000 });
+      await context.page.waitForFunction(
+        (selector) => document.querySelectorAll(selector).length === 0,
+        `${modal} .t3js-panel-loading`,
+        { timeout: 120000 },
+      );
+      // The search shows changes of every kind, which the first version
+      // lists one kind after the other
+      await context.page.locator(modal).getByRole('searchbox').pressSequentially('file storage');
+      await context.page.waitForTimeout(1500);
+    },
+  },
+  'Upgrade/UpgradeWizard': {
+    module: 'system_upgrade',
+    width: 1000,
+    height: 630,
+    stage: 'upgrade',
+    prepare: async (context) => {
+      await openCard(context, 'Upgrade Wizard');
+      // The progress bar says "Loading upgrade wizards..." until the list
+      // has loaded
+      await context.page.waitForFunction(
+        (selector) => [...document.querySelectorAll(selector)]
+          .some((bar) => /upgrade wizards executed/.test(bar.label)),
+        `${modal} typo3-backend-progress-bar`,
+        { timeout: 60000 },
+      );
+      await context.page.waitForTimeout(800);
+    },
   },
   'SiteHandling/SiteConfigurationOverview': {
     module: 'site_configuration',
@@ -1365,7 +1442,8 @@ const changedPixels = async (before, after) => {
 await login(page);
 
 // run.sh calls the script once per stage, with --stage=naming for the
-// second one, and with the names of the screenshots to take, if any
+// second one and --stage=upgrade for the third one, and with the names of
+// the screenshots to take, if any
 const stage = process.argv.find((arg) => arg.startsWith('--stage='))?.slice(8) ?? '';
 const requested = process.argv.slice(2).filter((arg) => !arg.startsWith('--stage='));
 for (const name of requested) {
@@ -1377,7 +1455,8 @@ const names = (requested.length > 0 ? requested : Object.keys(screenshots))
   .filter((name) => (screenshots[name].stage ?? '') === stage);
 for (const name of names) {
   const screenshot = screenshots[name];
-  const window = screenshot.fresh ? await (await browser.newContext()).newPage() : page;
+  const own = screenshot.fresh || screenshot.loggedOut;
+  const window = own ? await (await browser.newContext()).newPage() : page;
   try {
     if (screenshot.fresh) {
       await login(window);
@@ -1389,7 +1468,7 @@ for (const name of names) {
     console.log(`${name}: failed, see var/screenshot-failure.png`);
     throw error;
   } finally {
-    if (screenshot.fresh) {
+    if (own) {
       await window.context().close();
     }
   }

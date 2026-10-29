@@ -39,7 +39,7 @@ using the following address to create a new administrative user:
 The Install Tool requires the "Installation Password" that would have been set
 when TYPO3 was installed.
 
-..  figure:: /Images/ManualScreenshots/InstallTool/InstallToolPassword.png
+..  figure:: /Images/AutomaticScreenshots/InstallTool/InstallToolPassword.png
     :alt: The install tool login
     :zoom: lightbox
 
@@ -126,9 +126,17 @@ During troubleshooting, in the :guilabel:`"Settings > Configuration Presets"`
 section of the Install Tool, under "Debug settings", the "Debug" preset can be
 change to show errors in the frontend.
 
-..  include:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.rst.txt
+..  figure:: /Images/AutomaticScreenshots/DebugSettings/ConfigurationPresets.png
+    :alt: Configuration Presets Card
+    :zoom: lightbox
 
-..  include:: /Images/ManualScreenshots/DebugSettings/DebugSettings.rst.txt
+    Choose a configuration preset
+
+..  figure:: /Images/AutomaticScreenshots/DebugSettings/DebugSettings.png
+    :alt: Debug Presets
+    :zoom: lightbox
+
+    Choose the debug preset
 
 The following TypoScript setting can also be added to the root TypoScript for
 the site to show additional debug information.
