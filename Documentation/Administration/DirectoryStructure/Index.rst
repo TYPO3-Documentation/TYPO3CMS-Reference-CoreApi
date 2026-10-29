@@ -19,7 +19,7 @@ server without Composer, and without deploying :file:`composer.json` or
 :file:`composer.lock`. To make matters more confusing, the presence of these
 files **does not** guarantee that TYPO3 is running in Composer mode.
 
-..  figure:: /Images/ManualScreenshots/Backend/ComposerMode.png
+..  figure:: /Images/AutomaticScreenshots/Backend/ComposerMode.png
     :alt: The TYPO3 backend Extension Manager with message "Composer mode: The system is set to Composer mode. Please notice that this list is for informational purpose only. To modify which extensions are part of the system, use Composer. To set extensions up, use the TYPO3 cli (extension:setup)"
 
     You can check the installation method in the :guilabel:`System Information` menu or the :guilabel:`System > Extensions` module

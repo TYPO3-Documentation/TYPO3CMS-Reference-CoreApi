@@ -49,7 +49,7 @@ Exploring global variables in array `$GLOBALS`
 Many of the global variables described in chapter `$GLOBALS <https://docs.typo3.org/permalink/t3coreapi:globals-variables>`_
 can be inspected using the module :guilabel:`System > Configuration`.
 
-..  figure:: /Images/ManualScreenshots/Backend/SystemConfigurationGlobals.png
+..  figure:: /Images/AutomaticScreenshots/Backend/SystemConfigurationGlobals.png
     :alt: Backend module System -> Configuration with the selector open to demonstrate $GLOBALS variables that can be displayed
 
     This module is purely a browser. It does not let you change any settings.
