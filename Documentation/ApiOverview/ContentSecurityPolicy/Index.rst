@@ -972,7 +972,7 @@ uses a simple tree display of all configured directives, grouped by
 frontend or backend. Each rule shows where it is defined, and what
 its final policy is set to:
 
-..  figure:: /Images/ManualScreenshots/ContentSecurityPolicy/CspBackendConfiguration.png
+..  figure:: /Images/AutomaticScreenshots/ContentSecurityPolicy/CspBackendConfiguration.png
     :class: with-shadow
 
     Backend module "Configuration > Content Security Policy Mutations" which displays

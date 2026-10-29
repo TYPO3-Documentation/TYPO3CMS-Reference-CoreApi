@@ -234,6 +234,35 @@ const selectTreeNode = async (page, label) => {
   await page.waitForTimeout(1500);
 };
 
+// Shows a configuration in the Configuration module and opens the nodes
+// with the given keys, one below the other, or the nodes that match the
+// search term
+const configuration = (label, { open = [], search } = {}) => async ({ page, frame }) => {
+  await frame.locator('.module-docheader .dropdown-toggle').first().click();
+  await frame.locator('.dropdown-menu a', { hasText: label }).first().click();
+  await frame.locator('h1', { hasText: label }).waitFor();
+  let node = frame.locator('.treelist').first();
+  for (const key of open) {
+    const item = node.locator(':scope > li > .treelist-group > .treelist-label')
+      .getByText(key, { exact: true }).locator('xpath=ancestor::li[1]');
+    await item.locator('xpath=./typo3-backend-tree-node-toggle').click();
+    node = item.locator('xpath=./div/ul');
+    await node.waitFor();
+  }
+  // The search field ignores what is typed before its script is ready, so
+  // the search repeats until the number of matches shows. A search in a
+  // large tree such as the TCA takes several seconds.
+  for (let i = 0; search && i < 3; i++) {
+    await frame.locator('#searchValue').fill(search);
+    const matches = frame.getByText(/^(one match|\d+ matches)$/);
+    if (await matches.waitFor({ timeout: 20000 }).then(() => true, () => false)) {
+      break;
+    }
+    await frame.locator('#searchValue').fill('');
+  }
+  await page.waitForTimeout(1500);
+};
+
 // Each screenshot opens a module from the module menu and shows the
 // backend in a viewport of the given size:
 //
@@ -1055,14 +1084,8 @@ const screenshots = {
     module: 'system_config',
     width: 1040,
     height: 590,
-    prepare: async ({ page, frame }) => {
-      await frame.locator('.module-docheader .dropdown-toggle').first().click();
-      await frame.locator('.dropdown-menu a', { hasText: 'Backend Modules' }).first().click();
-      await frame.locator('h1', { hasText: 'Backend Modules' }).waitFor();
-      // The search opens the module in the tree
-      await frame.locator('#searchValue').fill('web_layout');
-      await page.waitForTimeout(1500);
-    },
+    // The search opens the module in the tree
+    prepare: configuration('Backend Modules', { search: 'web_layout' }),
   },
   'Backend/PageProperties': {
     module: 'web_layout',
@@ -1104,6 +1127,47 @@ const screenshots = {
       await frame.locator('[aria-expanded]', { hasText: 'File collection' }).first().click();
       await page.waitForTimeout(800);
     },
+  },
+  'Authentication/InstalledAuthServices': {
+    module: 'system_config',
+    width: 1000,
+    height: 590,
+    // The search shows the priority of every authentication service
+    prepare: configuration('T3_SERVICES (Registered Services)', { search: 'priority' }),
+  },
+  'ContentSecurityPolicy/CspBackendConfiguration': {
+    module: 'system_config',
+    width: 1000,
+    height: 610,
+    prepare: configuration('Content Security Policy Mutations', { open: ['backend', 'enforce'] }),
+  },
+  'Database/MiddlewareConfigurationModule': {
+    module: 'system_config',
+    width: 1000,
+    height: 560,
+    prepare: configuration('Doctrine DBAL Driver Middlewares', {
+      open: ['Connections', 'Default', 'typo3/core/custom-platform-driver-middleware'],
+    }),
+  },
+  'Events/ConfigurationEventListeners': {
+    module: 'system_config',
+    width: 1000,
+    height: 560,
+    prepare: configuration('Event Listeners (PSR-14)'),
+  },
+  'ExtendingTca/VerifyingTca': {
+    module: 'system_config',
+    width: 1000,
+    height: 640,
+    // A field that the Camino theme adds to the pages table
+    prepare: configuration('TCA (Table Configuration Array)', { search: 'tx_themecamino_logo' }),
+    scrollTo: (frame) => [frame.locator('.treelist-label:visible', { hasText: 'tx_themecamino_logo' }).first(), 420],
+  },
+  'RequestHandling/ConfigurationMiddleware': {
+    module: 'system_config',
+    width: 1000,
+    height: 565,
+    prepare: configuration('HTTP Middlewares (PSR-15)', { open: ['frontend'] }),
   },
 };
 

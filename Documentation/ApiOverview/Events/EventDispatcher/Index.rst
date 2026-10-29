@@ -415,7 +415,7 @@ module :guilabel:`System > Configuration > Event Listeners (PSR-14)`. The
 :doc:`lowlevel <ext_lowlevel:Index>` system extension has to be installed for
 this module to be available.
 
-..  figure:: /Images/ManualScreenshots/Events/ConfigurationEventListeners.png
+..  figure:: /Images/AutomaticScreenshots/Events/ConfigurationEventListeners.png
     :alt: List of event listeners in the Configuration module
     :class: with-border
 

@@ -42,7 +42,7 @@ authentication server, for example.
 You can check which authentication services are installed
 using the :guilabel:`System > Configuration` module:
 
-..  figure:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.png
+..  figure:: /Images/AutomaticScreenshots/Authentication/InstalledAuthServices.png
     :zoom: lightbox
 
     All installed authentication services and their priority
