@@ -149,7 +149,7 @@ There are 3 different methods you can use to read the changelogs:
 #.  Read the changelog in the :ref:`Extension Scanner <t3coreapi:extension-scanner>`
     (as explained above).
 
-..  figure:: /Images/ManualScreenshots/Upgrade/UpgradeAnalysis.png
+..  figure:: /Images/AutomaticScreenshots/Upgrade/UpgradeAnalysis.png
     :alt: Upgrade Analysis
     :zoom: lightbox
 

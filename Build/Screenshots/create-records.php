@@ -48,6 +48,12 @@ if (($argv[1] ?? '') === 'naming') {
     require __DIR__ . '/create-naming-records.php';
     exit;
 }
+// With the argument "upgrade", adds the data of the upgrade wizards that
+// have not run yet, once the screenshots of the naming conventions are taken
+if (($argv[1] ?? '') === 'upgrade') {
+    require __DIR__ . '/create-upgrade-records.php';
+    exit;
+}
 
 // The error pages below the root page "Camino", after its last page
 // "Footer navigation" (uid 2), and two more root pages, for which TYPO3
