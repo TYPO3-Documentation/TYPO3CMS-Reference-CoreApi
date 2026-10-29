@@ -226,9 +226,17 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
   for (const key of open) {
     const item = node.locator(':scope > li > .treelist-group > .treelist-label')
       .getByText(key, { exact: true }).locator('xpath=ancestor::li[1]');
-    await item.locator('xpath=./typo3-backend-tree-node-toggle').click();
+    // A click before the script of the toggle is ready does nothing
+    const toggle = item.locator('xpath=./typo3-backend-tree-node-toggle');
     node = item.locator('xpath=./div/ul');
-    await node.waitFor();
+    for (let i = 0; i < 5; i++) {
+      if (await toggle.getAttribute('aria-expanded') !== 'true') {
+        await toggle.click();
+      }
+      if (await node.waitFor({ timeout: 2000 }).then(() => true, () => false)) {
+        break;
+      }
+    }
   }
   // The search field ignores what is typed before its script is ready, so
   // the search repeats until the number of matches shows. A search in a
@@ -1093,7 +1101,7 @@ const screenshots = {
     width: 1000,
     height: 590,
     // The search shows the priority of every authentication service
-    prepare: configuration('T3_SERVICES (Registered Services)', { search: 'priority' }),
+    prepare: configuration("$GLOBALS['T3_SERVICES'] (Registered Services)", { search: 'priority' }),
   },
   'ContentSecurityPolicy/CspBackendConfiguration': {
     module: 'system_config',
@@ -1120,7 +1128,7 @@ const screenshots = {
     width: 1000,
     height: 640,
     // A field that the Camino theme adds to the pages table
-    prepare: configuration('TCA (Table Configuration Array)', { search: 'tx_themecamino_logo' }),
+    prepare: configuration("$GLOBALS['TCA'] (Table configuration array)", { search: 'tx_themecamino_logo' }),
     scrollTo: (frame) => [frame.locator('.treelist-label:visible', { hasText: 'tx_themecamino_logo' }).first(), 420],
   },
   'RequestHandling/ConfigurationMiddleware': {
