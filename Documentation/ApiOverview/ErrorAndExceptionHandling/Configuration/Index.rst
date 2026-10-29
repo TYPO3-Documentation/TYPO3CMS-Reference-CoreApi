@@ -24,7 +24,7 @@ handling in the presets:
 
 :guilabel:`System > Settings > Configuration Presets > Debug Settings`
 
-..  figure:: /Images/ManualScreenshots/DebugSettings/DebugSettings.png
+..  figure:: /Images/AutomaticScreenshots/DebugSettings/DebugSettings.png
     :zoom: lightbox
 
     Enable the debug settings in module :guilabel:`System > Settings`
