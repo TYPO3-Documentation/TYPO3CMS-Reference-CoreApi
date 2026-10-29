@@ -245,9 +245,17 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
   for (const key of open) {
     const item = node.locator(':scope > li > .treelist-group > .treelist-label')
       .getByText(key, { exact: true }).locator('xpath=ancestor::li[1]');
-    await item.locator('xpath=./typo3-backend-tree-node-toggle').click();
+    // A click before the script of the toggle is ready does nothing
+    const toggle = item.locator('xpath=./typo3-backend-tree-node-toggle');
     node = item.locator('xpath=./div/ul');
-    await node.waitFor();
+    for (let i = 0; i < 5; i++) {
+      if (await toggle.getAttribute('aria-expanded') !== 'true') {
+        await toggle.click();
+      }
+      if (await node.waitFor({ timeout: 2000 }).then(() => true, () => false)) {
+        break;
+      }
+    }
   }
   // The search field ignores what is typed before its script is ready, so
   // the search repeats until the number of matches shows. A search in a
