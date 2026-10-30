@@ -429,7 +429,7 @@ const screenshots = {
       );
       // The search shows changes of every kind, which the first version
       // lists one kind after the other
-      await context.page.locator(modal).getByRole('searchbox').pressSequentially('file storage');
+      await context.page.locator(modal).getByRole('searchbox').pressSequentially('ExtensionUtility');
       await context.page.waitForTimeout(1500);
     },
   },
