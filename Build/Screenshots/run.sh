@@ -28,6 +28,15 @@ ${PHP_RUN} .Build/bin/typo3 configuration:set SYS/trustedHostsPattern '.*'
 rm -rf .Build/web/fileadmin/_temp_
 # Shows the field names in brackets next to the labels
 ${PHP_RUN} .Build/bin/typo3 configuration:set BE/debug 1
+# A custom language and an overridden label, as on the page about managing
+# translations, with the translation file of the custom language from there
+cp Build/Screenshots/additional.php config/system/additional.php
+mkdir -p var/labels/gsw_CH/setup/Resources/Private/Language
+cp Documentation/ApiOverview/Localization/_snippets/_gsw_CH.locallang_2.0.xlf \
+    var/labels/gsw_CH/setup/Resources/Private/Language/gsw_CH.locallang.xlf
+# Spanish is active in the language packs, without its translations, which
+# would need the network
+${PHP_RUN} .Build/bin/typo3 configuration:set LANG/availableLocales '["es"]' --json
 ${PHP_RUN} php Build/Screenshots/create-records.php
 
 ${WEB_START}
