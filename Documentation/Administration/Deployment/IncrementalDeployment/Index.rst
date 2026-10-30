@@ -67,6 +67,21 @@ Flush TYPO3 caches:
 
     ./vendor/bin/typo3 cache:flush
 
+..  _incremental-deploy-update-reference-index:
+
+Update the reference index:
+---------------------------
+
+..  code-block:: bash
+
+    ./vendor/bin/typo3 referenceindex:update
+
+TYPO3 reads relations from the reference index, also in the frontend.
+Update it whenever a deployment adds, removes, or updates an extension or
+the TYPO3 Core, as this can change the relations defined in TCA. Updating
+it after every deployment is recommended. See
+`Update reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_.
+
 ..  note::
 
     Use a deployment script or tool such as
