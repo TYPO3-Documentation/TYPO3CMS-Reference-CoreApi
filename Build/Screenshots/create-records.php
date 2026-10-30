@@ -7,8 +7,9 @@ declare(strict_types=1);
  * Camino theme, like in the Editors Tutorial: Spanish and Arabic, which is
  * written from right to left, error pages, a second root page with the
  * site configuration that TYPO3 creates for it, a third root page without
- * a site configuration, and the backend users, groups, and file mounts of
- * the chapter on user management.
+ * a site configuration, the backend users, groups, and file mounts of the
+ * chapter on user management, and categories of the regions that the
+ * routes of Camino lead through.
  *
  * Runs after "typo3 setup" and "typo3 extension:setup".
  */
@@ -21,6 +22,7 @@ use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -224,3 +226,21 @@ foreach ([$notFound, $forbidden] as $uid) {
 foreach (['Downloads', 'Press'] as $folder) {
     GeneralUtility::mkdir_deep(Environment::getPublicPath() . '/fileadmin/camino/' . $folder);
 }
+
+// Categories on the root level, one of them below another one, and the
+// two of them that the image of the Camino Francés belongs to
+$dataHandler = $process(['sys_category' => [
+    'NEWregion' => ['pid' => 0, 'title' => 'Region'],
+    'NEWfrance' => ['pid' => 0, 'title' => 'France', 'parent' => 'NEWregion'],
+    'NEWportugal' => ['pid' => 0, 'title' => 'Portugal', 'parent' => 'NEWregion'],
+    'NEWspain' => ['pid' => 0, 'title' => 'Spain', 'parent' => 'NEWregion'],
+    'NEWgalicia' => ['pid' => 0, 'title' => 'Galicia', 'parent' => 'NEWspain'],
+]]);
+$image = $container->get(ResourceFactory::class)
+    ->getFileObjectFromCombinedIdentifier('1:/camino/camino-frances.webp');
+$process(['sys_file_metadata' => [
+    $image->getMetaData()->get()['uid'] => ['categories' => implode(',', [
+        $dataHandler->substNEWwithIDs['NEWfrance'],
+        $dataHandler->substNEWwithIDs['NEWspain'],
+    ])],
+]]);
