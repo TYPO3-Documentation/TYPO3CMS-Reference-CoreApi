@@ -101,6 +101,22 @@ const siteCard = (frame, title) => frame.locator(`.card:has(.card-title:text-is(
 // the page properties
 const editForm = (page) => page.locator(modal).frameLocator('iframe');
 
+// Opens the form of a record in the module, "edit" for the record with the
+// given uid, or "new" for a new record on the page with the given uid,
+// with the given default values
+const openForm = async ({ page, frame }, table, uid, command = 'edit', values = {}) => {
+  const defaults = Object.entries(values)
+    .map(([field, value]) => `&defVals[${table}][${field}]=${encodeURIComponent(value)}`).join('');
+  await page.evaluate((query) => TYPO3.Backend.ContentContainer.setUrl(
+    `${TYPO3.settings.FormEngine.moduleUrl}${query}`,
+  ), `&edit[${table}][${uid}]=${command}${defaults}`);
+  await frame.locator('h1').first().waitFor();
+  await page.waitForTimeout(1500);
+};
+
+// The uid of the page that the module shows
+const shownPage = (page) => new URL(page.frame({ name: 'list_frame' }).url()).searchParams.get('id');
+
 // The field of a form with the tree of the categories, from its label to
 // the number of chosen categories below the tree
 const categoryField = (frame) => frame.getByRole('tree').first()
@@ -1358,14 +1374,87 @@ const screenshots = {
       // The metadata of the image, which belongs to two categories
       const uid = await frame.locator('[data-filelist-name="camino-frances.webp"]').first()
         .getAttribute('data-filelist-meta-uid');
-      await page.evaluate((record) => TYPO3.Backend.ContentContainer.setUrl(
-        `${TYPO3.settings.FormEngine.moduleUrl}&edit[sys_file_metadata][${record}]=edit`,
-      ), uid);
+      await openForm({ page, frame }, 'sys_file_metadata', uid);
       await frame.getByRole('tab', { name: 'Categories' }).click();
       await frame.getByRole('treeitem', { name: 'Spain' }).first().waitFor();
       await page.waitForTimeout(1000);
     },
     clip: (frame) => [frame.locator('h1').first(), categoryField(frame)],
+  },
+
+  'Fal/FolderCollection': {
+    module: 'records',
+    width: 1400,
+    height: 900,
+    // A new collection of the files in a folder, on a page without the
+    // Camino theme, which allows every type of content
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'My site');
+      await openForm({ page, frame }, 'sys_file_collection', shownPage(page), 'new', {
+        type: 'folder',
+        folder_identifier: '1:/camino/',
+      });
+      await fillIn(fieldGroup(frame, 'title').locator('input').first(), 'Route maps');
+    },
+    mark: ({ frame }) => outline(fieldGroup(frame, 'type')),
+    clip: (frame) => [frame.locator('h1').first(), fieldGroup(frame, 'recursive')],
+  },
+  'Fal/FileDownloadWithCollection': {
+    module: 'records',
+    width: 1400,
+    height: 1200,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'My site');
+      await openForm({ page, frame }, 'tt_content', shownPage(page), 'new', { CType: 'uploads' });
+    },
+    clip: (frame) => [frame.locator('.form-section:has(code:text-is("[file_collections]"))').first()],
+  },
+
+  'CodeEditor/CodeEditor': {
+    module: 'records',
+    width: 1400,
+    height: 1000,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'My site');
+      await openForm({ page, frame }, 'tt_content', shownPage(page), 'new', { CType: 'html' });
+      await frame.locator('.cm-content').first().click();
+      // Inserted at once, so the editor does not close the tags itself
+      await page.keyboard.insertText([
+        '<div class="map-container">',
+        '  <iframe',
+        '    src="https://example.org/map/santiago"',
+        '    width="100%"',
+        '    height="400"',
+        '    style="border:0;"',
+        '    loading="lazy">',
+        '  </iframe>',
+        '</div>',
+        '',
+      ].join('\n'));
+      await page.waitForTimeout(800);
+    },
+    clip: (frame) => [fieldGroup(frame, 'CType'), fieldGroup(frame, 'bodytext')],
+  },
+  'ContentSecurityPolicy/BackendModule': {
+    module: 'content_security_policy',
+    width: 1000,
+    height: 610,
+  },
+  'Rte/RteBackend': {
+    module: 'web_layout',
+    width: 1400,
+    height: 700,
+    prepare: async ({ page, frame }) => {
+      await showInLayout(page, frame, 'Camino');
+      const uid = await frame.locator('.t3-page-ce', { hasText: 'What Is the Camino de Compostela?' }).first()
+        .evaluate((element) => element.dataset.uid ?? element.id.match(/\d+$/)[0]);
+      await openForm({ page, frame }, 'tt_content', uid);
+      await frame.locator('.ck-editor__editable').first().waitFor();
+      await page.waitForTimeout(1000);
+    },
+    // Below the docheader, which stays at the top
+    scrollTo: (frame) => [fieldGroup(frame, 'bodytext'), 200],
+    clip: (frame) => [fieldGroup(frame, 'bodytext')],
   },
   'Backend/ComposerMode': {
     module: 'extensionmanager',

@@ -19,7 +19,7 @@ rich text editor (RTE) instead of the simple form field. An RTE enables
 editors to use visual formatting aids to create bold and italic text,
 paragraphs, tables and more.
 
-..  figure:: /Images/ManualScreenshots/Rte/RteBackend.png
+..  figure:: /Images/AutomaticScreenshots/Rte/RteBackend.png
     :zoom: lightbox
 
     The rtehtmlarea RTE activated in the TYPO3 backend

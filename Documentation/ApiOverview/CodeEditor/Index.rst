@@ -49,7 +49,7 @@ Example: Show a code editor for HTML in a TCA field
 
 Displays an editor like the following:
 
-..  figure:: /Images/ManualScreenshots/CodeEditor/CodeEditor.png
+..  figure:: /Images/AutomaticScreenshots/CodeEditor/CodeEditor.png
     :alt: A code editor with syntax highlighting for HTML
     :class: with-shadow
 
