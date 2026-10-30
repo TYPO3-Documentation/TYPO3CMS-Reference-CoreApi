@@ -36,7 +36,7 @@ Managing categories
 System categories are defined like any other record. Each category
 can have a parent, making a tree-like structure.
 
-..  figure:: /Images/ManualScreenshots/Categories/Editing.png
+..  figure:: /Images/AutomaticScreenshots/Categories/Editing.png
     :zoom: lightbox
 
     A category with a parent defined
@@ -60,7 +60,7 @@ TCA column and add it to the desired record types:
 
 This is the result of the above code:
 
-..  figure:: /Images/ManualScreenshots/Categories/AddingWithApi.png
+..  figure:: /Images/AutomaticScreenshots/Categories/AddingWithApi.png
     :zoom: lightbox
 
     The newly added field to define relations to categories
