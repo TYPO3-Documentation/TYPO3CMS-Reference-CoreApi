@@ -39,7 +39,9 @@ const expand = async ({ page }, title) => {
 // left, where a neighbour follows closely on the right, and "below" centers
 // it below the element, for a row of buttons, where a circle at a corner
 // could belong to either neighbour. "before" puts it left of the element,
-// for an element in an open menu, which covers everything else.
+// for an element in an open menu, which covers everything else. "top"
+// centers it inside the top of the element, for an area of the window
+// whose lower corners lie outside the screenshot.
 const outline = (locator, inside = false) => locator.evaluate((element, inner) => {
   element.style.outline = '3px solid #ff8700';
   element.style.outlineOffset = inner ? '-3px' : '3px';
@@ -52,8 +54,8 @@ const badge = (locator, number, side = 'right') => locator.evaluate((element, [t
   circle.textContent = text;
   Object.assign(circle.style, {
     position: 'fixed',
-    left: `${{ left: box.left - 14, below: box.left + box.width / 2 - 13, before: box.left - 34 }[where] ?? box.right - 12}px`,
-    top: `${{ below: box.bottom + 4, before: box.top + box.height / 2 - 13 }[where] ?? box.bottom - 6}px`,
+    left: `${{ left: box.left - 14, below: box.left + box.width / 2 - 13, before: box.left - 34, top: box.left + box.width / 2 - 13 }[where] ?? box.right - 12}px`,
+    top: `${{ below: box.bottom + 4, before: box.top + box.height / 2 - 13, top: box.top + 17 }[where] ?? box.bottom - 6}px`,
     width: '26px',
     height: '26px',
     borderRadius: '50%',
@@ -68,6 +70,29 @@ const badge = (locator, number, side = 'right') => locator.evaluate((element, [t
   });
   element.ownerDocument.body.appendChild(circle);
 }, [String(number), side]);
+
+// Draws a frame around the docheader of a module. The wrapper has no box
+// of its own, so the frame goes around its rows, and the frame is the
+// element that gets the number.
+const outlineDocHeader = (frame) => frame.locator('.module-docheader-wrapper').first().evaluate((wrapper) => {
+  const boxes = [...wrapper.querySelectorAll('.module-docheader')].map((row) => row.getBoundingClientRect());
+  const left = Math.min(...boxes.map((box) => box.left));
+  const top = Math.min(...boxes.map((box) => box.top));
+  const border = wrapper.ownerDocument.createElement('div');
+  border.className = 'screenshot-docheader-frame';
+  Object.assign(border.style, {
+    position: 'fixed',
+    left: `${left}px`,
+    top: `${top}px`,
+    width: `${Math.max(...boxes.map((box) => box.right)) - left}px`,
+    height: `${Math.max(...boxes.map((box) => box.bottom)) - top}px`,
+    outline: '3px solid #ff8700',
+    outlineOffset: '-3px',
+    pointerEvents: 'none',
+    zIndex: '10000',
+  });
+  wrapper.ownerDocument.body.appendChild(border);
+});
 
 // The card of a site in Sites > Setup, by the title of its root page
 const siteCard = (frame, title) => frame.locator(`.card:has(.card-title:text-is("${title}"))`);
@@ -209,6 +234,15 @@ const switchToUser = (name) => async (context) => {
   await page.waitForTimeout(1500);
 };
 
+// Selects a page in the tree next to the Content > Layout module and waits
+// until the module shows it with all its icons
+const showInLayout = async (page, frame, label) => {
+  await selectTreeNode(page, label);
+  await frame.locator('h1', { hasText: label }).waitFor();
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(1500);
+};
+
 // Selects a page or a folder in the tree next to the module
 const selectTreeNode = async (page, label) => {
   await page.getByRole('treeitem', { name: label }).first().click();
@@ -264,6 +298,8 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
 //   fresh      takes the screenshot in a session of its own, which has not
 //              confirmed the password for the Admin Tools yet
 //   loggedOut  takes the screenshot in a window without a backend session
+//   after      runs after the screenshot, to undo a change that the
+//              backend keeps for the user, such as a collapsed menu
 //   stage      "naming" takes the screenshot after the other ones, once
 //              run.sh added the users and groups of the naming conventions,
 //              "upgrade" after those, once run.sh added the data of the
@@ -1075,25 +1111,7 @@ const screenshots = {
     prepare: async ({ page }) => {
       await selectTreeNode(page, 'Camino');
     },
-    // The wrapper has no box of its own, so the frame goes around its rows
-    mark: ({ frame }) => frame.locator('.module-docheader-wrapper').first().evaluate((wrapper) => {
-      const boxes = [...wrapper.querySelectorAll('.module-docheader')].map((row) => row.getBoundingClientRect());
-      const left = Math.min(...boxes.map((box) => box.left));
-      const top = Math.min(...boxes.map((box) => box.top));
-      const border = wrapper.ownerDocument.createElement('div');
-      Object.assign(border.style, {
-        position: 'fixed',
-        left: `${left}px`,
-        top: `${top}px`,
-        width: `${Math.max(...boxes.map((box) => box.right)) - left}px`,
-        height: `${Math.max(...boxes.map((box) => box.bottom)) - top}px`,
-        outline: '3px solid #ff8700',
-        outlineOffset: '-3px',
-        pointerEvents: 'none',
-        zIndex: '10000',
-      });
-      wrapper.ownerDocument.body.appendChild(border);
-    }),
+    mark: ({ frame }) => outlineDocHeader(frame),
     rect: { x: 0, y: 0, width: 1240, height: 180 },
   },
   'Backend/FileModuleDropDownButton': {
@@ -1123,6 +1141,83 @@ const screenshots = {
     height: 590,
     // The search opens the module in the tree
     prepare: configuration('Backend Modules', { search: 'web_layout' }),
+  },
+  'BackendModules/BackendModulesAreas': {
+    module: 'web_layout',
+    width: 1400,
+    height: 500,
+    prepare: async ({ page, frame }) => {
+      await showInLayout(page, frame, 'Camino');
+    },
+    mark: async ({ page, frame }) => {
+      const parts = [
+        page.locator('.scaffold-header'),
+        page.locator('.scaffold-sidebar'),
+        page.locator('[id^="navigationComponent"]'),
+      ];
+      for (const [index, part] of parts.entries()) {
+        await outline(part.first(), true);
+        await badge(part.first(), index + 1, 'top');
+      }
+      await outlineDocHeader(frame);
+      await badge(frame.locator('.screenshot-docheader-frame'), 4, 'top');
+      const content = frame.locator('.module-body').first();
+      await outline(content, true);
+      await badge(content, 5, 'top');
+      const trigger = frame.locator('.t3-page-ce-header [data-contextmenu-trigger]').first();
+      await outline(trigger);
+      await badge(trigger, 6);
+      const toggles = [
+        page.locator('typo3-backend-sidebar-toggle'),
+        page.locator('typo3-backend-content-navigation-toggle[action="collapse"]'),
+      ];
+      for (const [index, toggle] of toggles.entries()) {
+        await outline(toggle.first());
+        await badge(toggle.first(), index + 7);
+      }
+    },
+  },
+  'BackendModules/BackendModuleCollapsed': {
+    module: 'web_layout',
+    width: 1000,
+    height: 500,
+    prepare: async ({ page, frame }) => {
+      await showInLayout(page, frame, 'Camino');
+      await page.locator('typo3-backend-sidebar-toggle').click();
+      await page.locator('typo3-backend-content-navigation-toggle[action="collapse"]').first().click();
+      await page.waitForTimeout(1000);
+    },
+    mark: async ({ page, frame }) => {
+      const toggles = [
+        page.locator('typo3-backend-sidebar-toggle'),
+        frame.locator('typo3-backend-content-navigation-toggle[action="expand"]'),
+      ];
+      for (const [index, toggle] of toggles.entries()) {
+        await outline(toggle.first());
+        await badge(toggle.first(), index + 1);
+      }
+    },
+    // The backend keeps both areas collapsed for the user
+    after: async ({ page, frame }) => {
+      await page.locator('typo3-backend-sidebar-toggle').click();
+      await frame.locator('typo3-backend-content-navigation-toggle[action="expand"]').first().click();
+      await page.waitForTimeout(1000);
+    },
+    rect: { x: 0, y: 0, width: 1000, height: 230 },
+  },
+  'BackendModules/BackendModulesContextualMenu': {
+    module: 'web_layout',
+    width: 1400,
+    height: 432,
+    prepare: async ({ page, frame }) => {
+      await showInLayout(page, frame, 'Camino');
+      await page.getByRole('treeitem', { name: 'Camino', exact: true }).first().click({ button: 'right' });
+      await page.locator('.context-menu-item').first().waitFor();
+      await page.waitForTimeout(800);
+    },
+    keepFocus: true,
+    // The pointer rests on an item, as when choosing it
+    mark: ({ page }) => page.locator('.context-menu-item', { hasText: 'Edit Site Settings' }).first().hover(),
   },
   'Backend/PageProperties': {
     module: 'web_layout',
@@ -1422,6 +1517,9 @@ for (const name of names) {
       await login(window);
     }
     await take(window, name, screenshot);
+    if (screenshot.after) {
+      await screenshot.after({ page: window, frame: window.frameLocator('iframe[name="list_frame"]') });
+    }
   } catch (error) {
     // The window at the moment of the error, in the ignored folder var/
     await window.screenshot({ path: '../../var/screenshot-failure.png' }).catch(() => {});
