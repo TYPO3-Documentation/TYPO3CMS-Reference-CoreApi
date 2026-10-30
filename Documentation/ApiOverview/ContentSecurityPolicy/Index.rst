@@ -904,7 +904,7 @@ to keep track of recent violations and - if applicable - to select potential
 resolutions (stored in the database table :sql:`sys_csp_resolution`) which
 extends the Content Security Policy for the given scope during runtime:
 
-..  figure:: /Images/ManualScreenshots/ContentSecurityPolicy/BackendModule.png
+..  figure:: /Images/AutomaticScreenshots/ContentSecurityPolicy/BackendModule.png
     :class: with-shadow
 
     Backend module "Content Security Policy" which displays the violations

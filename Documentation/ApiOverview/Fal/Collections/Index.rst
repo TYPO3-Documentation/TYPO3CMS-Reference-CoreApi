@@ -12,7 +12,7 @@ File collections are collections of
 :ref:`file references <fal-architecture-components-file-references>`.
 They are used by the "File links" (download) content element.
 
-..  figure:: /Images/ManualScreenshots/Fal/FileDownloadWithCollection.png
+..  figure:: /Images/AutomaticScreenshots/Fal/FileDownloadWithCollection.png
     :alt: A file links content element
     :class: with-shadow
 
@@ -27,7 +27,7 @@ The selected files are stored in the
 Note that a file collection may also reference a folder, in which case
 all files inside the folder will be returned when calling that collection.
 
-..  figure:: /Images/ManualScreenshots/Fal/FolderCollection.png
+..  figure:: /Images/AutomaticScreenshots/Fal/FolderCollection.png
     :alt: A folder collection
     :class: with-shadow
 
