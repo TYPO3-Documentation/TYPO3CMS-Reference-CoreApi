@@ -23,7 +23,7 @@ The settings of a plugin are commonly found in a tab called "Plugin" and
 a section called "Plugin Options". Extension authors are, however, free to
 chose different labels.
 
-..  figure:: /Images/ManualScreenshots/Backend/PluginOptions.png
+..  figure:: /Images/AutomaticScreenshots/Backend/PluginOptions.png
     :alt: Plugin Options of the Frontend login plugin
 
     Example: Plugin options of the Frontend login plugin

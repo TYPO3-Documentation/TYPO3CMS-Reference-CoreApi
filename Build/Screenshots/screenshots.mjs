@@ -223,6 +223,23 @@ const openUserSettings = async (context) => {
   await page.waitForTimeout(800);
 };
 
+// Sets the language of the backend in User Settings, saves it, and reloads
+// the backend. Works in every language, as it uses no labels.
+const setUserLanguage = async (page, language) => {
+  // A fresh backend, as an open form would keep the module from changing
+  await page.goto(`${baseUrl}/typo3/main`);
+  await page.waitForLoadState('networkidle');
+  await page.evaluate(() => TYPO3.ModuleMenu.App.showModule('user_setup'));
+  const frame = page.frameLocator('iframe[name="list_frame"]');
+  await settingsField(frame, 'lang').locator('select').selectOption(language);
+  await frame.locator('button[name="data[save]"]').first().click();
+  // Confirms the reload that the new language needs
+  await page.locator(modal).locator('.btn-primary').click();
+  await page.waitForLoadState('networkidle');
+  await page.locator('#modulemenu').waitFor();
+  await page.waitForTimeout(1500);
+};
+
 // Opens the form of a new backend group from Administration > Users
 const createGroup = async (context) => {
   const { page, frame } = context;
@@ -1520,6 +1537,113 @@ const screenshots = {
     width: 1000,
     height: 565,
     prepare: configuration('HTTP Middlewares (PSR-15)', { open: ['frontend'] }),
+  },
+
+  // Spanish is active from run.sh, Arabic is added by the screenshots of
+  // the language packs, in this order
+  'AdminTools/ManageLanguagePacks': {
+    module: 'system_maintenance',
+    width: 1000,
+    height: 726,
+    prepare: async (context) => {
+      await openCard(context, 'Manage Language Packs');
+    },
+  },
+  'Modules/ManageLanguage': {
+    module: 'system_maintenance',
+    width: 1000,
+    height: 395,
+    card: 'Manage Language Packs',
+    mark: ({ frame }) => outline(frame.locator('.card', { hasText: 'Manage Language Packs' })
+      .getByRole('button').first()),
+  },
+  'Modules/ManageLanguagePacksAddLanguage': {
+    module: 'system_maintenance',
+    width: 1000,
+    height: 520,
+    prepare: async (context) => {
+      const { page } = context;
+      await openCard(context, 'Manage Language Packs');
+      await page.locator(modal).getByRole('button', { name: 'Add language' }).click();
+      await page.waitForTimeout(800);
+    },
+    mark: ({ page }) => {
+      const dialog = page.locator(modal);
+      return Promise.all([
+        outline(dialog.getByRole('button', { name: 'Add language' })),
+        outline(dialog.locator('tr', { hasText: 'Arabic' }).getByRole('button').first()),
+      ]);
+    },
+  },
+  'Modules/ManageLanguagePacksAddLanguageAddSuccess': {
+    module: 'system_maintenance',
+    width: 1000,
+    height: 692,
+    prepare: async (context) => {
+      const { page } = context;
+      await openCard(context, 'Manage Language Packs');
+      const dialog = page.locator(modal);
+      await dialog.getByRole('button', { name: 'Add language' }).click();
+      await page.waitForTimeout(800);
+      await dialog.locator('tr', { hasText: 'Arabic' }).getByRole('button').first().click();
+      await dialog.getByText('These languages have been activated').waitFor();
+      await page.waitForTimeout(800);
+    },
+  },
+  // The language that run.sh adds from the example on the page
+  'Internationalization/CustomLanguage': {
+    module: 'dashboard',
+    width: 1000,
+    height: 692,
+    prepare: async (context) => {
+      await openUserSettings(context);
+      await settingsField(context.frame, 'lang').locator('select').selectOption('gsw_CH');
+      await context.page.waitForTimeout(500);
+      // The menu that leads to User Settings
+      await openUserMenu(context);
+    },
+    keepFocus: true,
+    scrollTo: (frame) => [settingsField(frame, 'lang'), 300],
+    mark: ({ frame }) => outline(settingsField(frame, 'lang')),
+  },
+  // The label that run.sh overrides in Spanish, for a user who works in
+  // Spanish without the language pack, so only this label is Spanish
+  'Internationalization/InternationalizationLabelOverride': {
+    module: 'records',
+    width: 1200,
+    height: 900,
+    prepare: async ({ page, frame }) => {
+      await setUserLanguage(page, 'es');
+      await openModule(page, 'records', false);
+      await frame.locator('h1').first().waitFor();
+      await selectTreeNode(page, 'My site');
+      await openForm({ page, frame }, 'tt_content', shownPage(page), 'new', { CType: 'text' });
+    },
+    clip: (frame) => [fieldGroup(frame, 'header'), fieldGroup(frame, 'date')],
+    after: ({ page }) => setUserLanguage(page, 'en'),
+  },
+  'ExtensionArchitecture/ExtensionConfigurationOptions': {
+    module: 'system_settings',
+    width: 1000,
+    height: 700,
+    prepare: async (context) => {
+      await openCard(context, 'Extension Configuration');
+      await expand(context, 'backend');
+    },
+  },
+  'Backend/PluginOptions': {
+    module: 'records',
+    width: 1200,
+    height: 553,
+    // A new login form, on a page without the Camino theme, which allows
+    // every type of content
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await selectTreeNode(page, 'My site');
+      await openForm(context, 'tt_content', shownPage(page), 'new', { CType: 'felogin_login' });
+      await openTab('Plugin')(context);
+    },
+    mark: ({ frame }) => outline(fieldGroup(frame, 'pi_flexform')),
   },
 };
 
