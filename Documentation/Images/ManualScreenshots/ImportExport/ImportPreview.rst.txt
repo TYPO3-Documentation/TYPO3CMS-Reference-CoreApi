@@ -1,5 +1,0 @@
-..  figure:: /Images/ManualScreenshots/ImportExport/ImportPreview.png
-    :zoom: lightbox
-    :alt: Preview the data
-
-    Preview the data

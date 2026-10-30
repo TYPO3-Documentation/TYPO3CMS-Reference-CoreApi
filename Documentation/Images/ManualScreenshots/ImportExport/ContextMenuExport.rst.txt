@@ -1,5 +1,0 @@
-..  figure:: /Images/ManualScreenshots/ImportExport/ContextMenuExport.png
-    :alt: Select Then select "Export"
-    :zoom: lightbox
-
-    Select Then select "Export"

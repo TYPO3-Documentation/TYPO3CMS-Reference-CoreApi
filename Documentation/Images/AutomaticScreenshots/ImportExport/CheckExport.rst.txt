@@ -1,4 +1,4 @@
-..  figure:: /Images/ManualScreenshots/ImportExport/CheckExport.png
+..  figure:: /Images/AutomaticScreenshots/ImportExport/CheckExport.png
     :alt: Check the exported data
     :zoom: lightbox
 

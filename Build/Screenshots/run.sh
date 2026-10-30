@@ -38,6 +38,8 @@ cp Documentation/ApiOverview/Localization/_snippets/_gsw_CH.locallang_2.0.xlf \
 # would need the network
 ${PHP_RUN} .Build/bin/typo3 configuration:set LANG/availableLocales '["es"]' --json
 ${PHP_RUN} php Build/Screenshots/create-records.php
+# The file that the screenshot of the import preview imports
+${PHP_RUN} .Build/bin/typo3 impexp:export --type=xml --pid=1 --levels=999 --table=_ALL camino
 
 ${WEB_START}
 trap '${WEB_STOP}' EXIT
