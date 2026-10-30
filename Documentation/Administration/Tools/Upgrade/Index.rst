@@ -53,7 +53,7 @@ this function to automatically do patch level TYPO3 Core updates.
 Upgrade wizard
 ==============
 
-..  figure:: /Images/ManualScreenshots/Upgrade/UpgradeWizard.png
+..  figure:: /Images/AutomaticScreenshots/Upgrade/UpgradeWizard.png
     :alt: Upgrade wizard
     :zoom: lightbox
 

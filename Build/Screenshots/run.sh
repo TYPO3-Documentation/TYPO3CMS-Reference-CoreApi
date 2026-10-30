@@ -38,3 +38,7 @@ ${BROWSER_RUN} sh -c "( [ -d node_modules/playwright ] || npm ci --no-audit --no
 # screenshots, which follow once they are added
 ${PHP_RUN} php Build/Screenshots/create-records.php naming
 ${BROWSER_RUN} node screenshots.mjs --stage=naming $*
+# The upgrade wizards that have not run yet show only in their own
+# screenshot, the last one
+${PHP_RUN} php Build/Screenshots/create-records.php upgrade
+${BROWSER_RUN} node screenshots.mjs --stage=upgrade $*
