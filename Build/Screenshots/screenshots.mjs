@@ -97,6 +97,10 @@ const outlineDocHeader = (frame) => frame.locator('.module-docheader-wrapper').f
 // The card of a site in Sites > Setup, by the title of its root page
 const siteCard = (frame, title) => frame.locator(`.card:has(.card-title:text-is("${title}"))`);
 
+// The form of a record that opens in a modal next to the module, such as
+// the page properties
+const editForm = (page) => page.locator(modal).frameLocator('iframe');
+
 // A field of the site form, by its name
 const siteField = (frame, name) => frame.locator(`[data-formengine-input-name$="[${name}]"]`).first();
 
@@ -291,7 +295,8 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
 //              the focus is gone
 //   rect       cuts out a fixed area of the window, {x, y, width, height}
 //   clip       cuts out an element, with a margin, instead of the viewport,
-//              or the area from one element of the module to another
+//              or the area from one element of the module to another,
+//              given as clip(frame, page)
 //   margin     the space around a clip, instead of the default
 //   scrollTo   scrolls an element of the module to the given top
 //   url        opens a page instead of a module
@@ -1236,6 +1241,50 @@ const screenshots = {
         .or(frame.getByRole('link', { name: 'Edit page properties' })).first());
     },
   },
+  'BackendLayouts/PagePropertiesAppearance': {
+    module: 'web_layout',
+    width: 1000,
+    height: 800,
+    prepare: async ({ page, frame }) => {
+      await showInLayout(page, frame, 'Camino');
+      await frame.getByRole('button', { name: 'Edit page properties' })
+        .or(frame.getByRole('link', { name: 'Edit page properties' })).first().click();
+      const form = editForm(page);
+      await form.getByRole('tab', { name: 'Appearance' }).click();
+      await form.locator('[data-formengine-input-name$="[backend_layout_next_level]"]').first().waitFor();
+      // The click can scroll the row of tabs, which then starts at a
+      // different tab in every run
+      await form.getByRole('tablist').first().evaluate((list) => {
+        for (let element = list; element; element = element.parentElement) {
+          element.scrollLeft = 0;
+        }
+      });
+      await page.waitForTimeout(1000);
+    },
+    clip: (frame, page) => [
+      // The header of the form, with its title and buttons
+      editForm(page).locator('.t3js-contextual-close').first(),
+      editForm(page).getByRole('tablist').first(),
+      ...['backend_layout', 'backend_layout_next_level'].map((name) => editForm(page)
+        .locator(`.form-group:has([data-formengine-input-name$="[${name}]"])`).first()),
+    ],
+  },
+  'BackendLayouts/PageTreeLayoutOverview': {
+    module: 'content_status',
+    width: 1700,
+    height: 560,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'Camino');
+      await frame.locator('.card', { hasText: 'Pagetree Overview' }).getByText('Open module').first().click();
+      // Each choice reloads the module
+      for (const [label, option] of [['Depth', '2 levels'], ['Type', 'Layouts']]) {
+        await frame.getByLabel(label).selectOption({ label: option });
+        await page.waitForLoadState('networkidle');
+        await frame.getByLabel(label).locator('option:checked', { hasText: option }).waitFor({ state: 'attached' });
+      }
+      await page.waitForTimeout(1500);
+    },
+  },
   'Backend/ComposerMode': {
     module: 'extensionmanager',
     width: 1000,
@@ -1437,7 +1486,7 @@ const take = async (page, name, screenshot) => {
     ];
     image = await page.screenshot({
       animations: 'disabled',
-      clip: await area([...screenshot.clip(frame), ...circles], screenshot.margin),
+      clip: await area([...screenshot.clip(frame, page), ...circles], screenshot.margin),
     });
   } else if (screenshot.clip) {
     image = await page.screenshot({

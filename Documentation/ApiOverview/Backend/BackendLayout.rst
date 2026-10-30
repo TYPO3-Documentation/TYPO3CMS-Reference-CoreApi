@@ -34,7 +34,7 @@ layouts are available if an
 backend layouts have been
 :ref:`defined as records or page TSconfig <be-layout-definition>`.
 
-..  figure:: /Images/ManualScreenshots/BackendLayouts/PagePropertiesAppearance.png
+..  figure:: /Images/AutomaticScreenshots/BackendLayouts/PagePropertiesAppearance.png
     :zoom: lightbox
 
     Choose the backend layout in the page properties
@@ -48,7 +48,7 @@ The :guilabel:`Content > Status` module gives an overview of the backend layouts
 inherited from a parent page at
 :guilabel:`Content > Status > Pagetree overview > Type: Layouts`:
 
-..  figure:: /Images/ManualScreenshots/BackendLayouts/PageTreeLayoutOverview.png
+..  figure:: /Images/AutomaticScreenshots/BackendLayouts/PageTreeLayoutOverview.png
     :zoom: lightbox
 
     Overview of the backend layouts used
