@@ -101,6 +101,11 @@ const siteCard = (frame, title) => frame.locator(`.card:has(.card-title:text-is(
 // the page properties
 const editForm = (page) => page.locator(modal).frameLocator('iframe');
 
+// The field of a form with the tree of the categories, from its label to
+// the number of chosen categories below the tree
+const categoryField = (frame) => frame.getByRole('tree').first()
+  .locator('xpath=ancestor::*[contains(@class, "form-group") or contains(@class, "form-section")][1]');
+
 // A field of the site form, by its name
 const siteField = (frame, name) => frame.locator(`[data-formengine-input-name$="[${name}]"]`).first();
 
@@ -1284,6 +1289,43 @@ const screenshots = {
       }
       await page.waitForTimeout(1500);
     },
+  },
+  'Categories/Editing': {
+    module: 'records',
+    width: 1200,
+    height: 900,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'TYPO3 Explained');
+      await frame.locator('.module-docheader a, .module-docheader button', { hasText: /new record/i }).first().click();
+      await frame.locator('h1', { hasText: 'New record' }).waitFor();
+      await frame.getByRole('link', { name: 'Category', exact: true }).first().click();
+      await frame.locator('[data-formengine-input-name$="[title]"]').first().waitFor();
+      await fillIn(frame.locator('[data-formengine-input-name$="[title]"]').first(), 'Asturias');
+      await frame.getByRole('treeitem', { name: 'Spain' }).first().click();
+      await page.waitForTimeout(1000);
+    },
+    clip: (frame) => [
+      frame.locator('h1').first(),
+      categoryField(frame),
+    ],
+  },
+  'Categories/AddingWithApi': {
+    module: 'media_management',
+    width: 1200,
+    height: 900,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'camino');
+      // The metadata of the image, which belongs to two categories
+      const uid = await frame.locator('[data-filelist-name="camino-frances.webp"]').first()
+        .getAttribute('data-filelist-meta-uid');
+      await page.evaluate((record) => TYPO3.Backend.ContentContainer.setUrl(
+        `${TYPO3.settings.FormEngine.moduleUrl}&edit[sys_file_metadata][${record}]=edit`,
+      ), uid);
+      await frame.getByRole('tab', { name: 'Categories' }).click();
+      await frame.getByRole('treeitem', { name: 'Spain' }).first().waitFor();
+      await page.waitForTimeout(1000);
+    },
+    clip: (frame) => [frame.locator('h1').first(), categoryField(frame)],
   },
   'Backend/ComposerMode': {
     module: 'extensionmanager',
