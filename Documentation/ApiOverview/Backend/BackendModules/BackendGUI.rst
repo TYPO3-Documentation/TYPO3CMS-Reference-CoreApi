@@ -12,7 +12,7 @@ system extension and extended by additional system and third-party extensions.
 
 The backend interface is divided into the following main areas:
 
-..  figure:: /Images/ManualScreenshots/BackendModules/BackendModulesAreas.png
+..  figure:: /Images/AutomaticScreenshots/BackendModules/BackendModulesAreas.png
     :zoom: lightbox
     :alt: An overview of the visual structure of the backend, the sections are marked with numbers
 
@@ -20,7 +20,7 @@ The backend interface is divided into the following main areas:
     (3) page tree / navigation frame, (4) DocHeader, (5) content area,
     (6) contextual menu, (7) module menu toggle, (8) page tree toggle
 
-..  figure:: /Images/ManualScreenshots/BackendModules/BackendModuleCollapsed.png
+..  figure:: /Images/AutomaticScreenshots/BackendModules/BackendModuleCollapsed.png
     :zoom: lightbox
     :alt: Backend with collapsed module menu and page tree, showing toggles
 
@@ -84,7 +84,7 @@ The backend interface is divided into the following main areas:
     differs depending on the component (for example, the page tree behaves
     differently to other backend areas).
 
-..  figure:: /Images/ManualScreenshots/BackendModules/BackendModulesContextualMenu.png
+..  figure:: /Images/AutomaticScreenshots/BackendModules/BackendModulesContextualMenu.png
     :zoom: lightbox
 
     A typical contextual menu that appears when clicking on a record icon
