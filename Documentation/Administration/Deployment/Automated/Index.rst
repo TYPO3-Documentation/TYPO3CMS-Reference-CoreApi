@@ -72,6 +72,9 @@ Deployment
     is installed.
 *   **Cache Clearing**: Clear TYPO3 caches
     (`vendor/bin/typo3 cache:flush`).
+*   **Reference Index**: Update the
+    `reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_
+    (`vendor/bin/typo3 referenceindex:update`).
 
 ..  _ci-cd-environment-configuration:
 
