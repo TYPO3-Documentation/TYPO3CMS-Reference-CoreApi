@@ -10,7 +10,7 @@ RTE transformations in content elements
 The RTE is used in the bodytext field of the content elements,
 configured for the types "Text" and "Text & Images".
 
-..  figure:: /Images/ManualScreenshots/Rte/RteBackend.png
+..  figure:: /Images/AutomaticScreenshots/Rte/RteBackend.png
     :zoom: lightbox
 
     The rtehtmlarea RTE activated in the TYPO3 backend
