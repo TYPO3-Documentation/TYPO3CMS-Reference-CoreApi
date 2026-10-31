@@ -397,8 +397,98 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
 //   stage      "naming" takes the screenshot after the other ones, once
 //              run.sh added the users and groups of the naming conventions,
 //              "upgrade" after those, once run.sh added the data of the
-//              upgrade wizards that have not run yet
+//              upgrade wizards that have not run yet, "last" after those,
+//              once run.sh added the records of create-last-records.php
 const screenshots = {
+  'ErrorHandling/exception-header-copy-path': {
+    url: `${baseUrl}/typo3/`,
+    width: 1440,
+    height: 900,
+    loggedOut: true,
+    stage: 'last',
+    // The site of the page "Broken site" depends on a set that does not
+    // exist, which the exception page shows, see additional.php
+    prepare: async ({ page }) => {
+      await page.setExtraHTTPHeaders({ 'X-Screenshot-Display-Errors': '1' });
+      await page.goto(`${baseUrl}/broken/`);
+      await page.locator('.stacktrace-action-button').first().waitFor();
+      await page.waitForTimeout(500);
+    },
+    mark: async ({ page }) => {
+      for (const button of await page.locator('.stacktrace-action-button').all()) {
+        await outline(button);
+      }
+      await outline(page.locator('.copy-button').first());
+    },
+    rect: { x: 0, y: 0, width: 1440, height: 570 },
+  },
+  'Events/AdminPanelEvents': {
+    url: `${baseUrl}/camino/`,
+    width: 1000,
+    height: 700,
+    stage: 'last',
+    prepare: async ({ page }) => {
+      const panel = page.locator('[data-typo3-role="typo3-adminPanel"]');
+      // The panel starts collapsed to a button
+      await panel.locator('[data-typo3-role="typo3-adminPanel-trigger"]').click();
+      await page.waitForTimeout(500);
+      await panel.locator('[data-typo3-role="typo3-adminPanel-module-trigger"]', { hasText: 'Debug' }).click();
+      await panel.locator('[data-typo3-tab-target="debug_events"]').click();
+      await page.waitForTimeout(800);
+    },
+    // Without the bar below, which shows the load time of the page
+    rect: { x: 0, y: 120, width: 1000, height: 540 },
+  },
+  'Authentication/MfaActivate': {
+    module: 'dashboard',
+    width: 1000,
+    height: 730,
+    prepare: async (context) => {
+      await openUserSettings(context);
+      await openTab('Account security')(context);
+      await openUserMenu(context);
+    },
+    keepFocus: true,
+    mark: ({ frame }) => outline(settingsField(frame, 'mfaProviders')),
+  },
+  'Authentication/MfaQrCode': {
+    module: 'dashboard',
+    // Wide enough for the QR code next to the steps
+    width: 1500,
+    height: 1000,
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await openUserSettings(context);
+      await openTab('Account security')(context);
+      await frame.locator('a, button', { hasText: 'Setup multi-factor authentication' }).first().click();
+      // The configuration of the providers asks for the password first
+      await page.locator(modal).locator('input[type="password"]').waitFor();
+      await confirmPassword(page);
+      await frame.locator('.card', { hasText: 'Time-based one-time password' })
+        .locator('a, button', { hasText: 'Setup' }).first().click();
+      await frame.locator('h1', { hasText: 'Set up' }).waitFor();
+      await page.waitForTimeout(1000);
+    },
+    clip: (frame) => [frame.locator('h1'), frame.locator('.callout').last()],
+  },
+  'Authentication/MfaSelectProvider': {
+    url: `${baseUrl}/typo3/`,
+    width: 1000,
+    height: 700,
+    loggedOut: true,
+    stage: 'last',
+    prepare: (context) => loginAs(context.page, 'm.doe'),
+    clip: (frame, page) => [page.locator('.card-login').first()],
+  },
+  'Authentication/MfaEnterCode': {
+    url: `${baseUrl}/typo3/`,
+    width: 1000,
+    height: 700,
+    loggedOut: true,
+    stage: 'last',
+    prepare: (context) => loginAs(context.page, 't.doe'),
+    clip: (frame, page) => [page.locator('.card-login').first()],
+  },
   'AdminTools/AdminToolsSettings': {
     module: 'system_settings',
     width: 1000,
@@ -1782,6 +1872,17 @@ const screenshots = {
     },
     mark: ({ frame }) => outline(fieldGroup(frame, 'pi_flexform')),
   },
+};
+
+// Logs in a user who stops at a screen of multi-factor authentication
+const loginAs = async (page, name) => {
+  await page.fill('#t3-username', name);
+  await page.fill('#t3-password', password);
+  await page.click('#t3-login-submit');
+  // The screen of multi-factor authentication replaces the login form
+  await page.locator('#t3-username').waitFor({ state: 'detached' });
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(800);
 };
 
 const login = async (page) => {
