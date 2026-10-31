@@ -29,6 +29,8 @@ rm -rf .Build/web/fileadmin/_temp_
 # Shows the field names in brackets next to the labels
 ${PHP_RUN} .Build/bin/typo3 configuration:set BE/debug 1
 ${PHP_RUN} php Build/Screenshots/create-records.php
+# The file that the screenshot of the import preview imports
+${PHP_RUN} .Build/bin/typo3 impexp:export --type=xml --pid=1 --levels=999 --table=_ALL camino
 
 ${WEB_START}
 trap '${WEB_STOP}' EXIT
