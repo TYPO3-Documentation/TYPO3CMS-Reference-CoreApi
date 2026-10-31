@@ -1,4 +1,4 @@
-..  figure:: /Images/ManualScreenshots/ImportExport/DownloadExport.png
+..  figure:: /Images/AutomaticScreenshots/ImportExport/DownloadExport.png
     :alt: Download the export data
     :zoom: lightbox
 

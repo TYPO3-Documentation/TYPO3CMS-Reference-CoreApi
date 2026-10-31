@@ -78,11 +78,11 @@ Manual export from the TYPO3 backend
        On the page tree left click on the page from where you want to start the
        export. Select :guilabel:`More options ...`:
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/ContextMenuMore.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/ContextMenuMore.rst.txt
 
        Then select :guilabel:`Export` from the context menu.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/ContextMenuExport.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/ContextMenuExport.rst.txt
 
     2. Select the tables to be exported
 
@@ -91,7 +91,7 @@ Manual export from the TYPO3 backend
        is also possible to include static relations to tables already present
        in the target installation.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/ExportDialog.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/ExportDialog.rst.txt
 
     3. Choose number of levels to be exported
 
@@ -99,7 +99,7 @@ Manual export from the TYPO3 backend
        select 'Infinite' from the :guilabel:`Levels` select box and hit the
        :guilabel:`Update` Button at the end of the dialog.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/ExportDialogInfiniteLevels.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/ExportDialogInfiniteLevels.rst.txt
 
     4. Check the included records
 
@@ -112,14 +112,14 @@ Manual export from the TYPO3 backend
        orange exclamation mark. Reasons for lost relations include records
        stored outside the page tree to be exported and excluded tables.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/CheckExport.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/CheckExport.rst.txt
 
     5. Save or export the data
 
        You can save the exported data to your server or download it in the
        tab :guilabel:`File & Preset`.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/DownloadExport.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/DownloadExport.rst.txt
 
 ..  _migratecontent-import-data:
 
@@ -177,7 +177,7 @@ Manual import from the TYPO3 backend
        want to import the data at root-level, choose the root page of the
        page tree.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/UploadImport.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/UploadImport.rst.txt
 
     2. Preview the data do be imported
 
@@ -185,7 +185,7 @@ Manual import from the TYPO3 backend
        automatically. If you change some options you can reload
        this display with the :guilabel:`preview` button.
 
-       ..  include:: /Images/ManualScreenshots/ImportExport/ImportPreview.rst.txt
+       ..  include:: /Images/AutomaticScreenshots/ImportExport/ImportPreview.rst.txt
 
     3. Import
 

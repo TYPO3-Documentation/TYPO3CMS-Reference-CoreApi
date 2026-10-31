@@ -13,7 +13,7 @@ purpose. See also `Types of pages <https://docs.typo3.org/permalink/t3coreapi:li
 Each page type serves a different function in TYPO3’s content hierarchy, making
 it easier to manage complex websites.
 
-..  figure:: /Images/ManualScreenshots/PageTypes/Overview.png
+..  figure:: /Images/AutomaticScreenshots/PageTypes/Overview.png
     :alt: Screenshot of the page properties form with highlighted page type (field `doktype`) and the page tree with the page type icons
 
     When creating a page, different page types are available at the top of the page tree. The page type can be edited in the page properties for existing pages.
