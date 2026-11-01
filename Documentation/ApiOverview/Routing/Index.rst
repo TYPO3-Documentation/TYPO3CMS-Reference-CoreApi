@@ -49,6 +49,7 @@ order.
     EnhancementsAspects/Index
     Extending/Index
     Examples/Index
+    Troubleshooting/Index
 
 ..  _routing-terminology:
 
