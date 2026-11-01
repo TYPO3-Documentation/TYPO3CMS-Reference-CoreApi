@@ -13,6 +13,14 @@
 set -e
 
 rm -rf config var .Build/web/fileadmin .Build/web/typo3temp
+# The steps of the installer, in the instance before it is set up
+touch .Build/web/FIRST_INSTALL
+${WEB_START}
+trap '${WEB_STOP}' EXIT
+# Playwright is installed once, so later runs work without the network
+${BROWSER_RUN} sh -c "( [ -d node_modules/playwright ] || npm ci --no-audit --no-fund ) && node screenshots.mjs --stage=install $*"
+${WEB_STOP}
+rm -rf config var .Build/web/FIRST_INSTALL .Build/web/fileadmin .Build/web/typo3temp
 ${PHP_RUN} .Build/bin/typo3 setup --no-interaction --force \
     --driver=sqlite \
     --admin-username=j.doe --admin-user-password='Screenshots-2026!' \
@@ -42,9 +50,7 @@ ${PHP_RUN} php Build/Screenshots/create-records.php
 ${PHP_RUN} .Build/bin/typo3 impexp:export --type=xml --pid=1 --levels=999 --table=_ALL camino
 
 ${WEB_START}
-trap '${WEB_STOP}' EXIT
-# Playwright is installed once, so later runs work without the network
-${BROWSER_RUN} sh -c "( [ -d node_modules/playwright ] || npm ci --no-audit --no-fund ) && node screenshots.mjs $*"
+${BROWSER_RUN} node screenshots.mjs $*
 # The users and groups of the naming conventions show only in their own
 # screenshots, which follow once they are added
 ${PHP_RUN} php Build/Screenshots/create-records.php naming

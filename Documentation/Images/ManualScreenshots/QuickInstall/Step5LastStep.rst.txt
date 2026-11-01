@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/QuickInstall/Step5LastStep.png
-    :zoom: lightbox
-
-    Install Tool in 1-2-3 mode, fifth step.
