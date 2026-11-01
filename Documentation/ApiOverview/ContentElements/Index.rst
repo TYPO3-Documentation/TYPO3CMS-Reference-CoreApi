@@ -43,8 +43,8 @@ characteristics:
 
     ..  card:: :ref:`Content elements <content-elements>`
 
-        ..  card-image:: /Images/ManualScreenshots/Backend/content_element_example.png
-            :alt: Content element Text & Media
+        ..  card-image:: /Images/AutomaticScreenshots/Backend/content_element_example.png
+            :alt: Content element Text & Images
 
         A content element is a standard unit for managing and displaying content,
         such as text, images, videos, tables, and more.
@@ -56,8 +56,8 @@ characteristics:
 
     ..  card:: :ref:`Plugins <plugins>`
 
-        ..  card-image:: /Images/ManualScreenshots/Backend/plugin_example.png
-            :alt: Plugin news article detail
+        ..  card-image:: /Images/AutomaticScreenshots/Backend/plugin_example.png
+            :alt: Plugin login form
 
         A plugin in TYPO3 is more complex, typically providing dynamic
         or interactive functionality. Plugins are usually provided by extensions
