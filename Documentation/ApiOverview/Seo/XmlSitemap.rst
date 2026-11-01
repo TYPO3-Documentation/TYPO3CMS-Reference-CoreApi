@@ -269,6 +269,7 @@ Register the data provider in TypoScript with its class name:
 
 ..  literalinclude:: /_Examples/my_extension/Configuration/Sets/Main/setup.typoscript
     :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
+    :visible-lines: 29-35
 
 
 ..  _sitemap-xslfile:

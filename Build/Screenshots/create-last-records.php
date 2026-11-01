@@ -15,8 +15,12 @@ declare(strict_types=1);
  * exception page in the frontend.
  *
  * The Admin Panel in the frontend of Camino, for j.doe.
+ *
+ * The content elements of the example extension, each on a page of its own
+ * in Camino, whose site gets the set of the extension.
  */
 
+use TYPO3\CMS\Core\Configuration\SiteConfiguration;
 use TYPO3\CMS\Core\Configuration\SiteWriter;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -79,3 +83,31 @@ file_put_contents(
     Environment::getConfigPath() . '/sites/camino/setup.typoscript',
     "config.admPanel = 1\n",
 );
+
+$process([
+    'pages' => [
+        'NEWbasic' => ['pid' => 1, 'title' => 'Basic content', 'slug' => '/basic-content', 'hidden' => 0],
+        'NEWcsv' => ['pid' => 1, 'title' => 'Table from CSV', 'slug' => '/table-from-csv', 'hidden' => 0],
+    ],
+    'tt_content' => [
+        'NEWbasiccontent' => [
+            'pid' => 'NEWbasic',
+            'colPos' => 0,
+            'CType' => 'myextension_basiccontent',
+            'header' => 'Basic content',
+            'bodytext' => 'Your <strong>text</strong> goes here …',
+        ],
+        'NEWcsvcontent' => [
+            'pid' => 'NEWcsv',
+            'colPos' => 0,
+            'CType' => 'myextension_newcontentcsv',
+            'header' => 'Table from CSV',
+            'bodytext' => "1;2;3\n4;5;6\n7;8;9",
+            'myextension_separator' => ';',
+            'imagecols' => 3,
+        ],
+    ],
+]);
+$configuration = $container->get(SiteConfiguration::class)->load('camino');
+$configuration['dependencies'][] = 'myvendor/my-extension';
+$container->get(SiteWriter::class)->write('camino', $configuration);

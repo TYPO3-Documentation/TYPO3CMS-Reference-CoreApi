@@ -9,17 +9,17 @@ defined('TYPO3') or die();
 $temporaryColumn = [
   'myextension_separator' => [
     'exclude' => 0,
-    'label' => 'examples.db:tt_content.myextension_separator',
+    'label' => 'Separator',
     'config' => [
       'type' => 'select',
       'renderType' => 'selectSingle',
       'items' => [
-        ['Standard CSV data formats', '--div--'],
-        ['Comma separated', ','],
-        ['Semicolon separated', ';'],
-        ['Special formats', '--div--'],
-        ['Pipe separated (TYPO3 tables)', '|'],
-        ['Tab separated', "\t"],
+        ['label' => 'Standard CSV data formats', 'value' => '--div--'],
+        ['label' => 'Comma separated', 'value' => ','],
+        ['label' => 'Semicolon separated', 'value' => ';'],
+        ['label' => 'Special formats', 'value' => '--div--'],
+        ['label' => 'Pipe separated (TYPO3 tables)', 'value' => '|'],
+        ['label' => 'Tab separated', 'value' => "\t"],
       ],
       'default' => ',',
     ],

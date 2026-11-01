@@ -13,7 +13,9 @@ ExtensionManagementUtility::addRecordType(
     type: 'select',
     label: 'Example - basic content',
     value: 'myextension_basiccontent',
+    icon: 'content-text',
     group: 'default',
+    description: 'Shows its text and all the data of the content element.',
   ),
   // Configure the default backend fields for the content element
   '
