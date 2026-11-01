@@ -1,0 +1,10 @@
+routeEnhancers:
+  NewsPlugin:
+    type: Extbase
+    extension: News
+    plugin: Pi1
+    routes:
+      - routePath: '/{news_title}'
+        _controller: 'News::detail'
+        _arguments:
+          news_title: news
