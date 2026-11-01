@@ -50,6 +50,10 @@ ${BROWSER_RUN} sh -c "( [ -d node_modules/playwright ] || npm ci --no-audit --no
 ${PHP_RUN} php Build/Screenshots/create-records.php naming
 ${BROWSER_RUN} node screenshots.mjs --stage=naming $*
 # The upgrade wizards that have not run yet show only in their own
-# screenshot, the last one
+# screenshot
 ${PHP_RUN} php Build/Screenshots/create-records.php upgrade
 ${BROWSER_RUN} node screenshots.mjs --stage=upgrade $*
+# The users of multi-factor authentication and the site with the missing
+# set show only in their own screenshots, the last ones
+${PHP_RUN} php Build/Screenshots/create-records.php last
+${BROWSER_RUN} node screenshots.mjs --stage=last $*

@@ -28,7 +28,7 @@ A trace can leave the browser as text, so a report needs neither a
 screenshot nor a saved HTML file. The header of the page carries two
 buttons, and every file in the trace carries a third:
 
-..  figure:: /Images/ManualScreenshots/ErrorHandling/exception-header-copy-path.png
+..  figure:: /Images/AutomaticScreenshots/ErrorHandling/exception-header-copy-path.png
     :alt: Exception page with the buttons Toggle details and Copy plaintext
         stack trace in its header, and a Copy path button beside the first
         file of the trace
