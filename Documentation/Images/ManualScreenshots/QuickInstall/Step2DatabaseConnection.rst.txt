@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/QuickInstall/Step2DatabaseConnection.png
-    :zoom: lightbox
-
-    Install Tool in 1-2-3 mode, second step.
