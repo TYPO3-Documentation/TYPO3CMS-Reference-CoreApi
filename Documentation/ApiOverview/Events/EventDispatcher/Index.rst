@@ -428,7 +428,7 @@ Go to :guilabel:`Admin Panel > Debug > Events` and see all dispatched events.
 The :doc:`adminpanel <ext_adminpanel:Index>` system extension has to be
 installed for this module to be available.
 
-..  figure:: /Images/ManualScreenshots/Events/AdminPanelEvents.png
+..  figure:: /Images/AutomaticScreenshots/Events/AdminPanelEvents.png
     :alt: List of dispatched events in the Admin Panel
     :class: with-border
 

@@ -8,3 +8,7 @@ Documentation/Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite
 
 # The button that clears the title of the new group shows now and then.
 Documentation/Images/AutomaticScreenshots/UserManagement/Groups/TabGeneral.png
+
+# The setup of the time-based one-time password creates a new secret and
+# QR code every time.
+Documentation/Images/AutomaticScreenshots/Authentication/MfaQrCode.png

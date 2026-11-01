@@ -56,6 +56,12 @@ if (($argv[1] ?? '') === 'upgrade') {
     require __DIR__ . '/create-upgrade-records.php';
     exit;
 }
+// With the argument "last", adds the records that would change the other
+// screenshots, once the screenshot of the upgrade wizards is taken
+if (($argv[1] ?? '') === 'last') {
+    require __DIR__ . '/create-last-records.php';
+    exit;
+}
 
 // The error pages below the root page "Camino", after its last page
 // "Footer navigation" (uid 2), and two more root pages, for which TYPO3

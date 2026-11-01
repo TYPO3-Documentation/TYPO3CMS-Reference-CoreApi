@@ -21,7 +21,7 @@ user needs:
 Read more about the concepts of MFA here:
 https://en.wikipedia.org/wiki/Multi-factor_authentication
 
-..  figure:: /Images/ManualScreenshots/Authentication/MfaEnterCode.png
+..  figure:: /Images/AutomaticScreenshots/Authentication/MfaEnterCode.png
     :alt: TYPO3 Login Screen for entering MFA code (TOTP)
     :class: with-border with-shadow
 
@@ -40,7 +40,7 @@ authentication or frontend authentication with a multi-factor step in-between.
 Managing MFA providers is currently possible via the :guilabel:`User Settings`
 module in the tab called :guilabel:`Account security`.
 
-..  figure:: /Images/ManualScreenshots/Authentication/MfaActivate.png
+..  figure:: /Images/AutomaticScreenshots/Authentication/MfaActivate.png
     :zoom: lightbox
 
     Manage your MFA providers in the User Settings module
@@ -82,7 +82,7 @@ provider is active. It is only meant as a fallback provider, in case the
 authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
-..  figure:: /Images/ManualScreenshots/Authentication/MfaSelectProvider.png
+..  figure:: /Images/AutomaticScreenshots/Authentication/MfaSelectProvider.png
     :zoom: lightbox
 
     Select a MFA provider screen
@@ -117,7 +117,7 @@ Each inactive provider contains a :guilabel:`Setup` button which opens the
 corresponding configuration view. This view can be different depending on the
 MFA provider.
 
-..  figure:: /Images/ManualScreenshots/Authentication/MfaQrCode.png
+..  figure:: /Images/AutomaticScreenshots/Authentication/MfaQrCode.png
     :zoom: lightbox
 
     MFA TOTP provider configuration screen
