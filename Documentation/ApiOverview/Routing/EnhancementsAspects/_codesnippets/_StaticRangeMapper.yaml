@@ -5,7 +5,7 @@ routeEnhancers:
     extension: News
     plugin: Pi1
     routes:
-      - { routePath: '/list/{page}', _controller: 'News::list', _arguments: {'page': '@widget_0/currentPage'} }
+      - { routePath: '/list/{page}', _controller: 'News::list', _arguments: {'page': 'currentPage'} }
     defaultController: 'News::list'
     defaults:
       page: '0'

@@ -104,12 +104,12 @@ routeEnhancers:
           searchForm: searchForm
     defaultController: 'Results::showByUid'
     aspects:
-    uid:
-      routeValuePrefix: ''
-      type: PersistedAliasMapper
-      tableName: 'tx_myapidata_domain_model_event'
-      routeFieldName: slug
-      valueFieldName: uid
+      uid:
+        routeValuePrefix: ''
+        type: PersistedAliasMapper
+        tableName: 'tx_myapidata_domain_model_event'
+        routeFieldName: slug
+        valueFieldName: uid
   teams:
     type: Extbase
     extension: myapidata
