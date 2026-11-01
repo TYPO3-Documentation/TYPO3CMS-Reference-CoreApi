@@ -1,0 +1,8 @@
+"pages"
+,"uid","pid","title","is_siteroot","doktype","slug"
+,1,0,"Home",1,1,"/"
+"tt_content"
+,"uid","pid","colPos","CType","header","bodytext","myextension_separator","imagecols"
+,1,1,0,"myextension_basiccontent","Basic content","The text of the basic content element",",",0
+,2,1,0,"myextension_newcontentcsv","Table from CSV","Name;Color
+Apple;Green",";",2

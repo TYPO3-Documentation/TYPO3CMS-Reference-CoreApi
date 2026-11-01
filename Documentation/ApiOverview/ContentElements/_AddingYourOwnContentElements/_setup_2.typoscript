@@ -1,6 +1,0 @@
-tt_content {
-  myextension_basiccontent =< lib.contentElement
-  myextension_basiccontent {
-    templateName = BasicContent
-  }
-}
