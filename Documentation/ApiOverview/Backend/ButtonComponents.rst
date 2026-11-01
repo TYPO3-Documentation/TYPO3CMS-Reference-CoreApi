@@ -69,6 +69,16 @@ a button that you can change further, for example with
 :php:`setDataAttributes()` or :php:`setClasses()`. A parameter that takes a
 URL accepts a string or a :php:`\Psr\Http\Message\UriInterface`.
 
+..  figure:: /Images/AutomaticScreenshots/Backend/PreconfiguredButtons.png
+    :alt: Module header with the buttons Close, Save, and Reload
+    :class: with-border with-shadow
+
+    Pre-configured buttons in the site settings
+
+1.  The close button
+2.  The save button
+3.  The reload button, which TYPO3 adds to every module
+
 :php:`createBackButton($returnUrl)`
     A link button with the label "Go back" that leads to `$returnUrl`.
 
