@@ -26,7 +26,7 @@ for system and extension translations from the official TYPO3 translation server
 The module is straightforward to use. Downloaded language packs are stored in
 the environment’s :ref:`getLabelsPath() <environment-labels-path>`.
 
-..  figure:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.png
+..  figure:: /Images/AutomaticScreenshots/AdminTools/ManageLanguagePacks.png
     :zoom: lightbox
 
     The Languages module with some active languages and status of extensions language packs
@@ -58,7 +58,7 @@ Administrators can install additional language packs directly in the backend:
 
 1.  Go to :guilabel:`System > Maintenance > Manage Language Packs`
 
-    ..  figure:: /Images/ManualScreenshots/Modules/ManageLanguage.png
+    ..  figure:: /Images/AutomaticScreenshots/Modules/ManageLanguage.png
         :alt: Manage language packs
         :zoom: lightbox
 
@@ -66,7 +66,7 @@ Administrators can install additional language packs directly in the backend:
 
 2.  Select :guilabel:`Add Language` and activate the new language:
 
-    ..  figure:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguage.png
+    ..  figure:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguage.png
         :alt: Add a language
         :zoom: lightbox
 
@@ -74,7 +74,7 @@ Administrators can install additional language packs directly in the backend:
 
 3.  The selected language is now available:
 
-    ..  figure:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.png
+    ..  figure:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.png
         :alt: A language has been added
         :zoom: lightbox
 
@@ -122,17 +122,17 @@ allows overriding XLIFF files. This applies to both translations and default
 ..  literalinclude:: _snippets/_ext_localconf.php
     :caption: EXT:examples/ext_localconf.php
 
-The German language file could look like this:
+The Spanish language file could look like this:
 
-..  literalinclude:: _snippets/_de.locallang_modadministration.xlf
+..  literalinclude:: _snippets/_es.tt_content.xlf
     :language: xml
-    :caption: EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf
+    :caption: EXT:examples/Resources/Private/Language/Overrides/es.tt_content.xlf
 
 TYPO3 loads either XLIFF 1.2 or 2.x — the format is detected automatically.
 
 The result can be seen in the backend:
 
-..  figure:: /Images/ManualScreenshots/Internationalization/InternationalizationLabelOverride.png
+..  figure:: /Images/AutomaticScreenshots/Internationalization/InternationalizationLabelOverride.png
     :alt: Custom label
 
     Custom translation in the TYPO3 backend
@@ -216,7 +216,7 @@ add custom languages and provide your own translations using XLIFF 1.2 or 2.x.
 
     The new language is now available in the backend user settings:
 
-    ..  figure:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png
+    ..  figure:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png
         :zoom: lightbox
 
         The new language appears in the user preferences
