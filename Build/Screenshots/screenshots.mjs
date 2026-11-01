@@ -1317,6 +1317,27 @@ const screenshots = {
     mark: ({ frame }) => outlineDocHeader(frame),
     rect: { x: 0, y: 0, width: 1240, height: 180 },
   },
+  // The settings of the site, whose docheader has the close, save, and
+  // reload buttons of the ComponentFactory
+  'Backend/PreconfiguredButtons': {
+    module: 'site_configuration',
+    width: 1240,
+    height: 700,
+    prepare: async ({ page, frame }) => {
+      await siteCard(frame, 'Camino').getByTitle('Edit site settings').click();
+      await frame.locator('.module-docheader .btn[title="Save"]').first().waitFor();
+      await page.waitForTimeout(1000);
+    },
+    mark: async ({ frame }) => {
+      const buttons = ['.btn[title="Close"]', '.btn[title="Save"]', '.btn[title="Reload"]'];
+      for (const [index, selector] of buttons.entries()) {
+        const button = frame.locator(`.module-docheader ${selector}`).first();
+        await outline(button);
+        await badge(button, index + 1, 'below');
+      }
+    },
+    rect: { x: 0, y: 0, width: 1240, height: 200 },
+  },
   'Backend/FileModuleDropDownButton': {
     module: 'media_management',
     width: 1000,
