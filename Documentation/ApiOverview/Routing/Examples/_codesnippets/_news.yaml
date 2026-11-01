@@ -5,6 +5,8 @@ routeEnhancers:
     extension: News
     plugin: Pi1
     routes:
+      - routePath: '/'
+        _controller: 'News::list'
       - routePath: '/page-{page}'
         _controller: 'News::list'
         _arguments:
@@ -22,8 +24,6 @@ routeEnhancers:
         _arguments:
           tag-name: overwriteDemand/tags
     defaultController: 'News::list'
-    defaults:
-      page: '0'
     aspects:
       news-title:
         type: PersistedAliasMapper
