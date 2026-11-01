@@ -13,7 +13,7 @@ created. It can be fully configured using ref:`Page TSconfig <t3tsref:pagetsconf
 
 The wizard looks like this:
 
-..  figure:: /Images/ManualScreenshots/Backend/NewContentElementWizardAnnotated.png
+..  figure:: /Images/AutomaticScreenshots/Backend/NewContentElementWizardAnnotated.png
 
 1.  The `title` can be a string or, recommended, a language reference.
 2.  The `description` can be a string or, recommended, a language reference.

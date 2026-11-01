@@ -275,7 +275,7 @@ issues it has detected accompanied by a resolution for each issue.
 Once changes have been made, TYPO3 can re-scan the host environment when you
 reload the page.
 
-..  include:: /Images/ManualScreenshots/QuickInstall/Step1SystemEnvironment.rst.txt
+..  include:: /Images/AutomaticScreenshots/QuickInstall/Step1SystemEnvironment.rst.txt
 
 ..  _install-select-db:
 
@@ -284,7 +284,7 @@ Select a database
 
 Select a database connection driver and enter the credentials for the database.
 
-..  include:: /Images/ManualScreenshots/QuickInstall/Step2DatabaseConnection.rst.txt
+..  include:: /Images/AutomaticScreenshots/QuickInstall/Step2DatabaseConnection.rst.txt
 
 TYPO3 can either connect to an existing empty database or create a new one.
 
@@ -306,7 +306,7 @@ An administrator account needs to be created to gain access to TYPO3's backend.
 
 An email address for this user can also be specified and a name can be given.
 
-..  include:: /Images/ManualScreenshots/QuickInstall/Step4AdminUserSitename.rst.txt
+..  include:: /Images/AutomaticScreenshots/QuickInstall/Step4AdminUserSitename.rst.txt
 
 ..  note::
     The password must comply with the configured
@@ -324,7 +324,7 @@ Beginners should
 select the first option and allow TYPO3 to create an empty starting page.
 This will also generate a site configuration file.
 
-..  include:: /Images/ManualScreenshots/QuickInstall/Step5LastStep.rst.txt
+..  include:: /Images/AutomaticScreenshots/QuickInstall/Step5LastStep.rst.txt
 
 ..  _install-ddev:
 

@@ -39,9 +39,10 @@ const expand = async ({ page }, title) => {
 // left, where a neighbour follows closely on the right, and "below" centers
 // it below the element, for a row of buttons, where a circle at a corner
 // could belong to either neighbour. "before" puts it left of the element,
-// for an element in an open menu, which covers everything else. "top"
-// centers it inside the top of the element, for an area of the window
-// whose lower corners lie outside the screenshot.
+// for an element in an open menu, which covers everything else. "after"
+// puts it right of the element, for a line of text with more text below
+// it. "top" centers it inside the top of the element, for an area of the
+// window whose lower corners lie outside the screenshot.
 const outline = (locator, inside = false) => locator.evaluate((element, inner) => {
   element.style.outline = '3px solid #ff8700';
   element.style.outlineOffset = inner ? '-3px' : '3px';
@@ -54,8 +55,8 @@ const badge = (locator, number, side = 'right') => locator.evaluate((element, [t
   circle.textContent = text;
   Object.assign(circle.style, {
     position: 'fixed',
-    left: `${{ left: box.left - 14, below: box.left + box.width / 2 - 13, before: box.left - 34, top: box.left + box.width / 2 - 13 }[where] ?? box.right - 12}px`,
-    top: `${{ below: box.bottom + 4, before: box.top + box.height / 2 - 13, top: box.top + 17 }[where] ?? box.bottom - 6}px`,
+    left: `${{ left: box.left - 14, below: box.left + box.width / 2 - 13, before: box.left - 34, after: box.right + 8, top: box.left + box.width / 2 - 13 }[where] ?? box.right - 12}px`,
+    top: `${{ below: box.bottom + 4, before: box.top + box.height / 2 - 13, after: box.top + box.height / 2 - 13, top: box.top + 17 }[where] ?? box.bottom - 6}px`,
     width: '26px',
     height: '26px',
     borderRadius: '50%',
@@ -68,7 +69,13 @@ const badge = (locator, number, side = 'right') => locator.evaluate((element, [t
     justifyContent: 'center',
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.4)',
   });
-  element.ownerDocument.body.appendChild(circle);
+  // A modal dialog lies above everything else on the page, so a circle on
+  // one of its elements goes into the dialog, also from a shadow root in it
+  let dialog = null;
+  for (let node = element; node && !dialog; node = node.getRootNode().host) {
+    dialog = node.closest('dialog[open]');
+  }
+  (dialog ?? element.ownerDocument.body).appendChild(circle);
 }, [String(number), side]);
 
 // Draws a frame around the docheader of a module. The wrapper has no box
@@ -389,17 +396,78 @@ const configuration = (label, { open = [], search } = {}) => async ({ page, fram
 //   margin     the space around a clip, instead of the default
 //   scrollTo   scrolls an element of the module to the given top
 //   url        opens a page instead of a module
+//   stay       goes on in the window as the screenshot before left it,
+//              for the steps of the installer
 //   fresh      takes the screenshot in a session of its own, which has not
 //              confirmed the password for the Admin Tools yet
 //   loggedOut  takes the screenshot in a window without a backend session
 //   after      runs after the screenshot, to undo a change that the
 //              backend keeps for the user, such as a collapsed menu
-//   stage      "naming" takes the screenshot after the other ones, once
+//   stage      "install" takes the screenshot before the other ones, in
+//              the installer of an instance that run.sh did not set up yet,
+//              "naming" takes the screenshot after the other ones, once
 //              run.sh added the users and groups of the naming conventions,
 //              "upgrade" after those, once run.sh added the data of the
 //              upgrade wizards that have not run yet, "last" after those,
 //              once run.sh added the records of create-last-records.php
 const screenshots = {
+  // The steps of the installer, one after the other in the same window
+  'QuickInstall/Step1SystemEnvironment': {
+    url: `${baseUrl}/typo3/install.php`,
+    width: 800,
+    height: 900,
+    stage: 'install',
+    prepare: ({ page }) => page.locator('.t3js-installer-environmentFolders-execute:visible').first().waitFor(),
+    clip: '.typo3-install-content',
+  },
+  'QuickInstall/Step2DatabaseConnection': {
+    stay: true,
+    width: 800,
+    height: 900,
+    stage: 'install',
+    prepare: async ({ page }) => {
+      await page.locator('.t3js-installer-environmentFolders-execute:visible').first().click();
+      await page.locator('#t3js-connect-database-driver').waitFor();
+      // The credentials of a database in DDEV
+      const field = (name) => `#t3-install-step-mysqliManualConfiguration-${name}`;
+      await page.selectOption('#t3js-connect-database-driver', 'mysqliManualConfiguration');
+      await page.fill(field('username'), 'db');
+      await page.fill(field('password'), 'db');
+      await page.fill(field('host'), 'db');
+      await page.fill(field('port'), '3306');
+    },
+    clip: '.typo3-install-content',
+  },
+  'QuickInstall/Step4AdminUserSitename': {
+    stay: true,
+    width: 800,
+    height: 1100,
+    stage: 'install',
+    prepare: async ({ page }) => {
+      // The instance has no MySQL server, so the installation goes on with
+      // SQLite
+      await page.selectOption('#t3js-connect-database-driver', 'sqliteManualConfiguration');
+      await page.click('.t3js-installer-databaseConnect-execute');
+      await page.locator('h2', { hasText: 'Create administrative user' }).waitFor();
+      const field = (name) => page.locator(`.t3js-installer-content [name="install[values][${name}]"]`);
+      await field('username').fill(username);
+      await field('password').fill(password);
+      await field('email').fill('j.doe@example.org');
+      await field('sitename').fill('TYPO3 Explained');
+    },
+    clip: '.typo3-install-content',
+  },
+  'QuickInstall/Step5LastStep': {
+    stay: true,
+    width: 800,
+    height: 1100,
+    stage: 'install',
+    prepare: async ({ page }) => {
+      await page.click('.t3js-installer-databaseData-execute');
+      await page.locator('h2', { hasText: 'Installation complete' }).waitFor();
+    },
+    clip: '.typo3-install-content',
+  },
   'ErrorHandling/exception-header-copy-path': {
     url: `${baseUrl}/typo3/`,
     width: 1440,
@@ -1470,6 +1538,49 @@ const screenshots = {
       }
     },
   },
+  'Backend/NewContentElementWizardAnnotated': {
+    module: 'web_layout',
+    width: 1000,
+    height: 700,
+    prepare: async ({ page, frame }) => {
+      await showInLayout(page, frame, 'Camino');
+      // The column of the main content, as the hero column offers only the
+      // types of its own group
+      await frame.locator('typo3-backend-new-content-element-wizard-button[url*="colPos=0"]').first().click();
+      const group = page.locator(`${modal} .navigation-item:not(.navigation-item-featured)`).first();
+      await group.click();
+      await page.waitForTimeout(1000);
+    },
+    // The numbers of the list below the screenshot: title, description,
+    // group, and icon
+    mark: async ({ page }) => {
+      const wizard = page.locator(modal);
+      const item = wizard.locator('button.item').first();
+      // The texts take the width of the item, so the circles go next to
+      // the words, which an inline element measures
+      const texts = [item.locator('.item-body-label'), item.locator('.item-body-description')];
+      for (const [index, text] of texts.entries()) {
+        await text.evaluate((element) => {
+          element.innerHTML = `<span class="screenshot-text">${element.innerHTML}</span>`;
+        });
+        await badge(text.locator('.screenshot-text'), index + 1, 'after');
+      }
+      // The group and the icon lie close together, a frame shows which
+      // number belongs to which
+      const group = wizard.locator('.navigation-item:not(.navigation-item-featured)').first();
+      const icon = item.locator('.item-icon typo3-backend-icon');
+      // The list of the groups cuts off what sticks out of it
+      await outline(group, true);
+      await badge(group, 3);
+      await outline(icon);
+      await badge(icon, 4, 'left');
+    },
+    clip: (frame, page) => [
+      page.locator(`${modal} .modal-header`),
+      page.locator(`${modal} .navigation-item`).last(),
+      page.locator(`${modal} button.item`).last(),
+    ],
+  },
   'BackendModules/BackendModuleCollapsed': {
     module: 'web_layout',
     width: 1000,
@@ -1969,7 +2080,9 @@ const area = async (elements, space = margin) => {
 const take = async (page, name, screenshot) => {
   await page.setViewportSize({ width: screenshot.width, height: screenshot.height });
   const frame = page.frameLocator('iframe[name="list_frame"]');
-  if (screenshot.url) {
+  if (screenshot.stay) {
+    // The window stays as it is
+  } else if (screenshot.url) {
     await page.goto(screenshot.url);
     await page.waitForLoadState('networkidle');
   } else {
@@ -2076,12 +2189,14 @@ const changedPixels = async (before, after) => {
     return count;
   }, [before.toString('base64'), after.toString('base64')]);
 };
-await login(page);
-
-// run.sh calls the script once per stage, with --stage=naming for the
-// second one and --stage=upgrade for the third one, and with the names of
-// the screenshots to take, if any
+// run.sh calls the script once per stage, with --stage=install for the
+// installer before the instance exists, without a stage for the main one,
+// and with --stage=naming, --stage=upgrade, and --stage=last for the ones
+// after it, and with the names of the screenshots to take, if any
 const stage = process.argv.find((arg) => arg.startsWith('--stage='))?.slice(8) ?? '';
+if (stage !== 'install') {
+  await login(page);
+}
 const requested = process.argv.slice(2).filter((arg) => !arg.startsWith('--stage='));
 for (const name of requested) {
   if (screenshots[name] === undefined) {
