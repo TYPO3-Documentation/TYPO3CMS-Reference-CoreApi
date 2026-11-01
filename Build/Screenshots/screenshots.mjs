@@ -310,6 +310,38 @@ const selectTreeNode = async (page, label) => {
   await page.waitForTimeout(1500);
 };
 
+// Selects a page in the tree next to the module and opens its context menu
+const openContextMenu = async (page, label) => {
+  await selectTreeNode(page, label);
+  await page.getByRole('treeitem', { name: label, exact: true }).first().click({ button: 'right' });
+  await page.locator('.context-menu-item').first().waitFor();
+  await page.waitForTimeout(800);
+};
+
+// An item of the context menu, by its label
+const contextMenuItem = (page, label) => page.locator(`.context-menu-item[aria-label="${label}"]`).first();
+
+// Opens a module of Import/Export from "More options..." in the context
+// menu of a page
+const openImportExport = (label, item) => async ({ page, frame }) => {
+  await openContextMenu(page, label);
+  await contextMenuItem(page, 'More options...').click();
+  await page.waitForTimeout(500);
+  await contextMenuItem(page, item).click();
+  await frame.locator('h1', { hasText: item }).waitFor();
+  await page.waitForTimeout(1000);
+};
+
+// Shows the records of all pages below the page in Import/Export
+const exportAllLevels = async (context) => {
+  const { page, frame } = context;
+  await openImportExport('Camino', 'Export')(context);
+  await frame.locator('select[name="tx_impexp[pagetree][levels]"]').selectOption({ label: 'Infinite' });
+  await frame.getByRole('button', { name: 'Update' }).click();
+  await frame.locator('h1', { hasText: 'Export' }).waitFor();
+  await page.waitForTimeout(1000);
+};
+
 // Shows a configuration in the Configuration module and opens the nodes
 // with the given keys, one below the other, or the nodes that match the
 // search term
@@ -837,6 +869,94 @@ const screenshots = {
       await badge(page.locator('.dropdown-menu a, .dropdown-menu button', { hasText: 'User Settings' }).first(), 1, 'before');
       await badge(frame.locator('select[name$="[be_users__lang]"]').first(), 2);
     },
+  },
+  'ImportExport/ContextMenuMore': {
+    module: 'records',
+    width: 1200,
+    height: 700,
+    prepare: ({ page }) => openContextMenu(page, 'Camino'),
+    keepFocus: true,
+    mark: ({ page }) => outline(contextMenuItem(page, 'More options...'), true),
+  },
+  'ImportExport/ContextMenuExport': {
+    module: 'records',
+    width: 1200,
+    height: 700,
+    prepare: async ({ page }) => {
+      await openContextMenu(page, 'Camino');
+      await contextMenuItem(page, 'More options...').click();
+      await page.waitForTimeout(800);
+    },
+    keepFocus: true,
+    mark: ({ page }) => outline(contextMenuItem(page, 'Export'), true),
+  },
+  'ImportExport/ExportDialog': {
+    module: 'records',
+    width: 1200,
+    height: 1800,
+    prepare: openImportExport('Camino', 'Export'),
+    mark: async ({ frame }) => {
+      await outline(frame.locator('#pagetreeTables'));
+      await outline(frame.locator('#externalStaticTables'));
+    },
+    clip: (frame) => [frame.locator('h1'), frame.locator('#externalStaticTables')],
+  },
+  'ImportExport/ExportDialogInfiniteLevels': {
+    module: 'records',
+    width: 1200,
+    height: 800,
+    prepare: exportAllLevels,
+    mark: ({ frame }) => outline(frame.locator('select[name="tx_impexp[pagetree][levels]"]')),
+  },
+  'ImportExport/CheckExport': {
+    module: 'records',
+    width: 1400,
+    height: 800,
+    prepare: exportAllLevels,
+    // Below the buttons of the module, which stay at the top
+    scrollTo: (frame) => [frame.locator('h3', { hasText: 'Inside pagetree' }).first(), 190],
+    mark: ({ frame }) => outline(frame.locator('tr', { hasText: 'LOST RELATION' }).first(), true),
+  },
+  'ImportExport/DownloadExport': {
+    module: 'records',
+    width: 1200,
+    height: 1600,
+    prepare: async (context) => {
+      await exportAllLevels(context);
+      await openTab('File & Preset')(context);
+      await fillIn(context.frame.locator('#impexp-filename'), 'camino');
+    },
+    mark: async ({ frame }) => {
+      await outline(frame.locator('button[name="tx_impexp[download_export]"]'));
+      await outline(frame.locator('button[name="tx_impexp[save_export]"]'));
+    },
+    clip: (frame) => [frame.locator('h1'), frame.locator('button[name="tx_impexp[save_export]"]')],
+  },
+  'ImportExport/UploadImport': {
+    module: 'records',
+    width: 1200,
+    height: 600,
+    prepare: async (context) => {
+      await openImportExport('My other site', 'Import')(context);
+      await openTab('Upload')(context);
+    },
+    clip: (frame) => [frame.locator('h1'), frame.locator('#import-upload')],
+  },
+  'ImportExport/ImportPreview': {
+    module: 'records',
+    width: 1400,
+    height: 900,
+    prepare: async (context) => {
+      const { page, frame } = context;
+      await openImportExport('My other site', 'Import')(context);
+      // The file that run.sh exported from the page "Camino"
+      const file = frame.locator('select[name="tx_impexp[file]"]');
+      await file.selectOption(await file.locator('option', { hasText: 'camino' }).first().getAttribute('value'));
+      await frame.getByRole('button', { name: 'Preview' }).click();
+      await frame.locator('.t3js-impexp-preview').first().waitFor();
+      await page.waitForTimeout(1000);
+    },
+    scrollTo: (frame) => [frame.locator('h4', { hasText: 'Action' }).first(), 175],
   },
   'BackendUsers/CreateAdministrator': {
     module: 'system_maintenance',
@@ -1378,6 +1498,23 @@ const screenshots = {
     clip: (frame) => [frame.locator('h1').first(), categoryField(frame)],
   },
 
+  'PageTypes/Overview': {
+    module: 'records',
+    width: 1000,
+    height: 620,
+    prepare: async ({ page, frame }) => {
+      await selectTreeNode(page, 'Camino');
+      await frame.locator('h1', { hasText: 'Camino' }).first().waitFor();
+      await openForm({ page, frame }, 'pages', shownPage(page));
+    },
+    mark: async ({ page, frame }) => {
+      const types = page.locator('.tree-toolbar__submenu-items').first();
+      await outline(types);
+      await badge(types, 1);
+      await outline(fieldGroup(frame, 'doktype'));
+      await badge(fieldGroup(frame, 'doktype'), 2);
+    },
+  },
   'Fal/FolderCollection': {
     module: 'records',
     width: 1400,

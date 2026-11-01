@@ -1,0 +1,5 @@
+..  figure:: /Images/AutomaticScreenshots/ImportExport/ContextMenuExport.png
+    :alt: Select "Export" from "More options..." in the context menu
+    :zoom: lightbox
+
+    Select "Export" from "More options..." in the context menu
