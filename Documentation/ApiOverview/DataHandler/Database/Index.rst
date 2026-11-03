@@ -336,6 +336,93 @@ discard
 
 
 
+..  _datahandler-cmd-publish:
+
+publish
+~~~~~~~
+
+..  confval:: publish
+    :name: datahandler-cmd-publish
+    :type: array
+    :added: 15.0 feature-108649-1736956800
+
+    Publishes the workspace version of a record to the live workspace. Use
+    the UID of the workspace version, not the UID of the live record. The
+    DataHandler finds the live record and the workspace from the workspace
+    version. The command needs the extension
+    :composer:`typo3/cms-workspaces`.
+
+    The array can be empty, or it can contain these keys:
+
+    `comment`
+        A comment for the publishing.
+
+    `notificationAlternativeRecipients`
+        The recipients to notify. Each entry is an array with the key
+        `email`, and optionally `realName` and `lang`. Without this key,
+        nobody is notified.
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
+
+        // 123 is the UID of the workspace version of a content element
+        $cmd['tt_content'][123]['publish'] = [];
+
+        // With a comment
+        $cmd['tt_content'][124]['publish'] = [
+            'comment' => 'Publish the new teaser text',
+        ];
+
+..  _datahandler-cmd-change-stage:
+
+change_stage
+~~~~~~~~~~~~
+
+..  confval:: change_stage
+    :name: datahandler-cmd-change-stage
+    :type: array
+    :added: 15.0 feature-108762-1737820800
+
+    Sends the workspace version of a record to another stage. Use the UID of
+    the workspace version, not the UID of the live record. The command needs
+    the extension :composer:`typo3/cms-workspaces`.
+
+    The array can contain these keys:
+
+    `stage`
+        The UID of the target stage. `0` is the stage *Editing*, `-10` is
+        *Ready to publish*. A custom stage has the UID of its
+        `sys_workspace_stage` record. Without a valid `stage`, the
+        DataHandler logs an error and leaves the stage unchanged.
+
+    `comment`
+        A comment for the stage change.
+
+    `notificationAlternativeRecipients`
+        The recipients to notify. Each entry is an array with the key
+        `email`, and optionally `realName` and `lang`. Without this key,
+        nobody is notified. Notifications are only sent when the field
+        :guilabel:`Send notifications upon state changes` of the workspace
+        record is enabled.
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
+
+        // 123 is the UID of the workspace version of a content element
+        $cmd['tt_content'][123]['change_stage'] = [
+            'stage' => -10,
+            'comment' => 'Ready to publish',
+            'notificationAlternativeRecipients' => [
+                ['email' => 'editor@example.org', 'lang' => 'de'],
+                ['email' => 'reviewer@example.org'],
+            ],
+        ];
+
+    The workspaces module sends stage changes with this command. A
+    `processCmdmap_*` hook that reacts to the action `setStage` of the
+    :ref:`version <datahandler-cmd-version>` command must handle
+    `change_stage` as well.
+
 ..  _datahandler-cmd-version:
 
 version
@@ -387,7 +474,8 @@ version
 
         "swap"
             Indicates that the current online version should be swapped
-            with another. Additional keys, specific for "swap" action:
+            with another. Use the :ref:`publish <datahandler-cmd-publish>`
+            command instead. Additional keys, specific for "swap" action:
 
             [swapWith]
                 Indicates the uid of the record to swap current version with!
@@ -407,21 +495,13 @@ version
             :ref:`discard <datahandler-cmd-discard>` command instead.
 
         "setStage"
-            Sets the stage of an element. *Special feature: The id key in the
-            array can be a comma-separated list of ids in order to perform the
-            stageChange over a number of records. Also, the internal variable
-            ->generalComment (also available through `/record/commit` route as
-            `&generalComment`) can be used to set a default comment for all
-            stage changes of an instance of the data handler.* Additional keys
-            for this action are:
+            Sets the stage of an element. The
+            :ref:`change_stage <datahandler-cmd-change-stage>` command does
+            the same with a flat array. Additional keys for this action are:
 
             [stageId]
-                Values are:
-
-                *   -1 (rejected)
-                *   0 (editing, default)
-                *   1 (review),
-                *   10 (publish)
+                The UID of the target stage, see the key `stage` of the
+                :ref:`change_stage <datahandler-cmd-change-stage>` command.
 
             [comment]
                 Comment string that goes into the log.
