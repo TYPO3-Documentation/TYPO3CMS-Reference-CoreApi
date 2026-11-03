@@ -38,7 +38,7 @@ final class CustomContentElementTest extends FunctionalTestCase
     ]);
     $this->addTypoScriptToTemplateRecord(
       1,
-      'page = PAGE' . LF . 'page.10 < styles.content.get',
+      "page = PAGE\npage.10 < styles.content.get",
     );
   }
 
