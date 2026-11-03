@@ -1,0 +1,23 @@
+routeEnhancers:
+  NewsArticles:
+    type: Extbase
+    limitToPages:
+      - 8
+    extension: News
+    plugin: Pi1
+    routes:
+      - routePath: '/article/{news_title}'
+        _controller: 'News::detail'
+        _arguments:
+          news_title: news
+  NewsEvents:
+    type: Extbase
+    limitToPages:
+      - 17
+    extension: News
+    plugin: Pi1
+    routes:
+      - routePath: '/event/{news_title}'
+        _controller: 'News::detail'
+        _arguments:
+          news_title: news

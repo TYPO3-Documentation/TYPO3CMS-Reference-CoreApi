@@ -1,0 +1,23 @@
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: '/'
+    index: ''
+    map:
+      '/': 0
+  NewsPlugin:
+    type: Extbase
+    extension: News
+    plugin: Pi1
+    routes:
+      - routePath: '/category'
+        _controller: 'News::list'
+      - routePath: '/category/{category_name}'
+        _controller: 'News::list'
+        _arguments:
+          category_name: overwriteDemand/categories
+    aspects:
+      category_name:
+        type: PersistedAliasMapper
+        tableName: sys_category
+        routeFieldName: slug
