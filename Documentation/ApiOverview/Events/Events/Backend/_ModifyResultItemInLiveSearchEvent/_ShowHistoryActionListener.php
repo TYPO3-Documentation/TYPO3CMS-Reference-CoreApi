@@ -15,9 +15,9 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
 #[AsEventListener(
-  identifier: 'my-extension/add-live-search-result-actions-listener',
+  identifier: 'my-extension/live-search-show-history',
 )]
-final readonly class MyEventListener
+final readonly class ShowHistoryActionListener
 {
   private TranslatorInterface $translator;
 
