@@ -17,8 +17,6 @@ routeEnhancers:
         _controller: 'Conference::show'
         _arguments:
           conference_slug: conference
-    defaults:
-      page: '1'
     aspects:
       page:
         type: StaticRangeMapper

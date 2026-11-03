@@ -124,19 +124,50 @@ Put routes with a static segment first all the same:
 
 ..  _extbase-routing-routes-defaults:
 
-Making path segments optional with defaults
-===========================================
+Separate routes instead of defaults
+===================================
 
-The :yaml:`defaults` key at enhancer level makes a placeholder optional. When the
-generated URL would contain the default value, that segment is omitted entirely.
+The :yaml:`defaults` key at enhancer level makes a placeholder optional: an
+incoming URL may leave it out, and TYPO3 fills in the default value. When
+generating a URL, TYPO3 leaves out a placeholder whose value is the default,
+but only the placeholder. The static text of the route path stays in the URL.
 
-In the full example below, :yaml:`page: '1'` means a link to page 1 of the
-list produces :samp:`/conferences/` rather than :samp:`/conferences/page/1`.
-A link to page 2 still produces :samp:`/conferences/page/2`.
+With :yaml:`defaults` set to :yaml:`page: '1'`, the route
+:yaml:`/page-{page}` therefore generates :samp:`/conferences/page` for the
+first page. TYPO3 tries a route with placeholders before the route :yaml:`/`,
+see :ref:`How route variants are matched <extbase-routing-enhancer-variants>`.
+So even a link to the list without any page argument gets
+:samp:`/conferences/page` instead of :samp:`/conferences/`.
 
-..  literalinclude:: _snippets/_routes-defaults.yaml
+A default value also reaches the action. With :yaml:`month: ''` as default, a
+request for :samp:`/conferences/2025` passes an empty month to the action.
+
+Configure one route for each combination of arguments instead, and leave out
+:yaml:`defaults`:
+
+..  literalinclude:: _snippets/_routes-pagination.yaml
     :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
-    :emphasize-lines: 20-21
+    :emphasize-lines: 10-15
+
+*   A link to the list without :yaml:`currentPage` only fits the route
+    :yaml:`/`, because :yaml:`/page-{page}` needs a value for its placeholder.
+    It generates :samp:`/conferences/`.
+*   A link with :yaml:`currentPage` set to `2` generates
+    :samp:`/conferences/page-2`.
+
+A link with :yaml:`currentPage` set to `1` generates
+:samp:`/conferences/page-1`, a second URL for the first page. The pagination
+template could leave out the argument for the first page. The action then
+uses the default value of its parameter:
+
+..  literalinclude:: _snippets/_pagination-first-page.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Conference/List.fluid.html (excerpt)
+
+..  seealso::
+
+    `The wrong route is used <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-ambiguous-routes>`_ —
+    how :yaml:`defaults` make a route fit a link that does not supply all of
+    its arguments.
 
 
 ..  _extbase-routing-routes-requirements:
@@ -148,25 +179,25 @@ Constraining placeholders with requirements
 matches an incoming URL segment if it satisfies the requirement; without a
 requirement, any string matches.
 
-In the full example below, :yaml:`page: '\d+'` ensures that
-:samp:`/conferences/page/2` matches the pagination route while
-:samp:`/conferences/typo3camp-2025` does not — because :samp:`typo3camp-2025`
-is not all digits, so the pagination route is skipped and the detail route
-matches instead.
+In the full example below, :yaml:`page: '\d+'` limits the pagination route to
+digits: :samp:`/conferences/page-2` fits it, :samp:`/conferences/page-two` does
+not.
 
-Strict requirements also affect URL generation: combined with a
-:ref:`StaticRangeMapper <extbase-routing-aspects-static-range>` aspect, they
-allow TYPO3 to treat the parameter as static and omit `cHash` from the
-generated URL.
+A requirement alone does not remove `cHash` from the generated URL, however
+strict it is. In the example, the
+:ref:`StaticRangeMapper <extbase-routing-aspects-static-range>` makes
+:yaml:`page` static. A placeholder without an aspect needs a :yaml:`static`
+declaration in addition to its requirement, see
+:ref:`The cHash parameter <extbase-routing-enhancer-chash>`.
 
 A requirement also applies to a placeholder that has an aspect. It is checked
 against the value in the URL, such as a slug, not against the value the action
 receives, such as a UID. See
 :ref:`Aspects and requirements together <extbase-routing-aspects-precedence>`.
 
-..  literalinclude:: _snippets/_routes-defaults.yaml
+..  literalinclude:: _snippets/_routes-pagination.yaml
     :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml
-    :emphasize-lines: 22-23
+    :emphasize-lines: 20-21
 
 The next step is configuring the :yaml:`aspects` entries that translate
 placeholder values into human-readable URL segments — see

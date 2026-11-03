@@ -26,8 +26,6 @@ routeEnhancers:
         _arguments:
           conference_slug: conference
           talk_slug: talk
-    defaults:
-      page: '1'
     aspects:
       page:
         type: StaticRangeMapper
