@@ -152,15 +152,15 @@ the validation result for that argument and dispatch the action regardless:
 ..  literalinclude:: _snippets/_ConferenceControllerIgnoreValidation.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-Validation still runs — :php:`#[IgnoreValidation]` does not skip it. It
-instructs Extbase to call the action even when the argument is invalid.
-This is what allows :php:`newAction()` to receive a partially filled
-:php:`Conference` back from a failed :php:`createAction()` and hand it to
-the template so `f:form` can redisplay the submitted values with inline
-errors.
+Extbase does not validate this argument, so the action is called even
+when the object is invalid. This is what allows :php:`newAction()` to
+receive a partially filled :php:`Conference` back from a failed
+:php:`createAction()` and hand it to the template. The validation errors
+are those of :php:`createAction()`, which Extbase passes on with the
+request, so `f:form` can redisplay the submitted values with inline errors.
 
 Without :php:`#[IgnoreValidation]`, the framework would see the invalid
-:php:`Conference`, call :php:`errorAction()`, which redirects back to
+:php:`Conference`, call :php:`errorAction()`, which forwards back to
 :php:`newAction()`, which would validate again — an infinite cycle.
 
 
