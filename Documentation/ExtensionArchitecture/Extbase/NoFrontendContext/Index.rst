@@ -8,17 +8,6 @@
 Using Extbase outside a frontend request
 ========================================
 
-..  note::
-
-    This chapter is a work in progress. Each page states the essentials;
-    full guidance and examples will be added as part of the Extbase
-    documentation overhaul.
-
-..  todo::
-    Stub chapter. Planned content: what each context provides, what has to be
-    established before Extbase can be used, worked examples per context, and
-    guidance on when the work belongs elsewhere.
-
 Extbase expects a fully prepared frontend request. By the time an Extbase
 plugin runs, the frontend has resolved the page and built the TypoScript
 configuration that Extbase reads its settings from.
@@ -27,8 +16,9 @@ Outside that context, that preparation has not happened, and Extbase reacts in
 two different ways depending on which part of it is used. Controllers, views
 and anything else resolving :typoscript:`plugin.tx_<extension>` configuration
 fail outright. The persistence layer is deliberately allowed to run without a
-request, but with no configuration to draw on it limits its queries to
-storagePid `0` alone.
+request. In a command or a middleware it has no configuration to draw on,
+so it limits its queries to storagePid `0` alone, unless the code names the
+pages itself.
 
 Three contexts run into this, each with a different amount of the frontend
 available:
@@ -52,9 +42,11 @@ available:
 
     ..  card:: :ref:`Extbase in middlewares <extbase-no-frontend-middleware>`
 
-        Anything or nothing, depending on where in the middleware chain the
-        middleware runs — the frontend may not have been prepared yet.
+        A request, but Extbase does not see it. The middleware can pass on
+        what the request already knows, such as the site and the language.
 
+Of the three, the backend module is the only context Extbase is designed
+for. Commands and middlewares use Extbase outside the context it expects.
 Each page describes what is available in that context, what has to be
 established before Extbase can be used, and when the work belongs somewhere
 else entirely.
