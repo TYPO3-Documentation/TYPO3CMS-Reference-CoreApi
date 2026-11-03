@@ -219,7 +219,9 @@ Example for the property :php:`title`:
 ..  literalinclude:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaTitle.php
     :caption: Class TTN\\Tea\\Domain\\Model\\Tea
 
-The getter for the image also has to resolve the :ref:`lazy loading <extbase-appendix-attributes-lazy>`:
+The image is loaded :ref:`lazily <extbase-appendix-attributes-lazy>`. Its
+getter returns it like any other property. Extbase reads the file reference
+from the database when it is used for the first time:
 
 ..  literalinclude:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaImage.php
     :caption: Class TTN\\Tea\\Domain\\Model\\Tea

@@ -1,30 +1,22 @@
 <?php
 
-use TYPO3\CMS\Extbase\Attribute as Extbase;
+use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * This class represents a tea (flavor), e.g., "Earl Grey".
  */
 class Tea extends AbstractEntity
 {
-  /**
-   * @Extbase\Validate("StringLength", options={"maximum": 255})
-   * @Extbase\Validate("NotEmpty")
-   */
+  #[Validate('StringLength', options: ['maximum' => 255])]
+  #[Validate('NotEmpty')]
   protected string $title = '';
 
-  /**
-   * @Extbase\Validate("StringLength", options={"maximum": 2000})
-   */
+  #[Validate('StringLength', options: ['maximum' => 2000])]
   protected string $description = '';
 
-  /**
-   * @var FileReference|null
-   * @phpstan-var FileReference|LazyLoadingProxy|null
-   * @Extbase\ORM\Lazy
-   */
-  protected $image;
+  #[Lazy]
+  protected ?FileReference $image = null;
 }
