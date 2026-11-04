@@ -38,13 +38,12 @@ routeEnhancers:
       year: ''
     requirements:
       page: '\d+'
-      month: '\d+'
       year: '\d{4}'
     aspects:
       page:
         type: StaticRangeMapper
         start: '1'
-        end: '50'
+        end: '25'
       month:
         type: StaticValueMapper
         map:

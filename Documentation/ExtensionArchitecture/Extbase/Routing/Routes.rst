@@ -10,8 +10,10 @@ Defining routes for Extbase plugins
 
 Each entry in the :yaml:`routes` list of the
 :ref:`Extbase plugin enhancer <extbase-routing-enhancer>` maps one
-controller/action combination to a URL pattern. TYPO3 tries each entry in
-order — first match wins, both for incoming requests and for URL generation.
+controller/action combination to a URL pattern. For an incoming request, TYPO3
+tests the entries in order, and the first one that fits wins. To generate a
+URL, TYPO3 sorts the entries first, see
+:ref:`How route variants are matched <extbase-routing-enhancer-variants>`.
 
 ..  seealso::
 
@@ -62,17 +64,22 @@ Anatomy of a route entry
 Route order and specificity
 ===========================
 
-Routes are evaluated top to bottom. The first entry whose :yaml:`routePath`
-pattern and :yaml:`_controller` both match wins. This means a general placeholder
-route can accidentally swallow requests meant for a more specific route if it
-appears first.
+For an incoming URL, routes are evaluated top to bottom, and the first route
+that fits wins. A route does not fit if the URL does not match its
+:yaml:`routePath` and :yaml:`requirements`, or if one of its
+:ref:`aspects <extbase-routing-aspects>` cannot resolve the value taken from the
+URL. TYPO3 then tries the next route.
+
+A placeholder without an aspect and without a requirement accepts every value
+of its URL segment. A route made of such a placeholder swallows the requests
+meant for the routes after it.
 
 Consider a plugin with a list action, a paginated list, and a detail action.
 Given the page slug :samp:`/conferences`, the following URLs need to resolve
 correctly:
 
 *   :samp:`/conferences/` → :yaml:`Conference::list` (no arguments)
-*   :samp:`/conferences/page/2` → :yaml:`Conference::list` with :yaml:`currentPage = 2`
+*   :samp:`/conferences/page-2` → :yaml:`Conference::list` with :yaml:`currentPage = 2`
 *   :samp:`/conferences/typo3camp-2025` → :yaml:`Conference::show` with the resolved UID
 
 With this route order, resolution works correctly:
@@ -83,7 +90,7 @@ With this route order, resolution works correctly:
     routes:
       - routePath: '/'
         _controller: 'Conference::list'
-      - routePath: '/page/{page}'
+      - routePath: '/page-{page}'
         _controller: 'Conference::list'
         _arguments:
           page: currentPage
@@ -92,11 +99,27 @@ With this route order, resolution works correctly:
         _arguments:
           conference_slug: conference
 
-If :yaml:`/{conference_slug}` were listed first, the request for
-:samp:`/conferences/page/2` would match it — :yaml:`conference_slug` would
-receive the value :samp:`page` and the pagination route would never be reached.
-The slug :samp:`typo3camp-2025` and the static segment :samp:`page` are both
-just strings to the router; order is what distinguishes them.
+If :yaml:`/{conference_slug}` had no aspect and were listed before
+:yaml:`/page-{page}`, the request for :samp:`/conferences/page-2` would match
+it. :yaml:`conference_slug` would receive the value :samp:`page-2`, and the
+pagination route would never be reached.
+
+With a :ref:`PersistedAliasMapper <extbase-routing-aspects-persisted-alias>`
+on :yaml:`conference_slug`, as in the complete examples, the order is no longer
+decisive for this URL: the mapper finds no conference with the slug
+:samp:`page-2`, so TYPO3 skips the route and the pagination route matches.
+Put routes with a static segment first all the same:
+
+*   TYPO3 compares the static segment as a string, which rejects a URL without
+    any further work. A :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper`
+    queries the database for every URL it is asked to resolve.
+*   If a value is valid for both routes, for example a conference with the slug
+    :samp:`page-2`, the route listed first wins.
+
+..  seealso::
+
+    `The wrong route is used <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-ambiguous-routes>`_ —
+    troubleshooting routes that fit the same URL.
 
 
 ..  _extbase-routing-routes-defaults:
@@ -136,8 +159,10 @@ Strict requirements also affect URL generation: combined with a
 allow TYPO3 to treat the parameter as static and omit `cHash` from the
 generated URL.
 
-Note that :yaml:`requirements` are ignored for any placeholder that has a
-corresponding :yaml:`aspects` entry — the aspect takes precedence.
+A requirement also applies to a placeholder that has an aspect. It is checked
+against the value in the URL, such as a slug, not against the value the action
+receives, such as a UID. See
+:ref:`Aspects and requirements together <extbase-routing-aspects-precedence>`.
 
 ..  literalinclude:: _snippets/_routes-defaults.yaml
     :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml

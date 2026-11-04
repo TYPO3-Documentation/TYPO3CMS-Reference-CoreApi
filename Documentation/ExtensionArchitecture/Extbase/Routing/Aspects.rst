@@ -165,9 +165,16 @@ as static, which eliminates `cHash` from paginated URLs.
         end: '100'
 
 Set :yaml:`end` to the maximum sensible value for your use case. The example uses
-`100` pages; TYPO3 enforces a hard upper limit of 1000. Requests with a value
-outside the configured range do not match the route — TYPO3 returns a 404
-rather than silently passing through an out-of-range value.
+`100` pages. A single :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper`
+accepts at most 1000 values. In addition, the values of all
+:php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` and
+:php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticValueMapper` aspects of one
+route may result in at most 10000 combinations, see the
+:ref:`date-based archive <extbase-routing-examples-date-filter>`.
+
+A value outside the configured range does not fit the route. TYPO3 tries the
+next route, and returns a 404 error if no route fits, rather than passing an
+out-of-range value to the action.
 
 ..  seealso::
 
@@ -205,15 +212,27 @@ which lets you show a default record rather than an error page.
 
 ..  _extbase-routing-aspects-precedence:
 
-Aspects take precedence over requirements
-=========================================
+Aspects and requirements together
+=================================
 
 If a placeholder has both a
 :ref:`requirements <extbase-routing-routes-requirements>` entry and an
-:yaml:`aspects` entry, the aspect wins — the :yaml:`requirements` regex is
-ignored for that placeholder.
-The aspect defines all valid values implicitly, so an additional regex
-constraint would be redundant and is silently discarded.
+:yaml:`aspects` entry, TYPO3 applies both: the value in the URL has to match the
+regular expression, and the aspect has to resolve it. When a URL is generated,
+the value the aspect produces has to match the regular expression as well.
+
+Therefore, write the requirement for the value in the URL, not for the value
+the action receives. For a
+:php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper` this is the
+slug, for a :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticValueMapper` the
+keys of :yaml:`map`. A requirement :yaml:`'\d+'` on a placeholder whose
+:php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticValueMapper` maps
+:samp:`march` to `03` makes the route unusable: :samp:`march` is not a number,
+so TYPO3 skips the route both for incoming and for generated URLs.
+
+Without a requirement, TYPO3 accepts any value for a placeholder that has an
+aspect, slashes included, and leaves the decision to the aspect. An additional
+requirement is rarely needed.
 
 With aspects configured, the next step is generating URLs from controller
 actions and Fluid templates — see
