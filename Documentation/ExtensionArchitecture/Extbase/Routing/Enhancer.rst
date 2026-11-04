@@ -216,22 +216,45 @@ bound and guarding against
 `cache poisoning <https://en.wikipedia.org/wiki/Cache_poisoning>`_, where an
 attacker fills the cache with junk variants of a page.
 
-Strict :yaml:`requirements` and :ref:`aspects <extbase-routing-aspects>` that
-define a fixed set of valid values eliminate the need for `cHash` — but only
-when *every* placeholder in the route is covered. If even one placeholder is
-left unconstrained, TYPO3 still adds `cHash` to the whole URL.
+TYPO3 leaves out `cHash` only when *every* argument of the URL is static. If
+even one placeholder is dynamic, TYPO3 still adds `cHash` to the whole URL.
+A placeholder is static in one of two cases:
 
-A :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper` aspect on
-a slug field removes the need for `cHash` for that placeholder, because the
-mapper restricts it to a known set of database values rather than an open input.
-A `\d+` requirement alone does not — it still allows unbounded values — so only
-a :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` (a fixed range)
-removes `cHash` for a numeric placeholder.
+*   It has an :ref:`aspect <extbase-routing-aspects>` that limits it to a known
+    set of values. All mappers of TYPO3 Core do so:
+    :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` and
+    :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticValueMapper` with a fixed
+    list, :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper` and
+    :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedPatternMapper` with the
+    values stored in the database.
+*   It has no aspect, is declared in :yaml:`static`, and has a
+    :yaml:`requirements` entry. TYPO3 ignores a :yaml:`static` declaration
+    without a requirement, and also one for a placeholder that has an aspect.
+
+A requirement alone does not make a placeholder static, however strict it is.
+A placeholder with :yaml:`'\d+'` still accepts an unbounded number of values.
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml (excerpt)
+
+    routes:
+      - routePath: '/confirm/{token}'
+        _controller: 'Registration::confirm'
+    static:
+      token: true
+    requirements:
+      token: '[a-f0-9]{40}'
+
+Keep such a requirement as narrow as possible. Every value it accepts can be
+cached as a page of its own.
 
 ..  seealso::
 
-    `cHash and routing <https://docs.typo3.org/permalink/t3coreapi:routing-advanced-routing-configuration-enhancers>`_ —
-    background on when and why `cHash` is added.
+    *   `cHash and routing <https://docs.typo3.org/permalink/t3coreapi:routing-advanced-routing-configuration-enhancers>`_ —
+        background on when and why `cHash` is added.
+
+    *   `Static route variables <https://docs.typo3.org/permalink/t3coreapi:routing-static-variables>`_ —
+        the :yaml:`static` option in the Core routing reference.
 
 The next step is defining the individual routes inside the enhancer — see
 :ref:`Defining routes for Extbase plugins <extbase-routing-routes>`.

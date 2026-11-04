@@ -9,7 +9,7 @@ routeEnhancers:
     routes:
       - routePath: '/'
         _controller: 'Conference::list'
-      - routePath: '/page/{page}'
+      - routePath: '/page-{page}'
         _controller: 'Conference::list'
         _arguments:
           page: currentPage
@@ -17,8 +17,6 @@ routeEnhancers:
         _controller: 'Conference::show'
         _arguments:
           conference_slug: conference
-    defaults:
-      page: '1'
     requirements:
       page: '\d+'
     aspects:
