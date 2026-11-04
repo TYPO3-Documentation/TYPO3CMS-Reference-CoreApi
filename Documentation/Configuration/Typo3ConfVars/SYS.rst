@@ -1042,6 +1042,42 @@ passwordPolicies
     For the default configuration see the default configuration on GitHub:
     https://github.com/TYPO3/typo3/blob/main/typo3/sysext/core/Configuration/DefaultConfiguration.php
 
+..  _typo3confvars-sys-deserialization:
+
+
+deserialization
+---------------
+
+..  confval:: deserialization
+    :name: globals-typo3-conf-vars-sys-deserialization
+
+    ..  _typo3ConfVars_sys_deserialization_allowedClassNames:
+
+    ..  confval:: allowedClassNames
+        :name: globals-typo3-conf-vars-sys-deserialization-allowedClassNames
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['deserialization']['allowedClassNames']
+        :type: array
+        :default: `[\\TYPO3\\CMS\\Core\\Log\\Logger::class]`
+        :added: 13.4.31 important-108604-1780297491
+
+        Class names that TYPO3 deserializes from the
+        `registry <https://docs.typo3.org/permalink/t3coreapi:registry>`_
+        although they have a `__destruct()` or a `__wakeup()` method. Without
+        an entry here, TYPO3 refuses such a class and throws a
+        :php-short:`\TYPO3\CMS\Core\Serializer\Exception\DeserializerException`.
+
+        ..  warning::
+            Each entry turns off the protection against PHP object injection
+            for that class. Add a class only as a last resort, after you
+            reviewed its `__destruct()` and `__wakeup()` methods. Remove the
+            entry once the stored value no longer contains the object.
+
+        ..  code-block:: php
+            :caption: config/system/additional.php
+
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['deserialization']['allowedClassNames'][]
+                = \MyVendor\MyExtension\Domain\Model\MyObject::class;
+
 ..  _typo3confvars-sys-messenger:
 
 
