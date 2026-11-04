@@ -315,10 +315,10 @@ following URLs:
 ..  code-block:: none
 
     index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list
-    index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[page]=5
-    index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[year]=2018&tx_news_pi1[month]=8
+    index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[currentPage]=5
+    index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[overwriteDemand][year]=2018&tx_news_pi1[overwriteDemand][month]=8
     index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=13
-    index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=tag&tx_news_pi1[tag]=11
+    index.php?id=13&tx_news_pi1[controller]=News&tx_news_pi1[action]=list&tx_news_pi1[overwriteDemand][tags]=11
 
 And generate the following URLs:
 
@@ -526,9 +526,11 @@ value to a URL. The property :yaml:`tableName` points to the database table,
 the property :yaml:`routeFieldName` is the field which will be used within the
 route path, in this example :yaml:`path_segment`.
 
-The special :yaml:`routeValuePrefix` is used for TCA type :php:`slug` fields
-where the prefix :yaml:`/` is within all fields of the field names, which should
-be removed in the case above.
+Values of TCA type :php:`slug` fields can start with a :yaml:`/`. For such a
+field, set :yaml:`routeValuePrefix: '/'`, which removes the prefix in the URL and
+adds it again when looking up the record. Do not set it for a field whose values
+do not start with the prefix, such as :yaml:`path_segment` in this example: The
+record would not be found and the URL would lead to a 404 error.
 
 If a field is used for :yaml:`routeFieldName` that is not prepared to be put
 into the route path, e.g. the news title field, you **must** ensure that this is

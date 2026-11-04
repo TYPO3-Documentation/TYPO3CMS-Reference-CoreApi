@@ -10,7 +10,7 @@ routeEnhancers:
       - routePath: '/list/{page}'
         _controller: 'News::list'
         _arguments:
-          page: '@widget_0/currentPage'
+          page: 'currentPage'
       - routePath: '/detail/{news_title}'
         _controller: 'News::detail'
         _arguments:
@@ -24,12 +24,10 @@ routeEnhancers:
         _arguments:
           year: 'overwriteDemand/year'
           month: 'overwriteDemand/month'
-        requirements:
-          year: '\d+'
-          month: '\d+'
     defaultController: 'News::list'
-    defaults:
-      page: '0'
+    requirements:
+      year: '\d+'
+      month: '\d+'
     aspects:
       news_title:
         type: PersistedAliasMapper
