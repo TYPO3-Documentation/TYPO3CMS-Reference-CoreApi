@@ -100,16 +100,9 @@ Subsequently:
 ..  versionchanged:: 14.2
 
 The order of installed extensions and their dependencies is specified in
-the :file:`composer.json <extension-composer-json>` file.
-
-..  note::
-    Extension authors should ensure that the information in the
-    :file:`composer.json <extension-composer-json>` file is in sync with the one in the extension's
-    :ref:`ext_emconf.php <ext_emconf-php>` file. This is especially important
-    regarding constraints like :php:`depends`, :php:`conflicts` and
-    :php:`suggests`. Use the equivalent settings in :file:`composer.json <extension-composer-json>`
-    `require`, `conflict` and `suggest` to set dependencies and ensure a
-    specific loading order.
+the :file:`composer.json <extension-composer-json>` file. Use `require`,
+`conflict`, and `suggest` to set dependencies and to ensure a specific
+loading order.
 
 
 ..  _ext-composer-json-extended:
