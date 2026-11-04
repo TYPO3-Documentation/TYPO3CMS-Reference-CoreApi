@@ -32,10 +32,6 @@ routeEnhancers:
         _controller: 'Conference::show'
         _arguments:
           conference_slug: conference
-    defaults:
-      page: '1'
-      month: ''
-      year: ''
     requirements:
       page: '\d+'
       year: '\d{4}'

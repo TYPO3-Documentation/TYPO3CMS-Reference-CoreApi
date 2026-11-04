@@ -1,0 +1,14 @@
+<nav aria-label="Pagination">
+  <f:for each="{pagination.allPageNumbers}" as="page">
+    <f:if condition="{page} == 1">
+      <f:then>
+        <f:link.action action="list">{page}</f:link.action>
+      </f:then>
+      <f:else>
+        <f:link.action action="list" arguments="{currentPage: page}">
+          {page}
+        </f:link.action>
+      </f:else>
+    </f:if>
+  </f:for>
+</nav>

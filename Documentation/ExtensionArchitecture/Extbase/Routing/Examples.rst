@@ -42,6 +42,10 @@ Key points:
     rejects a URL without this prefix by a string comparison, before any aspect
     is asked. The prefix also keeps the routes apart for a conference whose slug
     is a number, such as :samp:`2025`.
+*   The first page has its own route :yaml:`/` and no :yaml:`defaults` entry
+    for :yaml:`page`. A link without :yaml:`currentPage` generates
+    :samp:`/conferences/` — see
+    :ref:`Separate routes instead of defaults <extbase-routing-routes-defaults>`.
 *   :yaml:`fallbackValue: null` on the :yaml:`PersistedAliasMapper` means a
     deleted or hidden conference returns :php:`null` to the action rather than a
     404. The action must declare the argument nullable and handle it explicitly
@@ -111,8 +115,13 @@ Date-based conference archive
 =============================
 
 Filter the conference list by year and month using human-readable URL segments.
-Each combination of arguments needs its own route entry because TYPO3 cannot
-derive missing arguments from partial matches.
+Each combination of arguments has its own route entry, so the configuration
+needs no :yaml:`defaults`: a link with a year only fits :yaml:`/{year}`, a link
+with a year and a month fits :yaml:`/{year}/{month}`.
+
+The link has to pass the month in the format of the :yaml:`map`, such as `03`.
+For the value `3` the :yaml:`StaticValueMapper` finds no entry, and TYPO3
+appends the month as a query parameter instead.
 
 **URLs produced:**
 
@@ -197,13 +206,45 @@ Common mistakes
     on the site. Performance degrades and unintended matches on unrelated pages
     become possible.
 
+**URL ends in /page instead of the list URL**
+    The enhancer sets :yaml:`defaults` for the page placeholder of a route
+    like :yaml:`/page-{page}`. TYPO3 leaves out the default value, but not the
+    static text, and uses this route even for a link without a page argument.
+    Remove the :yaml:`defaults` entry and keep the route :yaml:`/` for the
+    first page — see
+    :ref:`Separate routes instead of defaults <extbase-routing-routes-defaults>`.
+
 **cHash still appearing**
-    A placeholder has a :yaml:`requirements` regex but no aspect. Only
-    :yaml:`StaticRangeMapper` and :yaml:`StaticValueMapper` mark a parameter
-    as static and suppress :yaml:`cHash`. A regex requirement alone does not.
+    A placeholder has a :yaml:`requirements` regex but neither an aspect nor a
+    :yaml:`static` declaration. A regex requirement alone does not suppress
+    `cHash`. Add an aspect, or declare the placeholder in :yaml:`static` — see
+    :ref:`The cHash parameter <extbase-routing-enhancer-chash>`.
 
 **Stale cache after config changes**
     Site configuration is cached. After any change to
     :file:`EXT:my_extension/Configuration/Sets/Main/route-enhancers.yaml`
     or :file:`config/sites/<site-identifier>/config.yaml`, clear all caches
     via :guilabel:`Admin Tools > Maintenance`.
+
+
+..  _extbase-routing-examples-troubleshooting:
+
+When a route does not behave as expected
+========================================
+
+A route enhancer that does not fit a URL or a link rarely raises an error.
+TYPO3 tries the next route and, in the end, uses the plain page URL. The
+symptom is a page where a 404 error was expected, or a URL that still contains
+query parameters.
+
+..  tip::
+
+    The `troubleshooting page of the routing chapter <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting>`_
+    is organised by symptom and applies to Extbase plugins as well:
+
+    *   `An invalid URL shows a page instead of a 404 error <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-missing-404>`_
+    *   `A generated URL still contains query parameters <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-query-parameters>`_
+    *   `An optional variable does not work with the PageType decorator <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-optional-variable>`_
+    *   `The wrong route is used <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-ambiguous-routes>`_
+    *   `Only the last enhancer of an Extbase plugin works <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-same-plugin>`_
+    *   `Possible range of all mappers is larger than 10000 items <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-mapper-range>`_
