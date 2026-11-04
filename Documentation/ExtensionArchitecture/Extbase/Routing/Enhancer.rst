@@ -173,14 +173,32 @@ The key properties:
 How route variants are matched
 ==============================
 
-When TYPO3 receives a request, the enhancer tries each :yaml:`routes` entry in
-order. The first variant whose :yaml:`routePath` pattern and :yaml:`_controller`
-match the incoming URL wins. When generating a URL, TYPO3 picks the first
-variant that satisfies all required placeholders.
+Incoming URLs and generated URLs use the routes differently.
 
-Order matters: put more specific routes before more general ones. A route
-:yaml:`/{conference_slug}` would swallow everything if listed before
-:yaml:`/page/{page}` — the paginated list would never match.
+When TYPO3 receives a request, it tests the :yaml:`routes` entries in the
+order of their configuration. A route is skipped if the URL does not fit its
+:yaml:`routePath` and :yaml:`requirements`, or if an
+:ref:`aspect <extbase-routing-aspects>` of the route cannot resolve the value
+taken from the URL. The first route that is not skipped wins. The
+:yaml:`_controller` of a route is not compared with anything here, it is the
+result of the match. See
+:ref:`Route order and specificity <extbase-routing-routes-order>`.
+
+When generating a URL, TYPO3 only considers the routes whose
+:yaml:`_controller` is the controller and action of the link, and whose
+placeholders are all supplied by the link or filled by :yaml:`defaults`. It
+then sorts these routes, regardless of their configuration order:
+
+#.  Routes with placeholders come before routes without placeholders, such as
+    :yaml:`/`.
+#.  Routes for which the link supplies every placeholder come before routes
+    that need :yaml:`defaults`. Among them, the route with more placeholders
+    comes first.
+#.  Routes that need fewer :yaml:`defaults` come before routes that need more.
+
+TYPO3 uses the first route in this order that works. A route is skipped if an
+aspect cannot map a value, or if a mapped value does not fit the
+:yaml:`requirements`.
 
 If no variant matches during generation, TYPO3 falls back to a plain query
 string URL with the raw namespace parameters and a :yaml:`cHash`.

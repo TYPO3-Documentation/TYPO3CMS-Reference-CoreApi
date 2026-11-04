@@ -38,9 +38,10 @@ see
 Key points:
 
 *   The pagination route :yaml:`/page-{page}` uses a static prefix :yaml:`page-`
-    to distinguish it from the detail route :yaml:`/{conference_slug}`. Without
-    the prefix, :samp:`/conferences/page-2` would match the detail route first
-    and try to resolve `page-2` as a conference slug.
+    to distinguish it from the detail route :yaml:`/{conference_slug}`. TYPO3
+    rejects a URL without this prefix by a string comparison, before any aspect
+    is asked. The prefix also keeps the routes apart for a conference whose slug
+    is a number, such as :samp:`2025`.
 *   :yaml:`fallbackValue: null` on the :yaml:`PersistedAliasMapper` means a
     deleted or hidden conference returns :php:`null` to the action rather than a
     404. The action must declare the argument nullable and handle it explicitly
@@ -124,11 +125,26 @@ derive missing arguments from partial matches.
 
 ..  warning::
 
-    Each :yaml:`StaticRangeMapper` is limited to 1000 values: TYPO3 throws a
-    :php:`\LengthException` when the range between :yaml:`start` and :yaml:`end`
-    is larger than 1000 items. This guards against brute-force requests and
-    cache-flooding. The ranges above stay well within that limit (31 years,
-    50 pages); for a wider span, narrow the range or write a custom mapper.
+    TYPO3 limits the number of values a route can produce, to guard against
+    brute-force requests and cache flooding:
+
+    *   A single :yaml:`StaticRangeMapper` accepts at most 1000 values.
+        TYPO3 throws a :php:`\LengthException` for a larger range between
+        :yaml:`start` and :yaml:`end`.
+    *   TYPO3 multiplies the number of values of all :yaml:`StaticRangeMapper`
+        and :yaml:`StaticValueMapper` aspects used in one route. If the product
+        is larger than 10000, generating or resolving a URL of this route
+        throws an :php:`\OverflowException`.
+
+    The route :yaml:`/{year}/{month}/page-{page}` above combines 31 years,
+    12 months, and 25 pages, which makes 9300 combinations. With 50 pages it
+    would be 18600, and every URL of this route would fail. For a wider span,
+    narrow another range, or write a custom mapper that does not implement
+    :php:`\Countable`.
+
+    ..  seealso::
+
+        `Possible range of all mappers is larger than 10000 items <https://docs.typo3.org/permalink/t3coreapi:routing-troubleshooting-mapper-range>`_
 
 
 ..  _extbase-routing-examples-custom-aspects:
@@ -170,9 +186,10 @@ Common mistakes
     Fluid when list and detail are on separate pages.
 
 **Wrong route order**
-    A catch-all placeholder route (:yaml:`/{slug}`) is listed before a more
-    specific route (:yaml:`/page-{page}`). The catch-all matches first and the
-    specific route is never reached. Most-specific routes must come first — see
+    A placeholder route without an aspect (:yaml:`/{slug}`) is listed before
+    a more specific route (:yaml:`/page-{page}`). The placeholder accepts every
+    value, so the specific route is never reached. Add an aspect, and list the
+    routes with a static segment first — see
     :ref:`Route order and specificity <extbase-routing-routes-order>`.
 
 **limitToPages missing**
