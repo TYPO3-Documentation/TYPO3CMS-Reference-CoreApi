@@ -1,0 +1,10 @@
+"pages"
+,"uid","pid","title","is_siteroot","doktype","slug"
+,1,0,"Home",1,1,"/"
+,42,1,"Events",0,254,"/events"
+,43,1,"Event",0,1,"/event"
+"tx_myextension_event"
+,"uid","pid","title","tstamp"
+,1,42,"Spring meetup",1767225600
+,2,42,"Autumn meetup",1790812800
+,3,1,"Event on another page",1790812800

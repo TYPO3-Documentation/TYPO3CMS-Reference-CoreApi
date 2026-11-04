@@ -1,0 +1,4 @@
+name: myvendor/my-extension
+label: My extension
+dependencies:
+  - typo3/seo-sitemap

@@ -6,6 +6,9 @@
   "require": {
     "typo3/cms-core": "^14.3 || ^15.0"
   },
+  "suggest": {
+    "typo3/cms-seo": "Lists the events in the XML sitemap"
+  },
   "autoload": {
     "psr-4": {
       "MyVendor\\MyExtension\\": "Classes/"
