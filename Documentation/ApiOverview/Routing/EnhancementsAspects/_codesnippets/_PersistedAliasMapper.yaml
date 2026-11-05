@@ -12,4 +12,3 @@ routeEnhancers:
         type: PersistedAliasMapper
         tableName: 'tx_news_domain_model_news'
         routeFieldName: 'path_segment'
-        routeValuePrefix: '/'
