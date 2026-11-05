@@ -311,6 +311,24 @@ const showInLayout = async (page, frame, label) => {
   await page.waitForTimeout(1500);
 };
 
+// Opens the wizard of a new content element in the main column of Camino,
+// as the hero column offers only the types of its own group
+const openContentWizard = async (page, frame) => {
+  await showInLayout(page, frame, 'Camino');
+  await frame.locator('typo3-backend-new-content-element-wizard-button[url*="colPos=0"]').first().click();
+  await page.locator(`${modal} .navigation-item`).first().waitFor();
+};
+
+// Shows the type of content element with the given title in the open
+// wizard, which the search finds in any group
+const showContentType = async (page, title) => {
+  await page.locator(`${modal} input[name="search"]`).fill(title);
+  await page.waitForTimeout(1000);
+};
+
+// The type of content element with the given title in the open wizard
+const contentType = (page, title) => page.locator(`${modal} button.item`, { hasText: title }).first();
+
 // Selects a page or a folder in the tree next to the module
 const selectTreeNode = async (page, label) => {
   await page.getByRole('treeitem', { name: label }).first().click();
@@ -1543,12 +1561,8 @@ const screenshots = {
     width: 1000,
     height: 700,
     prepare: async ({ page, frame }) => {
-      await showInLayout(page, frame, 'Camino');
-      // The column of the main content, as the hero column offers only the
-      // types of its own group
-      await frame.locator('typo3-backend-new-content-element-wizard-button[url*="colPos=0"]').first().click();
-      const group = page.locator(`${modal} .navigation-item:not(.navigation-item-featured)`).first();
-      await group.click();
+      await openContentWizard(page, frame);
+      await page.locator(`${modal} .navigation-item:not(.navigation-item-featured)`).first().click();
       await page.waitForTimeout(1000);
     },
     // The numbers of the list below the screenshot: title, description,
@@ -1579,6 +1593,61 @@ const screenshots = {
       page.locator(`${modal} .modal-header`),
       page.locator(`${modal} .navigation-item`).last(),
       page.locator(`${modal} button.item`).last(),
+    ],
+  },
+  'Backend/content_element_example': {
+    module: 'web_layout',
+    width: 1000,
+    height: 700,
+    prepare: async ({ page, frame }) => {
+      await openContentWizard(page, frame);
+      await showContentType(page, 'Text & Images');
+    },
+    clip: (frame, page) => [contentType(page, 'Text & Images')],
+    margin: 8,
+  },
+  'Backend/plugin_example': {
+    module: 'web_layout',
+    width: 1000,
+    height: 700,
+    prepare: async ({ page, frame }) => {
+      await openContentWizard(page, frame);
+      await showContentType(page, 'Login Form');
+    },
+    clip: (frame, page) => [contentType(page, 'Login Form')],
+    margin: 8,
+  },
+  'Frontend/ContentElements/NewContentElementOutput': {
+    url: `${baseUrl}/camino/basic-content`,
+    width: 700,
+    height: 1200,
+    loggedOut: true,
+    stage: 'last',
+    margin: 10,
+    clip: (frame, page) => [
+      page.locator('h2', { hasText: 'Data available' }),
+      // The dump of the variables shows the text as well
+      page.locator('h2:text-is("Output") + div'),
+    ],
+  },
+  'Frontend/ContentElements/ContentElementWithDataProcessorOutput': {
+    url: `${baseUrl}/camino/table-from-csv`,
+    width: 700,
+    height: 1400,
+    loggedOut: true,
+    stage: 'last',
+    // The template of the example takes the table styles of Bootstrap,
+    // which Camino does not load
+    prepare: ({ page }) => page.addStyleTag({ content: `
+      table.table { border-collapse: collapse; width: 100%; }
+      table.table th, table.table td {
+        padding: 0.5rem; border-bottom: 1px solid #dee2e6; text-align: start;
+      }
+    ` }),
+    margin: 10,
+    clip: (frame, page) => [
+      page.locator('h2', { hasText: 'Data in variable' }),
+      page.locator('table.table').last(),
     ],
   },
   'BackendModules/BackendModuleCollapsed': {
