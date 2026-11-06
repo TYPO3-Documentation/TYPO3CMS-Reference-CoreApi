@@ -1,0 +1,6 @@
+settings:
+  myExtension.conferenceStoragePid:
+    label: 'Conference storage folder'
+    description: 'Folder that stores the conferences of this site.'
+    type: page
+    default: 0
