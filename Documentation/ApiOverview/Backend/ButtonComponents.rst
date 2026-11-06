@@ -54,6 +54,80 @@ step. It takes the same position and group as :php:`addButton()`:
 
 ..  todo: Add components: FullyRenderedButton, InputButton, LinkButton, SplitButton
 
+..  _button-components-preconfigured:
+
+Pre-configured buttons
+======================
+
+..  versionadded:: 14.0
+    :changelog: feature-107823-1761297638
+
+The :php-short:`\TYPO3\CMS\Backend\Template\Components\ComponentFactory`
+creates the buttons that many modules need, with the icon and the
+translated label that the TYPO3 backend uses for them. Each method returns
+a button that you can change further, for example with
+:php:`setDataAttributes()` or :php:`setClasses()`. A parameter that takes a
+URL accepts a string or a :php:`\Psr\Http\Message\UriInterface`.
+
+..  figure:: /Images/AutomaticScreenshots/Backend/PreconfiguredButtons.png
+    :alt: Module header with the buttons Close, Save, and Reload
+    :class: with-border with-shadow
+
+    Pre-configured buttons in the site settings
+
+1.  The close button
+2.  The save button
+3.  The reload button, which TYPO3 adds to every module
+
+:php:`createBackButton($returnUrl)`
+    A link button with the label "Go back" that leads to `$returnUrl`.
+
+:php:`createCloseButton($closeUrl)`
+    A link button with the label "Close" that leads to `$closeUrl`, for
+    example to leave a detail view.
+
+:php:`createReloadButton($requestUri)`
+    A link button with an icon and no label that loads `$requestUri`.
+    TYPO3 adds a reload button to every module, see
+    `Automatic buttons in the module header <https://docs.typo3.org/permalink/t3coreapi:docheadercomponent-automatic-buttons>`_.
+    Create one only for a module that switches the automatic button off.
+
+:php:`createSaveButton($formName = '')`
+    An input button with the label "Save", the name `_savedok`, and the
+    value `1`. `$formName` is the `id` of the HTML form that the button
+    submits.
+
+:php:`createViewButton($previewDataAttributes = [])`
+    A link button with the label "View webpage" that opens a page in the
+    frontend. Pass the data attributes that
+    :php:`\TYPO3\CMS\Backend\Routing\PreviewUriBuilder::buildDispatcherDataAttributes()`
+    returns. Without data attributes, the button is disabled.
+
+:php:`createQrCodeButton($previewUrl, $showCopyUrl = true)`
+    A generic button with the label "Show QR code". It opens a modal with
+    a QR code of `$previewUrl`, which the user can download as PNG or SVG.
+    If `$showCopyUrl` is `true`, the modal also shows the URL with a button
+    to copy it. Without a URL, the button is disabled.
+
+    ..  versionadded:: 14.2
+        :changelog: feature-108720-1769035130
+
+Example of a module that edits a record in its own form:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
+
+    $this->moduleTemplate->addButtonToButtonBar(
+      $this->componentFactory->createBackButton($returnUrl),
+      ButtonBar::BUTTON_POSITION_LEFT,
+      1,
+    );
+    $this->moduleTemplate->addButtonToButtonBar(
+      $this->componentFactory->createSaveButton('my-record-form'),
+      ButtonBar::BUTTON_POSITION_LEFT,
+      2,
+    );
+
 ..  _generic-button-component:
 
 Generic button component
