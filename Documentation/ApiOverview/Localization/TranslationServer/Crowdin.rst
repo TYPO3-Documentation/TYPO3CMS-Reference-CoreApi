@@ -19,7 +19,8 @@ Localization with Crowdin
     :caption: More to read
 
     Crowdin/ExtensionIntegration
-    Crowdin/MassApproval
+    Crowdin/CrowdinCLI
+    Crowdin/BulkApproval
     Crowdin/OnlineTranslation
     Crowdin/Workflow
     Crowdin/Bestpractice
