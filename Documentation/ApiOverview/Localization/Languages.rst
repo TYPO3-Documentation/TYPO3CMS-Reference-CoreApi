@@ -9,6 +9,11 @@ Supported languages
 ..  versionadded:: 14.2
     Native support for language Lao.
 
+..  versionadded:: 15.0
+    :changelog: feature-111278-1793294270
+
+    Native support for language Swahili.
+
 The list of supported languages is defined in
 :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
 
@@ -72,6 +77,7 @@ The list of supported languages is defined in
         "sq", "Albanian"
         "sr", "Serbian"
         "sv", "Swedish"
+        "sw", "Swahili"
         "th", "Thai"
         "tr", "Turkish"
         "uk", "Ukrainian"
