@@ -1,0 +1,32 @@
+conferenceFeed = PAGE
+conferenceFeed {
+  typeNum = 1762214400
+
+  config {
+    disableAllHeaderCode = 1
+    admPanel = 0
+  }
+
+  10 = CONTENT
+  10 {
+    table = tt_content
+    select {
+      where = {#CType} = 'myextension_conferencelist'
+      orderBy = sorting
+      max = 1
+    }
+
+    renderObj = EXTBASEPLUGIN
+    renderObj {
+      extensionName = MyExtension
+      pluginName = ConferenceFeed
+    }
+  }
+}
+
+plugin.tx_myextension_conferencefeed {
+  settings {
+    title = Conferences
+    description = Conferences of the community
+  }
+}

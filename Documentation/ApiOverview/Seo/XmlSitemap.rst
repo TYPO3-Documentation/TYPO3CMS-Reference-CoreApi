@@ -36,7 +36,9 @@ How to access your XML sitemap
 ==============================
 
 You can access the sitemaps by visiting :samp:`https://example.org/?type=1533906435`.
-You will first see the sitemap index. By default, there is one sitemap in the
+The sitemap is a
+`typeNum page type <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type-what>`_,
+selected by the `type` parameter. You will first see the sitemap index. By default, there is one sitemap in the
 index. This is the sitemap for pages.
 
 ..  note::

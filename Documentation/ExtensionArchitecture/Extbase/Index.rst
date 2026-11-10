@@ -114,6 +114,7 @@ APIs are the best choice.
     Localization/Index
     CrossSiteAccess/Index
     NoFrontendContext/Index
+    BeyondHtml/Index
     Appendix/Attributes
     Appendix/TypeConverters
     Appendix/CommonPitfalls

@@ -1,0 +1,20 @@
+conferenceListUpdate = PAGE
+conferenceListUpdate {
+  typeNum = 1762214401
+
+  config {
+    disableAllHeaderCode = 1
+    admPanel = 0
+  }
+
+  10 = EXTBASEPLUGIN
+  10 {
+    extensionName = MyExtension
+    pluginName = ConferenceList
+  }
+}
+
+plugin.tx_myextension_conferencelist {
+  persistence.storagePid = 42
+  settings.itemsPerPage = 10
+}

@@ -14,6 +14,10 @@ regular controller. The method receives a request object implementing the
 aspects of the requests and returns an appropriate response in a normalized way.
 This approach is standardized as `PSR-7`_.
 
+Backend Ajax endpoints require a logged-in backend user and are not available
+in the frontend. For the ways to answer requests from frontend scripts, see
+`Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_.
+
 ..  index:: pair: Ajax; Controller
 
 ..  _ajax-backend-create-controller:
