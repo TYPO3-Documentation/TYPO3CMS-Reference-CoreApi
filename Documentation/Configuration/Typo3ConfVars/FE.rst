@@ -483,12 +483,16 @@ eID_include
     :default: []
 
     Array of key/value pairs where the key is :php:`tx_[ext]_[optional suffix]`
-    and value is relative filename of class to include.
-    Key is used as "?eID=" for :php:`\TYPO3\CMS\Frontend\Http\RequestHandler`
-    to include the code file which renders the page from that point.
+    and the value is the target that handles the request, a class name and a
+    method in the form :php:`\MyVendor\MyExtension\Controller\MyController::class . '::myAction'`.
+    A request with the query parameter `eID` set to the key is dispatched to
+    that target instead of rendering a page.
 
-    (Useful for functionality that requires a low initialization footprint,
-    for example frontend Ajax applications)
+    An eID target runs early in the frontend middleware chain, without a
+    frontend user, a page or TypoScript, and the middleware handling it is
+    marked internal by the core. For new code, a middleware of your own is
+    usually the better choice, see
+    `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_.
 
 ..  _typo3confvars-fe-disablenocacheparameter:
 

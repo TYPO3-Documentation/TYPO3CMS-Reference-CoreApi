@@ -180,6 +180,9 @@ convenience methods for the most common response types:
     Returns an :html:`application/json` PSR-7 response. Renders the current view
     without any arguments (use with
     :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView`). Pass a JSON string for the response.
+    On a regular page, the JSON ends up inside the page HTML, see
+    :ref:`Beyond HTML delivery <extbase-beyond-html>` for giving it its own
+    URL.
 
 For any other status code or content types, build the response manually using
 the injected :php:`$this->responseFactory` and :php:`$this->streamFactory`:

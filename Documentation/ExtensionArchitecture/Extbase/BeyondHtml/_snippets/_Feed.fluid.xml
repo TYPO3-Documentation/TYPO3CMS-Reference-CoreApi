@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{settings.title}</title>
+    <link><f:uri.page absolute="true" /></link>
+    <description>{settings.description}</description>
+    <f:for each="{conferences}" as="conference">
+      <item>
+        <title>{conference.title}</title>
+        <description>{conference.description}</description>
+        <guid isPermaLink="false">conference-{conference.uid}</guid>
+      </item>
+    </f:for>
+  </channel>
+</rss>

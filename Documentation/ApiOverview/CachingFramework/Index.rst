@@ -66,7 +66,8 @@ value as identifier. These parameters include by default:
 
 *   `projectPath`: The project path
 *   `id`: The current page ID
-*   `type`: The current page type (`typeNum`)
+*   `type`: The current page type
+    (`typeNum <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type-what>`_)
 *   `groupIds`: The user groups of the logged-in user (if no user is logged in:
     `0`, `-1` as default values)
 *   `MP`: The :ref:`mount point <mountpoints>` identifier
