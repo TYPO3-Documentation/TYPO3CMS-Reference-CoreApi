@@ -1016,18 +1016,21 @@ deserialization
         :type: array
         :default: `[\\TYPO3\\CMS\\Core\\Log\\Logger::class]`
         :added: 13.4.31 important-108604-1780297491
+        :changed: 15.0 breaking-108285-1792310400
 
         Class names that TYPO3 deserializes from the
         `registry <https://docs.typo3.org/permalink/t3coreapi:registry>`_
-        although they have a `__destruct()` or a `__wakeup()` method. Without
-        an entry here, TYPO3 refuses such a class and throws a
+        although they have a `__destruct()`, a `__wakeup()` or an
+        `__unserialize()` method. Without an entry here, TYPO3 refuses such a
+        class and throws a
         :php-short:`\TYPO3\CMS\Core\Serializer\Exception\DeserializerException`.
 
         ..  warning::
             Each entry turns off the protection against PHP object injection
             for that class. Add a class only as a last resort, after you
-            reviewed its `__destruct()` and `__wakeup()` methods. Remove the
-            entry once the stored value no longer contains the object.
+            reviewed its `__destruct()`, `__wakeup()` and `__unserialize()`
+            methods. Remove the entry once the stored value no longer
+            contains the object.
 
         ..  code-block:: php
             :caption: config/system/additional.php

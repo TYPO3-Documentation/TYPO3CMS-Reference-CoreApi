@@ -339,6 +339,36 @@ other properties:
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
 
+..  _extbase-domain-model-serialization:
+
+Serializing Extbase models
+==========================
+
+:php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject`, the base
+class of :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` and
+:php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractValueObject`, implements
+:php:`__serialize()` and :php:`__unserialize()`. PHP therefore ignores the
+methods :php:`__sleep()` and :php:`__wakeup()` in a model. To restore runtime
+state after a model was unserialized, override :php:`__unserialize()` and call
+the parent method first:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php (excerpt)
+
+    public function __unserialize(array $data): void
+    {
+        parent::__unserialize($data);
+        $this->initializeObject();
+    }
+
+..  versionchanged:: 15.0
+    :changelog: breaking-108285-1792310400
+
+    Replace :php:`__sleep()` with :php:`__serialize()` and :php:`__wakeup()`
+    with :php:`__unserialize()` in your models. Flush all caches after the
+    update.
+
+
 ..  _extbase-domain-model-mapping:
 ..  _extbase-model-persistence:
 ..  _extbase-persistance-record-types:
