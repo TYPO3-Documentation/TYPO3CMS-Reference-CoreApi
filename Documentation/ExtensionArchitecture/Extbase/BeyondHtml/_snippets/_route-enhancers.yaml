@@ -1,0 +1,6 @@
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      'feed.xml': 1762214400

@@ -209,7 +209,8 @@ common helpers on :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` are:
     current action and returns a HTML response with status code 200 (OK)
 *   :php:`$this->jsonResponse()` — returns a JSON response, also with status code 200 (OK);
     use with :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` to control which properties
-    are serialized
+    are serialized; to deliver it at its own URL, see
+    :ref:`Beyond HTML delivery <extbase-beyond-html>`
 
 For redirects and forwards:
 

@@ -146,6 +146,10 @@ between requests or visitors:
 *   output that depends on the currently logged-in frontend user;
 *   data that must be live on every view (a live counter, a real-time status).
 
+Live data that a script requests separately from the page is often better
+served outside the page altogether, see
+:ref:`Beyond HTML delivery <extbase-beyond-html>`.
+
 Most plugin actions are **not** in this category. A list or detail view that
 shows the same records to everyone is a natural fit for the cache — even when
 those records change from time to time. The problem such views actually have is

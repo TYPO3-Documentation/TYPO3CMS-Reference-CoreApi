@@ -221,3 +221,26 @@ more relevant as Content Block technology moves into the Core.
         for the full example and how the wiring works.
 
     *   `Create Extbase plugins (Content Blocks documentation) <https://docs.typo3.org/permalink/friendsoftypo3-content-blocks:create-extbase-plugin>`_.
+
+
+..  _extbase-appendix-tasks-non-html-output:
+
+Deliver JSON or XML from an Extbase extension
+=============================================
+
+**Goal:** Deliver the output of an extension as JSON for a script, as XML for
+a feed, or as an HTML fragment, instead of as part of a regular page.
+
+**Short answer:** It depends on what the output needs. A feed or an export
+that is the same for every visitor fits a typeNum page type that renders the
+plugin. A small endpoint for a script fits a PSR-15 middleware. Returning
+JSON from a plugin action on a regular page does not work: it changes the
+content type of the whole page.
+
+..  seealso::
+
+    *   `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_
+        — all options compared.
+
+    *   `Delivering Extbase output with a typeNum page type <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type>`_
+        — an XML feed as a worked example.
