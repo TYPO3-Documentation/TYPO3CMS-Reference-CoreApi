@@ -168,7 +168,8 @@ resolution:
 
 This bypasses the controller/action convention. Reserve it for rare
 situations where one action needs to render a different template, for example
-for AJAX variants that share a controller action.
+for AJAX variants that share a controller action. How such output reaches the
+browser is described in :ref:`Beyond HTML delivery <extbase-beyond-html>`.
 
 
 ..  _extbase-view-path-override:
@@ -356,7 +357,15 @@ to :php:`jsonResponse()` directly:
         ]));
     }
 
+A JSON response from a plugin on a regular page does not replace the page: it
+is inserted into the page HTML, and its content type becomes the content type
+of the whole page. Deliver JSON at its own URL instead.
+
 ..  seealso::
 
-    `Registration: frontend plugin <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin>`_
-    for how to register a controller action as a cacheable or non-cacheable plugin.
+    *   `Registration: frontend plugin <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin>`_
+        for how to register a controller action as a cacheable or
+        non-cacheable plugin.
+
+    *   `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_
+        for the ways to give JSON its own URL.

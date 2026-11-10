@@ -569,6 +569,8 @@ Output format, language overrides and FlexForm handling
     extension that Extbase looks for. Prefer a dedicated action per output format
     rather than switching :typoscript:`format` globally — separate actions keep
     responsibility for each format in the controller where it is easy to find.
+    :ref:`An XML feed in a typeNum page type <extbase-beyond-html-page-type-plugin>`
+    sets the format in the action's initializer.
 
 :typoscript:`_LOCAL_LANG <t3tsref:plugin-local-lang>`
     Overrides individual translation labels of a plugin without editing its XLF

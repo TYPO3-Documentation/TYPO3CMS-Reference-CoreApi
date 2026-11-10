@@ -394,6 +394,11 @@ so instead of having `/en/.html` it would then result in
     variant, but not to substitute something within the middle of a
     human-readable URL segment.
 
+..  seealso::
+
+    `Delivering Extbase output with a typeNum page type <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type>`_
+    — a complete example with an Extbase plugin, and what a page type costs.
+
 ..  _routing-static-variables:
 
 Static route variables

@@ -1,0 +1,21 @@
+conferenceShortList = PAGE
+conferenceShortList {
+  typeNum = 1762214402
+
+  config {
+    disableAllHeaderCode = 1
+    admPanel = 0
+  }
+
+  10 = RECORDS
+  10 {
+    tables = tt_content
+    source = 123
+
+    conf.tt_content = EXTBASEPLUGIN
+    conf.tt_content {
+      extensionName = MyExtension
+      pluginName = ConferenceList
+    }
+  }
+}

@@ -581,3 +581,54 @@ shared scope to the key of the module that needs it.
     `Extension-wide TypoScript overrides the selected page <https://docs.typo3.org/permalink/t3coreapi:extbase-backend-module-page-tree-storage-pid>`_
     — the example, and why :typoscript:`__UNSET` works where :typoscript:`>`
     does not.
+
+
+..  _extbase-appendix-pitfalls-page-type-content-element:
+
+An Extbase plugin in a typeNum page type ignores its FlexForm and storage folder
+================================================================================
+
+**Symptom:** A plugin works on the regular page, but rendered in a typeNum
+page type, for example to deliver JSON or XML, it finds no records or ignores
+the settings an editor made in the content element.
+
+**Why:** Extbase takes the FlexForm and the :guilabel:`Record Storage Page`
+from the record the plugin is rendered for. :typoscript:`EXTBASEPLUGIN`
+placed directly in the :typoscript:`PAGE` object is rendered for the page
+record, which carries neither. The plugin falls back to its TypoScript
+configuration, and without a storagePid there its queries search page `0`.
+
+**What to do:** Select the plugin's content element with a
+:typoscript:`CONTENT` object in the page type and render the plugin as its
+:typoscript:`renderObj`. When the plugin is meant to work without a content
+element, set the storagePid and the settings in TypoScript under the
+plugin's own key :typoscript:`plugin.tx_<extensionname>_<pluginname>`.
+
+..  seealso::
+
+    `What the PAGE object renders decides the configuration <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type-content-element>`_
+    — the variants, with examples.
+
+
+..  _extbase-appendix-pitfalls-json-on-html-page:
+
+An Extbase action returning JSON breaks the page it is placed on
+================================================================
+
+**Symptom:** An action returns :php:`$this->jsonResponse()`. The browser does
+not show the page any more, or shows its HTML source, and a script requesting
+the page cannot parse the JSON.
+
+**Why:** A plugin on a regular page contributes its output to the page; it
+does not replace the page. The JSON is inserted into the page HTML like any
+other plugin output, and the :php:`Content-Type` header of the action's
+response becomes the content type of the whole page. The result is an HTML
+page that declares itself as JSON.
+
+**What to do:** Deliver the JSON at its own URL, where nothing else is
+rendered around it.
+
+..  seealso::
+
+    `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_
+    — the options compared.
