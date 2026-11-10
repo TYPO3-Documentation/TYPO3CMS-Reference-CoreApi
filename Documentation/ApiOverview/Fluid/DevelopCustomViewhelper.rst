@@ -362,6 +362,79 @@ Example implementation:
 ..  literalinclude:: _CustomViewHelper/_StrtolowerViewHelper.php
     :caption: EXT:my_extension/Classes/ViewHelpers/StrtolowerViewHelper.php
 
+..  _fluid-custom-viewhelper-exceptions:
+
+Report an error from a ViewHelper
+=================================
+
+..  versionadded:: 14.2
+    :changelog: feature-109167-1773174150
+
+    TYPO3 v14.3 ships Fluid 5, which simplifies debugging when using the
+    base ViewHelper exception class or one of its child classes.
+
+With TYPO3 v14 using Fluid 5 the general debugging procedure within Fluid
+templates was simplified:
+
+-   Templates that contain invalid syntax or refer to undeclared ViewHelper
+    arguments now contain both the full path to the template file and the
+    **affected line number** in that file.
+-   You can use more granular exception classes to classify the cause of the
+    error more specifically, for example, runtime errors.
+
+In order for this to work with custom ViewHelper implementations, ViewHelpers
+need to use the base ViewHelper exception class or one of its child classes
+listed underneath:
+
+-   :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Exception`: **base ViewHelper
+    exception class**, use it for general exceptions
+
+-   :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\InvalidArgumentException`:
+    **InvalidArgumentException class**, use it for general exceptions related
+    to ViewHelper arguments
+
+-   :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\InvalidArgumentValueException`:
+    **InvalidArgumentValueException class**, use it for invalid ViewHelper argument
+    values (these could be: wrong type, empty arguments, invalid formatted
+    arguments)
+
+The following two exceptions will be rarely used in custom ViewHelpers since
+Fluid throws them anyway.
+
+-   :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\MissingArgumentException`:
+    **MissingArgumentException class**, use it if a required ViewHelper argument
+    has not been supplied.
+
+-   :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\UndeclaredArgumentException`:
+    **UndeclaredArgumentException class**, use it if a ViewHelper is called with an
+    argument that has not been defined.
+
+..  _fluid-custom-viewhelper-exceptions-example:
+
+Example
+-------
+In this example you throw the InvalidArgumentValueException when the argument
+`size` of the :php:`GravatarViewHelper` does not accepts a value in between 1 to 512.
+
+..  literalinclude:: _CustomViewHelper/_GravatarViewHelper_Exception.php
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
+    :visible-lines: 32-54
+    :emphasize-lines: 36
+
+Fluid appends the path of the template to the message, and keeps the class and
+the code of your exception:
+
+..  code-block:: text
+
+    The size "600" supplied to the gravatar ViewHelper is outside the range
+    from 1 to 512. -> /app/packages/my_extension/Resources/Private/Templates/List.html
+
+The exception then leaves Fluid like any other exception. Whether an
+integrator reads the message or gets a generic error page depends on the
+configured
+`exception handler
+<https://docs.typo3.org/permalink/t3coreapi:error-handling-configuration-exception-handler-rendering>`_.
+
 ..  _fluid-custom-viewhelper-access:
 
 How to access objects in the ViewHelper implementation
