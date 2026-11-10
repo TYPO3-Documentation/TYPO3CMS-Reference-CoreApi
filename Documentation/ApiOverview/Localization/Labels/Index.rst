@@ -18,7 +18,9 @@ TYPO3 supports two equivalent formats for referencing translatable labels:
 *   the **new translation domain-based syntax** introduced in TYPO3 v14.
 
 Both formats resolve to the same translation entries and can be used
-interchangeably.
+interchangeably. The `LLL:` prefix is optional for the domain-based syntax,
+but it changes the result for a missing label, see
+:ref:`label-reference-missing`.
 
 Examples:
 
@@ -346,6 +348,44 @@ Once you have the correct translator instance, you can resolve labels as follows
     ): string {
         return $translator->label($labelReference);
     }
+
+..  _label-reference-missing:
+
+Missing labels
+==============
+
+A label reference can point to an identifier that does not exist in the
+language file, for example after a typo or when the label has been removed.
+
+:php:`LanguageService->sL()` resolves label references in TCA, TSconfig,
+module configuration and other places that accept a label or a plain string.
+As the `LLL:` prefix is optional, it cannot distinguish a label reference
+without the prefix from a plain string that contains a colon, such as
+`Note: read this first`. The prefix therefore decides what is returned
+for a missing label:
+
+..  code-block:: php
+    :caption: Results of LanguageService->sL() for a missing label
+
+    // With the LLL: prefix, a missing label results in an empty string
+    $languageService->sL('LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:missing'); // ''
+    $languageService->sL('LLL:my_extension.messages:missing'); // ''
+
+    // Without the LLL: prefix, the input is returned as it is
+    $languageService->sL('my_extension.messages:missing'); // 'my_extension.messages:missing'
+
+This matters when a missing label is expected to result in an empty string,
+for example for a TCA field description that is set for every field
+but only filled for some of them. Prefix such references with `LLL:`.
+
+Other APIs do not depend on the prefix:
+
+*   :php:`TranslatorInterface->label()` and :php:`LanguageService->translate()`
+    return `null`, or the given default value.
+*   The :ref:`f:translate <t3viewhelper:typo3-fluid-translate>` ViewHelper
+    returns the value of its `default` argument.
+*   The TypoScript :ref:`getText property LLL <t3tsref:data-type-gettext-lll>`
+    always adds the `LLL:` prefix and returns an empty string.
 
 ..  _label-reference-deprecated:
 
