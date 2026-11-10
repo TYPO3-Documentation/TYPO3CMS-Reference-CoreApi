@@ -217,7 +217,7 @@ Step-by-step instructions for GitHub
     Crowdin before they become available for export and use in TYPO3 installations.
 
     See :ref:`Bulk approval on Crowdin <crowdin-mass-approval>` for instructions
-    on how to approve translations programmatically using the Crowdin API, or
+    on how to approve translations in bulk with the Crowdin CLI for TYPO3, or
     use Crowdin's web interface bulk approval feature.
 
 Happy translating!

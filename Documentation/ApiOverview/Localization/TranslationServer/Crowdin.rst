@@ -20,7 +20,7 @@ Localization with Crowdin
 
     Crowdin/ExtensionIntegration
     Crowdin/CrowdinCLI
-    Crowdin/BulkApproval
+    Crowdin/MassApproval
     Crowdin/OnlineTranslation
     Crowdin/Workflow
     Crowdin/Bestpractice
