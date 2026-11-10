@@ -153,7 +153,7 @@ entry_value
     `allowedClassNames <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-deserialization-allowedclassnames>`_
     permits a reviewed class.
 
-    ..  versionchanged:: 13.4.31
+    ..  versionchanged:: 13.4.31 / 14.3.3
         :changelog: important-108604-1780297491
 
         TYPO3 refuses such classes when it reads a registry entry.

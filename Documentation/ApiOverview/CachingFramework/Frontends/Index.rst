@@ -43,12 +43,12 @@ Values are serialized before they are written to the caching backend.
 TYPO3 signs each entry with an HMAC derived from the
 `encryption key <https://docs.typo3.org/permalink/t3coreapi:typo3confvars-sys-encryptionkey>`_
 and validates the signature when reading the entry. If an entry has no valid
-signature (such as entries written before TYPO3 13.4.31) and contains
+signature (such as entries written by an older TYPO3 version) and contains
 serialized PHP objects, it is discarded and treated as a cache miss so the
-application can regenerate it with a valid signature. Entries containing only
-scalar values or arrays are still safely deserialized.
+application can regenerate it with a valid signature. Unsigned entries that
+contain only scalar values or arrays are still deserialized safely.
 
-..  versionchanged:: 13.4.31
+..  versionchanged:: 13.4.31 / 14.3.3
     :changelog: important-108604-1780297491
 
 It is implemented in :php:`TYPO3\CMS\Core\Cache\Frontend\VariableFrontend`.
