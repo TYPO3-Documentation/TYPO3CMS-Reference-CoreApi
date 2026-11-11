@@ -1,0 +1,47 @@
+name: example extension
+
+# Runs only when the example extension or its test setup changes. The daily
+# run catches a change in TYPO3 Core that breaks the extension.
+on:
+  push:
+    paths: &paths
+      - '.github/workflows/example-extension.yml'
+      - 'Build/phpstan/**'
+      - 'Build/phpunit/**'
+      - 'Build/Scripts/runTests.sh'
+      - 'Documentation/_Examples/my_extension/**'
+      - 'Tests/**'
+      - 'composer.json'
+      - 'composer.json.testing'
+      - 'composer.lock'
+  pull_request:
+    paths: *paths
+  schedule:
+    - cron: "0 3 * * *" # every day at 03:00 UTC
+
+jobs:
+  extension:
+    # Run always on push/PR, but only run on schedule in the main repo
+    if: github.event_name != 'schedule' || github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi'
+    name: Example extension
+    runs-on: ubuntu-latest
+    env:
+      php: '8.5'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Install testing system
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
+
+      - name: Composer validate
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerValidate
+
+      - name: Composer normalize
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerNormalize -n
+
+      - name: Functional tests
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s functional
+
+      - name: PHPStan
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s phpstan
