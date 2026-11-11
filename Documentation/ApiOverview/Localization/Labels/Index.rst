@@ -380,7 +380,7 @@ but only filled for some of them. Prefix such references with `LLL:`.
 
 Other APIs do not depend on the prefix:
 
-*   :php:`TranslatorInterface->label()` and :php:`LanguageService->translate()`
+*   :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface->label()` and :php-short:`\TYPO3\CMS\Core\Localization\LanguageService->translate()`
     return `null`, or the given default value.
 *   The :ref:`f:translate <t3viewhelper:typo3-fluid-translate>` ViewHelper
     returns the value of its `default` argument.
