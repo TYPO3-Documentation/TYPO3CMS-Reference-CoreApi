@@ -20,7 +20,7 @@ TYPO3 supports two equivalent formats for referencing translatable labels:
 Both formats resolve to the same translation entries and can be used
 interchangeably. The `LLL:` prefix is optional for the domain-based syntax,
 but it changes the result for a missing label, see
-:ref:`label-reference-missing`.
+:ref:`Missing labels <label-reference-missing>`.
 
 Examples:
 
