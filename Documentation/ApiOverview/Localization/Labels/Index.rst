@@ -357,7 +357,7 @@ Missing labels
 A label reference can point to an identifier that does not exist in the
 language file, for example after a typo or when the label has been removed.
 
-:php:`LanguageService->sL()` resolves label references in TCA, TSconfig,
+:php-short:`\TYPO3\CMS\Core\Localization\LanguageService->sL()` resolves label references in TCA, TSconfig,
 module configuration and other places that accept a label or a plain string.
 As the `LLL:` prefix is optional, it cannot distinguish a label reference
 without the prefix from a plain string that contains a colon, such as
