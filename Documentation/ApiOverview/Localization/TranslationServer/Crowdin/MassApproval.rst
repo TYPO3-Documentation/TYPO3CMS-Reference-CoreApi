@@ -1,160 +1,24 @@
-:navigation-title: Mass approval
+:navigation-title: Bulk approval
 
 ..  include:: /Includes.rst.txt
 ..  index::
-    Crowdin; Mass approval
+    Crowdin; Bulk approval
     Translations; Approval
 ..  _crowdin-mass-approval:
 
 ========================
-Mass approval on Crowdin
+Bulk approval on Crowdin
 ========================
 
 After :ref:`importing existing translations <crowdin-extension-integration>` into
-Crowdin, they must be explicitly approved before becoming available for export.
+Crowdin, they must be approved before they become available for export.
 
-This page provides a PHP implementation for programmatically approving translations
-via the Crowdin API.
-
-..  contents::
-    :local:
-
-..  _crowdin-mass-approval-workflow:
-
-Crowdin API workflow
-====================
-
-The mass approval process follows these steps:
-
-#.  Retrieve project metadata to get available languages.
-#.  List all files in the Crowdin project.
-#.  For each file, retrieve all source strings (once per file).
-#.  For each string, iterate through target languages.
-#.  Approve unapproved translations using the Approvals API.
-
-..  _crowdin-mass-approval-api:
-
-API endpoints
--------------
-
-..  code-block:: text
-
-    GET  /api/v2/projects/{projectId}
-    GET  /api/v2/projects/{projectId}/files
-    GET  /api/v2/projects/{projectId}/strings?fileId={fileId}
-    GET  /api/v2/projects/{projectId}/translations?stringId={stringId}&languageId={languageId}
-    POST /api/v2/projects/{projectId}/approvals
-
-..  _crowdin-mass-approval-authentication:
-
-Authentication
---------------
-
-All API requests require a Personal Access Token:
-
-..  code-block:: bash
-
-    Authorization: Bearer YOUR_API_TOKEN
-
-Generate tokens at: https://crowdin.com/settings#api-key
-
-..  _crowdin-mass-approval-implementation:
-
-PHP implementation
-==================
-
-..  note::
-    The following script requires **PHP 8.4+** and uses modern features:
-    readonly classes, constructor property promotion, arrow functions, and enums.
-
-The following script demonstrates mass approval using the Crowdin API v2:
-
-..  literalinclude:: _codesnippets/crowdin_mass_approve.php
-    :caption: crowdin_mass_approve.php
-
-..  _crowdin-mass-approval-implementation-usage:
-
-Usage
------
-
-..  code-block:: bash
-    :caption: Run in the directory holding crowdin_mass_approve.php
-
-    # Set API token (leading space prevents saving to shell history)
-     export CROWDIN_TOKEN="your_api_token_here"
-
-    # Approve all translations in the project
-    php crowdin_mass_approve.php 12345
-
-    # Approve translations for a specific language only
-    php crowdin_mass_approve.php 12345 de
-
-..  _crowdin-mass-approval-implementation-progress:
-
-Progress indicators
--------------------
-
-During execution, the script outputs progress indicators:
-
-*   **F** - Processing a new file
-*   **S** - Processing a new string within the file
-*   **L** - Processing a translation (language) for the string
-
-Example output:
-
-..  code-block:: text
-
-    Processing: de, fr, es
-    FSLLLSLLLFSLLSLLLFSLLLL...
-
-    === Summary ===
-    Approved: 234 | Skipped: 56 | Errors: 0
-
-..  _crowdin-mass-approval-best-practices:
-
-Best practices
-==============
-
-..  _crowdin-mass-approval-best-practices-error:
-
-Error handling
---------------
-
-The script includes robust error handling:
-
-*   Errors are written to STDERR (not STDOUT).
-*   Failed approvals are logged with full context (file, string, language, translation IDs).
-*   Empty API responses are handled gracefully (returns an empty array).
-*   Network failures are caught and reported.
-
-..  _crowdin-mass-approval-best-practices-validation:
-
-Validation
-----------
-
-Before mass approval:
-
-#.  Verify that translations are complete and accurate.
-#.  Check for placeholder consistency (e.g., `%s`, `{variable}`).
-#.  Validate that translations do not contain English source text.
-#.  Review automatic translations from machine translation services.
-
-..  _crowdin-mass-approval-security:
-
-Security considerations
-=======================
-
-..  warning::
-    Mass approval bypasses the normal translation review workflow. Use with
-    caution and ensure translations are validated before approval.
-
-*   **API token security**: Store API tokens securely - never commit them to version
-    control. Use environment variables.
-*   **Access control**: Use tokens with the minimal required permissions.
-*   **Audit logging**: The script logs all failed approval operations with
-    full context for accountability.
-*   **Quality assurance**: Implement pre-approval validation to prevent approval
-    of invalid translations.
+The `Crowdin CLI for TYPO3 <https://docs.typo3.org/permalink/t3coreapi:crowdin-cli>`_
+approves translations in bulk from the command line: all suggestions of one
+user, all suggestions below a file path, or a list of translation IDs. A dry
+run shows beforehand what would be approved, and approvals made by mistake can
+be revoked. For a guided review, the tool shows the pending suggestions in
+chunks and asks which of them to approve.
 
 ..  _crowdin-mass-approval-alternatives:
 
