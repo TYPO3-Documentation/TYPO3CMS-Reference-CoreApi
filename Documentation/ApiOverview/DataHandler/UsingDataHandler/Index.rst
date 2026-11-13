@@ -179,6 +179,35 @@ should not set this argument since you want DataHandler to use the global
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 
+..  index:: pair: DataHandler; Record history
+..  _using-datahandler-undo-in-one-step:
+
+Changes that editors undo in one step
+=====================================
+
+..  versionadded:: 15.0
+    :changelog: feature-110625-1788531965
+
+    Before, the record history listed the changes of one operation as
+    separate entries, and editors undid them one record at a time.
+
+The DataHandler writes every change it makes to the record history. All
+entries of one call to
+:php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler->start()` belong to
+one operation. The operation also contains the records that the DataHandler
+changes along the way, for example the content elements of a copied page.
+
+Editors open the record history with :guilabel:`History/Undo` in the
+context menu of a record. With :guilabel:`Group by operation`, the record
+history shows the entries of one operation together.
+:guilabel:`Undo this operation` restores all records of the operation at
+once.
+
+If editors should undo several changes in one step, pass them to one call of
+`start()`. Each call of `start()` starts a new operation, also on the same
+DataHandler object.
+
+
 ..  index:: pair: DataHandler; Error handling
 ..  _tcemain-error-handling:
 
