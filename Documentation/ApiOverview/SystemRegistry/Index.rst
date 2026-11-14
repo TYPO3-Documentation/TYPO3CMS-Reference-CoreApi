@@ -146,8 +146,8 @@ entry_value
     in binary form. Store arrays and scalar values.
 
     An object in a registry entry is possible but not recommended. When
-    TYPO3 reads the entry, it refuses every class with a `__destruct()` or
-    a `__wakeup()` method and throws a
+    TYPO3 reads the entry, it refuses every class with a `__destruct()`,
+    a `__wakeup()` or an `__unserialize()` method and throws a
     :php-short:`\TYPO3\CMS\Core\Serializer\Exception\DeserializerException`.
     This protects against PHP object injection. As a last resort, the option
     `allowedClassNames <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-deserialization-allowedclassnames>`_
@@ -157,3 +157,10 @@ entry_value
         :changelog: important-108604-1780297491
 
         TYPO3 refuses such classes when it reads a registry entry.
+
+    ..  versionchanged:: 15.0
+        :changelog: breaking-108285-1792310400
+
+        TYPO3 also refuses classes with an `__unserialize()` method, unless
+        :php-short:`\TYPO3\CMS\Core\Security\BlockSerializationTrait`
+        provides it.
