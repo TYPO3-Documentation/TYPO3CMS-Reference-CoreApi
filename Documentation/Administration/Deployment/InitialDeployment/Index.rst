@@ -107,6 +107,19 @@ Flush TYPO3 caches:
 
     ./vendor/bin/typo3 cache:flush
 
+..  _initial-deploy-update-reference-index:
+
+Update the reference index:
+---------------------------
+
+..  code-block:: bash
+
+    ./vendor/bin/typo3 referenceindex:update
+
+TYPO3 reads relations from the reference index, also in the frontend. Update
+it after importing a database. See
+`Update reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_.
+
 ..  note::
 
     You can use the `Install Tools <https://docs.typo3.org/permalink/t3start:admin-tools>`_

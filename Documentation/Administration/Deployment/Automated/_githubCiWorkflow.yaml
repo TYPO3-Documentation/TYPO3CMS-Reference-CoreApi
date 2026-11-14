@@ -31,4 +31,5 @@ jobs:
       - name: Deploy (Example)
         run: |
           ssh user@server 'cd /var/www/html && git pull && composer install \
-          --no-dev && ./vendor/bin/typo3 cache:flush'
+          --no-dev && ./vendor/bin/typo3 cache:flush \
+          && ./vendor/bin/typo3 referenceindex:update'
