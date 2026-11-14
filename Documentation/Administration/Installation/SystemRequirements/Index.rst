@@ -77,11 +77,17 @@ Required extensions:
 *   `mbstring`
 *   `intl`
 *   `sodium`
+*   `gd` – for image generation and scaling
+
+..  versionchanged:: 15.0
+    :changelog: breaking-111107-1792227470
+
+    The Composer package `typo3/cms-core` requires the extension `gd`.
+    Before, it only suggested it.
 
 Optional but commonly used:
 
 *   `fileinfo` – for detecting uploaded file types
-*   `gd` – for image generation and scaling
 *   `zip` – for language packs and extension archives
 *   `zlib` – for Classic installations to unpack extension files
 *   `openssl` – for encrypted SMTP mail delivery
