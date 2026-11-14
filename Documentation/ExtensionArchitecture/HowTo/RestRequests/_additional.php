@@ -1,11 +1,7 @@
 <?php
 
-use MyVendor\MyExtension\Middleware\Guzzle\CustomMiddleware;
-use MyVendor\MyExtension\Middleware\Guzzle\SecondCustomMiddleware;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use MyVendor\MyExtension\Http\Middleware\RequestIdMiddleware;
 
-// Add custom middlewares to default Guzzle handler stack
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
-  (GeneralUtility::makeInstance(CustomMiddleware::class))->handler();
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =
-  (GeneralUtility::makeInstance(SecondCustomMiddleware::class))->handler();
+// Add a custom middleware to the default Guzzle handler stack
+$GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler']['my_extension_request_id'] =
+  new RequestIdMiddleware();
