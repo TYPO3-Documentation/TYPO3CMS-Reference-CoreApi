@@ -1,0 +1,6 @@
+storages:
+  4:
+    name: Images
+    allowedFileExtensions: [jpg, jpeg, png, webp]
+    configuration:
+      basePath: public/images/

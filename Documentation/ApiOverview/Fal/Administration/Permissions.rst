@@ -72,10 +72,11 @@ User permissions per storage
 
 Using :ref:`user TSconfig <t3tsref:usertsconfig>` it is possible to set
 different permissions for different
-:ref:`storages <fal-architecture-components-storage>`. This syntax uses the uid
-of the targeted storage record.
+:ref:`storages <fal-architecture-components-storage>`. This syntax uses the
+identifier of the targeted storage.
 
-The following example grants all permission for the storage with uid "1":
+The following example grants all permission for the storage with the
+identifier `1`:
 
 ..  literalinclude:: _filePermissionsStorage.tsconfig
     :caption: EXT:my_extension/Configuration/user.tsconfig

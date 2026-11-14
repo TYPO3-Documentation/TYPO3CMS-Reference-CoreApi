@@ -55,8 +55,36 @@ It is also possible to create a file mount manually in the :guilabel:`List`
 module by creating a record of type :php:`Filemount`. In this case you have
 to choose the storage and folder manually.
 
+..  _access-filemounts-file-extensions:
+
+File extensions of a file mount
+===============================
+
+The field :guilabel:`Allowed file extensions` of a file mount takes a
+comma-separated list such as `jpg,png,webp`. Users of the mount can only
+add files with these extensions to its folder. Use it to split one storage
+into folders for different purposes, for example :path:`/images/` and
+:path:`/documents/` in :path:`fileadmin/`. An empty field allows every file
+extension.
+
+TYPO3 checks the same operations as for the
+`allowed file extensions of a storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-file-extensions>`_.
+Moving a folder also checks the visible files it contains.
+
+The permissions of file mounts add up. A file extension is allowed in a
+folder if any writable file mount of the user that contains this folder
+allows it. A file mount without a list therefore lifts the restriction of a
+file mount for one of its subfolders. If several groups mount the same folder
+for a user, TYPO3 combines their lists.
+
+File mounts apply only to backend users without admin rights. For
+administrators, frontend uploads, console commands, and other code, only the
+option of the storage applies.
+
+..  versionadded:: 15.0
+    :changelog: feature-103594-1791966674
+
 ..  index::
-    TYPO3_CONF_VARS; BE fileadminDir
     TYPO3_CONF_VARS; BE lockRootPath
     Local driver storage
     Path: fileadmin
@@ -65,19 +93,11 @@ to choose the storage and folder manually.
 Paths for local driver storage
 ==============================
 
-The file storages based on the "local file system" driver have an
-option for relative or absolute paths.
-
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/FileStorage.png
-    :zoom: lightbox
-
-    The paths options for a storage based on the local file system driver
-
-"Relative" means that the given path is relative to the :file:`fileadmin/`
-folder (or whatever other folder was configured using
-:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
-Absolute paths are full paths starting at the root of the file system
-(i.e. `/` on Unix systems).
+The file storages based on the "local file system" driver take the option
+`basePath`. An absolute path starts at the root of the file system, for
+example `/` on Unix systems. A relative path starts at the project path, for
+example `public/fileadmin/` in a Composer-based installation. See
+`Options of the Local driver <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-local>`_.
 
 ..  attention::
 
@@ -88,19 +108,19 @@ Absolute paths are full paths starting at the root of the file system
     behavior. Be careful what kind of files you store in that
     place, as they will be publicly accessible.
 
-Absolute paths outside of the web root
-must be explicitly declared in the global configuration option
+Paths outside of the project path must be explicitly declared in the global
+configuration option
 :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`. Any absolute
 path that you want to declare in a file storage needs to have its
-first part match the value of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`
-(or of the web root, which can be retrieved with
-:php-short:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`).
+first part match one of the values of
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`
+(or the project path, which can be retrieved with
+:php-short:`\TYPO3\CMS\Core\Core\Environment::getProjectPath()`).
 
 As an example, let's say you want to define two storages, one
 pointing to :file:`/home/foo/bar` and one pointing to
-:file:`/home/foo/baz`. You could declare
-:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']` to be
-equal to `/home/foo/`.
+:file:`/home/foo/baz`. You could add `/home/foo/` to
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']`.
 
 ..  index::
     TYPO3_CONF_VARS; BE userHomePath

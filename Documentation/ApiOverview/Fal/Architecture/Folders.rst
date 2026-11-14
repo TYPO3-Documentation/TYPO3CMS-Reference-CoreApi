@@ -14,8 +14,9 @@ the TYPO3 Core, a storage will correspond to some existing
 folder on the local storage system (for example, on the hard drive). Other
 drivers may use virtual structures.
 
-By default, a storage pointing to the :file:`fileadmin/` folder
-is created automatically in every TYPO3 installation.
+Without further configuration, every TYPO3 installation has a storage for the
+folder :file:`fileadmin/`, see
+`The default storage without a configuration file <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-default>`_.
 
 
 ..  index:: File abstraction layer; Processed files
@@ -27,7 +28,8 @@ Processed files
 Inside each storage there will be a folder named :file:`_processed_/`
 which contains all resized images, be they rendered in the frontend
 or thumbnails from the backend. The name of this folder is not
-hard-coded. It can be defined as a property of the storage.
+hard-coded. The storage option `processingFolder` sets it, see
+`Options of a storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-options>`_.
 It may even point to a different storage.
 
 ..  versionchanged:: 15.0
@@ -40,8 +42,3 @@ Images that an extension or a package ships, referenced as `EXT:` or `PKG:`
 system resource, are not in a storage. TYPO3 caches their processed variants in
 :file:`typo3temp/assets/images/system/`, without a database record. Do not rely
 on the name or location of a processed file.
-
-..  figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
-    :zoom: lightbox
-
-    Special properties in the "Access capabilities" tab of a File storage

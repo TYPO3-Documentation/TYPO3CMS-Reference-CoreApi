@@ -1,0 +1,5 @@
+storages:
+  3:
+    name: 'Shared assets'
+    configuration:
+      basePath: '%env(TYPO3_SHARED_ASSETS_PATH)%'
