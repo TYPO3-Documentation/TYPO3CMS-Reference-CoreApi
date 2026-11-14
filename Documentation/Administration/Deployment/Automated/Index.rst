@@ -72,6 +72,9 @@ Deployment
     is installed.
 *   **Cache Clearing**: Clear TYPO3 caches
     (`vendor/bin/typo3 cache:flush`).
+*   **Reference Index**: Update the
+    `reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_
+    (`vendor/bin/typo3 referenceindex:update`).
 
 ..  _ci-cd-environment-configuration:
 
@@ -172,7 +175,8 @@ TYPO3 Lexicon <https://github.com/froemken/typo3lexikon/blob/main/.github/workfl
           - name: Deploy (Example)
             run: |
               ssh user@server 'cd /var/www/html && git pull && composer install \
-              --no-dev && ./vendor/bin/typo3 cache:flush'
+              --no-dev && ./vendor/bin/typo3 cache:flush \
+              && ./vendor/bin/typo3 referenceindex:update'
 
 
 ..  _ci-cd-best-practices:
