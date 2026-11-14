@@ -35,6 +35,7 @@ contain the :path:`.git` directory.
     composer install --no-dev
     vendor/bin/typo3 database:updateschema
     vendor/bin/typo3 cache:flush
+    vendor/bin/typo3 referenceindex:update
 
 This performs a basic update of your project code and dependencies in production
 mode.
@@ -106,5 +107,12 @@ Clear TYPO3 caches:
 ..  code-block:: bash
 
     vendor/bin/typo3 cache:flush
+
+Update the
+`reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_:
+
+..  code-block:: bash
+
+    vendor/bin/typo3 referenceindex:update
 
 Optional: Run project-specific tasks as needed.
