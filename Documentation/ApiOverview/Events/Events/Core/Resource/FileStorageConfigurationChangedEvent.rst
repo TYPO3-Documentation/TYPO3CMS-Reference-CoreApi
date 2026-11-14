@@ -20,14 +20,14 @@ TYPO3 itself uses the event to flush the storages it has already loaded.
 
 ..  _FileStorageConfigurationChangedEvent-example:
 
-Example
-=======
+Example listener for `FileStorageConfigurationChangedEvent`
+===========================================================
 
 ..  include:: /_includes/EventsContributeNote.rst.txt
 
 ..  _FileStorageConfigurationChangedEvent-api:
 
-API
-===
+API of `FileStorageConfigurationChangedEvent`
+=============================================
 
 ..  typo3:api-class:: \TYPO3\CMS\Core\Resource\Event\FileStorageConfigurationChangedEvent

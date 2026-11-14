@@ -57,8 +57,8 @@ to choose the storage and folder manually.
 
 ..  _access-filemounts-file-extensions:
 
-File extensions of a file mount
-===============================
+Restricting the file extensions of a file mount
+===============================================
 
 The field :guilabel:`Allowed file extensions` of a file mount takes a
 comma-separated list such as `jpg,png,webp`. Users of the mount can only

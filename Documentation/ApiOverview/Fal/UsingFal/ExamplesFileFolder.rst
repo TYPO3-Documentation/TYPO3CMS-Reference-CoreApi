@@ -147,7 +147,7 @@ Validation behavior:
     a real PNG image with a `.exe` file extension is rejected.
 *   The file extension must be allowed by the storage and, for a backend user
     without admin rights, by the file mount, see
-    `Restricting the file extensions of a storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-file-extensions>`_.
+    `Restricting the file extensions of a file storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-file-extensions>`_.
 
 Feature flags controlling this behavior:
 

@@ -13,9 +13,18 @@ Configuring file storages in `file-storages.yaml`
 A
 `file storage <https://docs.typo3.org/permalink/t3coreapi:fal-architecture-components-storage>`_
 defines where TYPO3 reads and writes files, with which driver, and with which
-credentials. You configure the file storages of an installation in the file
-:file:`config/system/file-storages.yaml`. In classic mode, the file is
-:file:`typo3conf/system/file-storages.yaml`.
+credentials.
+
+..  typo3:file:: file-storages.yaml
+    :scope: project
+    :regex: /^((.*\/)?(config|typo3conf)\/system\/)?file-storages\.yaml$/
+    :composerPath: config/system/
+    :classicPath: typo3conf/system/
+    :shortDescription: Configures the file storages of the installation.
+
+    You configure the file storages of an installation in the file
+    :file:`config/system/file-storages.yaml`. In classic mode, the file is
+    :file:`typo3conf/system/file-storages.yaml`.
 
 There is no backend form for this file. Only the people and tools that
 maintain :path:`config/system/` can change a storage, for example system
@@ -37,8 +46,8 @@ maintainers, deployment tooling, and upgrade code.
 
 ..  _fal-administration-storages-default:
 
-The default storage without a configuration file
-================================================
+The default file storage without `file-storages.yaml`
+=====================================================
 
 The file is optional. Without it, TYPO3 uses one local storage with the
 identifier `1` and the name `fileadmin`. It points to the directory set in
@@ -62,8 +71,8 @@ instead.
 
 ..  _fal-administration-storages-example:
 
-Example: A public and a private storage
-=======================================
+Example: A public and a private file storage in `file-storages.yaml`
+====================================================================
 
 The following file defines the storage :file:`fileadmin/` and a second
 storage for files that the web server must not deliver directly:
@@ -84,8 +93,8 @@ When the file defines more than one storage, exactly one of them must set
 ..  _fal-administration-storages-options:
 ..  _fal-architecture-database-sys-file-storage:
 
-Options of a storage
-====================
+Options of a file storage in `file-storages.yaml`
+=================================================
 
 All options are optional.
 
@@ -206,7 +215,7 @@ All options are optional.
         example `[jpg, jpeg, png, webp]`. A comma-separated string such as
         `'pdf,docx,xlsx'` works as well. An empty list allows every file
         extension, see
-        `Restricting the file extensions of a storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-file-extensions>`_.
+        `Restricting the file extensions of a file storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-file-extensions>`_.
 
         ..  versionadded:: 15.0
             :changelog: feature-103594-1791966674
@@ -223,8 +232,8 @@ All options are optional.
 
 ..  _fal-administration-storages-local:
 
-Options of the Local driver
-===========================
+Options of the Local driver for file storages
+=============================================
 
 ..  confval-menu::
     :name: fal-storage-local-options
@@ -282,8 +291,8 @@ Options of the Local driver
 
 ..  _fal-administration-storages-file-extensions:
 
-Restricting the file extensions of a storage
-============================================
+Restricting the file extensions of a file storage
+=================================================
 
 The option `allowedFileExtensions` limits which files can enter a storage, for
 example a storage for images:
@@ -324,13 +333,13 @@ type apply as before, see
 
 To restrict a folder of a storage for some backend users only, use the field
 of the file mount, see
-`File extensions of a file mount <https://docs.typo3.org/permalink/t3coreapi:access-filemounts-file-extensions>`_.
+`Restricting the file extensions of a file mount <https://docs.typo3.org/permalink/t3coreapi:access-filemounts-file-extensions>`_.
 
 
 ..  _fal-administration-storages-placeholders:
 
-Environment variables and imports
-=================================
+Environment variables and imports in `file-storages.yaml`
+=========================================================
 
 TYPO3 reads the file with its
 `YAML loader <https://docs.typo3.org/permalink/t3coreapi:yamlfileloader>`_.
@@ -349,8 +358,8 @@ flush the caches.
 
 ..  _fal-administration-storages-errors:
 
-Errors in the file
-==================
+Errors in `file-storages.yaml`
+==============================
 
 TYPO3 reads the file in a tolerant way, so that one mistake does not stop
 every file access of the site. It logs each problem:
@@ -367,8 +376,8 @@ storage that is not a map of options stops all file access.
 
 ..  _fal-administration-storages-code:
 
-Changing storages from PHP code
-===============================
+Changing file storages from PHP code
+====================================
 
 In a console command or in setup code,
 :php-short:`\TYPO3\CMS\Core\Resource\Configuration\FileStorageConfigurationWriter`

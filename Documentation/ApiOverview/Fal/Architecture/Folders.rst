@@ -29,7 +29,7 @@ Inside each storage there will be a folder named :file:`_processed_/`
 which contains all resized images, be they rendered in the frontend
 or thumbnails from the backend. The name of this folder is not
 hard-coded. The storage option `processingFolder` sets it, see
-`Options of a storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-options>`_.
+`Options of a file storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-options>`_.
 It may even point to a different storage.
 
 ..  versionchanged:: 15.0
