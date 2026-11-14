@@ -51,10 +51,13 @@ The :php:`RequestFactory` class can be used like this:
 ..  literalinclude:: /_Examples/my_extension/Classes/Http/MeowInformationRequester.php
     :caption: EXT:my_extension/Classes/Http/MeowInformationRequester.php
 
-A POST request can be achieved with:
+A POST request passes the data in the options. The following class sends a
+first and a last name as form data, URL-encoded like an HTML form does. To send
+raw data instead, use the option `body`. Guzzle sends only one of the two:
+when both are set, `form_params` replaces `body`.
 
-..  literalinclude:: _SomeClass.php
-    :caption: EXT:my_extension/Classes/SomeClass.php
+..  literalinclude:: /_Examples/my_extension/Classes/Http/NewsletterSubscriber.php
+    :caption: EXT:my_extension/Classes/Http/NewsletterSubscriber.php
 
 Extension authors are advised to use the :php:`RequestFactory` class instead of
 using the Guzzle API directly in order to ensure a clear upgrade path when
@@ -71,6 +74,17 @@ Guzzle accepts a stack of custom middleware handlers which can be configured
 in :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler']` as an array. If a
 custom configuration is specified, the default handler stack will be extended
 and not overwritten.
+
+A Guzzle middleware is a callable that takes the next handler and returns a new
+one. The following middleware adds an `X-Request-Id` header with a random value
+to every outgoing request, so that the logs of the receiving service can be
+matched with the logs of TYPO3:
+
+..  literalinclude:: /_Examples/my_extension/Classes/Http/Middleware/RequestIdMiddleware.php
+    :caption: EXT:my_extension/Classes/Http/Middleware/RequestIdMiddleware.php
+
+Add it to the handler stack in the system configuration. The array key names
+the middleware in the stack:
 
 ..  literalinclude:: _additional.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
