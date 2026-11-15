@@ -69,6 +69,9 @@ The Composer packages of TYPO3 require these extensions. Composer refuses to
 install TYPO3 without them:
 
 *   `dom`
+*   `fileinfo` – for detecting the MIME type of files
+*   `gd` – for images that
+    `GIFBUILDER <https://docs.typo3.org/permalink/t3tsref:gifbuilder>`_ draws
 *   `intl`
 *   `json`
 *   `libxml`
@@ -80,13 +83,22 @@ install TYPO3 without them:
 *   `tokenizer`
 *   `xml`
 
+..  versionchanged:: 15.0
+    :changelog: breaking-111107-1792227470
+
+    The Composer package `typo3/cms-core` requires the extension `gd`.
+    Before, it only suggested it.
+
+..  versionchanged:: 15.0
+    :changelog: breaking-111146-1792407218
+
+    The Composer package `typo3/cms-core` requires the extension `fileinfo`.
+    Before, it only suggested it.
+
 Optional extensions:
 
 *   `apcu` – for the APCu cache backends
 *   `exif` – for reading the orientation of uploaded images
-*   `fileinfo` – for detecting the MIME type of files
-*   `gd` – for images that
-    `GIFBUILDER <https://docs.typo3.org/permalink/t3tsref:gifbuilder>`_ draws
 *   `openssl` – for encrypted SMTP mail delivery
 *   `zip` – for language packs and extension archives
 *   `zlib` – for compressed resources and for unpacking extension files in
