@@ -65,26 +65,32 @@ To support file uploads, configure:
 Required and optional PHP extensions
 ------------------------------------
 
-Required extensions:
+The Composer packages of TYPO3 require these extensions. Composer refuses to
+install TYPO3 without them:
 
+*   `dom`
+*   `intl`
+*   `json`
+*   `libxml`
+*   `mbstring`
+*   `pcre`
 *   `pdo`
 *   `session`
-*   `xml`
-*   `filter`
-*   `SPL`
-*   `standard`
-*   `tokenizer`
-*   `mbstring`
-*   `intl`
 *   `sodium`
+*   `tokenizer`
+*   `xml`
 
-Optional but commonly used:
+Optional extensions:
 
-*   `fileinfo` – for detecting uploaded file types
-*   `gd` – for image generation and scaling
-*   `zip` – for language packs and extension archives
-*   `zlib` – for Classic installations to unpack extension files
+*   `apcu` – for the APCu cache backends
+*   `exif` – for reading the orientation of uploaded images
+*   `fileinfo` – for detecting the MIME type of files
+*   `gd` – for images that
+    `GIFBUILDER <https://docs.typo3.org/permalink/t3tsref:gifbuilder>`_ draws
 *   `openssl` – for encrypted SMTP mail delivery
+*   `zip` – for language packs and extension archives
+*   `zlib` – for compressed resources and for unpacking extension files in
+    classic mode
 
 ..  _system-requirements-php-database-extensions:
 
