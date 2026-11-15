@@ -131,6 +131,25 @@ file names and shell arguments independent of the locale.
 
     No replacement is needed.
 
+..  _typo3confvars-gfx-thumbnails:
+
+`GFX` setting `thumbnails` removed
+----------------------------------
+
+The backend shows thumbnails of images everywhere. In the file list, the file
+browser, and the link browser, every user still chooses whether to show them.
+
+..  confval:: thumbnails
+    :name: globals-typo3-conf-vars-sys-gfx-thumbnails
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails']
+    :type: bool
+    :removed: 15.0 breaking-111108-1792227470
+
+    The upgrade removes the setting from :file:`config/system/settings.php`.
+    To control the choice of the users in the file list, use
+    `options.file_list.enableDisplayThumbnails <https://docs.typo3.org/permalink/t3tsref:useroptions-file-list-enabledisplaythumbnails>`_
+    in user TSconfig.
+
 ..  _BeforeSectionMarkupGeneratedEvent:
 ..  _AfterSectionMarkupGeneratedEvent:
 
