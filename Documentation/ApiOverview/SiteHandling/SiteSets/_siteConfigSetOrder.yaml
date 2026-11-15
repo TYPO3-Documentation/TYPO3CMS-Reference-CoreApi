@@ -1,0 +1,3 @@
+dependencies:
+  - other-vendor/some-extension
+  - my-vendor/my-sitepackage
