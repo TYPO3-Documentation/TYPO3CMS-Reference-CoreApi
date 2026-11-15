@@ -42,7 +42,7 @@ The four arguments are:
     The combined length must not exceed 32 characters. snake_case is also
     accepted and normalized internally, but UpperCamelCase is the convention.
 3.  **Allowed controller actions** — an array mapping controller class names to
-    a comma-separated list of action names. The first entry and its first action
+    an array of action names. The first entry and its first action
     are the default. Only actions listed here are available via this plugin.
 4.  **Non-cacheable actions** — a subset of the above defining output that must not be
     stored in the page cache. See

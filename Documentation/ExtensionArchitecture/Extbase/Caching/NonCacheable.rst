@@ -49,7 +49,7 @@ Declaring an Extbase plugin action non-cacheable
 Non-cacheable actions are declared in the fourth argument of
 :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()`, using the
 same structure as the third (cacheable) argument: an array keyed by controller
-class name, with a comma-separated list of action names as the value.
+class name, with an array of action names as the value.
 
 ..  literalinclude:: _snippets/_configurePlugin.php
     :caption: EXT:my_extension/ext_localconf.php
