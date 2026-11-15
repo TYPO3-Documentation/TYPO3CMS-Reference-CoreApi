@@ -462,11 +462,19 @@ was created. The `ctrl` section of the TCA names these fields. A model
 property with the name of such a field receives its value only if the field
 also has a definition in `columns`:
 
-*   For the fields of `enablecolumns`, such as `hidden` and `starttime`, for
-    the field of `editlock`, and for the description column, TYPO3 creates the
-    `columns` definition itself. A model property reads them without further
+*   For the fields that the `ctrl` properties
+    `enablecolumns <https://docs.typo3.org/permalink/t3tca:confval-ctrl-enablecolumns>`_,
+    `editlock <https://docs.typo3.org/permalink/t3tca:confval-ctrl-editlock>`_,
+    and `descriptionColumn <https://docs.typo3.org/permalink/t3tca:confval-ctrl-descriptioncolumn>`_
+    name, such as `hidden` and `starttime`, TYPO3 creates the `columns`
+    definition itself. A model property reads them without further
     configuration.
-*   The fields of `tstamp`, `crdate`, `delete`, and `sortby` have no
+*   The fields that the `ctrl` properties
+    `tstamp <https://docs.typo3.org/permalink/t3tca:confval-ctrl-tstamp>`_,
+    `crdate <https://docs.typo3.org/permalink/t3tca:confval-ctrl-crdate>`_,
+    `delete <https://docs.typo3.org/permalink/t3tca:confval-ctrl-delete>`_,
+    and `sortby <https://docs.typo3.org/permalink/t3tca:confval-ctrl-sortby>`_
+    name, usually `tstamp`, `crdate`, `deleted`, and `sorting`, have no
     `columns` definition. Add one of
     `TCA type passthrough <https://docs.typo3.org/permalink/t3tca:columns-passthrough>`_
     to read them in a model.
