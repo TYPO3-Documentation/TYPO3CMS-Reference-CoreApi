@@ -1,8 +1,8 @@
-<f:for each="{conference.sessions}" as="session" key="key" iteration="i">
-  <f:form.validationResults for="conference.sessions.{key}.title">
+<f:for each="{conference.sessions}" as="session" iteration="i">
+  <f:form.validationResults for="conference.sessions.{i.index}.title">
     <f:for each="{validationResults.errors}" as="error">
       <p class="error">{error.message}</p>
     </f:for>
   </f:form.validationResults>
-  <f:form.textfield property="sessions.{i.index}.title" />
+  <f:form.textfield property="sessions.{i.index}.title" errorClass="error" />
 </f:for>

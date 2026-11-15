@@ -218,6 +218,8 @@ per-field error messages:
 
 The `for` attribute is the dot-notation path to the validated object or
 property. Leave it empty to access all errors in the current request.
+For the errors of the elements of a collection, see
+`Validation errors of the elements of a collection <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-builtin-collection-errors>`_.
 
 ..  _extbase-validation-fluid-has-errors:
 
