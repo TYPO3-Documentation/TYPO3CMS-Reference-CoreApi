@@ -382,17 +382,24 @@ Validation errors of the elements of a collection
 
 The validation result of an element is stored below the property path of
 the collection, followed by the key of the element. For an array, this is the
-array key. For an `ObjectStorage`, it is an internal hash of the object.
-`f:for` returns the same hash as its `key`, so use it to show the errors of an
-element:
+array key. For an `ObjectStorage`, it is the position of the element, starting
+at `0`. Form fields name an element the same way, such as `sessions.0.title`.
+In a loop, use the index of the iteration for both:
 
 ..  literalinclude:: _snippets/_SessionErrors.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/Conference/Edit.fluid.html
 
-A form field names an element of an `ObjectStorage` by its position, such as
-`sessions.0.title`. Its `errorClass` therefore does not find the validation
-result of the element.
+The `errorClass` of the form field finds the validation result of the element
+as well. In PHP, :php:`$result->forProperty('sessions.0.title')` returns the
+validation result of the title of the first session.
 
+..  versionchanged:: 15.0
+    :changelog: breaking-73717-1789516800
+
+    Before, the key of an element of an `ObjectStorage` was an internal hash
+    of the object, which `f:for` returns as its `key`. A lookup with this key
+    now finds nothing. In the `for` argument of `f:form.validationResults`,
+    replace the `key` of `f:for` by the index of the iteration.
 
 ..  _extbase-validation-builtin-file:
 
