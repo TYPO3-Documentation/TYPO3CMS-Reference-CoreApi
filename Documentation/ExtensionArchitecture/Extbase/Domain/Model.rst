@@ -459,38 +459,38 @@ Reading system fields such as `crdate` in an Extbase model
 
 TYPO3 manages some fields of a record itself, for example the time the record
 was created. The `ctrl` section of the TCA names these fields. A model
-property with the name of such a field receives its value only if the field
-also has a definition in `columns`:
+property with the name of such a field receives its value, also without a
+definition of the field in `columns`:
 
-*   For the fields that the `ctrl` properties
-    `enablecolumns <https://docs.typo3.org/permalink/t3tca:confval-ctrl-enablecolumns>`_,
-    `editlock <https://docs.typo3.org/permalink/t3tca:confval-ctrl-editlock>`_,
-    and `descriptionColumn <https://docs.typo3.org/permalink/t3tca:confval-ctrl-descriptioncolumn>`_
-    name, such as `hidden` and `starttime`, TYPO3 creates the `columns`
-    definition itself. A model property reads them without further
-    configuration.
-*   The fields that the `ctrl` properties
-    `tstamp <https://docs.typo3.org/permalink/t3tca:confval-ctrl-tstamp>`_,
-    `crdate <https://docs.typo3.org/permalink/t3tca:confval-ctrl-crdate>`_,
-    `delete <https://docs.typo3.org/permalink/t3tca:confval-ctrl-delete>`_,
-    and `sortby <https://docs.typo3.org/permalink/t3tca:confval-ctrl-sortby>`_
-    name, usually `tstamp`, `crdate`, `deleted`, and `sorting`, have no
-    `columns` definition. Add one of
-    `TCA type passthrough <https://docs.typo3.org/permalink/t3tca:columns-passthrough>`_
-    to read them in a model.
+..  literalinclude:: _snippets/_ConferenceWithSystemFields.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
-..  tabs::
+Extbase only reads the fields of `tstamp`, `crdate`, `delete`, and `sortby`.
+It does not write a changed property of such a field to the database:
 
-    ..  group-tab:: Model
+*   To delete a record, call
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\RepositoryInterface->remove()`.
+*   Extbase sets `crdate` when it creates a record and `tstamp` on each
+    update. The object keeps the values it was loaded with. Load the record
+    again to get the new values.
 
-        ..  literalinclude:: _snippets/_ConferenceWithSystemFields.php
-            :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+If the TCA defines one of these fields in `columns`, Extbase reads and writes
+it like any other field.
 
-    ..  group-tab:: TCA
+A model property with the name of one of these fields needs a single type.
+An untyped property, or one with a union or intersection type, throws an
+:php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\Mapper\Exception\UnknownPropertyTypeException`
+when Extbase maps a record.
 
-        ..  literalinclude:: _snippets/_conference_system_fields_tca.php
-            :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_conference.php
+..  versionchanged:: 15.0
+    :changelog: feature-109494-1744281656
 
+    Before, a model property only read the fields of `tstamp`, `crdate`,
+    `delete`, and `sortby` if the TCA defined them in `columns`, usually as
+    TCA type `passthrough`. Remove such a definition if Extbase only needs
+    to read the field. A property named like one of these fields that
+    Extbase ignored before now receives the value of the field. Rename it if
+    it means something else.
 
 ..  _extbase-domain-model-value-objects:
 
