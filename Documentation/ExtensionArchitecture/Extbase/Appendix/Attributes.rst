@@ -127,12 +127,22 @@ objects automatically via the repository.
 Marks a property that is not stored in the database, such as a computed value
 or temporary state. Extbase does not evaluate the attribute when it reads or
 writes a record: it stores each property for which the TCA defines a column,
-with or without the attribute. The attribute only skips the validator that
-Extbase creates automatically for a property typed as another model or as a
-collection:
+with or without the attribute:
 
 ..  literalinclude:: _snippets/_ConferenceTransient.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+To exclude a property from validation, use
+`#[IgnoreValidation] <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes-ignorevalidation>`_.
+
+..  deprecated:: 15.0
+    :changelog: deprecation-111134-1792300002
+
+    :php:`#[Transient]` also skips the validator that Extbase adds
+    automatically for a property typed as another model or as a collection.
+    This triggers a deprecation warning and stops in TYPO3 v16. Use
+    :php:`#[IgnoreValidation]` instead, see
+    `Excluding a model property from validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-ignore-property>`_.
 
 ..  _extbase-appendix-attributes-validation:
 
@@ -182,9 +192,9 @@ and control validation behavior on model properties and controller action parame
 `#[IgnoreValidation]`
 ---------------------
 
-:Target: Action method parameter
+:Target: Action method parameter, model property
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation`
-:Parameters: none (place directly on the parameter)
+:Parameters: none (place directly on the parameter or property)
 
 Suppresses validation for one action parameter. Useful in multi-step forms
 where partial state is forwarded between actions:
@@ -200,6 +210,15 @@ where partial state is forwarded between actions:
     <extbase-upgrading-ignorevalidation-parameter>`.
 
 Place :php:`#[IgnoreValidation]` directly on the parameter.
+
+On a model property, the attribute excludes the property from the validation
+of the model, see
+`Excluding a model property from validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-ignore-property>`_.
+
+..  versionadded:: 15.0
+    :changelog: feature-111134-1792300001
+
+    :php:`#[IgnoreValidation]` can be placed on model properties.
 
 
 ..  _extbase-appendix-attributes-controller:
