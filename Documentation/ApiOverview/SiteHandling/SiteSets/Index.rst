@@ -58,6 +58,22 @@ The same resolved dependency order controls TypoScript, page TSconfig and route
 enhancers. As a result, a site gets one effective configuration without having
 to import every extension file manually.
 
+..  _site-sets-composition-order:
+
+Order of site sets that do not depend on each other
+---------------------------------------------------
+
+The order in which a site lists its sets does not decide which set wins. For
+two sets that do not depend on each other, TYPO3 uses an order that does not
+depend on the site. Installing another extension can change this order.
+
+To make one set override another one, declare the other set as a dependency
+of the set that is meant to win. The set is then always applied after its
+dependency, on every site:
+
+..  literalinclude:: _setConfigOverrides.yaml
+    :caption: EXT:my_sitepackage/Configuration/Sets/Main/config.yaml
+
 ..  _site-sets-definition:
 
 Creating a site set
