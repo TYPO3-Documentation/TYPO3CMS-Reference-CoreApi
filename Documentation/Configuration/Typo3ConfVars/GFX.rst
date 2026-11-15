@@ -156,7 +156,12 @@ processor_effects
     :type: bool
     :default: false
 
-    If enabled, apply blur and sharpening in ImageMagick/GraphicsMagick functions.
+    If enabled, ImageMagick and GraphicsMagick sharpen each JPEG, WebP, and
+    AVIF image that they process with `-sharpen 1x2`. They do not sharpen PNG
+    and GIF images. The setting does not blur images.
+
+    The ImageMagick preset of the Install Tool enables the setting, the
+    GraphicsMagick preset disables it.
 
 ..  _typo3confvars-gfx-processor-allowupscaling:
 
