@@ -465,8 +465,13 @@ definition of the field in `columns`:
 ..  literalinclude:: _snippets/_ConferenceWithSystemFields.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
-Extbase only reads the fields of `tstamp`, `crdate`, `delete`, and `sortby`.
-It does not write a changed property of such a field to the database:
+Extbase only reads the fields that the `ctrl` properties
+`tstamp <https://docs.typo3.org/permalink/t3tca:confval-ctrl-tstamp>`_,
+`crdate <https://docs.typo3.org/permalink/t3tca:confval-ctrl-crdate>`_,
+`delete <https://docs.typo3.org/permalink/t3tca:confval-ctrl-delete>`_,
+and `sortby <https://docs.typo3.org/permalink/t3tca:confval-ctrl-sortby>`_
+name, usually `tstamp`, `crdate`, `deleted`, and `sorting`. It does not
+write a changed property of such a field to the database:
 
 *   To delete a record, call
     :php-short:`\TYPO3\CMS\Extbase\Persistence\RepositoryInterface->remove()`.
@@ -485,12 +490,12 @@ when Extbase maps a record.
 ..  versionchanged:: 15.0
     :changelog: feature-109494-1744281656
 
-    Before, a model property only read the fields of `tstamp`, `crdate`,
-    `delete`, and `sortby` if the TCA defined them in `columns`, usually as
-    TCA type `passthrough`. Remove such a definition if Extbase only needs
-    to read the field. A property named like one of these fields that
-    Extbase ignored before now receives the value of the field. Rename it if
-    it means something else.
+    Before, a model property only read the fields of the `ctrl` properties
+    `tstamp`, `crdate`, `delete`, and `sortby` if the TCA defined them in
+    `columns`, usually as TCA type `passthrough`. Remove such a definition
+    if Extbase only needs to read the field. A property named like one of
+    these fields that Extbase ignored before now receives the value of the
+    field. Rename it if it means something else.
 
 ..  _extbase-domain-model-value-objects:
 
