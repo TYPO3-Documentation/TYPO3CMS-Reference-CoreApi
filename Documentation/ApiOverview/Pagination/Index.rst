@@ -87,6 +87,34 @@ CTEs, windowing functions, or grouping.
     and does not respect any existing limit/offset constraints on the passed
     :php:`QueryBuilder` instance.
 
+..  _pagination-number-of-items:
+
+Showing the number of items of a paginator
+------------------------------------------
+
+..  versionadded:: 14.3.11
+    :changelog: important-106764-1790697600
+
+Each paginator that extends
+:php-short:`\TYPO3\CMS\Core\Pagination\AbstractPaginator`, which includes
+all paginators of the TYPO3 Core, returns the number of its items:
+
+*   :php-short:`\TYPO3\CMS\Core\Pagination\AbstractPaginator->getTotalNumberOfItems()`
+    returns the number of all items, on all pages.
+*   :php-short:`\TYPO3\CMS\Core\Pagination\AbstractPaginator->getNumberOfItemsOnCurrentPage()`
+    returns the number of items on the current page.
+
+The paginator has already counted the items, so the methods need no
+additional query. In Fluid, read them as properties of the paginator:
+
+..  literalinclude:: _NumberOfItems.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.fluid.html
+
+A custom paginator that extends
+:php-short:`\TYPO3\CMS\Core\Pagination\AbstractPaginator` gets both
+methods. If it already has methods with these names, they must be public and
+return an integer.
+
 
 ..  _pagination-sliding-window:
 
