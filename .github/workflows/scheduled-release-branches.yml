@@ -1,7 +1,7 @@
 name: release branches
 
 # GitHub runs scheduled workflows on the default branch only, so this workflow
-# checks out each release branch itself. tests.yml covers main.
+# checks out each release branch itself. example-extension.yml covers main.
 on:
   schedule:
     - cron: "30 3 * * *" # every day at 03:30 UTC
