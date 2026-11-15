@@ -190,12 +190,13 @@ be written to the database.
 **Short answer:** Do not define a TCA column for the property. Extbase only
 reads and writes the properties for which the TCA defines a column. If the
 property is typed as another model or as a collection, add
-:php:`#[Transient]` so that Extbase does not validate it.
+:php:`#[IgnoreValidation]` so that Extbase does not validate it.
 
 ..  seealso::
 
     * `Non-persisted properties <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-transient>`_.
     * `#[Transient] <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-attributes-transient>`_.
+    * `Excluding a model property from validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-ignore-property>`_.
 
 
 ..  _extbase-appendix-tasks-contentblock-settings:

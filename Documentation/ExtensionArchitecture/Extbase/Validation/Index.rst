@@ -163,6 +163,35 @@ Without :php:`#[IgnoreValidation]`, the framework would see the invalid
 :php:`Conference`, call :php:`errorAction()`, which forwards back to
 :php:`newAction()`, which would validate again — an infinite cycle.
 
+..  _extbase-validation-ignore-property:
+
+Excluding a model property from validation with `#[IgnoreValidation]`
+---------------------------------------------------------------------
+
+..  versionadded:: 15.0
+    :changelog: feature-111134-1792300001
+
+Place :php:`#[IgnoreValidation]` on a property of a model to exclude it from
+the validation of the model:
+
+..  literalinclude:: _snippets/_ConferenceIgnoreValidation.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+Extbase does not create the validator it adds automatically for a property
+typed as another model or as a collection. It also skips the validators of
+:php:`#[Validate]` and of Symfony constraint attributes on the property. Use
+it, for example, for a property typed as another model that has no getter.
+
+Excluding a property from validation does not change its persistence:
+Extbase stores each property for which the TCA defines a column.
+
+..  deprecated:: 15.0
+    :changelog: deprecation-111134-1792300002
+
+    Skipping the automatic validator with :php:`#[Transient]` is
+    deprecated, see
+    `Migrating from #[Transient] to #[IgnoreValidation] <https://docs.typo3.org/permalink/t3coreapi:extbase-upgrading-transient-ignorevalidation>`_.
+
 
 ..  _extbase-validation-error-action:
 ..  _extbase-error-action-howto:

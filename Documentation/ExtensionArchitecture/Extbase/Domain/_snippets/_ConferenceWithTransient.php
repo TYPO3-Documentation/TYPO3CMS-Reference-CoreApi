@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Domain\Model;
 
-use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Conference extends AbstractEntity
@@ -13,7 +12,6 @@ class Conference extends AbstractEntity
 
   protected ?\DateTimeImmutable $conferenceDate = null;
 
-  #[Transient]
   protected ?string $displayLabel = null;
 
   public function getDisplayLabel(): string
