@@ -58,9 +58,18 @@ Method :php:`updateNecessary()`
     :php:`false` is returned, the upgrade wizard will not be displayed in the
     list of available wizards.
 
+    This method is called *before* the prerequisites of the wizard are
+    ensured. Only check whether old data needs to be migrated, and do not
+    rely on database tables or fields that a prerequisite like
+    :php-short:`\TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite` would
+    create. Otherwise :php:`false` is returned on a database that has not been
+    updated yet, and the wizard is marked as done without ever running.
+
 Method :php:`getPrerequisites()`
     Returns an array of class names of prerequisite classes. This way, a wizard
-    can define dependencies before it can be performed. Currently, the following
+    can define dependencies before it can be performed. Prerequisites are only
+    ensured for wizards whose :php:`updateNecessary()` returned :php:`true`,
+    before :php:`executeUpdate()` is called. Currently, the following
     prerequisites exist:
 
     *   :php-short:`\TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite`:
