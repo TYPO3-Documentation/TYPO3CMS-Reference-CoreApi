@@ -188,15 +188,9 @@ Extbase stores each property for which the TCA defines a column.
 ..  deprecated:: 15.0
     :changelog: deprecation-111134-1792300002
 
-    :php:`#[Transient]` also skips the validator that Extbase adds
-    automatically. This triggers a deprecation warning and stops in TYPO3
-    v16. Replace :php:`#[Transient]` with :php:`#[IgnoreValidation]` on
-    each property that is not to be validated. TYPO3 v13.4 and v14 ignore
-    :php:`#[IgnoreValidation]` on a property. An extension that supports
-    them keeps both attributes:
-
-    ..  literalinclude:: _snippets/_ConferenceTransientAndIgnoreValidation.php
-        :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+    Skipping the automatic validator with :php:`#[Transient]` is
+    deprecated, see
+    `Migrating from #[Transient] to #[IgnoreValidation] <https://docs.typo3.org/permalink/t3coreapi:extbase-upgrading-transient-ignorevalidation>`_.
 
 
 ..  _extbase-validation-error-action:

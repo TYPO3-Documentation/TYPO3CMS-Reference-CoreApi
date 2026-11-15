@@ -153,8 +153,8 @@ The five possible attributes on model properties are:
         :name: extbase-attr-transient
         :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 
-        Marks a property that is not stored in the database, such as a
-        computed value. It does not change persistence, see
+        Has no effect on persistence. Its effect on validation is
+        deprecated, see
         `Non-persisted properties <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-transient>`_.
 
     ..  confval:: #[IgnoreValidation]
@@ -343,10 +343,9 @@ column with the name of the property. A property without such a column is not
 stored in the database. Your own code fills it, typically a getter that
 computes a value from other properties.
 
-The attribute :php:`#[Transient]` marks such a property. Extbase does not
-evaluate it when it reads or writes a record: a property with
-:php:`#[Transient]` and a TCA column is stored like any other. To exclude a
-property from validation, use
+Such a property needs no attribute. :php:`#[Transient]` has no effect on
+persistence: a property with :php:`#[Transient]` and a TCA column is stored
+like any other. To exclude a property from validation, use
 `#[IgnoreValidation] <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-ignore-property>`_:
 
 ..  literalinclude:: _snippets/_ConferenceWithTransient.php

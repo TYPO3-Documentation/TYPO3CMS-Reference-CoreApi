@@ -246,6 +246,60 @@ edit form, forwards to the error action instead:
     — full deprecation details and automated migration via Rector.
 
 
+..  _extbase-upgrading-transient-ignorevalidation:
+
+`#[Transient]` replaced by `#[IgnoreValidation]` for skipping validation (TYPO3 v15)
+====================================================================================
+
+..  versionchanged:: 15.0
+    :changelog: deprecation-111134-1792300002
+
+    Relying on :php:`#[Transient]` to skip validation was deprecated. It
+    stops working in TYPO3 v16.
+
+Extbase never evaluated :php:`#[Transient]` when it read or wrote a record:
+it stores each property for which the TCA defines a column, with or without
+the attribute. The only effect of :php:`#[Transient]` was on validation.
+Extbase did not create the validator it adds automatically for a property
+typed as another model or as a collection.
+
+Extensions used :php:`#[Transient]` mainly for a property typed as another
+model that has no getter. The automatic validator reads the property through
+its getter and throws an exception without one.
+
+Since TYPO3 v15, Extbase triggers a deprecation warning for such a property
+and still skips the validator. Replace :php:`#[Transient]` with
+:php:`#[IgnoreValidation]` on each property that is not to be validated:
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+    -use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
+    +use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
+
+    -#[Transient]
+    +#[IgnoreValidation]
+     protected ?Organizer $organizer = null;
+
+TYPO3 v13.4 and v14 ignore :php:`#[IgnoreValidation]` on a property. An
+extension that supports them keeps both attributes until it drops these
+versions:
+
+..  literalinclude:: ../Validation/_snippets/_ConferenceTransientAndIgnoreValidation.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+A property of a simple type, such as `string`, triggers no deprecation,
+because Extbase creates no validator for it. :php:`#[Transient]` has no
+effect on such a property, you can remove it. A property typed as another
+class, such as `\DateTimeImmutable`, triggers the deprecation, although its
+automatic validator checks nothing. :php:`#[IgnoreValidation]` removes the
+warning and changes nothing else.
+
+..  seealso::
+
+    `Excluding a model property from validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-ignore-property>`_
+
+
 ..  _extbase-upgrading-docblock-parameter-types:
 
 Parameter types from `@param` DocBlock tags removed (TYPO3 v11, removed in v15)

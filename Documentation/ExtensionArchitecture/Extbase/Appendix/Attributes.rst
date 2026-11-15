@@ -124,10 +124,10 @@ objects automatically via the repository.
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 :Parameters: none
 
-Marks a property that is not stored in the database, such as a computed value
-or temporary state. Extbase does not evaluate the attribute when it reads or
-writes a record: it stores each property for which the TCA defines a column,
-with or without the attribute:
+Has no effect on persistence: Extbase stores each property for which the
+TCA defines a column, with or without the attribute. A property without a
+column, such as a computed value, is not stored and needs no attribute.
+The attribute only documents the intent:
 
 ..  literalinclude:: _snippets/_ConferenceTransient.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
@@ -138,11 +138,9 @@ To exclude a property from validation, use
 ..  deprecated:: 15.0
     :changelog: deprecation-111134-1792300002
 
-    :php:`#[Transient]` also skips the validator that Extbase adds
-    automatically for a property typed as another model or as a collection.
-    This triggers a deprecation warning and stops in TYPO3 v16. Use
-    :php:`#[IgnoreValidation]` instead, see
-    `Excluding a model property from validation <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-ignore-property>`_.
+    Skipping the automatic validator with :php:`#[Transient]` is
+    deprecated, see
+    `Migrating from #[Transient] to #[IgnoreValidation] <https://docs.typo3.org/permalink/t3coreapi:extbase-upgrading-transient-ignorevalidation>`_.
 
 ..  _extbase-appendix-attributes-validation:
 
