@@ -153,8 +153,11 @@ The four possible attributes on model properties are:
         :name: extbase-attr-transient
         :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 
-        Excludes a property from persistence. Useful for computed
-        values or temporary state that should never reach the database.
+        Marks a property that is not stored in the database, such as a
+        computed value. Extbase skips the validator it creates automatically
+        for a property typed as another model or as a collection. It does not
+        change persistence, see
+        `Non-persisted properties <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-transient>`_.
 
     ..  confval:: #[Validate]
         :name: extbase-attr-validate
@@ -330,10 +333,16 @@ back to the string on write.
 Non-persisted (transient) properties in Extbase models
 ======================================================
 
-Mark a property as :php:`#[Transient]` to exclude it from persistence.
-Extbase will never read or write the corresponding column. The property should then be
-populated by your own code, which is typically a getter that computes a value using
-other properties:
+Extbase reads and writes a property only if the TCA of the table defines a
+column with the name of the property. A property without such a column is not
+stored in the database. Your own code fills it, typically a getter that
+computes a value from other properties.
+
+The attribute :php:`#[Transient]` marks such a property. Extbase does not
+evaluate it when it reads or writes a record: a property with
+:php:`#[Transient]` and a TCA column is stored like any other. The attribute
+only skips the validator that Extbase creates automatically for a property
+typed as another model or as a collection:
 
 ..  literalinclude:: _snippets/_ConferenceWithTransient.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php

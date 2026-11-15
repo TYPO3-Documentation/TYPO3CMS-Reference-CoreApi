@@ -124,8 +124,12 @@ objects automatically via the repository.
 :Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 :Parameters: none
 
-Excludes a property from persistence entirely. Extbase never reads or writes
-the corresponding column. Use for computed values or temporary state:
+Marks a property that is not stored in the database, such as a computed value
+or temporary state. Extbase does not evaluate the attribute when it reads or
+writes a record: it stores each property for which the TCA defines a column,
+with or without the attribute. The attribute only skips the validator that
+Extbase creates automatically for a property typed as another model or as a
+collection:
 
 ..  literalinclude:: _snippets/_ConferenceTransient.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
