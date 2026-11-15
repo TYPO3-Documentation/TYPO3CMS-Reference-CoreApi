@@ -22,8 +22,9 @@ value, and the type of the field. The event carries the record, the table,
 the full record type, the field name and its schema, the value, and the
 request, if there is one.
 
-A listener provides the complete result with :php:`setRenderedText()`. The
-ViewHelper returns this result unchanged and skips its default rendering.
+A listener provides the complete result with
+:php-short:`\TYPO3\CMS\Fluid\Event\BeforeRenderTextEvent->setRenderedText()`.
+The ViewHelper returns this result unchanged and skips its default rendering.
 Later listeners are not called. The ViewHelper does not escape the result, so
 the listener escapes or sanitizes the HTML itself. If no listener provides a
 result, the ViewHelper renders the field as before.
