@@ -1,0 +1,4 @@
+name: my-vendor/my-sitepackage
+label: 'My site package'
+dependencies:
+  - other-vendor/some-extension
