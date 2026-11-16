@@ -1,0 +1,6 @@
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      'page.json': 1762214410

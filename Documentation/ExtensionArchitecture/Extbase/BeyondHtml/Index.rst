@@ -196,11 +196,15 @@ Delivering content to a headless frontend
 In a headless or decoupled setup, a frontend built separately, for example
 with a JavaScript framework such as `Next.js <https://nextjs.org/>`_ or
 `Nuxt <https://nuxt.com/>`_, requests content from TYPO3 as JSON and renders
-it itself. The community extension :composer:`friendsoftypo3/headless`
-outputs TYPO3 content in JSON format for such setups. Extbase can supply the
-data, while Fluid templates have no role in the output.
+it itself. TYPO3 Core delivers pages as JSON with a page type and a JSON
+template, and Extbase plugins render their part of the page as JSON, from a
+JsonView or from Fluid templates.
 
-..  Planned page of this chapter: headless delivery.
+..  seealso::
+
+    `Delivering TYPO3 content headless as JSON <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-headless>`_
+    — the two models of a headless setup, and how to build one with TYPO3
+    Core alone.
 
 ..  toctree::
     :titlesonly:
@@ -210,3 +214,4 @@ data, while Fluid templates have no role in the output.
     Ajax
     JsonView
     Middleware
+    Headless/Index

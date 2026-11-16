@@ -1,0 +1,48 @@
+{
+  "id": 12,
+  "title": "Conferences",
+  "description": "Upcoming conferences of the community",
+  "hreflang": "en-us",
+  "languages": [
+    {
+      "title": "English",
+      "hreflang": "en-us",
+      "link": "https://example.org/conferences",
+      "active": true,
+      "available": true
+    },
+    {
+      "title": "Deutsch",
+      "hreflang": "de-de",
+      "link": "https://example.org/de/konferenzen",
+      "active": false,
+      "available": true
+    }
+  ],
+  "menu": [
+    {
+      "title": "Conferences",
+      "link": "https://example.org/conferences",
+      "active": true,
+      "current": true,
+      "children": [
+        {
+          "title": "Europe",
+          "link": "https://example.org/conferences/europe",
+          "active": false,
+          "current": false,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "content": {
+    "main": [
+      {
+        "uid": 34,
+        "type": "textmedia",
+        "header": "Meet the community"
+      }
+    ]
+  }
+}

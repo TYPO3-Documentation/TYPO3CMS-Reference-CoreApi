@@ -1,0 +1,12 @@
+{escaping off}
+{
+  "id": <f:format.json value="{page.id}" />,
+  "title": <f:format.json value="{page.pageRecord.title}" />,
+  "description": <f:format.json value="{page.pageRecord.description}" />,
+  "hreflang": <f:format.json value="{language.hreflang}" />,
+  "languages": <f:render partial="LanguageMenu" arguments="{items: languageMenu}" />,
+  "menu": <f:render partial="Menu" arguments="{items: mainMenu}" />,
+  "content": {
+    "main": <f:render partial="ContentArea" arguments="{area: content.main}" />
+  }
+}
