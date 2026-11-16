@@ -68,7 +68,7 @@ Download the TYPO3 source package from `https://get.typo3.org/
 ..  code-block:: bash
     :caption: /var/www/site/$
 
-    wget --content-disposition https://get.typo3.org/13
+    wget --content-disposition https://get.typo3.org/14
 
 Ensure that the package is placed one level above the web server's document root.
 
