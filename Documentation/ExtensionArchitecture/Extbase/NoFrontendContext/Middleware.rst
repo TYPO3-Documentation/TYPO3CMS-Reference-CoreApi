@@ -168,7 +168,8 @@ the work may fit better elsewhere:
 *   **An Extbase plugin.** A plugin gets its configuration, its storage pages
     and the frontend's visibility rules from Extbase. Placed on a page of its
     own, with a page type and a route enhancer, it can answer JSON as well,
-    see :ref:`Routing in Extbase <extbase-routing>`.
+    see :ref:`Delivering Extbase output with a typeNum page type
+    <extbase-beyond-html-page-type>`.
 *   **A service called from a controller**, when the middleware only exists to
     prepare data for a plugin.
 *   **The database API**, when the middleware only needs a few fields. With
