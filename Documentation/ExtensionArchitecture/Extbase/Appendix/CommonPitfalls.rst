@@ -626,9 +626,14 @@ response becomes the content type of the whole page. The result is an HTML
 page that declares itself as JSON.
 
 **What to do:** Deliver the JSON at its own URL, where nothing else is
-rendered around it.
+rendered around it. A plugin that has to render HTML on regular pages and JSON
+for a headless frontend uses JSON templates for its JSON page type, so its
+actions keep returning HTML everywhere else.
 
 ..  seealso::
 
-    `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_
-    — the options compared.
+    *   `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_
+        — the options compared.
+
+    *   `Letting an Extbase plugin answer with JSON templates <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-headless-extbase-plugins-format>`_
+        — one plugin for HTML pages and a headless frontend.
