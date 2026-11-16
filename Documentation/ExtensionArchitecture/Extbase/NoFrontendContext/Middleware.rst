@@ -188,5 +188,9 @@ A command meets the same defaults with no request at all. How to work with
 them there is described in :ref:`Extbase on the command line
 <extbase-no-frontend-command>`.
 
+How a middleware delivers its data to a script, from matching the URL to the
+response, is described in :ref:`Answering a script from a PSR-15 middleware
+<extbase-beyond-html-middleware>`.
+
 The overview of all contexts without a frontend is in :ref:`Using Extbase
 outside a frontend request <extbase-no-frontend>`.
