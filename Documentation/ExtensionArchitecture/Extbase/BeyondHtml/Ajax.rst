@@ -168,7 +168,9 @@ whose page comes from the cache.
 Every request still runs the frontend: TYPO3 resolves the site and the page,
 checks access, and loads the TypoScript, mostly from caches. For one request
 per page view that is acceptable. A script that polls every few seconds, or
-many scripts on one page, multiply that cost.
+many scripts on one page, multiply that cost. For such requests,
+:ref:`a middleware endpoint <extbase-beyond-html-middleware>` answers without
+running the frontend.
 
 Data that changes rarely does not need a non-cacheable action. Leave the action
 cacheable, and the page type delivers the JSON from the page cache like any
