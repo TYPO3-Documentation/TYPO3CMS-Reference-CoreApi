@@ -572,6 +572,12 @@ Output format, language overrides and FlexForm handling
     :ref:`An XML feed in a typeNum page type <extbase-beyond-html-page-type-plugin>`
     sets the format in the action's initializer.
 
+    A plugin that renders HTML on regular pages and JSON in a headless page
+    type keeps the same actions for both. A TypoScript condition sets the
+    format for that page type only, see
+    :ref:`Letting an Extbase plugin answer with JSON templates
+    <extbase-beyond-html-headless-extbase-plugins-format>`.
+
 :typoscript:`_LOCAL_LANG <t3tsref:plugin-local-lang>`
     Overrides individual translation labels of a plugin without editing its XLF
     files. The key is the language key (`default` or an ISO 639-1 code) followed
