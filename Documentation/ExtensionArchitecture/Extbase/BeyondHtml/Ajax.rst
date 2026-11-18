@@ -94,7 +94,7 @@ The page type renders the plugin directly, without a content element, so the
 plugin takes its storage folder from TypoScript, see
 :ref:`Rendering the plugin without a content element
 <extbase-beyond-html-page-type-plugin-only>`. The response carries the content
-type :php:`application/json` that :php:`jsonResponse()` set, so the
+type `application/json` that :php:`jsonResponse()` set, so the
 :typoscript:`PAGE` object needs no header configuration.
 
 A `PageType decorator <https://docs.typo3.org/permalink/t3coreapi:routing-pagetype-decorator>`_

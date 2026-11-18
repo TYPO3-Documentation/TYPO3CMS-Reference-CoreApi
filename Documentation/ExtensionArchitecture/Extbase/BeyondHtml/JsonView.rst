@@ -52,7 +52,7 @@ Extbase calls this method before it creates the view:
 
 The action then assigns its variables, names the ones to render with
 :php:`setVariablesToRender()`, and returns :php:`$this->jsonResponse()`, which
-renders the view and sets the content type :php:`application/json`:
+renders the view and sets the content type `application/json`:
 
 ..  literalinclude:: _snippets/_ConferenceControllerJsonView.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
