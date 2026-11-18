@@ -185,3 +185,7 @@ plugin. :ref:`Loading Extbase data with fetch() <extbase-beyond-html-ajax>`
 shows the complete path from the action to a script that displays the data,
 and :ref:`Ways to deliver non-HTML output from TYPO3
 <extbase-beyond-html-options>` compares the other options.
+
+In a headless setup, the JSON of the action becomes part of the JSON of the
+page that contains the plugin, see :ref:`Letting an Extbase plugin answer with
+JsonView <extbase-beyond-html-headless-extbase-plugins-jsonview>`.
