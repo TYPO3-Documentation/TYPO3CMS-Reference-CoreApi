@@ -121,7 +121,11 @@ ViewHelper then encodes each value as JSON, with quotes around strings and
 
 The inline syntax :html:`{page.pageRecord.title -> f:format.json()}` does not
 work inside the braces of a JSON object: Fluid takes the braces of the object
-for its own syntax and leaves the expression unparsed.
+for its own syntax and leaves the expression unparsed. This happens when the
+text between two tags contains both braces of the object, even for a plain
+variable such as :html:`{page.id}`. The menu partials below use the inline
+syntax of :html:`f:if` inside a JSON object. It works there, because the tags
+of :html:`f:format.json` split the object into separate parts.
 
 Instead of turning the escaping off, a template can wrap every encoded value
 in the :ref:`f:format.raw <t3viewhelper:typo3fluid-fluid-format-raw>`
