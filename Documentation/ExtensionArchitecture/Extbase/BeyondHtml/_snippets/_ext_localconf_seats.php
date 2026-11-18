@@ -8,6 +8,6 @@ defined('TYPO3') or die();
 ExtensionUtility::configurePlugin(
   'MyExtension',
   'ConferenceSeats',
-  [ConferenceSeatsController::class => 'seats'],
-  [ConferenceSeatsController::class => 'seats'],
+  [ConferenceSeatsController::class => ['seats']],
+  [ConferenceSeatsController::class => ['seats']],
 );
