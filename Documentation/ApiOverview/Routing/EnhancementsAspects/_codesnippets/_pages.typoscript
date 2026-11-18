@@ -9,10 +9,14 @@ page {
 rssfeed = PAGE
 rssfeed {
   typeNum = 13
-  10 < plugin.tx_myextension
+  10 = EXTBASEPLUGIN
+  10 {
+    extensionName = MyExtension
+    pluginName = MyFeed
+  }
   config {
     disableAllHeaderCode = 1
-    additionalHeaders.10.header = Content-Type: xml/rss
+    additionalHeaders.10.header = Content-Type: application/rss+xml; charset=utf-8
   }
 }
 
