@@ -1,0 +1,6 @@
+{escaping off}
+{
+  "uid": <f:format.json value="{conference.uid}" />,
+  "title": <f:format.json value="{conference.title}" />,
+  "description": <f:format.json value="{conference.description}" />
+}

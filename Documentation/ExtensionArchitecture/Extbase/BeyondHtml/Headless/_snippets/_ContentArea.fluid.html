@@ -1,0 +1,10 @@
+{escaping off}
+[
+  <f:for each="{area.records}" as="record" iteration="iteration">
+    {
+      "uid": <f:format.json value="{record.uid}" />,
+      "type": <f:format.json value="{record.recordType}" />,
+      "header": <f:format.json value="{record.header}" />
+    }<f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+  </f:for>
+]

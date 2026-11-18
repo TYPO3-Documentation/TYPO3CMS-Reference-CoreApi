@@ -1,0 +1,29 @@
+{
+  "content": {
+    "main": [
+      {
+        "uid": 34,
+        "type": "textmedia",
+        "header": "Meet the community",
+        "headerLink": "https://example.org/conferences/europe",
+        "data": {
+          "bodytext": "<p>Read about the <a href=\"https://example.org/conferences\">upcoming conferences</a>.</p>",
+          "assets": [
+            {
+              "url": "https://example.org/fileadmin/_processed_/d/1/csm_venue_35c2d0b83c.jpg",
+              "mimeType": "image/jpeg",
+              "alternative": "The conference venue"
+            }
+          ]
+        }
+      },
+      {
+        "uid": 35,
+        "type": "html",
+        "header": "",
+        "headerLink": "",
+        "data": null
+      }
+    ]
+  }
+}

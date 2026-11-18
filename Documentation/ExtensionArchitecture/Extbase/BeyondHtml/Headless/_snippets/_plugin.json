@@ -1,0 +1,24 @@
+{
+  "content": {
+    "main": [
+      {
+        "uid": 41,
+        "type": "myextension_conferencelist",
+        "header": "Upcoming conferences",
+        "headerLink": "",
+        "data": [
+          {
+            "uid": 12,
+            "title": "Community Conference Europe",
+            "link": "https://example.org/conferences/conference/12"
+          },
+          {
+            "uid": 15,
+            "title": "Community Conference Asia",
+            "link": "https://example.org/conferences/conference/15"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+[request.getPageArguments().getPageType() == 1762214410]
+  plugin.tx_myextension_conferencelist.format = json
+[end]
