@@ -30,6 +30,10 @@ declare(strict_types=1);
  *
  * PHP reports no position for a JSON error, so this names the file only. The
  * snippets are short enough for that to be enough.
+ *
+ * A file ending in ".fluid.json" is a Fluid template that renders JSON, named
+ * like a ".fluid.html" template. It contains Fluid syntax, not JSON, and is
+ * skipped.
  */
 
 $directory = $argv[1] ?? 'Documentation';
@@ -37,7 +41,7 @@ $directory = $argv[1] ?? 'Documentation';
 $files = [];
 $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
 foreach ($iterator as $file) {
-    if ($file->isFile() && $file->getExtension() === 'json') {
+    if ($file->isFile() && $file->getExtension() === 'json' && !str_ends_with($file->getFilename(), '.fluid.json')) {
         $files[] = $file->getPathname();
     }
 }

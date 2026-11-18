@@ -1,0 +1,39 @@
+{escaping off}
+{
+  "uid": <f:format.json value="{record.uid}" />,
+  "type": <f:format.json value="{record.recordType}" />,
+  "header": <f:format.json value="{record.header}" />,
+  "headerLink": <f:format.json value="{f:uri.typolink(parameter: record.header_link)}" />,
+  "data": <f:render section="{record.recordType}" arguments="{record: record}" optional="1" default="null" />
+}
+
+<f:section name="text">
+  {
+    "bodytext": <f:format.json><f:format.html>{record.bodytext}</f:format.html></f:format.json>
+  }
+</f:section>
+
+<f:section name="textmedia">
+  {
+    "bodytext": <f:format.json><f:format.html>{record.bodytext}</f:format.html></f:format.json>,
+    "assets": [
+      <f:for each="{record.assets}" as="asset" iteration="iteration">
+        {
+          "url": <f:format.json value="{f:uri.image(image: asset, maxWidth: 1200)}" />,
+          "mimeType": <f:format.json value="{asset.mimeType}" />,
+          "alternative": <f:format.json value="{asset.alternative}" />
+        }<f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+      </f:for>
+    ]
+  }
+</f:section>
+
+<f:section name="shortcut">
+  {
+    "records": [
+      <f:for each="{record.records}" as="referencedRecord" iteration="iteration">
+        <f:render partial="ContentElement" arguments="{record: referencedRecord}" /><f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+      </f:for>
+    ]
+  }
+</f:section>

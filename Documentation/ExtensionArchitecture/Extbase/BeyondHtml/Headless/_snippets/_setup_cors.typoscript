@@ -1,0 +1,5 @@
+pageJson {
+  config {
+    additionalHeaders.20.header = Access-Control-Allow-Origin: https://www.example.org
+  }
+}

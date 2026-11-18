@@ -1,0 +1,12 @@
+{escaping off}
+[
+  <f:for each="{items}" as="item" iteration="iteration">
+    {
+      "title": <f:format.json value="{item.title}" />,
+      "link": <f:format.json value="{item.link}" />,
+      "active": {f:if(condition: item.active, then: 'true', else: 'false')},
+      "current": {f:if(condition: item.current, then: 'true', else: 'false')},
+      "children": <f:render partial="Menu" arguments="{items: item.children}" />
+    }<f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+  </f:for>
+]
