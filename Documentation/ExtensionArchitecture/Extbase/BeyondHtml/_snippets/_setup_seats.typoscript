@@ -1,0 +1,19 @@
+conferenceSeats = PAGE
+conferenceSeats {
+  typeNum = 1762214402
+
+  config {
+    disableAllHeaderCode = 1
+    admPanel = 0
+  }
+
+  10 = EXTBASEPLUGIN
+  10 {
+    extensionName = MyExtension
+    pluginName = ConferenceSeats
+  }
+}
+
+plugin.tx_myextension_conferenceseats {
+  persistence.storagePid = 42
+}

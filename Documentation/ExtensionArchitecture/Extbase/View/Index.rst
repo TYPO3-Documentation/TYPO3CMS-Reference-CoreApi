@@ -313,59 +313,14 @@ ViewHelpers like :html:`f:form.textfield` that must locate a parent
 context and must not be used in those situations.
 
 
-..  _extbase-view-jsonview:
-..  _extbase-response-json:
+..  _extbase-view-json:
 
-`JsonView`: rendering JSON responses from Extbase
-=================================================
+Rendering JSON instead of HTML in the Extbase view
+==================================================
 
-To return :abbr:`JSON (JavaScript Object Notation)` from an action, set
-:php:`$this->defaultViewObjectName` to
-:php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView::class` and then return
-:php:`$this->jsonResponse()`. Extbase will then use
-:php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` instead of Fluid to render
-the response body.
-
-:php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` does not expose all assigned
-variables by default. Declare which variables to include with
-:php:`setVariablesToRender()`, and set which properties of each object are
-exposed with :php:`setConfiguration()`:
-
-..  literalinclude:: _snippets/_ConferenceControllerJsonView.php
-    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-The configuration keys are:
-
-*   :php:`_only` — allowlist of property names to include.
-*   :php:`_exclude` — denylist of property names to omit.
-*   :php:`_descend` — descend into a named sub-object and apply nested
-    configuration to it.
-*   :php:`_descendAll` — apply the same nested configuration to every element
-    of an array or :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`.
-
-For simple cases where the JSON structure can be built explicitly, skip
-:php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` by passing a string
-to :php:`jsonResponse()` directly:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    public function countAction(): ResponseInterface
-    {
-        return $this->jsonResponse(json_encode([
-            'count' => $this->conferenceRepository->countAll(),
-        ]));
-    }
-
-A JSON response from a plugin on a regular page does not replace the page: it
-is inserted into the page HTML, and its content type becomes the content type
-of the whole page. Deliver JSON at its own URL instead.
-
-..  seealso::
-
-    *   `Registration: frontend plugin <https://docs.typo3.org/permalink/t3coreapi:extbase-registration-frontend-plugin>`_
-        for how to register a controller action as a cacheable or
-        non-cacheable plugin.
-
-    *   `Ways to deliver non-HTML output from TYPO3 <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-options>`_
-        for the ways to give JSON its own URL.
+An action that answers with :abbr:`JSON (JavaScript Object Notation)` instead
+of HTML can use :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` in place of a
+Fluid template, see
+:ref:`Rendering JSON with JsonView in Extbase <extbase-beyond-html-jsonview>`.
+How the JSON reaches a browser or a script is described in
+:ref:`Beyond HTML delivery <extbase-beyond-html>`.
