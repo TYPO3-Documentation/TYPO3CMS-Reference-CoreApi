@@ -111,8 +111,8 @@ the escaping off.
 
 The :ref:`f:format.json <t3viewhelper:typo3fluid-fluid-format-json>`
 ViewHelper then encodes each value as JSON, with quotes around strings and
-`null` for a missing value. It also encodes `<` and `>` as `<` and
-`>`, which is still valid JSON. Use its tag syntax:
+`null` for a missing value. It also encodes `<` and `>` as `\\u003C` and
+`\\u003E`, which is still valid JSON. Use its tag syntax:
 
 ..  code-block:: html
     :caption: Encoding one value as JSON
