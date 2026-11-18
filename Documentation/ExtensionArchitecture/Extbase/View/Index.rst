@@ -218,6 +218,12 @@ Place your overriding template in the same relative path as in the original.
 :file:`Conference/List.fluid.html` overrides :file:`Conference/List.fluid.html`
 in the third-party extension.
 
+The same path can also add templates for another format that the extension
+does not ship. :file:`Conference/List.fluid.json` lets the plugin of a
+third-party extension deliver JSON to a headless frontend, see
+:ref:`Letting an Extbase plugin answer with JSON templates
+<extbase-beyond-html-headless-extbase-plugins-format>`.
+
 **Key value is the only thing that matters:** TypoScript path arrays are
 assembled from all active extensions and resolved by numeric key — the higher
 key wins. Load order between extensions does not affect this. Declare the
