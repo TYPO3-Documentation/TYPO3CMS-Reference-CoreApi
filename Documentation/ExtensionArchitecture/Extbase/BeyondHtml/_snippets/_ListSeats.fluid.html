@@ -1,0 +1,18 @@
+<f:asset.script
+  identifier="conferenceSeats"
+  src="EXT:my_extension/Resources/Public/JavaScript/conference-seats.js"
+  defer="1"
+/>
+
+<ul data-seats-url="{f:uri.page(pageType: 1762214402)}">
+  <f:for each="{conferences}" as="conference">
+    <li data-conference="{conference.uid}">
+      <f:link.action action="show" arguments="{conference: conference}">
+        {conference.title}
+      </f:link.action>
+      <span data-seats hidden>
+        Seats left: <span data-seats-count></span>
+      </span>
+    </li>
+  </f:for>
+</ul>
