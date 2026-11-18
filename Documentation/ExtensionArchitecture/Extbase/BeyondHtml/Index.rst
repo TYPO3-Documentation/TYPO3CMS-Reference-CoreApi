@@ -97,8 +97,14 @@ page that a script loads, such as the next page of a list.
 
 ..  seealso::
 
-    `Delivering Extbase output with a typeNum page type <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type>`_
-    — how it works, what it costs, and when it is the right tool.
+    *   `Delivering Extbase output with a typeNum page type <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-page-type>`_
+        — how it works, what it costs, and when it is the right tool.
+
+    *   `Loading Extbase data with fetch() <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-ajax>`_
+        — a script that loads JSON from a page type into a cached page.
+
+    *   `Rendering JSON with JsonView in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-jsonview>`_
+        — how an action renders its variables as JSON.
 
 ..  _extbase-beyond-html-option-plugin-on-page:
 
@@ -189,12 +195,13 @@ it itself. The community extension :composer:`friendsoftypo3/headless`
 outputs TYPO3 content in JSON format for such setups. Extbase can supply the
 data, while Fluid templates have no role in the output.
 
-..  Planned pages of this chapter, placement and order TBD: AJAX with fetch()
-    and a non-cacheable action, JsonView (moved here from View/Index.rst), a
-    middleware endpoint, and headless delivery.
+..  Planned pages of this chapter, placement and order TBD: a middleware
+    endpoint, and headless delivery.
 
 ..  toctree::
     :titlesonly:
     :hidden:
 
     PageType
+    Ajax
+    JsonView
