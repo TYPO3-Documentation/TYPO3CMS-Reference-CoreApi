@@ -152,6 +152,11 @@ No Extbase controller is dispatched there, and repositories need their
 configuration established first, see
 :ref:`Extbase in middlewares <extbase-no-frontend-middleware>`.
 
+..  seealso::
+
+    `Answering a script from a PSR-15 middleware <https://docs.typo3.org/permalink/t3coreapi:extbase-beyond-html-middleware>`_
+    — an endpoint that answers with JSON before any page is resolved.
+
 ..  _extbase-beyond-html-option-eid:
 
 Using an eID script
@@ -195,8 +200,7 @@ it itself. The community extension :composer:`friendsoftypo3/headless`
 outputs TYPO3 content in JSON format for such setups. Extbase can supply the
 data, while Fluid templates have no role in the output.
 
-..  Planned pages of this chapter, placement and order TBD: a middleware
-    endpoint, and headless delivery.
+..  Planned page of this chapter: headless delivery.
 
 ..  toctree::
     :titlesonly:
@@ -205,3 +209,4 @@ data, while Fluid templates have no role in the output.
     PageType
     Ajax
     JsonView
+    Middleware
