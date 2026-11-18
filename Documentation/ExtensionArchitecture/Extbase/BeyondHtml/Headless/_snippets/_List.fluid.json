@@ -1,0 +1,10 @@
+{escaping off}
+[
+  <f:for each="{conferences}" as="conference" iteration="iteration">
+    {
+      "uid": <f:format.json value="{conference.uid}" />,
+      "title": <f:format.json value="{conference.title}" />,
+      "link": <f:format.json value="{f:uri.action(action: 'show', arguments: {conference: conference})}" />
+    }<f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+  </f:for>
+]

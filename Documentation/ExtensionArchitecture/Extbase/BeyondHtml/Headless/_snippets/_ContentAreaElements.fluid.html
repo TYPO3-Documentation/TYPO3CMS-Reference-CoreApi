@@ -1,0 +1,6 @@
+{escaping off}
+[
+  <f:for each="{area.records}" as="record" iteration="iteration">
+    <f:render partial="ContentElement" arguments="{record: record}" /><f:if condition="{iteration.isLast}"><f:else>,</f:else></f:if>
+  </f:for>
+]
