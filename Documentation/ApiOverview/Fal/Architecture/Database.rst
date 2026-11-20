@@ -7,7 +7,9 @@ Database structure
 ==================
 
 This chapter lists the various tables related to the file abstraction layer
-(FAL) and highlights some of their important fields.
+(FAL) and highlights some of their important fields. The file storages are not
+in the database, they are configured in the file
+`config/system/file-storages.yaml <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_.
 
 ..  contents::
     :local:
@@ -184,31 +186,13 @@ The most important fields are:
 
 :sql:`folder_identifier`
     The field contains the so-called "combined identifier" in the format
-    `storage:folder`, where "storage" is the :sql:`uid` of the corresponding
-    :sql:`sys_file_storage` record and :sql:`folder` the absolute path to the
-    folder. An example for a combined identifier is `1:/user_upload`.
+    `storage:folder`, where "storage" is the identifier of the
+    `file storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_
+    and "folder" the absolute path to the folder. An example for a combined
+    identifier is `1:/user_upload`.
 
 :sql:`category`
     The chosen categories, for category-type :ref:`collections <collections-files>`.
-
-
-..  index:: Tables; sys_file_storage
-..  _fal-architecture-database-sys-file-storage:
-
-`sys_file_storage`
-==================
-
-This table is used to store the storages available in the installation.
-The most important fields are:
-
-:sql:`driver`
-    The type of :ref:`driver <fal-architecture-components-drivers>` used for the
-    :ref:`storage <fal-architecture-components-storage>`.
-
-:sql:`configuration`
-    The storage configuration with regards to its driver. This is a
-    :ref:`FlexForm field <t3tca:columns-flex>` and the current options
-    depend on the selected driver.
 
 
 ..  index:: Tables; sys_filemounts

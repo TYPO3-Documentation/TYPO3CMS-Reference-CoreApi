@@ -161,8 +161,9 @@ This is what the user will see:
 involve several steps. First of all, you need to have at least
 one :ref:`File Storage <fal-concepts-storages-drivers>`. By
 default, you will always have one, pointing
-to the :file:`fileadmin` directory. It is created by TYPO3 CMS
-upon installation.
+to the :file:`fileadmin` directory. TYPO3 uses it without any
+configuration. Further storages are configured in the file
+`config/system/file-storages.yaml <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_.
 
 ..  note::
 
@@ -170,9 +171,6 @@ upon installation.
     TYPO3 CMS expects media resources to be located. It can be
     changed using the global configuration option
     :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
-
-..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/FileStorage.png
-    :zoom: lightbox
 
 A *File Storage* is essentially defined by a *File Driver*
 and the path to which it points.
