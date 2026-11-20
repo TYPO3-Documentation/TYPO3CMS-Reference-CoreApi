@@ -452,6 +452,45 @@ You only need :file:`ext_tables.sql` for:
     :ref:`File structure <extension-files-locations>` — complete extension file
     and folder structure reference.
 
+..  _extbase-domain-model-db-columns-system-fields:
+
+Reading system fields such as `crdate` in an Extbase model
+----------------------------------------------------------
+
+TYPO3 manages some fields of a record itself, for example the time the record
+was created. The `ctrl` section of the TCA names these fields. A model
+property with the name of such a field receives its value only if the field
+also has a definition in `columns`:
+
+*   For the fields that the `ctrl` properties
+    `enablecolumns <https://docs.typo3.org/permalink/t3tca:confval-ctrl-enablecolumns>`_,
+    `editlock <https://docs.typo3.org/permalink/t3tca:confval-ctrl-editlock>`_,
+    and `descriptionColumn <https://docs.typo3.org/permalink/t3tca:confval-ctrl-descriptioncolumn>`_
+    name, such as `hidden` and `starttime`, TYPO3 creates the `columns`
+    definition itself. A model property reads them without further
+    configuration.
+*   The fields that the `ctrl` properties
+    `tstamp <https://docs.typo3.org/permalink/t3tca:confval-ctrl-tstamp>`_,
+    `crdate <https://docs.typo3.org/permalink/t3tca:confval-ctrl-crdate>`_,
+    `delete <https://docs.typo3.org/permalink/t3tca:confval-ctrl-delete>`_,
+    and `sortby <https://docs.typo3.org/permalink/t3tca:confval-ctrl-sortby>`_
+    name, usually `tstamp`, `crdate`, `deleted`, and `sorting`, have no
+    `columns` definition. Add one of
+    `TCA type passthrough <https://docs.typo3.org/permalink/t3tca:columns-passthrough>`_
+    to read them in a model.
+
+..  tabs::
+
+    ..  group-tab:: Model
+
+        ..  literalinclude:: _snippets/_ConferenceWithSystemFields.php
+            :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+    ..  group-tab:: TCA
+
+        ..  literalinclude:: _snippets/_conference_system_fields_tca.php
+            :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_conference.php
+
 
 ..  _extbase-domain-model-value-objects:
 
