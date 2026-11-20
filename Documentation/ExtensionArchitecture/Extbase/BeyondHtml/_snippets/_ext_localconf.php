@@ -9,11 +9,11 @@ defined('TYPO3') or die();
 ExtensionUtility::configurePlugin(
   'MyExtension',
   'ConferenceList',
-  [ConferenceController::class => 'list'],
+  [ConferenceController::class => ['list']],
 );
 
 ExtensionUtility::configurePlugin(
   'MyExtension',
   'ConferenceFeed',
-  [ConferenceFeedController::class => 'feed'],
+  [ConferenceFeedController::class => ['feed']],
 );

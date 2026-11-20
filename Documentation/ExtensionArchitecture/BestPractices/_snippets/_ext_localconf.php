@@ -7,9 +7,9 @@ ExtensionUtility::configurePlugin(
   'Examples',
   'HtmlParser',
   [
-    HtmlParserController::class => 'index',
+    HtmlParserController::class => ['index'],
   ],
   [
-    HtmlParserController::class => 'index',
+    HtmlParserController::class => ['index'],
   ],
 );
