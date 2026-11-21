@@ -240,8 +240,10 @@ Example template using the partial:
 
 The variable :html:`post.tags` is passed to the partial as variable :html:`tags`.
 
-If ViewHelpers from a different namespace are used in the partial, the namespace
-import can be done in the template or the partial.
+If ViewHelpers from a different namespace are used in the partial, import the
+namespace in the partial itself. A partial does not get the namespace imports of
+the template that renders it. Without the import, Fluid stops with an
+:php:`UnknownNamespaceException`. The same applies to layouts.
 
 ..  _fluid-components:
 
