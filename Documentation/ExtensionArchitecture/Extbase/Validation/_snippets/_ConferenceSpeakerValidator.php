@@ -16,7 +16,7 @@ class ConferenceSpeakerValidator extends AbstractValidator
       $this->addErrorForProperty(
         'speaker',
         $this->translateErrorMessage(
-          'my_extension.messages:validator.conference.speakerRequired',
+          'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:validator.conference.speakerRequired',
         ),
         1716300100,
       );

@@ -38,9 +38,10 @@ The sequence for every request that carries arguments is:
     :ref:`Property mapping <extbase-controller-propertymapping>`).
 2.  **Validation** — the mapped values are checked against any
     :php:`#[Validate]` attributes declared on the action parameter, on the
-    domain model property, or both. Property validators run first; action
-    parameter validators run afterwards. Either alone is sufficient — both
-    can be combined on the same type.
+    domain model property, or both. Action parameter validators run first,
+    then the validators of the model. All validators run, also after one of
+    them has failed. Either alone is sufficient — both can be combined on the
+    same type.
 3.  **Action dispatch** — if validation passes, the action method is called
     with the resolved arguments.
 4.  **Error handling** — if validation fails, :php:`errorAction()` is called
