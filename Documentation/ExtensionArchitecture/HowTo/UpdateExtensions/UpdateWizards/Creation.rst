@@ -119,7 +119,9 @@ Wizard identifier
 The wizard identifier is used:
 
 *   when calling the wizard from the :ref:`command line <upgrade-wizard-execute>`.
-*   when marking the wizard as done in the table :sql:`sys_registry`
+
+TYPO3 marks a wizard as done in the table :sql:`sys_registry` under the fully
+qualified name of its class, not under the identifier.
 
 Since all upgrade wizards of TYPO3 Core and extensions are registered using the
 identifier, it is recommended to prepend the wizard identifier with a prefix
@@ -135,10 +137,10 @@ You **should** use the following naming convention for the identifier:
 
 ..  attention::
     Any identifier will still work, using these naming conventions is not
-    enforced. In fact, it is not recommended to change already existing wizard
-    identifiers: The information, that the wizard was performed is stored
-    using the identifier in the :sql:`sys_registry` table and this information
-    would then be lost.
+    enforced. Do not rename or move the class of an existing wizard: the
+    information that the wizard was performed is stored under the class name
+    in the :sql:`sys_registry` table, so a wizard with a new class name is
+    offered and runs again.
 
 Some examples:
 

@@ -359,9 +359,13 @@ Now our example project's :file:`composer.json` would look like this:
 ..  literalinclude:: _composerRepositories.json
     :caption: typo3_root/composer.json (excerpt)
 
-After adding or changing paths in the autoload section you should run :bash:`composer dumpautoload`. This command
-will re-generate the autoload information and should be run anytime you add new paths to the autoload section
-in the :file:`composer.json`.
+After adding or changing paths in the autoload section of the project's :file:`composer.json`, run
+:bash:`composer dumpautoload`. This command re-generates the autoload information.
+
+After changing the autoload section in the :file:`composer.json` of an extension, run
+:bash:`composer update myvendor/my-sitepackage` (with the package name of the extension) instead.
+:bash:`composer dumpautoload` does not read the :file:`composer.json` of an installed package again:
+it uses the copy that Composer stored when it installed the package.
 
 After all custom extensions have been moved out of :file:`typo3conf/ext/` you can delete the directory
 from your project. You may also want to adapt your :file:`.gitignore` file to remove any entries
