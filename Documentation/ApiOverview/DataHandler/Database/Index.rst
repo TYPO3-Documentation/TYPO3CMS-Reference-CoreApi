@@ -108,8 +108,8 @@ command
     The command type you want to execute.
 
     ..  note::
-        Only *one* command can be executed at a time for each
-        record! The first command in the array will be taken.
+        If the array of a record contains more than one command, the
+        DataHandler executes all of them, in the order of the array.
 
     See :ref:`command keywords and values <datahandler-command-keywords>`
 
