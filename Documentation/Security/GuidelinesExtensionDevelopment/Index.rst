@@ -190,10 +190,12 @@ But there is a problem with this: If we forget or fail to encode input
 data just once, an XSS vulnerability will exist in the system.
 
 In Fluid, the output of every object accessor that occurs in a
-template is automatically processed by :php:`htmlspecialchars()`. But
-Fluid uses :php:`htmlspecialchars()` only for templates with the
-extension *.html*. If you use other output formats, it is disabled, and you
-have to make sure to convert the special characters correctly.
+template is automatically processed by :php:`htmlspecialchars()`. This
+applies to every template, whatever its file extension or format: a
+:file:`.txt` template, for example for a plain-text email, is escaped
+too. In plain text, the reader then sees `&amp;` instead of `&`. Turn
+escaping off with :html:`<f:format.raw>` only for content that is safe
+in that format.
 
 Content that is output via the ViewHelper :html:`<f:format.raw>` is not
 sanitized. See
