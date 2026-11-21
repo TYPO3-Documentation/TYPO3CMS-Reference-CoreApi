@@ -7,7 +7,7 @@ $GLOBALS['SiteConfiguration']['site']['columns']['myNewField'] = [
   'label' => 'A new custom field',
   'config' => [
     'type' => 'input',
-    'eval' => 'required',
+    'required' => true,
   ],
 ];
 
