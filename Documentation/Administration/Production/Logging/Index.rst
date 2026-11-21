@@ -42,10 +42,12 @@ During development, it is often useful to log detailed information. In
 production, logging should be limited to important issues—typically messages at
 the `ERROR` level or higher—to reduce disk usage and improve performance.
 
-By default, when the
-`Application Context <https://docs.typo3.org/permalink/t3coreapi:application-context>`_
-is set to `Production`, only messages with a severity of
-:php-short:`\Psr\Log\LogLevel::ERROR` or higher are logged.
+By default, TYPO3 logs messages with a severity of
+:php-short:`\Psr\Log\LogLevel::WARNING` or higher to its log file, in every
+`Application Context <https://docs.typo3.org/permalink/t3coreapi:application-context>`_.
+TYPO3 does not change this level for `Production`. To log only errors in
+production, set the level of the default writer configuration to
+:php-short:`\Psr\Log\LogLevel::ERROR` yourself.
 
 You can also configure different writers for specific log levels. This allows
 you to, for example, write warnings and errors to separate files, or ignore

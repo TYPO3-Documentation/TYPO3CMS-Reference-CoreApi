@@ -20,9 +20,11 @@ the exception output can be found for example in the following locations:
 
 :php:`\TYPO3\CMS\Core\Log\Writer\FileWriter`
     In Composer-based installations the information can be found in directory
-    :path:`var/logs/`. In Classic mode installations in :path:`typo3temp/var/logs/`.
+    :path:`var/log/`. In Classic mode installations in :path:`typo3temp/var/log/`.
 :php:`\TYPO3\CMS\Core\Log\Writer\SyslogWriter`
-    Logs exception messages to the :sql:`sys_log` table. Logged errors are displayed
+    Logs exception messages to the syslog of the operating system.
+:php:`\TYPO3\CMS\Core\Log\Writer\DatabaseWriter`
+    Logs exception messages to the database table :sql:`sys_log`. Logged errors are displayed
     in the backend module :guilabel:`Administration > Log`.
 
 Here you find a complete list of :ref:`Log writers <logging-writers>`.

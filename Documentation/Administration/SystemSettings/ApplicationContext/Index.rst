@@ -259,30 +259,24 @@ Parent `ApplicationContext`
 ===========================
 
 This section only applies if you have divided the `ApplicationContext` into
-several sections using slashes (`/`). The entire remaining value after the
-first slash is used to instantiate a new `ApplicationContext`. The so-called
-parent `ApplicationContext`. Here you can see how the context is nested:
+several sections using slashes (`/`). The value without its last section is
+used to instantiate a new `ApplicationContext`, the so-called parent
+`ApplicationContext`. Here you can see how the context is nested:
 
 *   ApplicationContext: `Development/Local/Ddev/Dev2`
 
-    *   Root ApplicationContext: `Development`
-    *   Parent ApplicationContext: `Local/Ddev/Dev2`
+    *   Parent ApplicationContext: `Development/Local/Ddev`
 
-        *   Root ApplicationContext: `Local`
-        *   Parent ApplicationContext: `Ddev/Dev2`
+        *   Parent ApplicationContext: `Development/Local`
 
-            *   Root ApplicationContext: `Ddev`
-            *   Parent ApplicationContext: `Dev2`
+            *   Parent ApplicationContext: `Development`, which has no parent
 
-As written above the root `ApplicationContext` must always be one of the 3
-values: `Production`, `Development` or `Testing`. With the 2nd nesting at the
-latest, the root `ApplicationContext` here is now `Local` and with the 3rd
-nesting `Ddev`. There is no way to query this `root ApplicationContext` in the
-PHP class :php:`ApplicationContext`! You only have the option of using
-`getParent()` to access the next parent `ApplicationContext` and using
-:php:`(string)getParent()` to return the complete `ApplicationContext` as a
-string. This means that `Local/Ddev/Dev2` is returned at level 2
-and `Ddev/Dev2` at level 3.
+Every `ApplicationContext` in this chain has the same root context,
+`Development`. Use :php:`getParent()` to access the next parent
+`ApplicationContext`, and cast it to a string to get its complete value:
+:php:`(string)$context->getParent()` returns `Development/Local/Ddev` at
+level 1 and :php:`(string)$context->getParent()->getParent()` returns
+`Development/Local` at level 2.
 
 ..  _read-application-context:
 
