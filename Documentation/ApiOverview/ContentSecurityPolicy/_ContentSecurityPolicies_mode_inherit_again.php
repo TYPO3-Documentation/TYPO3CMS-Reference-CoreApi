@@ -36,7 +36,7 @@ return Map::fromEntries([
     ),
     new Mutation(
       MutationMode::InheritAgain,
-      Directive::ScriptSrc,
+      Directive::ImgSrc,
     ),
   ),
 ]);

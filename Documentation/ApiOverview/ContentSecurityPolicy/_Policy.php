@@ -5,9 +5,6 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceKeyword;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceScheme;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
-use TYPO3\CMS\Core\Security\Nonce;
-
-$nonce = Nonce::create();
 $policy = (new Policy())
     // Results in `default-src 'self'`
     ->default(SourceKeyword::self)
@@ -27,5 +24,3 @@ $policy = (new Policy())
     // thus ignores 'self' of the 'default-src' directive
     // Results in `worker-src blob:`
     ->set(Directive::WorkerSrc, SourceScheme::blob);
-
-header('Content-Security-Policy: ' . $policy->compile($nonce));
