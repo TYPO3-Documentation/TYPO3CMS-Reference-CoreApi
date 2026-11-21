@@ -148,15 +148,10 @@ Editors can also set it per plugin content element via the
     also check the :typoscript:`persistence.recursive` setting — without it,
     Extbase only looks at the configured page itself, not its children.
 
-To disable the storagePid restriction entirely — for example in a backend
-context or when querying across all pages — set it to `0`:
-
-..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
-
-    plugin.tx_myextension.persistence.storagePid = 0
-
-Or override it in PHP inside a repository method:
+:typoscript:`storagePid = 0` does not disable the restriction: Extbase then
+looks for records on page 0 only, and most queries return nothing. To query
+across all pages — for example in a backend context — switch the restriction
+off in PHP inside a repository method:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
