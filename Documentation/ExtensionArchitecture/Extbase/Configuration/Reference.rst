@@ -543,7 +543,7 @@ different:
 :typoscript:`showPageNotFoundIfRequiredArgumentIsMissingException <t3tsref:plugin-mvc-showpagenotfoundifrequiredargumentismissingexception>`
     A **required** argument is absent — the URL omits an argument that the
     action declares as mandatory. Without this setting, Extbase throws a
-    :php:`\TYPO3\CMS\Extbase\Mvc\Exception\RequiredArgumentMissingException`; with
+    :php:`\TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException`; with
     it, the 404 page is shown.
 
 For behavior beyond "show the 404 page", for example, logging, redirects, custom error

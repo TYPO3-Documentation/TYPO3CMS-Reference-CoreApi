@@ -93,7 +93,9 @@ directly to :php:`showAction()`. A manual repository call is not necessary.
 The lookup ignores the storagePid restriction but always respects enableFields
 — hidden records, records outside their starttime/endtime window, deleted
 records, and records from other workspaces will not be resolved. If the record
-cannot be found, Extbase calls :php:`errorAction()` instead of the action.
+cannot be found, Extbase throws a
+:php:`\TYPO3\CMS\Extbase\Property\Exception\TargetNotFoundException`.
+:php:`errorAction()` is not called.
 
 Optional parameters require a default value. A nullable type alone
 (:php:`?Conference $conference`) is not sufficient — without :php:`= null`,
@@ -108,9 +110,11 @@ do for a missing argument. Always combine the nullable type with a default:
     public function showAction(?Conference $conference = null): ResponseInterface { ... }
 
 If an argument is missing from the request and there is no default value, Extbase
-calls :php:`errorAction()` instead. See
-:ref:`errorAction: Extbase validation and argument-mapping errors
-<extbase-controller-action-error>`.
+throws a
+:php:`\TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException`.
+:php:`errorAction()` is not called. To show the "page not found" page for
+both cases instead, see
+`MVC error handling: the mvc block <https://docs.typo3.org/permalink/t3coreapi:extbase-configuration-typoscript-mvc>`_.
 
 ..  seealso::
 
@@ -569,6 +573,11 @@ If argument mapping or validation fails, Extbase calls :php:`errorAction()`
 instead of the original action. The default implementation either dispatches back
 to the referring action (re-displaying the form with validation errors) or
 returns a plain `HTTP 400 Bad Request <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/400>`_ text response.
+
+Two argument errors do not reach :php:`errorAction()`: a record that is not
+found and a missing required argument. Extbase throws an exception for them,
+see
+`Action arguments and automatic Extbase object resolution <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-action-arguments>`_.
 
 The flash message goes along with the
 :ref:`forward <extbase-action-controller-forward>`, not through the user
