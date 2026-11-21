@@ -36,7 +36,9 @@ class in the :file:`Classes/` folder should be located at the same position with
 folder having the additional suffix :file:`Test.php` to the system under test file name. The class of the
 test file should extend the basic unit test abstract :php:`TYPO3\TestingFramework\Core\Unit\UnitTestCase`. Single
 tests should be named starting with the method that is tested plus some explaining suffix and should
-be annotated with :php:`@test`.
+carry the attribute :php:`#[\PHPUnit\Framework\Attributes\Test]`. PHPUnit 12 no longer reads the
+annotation :php:`@test` in a DocBlock: a method marked only with it is not run, unless its name
+starts with `test`.
 
 Example for a system under test located at :file:`typo3/sysext/core/Utility/ArrayUtility.php` (stripped):
 
@@ -82,8 +84,8 @@ adds some functionality on top of phpunit:
 
 *   A :php:`getAccessibleMock()` method: This method can be useful if a protected method of the system under test
     class needs to be accessed. It also allows to "mock-away" other methods, but keep the method that is tested.
-    Note this method should *not* be used if just a full class dependency needs to be mocked. Use prophecy (see below)
-    to do this instead. If you find yourself using that method, it's often a hint that something in the
+    Note this method should *not* be used if just a full class dependency needs to be mocked. Use a mock object of PHPUnit
+    (:php:`$this->createMock()`) to do this instead. If you find yourself using that method, it's often a hint that something in the
     system under test is broken and should be modelled differently. So, don't use that blindly and consider
     extracting the system under test to a utility or a service. But yes, there are situations when :php:`getAccessibleMock()`
     can be very helpful to get things done.
