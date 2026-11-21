@@ -41,7 +41,7 @@ This variable can be set in one of the following files:
 
         html
             Send emails only in HTML format
-        txt
+        plain
             Send emails only in plain text format
         both
             Send emails in HTML and plain text format
