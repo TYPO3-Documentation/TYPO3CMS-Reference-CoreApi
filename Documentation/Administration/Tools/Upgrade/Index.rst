@@ -157,3 +157,6 @@ The **extension scanner** can be used to find deprecated code in extensions.
 
 Using the extension scanner to update custom extensions is described in more detail
 in `Extension scanner <https://docs.typo3.org/permalink/t3coreapi:extension-scanner>`_.
+
+The extension scanner is also available as the console command
+`upgrade:scan <https://docs.typo3.org/permalink/t3coreapi:extension-scanner-cli>`_.

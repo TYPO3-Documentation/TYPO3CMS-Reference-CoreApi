@@ -69,6 +69,57 @@ Quick start
 
        Deprecations as strong and weak matches in the extension scanner for EXT:news
 
+..  index::
+    Extension scanner; upgrade:scan
+    Command; upgrade:scan
+..  _extension-scanner-cli:
+
+Scanning extensions on the command line
+=======================================
+
+..  versionadded:: 15.0
+    :changelog: feature-110859-1790541000
+
+The console command `upgrade:scan` reports the same findings as
+:guilabel:`System > Upgrade > Scan Extension Files`. It is part of
+:composer:`typo3/cms-install`, so it is not available if this package is
+not installed, for example on a production system.
+
+..  code-block:: bash
+
+    # All extensions that are not part of the Core
+    vendor/bin/typo3 upgrade:scan
+
+    # Only the named extensions
+    vendor/bin/typo3 upgrade:scan my_extension my_other_extension
+
+    # Also list the changelog files of each finding
+    vendor/bin/typo3 upgrade:scan -v
+
+The command has these options:
+
+`--indicator=strong|weak`
+    Lists only the findings with this indicator. The summary and the exit
+    code still count all findings.
+
+`--fail-on=strong|any|none`
+    Decides which findings make the exit code non-zero. The default is
+    `strong`: strong findings and files that the scanner could not read fail
+    the run. With `any`, weak findings fail it too. With `none`, the exit code
+    is always `0`.
+
+`--json`
+    Writes the result as JSON to the standard output. It contains the Core
+    version of the rules, a summary that counts all files and findings, and
+    the files with findings.
+
+With the exit code, you can run the scanner in continuous integration, for
+example:
+
+..  code-block:: bash
+
+    vendor/bin/typo3 upgrade:scan my_extension --fail-on=strong
+
 ..  _extension-scanner-goals-non-goals:
 
 Goals and non goals
