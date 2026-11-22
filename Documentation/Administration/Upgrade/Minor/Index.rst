@@ -58,6 +58,16 @@ Post update
 Once Composer has completed updating the TYPO3 installation log in to the
 backend and clear all caches.
 
+Then `update the reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_
+again.
+
+..  versionchanged:: 13.2
+    :changelog: important-103748-1714290385
+
+    TYPO3 reads relations from the reference index, also in the frontend.
+    Update the index after each TYPO3 Core update, also a patch/bugfix
+    update.
+
 You should also do a `database compare <https://docs.typo3.org/permalink/t3coreapi:database-upgrade>`_.
 
 :guilabel:`System > Maintenance > Flush TYPO3 and PHP Cache`
