@@ -158,19 +158,15 @@ The command keeps the records of a missing file that is still referenced,
 also by a link such as `t3://file?uid=…`. With option `-v`, it lists these
 files, so that you can restore the file or remove the references.
 
-The command has these options:
+..  console:command:: cleanup:missingfiles
+    :json: /ApiOverview/CommandControllers/commands.json
+    :script: vendor/bin/typo3
+    :exclude-option: help, quiet, verbose, version, ansi, no-ansi, no-interaction, silent
+    :no-help:
+    :noindex:
 
-`--update-refindex`
-    Update the `reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_
-    first. The reference index decides whether a file is still referenced.
-
-`--update-storage=<uid>`
-    Update the index of the storage with this uid first, so that the files
-    deleted outside of TYPO3 are flagged as missing. Repeat the option for
-    more storages, or use `--update-storage=all`.
-
-`--dry-run`
-    Only show which records the command would remove.
+The reference index decides whether a file is still referenced, so update it
+first, see `Update the reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_.
 
 Without `--update-refindex` and `--update-storage`, the command asks whether
 it should update the reference index and the index of all storages. Without
