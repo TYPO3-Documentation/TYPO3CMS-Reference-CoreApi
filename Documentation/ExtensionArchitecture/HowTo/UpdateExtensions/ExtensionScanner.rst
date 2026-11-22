@@ -96,25 +96,15 @@ not installed, for example on a production system.
     # Also list the changelog files of each finding
     vendor/bin/typo3 upgrade:scan -v
 
-The command has these options:
+..  console:command:: upgrade:scan
+    :json: /ApiOverview/CommandControllers/commands.json
+    :script: vendor/bin/typo3
+    :exclude-option: help, quiet, verbose, version, ansi, no-ansi, no-interaction, silent
+    :noindex:
 
-`--indicator=strong|weak`
-    Lists only the findings with this indicator. The summary and the exit
-    code still count all findings.
-
-`--fail-on=strong|any|none`
-    Decides which findings make the exit code non-zero. The default is
-    `strong`: strong findings and files that the scanner could not read fail
-    the run. With `any`, weak findings fail it too. With `none`, the exit code
-    is always `0`.
-
-`--json`
-    Writes the result as JSON to the standard output. It contains the Core
-    version of the rules, a summary that counts all files and findings, and
-    the files with findings.
-
-With the exit code, you can run the scanner in continuous integration, for
-example:
+By default, strong findings and files that the scanner could not read make
+the exit code non-zero. With the exit code, you can run the scanner in
+continuous integration, for example:
 
 ..  code-block:: bash
 
