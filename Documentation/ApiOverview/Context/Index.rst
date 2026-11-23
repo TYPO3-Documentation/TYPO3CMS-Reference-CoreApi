@@ -192,8 +192,8 @@ overlayType
 
     *   :php:`LanguageAspect::OVERLAYS_OFF`
     *   :php:`LanguageAspect::OVERLAYS_MIXED`
-    *   :php:`LanguageAspect::OVERLAYS_ON` or
-    *   :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default)
+    *   :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default) or
+    *   :php:`LanguageAspect::OVERLAYS_ON` (deprecated)
 
     See :ref:`Overlay types <context-api-aspects-language-overlay-types>` for
     more details.
@@ -254,8 +254,15 @@ Overlay types
     If a record is not translated, the default language will be used.
 
 :php:`LanguageAspect::OVERLAYS_ON`
+    ..  deprecated:: 15.0
+        :changelog: deprecation-111326-1793692850
+
+        Use :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` instead.
+
     Fetch records from the default language and overlay them with translations.
-    If a record is not translated, it will not be displayed.
+    If a record is not translated, it will not be displayed. Records without
+    a default language parent are not included. No site configuration
+    results in this overlay type.
 
 :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING`
     Fetch records from the default language and overlay them with translations.

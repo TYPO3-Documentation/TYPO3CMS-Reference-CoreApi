@@ -23,7 +23,7 @@ final readonly class MyEventListener
     $newLanguageAspect = new LanguageAspect(
       $currentLanguageAspect->getId(),
       $currentLanguageAspect->getContentId(),
-      LanguageAspect::OVERLAYS_ON,
+      LanguageAspect::OVERLAYS_ON_WITH_FLOATING,
       $currentLanguageAspect->getFallbackChain(),
     );
 

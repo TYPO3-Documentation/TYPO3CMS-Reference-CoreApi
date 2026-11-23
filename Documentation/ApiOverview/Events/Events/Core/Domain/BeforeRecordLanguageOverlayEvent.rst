@@ -16,12 +16,20 @@ record from the database) before the database is queried.
 
 ..  _BeforeRecordLanguageOverlayEvent-example:
 
-Example: change the overlay type to "on" (connected)
-====================================================
+Example: Overlay the records of one table with connected translations
+======================================================================
 
-In this example, we will change the overlay type to "on" (connected). This may
-be necessary if your site is configured with free mode, but you have a record
-type that has languages connected.
+In this example, the records of one table are overlaid with their connected
+translations, as on a site with `fallbackType: strict`. This may be
+necessary if your site is configured with free mode, but you have a record
+type that has languages connected. The listener sets the overlay type
+:php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING`.
+
+..  versionchanged:: 15.0
+    :changelog: deprecation-111326-1793692850
+
+    The example used the overlay type :php:`LanguageAspect::OVERLAYS_ON`,
+    which is deprecated.
 
 ..  literalinclude:: _BeforeRecordLanguageOverlayEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Domain/Language/MyEventListener.php
