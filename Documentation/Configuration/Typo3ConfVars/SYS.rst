@@ -1195,6 +1195,52 @@ FileInfo
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['image/jpeg']['jfif'] =
                 'image/pjpeg';
 
+        ..  _typo3ConfVars-sys-FileInfo-mimeTypeCompatibility-office:
+
+        ..  versionchanged:: 14.3.11
+            :changelog: important-111287-1793349163
+
+        Office files are containers: Office Open XML files, such as `docx`,
+        and OpenDocument files, such as `odt`, are ZIP archives, and legacy
+        Office files, such as `doc`, are OLE compound files. Depending on the
+        system and on the application that wrote the file, PHP only detects
+        the container format, such as `application/zip` or
+        `application/CDFV2`. The Core maps these container types to the
+        Office MIME type by the file extension, so the upload of such a file
+        is accepted:
+
+        `application/zip`
+            `docx`, `docm`, `dotx`, `dotm`, `xlsx`, `xlsm`, `xlsb`, `xltx`,
+            `xltm`, `xlam`, `pptx`, `pptm`, `ppsx`, `ppsm`, `potx`, `potm`,
+            `ppam`, `sldx`, `sldm`, `odt`, `ods`, `odp`
+
+        `application/x-ole-storage`, `application/CDFV2`, `application/vnd.ms-office`
+            `doc`, `dot`, `xls`, `xlt`, `ppt`, `pps`
+
+        ..  code-block:: php
+            :caption: Example from the TYPO3 Core
+
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['application/zip']['docx'] =
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+
+        As a consequence, any ZIP archive or OLE compound file with one of
+        these file extensions passes the check of the file extension and the
+        MIME type. To reject such files, remove the mappings:
+
+        ..  code-block:: php
+            :caption: config/system/additional.php
+
+            unset(
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['application/zip'],
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['application/x-ole-storage'],
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['application/CDFV2'],
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['application/vnd.ms-office'],
+            );
+
+        Files that are already in the file index keep their stored MIME type,
+        such as `application/zip`, until the storage is indexed again after
+        the file changed, or the file is replaced.
+
         Below is a generic example which allows a file ending in `*.foo`, that is detected
         to contain text/plain contents, to be mapped to the MIME type text/x-foo.
         Other contents (e.g. if the file contains binary data) will not be mapped:
