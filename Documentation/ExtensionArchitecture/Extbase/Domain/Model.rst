@@ -414,13 +414,22 @@ record type column that the TCA names in :php:`['ctrl']['type']`, for example
 :php:`'type' => 'record_type'`.
 
 In :file:`Classes.php`, give each class its record type, and list the
-subclasses of the parent class with their record types:
+subclasses of the parent class:
 
 ..  literalinclude:: _snippets/_ClassesRecordTypes.php
     :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
 
-:php:`Workshop` extends :php:`Conference`. It needs :php:`tableName`, because
-otherwise Extbase derives a table name from its class name.
+:php:`Workshop` extends :php:`Conference`. The key in :php:`subclasses` (here
+`workshop`) is not evaluated. Each subclass needs its own :php:`recordType` and
+:php:`tableName`:
+
+*   Without :php:`recordType`, the repository for :php:`Conference` does not
+    return workshops, and the repository for :php:`Workshop` returns every
+    record of the table as a :php:`Workshop` object.
+*   Without :php:`tableName`, Extbase derives the table name from the class name
+    of the subclass.
+
+A column mapping in :php:`properties` is inherited from the parent class.
 
 With this mapping, Extbase does the following:
 
