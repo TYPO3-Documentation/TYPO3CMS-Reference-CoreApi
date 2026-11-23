@@ -5,11 +5,17 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\DataHandling;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Cache\Flush\CacheFlushDemand;
+use TYPO3\CMS\Core\Cache\Flush\CacheFlusher;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-final class MyClass
+final readonly class MyClass
 {
+  public function __construct(
+    private CacheFlusher $cacheFlusher,
+  ) {}
+
   public function submitComplexData(): void
   {
     $data = [
@@ -34,6 +40,6 @@ final class MyClass
     $dataHandler->start($data, []);
     $dataHandler->process_datamap();
     BackendUtility::setUpdateSignal('updatePageTree');
-    $dataHandler->clear_cacheCmd('pages');
+    $this->cacheFlusher->flush(CacheFlushDemand::forCommand('pages'));
   }
 }

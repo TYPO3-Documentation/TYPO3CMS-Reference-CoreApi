@@ -55,7 +55,10 @@ cacheCmd
     :name: datahandler-commit-cacheCmd
     :type: string
 
-    Cache command sent to :php:`DataHandler->clear_cacheCmd()`.
+    Cache command, such as `pages`, `all`, or a page ID, which the
+    `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_
+    flushes on behalf of the backend user after the data and the commands
+    were processed.
 
 
 
