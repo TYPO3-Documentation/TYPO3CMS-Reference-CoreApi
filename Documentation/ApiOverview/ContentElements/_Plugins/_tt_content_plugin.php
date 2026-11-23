@@ -14,6 +14,4 @@ ExtensionManagementUtility::addPlugin(
     'icon' => 'myextension_mypluginicon',
     'description' => 'my_extension.db:my_plugin.description',
   ],
-  'CType',
-  'my_extension',
 );
