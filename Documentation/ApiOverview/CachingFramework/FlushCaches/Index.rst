@@ -24,7 +24,9 @@ or an import, for example.
 
 The DataHandler, the "Clear cache" actions of the backend, "Flush cache" in
 the Install Tool, uninstalling an extension, and the commands `cache:flush`
-and `cache:flushtags` all flush the caches with this service.
+and `cache:flushtags` all flush the caches with this service. Only
+`cache:flush --group=di` flushes the cache of the dependency injection
+container without it.
 
 ..  contents:: Table of contents
     :local:

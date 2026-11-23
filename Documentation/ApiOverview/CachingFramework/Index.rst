@@ -235,7 +235,9 @@ The command flushes the caches with the
 like the backend and the Install Tool. It dispatches the same events, so a
 listener of
 `AfterCacheFlushedEvent <https://docs.typo3.org/permalink/t3coreapi:aftercacheflushedevent>`_
-learns about every flush.
+learns about every flush. Only `cache:flush --group=di` flushes the cache of
+the dependency injection container without the `CacheFlusher`, and dispatches
+no event.
 
 Extensions that register custom caches may listen to the
 :ref:`CacheFlushEvent <CacheFlushEvent>`, but usually the cache flush via cache

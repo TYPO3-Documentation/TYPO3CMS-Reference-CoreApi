@@ -20,7 +20,8 @@ Every flush of TYPO3 goes through the `CacheFlusher`: changed records in the
 DataHandler, the "Clear cache" actions of the backend, "Flush cache" in the
 Install Tool, and the commands `cache:flush` and `cache:flushtags`. A listener
 of this event therefore learns about every flush, for example to purge a
-reverse proxy or a CDN.
+reverse proxy or a CDN. Only `cache:flush --group=di` dispatches no event, as
+it flushes the cache of the dependency injection container only.
 
 ..  _AfterCacheFlushedEvent-example:
 
