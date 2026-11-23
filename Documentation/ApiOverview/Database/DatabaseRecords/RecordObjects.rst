@@ -13,10 +13,19 @@ They are an advanced data object holding the data of a database row, taking the
 :ref:`TCA definition <t3tca:start>` and possible relations of that database row
 into account.
 
-..  note::
+..  versionchanged:: 15.0
+    :changelog: feature-111301-1793444414
 
-    The Record object is available but still considered experimental. Only the
-    usage in Fluid is public API.
+    The record objects and the
+    :php-short:`\TYPO3\CMS\Core\Domain\RecordFactory` are public API.
+    Before, only their usage in Fluid was public API.
+
+The public API consists of :php-short:`\TYPO3\CMS\Core\Domain\Record`,
+:php-short:`\TYPO3\CMS\Core\Domain\RawRecord`,
+:php-short:`\TYPO3\CMS\Core\Domain\Page`, the value objects in the
+namespace :php:`\TYPO3\CMS\Core\Domain\Record`, such as
+:php-short:`\TYPO3\CMS\Core\Domain\Record\LanguageInfo`, and the
+:php-short:`\TYPO3\CMS\Core\Domain\RecordFactory`, which creates them.
 
 ..  _record-objects-typoscript:
 
@@ -38,6 +47,36 @@ In PHP a record object can be created by the
 
 The event :ref:`RecordCreationEvent <RecordCreationEvent>` can be used to
 influence or replace the Record object and its properties during creation.
+
+..  _record-objects-php-page-permissions:
+
+Permission settings of a page
+-----------------------------
+
+..  versionadded:: 15.0
+    :changelog: feature-111301-1793444414
+
+:php:`Page->getPermissions()` returns the permission settings of a page as
+:php-short:`\TYPO3\CMS\Core\Domain\Record\PagePermissions`: the owning
+backend user and backend user group, and the permissions of the owner, the
+group, and everybody, each as
+:php-short:`\TYPO3\CMS\Core\Type\Bitmask\Permission`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Service/MyPageService.php (excerpt)
+
+    $permissions = $page->getPermissions();
+    if ($permissions?->getEverybodyPermissions()->showPagePermissionIsGranted()) {
+        // Everybody may see the page
+    }
+
+The method returns :php:`null` if the page was retrieved without its
+permission fields, `perms_*`, which are not part of the TCA of the table
+`pages`.
+
+The settings are the same for every backend user. Whether a backend user is
+granted a permission on the page is decided by
+:php-short:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`.
 
 ..  _record-objects-fluid:
 
