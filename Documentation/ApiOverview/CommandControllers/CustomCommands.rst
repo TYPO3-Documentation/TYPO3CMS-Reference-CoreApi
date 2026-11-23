@@ -270,6 +270,32 @@ command logs the error and returns :php:`Command::FAILURE`:
 ..  literalinclude:: /_Examples/my_extension/Classes/Command/MeowInformationCommand.php
     :caption: packages/my_extension/Classes/Command/MeowInformationCommand.php
 
+..  _writing-custom-commands-events:
+
+Reacting to console events
+==========================
+
+The Symfony console dispatches events while it runs a command:
+
+*   :php:`\Symfony\Component\Console\Event\ConsoleCommandEvent` before the
+    command runs.
+*   :php:`\Symfony\Component\Console\Event\ConsoleErrorEvent` when the
+    command throws an exception or an error.
+*   :php:`\Symfony\Component\Console\Event\ConsoleTerminateEvent` after the
+    command, with its exit code.
+
+TYPO3 passes these events to its
+`PSR-14 event dispatcher <https://docs.typo3.org/permalink/t3coreapi:eventdispatcher>`_.
+An event listener of your extension receives them for every command, also for
+the commands of the Core and of other extensions. The following listener logs
+failed commands:
+
+..  literalinclude:: _ConsoleCommandLogger.php
+    :caption: EXT:my_extension/Classes/EventListener/ConsoleCommandLogger.php
+
+Some commands, for example `cache:flush`, run without the full boot of TYPO3.
+Listeners of extensions do not receive the events of these commands.
+
 ..  _writing-custom-commands-more:
 
 More about Symfony console commands
