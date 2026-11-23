@@ -767,22 +767,21 @@ Clear cache
 ..  deprecated:: 15.0
     :changelog: deprecation-111298-1793396636
 
-    :php:`DataHandler->clear_cacheCmd()` is deprecated. Flush a cache
-    command with the
-    `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_:
-
-    ..  code-block:: php
-        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
-
-        $this->cacheFlusher->flush(
-            CacheFlushDemand::forCommand($cacheCmd),
-            CacheFlushingContext::fromBackendUser($backendUser),
-        );
+    :php:`DataHandler->clear_cacheCmd()` is deprecated. Use the
+    `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_
+    instead.
 
 The `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_
-flushes the caches of TYPO3, also without a DataHandler and without a backend
-user. It accepts these cache commands, as the DataHandler did, with
-:php:`CacheFlushDemand::forCommand($cacheCmd)`.
+flushes a cache command, also without a DataHandler and without a backend
+user:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
+
+    $this->cacheFlusher->flush(
+        CacheFlushDemand::forCommand($cacheCmd),
+        CacheFlushingContext::fromBackendUser($backendUser),
+    );
 
 Values for :php:`$cacheCmd`:
 
