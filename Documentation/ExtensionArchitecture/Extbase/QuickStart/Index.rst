@@ -61,8 +61,8 @@ Key points:
 *   Declare properties :php:`protected`. Public properties also work and can
     keep the model shorter (no getters/setters), but :php:`protected` keeps
     the door open for getter/setter logic and makes lazy-loaded relations easier
-    to reason about. Private properties are never populated by Extbase — use
-    :php:`protected`, not :php:`private`.
+    to reason about. A :php:`private` property makes loading the record fail
+    with an error — use :php:`protected`, not :php:`private`.
 *   Do not initialize properties in the constructor. Extbase populates them
     directly when loading objects from the database, bypassing the constructor.
 *   Use typed properties. Extbase reads the type declarations to map values
