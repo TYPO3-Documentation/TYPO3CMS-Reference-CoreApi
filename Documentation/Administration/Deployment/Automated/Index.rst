@@ -72,6 +72,10 @@ Deployment
     is installed.
 *   **Cache Clearing**: Clear TYPO3 caches
     (`vendor/bin/typo3 cache:flush`).
+*   **Site configuration**: Check that all sites can be loaded
+    (`vendor/bin/typo3 site:validate <https://docs.typo3.org/permalink/t3coreapi:sitehandling-using-env-vars-empty>`_).
+    The command fails if a site configuration is invalid, for example
+    because an environment variable is empty.
 *   **Reference Index**: Update the
     `reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_
     (`vendor/bin/typo3 referenceindex:update`).
