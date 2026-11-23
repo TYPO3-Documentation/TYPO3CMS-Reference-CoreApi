@@ -288,20 +288,15 @@ No error is thrown and there is no exception in the log. The surrounding HTML
 renders normally; only the value is blank.
 
 **Why:** Fluid silently renders an empty string when property resolution fails.
-Resolution is attempted in the following order: the public property, :php:`getX()`,
-:php:`hasX()`, :php:`isX()`. If none of these exist or they are
-accessible, Fluid gives up without raising an error. Common causes:
+Resolution is attempted in the following order: :php:`getX()`, :php:`isX()`,
+:php:`hasX()`, the property. If none of these exist, Fluid gives up without
+raising an error. Common causes:
 
 *   A typo in the property name — :html:`{conference.titel}` instead of
     :html:`{conference.title}` silently produces nothing.
 *   A typo in an array key — for arrays, Fluid resolves :html:`{data.title}`
     via :php:`$data['title']`. A missing or misspelled key produces nothing,
     just like a missing property on an object.
-*   A :php:`private` property without a public getter — Fluid cannot read a
-    :php:`private` property directly. Add a public :php:`getX()` method and
-    Fluid will find it regardless of property visibility.
-*   A missing getter — a :php:`protected` property without a corresponding
-    :php:`getX()` method is invisible to Fluid.
 *   The variable was not assigned in the controller — :php:`assign()` was not
     called, or was called under a different name.
 *   The variable was not passed to a partial — variables assigned in the
@@ -316,7 +311,11 @@ accessible, Fluid gives up without raising an error. Common causes:
     with no TCA column is silently skipped during loading and stays at its
     default value.
 
-**What to do:** Check the exact property name and visibility. Add a
+A :php:`protected` or :php:`private` property without a getter does not render
+empty. The property exists, so Fluid reads it directly, and PHP throws an
+:php:`\Error` such as `Cannot access protected property`.
+
+**What to do:** Check the exact property name. Add a
 public :php:`getX()` method if one is missing. In the controller, verify that
 :php:`$this->view->assign('conference', $conference)` is called with the
 correct variable name. In the template itself, use
@@ -374,8 +373,8 @@ nothing appears on the page.
 ..  seealso::
 
     `How Fluid accesses object properties <https://docs.typo3.org/permalink/t3coreapi:extbase-view-property-access>`_
-    for the full resolution order and why :php:`private` properties are
-    never accessible.
+    for the full resolution order and what happens with a :php:`protected` or
+    :php:`private` property without a getter.
 
 
 ..  _extbase-appendix-pitfalls-template-not-found:
