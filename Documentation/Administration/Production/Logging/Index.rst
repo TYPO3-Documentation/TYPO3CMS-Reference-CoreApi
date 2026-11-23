@@ -207,7 +207,7 @@ located *outside* the web server’s document root
 internet—providing a level of built-in security.
 
 **In Classic-mode TYPO3 installations**, logs are stored in
-:path:`/path/to/project/typo3conf/var/log`. Because the document root in
+:path:`/path/to/project/typo3temp/var/log`. Because the document root in
 Classic mode typically points to :path:`/path/to/project`, this log
 directory is publicly accessible by default. **Additional precautions must
 be taken** to prevent unauthorized access.
