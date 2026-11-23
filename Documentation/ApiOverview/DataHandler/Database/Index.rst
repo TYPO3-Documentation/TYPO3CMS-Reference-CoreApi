@@ -764,18 +764,27 @@ this page", and no\_cache checked:
 Clear cache
 ===========
 
-..  tip::
-    To flush caches without a DataHandler and without a backend user, use
-    the `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_.
+..  deprecated:: 15.0
+    :changelog: deprecation-111298-1793396636
 
-DataHandler also has an API for clearing the cache tables of TYPO3:
+    :php:`DataHandler->clear_cacheCmd()` is deprecated. Flush a cache
+    command with the
+    `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/DataHandling/MyClass.php (excerpt)
 
-    $this->dataHandler->clear_cacheCmd($cacheCmd);
+        $this->cacheFlusher->flush(
+            CacheFlushDemand::forCommand($cacheCmd),
+            CacheFlushingContext::fromBackendUser($backendUser),
+        );
 
-Values for the :php:`$cacheCmd` argument:
+The `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_
+flushes the caches of TYPO3, also without a DataHandler and without a backend
+user. It accepts these cache commands, as the DataHandler did, with
+:php:`CacheFlushDemand::forCommand($cacheCmd)`.
+
+Values for :php:`$cacheCmd`:
 
 ..  confval:: [integer]
     :name: datahandler-clear-cachecmd-integer
@@ -795,8 +804,9 @@ Values for the :php:`$cacheCmd` argument:
     Clears all cache tables (`cache_pages`, `cache_pagesection`,
     `cache_hash`).
 
-    Only available for admin-users unless explicitly allowed by User
-    TSconfig "options.clearCache.all".
+    With a context created from a backend user, only available for
+    admin-users unless explicitly allowed by User TSconfig
+    "options.clearCache.all".
 
 
 
@@ -810,8 +820,9 @@ Values for the :php:`$cacheCmd` argument:
 
     Clears all pages from `cache_pages`.
 
-    Only available for admin-users unless explicitly allowed by User
-    TSconfig "options.clearCache.pages".
+    With a context created from a backend user, only available for
+    admin-users unless explicitly allowed by User TSconfig
+    "options.clearCache.pages".
 
 
 ..  index:: Hook; Clear cache

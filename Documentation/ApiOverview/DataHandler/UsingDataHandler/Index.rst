@@ -102,16 +102,26 @@ The most basic way of executing commands:
 Clearing cache
 --------------
 
-In this example the cache clearing API is used. No data is submitted, no
-commands are executed. Still you will have to initialize the class by
-calling the :php:`start()` method (which will initialize internal state).
+..  deprecated:: 15.0
+    :changelog: deprecation-111298-1793396636
 
-..  note::
-    Clearing a given cache is possible only for users that are
-    "admin" or have :ref:`specific permissions <t3tsref:useroptions>` to do so.
+    :php:`DataHandler->clear_cacheCmd()` is deprecated. Flush the caches with
+    the `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_.
+
+To clear caches without submitting data or executing commands, use the
+`CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_
+instead of the DataHandler. It needs no DataHandler and no call of
+:php:`start()`:
 
 ..  literalinclude:: _ClearCache.php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
+
+With a :php-short:`\TYPO3\CMS\Core\Cache\Flush\CacheFlushingContext` created
+from the backend user, the cache groups "pages" and "all" are flushed only for
+users that are "admin" or have
+:ref:`specific permissions <t3tsref:useroptions>` to do so. Without the
+context, the command is flushed unrestricted, as in a scheduler task or a
+console command.
 
 Caches are organized in groups. Clearing "all" caches will actually clear caches
 from the "all" group and not really **all** caches. Check the

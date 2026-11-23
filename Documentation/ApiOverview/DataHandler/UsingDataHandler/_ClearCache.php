@@ -4,18 +4,23 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\DataHandling;
 
-use TYPO3\CMS\Core\DataHandling\DataHandler;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
+use TYPO3\CMS\Core\Cache\Flush\CacheFlushDemand;
+use TYPO3\CMS\Core\Cache\Flush\CacheFlusher;
+use TYPO3\CMS\Core\Cache\Flush\CacheFlushingContext;
 
-final class MyClass
+final readonly class MyClass
 {
-  public function clearCache(): void
+  public function __construct(
+    private CacheFlusher $cacheFlusher,
+  ) {}
+
+  public function clearCache(BackendUserAuthentication $backendUser): void
   {
-    /** @var DataHandler $dataHandler */
-    // Do not inject or reuse the DataHander as it holds state!
-    // Do not use `new` as GeneralUtility::makeInstance handles dependencies
-    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-    $dataHandler->start([], []);
-    $dataHandler->clear_cacheCmd('all');
+    $this->cacheFlusher->flush(
+      CacheFlushDemand::forCommand('all'),
+      // Flush only what the backend user may flush
+      CacheFlushingContext::fromBackendUser($backendUser),
+    );
   }
 }
