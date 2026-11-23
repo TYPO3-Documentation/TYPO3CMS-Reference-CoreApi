@@ -256,7 +256,7 @@ There is a problem with PHP `flock()
 This problem may or may not affect you, if you use NFS. See this
 issue for more information:
 
-* :forge:`Forge Issue: FileLockStrategy fails on NFS folders <72074>`
+* :issue:`Forge Issue: FileLockStrategy fails on NFS folders <72074>`
 
 or check if PHP flock works on your filesystem.
 
