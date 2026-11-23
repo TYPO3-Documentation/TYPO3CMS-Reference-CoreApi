@@ -19,8 +19,7 @@ class ConferenceController extends ActionController
   {
     $this->conferenceRepository->add($conference);
 
-    // Force the write now: the redirect below ends the request before the
-    // automatic flush, and we need the new UID for the show action.
+    // Force the write now: we need the new UID for the show action.
     $this->persistenceManager->persistAll();
 
     return $this->redirect('show', null, null, ['conference' => $conference->getUid()]);
