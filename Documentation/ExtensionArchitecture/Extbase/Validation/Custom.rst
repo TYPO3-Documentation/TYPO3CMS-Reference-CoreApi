@@ -80,13 +80,13 @@ Key points:
     way to generate a unique number.
 *   :php:`translateErrorMessage()` translates a key only if it starts with
     `LLL:`, or if you pass the extension name as the second argument. Any
-    other string is returned as it is. The
-    :ref:`translation domain syntax <extbase-upgrading-translation-domain-syntax>`
-    `my_extension.messages:some.key` is such a string: the visitor sees the
-    key, not the translation. Use the full
-    `LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:some.key`
-    form for validator messages. The same applies to the message options of
-    the built-in validators.
+    other string is returned as it is. Validator messages therefore need the
+    `LLL:` prefix, also in the
+    :ref:`translation domain syntax <extbase-upgrading-translation-domain-syntax>`:
+    `LLL:my_extension.messages:some.key` resolves to
+    :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. Without
+    the prefix, the visitor sees the key, not the translation. The same applies
+    to the message options of the built-in validators.
 
 
 ..  _extbase-validation-custom-property-errors:
@@ -174,7 +174,7 @@ then replace the message at the call site:
 
     #[Validate(SeatCountValidator::class, options: [
         'minimum' => 1,
-        'message' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:validator.conference.notEnoughSeats.short',
+        'message' => 'LLL:my_extension.messages:validator.conference.notEnoughSeats.short',
     ])]
 
 

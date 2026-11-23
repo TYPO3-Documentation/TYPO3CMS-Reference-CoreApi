@@ -6,8 +6,7 @@ use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 
 class ConferenceDateValidator extends AbstractValidator
 {
-  protected string $message
-    = 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:validator.conference.endBeforeStart';
+  protected string $message = 'LLL:my_extension.messages:validator.conference.endBeforeStart';
 
   protected array $translationOptions = ['message'];
 

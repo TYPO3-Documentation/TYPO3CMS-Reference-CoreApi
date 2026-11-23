@@ -6,8 +6,7 @@ use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 
 class SeatCountValidator extends AbstractValidator
 {
-  protected string $message
-    = 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:validator.conference.notEnoughSeats';
+  protected string $message = 'LLL:my_extension.messages:validator.conference.notEnoughSeats';
 
   protected array $translationOptions = ['message'];
 
