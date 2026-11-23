@@ -84,7 +84,7 @@ If a template variable is an object, Fluid resolves property paths such as
 
 Fluid uses the first one that exists. This means :php:`protected` properties
 with conventional getters work transparently in templates —
-:html:`{conference.title}` calls :php:`getTitle()`.
+:fluid:`{conference.title}` calls :php:`getTitle()`.
 
 ..  warning::
 
@@ -95,8 +95,8 @@ with conventional getters work transparently in templates —
 
     A :php:`protected` or :php:`private` property without one of these
     methods is different: the property exists, so Fluid reads it directly,
-    and PHP throws an :php:`Error` such as
-    :php:`Cannot access protected property`. Add a public getter.
+    and PHP throws an :php:`\Error` such as
+    `Cannot access protected property`. Add a public getter.
 
 Property paths can be chained: :html:`{conference.mainSpeaker.name}` resolves
 :php:`getMainSpeaker()` on the conference and then :php:`getName()` on the

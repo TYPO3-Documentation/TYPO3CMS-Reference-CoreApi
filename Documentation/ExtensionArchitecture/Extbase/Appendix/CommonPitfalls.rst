@@ -314,7 +314,7 @@ raising an error. Common causes:
 
 A :php:`protected` or :php:`private` property without a getter does not render
 empty. The property exists, so Fluid reads it directly, and PHP throws an
-:php:`Error` such as :php:`Cannot access protected property`.
+:php:`\Error` such as `Cannot access protected property`.
 
 **What to do:** Check the exact property name. Add a
 public :php:`getX()` method if one is missing. In the controller, verify that
