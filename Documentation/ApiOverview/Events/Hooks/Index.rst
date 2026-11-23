@@ -24,51 +24,41 @@ Hooks are being phased-out and no new ones should be created. Dispatch a
 Using hooks
 ===========
 
-The two lines of code below are an example of how a hook can be used for
-clear-cache post-processing. The objective of this could be to perform
-additional actions whenever the cache is cleared for a specific page:
+The lines of code below are an example of how a hook can be used to perform
+additional actions after the DataHandler has saved records:
 
 ..  literalinclude:: _ext_localconf_addhook.php
     :caption: EXT:my_extension/ext_localconf.php
 
-This hook registers the class/method name to a hook inside of
-:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook calls the user
-function after the cache has been cleared. The user function
-will receive parameters which allows it to see what clear-cache action was
-performed and typically also an object reference to the parent object. Then the
-user function can take additional actions as needed.
+This registers the class to the hook `processDatamapClass` inside of
+:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The DataHandler creates an
+object of the class, and calls each of its methods that it knows, if the class
+has it. The method :php:`processDatamap_afterAllOperations()` is called after
+all records of the data map were saved:
+
+..  literalinclude:: _DataHandlerHook.php
+    :caption: EXT:my_extension/Classes/Hook/DataHandlerHook.php
 
 The class has to follow the PSR-4 class name scheme to be available in
 :ref:`autoloading <autoloading-classes>`.
 
 If we take a look inside of :php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
-find the hook to be activated like this:
+find the hook to be called like this:
 
 ..  literalinclude:: _DataHandler.php
     :caption: :php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler` (excerpt)
 
-This is how hooks are typically constructed. The main action happens in line 5
-where the function :php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
-is called. The user function is called with two arguments, an array with
-variable parameters and the parent object.
-
-In line 24 the content of the parameter array is prepared. This is of
-high interest to you because this is where you see what data is passed
-to you and what data might be passed by reference and thereby
-could be manipulated from your hook function.
-
-Finally, notice how the array
-:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']`
-is traversed and for each entry the value is expected to be a function
-reference which will be called. This allows many hooks to be called at once.
-The hooks can even rearrange the calling order if they dare.
-
-The syntax of a function reference can be seen in the API documentation of
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
+The array
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']`
+is traversed, and an object is created of each class name in it with
+:php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`. This
+allows many hooks to be called at once. The hook object receives the
+DataHandler as an argument, which gives access to its data.
 
 ..  note::
 
-    The example hook shown above refers to old class names. All these old class
+    The name of the hook shown above, `t3lib/class.t3lib_tcemain.php`,
+    refers to an old class name. All these old class
     names were left in hooks, for obvious reasons of backwards-compatibility.
 
 ..  index::

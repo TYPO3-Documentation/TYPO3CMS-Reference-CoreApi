@@ -6,5 +6,5 @@ use MyVendor\MyExtension\Hook\DataHandlerHook;
 
 defined('TYPO3') or die();
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
-    DataHandlerHook::class . '->postProcessClearCache';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] =
+    DataHandlerHook::class;
