@@ -1,0 +1,10 @@
+services:
+  MyVendor\MyExtension\Messenger\FailedEmailTransport:
+    class: Symfony\Component\Messenger\Bridge\Doctrine\Transport\DoctrineTransport
+    factory: [ '@TYPO3\CMS\Core\Messenger\DoctrineTransportFactory', 'createTransport' ]
+    arguments:
+      $options:
+        queue_name: 'failed_email'
+    tags:
+      - { name: 'messenger.sender', identifier: 'failed_email' }
+      - { name: 'messenger.failure_transport', identifier: 'failed_email' }

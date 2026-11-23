@@ -1099,6 +1099,45 @@ messenger
         ..  seealso::
             :ref:`Configuring the message bus transport <message-bus-routing>`
 
+    ..  _typo3ConfVars_sys_messenger_failure_transport:
+
+    ..  confval:: failure_transport
+        :name: globals-typo3-conf-vars-sys-messenger-failure-transport
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['failure_transport']
+        :type: string
+        :default: `''`
+        :added: 15.0 feature-110230-1784620000
+
+        The transport that messages are parked in when their handler failed
+        in a worker. Empty disables the failure transport. TYPO3 ships the
+        transport `failed`. See
+        `Retry and park failed messages <https://docs.typo3.org/permalink/t3coreapi:message-bus-failure-transport>`_.
+
+    ..  _typo3ConfVars_sys_messenger_transports:
+
+    ..  confval:: transports
+        :name: globals-typo3-conf-vars-sys-messenger-transports
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['transports']
+        :type: array
+        :default: `[]`
+        :added: 15.0 feature-110230-1784620000
+
+        The failure handling per transport, keyed by the name of the
+        transport:
+
+        `failure_transport`
+            The failure transport of this transport, instead of the global
+            one. Empty disables the failure transport for this transport.
+
+        `retry_strategy`
+            How often and after which delay a failed message is retried
+            before it is parked: `max_retries`, `delay` and `max_delay` in
+            milliseconds, and `multiplier`. Without it, a failed message is
+            not retried.
+
+        See
+        `Retry and park failed messages <https://docs.typo3.org/permalink/t3coreapi:message-bus-failure-transport>`_.
+
 ..  _typo3confvars-sys-localization:
 
 
