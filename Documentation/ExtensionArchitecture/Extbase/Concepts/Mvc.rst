@@ -128,11 +128,12 @@ happens:
 
 ..  note::
 
-    If an action calls :php:`$this->redirect()` or returns a
-    :php:`\TYPO3\CMS\Extbase\Http\ForwardResponse`, the dispatcher loops and
-    processes the new target action before returning a final response. This is
-    how multi-step flows (for example: form → validate → confirm) work within a
-    single page request.
+    If an action returns a :php:`\TYPO3\CMS\Extbase\Http\ForwardResponse`, the
+    dispatcher loops and processes the new target action before returning a
+    final response. This is how multi-step flows (for example: form → validate
+    → confirm) work within a single page request. :php:`$this->redirect()` is
+    different: it returns a response with status 303, and the browser sends a
+    new request.
 
 A backend module reaches the same dispatcher by a different route, without a
 content element and without an argument namespace. See :ref:`How a backend
