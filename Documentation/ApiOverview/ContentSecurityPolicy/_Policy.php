@@ -5,6 +5,7 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceKeyword;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\SourceScheme;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
+
 $policy = (new Policy())
     // Results in `default-src 'self'`
     ->default(SourceKeyword::self)
