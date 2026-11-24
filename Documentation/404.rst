@@ -131,6 +131,22 @@ file names and shell arguments independent of the locale.
 
     No replacement is needed.
 
+..  _typo3confvars-fe-addallowedpaths:
+
+`addAllowedPaths` removed
+-------------------------
+
+..  confval:: addAllowedPaths
+    :name: typo3-conf-vars-fe-addAllowedPaths
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths']
+    :type: list
+    :deprecated: 14.2 deprecation-109409-1774774806
+    :removed: 15.0 breaking-109783-1776735296
+
+    Add the paths as `resource definitions of the project
+    <https://docs.typo3.org/permalink/t3coreapi:resources-definitions-project>`_
+    in :file:`config/system/resources.php` instead.
+
 ..  _BeforeSectionMarkupGeneratedEvent:
 ..  _AfterSectionMarkupGeneratedEvent:
 
