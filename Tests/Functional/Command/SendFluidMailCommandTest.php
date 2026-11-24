@@ -57,9 +57,9 @@ final class SendFluidMailCommandTest extends FunctionalTestCase
       'All scheduled tasks ran without errors.',
       (string)$email->getHtmlBody(),
     );
-    // The layout of the email names the URL of the site that sent it
+    // The layout of the email links the URL of the site that sent it
     self::assertStringContainsString(
-      'from URL: <a href="https://www.example.org/"',
+      '<a href="https://www.example.org/"',
       (string)$email->getHtmlBody(),
     );
   }

@@ -401,12 +401,12 @@ view:
 When changes reach the database
 ===============================
 
-Reads happen immediately. Writes do not. Extbase tracks the state of every
-object it loads and flushes the accumulated changes once, automatically, at the
-end of the request — comparing each object against its original state and
-writing only what has changed. In most actions you do not need to call a save method on an
-object that you have loaded and modified; the ORM will detect the change and
-write it for you.
+Reads happen immediately. Writes do not. Extbase writes the pending changes
+once, automatically, at the end of the request. It writes only the objects that
+you passed to :php:`add()`, :php:`update()` or :php:`remove()`. A loaded object
+that you change must go to :php:`update()`, or the change is lost. For an
+object passed to :php:`update()`, Extbase writes only the properties that
+changed.
 
 This deferred flush is convenient, but has two consequences that are worth knowing.
 
@@ -416,13 +416,14 @@ This deferred flush is convenient, but has two consequences that are worth knowi
 Forcing a write with `persistAll()`
 -----------------------------------
 
-Two situations need the flush to happen earlier than the end of the request.
-Call :php:`$this->persistenceManager->persistAll()` in both:
+One situation needs the flush to happen earlier than the end of the request.
+Call :php:`$this->persistenceManager->persistAll()` in it:
 
-*   **Before a redirect.** :php:`$this->redirect()` ends the request before the
-    automatic flush runs, so an object that is added just before it is never written.
 *   **When you need the new UID.** A freshly created object has no UID until it
     is persisted. Persist first, then read the UID.
+
+A redirect alone is no reason for :php:`persistAll()`: Extbase writes the
+changes also when the action returns a redirect.
 
 ..  literalinclude:: _snippets/_PersistAll.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php

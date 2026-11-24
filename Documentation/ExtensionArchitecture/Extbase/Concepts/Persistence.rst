@@ -148,15 +148,10 @@ Editors can also set it per plugin content element via the
     also check the :typoscript:`persistence.recursive` setting — without it,
     Extbase only looks at the configured page itself, not its children.
 
-To disable the storagePid restriction entirely — for example in a backend
-context or when querying across all pages — set it to `0`:
-
-..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
-
-    plugin.tx_myextension.persistence.storagePid = 0
-
-Or override it in PHP inside a repository method:
+:typoscript:`storagePid = 0` does not disable the restriction: Extbase then
+looks for records on page 0 only, and most queries return nothing. To query
+across all pages — for example in a backend context — switch the restriction
+off in PHP inside a repository method:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
@@ -174,23 +169,18 @@ in :ref:`Querying the database with Extbase <extbase-persistence-queries>`.
 Extbase object lifecycle
 ========================
 
-Extbase tracks the state of every domain object it loads. At the end of a
-request the persistence manager flushes automatically, comparing each object's
-current state against its original state and writing only the differences. You
-do not need to call a "save" method on objects you retrieved and modified — the
-ORM detects the change.
-
-Objects you create with :php:`new` are not tracked until you pass them to a
-repository with :php:`add()`. Objects you pass to :php:`remove()` are deleted
-at flush time.
+At the end of a request, the persistence manager writes the pending changes to
+the database. It writes only the objects that you passed to a repository
+method: :php:`add()` for a new object, :php:`update()` for a changed object
+and :php:`remove()` for an object to delete. A loaded object that you change
+without :php:`update()` is not saved. For an object passed to :php:`update()`,
+Extbase writes only the properties that changed.
 
 In most actions the automatic flush at the end of the request is sufficient.
-Two cases require an earlier flush:
+A redirect does not prevent it: :php:`$this->redirect()` returns a response
+with status 303, and Extbase writes the changes before this response goes to
+the browser. One case requires an earlier flush:
 
-*   **Before a redirect** — if you call :php:`$this->redirect()` after
-    :php:`add()`, the redirect fires before the automatic flush, so the new
-    object is never written. Call
-    :php:`$this->persistenceManager->persistAll()` before the redirect.
 *   **When you need the new UID** — a freshly created object has no UID until
     it is persisted. Call :php:`persistAll()` and then read
     :php:`$object->getUid()`.
