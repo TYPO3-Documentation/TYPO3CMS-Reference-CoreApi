@@ -14,10 +14,9 @@ objects are created and configured during this process:
 *   **ContentObjectRenderer (cObj)** – Responsible for processing
     TypoScript-based rendering, including
     `typolink <https://docs.typo3.org/permalink/t3tsref:typolink>`_ and other link generation tasks.
-*   **page Attribute** – Holds the current page context and is used by many
-    rendering processes.
-*   **PageInformation Object**: Provides additional metadata about the current
-    page.
+*   **PageInformation Object**: Holds the current page context and provides
+    additional metadata about the current page. It is stored in the request
+    attribute `frontend.page.information`.
 *   **Router**: Ensures proper URL resolution.
 *   **FrontendTypoScriptFactory**: Collects
     TypoScript and provides settings like `linkAccessRestrictedPages` and

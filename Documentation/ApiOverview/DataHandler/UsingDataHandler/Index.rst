@@ -8,7 +8,8 @@ Using the DataHandler in scripts
 ================================
 
 You can use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your
-own scripts: Inject the :php:`DataHandler` class, build a
+own scripts: Create an instance of the :php-short:`\TYPO3\CMS\Core\DataHandling\DataHandler` class with
+:php-short:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`, build a
 :php:`$data`/:php:`$cmd` array you want to pass to the class, and call a few
 methods.
 
