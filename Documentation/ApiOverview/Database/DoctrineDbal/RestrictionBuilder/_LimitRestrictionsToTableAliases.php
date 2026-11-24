@@ -22,7 +22,7 @@ final readonly class ContentDbalRepository
     $queryBuilder->getRestrictions()
         ->removeAll()
         ->add(GeneralUtility::makeInstance(HiddenRestriction::class));
-    $queryBuilder->getRestrictions()->limitRestrictionsToTables(['c2']);
+    $queryBuilder->limitRestrictionsToTables(['c2']);
     $queryBuilder
         ->select('c1.*')
         ->from('tt_content', 'c1')
