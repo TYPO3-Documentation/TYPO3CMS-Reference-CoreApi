@@ -286,9 +286,9 @@ insert translated strings in Fluid templates.
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
-    <f:translate key="my_extension.your_file.xlf:yourKey" />
+    <f:translate key="my_extension.your_file:yourKey" />
     <!-- or as inline Fluid: -->
-    {f:translate(key: 'my_extension.your_file.xlf:yourKey')}
+    {f:translate(key: 'my_extension.your_file:yourKey')}
 
 See also: `The translation ViewHelper f:translate
 <https://docs.typo3.org/permalink/t3coreapi:f-translate>`_
