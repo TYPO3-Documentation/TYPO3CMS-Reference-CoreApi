@@ -184,7 +184,10 @@ To register such a plugin as content element you can use function
 ..  versionchanged:: 14.0
 
     The method's second and third parameter have been dropped. This method can
-    only be used with the field `CType` of table `tt_content`.
+    only be used with the field `CType` of table `tt_content`. The new second
+    parameter :php:`$flexForm` takes a FlexForm data structure. Old code that
+    still passes `'CType'` as the second argument sets `CType` as the FlexForm
+    data structure of the plugin.
 
 ..  _plugins-characteristics:
 
