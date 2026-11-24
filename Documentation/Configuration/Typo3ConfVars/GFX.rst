@@ -29,20 +29,6 @@ This variable can be set in one of the following files:
     :display: tree
     :type:
 
-..  _typo3confvars-gfx-thumbnails:
-
-
-thumbnails
-----------
-
-..  confval:: thumbnails
-    :name: globals-typo3-conf-vars-sys-gfx-thumbnails
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails']
-    :type: bool
-    :default: true
-
-    Enables the use of thumbnails in the backend interface.
-
 ..  index::
     TYPO3_CONF_VARS GFX; imagefile_ext
 ..  _typo3confvars-gfx-imagefile-ext:
