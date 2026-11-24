@@ -193,9 +193,13 @@ In Fluid, the output of every object accessor that occurs in a
 template is automatically processed by :php:`htmlspecialchars()`. This
 applies to every template, whatever its file extension or format: a
 :file:`.txt` template, for example for a plain-text email, is escaped
-too. In plain text, the reader then sees `&amp;` instead of `&`. Turn
-escaping off with :html:`<f:format.raw>` only for content that is safe
-in that format.
+too. In plain text, the reader then sees `&amp;` instead of `&`.
+
+To turn escaping off for a whole template, such as the plain-text part of
+an email, write :fluid:`{escaping off}` in its first line. Use it only when
+every value in the template is safe in that format. Each partial needs its
+own :fluid:`{escaping off}`. To turn escaping off for a single value, use
+:fluid:`<f:format.raw>`.
 
 Content that is output via the ViewHelper :html:`<f:format.raw>` is not
 sanitized. See
