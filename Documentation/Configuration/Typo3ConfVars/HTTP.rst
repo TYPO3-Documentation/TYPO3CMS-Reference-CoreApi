@@ -116,7 +116,7 @@ allowed_hosts
         An array of hostnames that RSS widgets of `EXT:dashboard` are allowed
         to load feeds from. The restriction also applies to the targets of
         redirects, and to the feed URL of the widget registration.
-        A feed from another host is not loaded, and the widget shows a notice.
+        A feed from an unconfigured host is not loaded, and the widget shows a notice.
 
         Wildcards in the array values are allowed, like `*.example.com`.
 
