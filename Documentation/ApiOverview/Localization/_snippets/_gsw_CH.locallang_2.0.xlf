@@ -3,9 +3,9 @@
 srcLang="en" trgLang="gsw_CH">
   <file id="f1">
     <unit id="lang_gsw_CH">
-      <segment>
+      <segment state="final">
         <source>Swiss German</source>
-        <target state="final">Schwiizertüütsch</target>
+        <target>Schwiizertüütsch</target>
       </segment>
     </unit>
   </file>
