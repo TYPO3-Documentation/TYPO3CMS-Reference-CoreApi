@@ -22,7 +22,10 @@ The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
 validator has the ability to ensure a complex password with a defined
 minimum length and four individual requirements.
 
-The following options are available:
+The following options are available. An option that a policy does not set
+has its default value. The `default` password policy of TYPO3 sets all four
+requirements to :php:`true`. A policy of your own that leaves them out
+checks only the minimum length.
 
 ..  confval:: minimumLength
     :name: password-validator-minimumLength
@@ -40,7 +43,7 @@ upperCaseCharacterRequired
 ..  confval:: upperCaseCharacterRequired
     :name: password-validator-upperCaseCharacterRequired
     :type: bool
-    :default: true
+    :default: false
 
     If set to :php:`true` at least one upper case character (`A`-`Z`) is required.
 
@@ -53,7 +56,7 @@ lowerCaseCharacterRequired
 ..  confval:: lowerCaseCharacterRequired
     :name: password-validator-lowerCaseCharacterRequired
     :type: bool
-    :default: true
+    :default: false
 
     If set to :php:`true` at least one lower case character (`a`-`z`) is required.
 
@@ -66,7 +69,7 @@ digitCharacterRequired
 ..  confval:: digitCharacterRequired
     :name: password-validator-digitCharacterRequired
     :type: bool
-    :default: true
+    :default: false
 
     If set to :php:`true` at least one digit character (`0`-`9`) is required.
 
@@ -79,7 +82,7 @@ specialCharacterRequired
 ..  confval:: specialCharacterRequired
     :name: password-validator-specialCharacterRequired
     :type: bool
-    :default: true
+    :default: false
 
     If set to :php:`true` at least one special character (not `0`-`9`, `a`-`z`,
     `A`-`Z`) is required.
