@@ -82,7 +82,7 @@ you do not need to run `composer require` again. Instead, use
 ..  code-block:: bash
     :caption: typo3_root$
 
-    git update
+    git pull
 
     # Install versions that have been changed
     composer install
