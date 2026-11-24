@@ -277,11 +277,11 @@ Reacting to console events
 
 The Symfony console dispatches events while it runs a command:
 
-*   :php:`\Symfony\Component\Console\Event\ConsoleCommandEvent` before the
+*   :php-short:`\Symfony\Component\Console\Event\ConsoleCommandEvent` before the
     command runs.
-*   :php:`\Symfony\Component\Console\Event\ConsoleErrorEvent` when the
+*   :php-short:`\Symfony\Component\Console\Event\ConsoleErrorEvent` when the
     command throws an exception or an error.
-*   :php:`\Symfony\Component\Console\Event\ConsoleTerminateEvent` after the
+*   :php-short:`\Symfony\Component\Console\Event\ConsoleTerminateEvent` after the
     command, with its exit code.
 
 TYPO3 passes these events to its
@@ -290,8 +290,8 @@ An event listener of your extension receives them for every command, also for
 the commands of the Core and of other extensions. The following listener logs
 failed commands:
 
-..  literalinclude:: _ConsoleCommandLogger.php
-    :caption: EXT:my_extension/Classes/EventListener/ConsoleCommandLogger.php
+..  literalinclude:: /_Examples/my_extension/Classes/EventListener/ConsoleCommandLogger.php
+    :caption: packages/my_extension/Classes/EventListener/ConsoleCommandLogger.php
 
 Some commands, for example `cache:flush`, run without the full boot of TYPO3.
 Listeners of extensions do not receive the events of these commands.
