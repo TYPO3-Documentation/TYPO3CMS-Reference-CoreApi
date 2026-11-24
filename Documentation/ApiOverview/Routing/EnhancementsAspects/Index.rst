@@ -283,10 +283,11 @@ will be this:
     https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 ..  note::
-    If the input given to generate the URL does not match the requirements,
-    TYPO3 does not fall back to normal query parameters: generating the URL
-    fails with an exception. For example, if the user parameter has more
-    than three digits or is not numeric, generating the URL fails.
+    If the input given to generate the URL does not match, the
+    route enhancer is not triggered, and the parameters are added to
+    the URL as normal query parameters. For example, if the user parameter
+    is more than three characters or non-numeric, this enhancer would not
+    match.
 
 As you see, the plugin enhancer is used to specify placeholders and
 requirements with a given namespace.
@@ -573,9 +574,10 @@ For a route variable with an aspect, a :yaml:`requirements` rule is checked
 against the value in the URL, that is against the value after the mapping.
 Imagine an aspect that is mapping an internal value `1` to route value `one`
 and vice versa. A requirement `\d+` for this variable would reject `one`:
-TYPO3 throws an exception when it generates the URL. Leave the requirement
-out for such a variable. TYPO3 then uses `.+` for it, and the aspect alone
-decides which values are valid.
+the route enhancer is not used, and the parameters are added to the URL as
+normal query parameters. Leave the requirement out for such a variable.
+TYPO3 then uses `.+` for it, and the aspect alone decides which values are
+valid.
 
 The following example illustrates the mentioned dilemma between route generation
 and resolving:
