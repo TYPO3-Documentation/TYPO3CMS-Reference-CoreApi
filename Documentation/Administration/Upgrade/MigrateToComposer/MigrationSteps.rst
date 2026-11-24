@@ -106,7 +106,7 @@ This uses the `Packagist <https://packagist.org>`__ repository by default,
 which is the de-facto standard for Composer packages.
 
 
-Composer packages follow a concept called `SemVer <https://semver.org/` (semantic
+Composer packages follow a concept called `SemVer <https://semver.org/>`__ (semantic
 versioning). This splits version numbers into three parts:
 
 *  Major version (1.x.x)
@@ -132,7 +132,7 @@ found at https://getcomposer.org/doc/articles/versions.md
 
 In short:
 
-*  `^14.3` or `^114.3.0` tells Composer to add the newest package of
+*  `^14.3` or `^14.3.0` tells Composer to add the newest package of
    version `14.\*` with at least `14.3.0`. When a package releases
    version `14.9.5`, you would receive that version. Version
    `14.0.1` would not be fetched. So this allows any new
