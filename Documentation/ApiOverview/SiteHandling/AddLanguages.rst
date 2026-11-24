@@ -218,7 +218,8 @@ fallbackType
         translated.
 
         It behaves like the old :typoscript:`config.sys_language_overlay = 1`.
-        Keep the ones that are only available in default language.
+        Keep the ones that are only available in default language, and
+        include records without default translation.
 
     :yaml:`strict`
         Same as :yaml:`fallback` but removes the records that are not

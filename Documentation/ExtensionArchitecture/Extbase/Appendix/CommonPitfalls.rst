@@ -95,6 +95,13 @@ every translated language until somebody translates them.
     deliberately and per query: it makes that query diverge from what the rest
     of the site shows.
 
+    ..  versionchanged:: 15.0
+        :changelog: important-111329-1793705407
+
+        :php:`LanguageAspect::OVERLAYS_MIXED` also returns records that were
+        created directly in a translated language, without a default language
+        record. Extbase did not return these records before.
+
 ..  seealso::
 
     *   `Important: #88886 — Extbase persistence respects the language overlay
