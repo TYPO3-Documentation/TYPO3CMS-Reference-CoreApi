@@ -128,6 +128,7 @@ You can run the following command to set up specific or all extensions:
     :caption: typo3_root$
 
     # Setup the extension with key "news"
+    # (the database schema is updated for all extensions)
     vendor/bin/typo3 extension:setup --extension=news
 
     # Setup all extensions

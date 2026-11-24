@@ -304,6 +304,7 @@ the :file:`ext_tables.sql` file:
 *   :ref:`TCA type "category" <t3tca:columns-category>`
 *   :ref:`TCA type "check" <t3tca:columns-check>`
 *   :ref:`TCA type "color" <t3tca:columns-color>`
+*   :ref:`TCA type "country" <t3tca:columns-country>`
 *   :ref:`TCA type "datetime" <t3tca:columns-datetime>`
 *   :ref:`TCA type "email" <t3tca:columns-email>`
 *   :ref:`TCA type "file" <t3tca:columns-file>`
@@ -312,6 +313,7 @@ the :file:`ext_tables.sql` file:
 *   :ref:`TCA type "group" <t3tca:columns-group>`
 *   :ref:`TCA type "imageManipulation" <t3tca:columns-imageManipulation>`
 *   :ref:`TCA type "inline" <t3tca:columns-inline>`
+*   :ref:`TCA type "input" <t3tca:columns-input>`
 *   :ref:`TCA type "json" <t3tca:columns-json>`
 *   :ref:`TCA type "language" <t3tca:columns-language>`
 *   :ref:`TCA type "link" <t3tca:columns-link>`
