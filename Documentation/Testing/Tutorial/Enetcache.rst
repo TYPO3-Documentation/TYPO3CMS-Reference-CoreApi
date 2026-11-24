@@ -162,13 +162,12 @@ unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
     <?php
     namespace Lolli\Enetcache\Tests\Unit\Hooks;
 
+    use PHPUnit\Framework\Attributes\Test;
     use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
     class DataHandlerFlushByTagHookTest extends UnitTestCase
     {
-        /**
-         * @test
-         */
+        #[Test]
         public function findReferencedDatabaseEntriesReturnsEmptyArrayForTcaWithoutRelations()
         {
             // some unit test code
@@ -548,6 +547,8 @@ once in a while. A perfect scenario for a `functional test!
     <?php
     namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
 
+    use PHPUnit\Framework\Attributes\Group;
+    use PHPUnit\Framework\Attributes\Test;
     use TYPO3\CMS\Core\Core\Bootstrap;
     use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
     use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
@@ -566,19 +567,18 @@ once in a while. A perfect scenario for a `functional test!
 
         /**
          * Just a dummy to show that at least one test is actually executed on mssql
-         *
-         * @test
          */
+        #[Test]
         public function dummy()
         {
             $this->assertTrue(true);
         }
 
         /**
-         * @test
-         * @group not-mssql
          * @todo Generator does not work using mssql DMBS yet ... fix this
          */
+        #[Test]
+        #[Group('not-mssql')]
         public function generatorCreatesBasicRecord()
         {
             // styleguide generator uses DataHandler for some parts. DataHandler needs an
@@ -613,7 +613,7 @@ once in a while. A perfect scenario for a `functional test!
     }
 
 Ah, shame on us! The data generator does not work very well if we use MSSQL as our DBMS. It is therefore marked as
-`@group not-mssql` at the moment. We will need to fix that at some point. The rest is straight forward -
+`#[Group('not-mssql')]` at the moment. We will need to fix that at some point. The rest is straight forward -
 we extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to load
 the styleguide extension (:php:`$testExtensionsToLoad`), need some additional magic for the DataHandler, then
 call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
