@@ -61,7 +61,8 @@ This replaces the default configuration shown in the first example for classes
 located in the namespace :php:`\T3docs\Examples\Controller`. TYPO3 uses only the
 most specific :php:`writerConfiguration` that it finds for a logger; it does not
 merge it with the configurations of the parent namespaces. To keep writing to the
-default log file as well, add the :php:`FileWriter` to this configuration too.
+default log file as well, add the
+:php-short:`\TYPO3\CMS\Core\Log\Writer\FileWriter` to this configuration too.
 
 One more example:
 

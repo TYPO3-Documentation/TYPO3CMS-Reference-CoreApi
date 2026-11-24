@@ -64,7 +64,8 @@ The custom error handlers have the properties
     :Example: `MyVendor\MySitepackage\Error\MyErrorHandler`
 
     Fully-qualified class name of a custom error handler implementing
-    :php:`PageErrorHandlerInterface`. Write it without a leading backslash:
+    :php-short:`\TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface`.
+    Write it without a leading backslash:
     TYPO3 throws an exception for a class name that starts with one.
 
 
