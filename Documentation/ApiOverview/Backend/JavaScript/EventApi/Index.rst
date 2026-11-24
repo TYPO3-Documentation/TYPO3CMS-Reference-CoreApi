@@ -65,9 +65,11 @@ Release an event
 Since each event is an object instance, it is sufficient to call :js:`release()` to
 detach the event listener. Keep the object in a variable: :js:`bindTo()` and
 :js:`delegateTo()` return nothing, so do not chain them to the constructor
-when you want to call :js:`release()` later. :js:`release()` removes a
-listener that was added with :js:`bindTo()`. It does not remove a listener
-that was added with :js:`delegateTo()`.
+when you want to call :js:`release()` later.
+
+:js:`release()` removes a listener that was added with :js:`bindTo()`. It
+does not remove a listener that was added with :js:`delegateTo()` or with
+the option `capture`, see :issue:`111547`.
 
 Example:
 
