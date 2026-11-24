@@ -23,7 +23,7 @@ request forgery (CSRF).
 ..  attention::
     This **requires a logged-in user** whether in frontend or backend. CSRF
     protection is not supported for anonymous users. Without a logged-in user
-    the token will always be :php:`dummyToken`. See :forge:`77403` for details.
+    the token will always be :php:`dummyToken`. See :issue:`77403` for details.
 
 For each form in the backend/frontend (or link that changes some data), create a
 token and insert it as a hidden form element. The name of the form element does
