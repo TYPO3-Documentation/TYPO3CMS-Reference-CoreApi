@@ -79,12 +79,11 @@ Key rules:
 
 *   Declare properties as :php:`protected`. Public properties work but bypass
     getters and setters, making lazy loading and dirty-state tracking harder to
-    reason about. Private properties are never populated during
+    reason about. Do not declare a property as :php:`private`: PHP does not let
+    the parent :php:`_setProperty()` method write to it, and the
     :abbr:`hydration (populating a PHP object with values loaded from the database)`
-    — PHP prevents the parent :php:`_setProperty()` method from writing to them
-    — and changes to private properties are never persisted for the same reason.
-    See
-    :ref:`Model properties declared private are never populated
+    fails with an :php:`Error`. See
+    :ref:`Model properties declared private make loading fail
     <extbase-appendix-pitfalls-private-properties>`.
 *   Every property needs a meaningful default so that the object is always in a
     valid state before it is populated by Extbase or your code.
@@ -103,8 +102,8 @@ syntax.
 
 ..  seealso::
 
-    `Private properties silently ignored <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-private-properties>`_ for why
-    private properties are silently ignored, with the full technical
+    `Model properties declared private make loading fail <https://docs.typo3.org/permalink/t3coreapi:extbase-appendix-pitfalls-private-properties>`_
+    for why a private property makes loading fail, with the full technical
     explanation.
 
     Field and table mapping overrides are covered in the mapping reference
@@ -239,8 +238,8 @@ A few things to note in the example above:
 *   **Each ObjectStorage must be initialized**, otherwise the first access
     to the typed property triggers a fatal error. Do this in
     :php:`initializeObject()` and call that method from the constructor. Extbase
-    calls :php:`initializeObject()` itself after mapping a record from the
-    database, so the storage is ready on loaded objects; calling it from
+    calls :php:`initializeObject()` itself when it creates the object for a
+    record from the database, so the storage is ready on loaded objects; calling it from
     :php:`__construct()` as well covers objects you create with :php:`new`. Both
     code paths then end up with an initialized storage.
 
@@ -582,6 +581,12 @@ that means, uninitialized.
 
 To address this problem and possible others, the :php:`DataMapper` will call the
 method :php:`initializeObject(): void` on models, if it exists.
+
+The :php:`DataMapper` calls :php:`initializeObject()` directly after it creates
+the empty object, before it sets the values from the database row. In
+:php:`initializeObject()`, all properties still have their default values, and
+:php:`getUid()` returns :php:`null`. Use the method to initialize properties,
+not to read the values of the record.
 
 Here is an updated version of the model:
 

@@ -24,19 +24,18 @@ this page first.
 ..  _extbase-appendix-pitfalls-private-properties:
 ..  _extbase-model-properties-default-values-cpp:
 
-Model properties declared private are never populated
-=====================================================
+Model properties declared private make loading fail
+===================================================
 
-**Symptom:** A model property always holds its default value after loading from
-the database, even though the database column contains data. No error is thrown.
+**Symptom:** Loading a record from the database fails with an error such as
+:php:`Error: Cannot access private property MyVendor\MyExtension\Domain\Model\Conference::$title`.
 
 **Why:** Extbase :abbr:`hydrates (populates a PHP object with values loaded from the database)` properties via :php:`_setProperty()`, a method
 defined on :php:`AbstractDomainObject`. It assigns values using dynamic
 property access (:php:`$this->{$propertyName} = $value`). PHP's visibility
-rules prevent a parent class method from writing to a :php:`private` property
-declared in a child class — the assignment silently does nothing. The same
-applies in the other direction: dirty-state tracking cannot read private
-properties either, so changes are never persisted.
+rules do not let a parent class method write to a :php:`private` property
+declared in a child class, so PHP throws an :php:`Error`. The parent class
+cannot read a :php:`private` property either, so Extbase cannot persist it.
 
 This catches developers who follow the general good-practice rule of keeping
 properties as private as possible. In Extbase models, :php:`protected` is the
