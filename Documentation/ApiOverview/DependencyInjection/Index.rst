@@ -343,7 +343,7 @@ classes.
 
 *Differently put:* When core classes "pollute" :php:`__construct()` with dependencies,
 the core can not add dependencies without being breaking. This is the reason why
-for example the extbase :php:`AbstractController` uses :php:`inject*()` methods for its
+for example the Extbase :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` uses :php:`inject*()` methods for its
 dependencies: Extending classes can then use constructor injection, do not need
 to call :php:`parent::__construct()`, and the core is free to change dependencies of
 the abstract.
