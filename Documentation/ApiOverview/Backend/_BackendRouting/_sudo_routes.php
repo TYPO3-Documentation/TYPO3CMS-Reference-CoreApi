@@ -9,7 +9,7 @@ return [
     'target' => MyHandler::class . '::process',
     'sudoMode' => [
       'group' => 'mySudoModeGroup',
-      'lifetime' => AccessLifetime::S,
+      'lifetime' => AccessLifetime::short,
     ],
   ],
 ];

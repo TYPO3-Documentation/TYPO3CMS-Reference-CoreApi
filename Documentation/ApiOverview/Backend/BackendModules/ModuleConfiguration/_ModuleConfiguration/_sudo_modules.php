@@ -8,7 +8,7 @@ return [
     'routeOptions' => [
       'sudoMode' => [
         'group' => 'systemMaintainer',
-        'lifetime' => AccessLifetime::M,
+        'lifetime' => AccessLifetime::medium,
       ],
     ],
   ],

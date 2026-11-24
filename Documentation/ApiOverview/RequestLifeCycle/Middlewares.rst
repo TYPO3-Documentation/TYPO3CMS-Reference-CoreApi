@@ -338,8 +338,11 @@ PSR-7_ request objects can be created with the :ref:`PSR-17 Request Factory inte
     This does not replace the currently available Guzzle wrapper
     :php:`\TYPO3\CMS\Core\Http\RequestFactory->request()`, but is available as a more generic,
     framework-agnostic alternative. The PSR-18 interface does not allow you to pass
-    request-specific guzzle options. But global options defined in :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']`
+    request-specific guzzle options. Most global options defined in :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']`
     are taken into account because GuzzleHTTP is used as the backend for this PSR-18 implementation.
+    Two of them are not: the PSR-18 client never follows redirects (`allow_redirects`) and never
+    throws an exception for an HTTP error status (`http_errors`). Check the status code of the
+    response yourself.
     The concrete implementation is internal and will be replaced by a native guzzle PSR-18
     implementation once it is available.
 

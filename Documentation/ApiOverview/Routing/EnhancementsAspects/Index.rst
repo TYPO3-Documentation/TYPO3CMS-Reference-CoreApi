@@ -570,11 +570,14 @@ uniqueness.
 Aspect precedence
 =================
 
-Route :yaml:`requirements` are ignored for route variables having a
-corresponding setting in :yaml:`aspects`. Imagine an aspect that is mapping an
-internal value `1` to route value `one` and vice versa - it is not possible to
-explicitly define the :yaml:`requirements` for this case - which is why
-:yaml:`aspects` take precedence.
+For a route variable with an aspect, a :yaml:`requirements` rule is checked
+against the value in the URL, that is against the value after the mapping.
+Imagine an aspect that is mapping an internal value `1` to route value `one`
+and vice versa. A requirement `\d+` for this variable would reject `one`:
+the route enhancer is not used, and the parameters are added to the URL as
+normal query parameters. Leave the requirement out for such a variable.
+TYPO3 then uses `.+` for it, and the aspect alone decides which values are
+valid.
 
 The following example illustrates the mentioned dilemma between route generation
 and resolving:
@@ -582,9 +585,9 @@ and resolving:
 ..  literalinclude:: _codesnippets/_AspectPrecedence.yaml
     :caption: config/sites/my-site/config.yaml (excerpt)
 
-The :yaml:`map` in the previous example is already defining all valid values.
-That is why :yaml:`aspects` take precedence over :yaml:`requirements` for a
-specific :yaml:`routePath` definition.
+The :yaml:`map` in the previous example is already defining all valid values,
+so the requirement only repeats them. Without the requirement, the aspect
+alone decides which values are valid.
 
 
 ..  _routing-aspect-fallback-handling:
