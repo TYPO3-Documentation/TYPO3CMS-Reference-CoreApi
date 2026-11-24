@@ -180,10 +180,11 @@ you can change the order via TypoScript:
 ..  literalinclude:: _PageTitleProvider/_pageTitleProviders.typoscript
     :caption: EXT:my_extension/Configuration/Sets/Main/setup.typoscript
 
-First the :php:`RecordTitleProvider` (because it is now handled before
-:typoscript:`seo`) is checked. If it does not provide a title, the
-:php:`SeoTitlePageTitleProvider` and then the :php:`RecordPageTitleProvider`
-are checked.
+First the :php-short:`\TYPO3\CMS\Core\PageTitle\RecordTitleProvider` (because
+it is handled before :typoscript:`seo`) is checked. If it does not provide a
+title, the :php-short:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider` and
+then the :php-short:`\TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider` are
+checked.
 
 You can override these settings within your own installation. You can add as
 many providers as you want. Be aware that if a provider returns a non-empty
