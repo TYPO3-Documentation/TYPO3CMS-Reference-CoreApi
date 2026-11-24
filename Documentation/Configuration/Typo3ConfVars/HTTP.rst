@@ -81,9 +81,9 @@ allowed_hosts
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']
     :type: array / null
 
-    This option is not passed on to guzzle. Instead, it configures
-    the hosts that features of TYPO3 are allowed to connect to, in one
-    array per feature.
+    This option is not passed on to Guzzle. Instead, it restricts the
+    hosts that some system extensions are allowed to connect to. Each
+    subkey holds the allowed hostnames for one extension.
 
     ..  _typo3ConfVars_http_allowed_hosts_webhooks:
 
