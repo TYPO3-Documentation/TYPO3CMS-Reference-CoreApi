@@ -304,16 +304,11 @@ different techniques for the declarations):
     The policy builder is the low-level representation and interaction in PHP,
     any other configuration is using the same verbs to describe the CSP
     instructions. The :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy`
-    object is used for compiling the CSP in a :ref:`middleware <request-handling>`.
-    Thus, custom controllers or middlewares could use this approach; the last
-    line:
-
-    ..  code-block:: php
-
-        header('Content-Security-Policy: ' . $policy->compile($nonce));
-
-    is an example to show the basic principle without having to explain
-    :ref:`PSR-7 <typo3-request>`/:ref:`PSR-15 <request-handling>` details.
+    object is compiled into the HTTP header by a TYPO3
+    :ref:`middleware <request-handling>`. :php:`Policy::compile()` takes the
+    :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Middleware\PolicyBag`
+    of the current request, with the nonce and the collected hashes, which
+    the middleware creates. Your own code does not call :php:`compile()`.
 
     For project integrations, the "mutations" (via
     :ref:`configuration <content-security-policy-extension>`,
@@ -580,7 +575,7 @@ via the following modes:
 
         ..  code-block:: http
 
-            Content-Security-Policy: default-src 'self' example.com
+            Content-Security-Policy: img-src 'self' example.com
 
     ..  confval:: remove
         :name: content-security-policy-mode-remove
