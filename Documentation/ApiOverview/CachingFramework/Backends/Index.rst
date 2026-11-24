@@ -608,20 +608,6 @@ for its central Core cache (it holds autoloader cache entries and other importan
 usually flushed completely and does not need specific cache entry eviction.
 
 
-..  _caching-backend-pdo:
-..  _caching-backend-pdo-options:
-..  _caching-backend-pdo-username:
-..  _caching-backend-pdo-password:
-
-PDO backend
-===========
-
-TYPO3 has no PDO cache backend. The class
-:php:`\TYPO3\CMS\Core\Cache\Backend\PdoBackend` does not exist, so a cache
-configuration that names it fails. To store a cache in a database, use the
-`database backend <https://docs.typo3.org/permalink/t3coreapi:caching-backend-db>`_.
-
-
 ..  _caching-backend-transient:
 
 Transient memory backend
