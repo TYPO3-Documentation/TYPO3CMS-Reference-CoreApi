@@ -275,9 +275,14 @@ syntax the ordering of the arguments can be made clear:
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.fluid.html
 
     <f:translate
-       key="author"
-       arguments="{1: blog.author.firstName, 2: blog.author.lastname}"
+       key="blog.author"
+       arguments="{0: blog.author.firstName, 1: blog.author.lastName}"
     />
+
+The arguments are a list with the keys `0`, `1`, and so on. The
+placeholder `%1$s` takes the first argument (key `0`), `%2$s` the second
+(key `1`). Do not start the keys at `1`: TYPO3 then formats the label as
+an ICU message, and the `%1$s` placeholders stay in the output unchanged.
 
 The authors name would be displayed in English as :html:`Lina Wolf` while
 it would be displayed in Chinese like :html:`吴林娜` (WúLínnà).
