@@ -30,19 +30,19 @@ Security-related constant
 
 
 ..  index::
-    Security; FILE_DENY_PATTERN_DEFAULT
-    Constants; FILE_DENY_PATTERN_DEFAULT
+    Security; DEFAULT_FILE_DENY_PATTERN
+    Constants; DEFAULT_FILE_DENY_PATTERN
 
 ..  _globals-constants-security-related-constant-file-deny:
 
-FILE_DENY_PATTERN_DEFAULT
+DEFAULT_FILE_DENY_PATTERN
 -------------------------
 
 Default value of :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
 <typo3confvars-be-filedenypattern>`.
 
 Defined in:
-    :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`
+    :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::DEFAULT_FILE_DENY_PATTERN`
 
 Example:
     :php:`\\.(php[3-8]?|phpsh|phtml|pht|phar|shtml|cgi)(\\..*)?$|\\.pl$|^\\.htaccess$`
