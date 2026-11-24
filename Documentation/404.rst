@@ -72,6 +72,25 @@ Most properties can be retrieved from the
 TYPO3 v12
 =========
 
+..  _caching-backend-pdo:
+..  _caching-backend-pdo-options:
+..  _caching-backend-pdo-username:
+..  _caching-backend-pdo-password:
+..  _confval-caching-backend-pdo-datasourcename:
+..  _confval-caching-backend-pdo-username:
+..  _confval-caching-backend-pdo-password:
+
+PDO cache backend removed
+-------------------------
+
+..  versionchanged:: 12.0
+    :changelog: breaking-96107
+
+TYPO3 v12 removed the cache backend
+:php:`\TYPO3\CMS\Core\Cache\Backend\PdoBackend`. To store a cache in a
+database, use the
+`database backend <https://docs.typo3.org/permalink/t3coreapi:caching-backend-db>`_.
+
 ..  _confval-globals-pages-types:
 
 $GLOBALS['PAGES_TYPES'] removed

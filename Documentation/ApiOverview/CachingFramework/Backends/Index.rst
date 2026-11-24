@@ -608,65 +608,6 @@ for its central Core cache (it holds autoloader cache entries and other importan
 usually flushed completely and does not need specific cache entry eviction.
 
 
-..  _caching-backend-pdo:
-
-PDO backend
-===========
-
-The PDO backend can be used as a native PDO interface to databases which are connected to PHP via PDO.
-It is an alternative to the database backend if a cache should be stored in a database which is otherwise
-only supported by TYPO3 dbal to reduce the parser overhead.
-
-Garbage collection is implemented for this backend and should be called to clean up hard disk space or memory.
-
-..  note::
-
-   There is currently very little production experience with this backend, especially not with a capable database like Oracle.
-   Any feedback for real life use cases of this cache is appreciated.
-
-
-..  _caching-backend-pdo-options:
-
-Options for the PDO backend
----------------------------
-
-..  confval:: dataSourceName
-    :name: caching-backend-pdo-dataSourceName
-    :type: string
-    :required: true
-
-    Data source name for connecting to the database. Examples:
-
-    -   `mysql:host=localhost;dbname=test`
-    -   `sqlite:/path/to/sqlite.db`
-    -   `sqlite::memory`
-
-
-..  _caching-backend-pdo-username:
-
-username
-~~~~~~~~
-
-..  confval:: username
-    :name: caching-backend-pdo-username
-    :type: string
-
-    Username for the database connection.
-
-
-
-..  _caching-backend-pdo-password:
-
-password
-~~~~~~~~
-
-..  confval:: password
-    :name: caching-backend-pdo-password
-    :type: string
-
-    Password to use for the database connection.
-
-
 ..  _caching-backend-transient:
 
 Transient memory backend
