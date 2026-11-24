@@ -485,7 +485,7 @@ No configurable options.
 ----------
 
 Rejects uploaded files whose name matches dangerous executable extensions
-(such as `.php`, `.phar`, `.exe`). It delegates to Core's
+(such as `.php` and `.phar`). It delegates to Core's
 :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator`, which is
 driven by the global `fileDenyPattern` configuration and is not
 configurable per validator instance.

@@ -681,7 +681,7 @@ fileDenyPattern
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
     :name: globals-typo3-conf-vars-be-fileDenyPattern
     :type: text
-    :default: ''
+    :default: (not set)
 
     A perl and JavaScript-compatible regular expression that will block ('deny')
     operations on files with matching filenames (without delimiters `/`), for
@@ -692,8 +692,10 @@ fileDenyPattern
     handler in an arbitrary position. Also, ".htaccess" files must be blocked.
     Matching is case-insensitive.
 
-    The default value is stored in class constant
-    :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
+    When the option is not set, TYPO3 uses the pattern of the class constant
+    :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::DEFAULT_FILE_DENY_PATTERN`.
+    An empty string does not restore this default: with `''`, TYPO3 blocks only
+    file names with control characters, and PHP files are allowed.
 
     See also :ref:`security guidelines
     <security-global-typo3-options-filedenypattern>`.
