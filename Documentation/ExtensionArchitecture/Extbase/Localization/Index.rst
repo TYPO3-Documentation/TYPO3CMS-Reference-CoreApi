@@ -103,19 +103,23 @@ constructed in PHP, as described in
     :php:`OVERLAYS_MIXED` on it as shown in :ref:`Deciding the language per
     query <extbase-localisation-query-settings>`.
 
+On a `fallback` site, Extbase also returns records in the requested language
+that have no record in the default language. :php:`count()` counts these
+records as well.
+
+To leave these records out, add a constraint to the query. The constraint
+keeps a record if one of these conditions is true:
+
+*   Its translation parent field, such as `l10n_parent`, is greater than `0`.
+*   Its language field, such as `sys_language_uid`, is `0` or `-1`.
+
 ..  versionchanged:: 15.0
     :changelog: important-111329-1793705407
 
-    Before, Extbase did not return records without a default language record
-    on a `fallback` site, whereas the content object :typoscript:`CONTENT` and
-    the :php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` did.
-
-On a `fallback` site, Extbase also returns records that were created directly
-in the requested language, without a record in the default language. It also
-counts them in the result of :php:`count()`. To leave them out, add a
-constraint to the query: keep a record only if its translation parent field,
-such as `l10n_parent`, is greater than `0`, or if its language field, such as
-`sys_language_uid`, is `0` or `-1`.
+    Up to TYPO3 14, Extbase did not return these records on a `fallback`
+    site. The content object :typoscript:`CONTENT` and the
+    :php-short:`\TYPO3\CMS\Core\Domain\Repository\PageRepository`
+    already returned them.
 
 ..  rubric:: What this means for relations
 

@@ -98,9 +98,9 @@ every translated language until somebody translates them.
     ..  versionchanged:: 15.0
         :changelog: important-111329-1793705407
 
-        :php:`LanguageAspect::OVERLAYS_MIXED` also returns records that were
-        created directly in a translated language, without a default language
-        record. Extbase did not return these records before.
+        Up to TYPO3 14, :php:`LanguageAspect::OVERLAYS_MIXED` did not return
+        records in a translated language that have no record in the default
+        language. Now Extbase returns these records as well.
 
 ..  seealso::
 
