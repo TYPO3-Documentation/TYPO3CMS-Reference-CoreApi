@@ -19,40 +19,46 @@ References are opt-in: a reference is not considered a dependency unless a
 listener explicitly marks it as one via :php:`setDependency()`. TYPO3 Core
 registers a listener that marks these references as dependencies:
 
-*   References of fields of type `flex`.
-*   References of fields of type `inline` or `file`, unless the relation is
-    stored in an `MM` table. This includes relations with `foreign_field`,
-    relations stored as a comma-separated list in the parent field, and
-    relations with the
-    `relationship <https://docs.typo3.org/permalink/t3tca:confval-inline-relationship>`_
-    `oneToOne` or `manyToOne`.
+*   References in fields of type `flex`.
+*   References in fields of type `inline` or `file`, in all relations except
+    `MM` relations:
+
+    *   Relations with `foreign_field`.
+    *   Relations that the parent field stores as a comma-separated list.
+    *   Relations with the
+        `relationship <https://docs.typo3.org/permalink/t3tca:confval-inline-relationship>`_
+        `oneToOne` or `manyToOne`.
 
 ..  versionchanged:: 14.3.11
     :changelog: important-111339-1793809730
 
-    Before, the Core listener did not mark references of `inline` and `file`
-    fields with the relationship `oneToOne` or `manyToOne` as dependencies.
+    Up to TYPO3 14.3.10, the Core listener did not mark relations with the
+    relationship `oneToOne` or `manyToOne` as dependencies.
 
 This event allows extensions to opt in additional custom fields, for example
 those storing a parent-child relationship outside of TCA's built-in relation
 types.
 
+A listener can also get this information about the reference:
+
+*   :php:`getFlexPointer()` returns the FlexForm field of the reference.
+*   :php:`isSoftReference()` returns whether the reference is a soft
+    reference, such as a link in a rich text field.
+*   :php:`getSoftReferenceKey()` returns the key of the soft reference parser
+    that found the reference.
+*   :php:`getSoftReferenceId()` returns the identifier of the soft reference
+    in the field value.
+*   :php:`getDirection()` returns the direction of the lookup:
+
+    *   `DependencyLookupDirection::Children`: The resolver collects the
+        children of the record with the field.
+    *   `DependencyLookupDirection::Parents`: The resolver collects the
+        parents of the referenced record.
+
 ..  versionchanged:: 14.3.11
     :changelog: important-111343-1793811746
 
-    Before, the event did not provide the FlexForm field, the soft reference,
-    and the direction of the lookup.
-
-Besides the table, the field, and the referenced record, the event tells a
-listener more about the reference:
-
-*   :php:`getFlexPointer()` returns the FlexForm field of the reference.
-*   :php:`getSoftReferenceKey()`, :php:`getSoftReferenceId()`, and
-    :php:`isSoftReference()` describe a soft reference, such as a link in a
-    rich text field.
-*   :php:`getDirection()` returns whether the resolver collects the parents or
-    the children of a record, as `DependencyLookupDirection::Parents` or
-    `DependencyLookupDirection::Children`.
+    Up to TYPO3 14.3.10, the event did not have these methods.
 
 ..  _IsReferenceConsideredForDependencyEvent-example:
 
