@@ -36,6 +36,11 @@ Global files
 :file:`config/system/additional.php`:
     Can be used to **override** settings defined in :file:`config/system/settings.php`
 
+:file:`config/system/file-storages.yaml`:
+    Defines the file storages of the installation, see
+    `File storages <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_. Without this file,
+    TYPO3 uses one storage for :file:`fileadmin/`.
+
 :file:`config/system/services.php` and :file:`config/system/services.yaml`:
     These two files can be used to set up a global service configuration for
     a project that can be used in several project-specific extensions. This

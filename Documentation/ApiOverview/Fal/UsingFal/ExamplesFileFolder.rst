@@ -44,21 +44,23 @@ The syntax of argument 1 for :php:`getFileObjectFromCombinedIdentifier()` is:
 
     [[storage uid]:]<file identifier>
 
-The storage uid is optional. If it is not specified, the default storage "0"
-will be assumed initially. The default storage is virtual with :php:`$uid === 0`
-in its class :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`. In this case the
-local filesystem is checked for the given file. The file identifier is the local
-path and filename relative to the TYPO3 :file:`fileadmin/` folder.
+The storage uid is optional. Without it, TYPO3 treats the identifier as a path
+relative to the web root, or as an absolute path. It looks for the local
+storage whose base path matches the longest part of this path, and takes the
+rest as the file identifier in that storage. For example,
+`fileadmin/some_folder/some_image.png` becomes
+`/some_folder/some_image.png` in the storage of :path:`fileadmin/`.
 
-Example: :file:`/some_folder/some_image.png`, if the file
-:file:`/absolute/path/to/fileadmin/some_folder/some_image.png` exists on the
-file system.
+If the path is outside all storages, the method throws a
+:php-short:`\TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException`.
+It also throws it for the storage uid `0`.
 
-The file can be accessed from the default storage, if it exists under the given
-local path in :file:`fileadmin/`. In case the file is not found, a search for
-another storage best fitting to this local path will be started. Afterwards, the
-file identifier is adapted accordingly inside of TYPO3 to match the new
-storage's base path.
+..  versionchanged:: 15.0
+    :changelog: breaking-110361-1785715200
+
+    Before, an identifier without a storage uid first looked into the virtual
+    fallback storage `0`, which covered the whole web root. This storage was
+    removed.
 
 
 ..  _fal-using-fal-examples-file-folder-get-file-filename-folder:
@@ -143,6 +145,9 @@ Validation behavior:
     `$GLOBALS['TYPO3_CONF_VARS']['SYS']['miscfile_ext']  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-miscfile-ext>`_.
 *   The file’s MIME type must match the expected file extension. For example,
     a real PNG image with a `.exe` file extension is rejected.
+*   The file extension must be allowed by the storage and, for a backend user
+    without admin rights, by the file mount, see
+    `Restricting the file extensions of a file storage <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages-file-extensions>`_.
 
 Feature flags controlling this behavior:
 

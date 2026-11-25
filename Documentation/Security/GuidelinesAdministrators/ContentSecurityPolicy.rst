@@ -29,7 +29,8 @@ To mitigate these potential scenarios it is advised to either
 deny uploading files as described in TYPO3-PSA-2019-010_ (which might be
 impractical for some sites) or add content security policy headers for
 these directories - basically all public available base directories of
-file storages (`sys_file_storage`).
+file storages (configured in
+`config/system/file-storages.yaml <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_).
 
 Please note that the CSP configuration in
 :ref:`Content security policy <content-security-policy>` only applies to pages

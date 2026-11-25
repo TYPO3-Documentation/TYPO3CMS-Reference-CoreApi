@@ -34,7 +34,8 @@ By default, TYPO3 provides only a local file system driver.
 A new TYPO3 installation comes with a predefined storage,
 using the local file system driver and pointing to the
 :file:`fileadmin/` directory, located in your public folder.
-If it is missing or offline after installation, you can create it yourself.
+Further storages are configured in the file
+`config/system/file-storages.yaml <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_.
 
 
 ..  index:: File abstraction layer; Metadata

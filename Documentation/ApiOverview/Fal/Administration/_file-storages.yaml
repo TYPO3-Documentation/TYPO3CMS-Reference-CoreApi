@@ -1,0 +1,11 @@
+storages:
+  1:
+    name: fileadmin
+    default: true
+    configuration:
+      basePath: public/fileadmin/
+  2:
+    name: 'Private documents'
+    public: false
+    configuration:
+      basePath: storage/private/

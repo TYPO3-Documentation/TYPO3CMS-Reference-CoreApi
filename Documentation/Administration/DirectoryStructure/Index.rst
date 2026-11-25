@@ -87,9 +87,11 @@ The folder :path:`config/system/` contains the installation-wide
     by the :guilabel:`System > Settings` backend module
 *   :file:`additional.php`: :ref:`Manually created file <typo3confvars-additional>`
     which can override settings from :file:`settings.php` file
+*   :file:`file-storages.yaml`: Optional file that defines the
+    `file storages <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_
 
-These files define a set of global settings stored in a global array called
-:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3confvars>`.
+The two PHP files define a set of global settings stored in a global array
+called :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3confvars>`.
 
 This path can be retrieved from the Environment API, see
 :ref:`getConfigPath() <environment-config-path>`.
