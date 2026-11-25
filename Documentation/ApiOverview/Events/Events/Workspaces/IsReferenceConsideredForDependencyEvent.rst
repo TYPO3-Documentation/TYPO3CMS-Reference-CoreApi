@@ -17,11 +17,25 @@ during publish, stage change, discard, or display operations.
 
 References are opt-in: a reference is not considered a dependency unless a
 listener explicitly marks it as one via :php:`setDependency()`. TYPO3 Core
-registers a listener that marks `type=inline`, `type=file` (with
-`foreign_field`), and `type=flex` fields as dependencies; this
-event allows extensions to opt in additional custom fields, for example
-those storing a parent-child relationship outside of TCA's built-in
-relation types.
+registers a listener that marks these references as dependencies:
+
+*   References of fields of type `flex`.
+*   References of fields of type `inline` or `file`, unless the relation is
+    stored in an `MM` table. This includes relations with `foreign_field`,
+    relations stored as a comma-separated list in the parent field, and
+    relations with the
+    `relationship <https://docs.typo3.org/permalink/t3tca:confval-inline-relationship>`_
+    `oneToOne` or `manyToOne`.
+
+..  versionchanged:: 14.3.11
+    :changelog: important-111339-1793809730
+
+    Before, the Core listener did not mark references of `inline` and `file`
+    fields with the relationship `oneToOne` or `manyToOne` as dependencies.
+
+This event allows extensions to opt in additional custom fields, for example
+those storing a parent-child relationship outside of TCA's built-in relation
+types.
 
 ..  _IsReferenceConsideredForDependencyEvent-example:
 
