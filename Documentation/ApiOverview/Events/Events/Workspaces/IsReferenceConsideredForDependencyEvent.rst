@@ -37,6 +37,23 @@ This event allows extensions to opt in additional custom fields, for example
 those storing a parent-child relationship outside of TCA's built-in relation
 types.
 
+..  versionchanged:: 14.3.11
+    :changelog: important-111343-1793811746
+
+    Before, the event did not provide the FlexForm field, the soft reference,
+    and the direction of the lookup.
+
+Besides the table, the field, and the referenced record, the event tells a
+listener more about the reference:
+
+*   :php:`getFlexPointer()` returns the FlexForm field of the reference.
+*   :php:`getSoftReferenceKey()`, :php:`getSoftReferenceId()`, and
+    :php:`isSoftReference()` describe a soft reference, such as a link in a
+    rich text field.
+*   :php:`getDirection()` returns whether the resolver collects the parents or
+    the children of a record, as `DependencyLookupDirection::Parents` or
+    `DependencyLookupDirection::Children`.
+
 ..  _IsReferenceConsideredForDependencyEvent-example:
 
 Example: Treat a custom parent-reference field as a dependency
