@@ -81,8 +81,9 @@ allowed_hosts
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']
     :type: array / null
 
-    This option is not passed on to guzzle. Instead, it configures
-    an array of allowed hosts to interact with TYPO3.
+    This option is not passed on to Guzzle. Instead, it restricts the
+    hosts that some system extensions are allowed to connect to. Each
+    subkey holds the allowed hostnames for one extension.
 
     ..  _typo3ConfVars_http_allowed_hosts_webhooks:
 
@@ -92,9 +93,8 @@ allowed_hosts
         :type: array / null
         :default: null
 
-        For now, the only supported array key is `webhooks` to configure an array
-        of valid hostnames that webhooks of `EXT:webhooks` are allowed to connect to
-        (see :issue:`106229` as a protection against DNS rebinding).
+        An array of valid hostnames that webhooks of `EXT:webhooks` are allowed
+        to connect to (see :issue:`106229` as a protection against DNS rebinding).
 
         Wildcards in the array values are allowed, like `*.example.com`.
 
@@ -103,6 +103,40 @@ allowed_hosts
 
         Setting this option to null (or having it unset) is the default,
         and will allow any connection.
+
+    ..  _typo3ConfVars_http_allowed_hosts_dashboard_rss:
+
+    ..  confval:: dashboard_rss
+        :name: globals-typo3-conf-vars-sys-http-allowed_hosts-dashboard_rss
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']['dashboard_rss']
+        :type: array / null
+        :default: null
+        :added: 14.3.12 important-110471-1792652849
+
+        An array of hostnames that RSS widgets of `EXT:dashboard` are allowed
+        to load feeds from. The restriction also applies to the targets of
+        redirects, and to the feed URL of the widget registration.
+        A feed from an unconfigured host is not loaded, and the widget shows a notice.
+
+        Wildcards in the array values are allowed, like `*.example.com`.
+
+        An empty array blocks all feeds. Setting this option to null (or having
+        it unset) is the default, and allows any host.
+
+        ..  attention::
+            Configure this option, and allow only the hosts of the feeds that
+            you use. Otherwise, a backend user who can configure an RSS widget
+            can make the server send requests to any host, also to hosts in
+            the internal network.
+
+        ..  code-block:: php
+            :caption: config/system/additional.php
+
+            $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']['dashboard_rss'] = [
+                // Hosts of the TYPO3 news feed
+                'typo3.org',
+                'news.typo3.com',
+            ];
 
 ..  _typo3confvars-http-cert:
 
