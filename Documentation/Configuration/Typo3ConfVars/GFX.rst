@@ -130,24 +130,34 @@ processor
     Select which external software on the server should process images -
     see also the preset functionality to see what is available.
 
+..  _typo3confvars-gfx-sharpen:
 ..  _typo3confvars-gfx-processor-effects:
 
+sharpen
+-------
 
-processor_effects
------------------
-
-..  confval:: processor_effects
-    :name: globals-typo3-conf-vars-sys-gfx-processor_effects
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_effects']
+..  confval:: sharpen
+    :name: globals-typo3-conf-vars-sys-gfx-sharpen
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['sharpen']
     :type: bool
-    :default: false
+    :default: true
 
     If enabled, ImageMagick and GraphicsMagick sharpen each JPEG, WebP, and
-    AVIF image that they process with `-sharpen 1x2`. They do not sharpen PNG
-    and GIF images. The setting does not blur images.
+    AVIF image slightly with `-unsharp 1x2+0.25+0` when they scale it down.
+    They do not sharpen an image that they scale up, and they do not sharpen
+    PNG and GIF images. Set the option to `false` to keep images unsharpened.
 
-    The ImageMagick preset of the Install Tool enables the setting, the
-    GraphicsMagick preset disables it.
+    The ImageMagick and the GraphicsMagick preset of the Install Tool enable
+    the setting.
+
+    ..  versionchanged:: 15.0
+        :changelog: breaking-111109-1792229915
+
+        The setting was renamed from `processor_effects`. The upgrade
+        migrates it in :file:`config/system/settings.php`. Before, it was
+        disabled by default and sharpened each processed JPEG, WebP, and
+        AVIF image with the stronger `-sharpen 1x2`, also when the image was
+        scaled up.
 
 ..  _typo3confvars-gfx-processor-allowupscaling:
 
