@@ -78,12 +78,15 @@ Key points:
 *   The error code is an arbitrary integer that must be unique across your
     extension. Using the Unix timestamp at the time of writing is a convenient
     way to generate a unique number.
-*   Translation keys use the domain syntax introduced in TYPO3 v14:
-    `my_extension.messages:some.key` resolves to
-    :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. See
-    :ref:`Translation domain syntax
-    <extbase-upgrading-translation-domain-syntax>`
-    for the full syntax including non-default language files.
+*   :php:`translateErrorMessage()` translates a key only if it starts with
+    `LLL:`, or if you pass the extension name as the second argument. Any
+    other string is returned as it is. Validator messages therefore need the
+    `LLL:` prefix, also in the
+    :ref:`translation domain syntax <extbase-upgrading-translation-domain-syntax>`:
+    `LLL:my_extension.messages:some.key` resolves to
+    :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. Without
+    the prefix, the visitor sees the key, not the translation. The same applies
+    to the message options of the built-in validators.
 
 
 ..  _extbase-validation-custom-property-errors:
@@ -171,7 +174,7 @@ then replace the message at the call site:
 
     #[Validate(SeatCountValidator::class, options: [
         'minimum' => 1,
-        'message' => 'my_extension.messages:validator.conference.notEnoughSeats.short',
+        'message' => 'LLL:my_extension.messages:validator.conference.notEnoughSeats.short',
     ])]
 
 

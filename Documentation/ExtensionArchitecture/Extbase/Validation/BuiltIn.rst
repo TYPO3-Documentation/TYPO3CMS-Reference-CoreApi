@@ -206,7 +206,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
 
         #[Validate('RegularExpression', options: [
             'regularExpression' => '/^[a-z0-9\-]+$/',
-            'message' => 'my_extension.messages:error.slug.invalidCharacters',
+            'message' => 'LLL:my_extension.messages:error.slug.invalidCharacters',
         ])]
         protected string $slug = '';
 
@@ -524,7 +524,10 @@ Customizing error messages
 ==========================
 
 Every built-in validator accepts one or more message options that replace the
-default error text. Pass a plain string or a translation key.
+default error text. Pass a plain string or a translation key. A translation key
+needs the `LLL:` prefix, also in the translation domain syntax:
+`LLL:my_extension.messages:key`. Without the prefix, the key is not translated:
+the visitor sees the key.
 
 The option key for each message is the name of the corresponding
 :php:`protected string $…Message` property in the validator class — for
@@ -538,9 +541,12 @@ given validator, check its :php:`$supportedOptions` array in the source at
     :caption: Custom message via translation key
 
     #[Validate('NotEmpty', options: [
-        'nullMessage' => 'my_extension.messages:error.title.required',
+        'emptyMessage' => 'LLL:my_extension.messages:error.title.required',
     ])]
     protected string $title = '';
+
+An empty string triggers `emptyMessage`. `nullMessage` is used only when the
+value is :php:`null`.
 
 ..  code-block:: php
     :caption: Custom inline message (useful during development)
