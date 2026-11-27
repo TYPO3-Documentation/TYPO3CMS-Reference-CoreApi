@@ -187,8 +187,10 @@ Add a computed property that is never stored in the database
 for example a formatted label derived from other properties — that should never
 be written to the database.
 
-**Short answer:** Add :php:`#[Transient]` to the property. Extbase skips it
-entirely during read and write operations.
+**Short answer:** Do not define a TCA column for the property. Extbase only
+reads and writes the properties for which the TCA defines a column. If the
+property is typed as another model or as a collection, add
+:php:`#[Transient]` so that Extbase does not validate it.
 
 ..  seealso::
 
