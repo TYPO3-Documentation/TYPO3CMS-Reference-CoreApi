@@ -401,7 +401,46 @@ had the last word on a mapping without reading each file in turn. The
 module belongs to :composer:`typo3/cms-lowlevel` and is open to
 administrators.
 
-..  Full mapping reference including class hierarchy and multi-model tables — placement TBD.
+..  _extbase-domain-model-mapping-record-types:
+
+Several model classes in one table: record types
+------------------------------------------------
+
+One table can hold records of several model classes, for example conferences
+and workshops in the table :sql:`tx_myextension_domain_model_conference`. A
+column of the table tells which class a record belongs to. This column is the
+record type column that the TCA names in :php:`['ctrl']['type']`, for example
+:php:`'type' => 'record_type'`.
+
+In :file:`Classes.php`, give each class its record type, and list the
+subclasses of the parent class:
+
+..  literalinclude:: _snippets/_ClassesRecordTypes.php
+    :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
+
+:php:`Workshop` extends :php:`Conference`. The key in :php:`subclasses` (here
+`workshop`) is not evaluated. Each subclass needs its own :php:`recordType` and
+:php:`tableName`:
+
+*   Without :php:`recordType`, the repository for :php:`Conference` does not
+    return workshops, and the repository for :php:`Workshop` returns every
+    record of the table as a :php:`Workshop` object.
+*   Without :php:`tableName`, Extbase derives the table name from the class name
+    of the subclass.
+
+A column mapping in :php:`properties` is inherited from the parent class.
+
+With this mapping, Extbase does the following:
+
+*   A query of the repository for :php:`Conference` returns only records whose
+    record type is `conference` or `workshop`. A record with any other record
+    type is not returned. If the parent class has no :php:`recordType`, the
+    query returns only the records of the subclasses.
+*   Each record becomes an object of the class that belongs to its record type:
+    a record with the type `workshop` becomes a :php:`Workshop` object.
+*   A query of a repository for :php:`Workshop` returns only the workshops.
+*   When Extbase saves an object, it writes the record type of its class into
+    the record type column.
 
 
 ..  _extbase-domain-model-db-columns:
