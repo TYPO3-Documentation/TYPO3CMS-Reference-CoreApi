@@ -371,6 +371,107 @@ testing.
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
 
+..  index:: Message bus; Failure transport
+..  _message-bus-failure-transport:
+
+Retry and park failed messages
+------------------------------
+
+..  versionadded:: 15.0
+    :changelog: feature-110230-1784620000
+
+    Failed messages can be retried and parked in a failure transport.
+
+When the handler of a message fails in a worker
+(`messenger:consume <https://docs.typo3.org/permalink/t3coreapi:console-command-messenger-consume>`_),
+TYPO3 can retry the message and then park it in a failure transport, so that
+it is not lost. This applies only to messages that a worker processes. A
+message that is handled synchronously, also with the `SyncTransport`, is not
+affected.
+
+..  _message-bus-failure-transport-enable:
+
+Enable the failure transport
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The failure transport is disabled by default. Name the transport that failed
+messages are parked in:
+
+..  code-block:: php
+    :caption: config/system/settings.php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['failure_transport'] = 'failed';
+
+TYPO3 ships the transport `failed`, which stores the messages in the table
+:sql:`sys_messenger_messages`, with the queue name `failed`. A worker does
+not consume a failure transport.
+
+..  _message-bus-failure-transport-retry:
+
+Retry a message before it is parked
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A transport without a retry strategy does not retry a failed message: the
+message goes straight to the failure transport, if one is configured. To
+retry a message, configure a retry strategy for the transport:
+
+..  code-block:: php
+    :caption: config/system/settings.php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['transports']['doctrine']['retry_strategy'] = [
+        'max_retries' => 3,
+        'delay' => 1000,    // milliseconds before the first retry
+        'multiplier' => 2,  // the delay is multiplied by this for each retry
+        'max_delay' => 0,   // maximum delay in milliseconds, 0 = no limit
+    ];
+
+..  _message-bus-failure-transport-per-transport:
+
+Use a failure transport of its own
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Every transport uses the global failure transport. A transport can use a
+failure transport of its own, or none:
+
+..  code-block:: php
+    :caption: config/system/settings.php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['failure_transport'] = 'failed';
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['transports'] = [
+        // The failed messages of the transport "email" go to "failed_email"
+        'email' => ['failure_transport' => 'failed_email'],
+        // The failed messages of the transport "reporting" are not parked
+        'reporting' => ['failure_transport' => ''],
+    ];
+
+A failure transport is registered as a sender, and tagged
+:yaml:`messenger.failure_transport`, so that the commands below find it:
+
+..  literalinclude:: _failure-transport.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+To choose the failure transport while the worker runs, listen to the event
+`ResolveFailureTransportEvent <https://docs.typo3.org/permalink/t3coreapi:resolvefailuretransportevent>`_.
+
+..  _message-bus-failure-transport-commands:
+
+Inspect, retry, and remove parked messages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`messenger:failed:show <https://docs.typo3.org/permalink/t3coreapi:console-command-messenger-failed-show>`_
+    Lists the parked messages, or shows the message with the given ID.
+
+`messenger:failed:retry <https://docs.typo3.org/permalink/t3coreapi:console-command-messenger-failed-retry>`_
+    Handles the messages with the given IDs again, or all of them with
+    `--force`. Handlers that succeeded before are skipped. A message that
+    succeeds is removed from the failure transport. A message that fails
+    again is parked again with the new error, and the command fails.
+
+`messenger:failed:remove <https://docs.typo3.org/permalink/t3coreapi:console-command-messenger-failed-remove>`_
+    Removes the messages with the given IDs from the failure transport.
+
+The commands are not available as scheduler tasks.
+
 ..  _message-bus-configure-middleware:
 
 Configure a custom middleware
