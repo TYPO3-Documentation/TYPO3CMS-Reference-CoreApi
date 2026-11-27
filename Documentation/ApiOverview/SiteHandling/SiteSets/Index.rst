@@ -63,16 +63,33 @@ to import every extension file manually.
 Order of site sets that do not depend on each other
 ---------------------------------------------------
 
-The order in which a site lists its sets does not decide which set wins. For
-two sets that do not depend on each other, TYPO3 uses an order that does not
-depend on the site. Installing another extension can change this order.
+TYPO3 applies the sets in the order the site lists them, each set after the
+sets it depends on. A set that several sets depend on keeps its first
+position. Of two sets that do not depend on each other, the set listed last
+wins: its TypoScript, page TSconfig, settings, and route enhancers override
+those of the set listed before it.
 
-To make one set override another one, declare the other set as a dependency
-of the set that is meant to win. The set is then always applied after its
-dependency, on every site:
+List the set that is meant to win last:
+
+..  literalinclude:: _siteConfigSetOrder.yaml
+    :caption: config/sites/my-site/config.yaml (excerpt)
+
+To make the order the same on every site, declare the other set as a
+dependency of the set that is meant to win:
 
 ..  literalinclude:: _setConfigOverrides.yaml
     :caption: EXT:my_sitepackage/Configuration/Sets/Main/config.yaml
+
+..  versionchanged:: 15.0
+    :changelog: breaking-111156-1792483200
+
+    Before, the order in which a site listed its sets had no effect. Sets
+    that do not depend on each other were ordered by rules independent of
+    the site. Check the sites that list several sets configuring the same
+    TypoScript, page TSconfig, setting, or route enhancer, and list the set
+    that is meant to win last. A common case is a site package that replaces
+    :typoscript:`lib.contentElement`, listed before a set of another
+    extension that depends on `typo3/fluid-styled-content`.
 
 ..  _site-sets-definition:
 
