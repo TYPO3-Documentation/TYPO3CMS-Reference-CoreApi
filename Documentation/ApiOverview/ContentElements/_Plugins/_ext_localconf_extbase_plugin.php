@@ -9,7 +9,6 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 ExtensionUtility::configurePlugin(
   'MyExtension',
   'MyPlugin',
-  [MyController::class => 'list,comment'],
-  [MyController::class => 'comment'],
-  ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+  [MyController::class => ['list', 'comment']],
+  [MyController::class => ['comment']],
 );

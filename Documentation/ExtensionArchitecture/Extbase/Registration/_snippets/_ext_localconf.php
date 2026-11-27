@@ -8,6 +8,6 @@ defined('TYPO3') or die();
 ExtensionUtility::configurePlugin(
   'MyExtension',
   'ConferenceList',
-  [ConferenceController::class => 'list, show, create'],
-  [ConferenceController::class => 'create'],
+  [ConferenceController::class => ['list', 'show', 'create']],
+  [ConferenceController::class => ['create']],
 );
