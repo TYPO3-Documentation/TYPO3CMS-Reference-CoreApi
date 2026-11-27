@@ -389,8 +389,10 @@ not the whole result set — so it is safe to use over large tables. In the
 template the records for the current page come from
 :html:`{paginator.paginatedItems}` (you loop over that to render the items),
 while :html:`{pagination.allPageNumbers}` supplies the page numbers for the
-navigation links. The original :php:`findAll()` result is never passed to the
-view:
+navigation links. :html:`{paginator.totalNumberOfItems}` gives the number of
+all records, see
+`Showing the number of items of a paginator <https://docs.typo3.org/permalink/t3coreapi:pagination-number-of-items>`_.
+The original :php:`findAll()` result is never passed to the view:
 
 ..  literalinclude:: _snippets/_Pagination.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/Conference/List.fluid.html
