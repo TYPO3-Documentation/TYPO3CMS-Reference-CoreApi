@@ -4,7 +4,6 @@
 ..  index:: pair: Extbase; Built-in validators
 ..  _extbase-validation-builtin:
 ..  _extbase-validator:
-..  _extbase-validator-collection:
 ..  _extbase-validator-conjunction:
 ..  _extbase-validator-disjunction:
 
@@ -338,6 +337,61 @@ to a date object.
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\DateTimeValidator`
 
 No options beyond the optional `message` override.
+
+..  _extbase-validation-builtin-collection:
+..  _extbase-validator-collection:
+
+`Collection` for the objects of an `ObjectStorage` or array
+-----------------------------------------------------------
+
+Validates each element of an array or an
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`. Extbase adds this
+validator itself to each property of a model that holds a collection with a
+declared element type, such as `ObjectStorage<Session>`. It then applies the
+validators of the element class to each element. A lazy loaded
+`ObjectStorage` that is not loaded yet is not validated.
+
+To apply one validator to each element, set it as `elementValidator`:
+
+..  literalinclude:: _snippets/_ConferenceWithCollectionValidator.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\CollectionValidator`
+
+..  list-table::
+    :header-rows: 1
+    :widths: 25 15 60
+
+    * - Option
+      - Default
+      - Description
+    * - `elementValidator`
+      - –
+      - Name of the validator for each element, for example `'EmailAddress'`.
+    * - `elementType`
+      - –
+      - Class name of the elements. Each element is validated with the
+        validators of this class.
+
+If neither option is set, the validator does not check the elements.
+
+..  _extbase-validation-builtin-collection-errors:
+
+Validation errors of the elements of a collection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The validation result of an element is stored below the property path of
+the collection, followed by the key of the element. For an array, this is the
+array key. For an `ObjectStorage`, it is an internal hash of the object.
+`f:for` returns the same hash as its `key`, so use it to show the errors of an
+element:
+
+..  literalinclude:: _snippets/_SessionErrors.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Conference/Edit.fluid.html
+
+A form field names an element of an `ObjectStorage` by its position, such as
+`sessions.0.title`. Its `errorClass` therefore does not find the validation
+result of the element.
 
 
 ..  _extbase-validation-builtin-file:
