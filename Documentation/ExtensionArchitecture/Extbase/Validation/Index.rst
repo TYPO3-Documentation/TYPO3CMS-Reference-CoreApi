@@ -44,9 +44,10 @@ The sequence for every request that carries arguments is:
 3.  **Action dispatch** — if validation passes, the action method is called
     with the resolved arguments.
 4.  **Error handling** — if validation fails, :php:`errorAction()` is called
-    instead. The default implementation redirects the user to the referring
-    request (typically the action that rendered the form), carrying the
-    validation errors so they can be displayed.
+    instead. The default implementation forwards the request internally to
+    the referring action (typically the action that rendered the form). There
+    is no browser redirect. The validation errors are passed on, so they can
+    be displayed.
 
 This means you declare *what* valid data looks like; Extbase decides *when*
 to run the checks and *where* to route the request on failure.
@@ -142,9 +143,7 @@ Ignoring the validation result with `#[IgnoreValidation]`
 =========================================================
 
 Sometimes you need to receive an object without running its validators, for
-example when displaying a "new" form that is pre-populated from a submitted but
-invalid object, or when an action intentionally accepts a partially filled
-model.
+example when an action intentionally accepts a partially filled model.
 
 Place :php:`#[IgnoreValidation]` on the parameter to tell Extbase to ignore
 the validation result for that argument and dispatch the action regardless:
@@ -153,15 +152,15 @@ the validation result for that argument and dispatch the action regardless:
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 Extbase does not validate this argument, so the action is called even
-when the object is invalid. This is what allows :php:`newAction()` to
-receive a partially filled :php:`Conference` back from a failed
-:php:`createAction()` and hand it to the template. The validation errors
-are those of :php:`createAction()`, which Extbase passes on with the
-request, so `f:form` can redisplay the submitted values with inline errors.
+when the object is invalid.
 
-Without :php:`#[IgnoreValidation]`, the framework would see the invalid
-:php:`Conference`, call :php:`errorAction()`, which forwards back to
-:php:`newAction()`, which would validate again — an infinite cycle.
+When the validation of :php:`createAction()` fails, :php:`errorAction()`
+forwards the request to :php:`newAction()`. The forward does not carry the
+invalid :php:`Conference`. :php:`newAction()` receives the arguments of the
+request that rendered the form. For a "new" form, these are usually no
+arguments, so :php:`$conference` is :php:`null`. The form still shows the
+submitted values and the validation errors: `f:form` and its fields read
+them from the failed request, which Extbase passes on with the forward.
 
 
 ..  _extbase-validation-error-action:
@@ -171,8 +170,10 @@ Customizing `errorAction()`
 ===========================
 
 The built-in :php:`errorAction()` adds a generic :ref:`flash message
-<flash-messages>` and redirects the user to the referring request. For most contact or registration forms this
-is sufficient.
+<flash-messages>` and forwards the request internally to the referring
+action. There is no browser redirect. Without a referring request, it returns
+a message with the validation errors and the HTTP status 400. For most contact
+or registration forms this is sufficient.
 
 To show a custom error flash message, override :php:`getErrorFlashMessage()`:
 
