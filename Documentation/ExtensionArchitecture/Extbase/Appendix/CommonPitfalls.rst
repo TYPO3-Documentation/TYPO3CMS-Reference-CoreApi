@@ -95,6 +95,13 @@ every translated language until somebody translates them.
     deliberately and per query: it makes that query diverge from what the rest
     of the site shows.
 
+    ..  versionchanged:: 15.0
+        :changelog: important-111329-1793705407
+
+        Up to TYPO3 14, :php:`LanguageAspect::OVERLAYS_MIXED` did not return
+        records in a translated language that have no record in the default
+        language. Now Extbase returns these records as well.
+
 ..  seealso::
 
     *   `Important: #88886 — Extbase persistence respects the language overlay

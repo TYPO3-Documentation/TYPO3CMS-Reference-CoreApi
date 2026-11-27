@@ -251,7 +251,8 @@ Overlay types
 
 :php:`LanguageAspect::OVERLAYS_MIXED`
     Fetch records from the default language and overlay them with translations.
-    If a record is not translated, the default language will be used.
+    If a record is not translated, the default language will be used. Records
+    without a default language parent are included.
 
 :php:`LanguageAspect::OVERLAYS_ON`
     Fetch records from the default language and overlay them with translations.
