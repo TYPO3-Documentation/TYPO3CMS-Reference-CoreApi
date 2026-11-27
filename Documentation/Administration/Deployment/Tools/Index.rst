@@ -99,6 +99,7 @@ Select the method that best suits your workflow and server capabilities.
 Other deployment tools
 ======================
 
+*   A high performance deployment tool, available for a lot of environments, written in Go and tailored toward TYPO3: https://shippy.run/
 *   :doc:`TYPO3 Surf <ext_surf:Index>` was formerly commonly used as a TYPO3 deployment tool.
     It has now mostly been succeeded by
     `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_.
