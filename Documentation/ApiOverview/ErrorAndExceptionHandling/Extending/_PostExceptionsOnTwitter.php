@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Error\DebugExceptionHandler;
 
 class PostExceptionsOnTwitter extends DebugExceptionHandler
 {
-  public function echoExceptionWeb(\Exception $exception)
+  public function echoExceptionWeb(\Throwable $exception)
   {
     $this->postExceptionsOnTwitter($exception);
   }

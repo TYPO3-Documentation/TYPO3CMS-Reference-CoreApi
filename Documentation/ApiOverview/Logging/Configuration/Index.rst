@@ -57,8 +57,12 @@ use the following configuration:
 ..  literalinclude:: _WriterConfigurationComponent.php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-This overwrites the default configuration shown in the first example for classes
-located in the namespace :php:`\T3docs\Examples\Controller`.
+This replaces the default configuration shown in the first example for classes
+located in the namespace :php:`\T3docs\Examples\Controller`. TYPO3 uses only the
+most specific :php:`writerConfiguration` that it finds for a logger; it does not
+merge it with the configurations of the parent namespaces. To keep writing to the
+default log file as well, add the
+:php-short:`\TYPO3\CMS\Core\Log\Writer\FileWriter` to this configuration too.
 
 One more example:
 
@@ -81,9 +85,9 @@ writer configuration for the log levels:
 For the above example code that means:
 
 *   Calling :php:`$logger->warning($msg);` will result in :php:`$msg` being
-    written to the computer's syslog on top of the default configuration.
-*   Calling :php:`$logger->debug($msg);` will result in :php:`$msg` being
-    written only to the default log file (:file:`var/log/typo3_<hash>.log`).
+    written to the computer's syslog only, not to the default log file.
+*   Calling :php:`$logger->debug($msg);` will not write :php:`$msg` anywhere:
+    the configuration of this namespace has no writer for the level `DEBUG`.
 
 For a list of writers shipped with the TYPO3 Core see the section about
 :ref:`Log writers <logging-writers>`.

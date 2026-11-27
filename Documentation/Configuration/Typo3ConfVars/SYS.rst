@@ -578,20 +578,19 @@ displayErrors
     :default: -1
     :Allowed values:
         `-1`
-            TYPO3 does not touch the PHP setting. If
-            :ref:`[SYS][devIPmask] <typo3confvars-sys-devipmask>` matches the users
-            IP address, the configured
-            :ref:`[SYS][debugExceptionHandler] <typo3confvars-sys-debugexceptionhandler>`
-            is used instead of the
-            :ref:`[SYS][productionExceptionHandler] <typo3confvars-sys-productionexceptionhandler>`
-            to handle exceptions.
+            Decide by the IP address of the user. If
+            :ref:`[SYS][devIPmask] <typo3confvars-sys-devipmask>` matches it,
+            TYPO3 sets :php:`display_errors=1` and uses the configured
+            :ref:`[SYS][debugExceptionHandler] <typo3confvars-sys-debugexceptionhandler>`.
+            Otherwise TYPO3 sets :php:`display_errors=0`, uses the configured
+            :ref:`[SYS][productionExceptionHandler] <typo3confvars-sys-productionexceptionhandler>`,
+            and sets
+            :ref:`[SYS][exceptionalErrors]<typo3confvars-sys-exceptionalerrors>`
+            to 0 (= no errors are turned into exceptions).
 
         `0`
             Live: Do not display a PHP error message. Sets :php:`display_errors=0`.
-            Overrides the value of
-            :ref:`[SYS][exceptionalErrors]<typo3confvars-sys-exceptionalerrors>`
-            and sets it to 0
-            (= no errors are turned into exceptions). The configured
+            The configured
             :ref:`[SYS][productionExceptionHandler]<typo3confvars-sys-productionexceptionhandler>`
             is used as the exception handler.
 

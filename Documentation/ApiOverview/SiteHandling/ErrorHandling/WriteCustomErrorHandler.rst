@@ -61,10 +61,12 @@ The custom error handlers have the properties
     :name: site-error-handling-errorPhpClassFQCN
     :searchFacet: Site Configuration
     :type: string
-    :Example: :php:`\MyVendor\MySitepackage\Error\MyErrorHandler`
+    :Example: `MyVendor\MySitepackage\Error\MyErrorHandler`
 
     Fully-qualified class name of a custom error handler implementing
-    :php:`PageErrorHandlerInterface`.
+    :php-short:`\TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface`.
+    Write it without a leading backslash:
+    TYPO3 throws an exception for a class name that starts with one.
 
 
 ..  _sitehandling-custom-error-handler-example-simple-404:
