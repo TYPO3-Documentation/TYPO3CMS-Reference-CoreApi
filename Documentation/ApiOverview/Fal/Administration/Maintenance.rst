@@ -128,3 +128,81 @@ Option `--all` deletes processed files in all storage and all the associated
 records, including those still in use. TYPO3 then recreates the processed files,
 which is useful, for example, if a new file processor has been added. Flush
 the page cache afterwards, as described above.
+
+..  index::
+    File abstraction layer; Missing files
+    File abstraction layer; cleanup:missingfiles
+    Command; cleanup:missingfiles
+..  _fal-administration-maintenance-missing-files:
+
+Removing records of missing files
+=================================
+
+..  versionadded:: 15.0
+    :changelog: feature-59312-1761220800
+
+A file that is deleted outside of TYPO3, for example with FTP, or that is
+missing after a database dump was restored without the matching files, keeps
+its records in :sql:`sys_file` and :sql:`sys_file_metadata`. When the storage
+is indexed, TYPO3 flags the file as missing. The
+:guilabel:`System > Reports` module lists these files under "Files flagged as
+missing".
+
+The console command `cleanup:missingfiles` from system extension
+:composer:`typo3/cms-lowlevel` removes the records of missing files, the same
+way as when a file is deleted in TYPO3: the file and metadata records, their
+category relations, their processed files, and left-over deleted file
+references.
+
+The command keeps the records of a missing file that is still referenced,
+also by a link such as `t3://file?uid=…`. With option `-v`, it lists these
+files, so that you can restore the file or remove the references.
+
+..  console:command:: cleanup:missingfiles
+    :json: /ApiOverview/CommandControllers/commands.json
+    :script: vendor/bin/typo3
+    :exclude-option: help, quiet, verbose, version, ansi, no-ansi, no-interaction, silent
+    :no-help:
+    :noindex:
+
+The reference index decides whether a file is still referenced, so update it
+first, see `Update the reference index <https://docs.typo3.org/permalink/t3coreapi:update-reference-index>`_.
+
+Without `--update-refindex` and `--update-storage`, the command asks whether
+it should update the reference index and the index of all storages. Without
+interaction (option `-n`), for example in a
+`scheduler task <https://docs.typo3.org/permalink/t3coreapi:symfony-console-commands-scheduler>`_,
+it does not update them.
+
+Show which records would be removed, after updating the reference index and
+the index of storage 1:
+
+..  tabs::
+
+    ..  group-tab:: Composer mode
+
+        ..  code-block:: bash
+
+            vendor/bin/typo3 cleanup:missingfiles --dry-run -v --update-refindex --update-storage=1
+
+    ..  group-tab:: Classic mode
+
+        ..  code-block:: bash
+
+            typo3/sysext/core/bin/typo3 cleanup:missingfiles --dry-run -v --update-refindex --update-storage=1
+
+Remove the records:
+
+..  tabs::
+
+    ..  group-tab:: Composer mode
+
+        ..  code-block:: bash
+
+            vendor/bin/typo3 cleanup:missingfiles --update-refindex --update-storage=all
+
+    ..  group-tab:: Classic mode
+
+        ..  code-block:: bash
+
+            typo3/sysext/core/bin/typo3 cleanup:missingfiles --update-refindex --update-storage=all
