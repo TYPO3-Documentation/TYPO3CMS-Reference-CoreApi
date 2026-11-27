@@ -80,16 +80,18 @@ topic, so it is worth knowing which is which:
     *   -   `strict`
         -   :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING`
 
-A fourth overlay type, :php:`LanguageAspect::OVERLAYS_ON`, exists in the class
-but no site configuration produces it. It appears only where an aspect is
-constructed in PHP, as described in
-:ref:`Deciding the language per query <extbase-localisation-query-settings>`.
+..  deprecated:: 15.0
+    :changelog: deprecation-111326-1793692850
+
+    The fourth overlay type, :php:`LanguageAspect::OVERLAYS_ON`, which no
+    site configuration produces, is deprecated. Use
+    :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` instead.
 
 ..  seealso::
 
     `Overlay types
     <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-overlay-types>`_
-    — what each of the four does, independently of Extbase.
+    — what each of them does, independently of Extbase.
 
 ..  versionchanged:: 14.3
     :changelog: important-88886-1784901300
@@ -171,13 +173,19 @@ Building a custom language aspect in PHP
 
 Constructing the aspect by hand, as the action `translatedOnlyAction` does,
 is the right move only when you deliberately want behavior outside what
-a site language can express. :php:`LanguageAspect::OVERLAYS_ON` is the
-clearest case: it returns translations that have a default language original,
-and leaves out records that exist only in the requested language without
-a valid default language parent.
+a site language can express, for example a language and fallback chain of
+your own. The action lists only translations that have a default language
+original:
 
 ..  literalinclude:: _snippets/_ConferenceLanguageController_manual.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+The overlay type :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` also returns
+records that exist only in the requested language, without a default language
+parent. The repository leaves them out in the query:
+
+..  literalinclude:: _snippets/_ConferenceRepositoryTranslations.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
 The constructor takes four parameters, each documented as a property of the
 aspect in
