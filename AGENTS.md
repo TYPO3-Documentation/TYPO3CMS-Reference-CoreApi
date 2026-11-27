@@ -186,7 +186,7 @@ Makefile                    # local install/build/test commands
     (`AGENTS.md`, `CLAUDE.md`) always go to all three branches, because
     agents and review bots also work on the older branches and read that
     branch's copy. If a PR gets no `backport <version>`
-    label, label it `main only` instead (mutually exclusive with
+    label, label it `main-only` instead (mutually exclusive with
     `backport <version>` — not both). Separately, label every PR that
     addresses a `TYPO3-Documentation/Changelog-To-Doc` issue with
     `changelog`, regardless of its backport status.
