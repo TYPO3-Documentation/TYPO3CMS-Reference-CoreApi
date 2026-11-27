@@ -15,10 +15,10 @@ final readonly class FileContentIndexer
 
   public function getIndexableText(FileInterface $file): string
   {
-    $textExtractor = $this->textExtractorRegistry->getTextExtractor($file);
-    if ($textExtractor === null) {
+    $extractedText = $this->textExtractorRegistry->extract($file);
+    if ($extractedText === null) {
       return '';
     }
-    return $textExtractor->extractText($file);
+    return trim($extractedText->title . "\n" . $extractedText->text);
   }
 }
