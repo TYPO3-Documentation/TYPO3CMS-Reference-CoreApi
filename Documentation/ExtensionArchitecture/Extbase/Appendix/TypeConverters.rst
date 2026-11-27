@@ -134,11 +134,19 @@ splits it on a configurable delimiter:
 
 :Class: :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter`
 :Sources: :php:`string`, :php:`integer`, :php:`array`
-:Target: :php:`DateTime` (or :php:`DateTimeImmutable`)
+:Target: :php:`\DateTime`
 :Priority: 10
 
 Converts a string, Unix timestamp, or array of date parts into a
-:php:`\DateTime` or :php:`\DateTimeImmutable` object.
+:php:`\DateTime` object.
+
+The converter is registered for :php:`\DateTime` only. A request value for a
+parameter or a model property of type :php:`\DateTimeImmutable` fails with
+the exception "TargetType "DateTimeImmutable" is not an enum". Use
+:php:`\DateTime` for values that come from a request. Loading a
+:php:`\DateTimeImmutable` property from the database works, because the
+:php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper` does not
+use type converters.
 
 :php:`DateTimeConverter::CONFIGURATION_DATE_FORMAT`
     The format string passed to :php:`\DateTime::createFromFormat()`. Defaults

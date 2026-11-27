@@ -43,10 +43,13 @@ parameter and runs the matching type converter:
     the identity of an existing record and its changed values in one request.
     The same mechanism works for child relations: a nested array with its own
     `__identity` key identifies a related object.
-*   A parameter typed as a
-    `\DateTime <https://www.php.net/manual/en/class.datetime.php>`_ or
-    `\DateTimeImmutable <https://www.php.net/manual/en/class.datetimeimmutable.php>`_
-    parses the string value according to a configurable format.
+*   A parameter typed as
+    `\DateTime <https://www.php.net/manual/en/class.datetime.php>`_
+    parses the string value according to a configurable format. There is no
+    type converter for
+    `\DateTimeImmutable <https://www.php.net/manual/en/class.datetimeimmutable.php>`_:
+    a parameter or a submitted model property of this type makes the property
+    mapping fail.
 *   A parameter typed as :php:`array` receives the submitted array directly —
     useful for multi-select inputs and other array-valued form fields.
 *   A parameter typed as a backed PHP enum is converted from its scalar backing
@@ -62,8 +65,11 @@ parameter and runs the matching type converter:
     :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\FileReferenceConverter`
     for FAL-backed uploads.
 
-If conversion fails, for example, because a UID does not exist in the
-database, Extbase calls :php:`errorAction()` instead of the action method.
+If a UID does not exist in the database, the conversion throws a
+:php:`\TYPO3\CMS\Extbase\Property\Exception\TargetNotFoundException`, and
+Extbase does not call the action method or :php:`errorAction()`. See
+`MVC error handling: the mvc block <https://docs.typo3.org/permalink/t3coreapi:extbase-configuration-typoscript-mvc>`_
+for how to show the "page not found" page instead.
 
 For any type not covered by the built-in converters, you can register a custom
 type converter — see
