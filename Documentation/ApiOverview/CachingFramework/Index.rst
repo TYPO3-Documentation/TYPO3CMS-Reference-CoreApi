@@ -224,9 +224,25 @@ All available :ref:`cache groups <caching-architecture-core>` can be supplied as
 option. The command defaults to flush all available cache groups as the
 :guilabel:`System Tools > Maintenance` area does.
 
+..  versionchanged:: 15.0
+    :changelog: feature-111263-1793181135
+
+    A cache group that does not exist no longer throws an exception. The
+    command reports it as an error.
+
+The command flushes the caches with the
+`CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_,
+like the backend and the Install Tool. It dispatches the same events, so a
+listener of
+`AfterCacheFlushedEvent <https://docs.typo3.org/permalink/t3coreapi:aftercacheflushedevent>`_
+learns about every flush. Only `cache:flush --group=di` flushes the cache of
+the dependency injection container without the `CacheFlusher`, and dispatches
+no event.
+
 Extensions that register custom caches may listen to the
 :ref:`CacheFlushEvent <CacheFlushEvent>`, but usually the cache flush via cache
-manager groups will suffice to clear those caches, too.
+manager groups will suffice to clear those caches, too. The command shows the
+errors that listeners of the event report, and fails.
 
 ..  _caching-clearing-flushing-warming-cache-warmup:
 
@@ -357,3 +373,4 @@ TYPO3 Flow.
     Frontends/Index
     Backends/Index
     Developer/Index
+    FlushCaches/Index

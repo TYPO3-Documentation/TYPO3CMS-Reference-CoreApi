@@ -764,6 +764,10 @@ this page", and no\_cache checked:
 Clear cache
 ===========
 
+..  tip::
+    To flush caches without a DataHandler and without a backend user, use
+    the `CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_.
+
 DataHandler also has an API for clearing the cache tables of TYPO3:
 
 ..  code-block:: php
@@ -853,15 +857,30 @@ custom ViewHelper):
 
 ..  _tce-clear-cache-hook-cache-post:
 
-Hook for cache post-processing
-------------------------------
+Change what is flushed for a record
+-----------------------------------
 
-You can configure cache post-processing with a user defined PHP
-function. Configuration of the hook can be done from
-:file:`ext_localconf.php`. An example might look like:
+..  versionchanged:: 15.0
+    :changelog: breaking-111263-1793181136
 
-..  literalinclude:: _ext_localconf.php
-    :caption: EXT:my_extension/ext_localconf.php
+    The hooks `clearPageCacheEval` and `clearCachePostProc` were removed.
+    Their implementations become listeners of the events below.
+
+The DataHandler flushes the caches with the
+`CacheFlusher <https://docs.typo3.org/permalink/t3coreapi:caching-flush-caches>`_,
+which dispatches PSR-14 events:
+
+*   To flush further pages, cache tags, or cache commands for a record, use
+    `BeforeRecordRelatedCachesAreFlushedEvent <https://docs.typo3.org/permalink/t3coreapi:beforerecordrelatedcachesareflushedevent>`_.
+*   To flush further cache tags or cache groups when a cache command is
+    flushed, use
+    `BeforeCacheFlushEvent <https://docs.typo3.org/permalink/t3coreapi:beforecacheflushevent>`_.
+*   For follow-up work, such as purging a reverse proxy, use
+    `AfterCacheFlushedEvent <https://docs.typo3.org/permalink/t3coreapi:aftercacheflushedevent>`_.
+
+To read the data map, the command map, or the history of the DataHandler, use
+the hooks `processDatamap_afterAllOperations` and `processCmdmap_afterFinish`
+of the DataHandler.
 
 
 ..  index:: DataHandler; Flags
