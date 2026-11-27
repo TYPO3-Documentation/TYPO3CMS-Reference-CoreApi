@@ -11,11 +11,11 @@ services:
   # When working with constructor injection
   MyVendor\MyExtension\Controller\MySecondController:
     arguments:
-      $service: '@MyVendor\MyExtension\Service\MyOtherServiceImplementation'
+      $myService: '@MyVendor\MyExtension\Service\MyOtherServiceImplementation'
 
   # When working with method injection
   MyVendor\MyExtension\Controller\MyThirdController:
     calls:
       - method: 'injectMyService'
         arguments:
-          $service: '@MyVendor\MyExtension\Service\MyOtherServiceImplementation'
+          $myService: '@MyVendor\MyExtension\Service\MyOtherServiceImplementation'
