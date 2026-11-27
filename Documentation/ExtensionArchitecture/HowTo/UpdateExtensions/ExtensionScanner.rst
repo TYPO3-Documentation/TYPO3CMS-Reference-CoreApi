@@ -69,6 +69,47 @@ Quick start
 
        Deprecations as strong and weak matches in the extension scanner for EXT:news
 
+..  index::
+    Extension scanner; upgrade:scan
+    Command; upgrade:scan
+..  _extension-scanner-cli:
+
+Scanning extensions on the command line
+=======================================
+
+..  versionadded:: 15.0
+    :changelog: feature-110859-1790541000
+
+The console command `upgrade:scan` reports the same findings as
+:guilabel:`System > Upgrade > Scan Extension Files`. It is part of
+:composer:`typo3/cms-install`, so it is not available if this package is
+not installed, for example on a production system.
+
+..  code-block:: bash
+
+    # All extensions that are not part of the Core
+    vendor/bin/typo3 upgrade:scan
+
+    # Only the named extensions
+    vendor/bin/typo3 upgrade:scan my_extension my_other_extension
+
+    # Also list the changelog files of each finding
+    vendor/bin/typo3 upgrade:scan -v
+
+..  console:command:: upgrade:scan
+    :json: /ApiOverview/CommandControllers/commands.json
+    :script: vendor/bin/typo3
+    :exclude-option: help, quiet, verbose, version, ansi, no-ansi, no-interaction, silent
+    :noindex:
+
+By default, strong findings and files that the scanner could not read make
+the exit code non-zero. With the exit code, you can run the scanner in
+continuous integration, for example:
+
+..  code-block:: bash
+
+    vendor/bin/typo3 upgrade:scan my_extension --fail-on=strong
+
 ..  _extension-scanner-goals-non-goals:
 
 Goals and non goals

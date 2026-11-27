@@ -169,8 +169,15 @@ Since TYPO3 v9 an :ref:`extension scanner <t3coreapi:extension-scanner>` is
 included, that provides basic scanning of your extensions for deprecated code.
 While it does not catch everything, it can be used as a base for an upgrade. You
 can either access the extension scanner via the backend module
-:guilabel:`System > Upgrade` (function :guilabel:`Scan Extension Files`)
+:guilabel:`System > Upgrade` (function :guilabel:`Scan Extension Files`),
+on the command line with
+`upgrade:scan <https://docs.typo3.org/permalink/t3coreapi:extension-scanner-cli>`_,
 or as a standalone tool (https://github.com/tuurlijk/typo3scan).
+
+..  versionadded:: 15.0
+    :changelog: feature-110859-1790541000
+
+    The extension scanner is available as the console command `upgrade:scan`.
 
 The extension scanner will show the corresponding changelog which contains a
 description of how to migrate your code. See
