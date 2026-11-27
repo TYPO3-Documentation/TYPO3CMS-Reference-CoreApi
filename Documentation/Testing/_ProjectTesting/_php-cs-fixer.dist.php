@@ -7,7 +7,7 @@ $config->getFinder()
     ->in($baseDir . 'packages/*/Classes')
     ->in($baseDir . 'packages/*/Configuration')
     ->in($baseDir . 'packages/*/Tests')
-    ->in($baseDir . 'packages/*.php')
+    ->append(glob($baseDir . 'packages/*/*.php'))
     ->in($baseDir . 'Tests')
     ->exclude('Fixtures')
 ;
