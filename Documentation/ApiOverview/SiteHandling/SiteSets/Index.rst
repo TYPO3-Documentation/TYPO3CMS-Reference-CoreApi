@@ -420,6 +420,15 @@ The command lists discovered sets; it does not show which sets are active for a
 particular site. Inspect the site's dependencies in :guilabel:`Sites > Setup`
 or :file:`config/sites/<my-site>/config.yaml` for that information.
 
+..  versionadded:: 15.0
+    :changelog: feature-111183-1792519211
+
+The entry :guilabel:`Sites: Sets` of the module
+:guilabel:`System > Configuration` shows the sets of each site in their
+loading order, with their dependencies. The module is part of
+:composer:`typo3/cms-lowlevel`. See
+`Sites: Sets in the Configuration module <https://docs.typo3.org/permalink/typo3/cms-lowlevel:module-configuration-site-sets>`_.
+
 ..  _site-sets-keep-going:
 
 Keep going
