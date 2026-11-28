@@ -141,4 +141,4 @@ A sample configuration is provided by DDEV:
     :caption:  nginx-site-typo3.conf
 
 This example is taken from `DDEV webserver config
-<https://github.com/ddev/ddev/blob/6a7655c178f5961666bb9c9efd10442314f6749c/pkg/ddevapp/webserver_config_assets/nginx-site-typo3.conf>`_.
+<https://github.com/ddev/ddev/blob/dfc6a8ca6247aeff1477c631d6fa5c34271d5312/pkg/ddevapp/webserver_config_assets/nginx-site-typo3.conf>`_.
