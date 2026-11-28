@@ -42,25 +42,39 @@ manual server configuration if CSP is to be applied, for example to :file:`.svg`
 to prevent possible execution and loading of further
 remote resources or scripts.
 
-The following example sends a corresponding CSP_ header for any file
-accessed via :samp:`https://example.org/fileadmin/...`:
+TYPO3 creates :file:`fileadmin/.htaccess` from the template
+:t3src:`install/Resources/Private/FolderStructureTemplateFiles/resources-root-htaccess`.
+On Apache, it sends a CSP_ header for any file accessed via
+:samp:`https://example.org/fileadmin/...`, with less strict policies for PDF
+files (which Safari cannot display otherwise) and SVG files (which can
+contain inline styles):
 
 ..  code-block:: apacheconf
     :caption: fileadmin/.htaccess
 
-    # placed in fileadmin/.htaccess on Apache 2.x webserver
     <IfModule mod_headers.c>
-        Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';"
+        <FilesMatch "\.pdf$">
+            Header set Content-Security-Policy "default-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'self'; plugin-types application/pdf;"
+        </FilesMatch>
+        <FilesMatch "\.svg">
+            Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'unsafe-inline'; object-src 'none'; sandbox;"
+        </FilesMatch>
+        <FilesMatch "(?<!\.(?:pdf|svg))$">
+            Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none'; sandbox;"
+        </FilesMatch>
     </IfModule>
 
-For nginx webservers, the following configuration example can be used to send
-a CSP_ header for any file accessed via :samp:`https://example.org/fileadmin/...`:
+For nginx webservers, the following configuration example sends the same
+CSP_ headers for any file accessed via
+:samp:`https://example.org/fileadmin/...`:
 
 ..  code-block:: nginx
     :caption: nginx-site-typo3.conf
 
-    map $request_uri $csp_header {
-        ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
+    map $uri $csp_header {
+        ~^/fileadmin/.*\.pdf$ "default-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'self'; plugin-types application/pdf;";
+        ~^/fileadmin/.*\.svg$ "default-src 'self'; script-src 'none'; style-src 'unsafe-inline'; object-src 'none'; sandbox;";
+        ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none'; sandbox;";
     }
 
     server {
@@ -71,7 +85,10 @@ a CSP_ header for any file accessed via :samp:`https://example.org/fileadmin/...
 
 The nginx example configuration uses a map, since top level `add_header`
 declarations will be overwritten if `add_header` is used in sublevels
-(e.g. `location`) declarations.
+(e.g. `location`) declarations. It maps `$uri`, which does not contain the
+query string, so a request such as `/fileadmin/image.svg?v=1` still gets the SVG
+policy. The first matching regular expression wins, so the catch-all for
+:file:`fileadmin/` comes last.
 
 CSP rules can be verified with a CSP-Evaluator_
 
